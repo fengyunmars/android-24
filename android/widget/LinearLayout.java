@@ -100,7 +100,7 @@ public class LinearLayout extends ViewGroup {
     public static final int SHOW_DIVIDER_END = 4;
 
     /**
-     * Compatibility check. Old versions of the platform would give different
+     * Compatibility ºÊ»›–‘  check. Old versions of the platform would give different
      * results from measurement passes using EXACTLY and non-EXACTLY modes,
      * even when the resulting size was the same.
      */
