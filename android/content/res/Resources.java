@@ -1336,15 +1336,16 @@ public class Resources {
      * to resolve the final value for an attribute.
      * 
      * <p>The Theme's attributes come into play in two ways: (1) a styled
-     * attribute can explicit reference a value in the theme through the
+     * attribute can explicit 显式  reference a value in the theme through the
      * "?themeAttribute" syntax; (2) if no value has been defined for a
-     * particular styled attribute, as a last resort we will try to find that
+     * particular styled attribute, as a last resort 作为最后手段  we will try to find that
      * attribute's value in the Theme.
      * 
      * <p>You will normally use the {@link #obtainStyledAttributes} APIs to
      * retrieve XML attributes with style and theme information applied.
      */
     public final class Theme {
+    	
         private ResourcesImpl.ThemeImpl mThemeImpl;
 
         private Theme() {
@@ -1359,7 +1360,7 @@ public class Resources {
          * specified by <var>resid</var> will be retrieved from this Theme's
          * resources, its values placed into the Theme object.
          * 
-         * <p>The semantics of this function depends on the <var>force</var>
+         * <p>The semantics 语义  of this function depends on the <var>force</var>
          * argument:  If false, only values that are not already defined in
          * the theme will be copied from the system resource; otherwise, if
          * any of the style's attributes are already defined in the theme, the

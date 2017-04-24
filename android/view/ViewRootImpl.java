@@ -2286,7 +2286,7 @@ public final class ViewRootImpl implements ViewParent,
 
     /**
      * Called by {@link android.view.View#requestLayout()} if the view hierarchy is currently
-     * undergoing a layout pass. requestLayout() should not generally be called during layout,
+     * undergoing ¾­Àú a layout pass. requestLayout() should not generally be called during layout,
      * unless the container hierarchy knows what it is doing (i.e., it is fine as long as
      * all children in that container hierarchy are measured and laid out at the end of the layout
      * pass for that container). If requestLayout() is called anyway, we handle it correctly

@@ -4083,7 +4083,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Perform inflation from XML and apply a class-specific base style from a
+     * Perform inflation ≈Ú’Õ  from XML and apply a class-specific base style from a
      * theme attribute or style resource. This constructor of View allows
      * subclasses to use their own base style when they are inflating.
      * <p>
@@ -23001,7 +23001,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final Point mPoint = new Point();
 
         /**
-         * Used to track which View originated a requestLayout() call, used when
+         * Used to track which View originated ∑¢∆ a requestLayout() call, used when
          * requestLayout() is called during layout.
          */
         View mViewRequestingLayout;

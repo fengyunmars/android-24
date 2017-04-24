@@ -565,7 +565,7 @@ public abstract class Context {
     public abstract Resources.Theme getTheme();
 
     /**
-     * Retrieve styled attribute information in this Context's theme.  See
+     * Retrieve È¡»Ø  styled attribute information in this Context's theme.  See
      * {@link android.content.res.Resources.Theme#obtainStyledAttributes(int[])}
      * for more information.
      *

@@ -972,7 +972,7 @@ public abstract class Drawable {
     }
 
     /**
-     * Returns the drawable's intrinsic width.
+     * Returns the drawable's intrinsic ±¾ÖÊµÄ  width.
      * <p>
      * Intrinsic width is the width at which the drawable would like to be laid
      * out, including any inherent padding. If the drawable has no intrinsic

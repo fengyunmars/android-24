@@ -41,7 +41,7 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * A Layout that arranges its children in a single column or a single row. The direction of 
  * the row can be set by calling {@link #setOrientation(int) setOrientation()}. 
- * You can also specify gravity, which specifies the alignment of all the child elements by
+ * You can also specify gravity, which specifies the alignment ¶ÔÆë  of all the child elements by
  * calling {@link #setGravity(int) setGravity()} or specify that specific children 
  * grow to fill up any remaining space in the layout by setting the <em>weight</em> member of
  * {@link android.widget.LinearLayout.LayoutParams LinearLayout.LayoutParams}.

@@ -27,7 +27,7 @@ import android.animation.RevealAnimator;
 public final class ViewAnimationUtils {
     private ViewAnimationUtils() {}
     /**
-     * Returns an Animator which can animate a clipping circle.
+     * Returns an Animator which can animate 使有生气 a clipping circle.
      * <p>
      * Any shadow cast by the View will respect the circular clip from this animator.
      * <p>
