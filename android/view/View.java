@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -130,9 +130,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * <p>
  * This class represents the basic building block for user interface components. A View
- * occupies Õ¼ÓÃ  a rectangular area on the screen and is responsible for drawing and
+ * occupies å ç”¨  a rectangular area on the screen and is responsible for drawing and
  * event handling. View is the base class for <em>widgets</em>, which are
- * used to create interactive ½»»¥Ê½µÄ  UI components (buttons, text fields, etc.). The
+ * used to create interactive äº¤äº’å¼çš„  UI components (buttons, text fields, etc.). The
  * {@link android.view.ViewGroup} subclass is the base class for <em>layouts</em>, which
  * are invisible containers that hold other Views (or other ViewGroups) and define
  * their layout properties.
@@ -324,7 +324,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <a name="Position"></a>
  * <h3>Position</h3>
  * <p>
- * The geometry ¼¸ºÎ½á¹¹  of a view is that of a rectangle. A view has a location,
+ * The geometry å‡ ä½•ç»“æ„  of a view is that of a rectangle. A view has a location,
  * expressed as a pair of <em>left</em> and <em>top</em> coordinates, and
  * two dimensions, expressed as a width and a height. The unit for location
  * and dimensions is the pixel.
@@ -397,9 +397,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * Layout is a two pass process: a measure pass and a layout pass. The measuring
  * pass is implemented in {@link #measure(int, int)} and is a top-down traversal
- * of the view tree. Each view pushes dimension specifications ¹æ¸ñ down the tree
- * during the recursion µİ¹é . At the end of the measure pass, every view has stored
- * its measurements ²âÁ¿Öµ . The second pass happens in
+ * of the view tree. Each view pushes dimension specifications è§„æ ¼ down the tree
+ * during the recursion é€’å½’ . At the end of the measure pass, every view has stored
+ * its measurements æµ‹é‡å€¼ . The second pass happens in
  * {@link #layout(int,int,int,int)} and is also top-down. During
  * this pass each parent is responsible for positioning all of its children
  * using the sizes computed in the measure pass.
@@ -408,8 +408,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * When a view's measure() method returns, its {@link #getMeasuredWidth()} and
  * {@link #getMeasuredHeight()} values must be set, along with those for all of
- * that view's descendants ºó´ú . A view's measured width and measured height values
- * must respect the constraints imposed Ê©¼ÓµÄ  by the view's parents. This guarantees
+ * that view's descendants åä»£ . A view's measured width and measured height values
+ * must respect the constraints imposed æ–½åŠ çš„  by the view's parents. This guarantees
  * that at the end of the measure pass, all parents accept all of their
  * children's measurements. A parent view may call measure() more than once on
  * its children. For example, the parent may measure each child once with
@@ -488,7 +488,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <ol>
  * <li>An event comes in and is dispatched to the appropriate view. The view
  * handles the event and notifies any listeners.</li>
- * <li>If in the course of ÔÚ ¹ı³ÌÖĞ  processing the event, the view's bounds may need
+ * <li>If in the course of åœ¨ è¿‡ç¨‹ä¸­  processing the event, the view's bounds may need
  * to be changed, the view will call {@link #requestLayout()}.</li>
  * <li>Similarly, if in the course of processing the event the view's appearance
  * may need to be changed, the view will call {@link #invalidate()}.</li>
@@ -507,7 +507,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <a name="FocusHandling"></a>
  * <h3>Focus Handling</h3>
  * <p>
- * The framework will handle routine ÈÕ³£µÄ  focus movement in response to user input.
+ * The framework will handle routine æ—¥å¸¸çš„  focus movement in response to user input.
  * This includes changing the focus as views are removed or hidden, or as new
  * views become available. Views indicate their willingness to take focus
  * through the {@link #isFocusable} method. To change whether a view can take
@@ -540,12 +540,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  * necessary to give focus to actionable items such as buttons so the user can see
  * what will take input.  If the device has touch capabilities, however, and the user
  * begins interacting with the interface by touching it, it is no longer necessary to
- * always highlight, or give focus to, a particular view.  This motivates ´ÙÊ¹  a mode
+ * always highlight, or give focus to, a particular view.  This motivates ä¿ƒä½¿  a mode
  * for interaction named 'touch mode'.
  * </p>
  * <p>
  * For a touch capable device, once the user touches the screen, the device
- * will enter touch mode.  From this point onward ÏòÇ° , only views for which
+ * will enter touch mode.  From this point onward å‘å‰ , only views for which
  * {@link #isFocusableInTouchMode} is true will be focusable, such as text editing widgets.
  * Other views that are touchable, like buttons, will not take focus when touched; they will
  * only fire the on click listeners.
@@ -612,11 +612,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * well as any child elements.
  * </p>
  * <p>
- * In the following example, both views will be created using the Material ÖØÒªµÄ  dark
- * color scheme; however, because an overlay ¸²¸Ç  theme is used which only defines a
+ * In the following example, both views will be created using the Material é‡è¦çš„  dark
+ * color scheme; however, because an overlay è¦†ç›–  theme is used which only defines a
  * subset of attributes, the value of
  * {@link android.R.styleable#Theme_colorAccent android:colorAccent} defined on
- * the inflation context's theme (e.g. the Activity theme) will be preserved ±£´æµÄ.
+ * the inflation context's theme (e.g. the Activity theme) will be preserved ä¿å­˜çš„.
  * <pre>
  *     &ltLinearLayout
  *             ...
@@ -664,17 +664,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <a name="Security"></a>
  * <h3>Security</h3>
  * <p>
- * Sometimes it is essential ±ØĞëµÄ  that an application be able to verify that an action
- * is being performed with the full knowledge and consent Í¬Òâ  of the user, such as
- * granting a permission request, making a purchase ¹ºÎï or clicking on an advertisement.
- * Unfortunately, a malicious ¶ñÒâµÄ  application could try to spoof ÆÛÆ­  the user into
- * performing these actions, unaware ²»Öª²»¾õ , by concealing Òş²Ø  the intended purpose of the view.
- * As a remedy ²¹¾È , the framework offers a touch filtering mechanism that can be used to
+ * Sometimes it is essential å¿…é¡»çš„  that an application be able to verify that an action
+ * is being performed with the full knowledge and consent åŒæ„  of the user, such as
+ * granting a permission request, making a purchase è´­ç‰© or clicking on an advertisement.
+ * Unfortunately, a malicious æ¶æ„çš„  application could try to spoof æ¬ºéª—  the user into
+ * performing these actions, unaware ä¸çŸ¥ä¸è§‰ , by concealing éšè—  the intended purpose of the view.
+ * As a remedy è¡¥æ•‘ , the framework offers a touch filtering mechanism that can be used to
  * improve the security of views that provide access to sensitive functionality.
  * </p><p>
  * To enable touch filtering, call {@link #setFilterTouchesWhenObscured(boolean)} or set the
  * android:filterTouchesWhenObscured layout attribute to true.  When enabled, the framework
- * will discard ·ÅÆú  touches that are received whenever the view's window is obscured by
+ * will discard æ”¾å¼ƒ  touches that are received whenever the view's window is obscured by
  * another visible window.  As a result, the view will not receive touches whenever a
  * toast, dialog or other window appears above the view's window.
  * </p><p>
@@ -2166,7 +2166,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Default for the root view. The gravity determines the text alignment, ALIGN_NORMAL,
-     * ALIGN_CENTER, or ALIGN_OPPOSITE, which are relative to each paragraphâ€™s text direction.
+     * ALIGN_CENTER, or ALIGN_OPPOSITE, which are relative to each paragraphéˆ¥æªš text direction.
      *
      * Use with {@link #setTextAlignment(int)}
      */
@@ -2194,7 +2194,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_CENTER = 4;
 
     /**
-     * Align to the start of the view, which is ALIGN_LEFT if the viewâ€™s resolved
+     * Align to the start of the view, which is ALIGN_LEFT if the viewéˆ¥æªš resolved
      * layoutDirection is LTR, and ALIGN_RIGHT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2202,7 +2202,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_VIEW_START = 5;
 
     /**
-     * Align to the end of the view, which is ALIGN_RIGHT if the viewâ€™s resolved
+     * Align to the end of the view, which is ALIGN_RIGHT if the viewéˆ¥æªš resolved
      * layoutDirection is LTR, and ALIGN_LEFT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2860,7 +2860,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * if the user swipes from the top of the screen.
      * <p>When system bars are hidden in immersive mode, they can be revealed temporarily with
      * system gestures, such as swiping from the top of the screen.  These transient system bars
-     * will overlay appâ€™s content, may have some degree of transparency, and will automatically
+     * will overlay appéˆ¥æªš content, may have some degree of transparency, and will automatically
      * hide after a short timeout.
      * </p><p>Since this flag is a modifier for {@link #SYSTEM_UI_FLAG_FULLSCREEN} and
      * {@link #SYSTEM_UI_FLAG_HIDE_NAVIGATION}, it only has an effect when used in combination
@@ -4083,7 +4083,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Perform inflation ÅòÕÍ  from XML and apply a class-specific base style from a
+     * Perform inflation è†¨èƒ€  from XML and apply a class-specific base style from a
      * theme attribute or style resource. This constructor of View allows
      * subclasses to use their own base style when they are inflating.
      * <p>
@@ -11057,7 +11057,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Implement this method to handle touch screen motion ¶¯×÷  events.
+     * Implement this method to handle touch screen motion åŠ¨ä½œ  events.
      * <p>
      * If this method is used to detect click actions, it is recommended that
      * the actions be performed by implementing and calling
@@ -23001,7 +23001,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final Point mPoint = new Point();
 
         /**
-         * Used to track which View originated ·¢Æğ a requestLayout() call, used when
+         * Used to track which View originated å‘èµ· a requestLayout() call, used when
          * requestLayout() is called during layout.
          */
         View mViewRequestingLayout;

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -171,7 +171,7 @@ import java.util.List;
  * <div class="special reference">
  * <h3>Developer Guides</h3>
  * <p>The Activity class is an important part of an application's overall lifecycle,
- * and the way activities are launched and put together is a fundamental »ù±¾µÄ
+ * and the way activities are launched and put together is a fundamental åŸºæœ¬çš„
  * part of the platform's application model. For a detailed perspective on the structure of an
  * Android application and how activities behave, please read the
  * <a href="{@docRoot}guide/topics/fundamentals.html">Application Fundamentals</a> and
@@ -188,7 +188,7 @@ import java.util.List;
  *
  * <p>Starting with {@link android.os.Build.VERSION_CODES#HONEYCOMB}, Activity
  * implementations can make use of the {@link Fragment} class to better
- * modularize Ä£¿é»¯ their code, build more sophisticated ¾«ÖÂµÄ  user interfaces for larger
+ * modularize æ¨¡å—åŒ– their code, build more sophisticated ç²¾è‡´çš„  user interfaces for larger
  * screens, and help scale their application between small and large screens.
  *
  * <a name="ActivityLifecycle"></a>
@@ -206,12 +206,12 @@ import java.util.List;
  *         the stack),
  *         it is <em>active</em> or  <em>running</em>. </li>
  *     <li>If an activity has lost focus but is still visible (that is, a new non-full-sized
- *         or transparent Í¸Ã÷µÄ activity has focus on top of your activity), it
+ *         or transparent é€æ˜çš„ activity has focus on top of your activity), it
  *         is <em>paused</em>. A paused activity is completely alive (it
  *         maintains all state and member information and remains attached to
  *         the window manager), but can be killed by the system in extreme
  *         low memory situations.
- *     <li>If an activity is completely obscured ÕÚ¸Ç  by another activity,
+ *     <li>If an activity is completely obscured é®ç›–  by another activity,
  *         it is <em>stopped</em>. It still retains all state and member information,
  *         however, it is no longer visible to the user so its window is hidden
  *         and it will often be killed by the system when memory is needed
@@ -223,14 +223,14 @@ import java.util.List;
  * </ul>
  *
  * <p>The following diagram shows the important state paths of an Activity.
- * The square Õı·½ĞÎµÄ  rectangles represent callback methods you can implement to
+ * The square æ­£æ–¹å½¢çš„  rectangles represent callback methods you can implement to
  * perform operations when the Activity moves between states.  The colored
- * ovals ÍÖÔ²  are major states the Activity can be in.</p>
+ * ovals æ¤­åœ†  are major states the Activity can be in.</p>
  *
  * <p><img src="../../../images/activity_lifecycle.png"
  *      alt="State diagram for an Android Activity Lifecycle." border="0" /></p>
  *
- * <p>There are three key loops you may be interested in monitoring ¼àÊÓ  within your
+ * <p>There are three key loops you may be interested in monitoring ç›‘è§†  within your
  * activity:
  *
  * <ul>
@@ -249,7 +249,7 @@ import java.util.List;
  * with the user.  Between these two methods you can maintain resources that
  * are needed to show the activity to the user.  For example, you can register
  * a {@link android.content.BroadcastReceiver} in onStart() to monitor for changes
- * that impact Ó°Ïì  your UI, and unregister it in onStop() when the user no
+ * that impact å½±å“  your UI, and unregister it in onStop() when the user no
  * longer sees what you are displaying.  The onStart() and onStop() methods
  * can be called multiple times, as the activity becomes visible and hidden
  * to the user.
@@ -259,13 +259,13 @@ import java.util.List;
  * {@link android.app.Activity#onPause}.  During this time the activity is
  * in front of all other activities and interacting with the user.  An activity
  * can frequently go between the resumed and paused states -- for example when
- * the device goes to sleep, when an activity result is delivered ½»¸¶ , when a new
+ * the device goes to sleep, when an activity result is delivered äº¤ä»˜ , when a new
  * intent is delivered -- so the code in these methods should be fairly
  * lightweight.
  * </ul>
  *
  * <p>The entire lifecycle of an activity is defined by the following
- * Activity methods.  All of these are hooks ¹³×Ó  that you can override
+ * Activity methods.  All of these are hooks é’©å­  that you can override
  * to do appropriate work when the activity changes state.  All
  * activities will implement {@link android.app.Activity#onCreate}
  * to do their initial setup; many will also implement
@@ -292,7 +292,7 @@ import java.util.List;
  * }
  * </pre>
  *
- * <p>In general the movement ÔË¶¯  through an activity's lifecycle looks like
+ * <p>In general the movement è¿åŠ¨  through an activity's lifecycle looks like
  * this:</p>
  *
  * <table border="2" width="85%" align="center" frame="hsides" rules="rows">
@@ -403,11 +403,11 @@ import java.util.List;
  * because the latter is not part of the lifecycle callbacks, so will not
  * be called in every situation as described in its documentation.</p>
  *
- * <p class="note">Be aware that these semantics ÓïÒåÑ§  will change slightly between
+ * <p class="note">Be aware that these semantics è¯­ä¹‰å­¦  will change slightly between
  * applications targeting platforms starting with {@link android.os.Build.VERSION_CODES#HONEYCOMB}
  * vs. those targeting prior platforms.  Starting with Honeycomb, an application
  * is not in the killable state until its {@link #onStop} has returned.  This
- * impacts Ó°Ïì  when {@link #onSaveInstanceState(Bundle)} may be called (it may be
+ * impacts å½±å“  when {@link #onSaveInstanceState(Bundle)} may be called (it may be
  * safely called after {@link #onPause()} and allows and application to safely
  * wait until {@link #onStop()} to save persistent state.</p>
  *
@@ -431,7 +431,7 @@ import java.util.List;
  * in screen orientation, language, input devices, etc) will cause your
  * current activity to be <em>destroyed</em>, going through the normal activity
  * lifecycle process of {@link #onPause},
- * {@link #onStop}, and {@link #onDestroy} as appropriate ÊÓÇé¿ö¶ø¶¨ .  If the activity
+ * {@link #onStop}, and {@link #onDestroy} as appropriate è§†æƒ…å†µè€Œå®š .  If the activity
  * had been in the foreground or visible to the user, once {@link #onDestroy} is
  * called in that instance then a new instance of the activity will be
  * created, with whatever savedInstanceState the previous instance had generated
@@ -476,7 +476,7 @@ import java.util.List;
  *
  * <p>When an activity exits, it can call
  * {@link android.app.Activity#setResult(int)}
- * to return data back to its parent.  It must always supply Ìá¹© a result code,
+ * to return data back to its parent.  It must always supply æä¾› a result code,
  * which can be the standard results RESULT_CANCELED, RESULT_OK, or any
  * custom values starting at RESULT_FIRST_USER.  In addition, it can optionally
  * return back an Intent containing any additional data it wants.  All of this
@@ -527,8 +527,8 @@ import java.util.List;
  * and internal state such as user preferences.</p>
  *
  * <p>For content provider data, we suggest that activities use a
- * "edit in place" user model.  That is, any edits a user makes are effectively ÓĞĞ§µØ
- * made immediately Á¢¼´  without requiring an additional confirmation È·ÈÏ  step.
+ * "edit in place" user model.  That is, any edits a user makes are effectively æœ‰æ•ˆåœ°
+ * made immediately ç«‹å³  without requiring an additional confirmation ç¡®è®¤  step.
  * Supporting this model is generally a simple matter of following two rules:</p>
  *
  * <ul>
@@ -536,7 +536,7 @@ import java.util.List;
  *             it is created immediately.  For example, if the user chooses to write
  *             a new e-mail, a new entry for that e-mail is created as soon as they
  *             start entering data, so that if they go to any other activity after
- *             that point this e-mail will now appear in the list of drafts ²İ¸åÏä .</p>
+ *             that point this e-mail will now appear in the list of drafts è‰ç¨¿ç®± .</p>
  *     <li> <p>When an activity's <code>onPause()</code> method is called, it should
  *             commit to the backing content provider or file any changes the user
  *             has made.  This ensures that those changes will be seen by any other
@@ -577,7 +577,7 @@ import java.util.List;
  * (Note that it is not possible to share settings data across application
  * packages -- for that you will need a content provider.)</p>
  *
- * <p>Here is an excerpt ÕªÂ¼ from a calendar activity that stores the user's
+ * <p>Here is an excerpt æ‘˜å½• from a calendar activity that stores the user's
  * preferred view mode in its persistent settings:</p>
  *
  * <pre class="prettyprint">
@@ -610,7 +610,7 @@ import java.util.List;
  * <a name="Permissions"></a>
  * <h3>Permissions</h3>
  *
- * <p>The ability to start a particular Activity can be enforced Ö´ĞĞ  when it is
+ * <p>The ability to start a particular Activity can be enforced æ‰§è¡Œ  when it is
  * declared in its
  * manifest's {@link android.R.styleable#AndroidManifestActivity &lt;activity&gt;}
  * tag.  By doing so, other applications will need to declare a corresponding
@@ -637,7 +637,7 @@ import java.util.List;
  * <p>The Android system attempts to keep application process around for as
  * long as possible, but eventually will need to remove old processes when
  * memory runs low.  As described in <a href="#ActivityLifecycle">Activity
- * Lifecycle</a>, the decision ¾ö¶¨  about which process to remove is intimately ÊìÏ¤µÄ
+ * Lifecycle</a>, the decision å†³å®š  about which process to remove is intimately ç†Ÿæ‚‰çš„
  * tied to the state of the user's interaction with it.  In general, there
  * are four states a process can be in based on the activities running in it,
  * listed here in order of importance.  The system will kill less important
@@ -647,7 +647,7 @@ import java.util.List;
  * <ol>
  * <li> <p>The <b>foreground activity</b> (the activity at the top of the screen
  * that the user is currently interacting with) is considered the most important.
- * Its process will only be killed as a last resort Íò²»µÃÒÑ , if it uses more memory
+ * Its process will only be killed as a last resort ä¸‡ä¸å¾—å·² , if it uses more memory
  * than is available on the device.  Generally at this point the device has
  * reached a memory paging state, so this is required in order to keep the user
  * interface responsive.
@@ -656,8 +656,8 @@ import java.util.List;
  * is considered extremely important and will not be killed unless that is
  * required to keep the foreground activity running.
  * <li> <p>A <b>background activity</b> (an activity that is not visible to
- * the user and has been paused) is no longer critical ¹Ø¼üµÄ , so the system may
- * safely kill its process to reclaim ¿ªÍØ  memory for other foreground or
+ * the user and has been paused) is no longer critical å…³é”®çš„ , so the system may
+ * safely kill its process to reclaim å¼€æ‹“  memory for other foreground or
  * visible processes.  If its process needs to be killed, when the user navigates
  * back to the activity (making it visible on the screen again), its
  * {@link #onCreate} method will be called with the savedInstanceState it had previously
