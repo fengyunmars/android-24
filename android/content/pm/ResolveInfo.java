@@ -31,11 +31,12 @@ import java.util.Comparator;
 
 /**
  * Information that is returned from resolving an intent
- * against an IntentFilter. This partially corresponds to
+ * against an IntentFilter. This partially 部分的 corresponds to
  * information collected from the AndroidManifest.xml's
  * &lt;intent&gt; tags.
  */
 public class ResolveInfo implements Parcelable {
+
     private static final String TAG = "ResolveInfo";
 
     /**
@@ -61,8 +62,8 @@ public class ResolveInfo implements Parcelable {
     public ProviderInfo providerInfo;
 
     /**
-     * The ephemeral application that corresponds to this resolution match. This will
-     * only be set in specific circumstances.
+     * The ephemeral 短暂的 application that corresponds to this resolution match. This will
+     * only be set in specific circumstances 情况 .
      * @hide
      */
     public EphemeralResolveInfo ephemeralResolveInfo;
@@ -93,7 +94,7 @@ public class ResolveInfo implements Parcelable {
     public int preferredOrder;
 
     /**
-     * The system's evaluation of how well the activity matches the
+     * The system's evaluation 估价 of how well the activity matches the
      * IntentFilter.  This is a match constant, a combination of
      * {@link IntentFilter#MATCH_CATEGORY_MASK IntentFilter.MATCH_CATEGORY_MASK}
      * and {@link IntentFilter#MATCH_ADJUSTMENT_MASK IntentFiler.MATCH_ADJUSTMENT_MASK}.

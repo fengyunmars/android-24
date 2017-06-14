@@ -47,7 +47,7 @@ import android.widget.ListView;
  * will be hidden when there is no data to display.
  * <p>
  * The following code demonstrates an (ugly) custom screen layout. It has a list
- * with a green background, and an alternate red "no data" message.
+ * with a green background, and an alternate 交替的 red "no data" message.
  * </p>
  *
  * <pre>

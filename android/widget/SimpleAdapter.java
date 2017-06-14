@@ -37,10 +37,10 @@ import java.util.Map;
  * defines the views used to display the row, and a mapping from keys in the Map to specific
  * views.
  *
- * Binding data to views occurs in two phases. First, if a
+ * Binding data to views occurs in two phases 原型 . First, if a
  * {@link android.widget.SimpleAdapter.ViewBinder} is available,
  * {@link ViewBinder#setViewValue(android.view.View, Object, String)}
- * is invoked. If the returned value is true, binding has occurred. 
+ * is invoked. If the returned value is true, binding has occurred.
  * If the returned value is false, the following views are then tried in order:
  * <ul>
  * <li> A view that implements Checkable (e.g. CheckBox).  The expected bind value is a boolean.
