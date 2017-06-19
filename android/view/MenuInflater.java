@@ -36,7 +36,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 /**
- * This class is used to instantiate menu XML files into Menu objects.
+ * This class is used to instantiate 实例化 menu XML files into Menu objects.
  * <p>
  * For performance reasons, menu inflation relies heavily on pre-processing of
  * XML files that is done at build time. Therefore, it is not currently possible
@@ -45,6 +45,7 @@ import java.lang.reflect.Method;
  * <em>something</em> file.)
  */
 public class MenuInflater {
+
     private static final String LOG_TAG = "MenuInflater";
 
     /** Menu tag name in XML. */

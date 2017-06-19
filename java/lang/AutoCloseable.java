@@ -33,7 +33,7 @@ package java.lang;
  */
 public interface AutoCloseable {
     /**
-     * Closes this resource, relinquishing any underlying resources.
+     * Closes this resource, relinquishing 放弃 any underlying resources.
      * This method is invoked automatically on objects managed by the
      * {@code try}-with-resources statement.
      *
@@ -48,7 +48,7 @@ public interface AutoCloseable {
      * InterruptedException}.</em>
      *
      * This exception interacts with a thread's interrupted status,
-     * and runtime misbehavior is likely to occur if an {@code
+     * and runtime misbehavior 违反 is likely to occur if an {@code
      * InterruptedException} is {@linkplain Throwable#addSuppressed
      * suppressed}.
      *
@@ -58,7 +58,7 @@ public interface AutoCloseable {
      *
      * <p>Note that unlike the {@link java.io.Closeable#close close}
      * method of {@link java.io.Closeable}, this {@code close} method
-     * is <em>not</em> required to be idempotent.  In other words,
+     * is <em>not</em> required to be idempotent 幂等 .  In other words,
      * calling this {@code close} method more than once may have some
      * visible side effect, unlike {@code Closeable.close} which is
      * required to have no effect if called more than once.

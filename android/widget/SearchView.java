@@ -202,7 +202,7 @@ public class SearchView extends LinearLayout implements CollapsibleActionView {
          * keyboard or due to pressing a submit button.
          * The listener can override the standard behavior by returning true
          * to indicate that it has handled the submit request. Otherwise return false to
-         * let the SearchView handle the submission by launching any associated intent.
+         * let the SearchView handle the submission 提交 by launching any associated intent.
          *
          * @param query the query text that is to be submitted
          *

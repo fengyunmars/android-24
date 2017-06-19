@@ -1199,7 +1199,7 @@ public class Activity extends ContextThemeWrapper
      * creating them through
      * {@link #managedQuery(android.net.Uri , String[], String, String[], String)},
      * this is usually the place
-     * where the cursor should be requeried (because you had deactivated it in
+     * where the cursor 光标 should be requeried (because you had deactivated 解除 使无效 it in
      * {@link #onStop}.
      *
      * <p><em>Derived classes must call through to the super class's
