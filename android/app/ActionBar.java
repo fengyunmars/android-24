@@ -167,7 +167,7 @@ public abstract class ActionBar {
     public static final int DISPLAY_SHOW_HOME = 0x2;
 
     /**
-     * Display the 'home' element such that it appears as an 'up' affordance.
+     * Display the 'home' element such that it appears as an 'up' affordance 可视性.
      * e.g. show an arrow to the left indicating the action that will be taken.
      *
      * Set this flag if selecting the 'home' button in the action bar to return
