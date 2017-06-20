@@ -56,6 +56,7 @@ import android.util.Log;
  * @see MenuItem#getActionProvider()
  */
 public abstract class ActionProvider {
+
     private static final String TAG = "ActionProvider";
     private SubUiVisibilityListener mSubUiVisibilityListener;
     private VisibilityListener mVisibilityListener;
@@ -203,7 +204,7 @@ public abstract class ActionProvider {
 
     /**
      * Notify the system that the visibility of an action view's sub-UI such as
-     * an anchored popup has changed. This will affect how other system
+     * an anchored 固定 popup has changed. This will affect how other system
      * visibility notifications occur.
      *
      * @hide Pending future API approval

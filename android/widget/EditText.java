@@ -35,7 +35,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
  */
 
 /**
- * EditText is a thin veneer over TextView that configures itself
+ * EditText is a thin veneer 外饰 over TextView that configures itself
  * to be editable.
  *
  * <p>See the <a href="{@docRoot}guide/topics/ui/controls/text.html">Text Fields</a>
@@ -48,6 +48,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
  * {@link android.R.styleable#View View Attributes}
  */
 public class EditText extends TextView {
+
     public EditText(Context context) {
         this(context, null);
     }

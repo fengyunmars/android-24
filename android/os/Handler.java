@@ -488,7 +488,7 @@ public class Handler {
     }
 
     /**
-     * Remove any pending posts of Runnable r that are in the message queue.
+     * Remove any pending 即将到来的 posts of Runnable r that are in the message queue.
      */
     public final void removeCallbacks(Runnable r)
     {

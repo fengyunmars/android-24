@@ -74,7 +74,7 @@ import java.util.WeakHashMap;
  *
  * <p>
  * When the SearchView is used in an ActionBar as an action view for a collapsible menu item, it
- * needs to be set to iconified by default using {@link #setIconifiedByDefault(boolean)
+ * needs to be set to iconified 图标化 by default using {@link #setIconifiedByDefault(boolean)
  * setIconifiedByDefault(true)}. This is the default, so nothing needs to be done.
  * </p>
  * <p>

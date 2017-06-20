@@ -58,9 +58,9 @@ import java.util.List;
  * array of top-level items that the user can scroll through.
  * <p>You should never use a ScrollView with a {@link ListView}, because
  * ListView takes care of its own vertical scrolling.  Most importantly, doing this
- * defeats all of the important optimizations in ListView for dealing with
- * large lists, since it effectively forces the ListView to display its entire
- * list of items to fill up the infinite container supplied by ScrollView.
+ * defeats 挫败 all of the important optimizations 优化 in ListView for dealing with
+ * large lists, since it effectively 实际上 forces the ListView to display its entire
+ * list of items to fill up the infinite 无限的 container supplied by ScrollView.
  * <p>The {@link TextView} class also
  * takes care of its own scrolling, so does not require a ScrollView, but
  * using the two together is possible to achieve the effect of a text view

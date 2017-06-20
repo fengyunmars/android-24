@@ -202,7 +202,7 @@ public abstract class Filter {
         /**
          * <p>Notifies the end of a filtering operation.</p>
          *
-         * @param count the number of values computed by the filter
+         * @param count the number of values computed 评估 by the filter
          */
         public void onFilterComplete(int count);
     }
