@@ -90,7 +90,7 @@ public class ShareActionProvider extends ActionProvider {
          *
          * @param source The source of the notification.
          * @param intent The intent for launching the chosen share target.
-         * @return The return result is ignored. Always return false for consistency.
+         * @return The return result is ignored. Always return false for consistency 一致性 .
          */
         public boolean onShareTargetSelected(ShareActionProvider source, Intent intent);
     }
