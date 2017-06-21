@@ -92,6 +92,7 @@ import java.lang.ref.WeakReference;
  * @attr ref android.R.styleable#ListPopupWindow_dropDownHorizontalOffset
  */
 public class AutoCompleteTextView extends EditText implements Filter.FilterListener {
+
     static final boolean DEBUG = false;
     static final String TAG = "AutoCompleteTextView";
 

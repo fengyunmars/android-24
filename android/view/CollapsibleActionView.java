@@ -34,7 +34,7 @@ public interface CollapsibleActionView {
     public void onActionViewExpanded();
 
     /**
-     * Called when this view is collapsed as an action view.
+     * Called when this view is collapsed 折叠 as an action view.
      * See {@link MenuItem#collapseActionView()}.
      */
     public void onActionViewCollapsed();

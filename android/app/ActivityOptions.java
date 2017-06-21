@@ -45,6 +45,7 @@ import java.util.ArrayList;
  * Context.startActivity(Intent, Bundle)} and related methods.
  */
 public class ActivityOptions {
+
     private static final String TAG = "ActivityOptions";
 
     /**
@@ -68,7 +69,7 @@ public class ActivityOptions {
 
     /**
      * The bounds (window size) that the activity should be launched in. Set to null explicitly for
-     * full screen. If the key is not found, previous bounds will be preserved.
+     * full screen. If the key is not found, previous bounds will be preserved 保存 .
      * NOTE: This value is ignored on devices that don't have
      * {@link android.content.pm.PackageManager#FEATURE_FREEFORM_WINDOW_MANAGEMENT} or
      * {@link android.content.pm.PackageManager#FEATURE_PICTURE_IN_PICTURE} enabled.
@@ -101,7 +102,7 @@ public class ActivityOptions {
     public static final String KEY_ANIM_IN_PLACE_RES_ID = "android:activity.animInPlaceRes";
 
     /**
-     * Bitmap for thumbnail animation.
+     * Bitmap for thumbnail 极小的 animation.
      * @hide
      */
     public static final String KEY_ANIM_THUMBNAIL = "android:activity.animThumbnail";
@@ -367,7 +368,7 @@ public class ActivityOptions {
 
     /**
      * Create an ActivityOptions specifying an animation where the new
-     * activity is scaled from a small originating area of the screen to
+     * activity is scaled from a small originating 起始 area of the screen to
      * its final full representation.
      *
      * <p>If the Intent this is being used with has not set its

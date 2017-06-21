@@ -486,14 +486,14 @@ public interface MenuItem {
 
     /**
      * Set an action view for this menu item. An action view will be displayed in place
-     * of an automatically generated menu item element in the UI when this item is shown
+     * of 代替 an automatically generated menu item element in the UI when this item is shown
      * as an action within a parent.
      * <p>
      *   <strong>Note:</strong> Setting an action view overrides the action provider
      *           set via {@link #setActionProvider(ActionProvider)}.
      * </p>
      *
-     * @param view View to use for presenting this item to the user.
+     * @param view View to use for presenting 展示 this item to the user.
      * @return This Item so additional setters can be called.
      *
      * @see #setShowAsAction(int)

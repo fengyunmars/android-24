@@ -1,4 +1,4 @@
-/*
+Ôªø/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -41,7 +41,7 @@ import java.lang.annotation.RetentionPolicy;
 /**
  * A Layout that arranges its children in a single column or a single row. The direction of 
  * the row can be set by calling {@link #setOrientation(int) setOrientation()}. 
- * You can also specify gravity, which specifies the alignment ∂‘∆Î  of all the child elements by
+ * You can also specify gravity, which specifies the alignment ÂØπÈΩê  of all the child elements by
  * calling {@link #setGravity(int) setGravity()} or specify that specific children 
  * grow to fill up any remaining space in the layout by setting the <em>weight</em> member of
  * {@link android.widget.LinearLayout.LayoutParams LinearLayout.LayoutParams}.
@@ -100,7 +100,7 @@ public class LinearLayout extends ViewGroup {
     public static final int SHOW_DIVIDER_END = 4;
 
     /**
-     * Compatibility ºÊ»›–‘  check. Old versions of the platform would give different
+     * Compatibility ÂÖºÂÆπÊÄß  check. Old versions of the platform would give different
      * results from measurement passes using EXACTLY and non-EXACTLY modes,
      * even when the resulting size was the same.
      */

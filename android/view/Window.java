@@ -1488,7 +1488,7 @@ public abstract class Window {
      *
      * @param featureId The desired feature to change. Features are constants
      *                  defined by Window.
-     * @param value The value for the feature. The interpretation of this
+     * @param value The value for the feature. The interpretation 解释 of this
      *              value is feature-specific.
      */
     public abstract void setFeatureInt(int featureId, int value);

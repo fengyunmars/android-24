@@ -211,11 +211,11 @@ final class FragmentState implements Parcelable {
  * <h3>Lifecycle</h3>
  *
  * <p>Though a Fragment's lifecycle is tied to its owning activity, it has
- * its own wrinkle on the standard activity lifecycle.  It includes basic
+ * its own wrinkle 窍门 on the standard activity lifecycle.  It includes basic
  * activity lifecycle methods such as {@link #onResume}, but also important
  * are methods related to interactions with the activity and UI generation.
  *
- * <p>The core series of lifecycle methods that are called to bring a fragment
+ * <p>The core series 连续 of lifecycle methods that are called to bring a fragment
  * up to resumed state (interacting with the user) are:
  *
  * <ol>
@@ -254,7 +254,7 @@ final class FragmentState implements Parcelable {
  * <h3>Layout</h3>
  *
  * <p>Fragments can be used as part of your application's layout, allowing
- * you to better modularize your code and more easily adjust your user
+ * you to better modularize 模块化 your code and more easily adjust your user
  * interface to the screen it is running on.  As an example, we can look
  * at a simple program consisting of a list of items, and display of the
  * details of each item.</p>

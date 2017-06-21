@@ -39,18 +39,18 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * A description of an Intent and target action to perform with it.  Instances
+ * A description 类型 of an Intent and target action to perform with it.  Instances
  * of this class are created with {@link #getActivity}, {@link #getActivities},
  * {@link #getBroadcast}, and {@link #getService}; the returned object can be
  * handed to other applications so that they can perform the action you
- * described on your behalf at a later time.
+ * described on your behalf 支持 at a later time.
  *
  * <p>By giving a PendingIntent to another application,
- * you are granting it the right to perform the operation you have specified
+ * you are granting 允许 it the right 权利 to perform the operation you have specified
  * as if the other application was yourself (with the same permissions and
  * identity).  As such, you should be careful about how you build the PendingIntent:
  * almost always, for example, the base Intent you supply should have the component
- * name explicitly set to one of your own components, to ensure it is ultimately
+ * name explicitly set to one of your own components, to ensure it is ultimately 最终
  * sent there and nowhere else.
  *
  * <p>A PendingIntent itself is simply a reference to a token maintained by
@@ -137,7 +137,7 @@ public final class PendingIntent implements Parcelable {
      * this to retrieve a new PendingIntent when you are only changing the
      * extra data in the Intent; by canceling the previous pending intent,
      * this ensures that only entities given the new data will be able to
-     * launch it.  If this assurance is not an issue, consider
+     * launch it.  If this assurance 保证 is not an issue 问题, consider
      * {@link #FLAG_UPDATE_CURRENT}.
      */
     public static final int FLAG_CANCEL_CURRENT = 1<<28;

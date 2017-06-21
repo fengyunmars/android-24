@@ -2714,12 +2714,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Flag for {@link #setSystemUiVisibility(int)}: View has requested the
-     * system UI to enter an unobtrusive "low profile" mode.
+     * system UI to enter an unobtrusive 不引人注目的 "low profile" 轮廓 mode.
      *
      * <p>This is for use in games, book readers, video players, or any other
-     * "immersive" application where the usual system chrome is deemed too distracting.
+     * "immersive" 沉浸的 application where the usual system chrome is deemed 被认为 too distracting 打扰.
      *
-     * <p>In low profile mode, the status bar and/or navigation icons may dim.
+     * <p>In low profile mode, the status bar and/or navigation icons may dim 暗淡的 .
      *
      * @see #setSystemUiVisibility(int)
      */
@@ -13786,7 +13786,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * @return A handler associated with the thread running the View. This
-     * handler can be used to pump events in the UI events queue.
+     * handler can be used to pump 打气 events in the UI events queue.
      */
     public Handler getHandler() {
         final AttachInfo attachInfo = mAttachInfo;
@@ -20236,25 +20236,25 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * <p>This method is used to put the over device UI into temporary modes
      * where the user's attention is focused more on the application content,
-     * by dimming or hiding surrounding system affordances.  This is typically
-     * used in conjunction with {@link Window#FEATURE_ACTION_BAR_OVERLAY
+     * by dimming 变暗 or hiding surrounding 周围的 system affordances 功能可见性 .  This is typically
+     * used in conjunction 结合 with {@link Window#FEATURE_ACTION_BAR_OVERLAY
      * Window.FEATURE_ACTION_BAR_OVERLAY}, allowing the applications content
      * to be placed behind the action bar (and with these flags other system
      * affordances) so that smooth transitions between hiding and showing them
      * can be done.
      *
-     * <p>Two representative examples of the use of system UI visibility is
+     * <p>Two representative 代表 examples of the use of system UI visibility is
      * implementing a content browsing application (like a magazine reader)
      * and a video playing application.
      *
      * <p>The first code shows a typical implementation of a View in a content
      * browsing application.  In this implementation, the application goes
-     * into a content-oriented mode by hiding the status bar and action bar,
+     * into a content-oriented 内容导向 mode by hiding the status bar and action bar,
      * and putting the navigation elements into lights out mode.  The user can
      * then interact with content while in this mode.  Such an application should
      * provide an easy way for the user to toggle out of the mode (such as to
      * check information in the status bar or access notifications).  In the
-     * implementation here, this is done simply by tapping on the content.
+     * implementation here, this is done simply by tapping 轻敲 on the content.
      *
      * {@sample development/samples/ApiDemos/src/com/example/android/apis/view/ContentBrowserActivity.java
      *      content}
