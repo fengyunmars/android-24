@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2009 The Android Open Source Project
+ * Copyright (C) 2013 Square, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,19 +13,33 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package okhttp3.internal.http2;
 
-package android.text;
+// http://tools.ietf.org/html/draft-ietf-httpbis-http2-17#section-7
+public enum ErrorCode {
+  /** Not an error! */
+  NO_ERROR(0),
 
-/**
- * This interface should be added to a span object that should not be copied
- * into a new Spanned when performing a slice or copy operation on the original
- * Spanned it was placed in.
- */
-public interface NoCopySpan {
-    /**
-     * Convenience equivalent 等价物 for when you would just want a new Object() for
-     * a span but want it to be no-copy.  Use this instead.
-     */
-    public class Concrete implements NoCopySpan {
+  PROTOCOL_ERROR(1),
+
+  INTERNAL_ERROR(2),
+
+  FLOW_CONTROL_ERROR(3),
+
+  REFUSED_STREAM(7),
+
+  CANCEL(8);
+
+  public final int httpCode;
+
+  ErrorCode(int httpCode) {
+    this.httpCode = httpCode;
+  }
+
+  public static ErrorCode fromHttp2(int code) {
+    for (ErrorCode errorCode : ErrorCode.values()) {
+      if (errorCode.httpCode == code) return errorCode;
     }
+    return null;
+  }
 }

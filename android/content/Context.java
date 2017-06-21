@@ -93,9 +93,9 @@ public abstract class Context {
      * mode will throw a {@link SecurityException}.
      *
      * @deprecated Creating world-readable files is very dangerous, and likely
-     *             to cause security holes in applications. It is strongly
-     *             discouraged; instead, applications should use more formal
-     *             mechanism for interactions such as {@link ContentProvider},
+     *             to cause security holes 洞 in applications. It is strongly
+     *             discouraged; instead, applications should use more formal 正式的
+     *             mechanism for interactions 交互 such as {@link ContentProvider},
      *             {@link BroadcastReceiver}, and {@link android.app.Service}.
      *             There are no guarantees that this access mode will remain on
      *             a file, such as when it goes through a backup and restore.
@@ -142,17 +142,17 @@ public abstract class Context {
      * Generally there are better forms of communication between
      * processes, though.
      *
-     * <p>This was the legacy (but undocumented) behavior in and
-     * before Gingerbread (Android 2.3) and this flag is implied when
+     * <p>This was the legacy 遗产 (but undocumented 无正式文件的 ) behavior in and
+     * before Gingerbread (Android 2.3) and this flag is implied 暗指的 when
      * targetting such releases.  For applications targetting SDK
      * versions <em>greater than</em> Android 2.3, this flag must be
      * explicitly set if desired.
      *
      * @see #getSharedPreferences
      *
-     * @deprecated MODE_MULTI_PROCESS does not work reliably in
-     * some versions of Android, and furthermore does not provide any
-     * mechanism for reconciling concurrent modifications across
+     * @deprecated MODE_MULTI_PROCESS does not work reliably 可靠地 in
+     * some versions of Android, and furthermore 此外 does not provide any
+     * mechanism for reconciling 调解 concurrent 并发 modifications 修改 across
      * processes.  Applications should not attempt to use it.  Instead,
      * they should use an explicit cross-process data management
      * approach such as {@link android.content.ContentProvider ContentProvider}.
@@ -172,7 +172,7 @@ public abstract class Context {
 
     /**
      * Database open flag: when set, the database is opened without support for
-     * localized collators.
+     * localized collators 核对人.
      *
      * @see #openOrCreateDatabase(String, int, CursorFactory)
      * @see #openOrCreateDatabase(String, int, CursorFactory, DatabaseErrorHandler)
@@ -363,7 +363,7 @@ public abstract class Context {
      * Returns an AssetManager instance for the application's package.
      * <p>
      * <strong>Note:</strong> Implementations of this method should return
-     * an AssetManager instance that is consistent һ�µ�  with the Resources instance
+     * an AssetManager instance that is consistent һ�µ�  with the Resources instance
      * returned by {@link #getResources()}. For example, they should share the
      * same {@link Configuration} object.
      *
@@ -565,7 +565,7 @@ public abstract class Context {
     public abstract Resources.Theme getTheme();
 
     /**
-     * Retrieve ȡ��  styled attribute information in this Context's theme.  See
+     * Retrieve ȡ��  styled attribute information in this Context's theme.  See
      * {@link android.content.res.Resources.Theme#obtainStyledAttributes(int[])}
      * for more information.
      *

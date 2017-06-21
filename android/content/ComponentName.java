@@ -25,7 +25,8 @@ import java.lang.Comparable;
 
 /**
  * Identifier for a specific application component
- * ({@link android.app.Activity}, {@link android.app.Service},
+ * ({@link android.app.Activity},
+ * {@link android.app.Service},
  * {@link android.content.BroadcastReceiver}, or
  * {@link android.content.ContentProvider}) that is available.  Two
  * pieces of information, encapsulated here, are required to identify
@@ -148,7 +149,7 @@ public final class ComponentName implements Parcelable, Cloneable, Comparable<Co
     }
     
     /**
-     * Return the class name, either fully qualified or in a shortened form
+     * Return the class name, either fully qualified or in a shortened 缩短的 form
      * (with a leading '.') if it is a suffix of the package.
      */
     public String getShortClassName() {
