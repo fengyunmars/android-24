@@ -1002,11 +1002,11 @@ public class Intent implements Parcelable, Cloneable {
      * In this case, you should wrap the GET_CONTENT intent with a chooser
      * (through {@link #createChooser}), which will give the proper interface
      * for the user to pick how to send your data and allow you to specify
-     * a prompt indicating what they are doing.  You will usually specify a
+     * a prompt 提示 indicating what they are doing.  You will usually specify a
      * broad MIME type (such as image/* or {@literal *}/*), resulting in a
      * broad range of content types the user can select from.
      * <p>
-     * When using such a broad GET_CONTENT action, it is often desirable to
+     * When using such a broad GET_CONTENT action, it is often desirable 令人满意的 to
      * only pick from data that can be represented as a stream.  This is
      * accomplished by requiring the {@link #CATEGORY_OPENABLE} in the Intent.
      * <p>
@@ -1022,7 +1022,7 @@ public class Intent implements Parcelable, Cloneable {
      * to indicate this.
      * <p>
      * Input: {@link #getType} is the desired MIME type to retrieve.  Note
-     * that no URI is supplied in the intent, as there are no constraints on
+     * that no URI is supplied in the intent, as there are no constraints 约束 on
      * where the returned data originally comes from.  You may also include the
      * {@link #CATEGORY_OPENABLE} if you can only accept data that can be
      * opened as a stream.  You may use {@link #EXTRA_LOCAL_ONLY} to limit content

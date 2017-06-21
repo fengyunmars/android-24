@@ -4190,7 +4190,7 @@ public class Activity extends ContextThemeWrapper
      * Using a negative requestCode is the same as calling
      * {@link #startActivity} (the activity is not launched as a sub-activity).
      *
-     * <p>Note that this method should only be used with Intent protocols
+     * <p>Note that this method should only be used with Intent protocols 协议
      * that are defined to return a result.  In other protocols (such as
      * {@link Intent#ACTION_MAIN} or {@link Intent#ACTION_VIEW}), you may
      * not get the result when you expect.  For example, if the activity you
@@ -4201,7 +4201,7 @@ public class Activity extends ContextThemeWrapper
      * >= 0 during the initial onCreate(Bundle savedInstanceState)/onResume() of your
      * activity, then your window will not be displayed until a result is
      * returned back from the started activity.  This is to avoid visible
-     * flickering when redirecting to another activity.
+     * flickering 闪烁 when redirecting to another activity.
      *
      * <p>This method throws {@link android.content.ActivityNotFoundException}
      * if there was no Activity found to run the given Intent.
@@ -4916,7 +4916,7 @@ public class Activity extends ContextThemeWrapper
     }
 
     /**
-     * Call immediately after one of the flavors of {@link #startActivity(Intent)}
+     * Call immediately after one of the flavors 原型 of {@link #startActivity(Intent)}
      * or {@link #finish} to specify an explicit transition animation to
      * perform next.
      *
