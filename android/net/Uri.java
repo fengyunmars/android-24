@@ -47,7 +47,7 @@ import libcore.net.UriCodec;
  *
  * <p>In the interest of performance, this class performs little to no
  * validation. Behavior is undefined for invalid input. This class is very
- * forgiving 宽大的 --in the face of invalid input, it will return garbage
+ * forgiving 宽大的 --in the face of invalid input, it will return garbage 垃圾
  * rather than throw an exception unless otherwise specified.
  */
 public abstract class Uri implements Parcelable, Comparable<Uri> {
@@ -58,14 +58,14 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     that, we vary the implementation depending on what the user passes in.
     For example, we have one implementation if the user passes in a
     URI string (StringUri) and another if the user passes in the
-    individual components (OpaqueUri).
+    individual 个体的 components (OpaqueUri).
 
     *Concurrency notes*: Like any truly immutable object, this class is safe
     for concurrent use. This class uses a caching pattern in some places where
     it doesn't use volatile or synchronized. This is safe to do with ints
     because getting or setting an int is atomic. It's safe to do with a String
     because the internal fields are final and the memory model guarantees other
-    threads won't see a partially initialized instance. We are not guaranteed
+    threads won't see a partially 部分的 initialized instance. We are not guaranteed
     that some threads will immediately see changes from other threads on
     certain platforms, but we don't mind if those threads reconstruct the
     cached result. As a result, we get thread safe caching with no concurrency
@@ -82,7 +82,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     those final fields that are at least as up-to-date as the final fields
     are."
 
-    In that same vein, all non-transient fields within Uri
+    In that same vein 气质 , all non-transient fields within Uri
     implementations should be final and immutable so as to ensure true
     immutability for clients even when they don't use proper concurrency
     control.
@@ -92,16 +92,16 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     "4.3. Parsing a URI Reference
 
        A URI reference is typically parsed according to the four main
-       components and fragment identifier in order to determine what
+       components and fragment 分段 identifier in order to determine what
        components are present and whether the reference is relative or
        absolute.  The individual components are then parsed for their
-       subparts and, if not opaque, to verify their validity.
+       subparts and, if not opaque 含糊的 , to verify their validity.
 
        Although the BNF defines what is allowed in each component, it is
-       ambiguous in terms of differentiating between an authority component
+       ambiguous 有歧义的 in terms of 按照 differentiating 区别 between an authority component
        and a path component that begins with two slash characters.  The
-       greedy algorithm is used for disambiguation: the left-most matching
-       rule soaks up as much of the URI reference string as it is capable of
+       greedy 贪婪的 algorithm 算法 is used for disambiguation 解疑 : the left-most matching
+       rule soaks up 吸收 as much of the URI reference string as it is capable of
        matching.  In other words, the authority component wins."
 
     The "four main components" of a hierarchical URI consist of
@@ -117,8 +117,8 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
      * field *must* be initialized first, or else EMPTY will see a null value!
      *
      * Placeholder for strings which haven't been cached. This enables us
-     * to cache null. We intentionally create a new String instance so we can
-     * compare its identity and there is no chance we will confuse it with
+     * to cache null. We intentionally 有意的 create a new String instance so we can
+     * compare its identity and there is no chance we will confuse 困惑 it with
      * user data.
      */
     @SuppressWarnings("RedundantStringConstructorCall")
@@ -178,7 +178,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     /**
      * Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
      * the scheme separator ':' and the fragment separator '#'. If this is a
-     * relative URI, this method returns the entire URI. Decodes escaped octets.
+     * relative URI, this method returns the entire URI. Decodes escaped 转义的 octets 字节 .
      *
      * <p>Example: "//www.google.com/search?q=android"
      *
@@ -190,7 +190,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
      * Gets the scheme-specific part of this URI, i.e.&nbsp;everything between
      * the scheme separator ':' and the fragment separator '#'. If this is a
      * relative URI, this method returns the entire URI. Leaves escaped octets
-     * intact.
+     * intact 原封不动 .
      *
      * <p>Example: "//www.google.com/search?q=android"
      *
