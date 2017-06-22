@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,7 +35,7 @@ import java.io.Closeable;
 public interface Cursor extends Closeable {
     /*
      * Values returned by {@link #getType(int)}.
-     * These should be consistent Ò»ÖÂ  with the corresponding types defined in CursorWindow.h
+     * These should be consistent ä¸€è‡´  with the corresponding types defined in CursorWindow.h
      */
     /** Value returned by {@link #getType(int)} if the specified column is null */
     static final int FIELD_TYPE_NULL = 0;
@@ -74,7 +74,7 @@ public interface Cursor extends Closeable {
      * Move the cursor by a relative amount, forward or backward, from the
      * current position. Positive offsets move forwards, negative offsets move
      * backwards. If the final position is outside of the bounds of the result
-     * set then the resultant ½á¹û position will be pinned to -1 or count() depending
+     * set then the resultant ç»“æžœ position will be pinned to -1 or count() depending
      * on whether the value is off the front or end of the set, respectively.
      *
      * <p>This method will return true if the requested destination was
@@ -240,7 +240,7 @@ public interface Cursor extends Closeable {
     
     /**
      * Retrieves the requested column text and stores it in the buffer provided.
-     * If the buffer size is not sufficient ×ã¹»µÄ , a new char buffer will be allocated 
+     * If the buffer size is not sufficient è¶³å¤Ÿçš„ , a new char buffer will be allocated 
      * and assigned to CharArrayBuffer.data
      * @param columnIndex the zero-based index of the target column.
      *        if the target column is null, return buffer
@@ -343,7 +343,7 @@ public interface Cursor extends Closeable {
     boolean isNull(int columnIndex);
 
     /**
-     * Deactivates Ê¹ÎÞÐ§  the Cursor, making all calls on it fail until {@link #requery} is called.
+     * Deactivates ä½¿æ— æ•ˆ  the Cursor, making all calls on it fail until {@link #requery} is called.
      * Inactive Cursors use fewer resources than active Cursors.
      * Calling {@link #requery} will make the cursor active again.
      * @deprecated Since {@link #requery()} is deprecated, so too is this.

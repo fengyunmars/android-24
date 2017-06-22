@@ -111,8 +111,10 @@ import java.util.ArrayList;
  */
 @SuppressWarnings("unused")
 public final class ContactsContract {
+
     /** The authority for the contacts provider */
     public static final String AUTHORITY = "com.android.contacts";
+
     /** A content:// style uri to the authority for the contacts provider */
     public static final Uri AUTHORITY_URI = Uri.parse("content://" + AUTHORITY);
 
@@ -252,8 +254,8 @@ public final class ContactsContract {
     }
 
     /**
-     * A Directory represents a contacts corpus, e.g. Local contacts,
-     * Google Apps Global Address List or Corporate Global Address List.
+     * A Directory represents a contacts corpus 全集 , e.g. Local contacts,
+     * Google Apps Global Address List or Corporate 法人的 Global Address List.
      * <p>
      * A Directory is implemented as a content provider with its unique authority and
      * the same API as the main Contacts Provider.  However, there is no expectation that
@@ -264,7 +266,7 @@ public final class ContactsContract {
      * <p>
      * The most important use case for Directories is search.  A Directory provider is
      * expected to support at least {@link ContactsContract.Contacts#CONTENT_FILTER_URI
-     * Contacts.CONTENT_FILTER_URI}.  If a Directory provider wants to participate
+     * Contacts.CONTENT_FILTER_URI}.  If a Directory provider wants to participate 参与
      * in email and phone lookup functionalities, it should also implement
      * {@link CommonDataKinds.Email#CONTENT_FILTER_URI CommonDataKinds.Email.CONTENT_FILTER_URI}
      * and
@@ -329,7 +331,7 @@ public final class ContactsContract {
      * </li>
      * </ul>
      * </p>
-     * <p>Custom Directories are discovered by the Contacts Provider following this procedure:
+     * <p>Custom Directories are discovered 发现 by the Contacts Provider following this procedure:
      * <ul>
      * <li>It finds all installed content providers with meta data identifying them
      * as directory providers in AndroidManifest.xml:
@@ -355,8 +357,8 @@ public final class ContactsContract {
      * </li>
      * </ul>
      * </p>
-     * <p>Contacts Provider automatically interrogates newly installed or replaced packages.
-     * Thus simply installing a package containing a directory provider is sufficient
+     * <p>Contacts Provider automatically interrogates 查询 newly installed or replaced packages.
+     * Thus simply installing a package containing a directory provider is sufficient 足够的
      * to have that provider registered.  A package supplying a directory provider does
      * not have to contain launchable activities.
      * </p>
@@ -469,7 +471,7 @@ public final class ContactsContract {
 
         /**
          * The type of directory captured as a resource ID in the context of the
-         * package {@link #PACKAGE_NAME}, e.g. "Corporate Directory"
+         * package {@link #PACKAGE_NAME}, e.g. "Corporate 法人的 Directory"
          *
          * <p>TYPE: INTEGER</p>
          */
@@ -513,7 +515,7 @@ public final class ContactsContract {
         public static final String ACCOUNT_NAME = "accountName";
 
         /**
-         * Mimimal ID for corp directory returned from
+         * Mimimal 最低 ID for corp 大量 directory returned from
          * {@link Directory#CORP_CONTENT_URI}.
          *
          * @hide
@@ -575,7 +577,7 @@ public final class ContactsContract {
 
         /**
          * One of {@link #PHOTO_SUPPORT_NONE}, {@link #PHOTO_SUPPORT_THUMBNAIL_ONLY},
-         * {@link #PHOTO_SUPPORT_FULL}. This is a feature flag indicating the extent
+         * {@link #PHOTO_SUPPORT_FULL}. This is a feature flag indicating the extent 程度
          * to which the directory supports contact photos.
          */
         public static final String PHOTO_SUPPORT = "photoSupport";
@@ -640,7 +642,7 @@ public final class ContactsContract {
          */
         public static void notifyDirectoryChange(ContentResolver resolver) {
             // This is done to trigger a query by Contacts Provider back to the directory provider.
-            // No data needs to be sent back, because the provider can infer the calling
+            // No data needs to be sent back, because the provider can infer 推理 the calling
             // package from binder.
             ContentValues contentValues = new ContentValues();
             resolver.update(Directory.CONTENT_URI, contentValues, null, null);
@@ -876,7 +878,7 @@ public final class ContactsContract {
     }
 
     /**
-     * Columns of {@link ContactsContract.Contacts} that refer to intrinsic
+     * Columns of {@link ContactsContract.Contacts} that refer to intrinsic 本质的
      * properties of the contact, as opposed to the user-specified options
      * found in {@link ContactOptionsColumns}.
      *
@@ -928,7 +930,7 @@ public final class ContactsContract {
          * A photo can be referred to either by a URI (this field) or by ID
          * (see {@link #PHOTO_ID}). If either PHOTO_FILE_ID or PHOTO_ID is not null,
          * PHOTO_URI and PHOTO_THUMBNAIL_URI shall not be null (but not necessarily
-         * vice versa).  Thus using PHOTO_URI is a more robust method of retrieving
+         * vice versa).  Thus using PHOTO_URI is a more robust 坚定地 method of retrieving
          * contact photos.
          *
          * <P>Type: TEXT</P>
@@ -940,7 +942,7 @@ public final class ContactsContract {
          * A photo can be referred to either by a URI (this field or {@link #PHOTO_URI})
          * or by ID (see {@link #PHOTO_ID}). If PHOTO_ID is not null, PHOTO_URI and
          * PHOTO_THUMBNAIL_URI shall not be null (but not necessarily vice versa).
-         * If the content provider does not differentiate between full-size photos
+         * If the content provider does not differentiate 区分 between full-size photos
          * and thumbnail photos, PHOTO_THUMBNAIL_URI and {@link #PHOTO_URI} can contain
          * the same value, but either both shall be null or both not null.
          *
@@ -974,7 +976,7 @@ public final class ContactsContract {
         public static final String HAS_PHONE_NUMBER = "has_phone_number";
 
         /**
-         * An opaque value that contains hints on how to find the contact if
+         * An opaque 不透明的 value that contains hints on how to find the contact if
          * its row id changed as a result of a sync or aggregation.
          */
         public static final String LOOKUP_KEY = "lookup";
@@ -1101,7 +1103,7 @@ public final class ContactsContract {
         public static final int PHONE = 20;
         public static final int ORGANIZATION = 30;
         public static final int NICKNAME = 35;
-        /** Display name comes from a structured name that only has phonetic components. */
+        /** Display name comes from a structured name that only has phonetic 语音的 components. */
         public static final int STRUCTURED_PHONETIC_NAME = 37;
         public static final int STRUCTURED_NAME = 40;
     }
@@ -1125,7 +1127,7 @@ public final class ContactsContract {
          * The standard text shown as the contact's display name, based on the best
          * available information for the contact (for example, it might be the email address
          * if the name is not available).
-         * The information actually used to compute the name is stored in
+         * The information actually used to compute 计算 the name is stored in
          * {@link #DISPLAY_NAME_SOURCE}.
          * </p>
          * <p>
@@ -1163,7 +1165,7 @@ public final class ContactsContract {
         public static final String DISPLAY_NAME_ALTERNATIVE = "display_name_alt";
 
         /**
-         * The phonetic alphabet used to represent the {@link #PHONETIC_NAME}.  See
+         * The phonetic alphabet 字母表 used to represent the {@link #PHONETIC_NAME}.  See
          * {@link PhoneticNameStyle}.
          */
         public static final String PHONETIC_NAME_STYLE = "phonetic_name_style";
@@ -1248,12 +1250,12 @@ public final class ContactsContract {
     }
 
     /**
-     * Constants for the contacts table, which contains a record per aggregate
+     * Constants 常量 for the contacts table, which contains a record per aggregate 聚合的
      * of raw contacts representing the same person.
      * <h3>Operations</h3>
      * <dl>
      * <dt><b>Insert</b></dt>
-     * <dd>A Contact cannot be created explicitly. When a raw contact is
+     * <dd>A Contact cannot be created explicitly 明确的 . When a raw contact is
      * inserted, the provider will first try to find a Contact representing the
      * same person. If one is found, the raw contact's
      * {@link RawContacts#CONTACT_ID} column gets the _ID of the aggregate
@@ -1264,12 +1266,12 @@ public final class ContactsContract {
      * <dd>Only certain columns of Contact are modifiable:
      * {@link #TIMES_CONTACTED}, {@link #LAST_TIME_CONTACTED}, {@link #STARRED},
      * {@link #CUSTOM_RINGTONE}, {@link #SEND_TO_VOICEMAIL}. Changing any of
-     * these columns on the Contact also changes them on all constituent raw
+     * these columns on the Contact also changes them on all constituent 成分的 raw
      * contacts.</dd>
      * <dt><b>Delete</b></dt>
      * <dd>Be careful with deleting Contacts! Deleting an aggregate contact
      * deletes all constituent raw contacts. The corresponding sync adapters
-     * will notice the deletions of their respective raw contacts and remove
+     * will notice the deletions of their respective 各自的 raw contacts and remove
      * them from their back end storage.</dd>
      * <dt><b>Query</b></dt>
      * <dd>
@@ -1278,8 +1280,8 @@ public final class ContactsContract {
      * {@link #CONTENT_LOOKUP_URI} instead of {@link #CONTENT_URI}.</li>
      * <li>If you need to look up a contact by the phone number, use
      * {@link PhoneLookup#CONTENT_FILTER_URI PhoneLookup.CONTENT_FILTER_URI},
-     * which is optimized for this purpose.</li>
-     * <li>If you need to look up a contact by partial name, e.g. to produce
+     * which is optimized 优化 for this purpose.</li>
+     * <li>If you need to look up a contact by partial 部分的 name, e.g. to produce
      * filter-as-you-type suggestions, use the {@link #CONTENT_FILTER_URI} URI.
      * <li>If you need to look up a contact by some data element like email
      * address, nickname, etc, use a query against the {@link ContactsContract.Data} table.
@@ -2140,15 +2142,15 @@ public final class ContactsContract {
 
     /**
      * <p>
-     * Constants for the user's profile data, which is represented as a single contact on
+     * Constants 常量 for the user's profile data, which is represented as a single contact on
      * the device that represents the user.  The profile contact is not aggregated
      * together automatically in the same way that normal contacts are; instead, each
-     * account (including data set, if applicable) on the device may contribute a single
+     * account (including data set, if applicable 适当的 ) on the device may contribute a single
      * raw contact representing the user's personal profile data from that source.
      * </p>
      * <p>
      * Access to the profile entry through these URIs (or incidental access to parts of
-     * the profile if retrieved directly via ID) requires additional permissions beyond
+     * the profile if retrieved 检索 directly via ID) requires additional permissions beyond
      * the read/write contact permissions required by the provider.  Querying for profile
      * data requires android.permission.READ_PROFILE permission, and inserting or
      * updating profile data requires android.permission.WRITE_PROFILE permission.
@@ -2168,7 +2170,7 @@ public final class ContactsContract {
      * but requires the android.permission.WRITE_PROFILE permission.</dd>
      * <dt><b>Delete</b></dt>
      * <dd>The profile Contact cannot be explicitly deleted.  It will be removed
-     * automatically if all of its constituent raw contact entries are deleted.</dd>
+     * automatically if all of its constituent 构成 raw contact entries are deleted.</dd>
      * <dt><b>Query</b></dt>
      * <dd>
      * <ul>
@@ -2224,10 +2226,10 @@ public final class ContactsContract {
          * defines an ID-space in which profile data is stored, and is used by the provider
          * to determine whether a request via a non-profile-specific URI should be directed
          * to the profile data rather than general contacts data, along with all the special
-         * permission checks that entails.
+         * permission checks that entails 需要 .
          *
          * Callers may use {@link #isProfileId} to check whether a specific ID falls into
-         * the set of data intended for the profile.
+         * the set of data intended 预期的 for the profile.
          */
         public static final long MIN_ID = Long.MAX_VALUE - (long) Integer.MAX_VALUE;
     }
@@ -3190,7 +3192,7 @@ public final class ContactsContract {
 
         /**
          * The resource ID of the icon for the source of the status update.
-         * This resource should be scoped by the {@link #STATUS_RES_PACKAGE}.
+         * This resource should be scoped 范围 by the {@link #STATUS_RES_PACKAGE}.
          * <p>Type: NUMBER</p>
          */
         public static final String STATUS_ICON = "status_icon";
@@ -5469,7 +5471,7 @@ public final class ContactsContract {
         }
 
         /**
-         * Returns the precedence of the status code the higher number being the higher precedence.
+         * Returns the precedence 优先权 of the status code the higher number being the higher precedence.
          *
          * @param status The status code.
          * @return An integer representing the precedence, 0 being the lowest.
@@ -6608,7 +6610,7 @@ public final class ContactsContract {
             public static final String CUSTOM_PROTOCOL = DATA6;
 
             /*
-             * The predefined IM protocol types.
+             * The predefined IM InstantMessaging protocol types.
              */
             public static final int PROTOCOL_CUSTOM = -1;
             public static final int PROTOCOL_AIM = 0;
@@ -6636,7 +6638,7 @@ public final class ContactsContract {
 
             /**
              * Return a {@link CharSequence} that best describes the given type,
-             * possibly substituting the given {@link #LABEL} value
+             * possibly substituting 取代 the given {@link #LABEL} value
              * for {@link #TYPE_CUSTOM}.
              */
             public static final CharSequence getTypeLabel(Resources res, int type,
@@ -8274,7 +8276,7 @@ public final class ContactsContract {
      */
     public static final class PinnedPositions {
         /**
-         * The method to invoke in order to undemote a formerly demoted contact. The contact id of
+         * The method to invoke in order to undemote a formerly 原来 demoted 降级 contact. The contact id of
          * the contact must be provided as an argument. If the contact was not previously demoted,
          * nothing will be done.
          * @hide

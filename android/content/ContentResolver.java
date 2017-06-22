@@ -1422,7 +1422,7 @@ public abstract class ContentResolver {
      * read or write interfaces which are cheaper than using a Cursor and/or
      * do not fit into the traditional table model.
      *
-     * @param method provider-defined method name to call.  Opaque to
+     * @param method provider-defined method name to call.  Opaque 不透明 to
      *   framework, but must be non-null.
      * @param arg provider-defined String argument.  May be null.
      * @param extras provider-defined Bundle argument.  May be null.

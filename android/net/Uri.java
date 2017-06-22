@@ -40,14 +40,14 @@ import java.util.Set;
 import libcore.net.UriCodec;
 
 /**
- * Immutable URI reference. A URI reference includes a URI and a fragment, the
+ * Immutable 不变的 URI reference. A URI reference includes a URI and a fragment, the
  * component of the URI following a '#'. Builds and parses URI references
- * which conform to
+ * which conform 遵照 to
  * <a href="http://www.faqs.org/rfcs/rfc2396.html">RFC 2396</a>.
  *
  * <p>In the interest of performance, this class performs little to no
  * validation. Behavior is undefined for invalid input. This class is very
- * forgiving--in the face of invalid input, it will return garbage
+ * forgiving 宽大的 --in the face of invalid input, it will return garbage
  * rather than throw an exception unless otherwise specified.
  */
 public abstract class Uri implements Parcelable, Comparable<Uri> {
@@ -429,7 +429,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     /**
      * Creates a Uri which parses the given encoded URI string.
      *
-     * @param uriString an RFC 2396-compliant, encoded URI
+     * @param uriString an RFC 2396-compliant 符合的 , encoded URI
      * @throws NullPointerException if uriString is null
      * @return Uri for this given uri string
      */

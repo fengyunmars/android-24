@@ -20,6 +20,10 @@ package android.database;
  * This is used for {@link Cursor#copyStringToBuffer}
  */
 public final class CharArrayBuffer {
+
+    public char[] data; // In and out parameter
+    public int sizeCopied; // Out parameter
+
     public CharArrayBuffer(int size) {
         data = new char[size];
     }
@@ -27,7 +31,5 @@ public final class CharArrayBuffer {
     public CharArrayBuffer(char[] buf) {
         data = buf;
     }
-    
-    public char[] data; // In and out parameter
-    public int sizeCopied; // Out parameter
+
 }
