@@ -18,8 +18,8 @@ import java.util.function.Function;
 // END android-note
 
 /**
- * A {@link java.util.Map} providing thread safety and atomicity
- * guarantees.
+ * A {@link java.util.Map} providing thread safety and atomicity 原子的
+ * guarantees 保证 .
  *
  * <p>To maintain the specified guarantees, default implementations of
  * methods including {@link #putIfAbsent} inherited from {@link Map}
@@ -27,13 +27,13 @@ import java.util.function.Function;
  * implementations of the collections returned by methods {@link
  * #keySet}, {@link #values}, and {@link #entrySet} must override
  * methods such as {@code removeIf} when necessary to
- * preserve atomicity guarantees.
+ * preserve 保护 atomicity guarantees.
  *
- * <p>Memory consistency effects: As with other concurrent
+ * <p>Memory consistency 一致性 effects: As with other concurrent
  * collections, actions in a thread prior to placing an object into a
  * {@code ConcurrentMap} as a key or value
  * <a href="package-summary.html#MemoryVisibility"><i>happen-before</i></a>
- * actions subsequent to the access or removal of that object from
+ * actions subsequent 后来的 to the access or removal of that object from
  * the {@code ConcurrentMap} in another thread.
  *
  * @since 1.5
