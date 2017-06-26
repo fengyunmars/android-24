@@ -28,7 +28,7 @@ package java.io;
 import java.io.IOException;
 
 /**
- * A {@code Closeable} is a source or destination of data that can be closed.
+ * A {@code Closeable} is a source or destination 目的 of data that can be closed.
  * The close method is invoked to release resources that the object is
  * holding (such as open files).
  *

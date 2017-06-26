@@ -65,6 +65,11 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
 
     String[] mOriginalFrom;
 
+
+
+
+
+
     /**
      * Constructor the enables auto-requery.
      *

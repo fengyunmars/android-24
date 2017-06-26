@@ -1488,13 +1488,13 @@ public final class ContactsContract {
 
         /**
          * A content:// style URI for this table that should be used to create
-         * shortcuts or otherwise create long-term links to contacts. This URI
+         * shortcuts or otherwise create long-term 长期的 links to contacts. This URI
          * should always be followed by a "/" and the contact's {@link #LOOKUP_KEY}.
          * It can optionally also have a "/" and last known contact ID appended after
          * that. This "complete" format is an important optimization and is highly recommended.
          * <p>
          * As long as the contact's row ID remains the same, this URI is
-         * equivalent to {@link #CONTENT_URI}. If the contact's row ID changes
+         * equivalent 等价的 to {@link #CONTENT_URI}. If the contact's row ID changes
          * as a result of a sync or aggregation, this URI will look up the
          * contact using indirect information (sync IDs or constituent raw
          * contacts).
@@ -1521,7 +1521,7 @@ public final class ContactsContract {
         * and {@link #CONTENT_MULTI_VCARD_URI} to indicate that the returned
         * vcard should not contain a photo.
         *
-        * This is useful for obtaining a space efficient vcard.
+        * This is useful for obtaining a space efficient 有效率的 vcard.
         */
         public static final String QUERY_PARAMETER_VCARD_NO_PHOTO = "no_photo";
 
@@ -1777,11 +1777,11 @@ public final class ContactsContract {
          * this case the {@link #DATA_ID} field will be null.
          * </p>
          * <p>
-         * Entity reads all data for the entire contact in one transaction, to
-         * guarantee consistency.  There is significant data duplication
+         * Entity reads all data for the entire contact in one transaction 事务 , to
+         * guarantee consistency 一致性 .  There is significant data duplication
          * in the Entity (each row repeats all Contact columns and all RawContact
-         * columns), so the benefits of transactional consistency should be weighed
-         * against the cost of transferring large amounts of denormalized data
+         * columns), so the benefits of transactional consistency should be weighed 权衡
+         * against the cost of transferring large amounts of denormalized 非规格化的 data
          * from the Provider.
          * </p>
          * <p>
@@ -1861,11 +1861,11 @@ public final class ContactsContract {
          * <p>
          * A <i>read-only</i> sub-directory of a single contact aggregate that
          * contains all aggregation suggestions (other contacts). The
-         * aggregation suggestions are computed based on approximate data
+         * aggregation suggestions are computed based on approximate 接近的 data
          * matches with this contact.
          * </p>
          * <p>
-         * <i>Note: this query may be expensive! If you need to use it in bulk,
+         * <i>Note: this query may be expensive! If you need to use it in bulk 大量的 ,
          * make sure the user experience is acceptable when the query runs for a
          * long time.</i>
          * <p>
@@ -4092,7 +4092,7 @@ public final class ContactsContract {
         /**
          * The package name to use when creating {@link Resources} objects for
          * this data row. This value is only designed for use when building user
-         * interfaces, and should not be used to infer the owner.
+         * interfaces, and should not be used to infer 推断 the owner.
          */
         public static final String RES_PACKAGE = "res_package";
 
@@ -4137,7 +4137,7 @@ public final class ContactsContract {
 
         /**
          * The version of this data record. This is a read-only value. The data column is
-         * guaranteed to not change without the version going up. This value is monotonically
+         * guaranteed to not change without the version going up. This value is monotonically 单调的
          * increasing.
          * <P>Type: INTEGER</P>
          */
@@ -4172,7 +4172,7 @@ public final class ContactsContract {
         /** Generic data column, the meaning is {@link #MIMETYPE} specific */
         public static final String DATA14 = "data14";
         /**
-         * Generic data column, the meaning is {@link #MIMETYPE} specific. By convention,
+         * Generic data column, the meaning is {@link #MIMETYPE} specific. By convention 惯例 ,
          * this field is used to store BLOBs (binary data).
          */
         public static final String DATA15 = "data15";

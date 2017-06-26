@@ -2830,7 +2830,7 @@ public final class String
     }
 
     /**
-     * Returns a canonical representation for the string object.
+     * Returns a canonical 规范化 representation for the string object.
      * <p>
      * A pool of strings, initially empty, is maintained privately by the
      * class <code>String</code>.

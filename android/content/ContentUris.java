@@ -33,7 +33,7 @@ import android.net.Uri;
 *       <code>content:</code>
 *   </dt>
 *   <dd>
-*       The scheme portion of the URI. This is always set to {@link
+*       The scheme portion 部分 of the URI. This is always set to {@link
 *       android.content.ContentResolver#SCHEME_CONTENT ContentResolver.SCHEME_CONTENT} (value
 *       <code>content://</code>).
 *   </dd>
@@ -53,14 +53,14 @@ import android.net.Uri;
 *       some subset of the provider's data. Most providers use the path part to identify
 *       individual tables. Individual segments in the path are often called
 *       &quot;directories&quot; although they do not refer to file directories. The right-most
-*       segment in a path is often called a &quot;twig&quot;
+*       segment in a path is often called a &quot;twig 嫩枝 &quot;
 *   </dd>
 *   <dt>
 *       <em>id</em>
 *   </dt>
 *   <dd>
 *       A unique numeric identifier for a single row in the subset of data identified by the
-*       preceding path part. Most providers recognize content URIs that contain an id part
+*       preceding 之前的 path part. Most providers recognize content URIs that contain an id part
 *       and give them special handling. A table that contains a column named <code>_ID</code>
 *       often expects the id part to be a particular value for that column.
 *   </dd>
@@ -72,13 +72,13 @@ public class ContentUris {
     /**
      * Converts the last path segment to a long.
      *
-     * <p>This supports a common convention for content URIs where an ID is
+     * <p>This supports a common convention 惯例 for content URIs where an ID is
      * stored in the last segment.
      *
      * @throws UnsupportedOperationException if this isn't a hierarchical URI
      * @throws NumberFormatException if the last segment isn't a number
      *
-     * @return the long conversion of the last segment or -1 if the path is
+     * @return the long conversion 转换 of the last segment or -1 if the path is
      *  empty
      */
     public static long parseId(Uri contentUri) {

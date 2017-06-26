@@ -320,7 +320,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     public abstract String getLastPathSegment();
 
     /**
-     * Compares this Uri to another object for equality. Returns true if the
+     * Compares this Uri to another object for equality 相等性 . Returns true if the
      * encoded string representations of this Uri and the given Uri are
      * equal. Case counts. Paths are not normalized. If one Uri specifies a
      * default port explicitly and the other leaves it implicit, they will not
@@ -337,7 +337,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     }
 
     /**
-     * Hashes the encoded string represention of this Uri consistently with
+     * Hashes the encoded string represention of this Uri consistently 一贯的 with
      * {@link #equals(Object)}.
      */
     public int hashCode() {
@@ -391,7 +391,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
                         + "/...";
             }
         }
-        // Not a sensitive scheme, but let's still be conservative about
+        // Not a sensitive scheme, but let's still be conservative 保守的 about
         // the data we include -- only the ssp, not the query params or
         // fragment, because those can often have sensitive info.
         StringBuilder builder = new StringBuilder(64);
@@ -1038,7 +1038,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
 
         public String getLastPathSegment() {
             // TODO: If we haven't parsed all of the segments already, just
-            // grab the last one directly so we only allocate one string.
+            // grab 抓取 the last one directly so we only allocate 分配 one string.
 
             List<String> segments = getPathSegments();
             int size = segments.size();
@@ -1824,7 +1824,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
      * @param s string to encode
      * @param allow set of additional characters to allow in the encoded form,
      *  null if no characters should be skipped
-     * @return an encoded version of s suitable for use as a URI component,
+     * @return an encoded version of s suitable 合适的 for use as a URI component,
      *  or null if s is null
      */
     public static String encode(String s, String allow) {
@@ -1944,7 +1944,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     static abstract class AbstractPart {
 
         /**
-         * Enum which indicates which representation of a given part we have.
+         * Enum which indicates which representation 表现 of a given part we have.
          */
         static class Representation {
             static final int BOTH = 0;
@@ -1992,7 +1992,7 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
     }
 
     /**
-     * Immutable wrapper of encoded and decoded versions of a URI part. Lazily
+     * Immutable 不变的 wrapper of encoded and decoded versions of a URI part. Lazily
      * creates the encoded or decoded version from the other.
      */
     static class Part extends AbstractPart {
@@ -2253,10 +2253,11 @@ public abstract class Uri implements Parcelable, Comparable<Uri> {
         }
 
         /**
-         * Prepends path values with "/" if they're present, not empty, and
+         * Prepends 预先 path values with "/" if they're present, not empty, and
          * they don't already start with "/".
          */
         static PathPart makeAbsolute(PathPart oldPart) {
+
             @SuppressWarnings("StringEquality")
             boolean encodedCached = oldPart.encoded != NOT_CACHED;
 

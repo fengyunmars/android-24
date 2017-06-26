@@ -4969,7 +4969,7 @@ public class Activity extends ContextThemeWrapper
      * Intent.FLAG_GRANT_WRITE_URI_PERMISSION} set.  This will grant the
      * Activity receiving the result access to the specific URIs in the Intent.
      * Access will remain until the Activity has finished (it will remain across the hosting
-     * process being killed and other temporary destruction) and will be added
+     * process being killed and other temporary 临时的 destruction 破坏 ) and will be added
      * to any existing set of URI permissions it already holds.
      *
      * @param resultCode The result code to propagate back to the originating
@@ -5155,7 +5155,7 @@ public class Activity extends ContextThemeWrapper
 
     /**
      * Cause this Activity to be recreated with a new instance.  This results
-     * in essentially the same flow as when the Activity is created due to
+     * in essentially 本质上 the same flow as when the Activity is created due to
      * a configuration change -- the current instance will go through its
      * lifecycle to {@link #onDestroy} and a new instance then created after it.
      */
