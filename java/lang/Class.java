@@ -1721,8 +1721,8 @@ public final
     /**
      * Returns an array of {@code Field} objects reflecting all the fields
      * declared by the class or interface represented by this
-     * {@code Class} object. This includes public, protected, default
-     * (package) access, and private fields, but excludes inherited fields.
+     * {@code Class} object. This <b>includes public, protected, default
+     * (package) access, and private fields</b>, but <b>excludes inherited</b>fields.
      * The elements in the array returned are not sorted and are not in any
      * particular order.  This method returns an array of length 0 if the class
      * or interface declares no fields, or if this {@code Class} object

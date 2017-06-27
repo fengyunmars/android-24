@@ -1582,7 +1582,7 @@ public interface WindowManager extends ViewManager {
 
         /**
          * Define the exit and entry animations used on this window when the device is rotated.
-         * This only has an affect if the incoming and outgoing topmost
+         * This only has an affect if the incoming and outgoing topmost 最上面的
          * opaque windows have the #FLAG_FULLSCREEN bit set and are not covered
          * by other windows. All other situations default to the
          * {@link #ROTATION_ANIMATION_ROTATE} behavior.
