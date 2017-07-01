@@ -39,7 +39,7 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
 /**
- * An implementation of SurfaceView that uses the dedicated surface for
+ * An implementation of SurfaceView that uses the dedicated 专用的 surface for
  * displaying OpenGL rendering.
  * <p>
  * A GLSurfaceView provides the following features:
@@ -49,9 +49,9 @@ import android.view.SurfaceView;
  * composited into the Android view system.
  * <li>Manages an EGL display, which enables OpenGL to render into a surface.
  * <li>Accepts a user-provided Renderer object that does the actual rendering.
- * <li>Renders on a dedicated thread to decouple rendering performance from the
+ * <li>Renders on a dedicated thread to decouple 减弱 rendering performance from the
  * UI thread.
- * <li>Supports both on-demand and continuous rendering.
+ * <li>Supports both on-demand 按需 and continuous rendering.
  * <li>Optionally wraps, traces, and/or error-checks the renderer's OpenGL calls.
  * </ul>
  *
@@ -84,7 +84,7 @@ import android.view.SurfaceView;
  * </ul>
  * <p>
  * <h4>Specifying the android.view.Surface</h4>
- * By default GLSurfaceView will create a PixelFormat.RGB_888 format surface. If a translucent
+ * By default GLSurfaceView will create a PixelFormat.RGB_888 format surface. If a translucent 半透明的
  * surface is required, call getHolder().setFormat(PixelFormat.TRANSLUCENT).
  * The exact format of a TRANSLUCENT surface is device dependent, but it will be
  * a 32-bit-per-pixel surface with 8 bits per component.
@@ -96,7 +96,7 @@ import android.view.SurfaceView;
  * GLSurfaceView has to do when starting to render is choose what EGLConfig to use.
  * <p>
  * By default GLSurfaceView chooses a EGLConfig that has an RGB_888 pixel format,
- * with at least a 16-bit depth buffer and no stencil.
+ * with at least a 16-bit depth buffer and no stencil 模板 .
  * <p>
  * If you would prefer a different EGLConfig
  * you can override the default behavior by calling one of the

@@ -301,7 +301,7 @@ public class ListFragment extends Fragment {
     /**
      * Control whether the list is being displayed.  You can make it not
      * displayed if you are waiting for the initial data to show in it.  During
-     * this time an indeterminant progress indicator will be shown instead.
+     * this time an indeterminant 不确定的 progress indicator will be shown instead.
      * 
      * <p>Applications do not normally need to use this themselves.  The default
      * behavior of ListFragment is to start with the list not being shown, only

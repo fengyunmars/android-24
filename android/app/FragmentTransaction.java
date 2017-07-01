@@ -151,7 +151,7 @@ public abstract class FragmentTransaction {
     public static final int TRANSIT_UNSET = -1;
     /** No animation for transition. */
     public static final int TRANSIT_NONE = 0;
-    /** Fragment is being added onto the stack */
+    /** Fragment is being added onto the stack TRANSIT transit 搬运 */
     public static final int TRANSIT_FRAGMENT_OPEN = 1 | TRANSIT_ENTER_MASK;
     /** Fragment is being removed from the stack */
     public static final int TRANSIT_FRAGMENT_CLOSE = 2 | TRANSIT_EXIT_MASK;

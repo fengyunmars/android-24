@@ -263,12 +263,12 @@ public class AlarmManager {
     }
 
     /**
-     * <p>Schedule an alarm.  <b>Note: for timing operations (ticks, timeouts,
+     * <p>Schedule an alarm.  <b>Note: for timing operations (ticks, timeouts 定时,
      * etc) it is easier and much more efficient to use {@link android.os.Handler}.</b>
      * If there is already an alarm scheduled for the same IntentSender, that previous
      * alarm will first be canceled.
      *
-     * <p>If the stated trigger time is in the past, the alarm will be triggered
+     * <p>If the stated 规定的 trigger time is in the past, the alarm will be triggered
      * immediately.  If there is already an alarm for this Intent
      * scheduled (with the equality of two intents being defined by
      * {@link Intent#filterEquals}), then it will be removed and replaced by
@@ -282,7 +282,7 @@ public class AlarmManager {
      * <p>
      * Alarm intents are delivered with a data extra of type int called
      * {@link Intent#EXTRA_ALARM_COUNT Intent.EXTRA_ALARM_COUNT} that indicates
-     * how many past alarm events have been accumulated into this intent
+     * how many past alarm events have been accumulated 累积 into this intent
      * broadcast.  Recurring alarms that have gone undelivered because the
      * phone was asleep may have a count greater than one when delivered.  
      *
@@ -290,7 +290,7 @@ public class AlarmManager {
      * <p>
      * <b>Note:</b> Beginning in API 19, the trigger time passed to this method
      * is treated as inexact: the alarm will not be delivered before this time, but
-     * may be deferred and delivered some time later.  The OS will use
+     * may be deferred 延期 and delivered some time later.  The OS will use
      * this policy in order to "batch" alarms together across the entire system,
      * minimizing the number of times the device needs to "wake up" and minimizing
      * battery use.  In general, alarms scheduled in the near future will not
@@ -372,7 +372,7 @@ public class AlarmManager {
      * {@link android.os.Handler}.</b>  If there is already an alarm scheduled
      * for the same IntentSender, it will first be canceled.
      *
-     * <p>Like {@link #set}, except you can also supply a period at which
+     * <p>Like {@link #set}, except you can also supply a period 周期 at which
      * the alarm will automatically repeat.  This alarm continues
      * repeating until explicitly removed with {@link #cancel}.  If the stated
      * trigger time is in the past, the alarm will be triggered immediately, with an

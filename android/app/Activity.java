@@ -2039,8 +2039,8 @@ public class Activity extends ContextThemeWrapper
      * </ul>
      *
      * <p>These guarantees are designed so that an activity can use this API
-     * to propagate extensive state from the old to new activity instance, from
-     * loaded bitmaps, to network connections, to evenly actively running
+     * to propagate 扩散 extensive 范围广泛的 state from the old to new activity instance, from
+     * loaded bitmaps, to network connections, to evenly 均匀的 actively 活跃的 running
      * threads.  Note that you should <em>not</em> propagate any data that
      * may change based on the configuration, including any data loaded from
      * resources such as strings, layouts, or drawables.
@@ -3683,7 +3683,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @deprecated Use the new {@link DialogFragment} class with
      * {@link FragmentManager} instead; this is also
-     * available on older platforms through the Android compatibility package.
+     * available on older platforms through the Android compatibility 通用型 package.
      */
     @Deprecated
     public final void showDialog(int id) {

@@ -1983,7 +1983,7 @@ public abstract class Calendar implements Serializable, Cloneable, Comparable<Ca
     }
 
     /**
-     * Adds or subtracts the specified amount of time to the given calendar field,
+     * Adds or subtracts 减去 the specified amount of time to the given calendar field,
      * based on the calendar's rules. For example, to subtract 5 days from
      * the current time of the calendar, you can achieve it by calling:
      * <p><code>add(Calendar.DAY_OF_MONTH, -5)</code>.

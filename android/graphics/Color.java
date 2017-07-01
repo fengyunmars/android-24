@@ -46,8 +46,11 @@ public class Color {
     @ColorInt public static final int GREEN       = 0xFF00FF00;
     @ColorInt public static final int BLUE        = 0xFF0000FF;
     @ColorInt public static final int YELLOW      = 0xFFFFFF00;
+    //青色
     @ColorInt public static final int CYAN        = 0xFF00FFFF;
+    //品红
     @ColorInt public static final int MAGENTA     = 0xFFFF00FF;
+    //透明
     @ColorInt public static final int TRANSPARENT = 0;
 
     /**

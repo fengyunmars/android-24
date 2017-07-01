@@ -80,6 +80,7 @@ import java.util.concurrent.TimeUnit;
  * {@link #isSetWallpaperAllowed()}.
  */
 public class WallpaperManager {
+
     private static String TAG = "WallpaperManager";
     private static boolean DEBUG = false;
     private float mWallpaperXStep = -1;

@@ -48,7 +48,7 @@ import java.lang.annotation.RetentionPolicy;
  * <p>Note that services, like other application objects, run in the main
  * thread of their hosting process.  This means that, if your service is going
  * to do any CPU intensive (such as MP3 playback) or blocking (such as
- * networking) operations, it should spawn its own thread in which to do that
+ * networking) operations, it should spawn 引起 its own thread in which to do that
  * work.  More information on this can be found in
  * <a href="{@docRoot}guide/topics/fundamentals/processes-and-threads.html">Processes and
  * Threads</a>.  The {@link IntentService} class is available
@@ -74,7 +74,7 @@ import java.lang.annotation.RetentionPolicy;
  * <a name="WhatIsAService"></a>
  * <h3>What is a Service?</h3>
  * 
- * <p>Most confusion about the Service class actually revolves around what
+ * <p>Most confusion 困惑 about the Service class actually revolves around what
  * it is <em>not</em>:</p>
  * 
  * <ul>
@@ -88,7 +88,7 @@ import java.lang.annotation.RetentionPolicy;
  * <p>Thus a Service itself is actually very simple, providing two main features:</p>
  * 
  * <ul>
- * <li>A facility for the application to tell the system <em>about</em>
+ * <li>A facility 能力 for the application to tell the system <em>about</em>
  * something it wants to be doing in the background (even when the user is not
  * directly interacting with the application).  This corresponds to calls to
  * {@link android.content.Context#startService Context.startService()}, which
@@ -108,8 +108,8 @@ import java.lang.annotation.RetentionPolicy;
  * behavior, such as creating a secondary thread in which it does its work.</p>
  * 
  * <p>Note that because Service itself is so simple, you can make your
- * interaction with it as simple or complicated as you want: from treating it
- * as a local Java object that you make direct method calls on (as illustrated
+ * interaction with it as simple or complicated 复杂的 as you want: from treating it
+ * as a local Java object that you make direct method calls on (as illustrated 说明
  * by <a href="#LocalServiceSample">Local Service Sample</a>), to providing
  * a full remoteable interface using AIDL.</p>
  * 
@@ -155,7 +155,7 @@ import java.lang.annotation.RetentionPolicy;
  * {@link android.content.Context#BIND_AUTO_CREATE Context.BIND_AUTO_CREATE}
  * flag.  Once neither
  * of these situations hold, the service's {@link #onDestroy} method is called
- * and the service is effectively terminated.  All cleanup (stopping threads,
+ * and the service is effectively 实际上 terminated.  All cleanup (stopping threads,
  * unregistering receivers) should be complete upon returning from onDestroy().
  * 
  * <a name="Permissions"></a>
@@ -223,7 +223,7 @@ import java.lang.annotation.RetentionPolicy;
  * <li><p>A started service can use the {@link #startForeground(int, Notification)}
  * API to put the service in a foreground state, where the system considers
  * it to be something the user is actively aware of and thus not a candidate
- * for killing when low on memory.  (It is still theoretically possible for
+ * for killing when low on memory.  (It is still theoretically 理论上 possible for
  * the service to be killed under extreme memory pressure from the current
  * foreground application, but in practice this should not be a concern.)
  * </ul>
@@ -244,9 +244,9 @@ import java.lang.annotation.RetentionPolicy;
  * 
  * <a name="LocalServiceSample"></a>
  * <h3>Local Service Sample</h3>
- * 
+ *
  * <p>One of the most common uses of a Service is as a secondary component
- * running alongside other parts of an application, in the same process as
+ * running alongside 并排 other parts of an application, in the same process as
  * the rest of the components.  All components of an .apk run in the same
  * process unless explicitly stated otherwise, so this is a typical situation.
  * 
@@ -270,7 +270,7 @@ import java.lang.annotation.RetentionPolicy;
  * <a name="RemoteMessengerServiceSample"></a>
  * <h3>Remote Messenger Service Sample</h3>
  * 
- * <p>If you need to be able to write a Service that can perform complicated
+ * <p>If you need to be able to write a Service that can perform complicated 复杂的
  * communication with clients in remote processes (beyond simply the use of
  * {@link Context#startService(Intent) Context.startService} to send
  * commands to it), then you can use the {@link android.os.Messenger} class
@@ -290,7 +290,7 @@ import java.lang.annotation.RetentionPolicy;
  * {@sample development/samples/ApiDemos/AndroidManifest.xml remote_service_declaration}
  * 
  * <p>Note that the name "remote" chosen here is arbitrary, and you can use
- * other names if you want additional processes.  The ':' prefix appends the
+ * other names if you want additional processes.  The ':' prefix appends 添加 the
  * name to your package's standard process name.
  * 
  * <p>With that done, clients can now bind to the service and send messages

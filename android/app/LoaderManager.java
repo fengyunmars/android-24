@@ -29,7 +29,7 @@ import java.lang.reflect.Modifier;
 /**
  * Interface associated with an {@link Activity} or {@link Fragment} for managing
  * one or more {@link android.content.Loader} instances associated with it.  This
- * helps an application manage longer-running operations in conjunction with the
+ * helps an application manage longer-running operations in conjunction 结合 with the
  * Activity or Fragment lifecycle; the most common use of this is with a
  * {@link android.content.CursorLoader}, however applications are free to write
  * their own loaders for loading other types of data.
