@@ -316,7 +316,7 @@ public abstract class PackageManager {
      * Flag parameter to retrieve some information about all applications (even
      * uninstalled ones) which have data directories. This state could have
      * resulted if applications have been deleted with flag
-     * {@code DONT_DELETE_DATA} with a possibility of being replaced or
+     * {@code DONT_DELETE_DATA} with a possibility 可能性 of being replaced or
      * reinstalled in future.
      * <p>
      * Note: this flag may cause less information about currently installed
@@ -3479,7 +3479,7 @@ public abstract class PackageManager {
     /**
      * Return a List of all application packages that are installed on the
      * device. If flag GET_UNINSTALLED_PACKAGES has been set, a list of all
-     * applications including those deleted with {@code DONT_DELETE_DATA} (partially
+     * applications including those deleted with {@code DONT_DELETE_DATA} (partially 部分的
      * installed apps with data directory) will be returned.
      *
      * @param flags Additional option flags. Use any combination of
@@ -3488,7 +3488,7 @@ public abstract class PackageManager {
      * to modify the data returned.
      *
      * @return A List of ApplicationInfo objects, one for each installed application.
-     *         In the unlikely case there are no installed packages, an empty list
+     *         In the unlikely 不太可能的 case there are no installed packages, an empty list
      *         is returned. If flag {@code MATCH_UNINSTALLED_PACKAGES} is set, the
      *         application information is retrieved from the list of uninstalled
      *         applications (which includes installed applications as well as

@@ -630,7 +630,7 @@ public class SearchView extends LinearLayout implements CollapsibleActionView {
     /**
      * Sets the default or resting state of the search field. If true, a single search icon is
      * shown by default and expands to show the text field and other buttons when pressed. Also,
-     * if the default state is iconified, then it collapses to that state when the close button
+     * if the default state is iconified 图标化 , then it collapses to that state when the close button
      * is pressed. Changes to this property will take effect immediately.
      *
      * <p>The default value is true.</p>

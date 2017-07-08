@@ -4213,10 +4213,10 @@ public class Intent implements Parcelable, Cloneable {
      */
     public static final int FLAG_GRANT_READ_URI_PERMISSION = 0x00000001;
     /**
-     * If set, the recipient of this Intent will be granted permission to
+     * If set, the recipient 接收者 of this Intent will be granted permission to
      * perform write operations on the URI in the Intent's data and any URIs
      * specified in its ClipData.  When applying to an Intent's ClipData,
-     * all URIs as well as recursive traversals through data or other ClipData
+     * all URIs as well as recursive 递归的 traversals 遍历 through data or other ClipData
      * in Intent items will be granted; only the grant flags of the top-level
      * Intent are used.
      */

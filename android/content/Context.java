@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -93,9 +93,9 @@ public abstract class Context {
      * mode will throw a {@link SecurityException}.
      *
      * @deprecated Creating world-readable files is very dangerous, and likely
-     *             to cause security holes 洞 in applications. It is strongly
-     *             discouraged; instead, applications should use more formal 正式的
-     *             mechanism for interactions 交互 such as {@link ContentProvider},
+     *             to cause security holes 濞?in applications. It is strongly
+     *             discouraged; instead, applications should use more formal 濮濓絽绱￠惃?
+     *             mechanism for interactions 娴溿倓绨?such as {@link ContentProvider},
      *             {@link BroadcastReceiver}, and {@link android.app.Service}.
      *             There are no guarantees that this access mode will remain on
      *             a file, such as when it goes through a backup and restore.
@@ -142,17 +142,17 @@ public abstract class Context {
      * Generally there are better forms of communication between
      * processes, though.
      *
-     * <p>This was the legacy 遗产 (but undocumented 无正式文件的 ) behavior in and
-     * before Gingerbread (Android 2.3) and this flag is implied 暗指的 when
+     * <p>This was the legacy 闁ぞ楠?(but undocumented 閺冪姵顒滃蹇旀瀮娴犲墎娈?) behavior in and
+     * before Gingerbread (Android 2.3) and this flag is implied 閺嗘瀵氶惃?when
      * targetting such releases.  For applications targetting SDK
      * versions <em>greater than</em> Android 2.3, this flag must be
      * explicitly set if desired.
      *
      * @see #getSharedPreferences
      *
-     * @deprecated MODE_MULTI_PROCESS does not work reliably 可靠地 in
-     * some versions of Android, and furthermore 此外 does not provide any
-     * mechanism for reconciling 调解 concurrent 并发 modifications 修改 across
+     * @deprecated MODE_MULTI_PROCESS does not work reliably 閸欘垶娼崷?in
+     * some versions of Android, and furthermore 濮濄倕顦?does not provide any
+     * mechanism for reconciling 鐠嬪啳袙 concurrent 楠炶泛褰?modifications 娣囶喗鏁?across
      * processes.  Applications should not attempt to use it.  Instead,
      * they should use an explicit cross-process data management
      * approach such as {@link android.content.ContentProvider ContentProvider}.
@@ -172,7 +172,7 @@ public abstract class Context {
 
     /**
      * Database open flag: when set, the database is opened without support for
-     * localized collators 核对人.
+     * localized collators 閺嶇顕禍?
      *
      * @see #openOrCreateDatabase(String, int, CursorFactory)
      * @see #openOrCreateDatabase(String, int, CursorFactory, DatabaseErrorHandler)
@@ -207,7 +207,7 @@ public abstract class Context {
      * <p>Note that prior to {@link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH},
      * not supplying this flag would also impact how important the system
      * consider's the target service's process to be.  When set, the only way
-     * for it to be raised was by binding from a service in which case it will
+     * for it to be raised 閹绘劙鐝?was by binding from a service in which case it will
      * only be important when that activity is in the foreground.  Now to
      * achieve this behavior you must explicitly supply the new flag
      * {@link #BIND_ADJUST_WITH_ACTIVITY}.  For compatibility, old applications
@@ -363,7 +363,7 @@ public abstract class Context {
      * Returns an AssetManager instance for the application's package.
      * <p>
      * <strong>Note:</strong> Implementations of this method should return
-     * an AssetManager instance that is consistent һ�µ�  with the Resources instance
+     * an AssetManager instance that is consistent 一致的 with the Resources instance
      * returned by {@link #getResources()}. For example, they should share the
      * same {@link Configuration} object.
      *
@@ -565,7 +565,7 @@ public abstract class Context {
     public abstract Resources.Theme getTheme();
 
     /**
-     * Retrieve ȡ��  styled attribute information in this Context's theme.  See
+     * Retrieve 鍙栭敓鏂ゆ嫹  styled attribute information in this Context's theme.  See
      * {@link android.content.res.Resources.Theme#obtainStyledAttributes(int[])}
      * for more information.
      *
@@ -854,7 +854,7 @@ public abstract class Context {
      * created with {@link #openFileOutput} are stored.
      * <p>
      * The returned path may change over time if the calling app is moved to an
-     * adopted storage device, so only relative paths should be persisted.
+     * adopted 鐞氼偅鏁归崗鑽ゆ畱 storage device, so only relative paths should be persisted.
      * <p>
      * No additional permissions are required for the calling app to read or
      * write files under the returned path.
@@ -907,10 +907,10 @@ public abstract class Context {
      * these files.
      * </ul>
      * <p>
-     * If a shared storage device is emulated (as determined by
+     * If a shared storage device is emulated  娴犺法婀￠惃?(as determined by
      * {@link Environment#isExternalStorageEmulated(File)}), it's contents are
-     * backed by a private user data partition, which means there is little
-     * benefit to storing data here instead of the private directories returned
+     * backed by a private user data partition 閸掑棗澹?, which means there is little
+     * benefit 婵傝棄顦?to storing data here instead of the private directories returned
      * by {@link #getFilesDir()}, etc.
      * <p>
      * Starting in {@link android.os.Build.VERSION_CODES#KITKAT}, no permissions
@@ -2463,11 +2463,11 @@ public abstract class Context {
      * have permission to start the given service.
      *
      * <p class="note"><strong>Note:</strong> Each call to startService()
-     * results in significant work done by the system to manage service
+     * results in significant 闁插秴銇囬惃?work done by the system to manage service
      * lifecycle surrounding the processing of the intent, which can take
      * multiple milliseconds of CPU time. Due to this cost, startService()
      * should not be used for frequent intent delivery to a service, and only
-     * for scheduling significant work. Use {@link #bindService bound services}
+     * for scheduling significant 闁插秷顩﹂惃?work. Use {@link #bindService bound services}
      * for high frequency calls.
      * </p>
      *
@@ -2487,7 +2487,7 @@ public abstract class Context {
      * @see #bindService
      */
     @Nullable
-    public abstract ComponentName startService(Intent service);
+    public abstract ComponentName   startService(Intent service);
 
     /**
      * Request that a given application service be stopped.  If the service is

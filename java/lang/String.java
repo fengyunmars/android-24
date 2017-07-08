@@ -1153,7 +1153,7 @@ public final class String
      * <p>
      * A substring of this <tt>String</tt> object is compared to a substring
      * of the argument other. The result is true if these substrings
-     * represent identical character sequences. The substring of this
+     * represent identical 相同的 character sequences. The substring of this
      * <tt>String</tt> object to be compared begins at index <tt>toffset</tt>
      * and has length <tt>len</tt>. The substring of other to be compared
      * begins at index <tt>ooffset</tt> and has length <tt>len</tt>. The
@@ -1382,7 +1382,7 @@ public final class String
      * this <code>String</code> object, then the index (in Unicode
      * code units) of the first such occurrence is returned. For
      * values of <code>ch</code> in the range from 0 to 0xFFFF
-     * (inclusive), this is the smallest value <i>k</i> such that:
+     * (inclusive 包括的 ), this is the smallest value <i>k</i> such that:
      * <blockquote><pre>
      * this.charAt(<i>k</i>) == ch
      * </pre></blockquote>

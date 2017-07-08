@@ -44,7 +44,7 @@ import java.util.Locale;
 import libcore.icu.ICU;
 
 /**
- * The <code>Collator</code> class performs locale-sensitive
+ * The <code>Collator 核对者</code> class performs locale-sensitive
  * <code>String</code> comparison. You use this class to build
  * searching and sorting routines for natural language text.
  *
@@ -52,7 +52,7 @@ import libcore.icu.ICU;
  * <code>Collator</code> is an abstract base class. Subclasses
  * implement specific collation strategies. One subclass,
  * <code>RuleBasedCollator</code>, is currently provided with
- * the Java Platform and is applicable to a wide set of languages. Other
+ * the Java Platform and is applicable 可应用的 to a wide set of languages. Other
  * subclasses may be created to handle more specialized needs.
  *
  * <p>
@@ -78,15 +78,15 @@ import libcore.icu.ICU;
  * </blockquote>
  *
  * <p>
- * You can set a <code>Collator</code>'s <em>strength</em> property
- * to determine the level of difference considered significant in
+ * You can set a <code>Collator</code>'s <em>strength 优点 </em> property
+ * to determine the level of difference considered significant 重要的 in
  * comparisons. Four strengths are provided: <code>PRIMARY</code>,
- * <code>SECONDARY</code>, <code>TERTIARY</code>, and <code>IDENTICAL</code>.
+ * <code>SECONDARY</code>, <code>TERTIARY 第三的 </code>, and <code>IDENTICAL 相同的 </code>.
  * The exact assignment of strengths to language features is
- * locale dependant.  For example, in Czech, "e" and "f" are considered
+ * locale dependant.  For example, in Czech 捷克语 , "e" and "f" are considered
  * primary differences, while "e" and "&#283;" are secondary differences,
  * "e" and "E" are tertiary differences and "e" and "e" are identical.
- * The following shows how both case and accents could be ignored for
+ * The following shows how both case and accents 口音 could be ignored for
  * US English.
  * <blockquote>
  * <pre>

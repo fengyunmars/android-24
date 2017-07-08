@@ -26,7 +26,7 @@ import android.os.ServiceManager;
 import java.util.ArrayList;
 
 /**
- * Interface to the clipboard service, for placing and retrieving text in
+ * Interface to the clipboard 剪贴板 service, for placing and retrieving text in
  * the global clipboard.
  *
  * <p>
@@ -49,6 +49,7 @@ import java.util.ArrayList;
  * @see android.content.Context#getSystemService
  */
 public class ClipboardManager extends android.text.ClipboardManager {
+
     private final static Object sStaticLock = new Object();
     private static IClipboard sService;
 
@@ -190,7 +191,7 @@ public class ClipboardManager extends android.text.ClipboardManager {
 
     /**
      * @deprecated Use {@link #getPrimaryClip()} instead.  This retrieves
-     * the primary clip and tries to coerce it to a string.
+     * the primary clip and tries to coerce 强制 it to a string.
      */
     public CharSequence getText() {
         ClipData clip = getPrimaryClip();

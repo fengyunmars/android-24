@@ -3823,7 +3823,7 @@ public class Activity extends ContextThemeWrapper
      * {@link #startSearch startSearch(null, false, null, false)}, which launches
      * search for the current activity as specified in its manifest, see {@link SearchManager}.
      *
-     * <p>You can override this function to force global search, e.g. in response to a dedicated
+     * <p>You can override this function to force global search, e.g. in response to a dedicated 专用的
      * search key, or to block search entirely (by simply returning false).
      *
      * <p>Note: when running in a {@link Configuration#UI_MODE_TYPE_TELEVISION}, the default
@@ -3880,7 +3880,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @param initialQuery Any non-null non-empty string will be inserted as
      * pre-entered text in the search query box.
-     * @param selectInitialQuery If true, the initial query will be preselected, which means that
+     * @param selectInitialQuery If true, the initial query will be preselected 预选 , which means that
      * any further typing will replace it.  This is useful for cases where an entire pre-formed
      * query is being inserted.  If false, the selection point will be placed at the end of the
      * inserted query.  This is useful when the inserted query is text that the user entered,

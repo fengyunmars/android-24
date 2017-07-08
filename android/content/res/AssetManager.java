@@ -36,7 +36,7 @@ import java.util.HashMap;
  * Provides access to an application's raw asset files; see {@link Resources}
  * for the way most applications will want to retrieve their resource data.
  * This class presents a lower-level API that allows you to open and read raw
- * files that have been bundled with the application as a simple stream of
+ * files that have been bundled 随附的 with the application as a simple stream of
  * bytes.
  */
 public final class AssetManager implements AutoCloseable {

@@ -20,7 +20,7 @@ import java.text.BreakIterator;
 
 
 /**
- * Utility class for manipulating cursors and selections in CharSequences.
+ * Utility class for manipulating 控制 cursors and selections in CharSequences.
  * A cursor is a selection where the start and end are at the same offset.
  */
 public class Selection {
@@ -31,7 +31,7 @@ public class Selection {
      */
 
     /**
-     * Return the offset of the selection anchor or cursor, or -1 if
+     * Return the offset of the selection anchor 锚 or cursor, or -1 if
      * there is no selection or cursor.
      */
     public static final int getSelectionStart(CharSequence text) {
@@ -42,7 +42,7 @@ public class Selection {
     }
 
     /**
-     * Return the offset of the selection edge or cursor, or -1 if
+     * Return the offset of the selection edge 边界 or cursor, or -1 if
      * there is no selection or cursor.
      */
     public static final int getSelectionEnd(CharSequence text) {

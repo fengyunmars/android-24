@@ -119,7 +119,7 @@ public class Loader<D> {
     }
 
     /**
-     * Stores away the application context associated with context.
+     * Stores away 存储某物 the application context associated with context.
      * Since Loaders can be used across multiple activities it's dangerous to
      * store the context directly; always use {@link #getContext()} to retrieve
      * the Loader's Context, don't use the constructor argument directly.
@@ -302,7 +302,7 @@ public class Loader<D> {
      * Attempt to cancel the current load task.
      * Must be called on the main thread of the process.
      *
-     * <p>Cancellation is not an immediate operation, since the load is performed
+     * <p>Cancellation is not an immediate 立即的 operation, since the load is performed
      * in a background thread.  If there is currently a load in progress, this
      * method requests that the load be canceled, and notes this is the case;
      * once the background thread has completed its work its remaining state

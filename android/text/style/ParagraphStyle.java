@@ -20,7 +20,6 @@ package android.text.style;
  * The classes that affect paragraph-level text formatting implement
  * this interface.
  */
-public interface ParagraphStyle
-{
+public interface ParagraphStyle {
 
 }

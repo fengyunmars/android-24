@@ -71,7 +71,7 @@ import android.util.Slog;
  * </ul>
  * 
  * <p>Even in the case of normal broadcasts, the system may in some
- * situations revert to delivering the broadcast one receiver at a time.  In
+ * situations revert 恢复 to delivering the broadcast one receiver at a time.  In
  * particular, for receivers that may require the creation of a process, only
  * one will be run at a time to avoid overloading the system with new processes.
  * In this situation, however, the non-ordered semantics hold: these receivers still
@@ -82,7 +82,7 @@ import android.util.Slog;
  * from Intents that are used to start Activities with
  * {@link Context#startActivity Context.startActivity()}.
  * There is no way for a BroadcastReceiver
- * to see or capture Intents used with startActivity(); likewise, when
+ * to see or capture Intents used with startActivity(); likewise 同样的 , when
  * you broadcast an Intent, you will never find or start an Activity.
  * These two operations are semantically very different: starting an
  * Activity with an Intent is a foreground operation that modifies what the
@@ -113,11 +113,11 @@ import android.util.Slog;
  *
  * <p>Receivers used with the {@link Context} APIs are by their nature a
  * cross-application facility, so you must consider how other applications
- * may be able to abuse your use of them.  Some things to consider are:
+ * may be able to abuse 滥用 your use of them.  Some things to consider are:
  *
  * <ul>
  * <li><p>The Intent namespace is global.  Make sure that Intent action names and
- * other strings are written in a namespace you own, or else you may inadvertently
+ * other strings are written in a namespace you own, or else you may inadvertently 非故意的
  * conflict with other applications.
  * <li><p>When you use {@link Context#registerReceiver(BroadcastReceiver, IntentFilter)},
  * <em>any</em> application may send broadcasts to that registered receiver.  You can
@@ -128,7 +128,7 @@ import android.util.Slog;
  * unavailable to them with <code>android:exported="false"</code>.
  * <li><p>When you use {@link Context#sendBroadcast(Intent)} or related methods,
  * normally any other application can receive these broadcasts.  You can control who
- * can receive such broadcasts through permissions described below.  Alternatively,
+ * can receive such broadcasts through permissions described below.  Alternatively 或者 二者选一的 ,
  * starting with {@link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH}, you
  * can also safely restrict the broadcast to a single application with
  * {@link Intent#setPackage(String) Intent.setPackage}
@@ -172,7 +172,7 @@ import android.util.Slog;
  * to {@link #onReceive}.  Once your code returns from this function,
  * the system considers the object to be finished and no longer active.
  * 
- * <p>This has important repercussions to what you can do in an
+ * <p>This has important repercussions 后果 to what you can do in an
  * {@link #onReceive} implementation: anything that requires asynchronous
  * operation is not available, because you will need to return from the
  * function to handle the asynchronous operation, but at that point the
@@ -199,7 +199,7 @@ import android.util.Slog;
  * that process was only hosting the BroadcastReceiver (a common case for
  * applications that the user has never or not recently interacted with), then
  * upon returning from onReceive() the system will consider its process
- * to be empty and aggressively kill it so that resources are available for other
+ * to be empty and aggressively 攻击性的 kill it so that resources are available for other
  * more important processes.
  * 
  * <p>This means that for longer-running operations you will often use

@@ -18,13 +18,13 @@ package android.text;
 
 /**
  * This interface should be added to a span object that should not be copied
- * into a new Spanned when performing a slice or copy operation on the original
+ * into a new Spanned when performing a slice 剪切 or copy operation on the original
  * Spanned it was placed in.
  */
 public interface NoCopySpan {
     /**
      * Convenience equivalent 等价物 for when you would just want a new Object() for
-     * a span but want it to be no-copy.  Use this instead.
+     * a span but want it to be no-copy.  Use this instead. Concrete 实在的
      */
     public class Concrete implements NoCopySpan {
     }

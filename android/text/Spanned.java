@@ -18,54 +18,53 @@ package android.text;
 
 /**
  * This is the interface for text that has markup objects attached to
- * ranges of it.  Not all text classes have mutable markup or text;
+ * ranges 范围 of it.  Not all text classes have mutable 易变的 markup or text;
  * see {@link Spannable} for mutable markup and {@link Editable} for
  * mutable text.
  */
 public interface Spanned
-extends CharSequence
-{
+        extends CharSequence {
     /**
-     * Bitmask of bits that are relevent for controlling point/mark behavior
+     * Bitmask of bits that are relevent 有关的 for controlling point/mark behavior
      * of spans.
-     *
-     * MARK and POINT are conceptually located <i>between</i> two adjacent characters.
-     * A MARK is "attached" to the character before, while a POINT will stick to the character
+     * <p>
+     * MARK and POINT are conceptually 概念的 located <i>between</i> two adjacent 相邻的 characters.
+     * A MARK is "attached" to the character before, while a POINT will stick to 紧跟 the character
      * after. The insertion cursor is conceptually located between the MARK and the POINT.
-     *
+     * <p>
      * As a result, inserting a new character between a MARK and a POINT will leave the MARK
      * unchanged, while the POINT will be shifted, now located after the inserted character and
      * still glued to the same character after it.
-     *
+     * <p>
      * Depending on whether the insertion happens at the beginning or the end of a span, the span
      * will hence be expanded to <i>include</i> the new character (when the span is using a MARK at
      * its beginning or a POINT at its end) or it will be <i>excluded</i>.
-     *
+     * <p>
      * Note that <i>before</i> and <i>after</i> here refer to offsets in the String, which are
      * independent from the visual representation of the text (left-to-right or right-to-left).
      */
     public static final int SPAN_POINT_MARK_MASK = 0x33;
-    
+
     /**
      * 0-length spans with type SPAN_MARK_MARK behave like text marks:
      * they remain at their original offset when text is inserted
-     * at that offset. Conceptually, the text is added after the mark.
+     * at that offset. Conceptually, the text is added after the mark. a synonym 同义词 for {@link #SPAN_INCLUSIVE_EXCLUSIVE}.
      */
-    public static final int SPAN_MARK_MARK =   0x11;
+    public static final int SPAN_MARK_MARK = 0x11;
     /**
-     * SPAN_MARK_POINT is a synonym for {@link #SPAN_INCLUSIVE_INCLUSIVE}.
+     * SPAN_MARK_POINT is a synonym 同义词 for {@link #SPAN_INCLUSIVE_INCLUSIVE}.
      */
-    public static final int SPAN_MARK_POINT =  0x12;
+    public static final int SPAN_MARK_POINT = 0x12;
     /**
      * SPAN_POINT_MARK is a synonym for {@link #SPAN_EXCLUSIVE_EXCLUSIVE}.
      */
-    public static final int SPAN_POINT_MARK =  0x21;
+    public static final int SPAN_POINT_MARK = 0x21;
 
     /**
      * 0-length spans with type SPAN_POINT_POINT behave like cursors:
      * they are pushed forward by the length of the insertion when text
      * is inserted at their offset.
-     * The text is conceptually inserted before the point.
+     * The text is conceptually inserted before the point. a synonym 同义词 for {@link #SPAN_EXCLUSIVE_INCLUSIVE}.
      */
     public static final int SPAN_POINT_POINT = 0x22;
 
@@ -85,7 +84,7 @@ extends CharSequence
      * into another text and the paragraph boundary constraint
      * is not satisfied, the span is discarded.
      */
-    public static final int SPAN_PARAGRAPH =   0x33;
+    public static final int SPAN_PARAGRAPH = 0x33;
 
     /**
      * Non-0-length spans of type SPAN_INCLUSIVE_EXCLUSIVE expand
@@ -122,15 +121,15 @@ extends CharSequence
      * replaced.
      */
     public static final int SPAN_COMPOSING = 0x100;
-    
+
     /**
-     * This flag will be set for intermediate span changes, meaning there
+     * This flag will be set for intermediate 中间的 span changes, meaning there
      * is guaranteed to be another change following it.  Typically it is
      * used for {@link Selection} which automatically uses this with the first
      * offset it sets when updating the selection.
      */
     public static final int SPAN_INTERMEDIATE = 0x200;
-    
+
     /**
      * The bits numbered SPAN_USER_SHIFT and above are available
      * for callers to use to store scalar data associated with their

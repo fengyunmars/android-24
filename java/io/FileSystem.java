@@ -81,7 +81,7 @@ abstract class FileSystem {
     /**
      * Post-process the given URI path string if necessary.  This is used on
      * win32, e.g., to transform "/c:/foo" into "c:/foo".  The path string
-     * still has slash separators; code in the File class will translate them
+     * still has slash 斜线 separators; code in the File class will translate them
      * after this method returns.
      */
     public abstract String fromURIPath(String path);
@@ -158,7 +158,7 @@ abstract class FileSystem {
      * Create a new empty file with the given pathname.  Return
      * <code>true</code> if the file was created and <code>false</code> if a
      * file or directory with the given pathname already exists.  Throw an
-     * IOException if an I/O error occurs.
+     * IOException if an I/O error occurs. Exclusively 专门的
      */
     public abstract boolean createFileExclusively(String pathname)
         throws IOException;

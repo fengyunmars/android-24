@@ -17,7 +17,7 @@
 package android.os;
 
 /**
- * Class that implements the condition variable locking paradigm.
+ * Class that implements the condition variable locking paradigm 范例 .
  *
  * <p>
  * This differs from the built-in java.lang.Object wait() and notify()

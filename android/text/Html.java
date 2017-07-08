@@ -70,7 +70,7 @@ public class Html {
      */
     public static interface ImageGetter {
         /**
-         * This method is called when the HTML parser encounters an
+         * This method is called when the HTML parser encounters 遇到 an
          * &lt;img&gt; tag.  The <code>source</code> argument is the
          * string from the "src" attribute; the return value should be
          * a Drawable representation of the image or <code>null</code>
@@ -95,7 +95,12 @@ public class Html {
     }
 
     /**
-     * Option for {@link #toHtml(Spanned, int)}: Wrap consecutive lines of text delimited by '\n'
+     * The bit which indicates if lines delimited 限制 by '\n' will be grouped into &lt;p&gt; elements.
+     */
+    private static final int TO_HTML_PARAGRAPH_FLAG = 0x00000001;
+
+    /**
+     * Option for {@link #toHtml(Spanned, int)}: Wrap consecutive 连续的 lines of text delimited by '\n'
      * inside &lt;p&gt; elements. {@link BulletSpan}s are ignored.
      */
     public static final int TO_HTML_PARAGRAPH_LINES_CONSECUTIVE = 0x00000000;
@@ -158,7 +163,7 @@ public class Html {
 
     /**
      * Flags for {@link #fromHtml(String, int, ImageGetter, TagHandler)}: Separate block-level
-     * elements with line breaks (single newline character) in between. This inverts the
+     * elements with line breaks (single newline character) in between. This inverts 使倒置 the
      * {@link Spanned} to HTML string conversion done with the option
      * {@link #TO_HTML_PARAGRAPH_LINES_INDIVIDUAL}.
      */
@@ -169,11 +174,6 @@ public class Html {
             | FROM_HTML_SEPARATOR_LINE_BREAK_LIST
             | FROM_HTML_SEPARATOR_LINE_BREAK_DIV
             | FROM_HTML_SEPARATOR_LINE_BREAK_BLOCKQUOTE;
-
-    /**
-     * The bit which indicates if lines delimited by '\n' will be grouped into &lt;p&gt; elements.
-     */
-    private static final int TO_HTML_PARAGRAPH_FLAG = 0x00000001;
 
     private Html() { }
 
@@ -225,7 +225,7 @@ public class Html {
      * if you don't want this) and the specified TagHandler to handle unknown tags (specify null if
      * you don't want this).
      *
-     * <p>This uses TagSoup to handle real HTML, including all of the brokenness found in the wild.
+     * <p>This uses TagSoup to handle real HTML, including all of the brokenness 破碎 found in the wild.
      */
     public static Spanned fromHtml(String source, int flags, ImageGetter imageGetter,
             TagHandler tagHandler) {

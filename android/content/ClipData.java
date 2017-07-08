@@ -70,7 +70,7 @@ import java.util.List;
  * <h3>Implementing Paste or Drop</h3>
  *
  * <p>To implement a paste or drop of a ClipData object into an application,
- * the application must correctly interpret the data for its use.  If the {@link Item}
+ * the application must correctly interpret 理解 the data for its use.  If the {@link Item}
  * it contains is simple text or an Intent, there is little to be done: text
  * can only be interpreted as text, and an Intent will typically be used for
  * creating shortcuts (such as placing icons on the home screen) or other
@@ -82,10 +82,10 @@ import java.util.List;
  * reported by {@link ClipDescription#getMimeType(int) getDescription().getMimeType(int)},
  * since any clip item can always be converted to a string.
  *
- * <p>More complicated exchanges will be done through URIs, in particular
- * "content:" URIs.  A content URI allows the recipient of a ClipData item
+ * <p>More complicated 复杂的 exchanges 交流 will be done through URIs, in particular
+ * "content:" URIs.  A content URI allows the recipient 接收者 of a ClipData item
  * to interact closely with the ContentProvider holding the data in order to
- * negotiate the transfer of that data.  The clip must also be filled in with
+ * negotiate 达成 the transfer 转移 of that data.  The clip must also be filled in with
  * the available MIME types; {@link #newUri(ContentResolver, CharSequence, Uri)}
  * will take care of correctly doing this.
  *
@@ -126,7 +126,7 @@ import java.util.List;
  * URI consisting of a complicated structure that only other applications with
  * direct knowledge of the structure can use.
  *
- * <p>For applications that do not have intrinsic knowledge of the data structure,
+ * <p>For applications that do not have intrinsic 本质的 knowledge of the data structure,
  * the content provider holding it can make the data available as an arbitrary
  * number of types of data streams.  This is done by implementing the
  * ContentProvider {@link ContentProvider#getStreamTypes(Uri, String)} and
@@ -151,12 +151,16 @@ import java.util.List;
  * provider for the clip URI as text and successfully paste the entire note.
  */
 public class ClipData implements Parcelable {
+
     static final String[] MIMETYPES_TEXT_PLAIN = new String[] {
         ClipDescription.MIMETYPE_TEXT_PLAIN };
+
     static final String[] MIMETYPES_TEXT_HTML = new String[] {
         ClipDescription.MIMETYPE_TEXT_HTML };
+
     static final String[] MIMETYPES_TEXT_URILIST = new String[] {
         ClipDescription.MIMETYPE_TEXT_URILIST };
+
     static final String[] MIMETYPES_TEXT_INTENT = new String[] {
         ClipDescription.MIMETYPE_TEXT_INTENT };
 
@@ -169,7 +173,7 @@ public class ClipData implements Parcelable {
     /**
      * Description of a single item in a ClipData.
      *
-     * <p>The types than an individual item can currently contain are:</p>
+     * <p>The types than an individual 个体的 item can currently contain are:</p>
      *
      * <ul>
      * <li> Text: a basic string of text.  This is actually a CharSequence,
@@ -204,7 +208,7 @@ public class ClipData implements Parcelable {
         /**
          * Create an Item consisting of a single block of (possibly styled) text,
          * with an alternative HTML formatted representation.  You <em>must</em>
-         * supply a plain text representation in addition to HTML text; coercion
+         * supply a plain text representation in addition to HTML text; coercion 强制
          * will not be done from HTML formated text into plain text.
          */
         public Item(CharSequence text, String htmlText) {
@@ -294,7 +298,7 @@ public class ClipData implements Parcelable {
          * Turn this item into text, regardless of the type of data it
          * actually contains.
          *
-         * <p>The algorithm for deciding what text to return is:
+         * <p>The algorithm 算法 for deciding what text to return is:
          * <ul>
          * <li> If {@link #getText} is non-null, return that.
          * <li> If {@link #getUri} is non-null, try to retrieve its data
@@ -362,7 +366,7 @@ public class ClipData implements Parcelable {
                 }
 
                 // If we couldn't open the URI as a stream, then the URI itself
-                // probably serves fairly well as a textual representation.
+                // probably serves fairly 适当的 well as a textual representation.
                 return uri.toString();
             }
 

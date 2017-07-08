@@ -22,15 +22,14 @@ package android.text;
  * see {@link Editable} for that.
  */
 public interface Spannable
-extends Spanned
-{
+        extends Spanned {
     /**
      * Attach the specified markup object to the range <code>start&hellip;end</code>
      * of the text, or move the object to that range if it was already
      * attached elsewhere.  See {@link Spanned} for an explanation of
      * what the flags mean.  The object can be one that has meaning only
      * within your application, or it can be one that the text system will
-     * use to affect text display or behavior.  Some noteworthy ones are
+     * use to affect text display or behavior.  Some noteworthy 值得注意的 ones are
      * the subclasses of {@link android.text.style.CharacterStyle} and
      * {@link android.text.style.ParagraphStyle}, and
      * {@link android.text.TextWatcher} and
@@ -54,7 +53,7 @@ extends Spanned
 
         /**
          * Returns the standard Spannable Factory.
-         */ 
+         */
         public static Spannable.Factory getInstance() {
             return sInstance;
         }
