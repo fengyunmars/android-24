@@ -41,7 +41,7 @@ package java.lang;
  * method.
  * <p>
  * Note that this interface does <i>not</i> contain the <tt>clone</tt> method.
- * Therefore, it is not possible to clone an object merely by virtue of the
+ * Therefore, it is not possible to clone an object merely 仅仅 by virtue of the
  * fact that it implements this interface.  Even if the clone method is invoked
  * reflectively, there is no guarantee that it will succeed.
  *

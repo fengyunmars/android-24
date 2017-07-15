@@ -66,11 +66,13 @@ import java.util.regex.Pattern;
 public class TextUtils {
     private static final String TAG = "TextUtils";
 
-    /* package */ static final char[] ELLIPSIS_NORMAL = { '\u2026' }; // this is "..."
-    /** {@hide} */
+    /* package */ static final char[] ELLIPSIS_NORMAL = {'\u2026'}; // this is "..."
+    /**
+     * {@hide}
+     */
     public static final String ELLIPSIS_STRING = new String(ELLIPSIS_NORMAL);
 
-    /* package */ static final char[] ELLIPSIS_TWO_DOTS = { '\u2025' }; // this is ".."
+    /* package */ static final char[] ELLIPSIS_TWO_DOTS = {'\u2025'}; // this is ".."
     private static final String ELLIPSIS_TWO_DOTS_STRING = new String(ELLIPSIS_TWO_DOTS);
 
     private TextUtils() { /* cannot be instantiated */ }
@@ -110,7 +112,7 @@ public class TextUtils {
         Class<? extends CharSequence> c = s.getClass();
 
         if (s instanceof GetChars || c == StringBuffer.class ||
-            c == StringBuilder.class || c == String.class) {
+                c == StringBuilder.class || c == String.class) {
             final int INDEX_INCREMENT = 500;
             char[] temp = obtain(INDEX_INCREMENT);
 
@@ -168,7 +170,7 @@ public class TextUtils {
         Class<? extends CharSequence> c = s.getClass();
 
         if (s instanceof GetChars || c == StringBuffer.class ||
-            c == StringBuilder.class || c == String.class) {
+                c == StringBuilder.class || c == String.class) {
             final int INDEX_INCREMENT = 500;
             char[] temp = obtain(INDEX_INCREMENT);
 
@@ -217,7 +219,7 @@ public class TextUtils {
 
         char c = needle.charAt(0);
 
-        for (;;) {
+        for (; ; ) {
             start = indexOf(s, c, start);
             if (start > end - nlen) {
                 break;
@@ -286,13 +288,14 @@ public class TextUtils {
 
     /**
      * Returns a string containing the tokens joined by delimiters.
+     *
      * @param tokens an array objects to be joined. Strings will be formed from
-     *     the objects by calling object.toString().
+     *               the objects by calling object.toString().
      */
     public static String join(CharSequence delimiter, Object[] tokens) {
         StringBuilder sb = new StringBuilder();
         boolean firstTime = true;
-        for (Object token: tokens) {
+        for (Object token : tokens) {
             if (firstTime) {
                 firstTime = false;
             } else {
@@ -305,8 +308,9 @@ public class TextUtils {
 
     /**
      * Returns a string containing the tokens joined by delimiters.
+     *
      * @param tokens an array objects to be joined. Strings will be formed from
-     *     the objects by calling object.toString().
+     *               the objects by calling object.toString().
      */
     public static String join(CharSequence delimiter, Iterable tokens) {
         StringBuilder sb = new StringBuilder();
@@ -325,10 +329,9 @@ public class TextUtils {
      * String.split() returns [''] when the string to be split is empty. This returns []. This does
      * not remove any empty strings from the result. For example split("a,", ","  ) returns {"a", ""}.
      *
-     * @param text the string to split
+     * @param text       the string to split
      * @param expression the regular expression to match
      * @return an array of strings. The array will be empty if text is empty
-     *
      * @throws NullPointerException if expression or text is null
      */
     public static String[] split(String text, String expression) {
@@ -342,10 +345,10 @@ public class TextUtils {
     /**
      * Splits a string on a pattern. String.split() returns [''] when the string to be
      * split is empty. This returns []. This does not remove any empty strings from the result.
-     * @param text the string to split
+     *
+     * @param text    the string to split
      * @param pattern the regular expression to match
      * @return an array of strings. The array will be empty if text is empty
-     *
      * @throws NullPointerException if expression or text is null
      */
     public static String[] split(String text, Pattern pattern) {
@@ -360,9 +363,9 @@ public class TextUtils {
      * An interface for splitting strings according to rules that are opaque to the user of this
      * interface. This also has less overhead than split, which uses regular expressions and
      * allocates an array to hold the results.
-     *
+     * <p>
      * <p>The most efficient way to use this class is:
-     *
+     * <p>
      * <pre>
      * // Once
      * TextUtils.StringSplitter splitter = new TextUtils.SimpleStringSplitter(delimiter);
@@ -380,7 +383,7 @@ public class TextUtils {
 
     /**
      * A simple string splitter.
-     *
+     * <p>
      * <p>If the final character in the string to split is the delimiter then no empty string will
      * be returned for the empty string after that delimeter. That is, splitting <tt>"a,b,"</tt> on
      * comma will return <tt>"a", "b"</tt>, not <tt>"a", "b", ""</tt>.
@@ -393,6 +396,7 @@ public class TextUtils {
 
         /**
          * Initializes the splitter. setString may be called later.
+         *
          * @param delimiter the delimeter on which to split
          */
         public SimpleStringSplitter(char delimiter) {
@@ -401,6 +405,7 @@ public class TextUtils {
 
         /**
          * Sets the string to split
+         *
          * @param string the string to split
          */
         public void setString(String string) {
@@ -445,6 +450,7 @@ public class TextUtils {
 
     /**
      * Returns true if the string is null or 0-length.
+     *
      * @param str the string to be examined
      * @return true if str is null or zero length
      */
@@ -455,7 +461,9 @@ public class TextUtils {
             return false;
     }
 
-    /** {@hide} */
+    /**
+     * {@hide}
+     */
     public static String nullIfEmpty(@Nullable String str) {
         return isEmpty(str) ? null : str;
     }
@@ -485,6 +493,7 @@ public class TextUtils {
      * Returns true if a and b are equal, including if they are both null.
      * <p><i>Note: In platform versions 1.1 and earlier, this method only worked well if
      * both the arguments were instances of String.</i></p>
+     *
      * @param a first CharSequence to check
      * @param b second CharSequence to check
      * @return true if a and b are equal
@@ -509,6 +518,7 @@ public class TextUtils {
      * This function only reverses individual {@code char}s and not their associated
      * spans. It doesn't support surrogate pairs (that correspond to non-BMP code points), combining
      * sequences or conjuncts either.
+     *
      * @deprecated Do not use.
      */
     @Deprecated
@@ -517,8 +527,7 @@ public class TextUtils {
     }
 
     private static class Reverser
-    implements CharSequence, GetChars
-    {
+            implements CharSequence, GetChars {
         public Reverser(CharSequence source, int start, int end) {
             mSource = source;
             mStart = start;
@@ -547,7 +556,7 @@ public class TextUtils {
 
         public void getChars(int start, int end, char[] dest, int destoff) {
             TextUtils.getChars(mSource, start + mStart, end + mStart,
-                               dest, destoff);
+                    dest, destoff);
             AndroidCharacter.mirror(dest, 0, end - start);
 
             int len = end - start;
@@ -565,57 +574,109 @@ public class TextUtils {
         private int mEnd;
     }
 
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int ALIGNMENT_SPAN = 1;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int FIRST_SPAN = ALIGNMENT_SPAN;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int FOREGROUND_COLOR_SPAN = 2;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int RELATIVE_SIZE_SPAN = 3;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int SCALE_X_SPAN = 4;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int STRIKETHROUGH_SPAN = 5;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int UNDERLINE_SPAN = 6;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int STYLE_SPAN = 7;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int BULLET_SPAN = 8;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int QUOTE_SPAN = 9;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int LEADING_MARGIN_SPAN = 10;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int URL_SPAN = 11;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int BACKGROUND_COLOR_SPAN = 12;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int TYPEFACE_SPAN = 13;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int SUPERSCRIPT_SPAN = 14;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int SUBSCRIPT_SPAN = 15;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int ABSOLUTE_SIZE_SPAN = 16;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int TEXT_APPEARANCE_SPAN = 17;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int ANNOTATION = 18;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int SUGGESTION_SPAN = 19;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int SPELL_CHECK_SPAN = 20;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int SUGGESTION_RANGE_SPAN = 21;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int EASY_EDIT_SPAN = 22;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int LOCALE_SPAN = 23;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int TTS_SPAN = 24;
-    /** @hide */
+    /**
+     * @hide
+     */
     public static final int LAST_SPAN = TTS_SPAN;
 
     /**
@@ -702,112 +763,111 @@ public class TextUtils {
                     break;
 
                 switch (kind) {
-                case ALIGNMENT_SPAN:
-                    readSpan(p, sp, new AlignmentSpan.Standard(p));
-                    break;
+                    case ALIGNMENT_SPAN:
+                        readSpan(p, sp, new AlignmentSpan.Standard(p));
+                        break;
 
-                case FOREGROUND_COLOR_SPAN:
-                    readSpan(p, sp, new ForegroundColorSpan(p));
-                    break;
+                    case FOREGROUND_COLOR_SPAN:
+                        readSpan(p, sp, new ForegroundColorSpan(p));
+                        break;
 
-                case RELATIVE_SIZE_SPAN:
-                    readSpan(p, sp, new RelativeSizeSpan(p));
-                    break;
+                    case RELATIVE_SIZE_SPAN:
+                        readSpan(p, sp, new RelativeSizeSpan(p));
+                        break;
 
-                case SCALE_X_SPAN:
-                    readSpan(p, sp, new ScaleXSpan(p));
-                    break;
+                    case SCALE_X_SPAN:
+                        readSpan(p, sp, new ScaleXSpan(p));
+                        break;
 
-                case STRIKETHROUGH_SPAN:
-                    readSpan(p, sp, new StrikethroughSpan(p));
-                    break;
+                    case STRIKETHROUGH_SPAN:
+                        readSpan(p, sp, new StrikethroughSpan(p));
+                        break;
 
-                case UNDERLINE_SPAN:
-                    readSpan(p, sp, new UnderlineSpan(p));
-                    break;
+                    case UNDERLINE_SPAN:
+                        readSpan(p, sp, new UnderlineSpan(p));
+                        break;
 
-                case STYLE_SPAN:
-                    readSpan(p, sp, new StyleSpan(p));
-                    break;
+                    case STYLE_SPAN:
+                        readSpan(p, sp, new StyleSpan(p));
+                        break;
 
-                case BULLET_SPAN:
-                    readSpan(p, sp, new BulletSpan(p));
-                    break;
+                    case BULLET_SPAN:
+                        readSpan(p, sp, new BulletSpan(p));
+                        break;
 
-                case QUOTE_SPAN:
-                    readSpan(p, sp, new QuoteSpan(p));
-                    break;
+                    case QUOTE_SPAN:
+                        readSpan(p, sp, new QuoteSpan(p));
+                        break;
 
-                case LEADING_MARGIN_SPAN:
-                    readSpan(p, sp, new LeadingMarginSpan.Standard(p));
-                break;
+                    case LEADING_MARGIN_SPAN:
+                        readSpan(p, sp, new LeadingMarginSpan.Standard(p));
+                        break;
 
-                case URL_SPAN:
-                    readSpan(p, sp, new URLSpan(p));
-                    break;
+                    case URL_SPAN:
+                        readSpan(p, sp, new URLSpan(p));
+                        break;
 
-                case BACKGROUND_COLOR_SPAN:
-                    readSpan(p, sp, new BackgroundColorSpan(p));
-                    break;
+                    case BACKGROUND_COLOR_SPAN:
+                        readSpan(p, sp, new BackgroundColorSpan(p));
+                        break;
 
-                case TYPEFACE_SPAN:
-                    readSpan(p, sp, new TypefaceSpan(p));
-                    break;
+                    case TYPEFACE_SPAN:
+                        readSpan(p, sp, new TypefaceSpan(p));
+                        break;
 
-                case SUPERSCRIPT_SPAN:
-                    readSpan(p, sp, new SuperscriptSpan(p));
-                    break;
+                    case SUPERSCRIPT_SPAN:
+                        readSpan(p, sp, new SuperscriptSpan(p));
+                        break;
 
-                case SUBSCRIPT_SPAN:
-                    readSpan(p, sp, new SubscriptSpan(p));
-                    break;
+                    case SUBSCRIPT_SPAN:
+                        readSpan(p, sp, new SubscriptSpan(p));
+                        break;
 
-                case ABSOLUTE_SIZE_SPAN:
-                    readSpan(p, sp, new AbsoluteSizeSpan(p));
-                    break;
+                    case ABSOLUTE_SIZE_SPAN:
+                        readSpan(p, sp, new AbsoluteSizeSpan(p));
+                        break;
 
-                case TEXT_APPEARANCE_SPAN:
-                    readSpan(p, sp, new TextAppearanceSpan(p));
-                    break;
+                    case TEXT_APPEARANCE_SPAN:
+                        readSpan(p, sp, new TextAppearanceSpan(p));
+                        break;
 
-                case ANNOTATION:
-                    readSpan(p, sp, new Annotation(p));
-                    break;
+                    case ANNOTATION:
+                        readSpan(p, sp, new Annotation(p));
+                        break;
 
-                case SUGGESTION_SPAN:
-                    readSpan(p, sp, new SuggestionSpan(p));
-                    break;
+                    case SUGGESTION_SPAN:
+                        readSpan(p, sp, new SuggestionSpan(p));
+                        break;
 
-                case SPELL_CHECK_SPAN:
-                    readSpan(p, sp, new SpellCheckSpan(p));
-                    break;
+                    case SPELL_CHECK_SPAN:
+                        readSpan(p, sp, new SpellCheckSpan(p));
+                        break;
 
-                case SUGGESTION_RANGE_SPAN:
-                    readSpan(p, sp, new SuggestionRangeSpan(p));
-                    break;
+                    case SUGGESTION_RANGE_SPAN:
+                        readSpan(p, sp, new SuggestionRangeSpan(p));
+                        break;
 
-                case EASY_EDIT_SPAN:
-                    readSpan(p, sp, new EasyEditSpan(p));
-                    break;
+                    case EASY_EDIT_SPAN:
+                        readSpan(p, sp, new EasyEditSpan(p));
+                        break;
 
-                case LOCALE_SPAN:
-                    readSpan(p, sp, new LocaleSpan(p));
-                    break;
+                    case LOCALE_SPAN:
+                        readSpan(p, sp, new LocaleSpan(p));
+                        break;
 
-                case TTS_SPAN:
-                    readSpan(p, sp, new TtsSpan(p));
-                    break;
+                    case TTS_SPAN:
+                        readSpan(p, sp, new TtsSpan(p));
+                        break;
 
-                default:
-                    throw new RuntimeException("bogus span encoding " + kind);
+                    default:
+                        throw new RuntimeException("bogus span encoding " + kind);
                 }
             }
 
             return sp;
         }
 
-        public CharSequence[] newArray(int size)
-        {
+        public CharSequence[] newArray(int size) {
             return new CharSequence[size];
         }
     };
@@ -828,8 +888,8 @@ public class TextUtils {
                         sp.getSpanEnd(o)) + ": "
                         + Integer.toHexString(System.identityHashCode(o))
                         + " " + o.getClass().getCanonicalName()
-                         + " (" + sp.getSpanStart(o) + "-" + sp.getSpanEnd(o)
-                         + ") fl=#" + sp.getSpanFlags(o));
+                        + " (" + sp.getSpanStart(o) + "-" + sp.getSpanEnd(o)
+                        + ") fl=#" + sp.getSpanFlags(o));
             }
         } else {
             printer.println(prefix + cs + ": (no spans)");
@@ -850,7 +910,7 @@ public class TextUtils {
 
             if (where >= 0)
                 tb.setSpan(sources[i], where, where + sources[i].length(),
-                           Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
 
         for (int i = 0; i < sources.length; i++) {
@@ -874,17 +934,14 @@ public class TextUtils {
      * '0'.
      *
      * @param template the input text containing "^1"-style
-     * placeholder values.  This object is not modified; a copy is
-     * returned.
-     *
-     * @param values CharSequences substituted into the template.  The
-     * first is substituted for "^1", the second for "^2", and so on.
-     *
+     *                 placeholder values.  This object is not modified; a copy is
+     *                 returned.
+     * @param values   CharSequences substituted into the template.  The
+     *                 first is substituted for "^1", the second for "^2", and so on.
      * @return the new CharSequence produced by doing the replacement
-     *
      * @throws IllegalArgumentException if the template requests a
-     * value that was not provided, or if more than 9 values are
-     * provided.
+     *                                  value that was not provided, or if more than 9 values are
+     *                                  provided.
      */
     public static CharSequence expandTemplate(CharSequence template,
                                               CharSequence... values) {
@@ -898,23 +955,23 @@ public class TextUtils {
             int i = 0;
             while (i < ssb.length()) {
                 if (ssb.charAt(i) == '^') {
-                    char next = ssb.charAt(i+1);
+                    char next = ssb.charAt(i + 1);
                     if (next == '^') {
-                        ssb.delete(i+1, i+2);
+                        ssb.delete(i + 1, i + 2);
                         ++i;
                         continue;
                     } else if (Character.isDigit(next)) {
                         int which = Character.getNumericValue(next) - 1;
                         if (which < 0) {
                             throw new IllegalArgumentException(
-                                "template requests value ^" + (which+1));
+                                    "template requests value ^" + (which + 1));
                         }
                         if (which >= values.length) {
                             throw new IllegalArgumentException(
-                                "template requests value ^" + (which+1) +
-                                "; only " + values.length + " provided");
+                                    "template requests value ^" + (which + 1) +
+                                            "; only " + values.length + " provided");
                         }
-                        ssb.replace(i, i+2, values[which]);
+                        ssb.replace(i, i + 2, values[which]);
                         i += values[which].length();
                         continue;
                     }
@@ -948,7 +1005,7 @@ public class TextUtils {
 
         if (text instanceof Spanned) {
             ReplacementSpan[] spans = ((Spanned) text).getSpans(offset, offset,
-                                                       ReplacementSpan.class);
+                    ReplacementSpan.class);
 
             for (int i = 0; i < spans.length; i++) {
                 int start = ((Spanned) text).getSpanStart(spans[i]);
@@ -985,7 +1042,7 @@ public class TextUtils {
 
         if (text instanceof Spanned) {
             ReplacementSpan[] spans = ((Spanned) text).getSpans(offset, offset,
-                                                       ReplacementSpan.class);
+                    ReplacementSpan.class);
 
             for (int i = 0; i < spans.length; i++) {
                 int start = ((Spanned) text).getSpanStart(spans[i]);
@@ -1012,7 +1069,7 @@ public class TextUtils {
      * as if they began at <code>start</code> or ended at <code>end</code>.
      *
      * @throws IndexOutOfBoundsException if any of the copied spans
-     * are out of range in <code>dest</code>.
+     *                                   are out of range in <code>dest</code>.
      */
     public static void copySpansFrom(Spanned source, int start, int end,
                                      Class kind,
@@ -1034,7 +1091,7 @@ public class TextUtils {
                 en = end;
 
             dest.setSpan(spans[i], st - start + destoff, en - start + destoff,
-                         fl);
+                    fl);
         }
     }
 
@@ -1105,11 +1162,11 @@ public class TextUtils {
      * @hide
      */
     public static CharSequence ellipsize(CharSequence text,
-            TextPaint paint,
-            float avail, TruncateAt where,
-            boolean preserveLength,
-            EllipsizeCallback callback,
-            TextDirectionHeuristic textDir, String ellipsis) {
+                                         TextPaint paint,
+                                         float avail, TruncateAt where,
+                                         boolean preserveLength,
+                                         EllipsizeCallback callback,
+                                         TextDirectionHeuristic textDir, String ellipsis) {
 
         int len = text.length();
 
@@ -1195,11 +1252,11 @@ public class TextUtils {
      * Charles, David" that is too wide to fit into the specified width
      * into one like "Andy, Bob, 2 more".
      *
-     * @param text the text to truncate
-     * @param p the Paint with which to measure the text
-     * @param avail the horizontal width available for the text
+     * @param text    the text to truncate
+     * @param p       the Paint with which to measure the text
+     * @param avail   the horizontal width available for the text
      * @param oneMore the string for "1 more" in the current locale
-     * @param more the string for "%d more" in the current locale
+     * @param more    the string for "%d more" in the current locale
      */
     public static CharSequence commaEllipsize(CharSequence text,
                                               TextPaint p, float avail,
@@ -1213,7 +1270,7 @@ public class TextUtils {
      * @hide
      */
     public static CharSequence commaEllipsize(CharSequence text, TextPaint p,
-         float avail, String oneMore, String more, TextDirectionHeuristic textDir) {
+                                              float avail, String oneMore, String more, TextDirectionHeuristic textDir) {
 
         MeasuredText mt = MeasuredText.obtain();
         try {
@@ -1278,7 +1335,7 @@ public class TextUtils {
     }
 
     private static float setPara(MeasuredText mt, TextPaint paint,
-            CharSequence text, int start, int end, TextDirectionHeuristic textDir) {
+                                 CharSequence text, int start, int end, TextDirectionHeuristic textDir) {
 
         mt.setPara(text, start, end, textDir, null);
 
@@ -1325,7 +1382,8 @@ public class TextUtils {
         return true;
     }
 
-    /* package */ static char[] obtain(int len) {
+    /* package */
+    static char[] obtain(int len) {
         char[] buf;
 
         synchronized (sLock) {
@@ -1339,7 +1397,8 @@ public class TextUtils {
         return buf;
     }
 
-    /* package */ static void recycle(char[] temp) {
+    /* package */
+    static void recycle(char[] temp) {
         if (temp.length > 1000)
             return;
 
@@ -1350,6 +1409,7 @@ public class TextUtils {
 
     /**
      * Html-encode the string.
+     *
      * @param s the string to be encoded
      * @return the encoded string
      */
@@ -1359,27 +1419,27 @@ public class TextUtils {
         for (int i = 0; i < s.length(); i++) {
             c = s.charAt(i);
             switch (c) {
-            case '<':
-                sb.append("&lt;"); //$NON-NLS-1$
-                break;
-            case '>':
-                sb.append("&gt;"); //$NON-NLS-1$
-                break;
-            case '&':
-                sb.append("&amp;"); //$NON-NLS-1$
-                break;
-            case '\'':
-                //http://www.w3.org/TR/xhtml1
-                // The named character reference &apos; (the apostrophe, U+0027) was introduced in
-                // XML 1.0 but does not appear in HTML. Authors should therefore use &#39; instead
-                // of &apos; to work as expected in HTML 4 user agents.
-                sb.append("&#39;"); //$NON-NLS-1$
-                break;
-            case '"':
-                sb.append("&quot;"); //$NON-NLS-1$
-                break;
-            default:
-                sb.append(c);
+                case '<':
+                    sb.append("&lt;"); //$NON-NLS-1$
+                    break;
+                case '>':
+                    sb.append("&gt;"); //$NON-NLS-1$
+                    break;
+                case '&':
+                    sb.append("&amp;"); //$NON-NLS-1$
+                    break;
+                case '\'':
+                    //http://www.w3.org/TR/xhtml1
+                    // The named character reference &apos; (the apostrophe, U+0027) was introduced in
+                    // XML 1.0 but does not appear in HTML. Authors should therefore use &#39; instead
+                    // of &apos; to work as expected in HTML 4 user agents.
+                    sb.append("&#39;"); //$NON-NLS-1$
+                    break;
+                case '"':
+                    sb.append("&quot;"); //$NON-NLS-1$
+                    break;
+                default:
+                    sb.append(c);
             }
         }
         return sb.toString();
@@ -1435,7 +1495,7 @@ public class TextUtils {
      */
     public static boolean isGraphic(CharSequence str) {
         final int len = str.length();
-        for (int cp, i=0; i<len; i+=Character.charCount(cp)) {
+        for (int cp, i = 0; i < len; i += Character.charCount(cp)) {
             cp = Character.codePointAt(str, i);
             int gc = Character.getType(cp);
             if (gc != Character.CONTROL
@@ -1453,7 +1513,7 @@ public class TextUtils {
 
     /**
      * Returns whether this character is a printable character.
-     *
+     * <p>
      * This does not support non-BMP characters and should not be used.
      *
      * @deprecated Use {@link #isGraphic(CharSequence)} instead.
@@ -1461,7 +1521,7 @@ public class TextUtils {
     @Deprecated
     public static boolean isGraphic(char c) {
         int gc = Character.getType(c);
-        return     gc != Character.CONTROL
+        return gc != Character.CONTROL
                 && gc != Character.FORMAT
                 && gc != Character.SURROGATE
                 && gc != Character.UNASSIGNED
@@ -1536,12 +1596,11 @@ public class TextUtils {
      * checked.  Note that the caps mode flags here are explicitly defined
      * to match those in {@link InputType}.
      *
-     * @param cs The text that should be checked for caps modes.
-     * @param off Location in the text at which to check.
+     * @param cs       The text that should be checked for caps modes.
+     * @param off      Location in the text at which to check.
      * @param reqModes The modes to be checked: may be any combination of
-     * {@link #CAP_MODE_CHARACTERS}, {@link #CAP_MODE_WORDS}, and
-     * {@link #CAP_MODE_SENTENCES}.
-     *
+     *                 {@link #CAP_MODE_CHARACTERS}, {@link #CAP_MODE_WORDS}, and
+     *                 {@link #CAP_MODE_SENTENCES}.
      * @return Returns the actual capitalization modes that can be in effect
      * at the current position, which is any combination of
      * {@link #CAP_MODE_CHARACTERS}, {@link #CAP_MODE_WORDS}, and
@@ -1556,10 +1615,10 @@ public class TextUtils {
         char c;
         int mode = 0;
 
-        if ((reqModes&CAP_MODE_CHARACTERS) != 0) {
+        if ((reqModes & CAP_MODE_CHARACTERS) != 0) {
             mode |= CAP_MODE_CHARACTERS;
         }
-        if ((reqModes&(CAP_MODE_WORDS|CAP_MODE_SENTENCES)) == 0) {
+        if ((reqModes & (CAP_MODE_WORDS | CAP_MODE_SENTENCES)) == 0) {
             return mode;
         }
 
@@ -1569,7 +1628,7 @@ public class TextUtils {
             c = cs.charAt(i - 1);
 
             if (c != '"' && c != '\'' &&
-                Character.getType(c) != Character.START_PUNCTUATION) {
+                    Character.getType(c) != Character.START_PUNCTUATION) {
                 break;
             }
         }
@@ -1586,7 +1645,7 @@ public class TextUtils {
 
         // Or start of word if we are that style.
 
-        if ((reqModes&CAP_MODE_SENTENCES) == 0) {
+        if ((reqModes & CAP_MODE_SENTENCES) == 0) {
             if (i != j) mode |= CAP_MODE_WORDS;
             return mode;
         }
@@ -1603,7 +1662,7 @@ public class TextUtils {
             c = cs.charAt(j - 1);
 
             if (c != '"' && c != '\'' &&
-                Character.getType(c) != Character.END_PUNCTUATION) {
+                    Character.getType(c) != Character.END_PUNCTUATION) {
                 break;
             }
         }
@@ -1667,16 +1726,16 @@ public class TextUtils {
 
     /**
      * Removes empty spans from the <code>spans</code> array.
-     *
+     * <p>
      * When parsing a Spanned using {@link Spanned#nextSpanTransition(int, int, Class)}, empty spans
      * will (correctly) create span transitions, and calling getSpans on a slice of text bounded by
      * one of these transitions will (correctly) include the empty overlapping span.
-     *
+     * <p>
      * However, these empty spans should not be taken into account when layouting or rendering the
      * string and this method provides a way to filter getSpans' results accordingly.
      *
-     * @param spans A list of spans retrieved using {@link Spanned#getSpans(int, int, Class)} from
-     * the <code>spanned</code>
+     * @param spans   A list of spans retrieved using {@link Spanned#getSpans(int, int, Class)} from
+     *                the <code>spanned</code>
      * @param spanned The Spanned from which spans were extracted
      * @return A subset of spans where empty spans ({@link Spanned#getSpanStart(Object)}  ==
      * {@link Spanned#getSpanEnd(Object)} have been removed. The initial order is preserved
@@ -1717,9 +1776,10 @@ public class TextUtils {
 
     /**
      * Pack 2 int values into a long, useful as a return value for a range
+     *
+     * @hide
      * @see #unpackRangeStartFromLong(long)
      * @see #unpackRangeEndFromLong(long)
-     * @hide
      */
     public static long packRangeInLong(int start, int end) {
         return (((long) start) << 32) | end;
@@ -1727,9 +1787,10 @@ public class TextUtils {
 
     /**
      * Get the start value from a range packed in a long by {@link #packRangeInLong(int, int)}
+     *
+     * @hide
      * @see #unpackRangeEndFromLong(long)
      * @see #packRangeInLong(int, int)
-     * @hide
      */
     public static int unpackRangeStartFromLong(long range) {
         return (int) (range >>> 32);
@@ -1737,9 +1798,10 @@ public class TextUtils {
 
     /**
      * Get the end value from a range packed in a long by {@link #packRangeInLong(int, int)}
+     *
+     * @hide
      * @see #unpackRangeStartFromLong(long)
      * @see #packRangeInLong(int, int)
-     * @hide
      */
     public static int unpackRangeEndFromLong(long range) {
         return (int) (range & 0x00000000FFFFFFFFL);
@@ -1752,16 +1814,16 @@ public class TextUtils {
      * @return the layout direction. This may be one of:
      * {@link android.view.View#LAYOUT_DIRECTION_LTR} or
      * {@link android.view.View#LAYOUT_DIRECTION_RTL}.
-     *
+     * <p>
      * Be careful: this code will need to be updated when vertical scripts will be supported
      */
     public static int getLayoutDirectionFromLocale(Locale locale) {
         return ((locale != null && !locale.equals(Locale.ROOT)
-                        && ULocale.forLocale(locale).isRightToLeft())
+                && ULocale.forLocale(locale).isRightToLeft())
                 // If forcing into RTL layout mode, return RTL as default
                 || SystemProperties.getBoolean(Settings.Global.DEVELOPMENT_FORCE_RTL, false))
-            ? View.LAYOUT_DIRECTION_RTL
-            : View.LAYOUT_DIRECTION_LTR;
+                ? View.LAYOUT_DIRECTION_RTL
+                : View.LAYOUT_DIRECTION_LTR;
     }
 
     /**

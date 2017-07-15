@@ -31,7 +31,7 @@ package android.util;
  * lookup yourself if needed.  Direct use of AttributeSet also prevents the
  * application of themes and styles when retrieving attribute values.
  * 
- * <p>This interface provides an efficient mechanism for retrieving
+ * <p>This interface provides an efficient 有效率的 mechanism for retrieving
  * data from compiled XML files, which can be retrieved for a particular
  * XmlPullParser through {@link Xml#asAttributeSet
  * Xml.asAttributeSet()}.  Normally this will return an implementation

@@ -77,8 +77,8 @@ import static android.content.ContentProvider.maybeAddUserId;
  * {@link android.content.Context#bindService} to communicate with a
  * background {@link android.app.Service}.
  *
- * <p>An Intent provides a facility for performing late runtime binding between the code in
- * different applications. Its most significant use is in the launching of activities, where it
+ * <p>An Intent provides a facility 能力 for performing late runtime binding between the code in
+ * different applications. Its most significant 有意义的 use is in the launching of activities, where it
  * can be thought of as the glue between activities. It is basically a passive data structure
  * holding an abstract description of an action to be performed.</p>
  *
@@ -115,7 +115,7 @@ import static android.content.ContentProvider.maybeAddUserId;
  *   </li>
  *   <li> <p><b>{@link #ACTION_VIEW} <i>tel:123</i></b> -- Display
  *     the phone dialer with the given number filled in.  Note how the
- *     VIEW action does what is considered the most reasonable thing for
+ *     VIEW action does what is considered the most reasonable 合理的 thing for
  *     a particular URI.</p>
  *   </li>
  *   <li> <p><b>{@link #ACTION_DIAL} <i>tel:123</i></b> -- Display
@@ -144,7 +144,7 @@ import static android.content.ContentProvider.maybeAddUserId;
  *         of alternative actions the user can perform on a piece of data.</p>
  *     <li> <p><b>type</b> -- Specifies an explicit type (a MIME type) of the
  *         intent data.  Normally the type is inferred from the data itself.
- *         By setting this attribute, you disable that evaluation and force
+ *         By setting this attribute, you disable that evaluation 估计 and force
  *         an explicit type.</p>
  *     <li> <p><b>component</b> -- Specifies an explicit name of a component
  *         class to use for the intent.  Normally this is determined by looking
@@ -215,7 +215,7 @@ import static android.content.ContentProvider.maybeAddUserId;
  *     intent.
  * </ul>
  *
- * <p>When using implicit intents, given such an arbitrary intent we need to
+ * <p>When using implicit intents, given such an arbitrary 任意的 intent we need to
  * know what to do with it. This is handled by the process of <em>Intent
  * resolution</em>, which maps an Intent to an {@link android.app.Activity},
  * {@link BroadcastReceiver}, or {@link android.app.Service} (or sometimes two or
@@ -259,7 +259,7 @@ import static android.content.ContentProvider.maybeAddUserId;
  *
  * <p>For example, consider the Note Pad sample application that
  * allows user to browse through a list of notes data and view details about
- * individual items.  Text in italics indicate places were you would replace a
+ * individual items.  Text in italics 斜体字 indicate places were you would replace a
  * name with one specific to your own package.</p>
  *
  * <pre> &lt;manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -550,7 +550,7 @@ import static android.content.ContentProvider.maybeAddUserId;
  * <h3>Standard Categories</h3>
  *
  * <p>These are the current standard categories that can be used to further
- * clarify an Intent via {@link #addCategory}.
+ * clarify 说明 an Intent via {@link #addCategory}.
  *
  * <ul>
  *     <li> {@link #CATEGORY_DEFAULT}
@@ -617,6 +617,7 @@ import static android.content.ContentProvider.maybeAddUserId;
  * of all possible flags.
  */
 public class Intent implements Parcelable, Cloneable {
+
     private static final String ATTR_ACTION = "action";
     private static final String TAG_CATEGORIES = "categories";
     private static final String ATTR_CATEGORY = "category";
@@ -644,7 +645,7 @@ public class Intent implements Parcelable, Cloneable {
      * action performed on data -- it is the generic action you can use on
      * a piece of data to get the most reasonable thing to occur.  For example,
      * when used on a contacts entry it will view the entry; when used on a
-     * mailto: URI it will bring up a compose window filled with the information
+     * mailto: URI it will bring up 提出 a compose 组成 window filled with the information
      * supplied by the URI; when used with a tel: URI it will invoke the
      * dialer.
      * <p>Input: {@link #getData} is URI from which to retrieve data.
@@ -654,7 +655,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String ACTION_VIEW = "android.intent.action.VIEW";
 
     /**
-     * A synonym for {@link #ACTION_VIEW}, the "standard" action that is
+     * A synonym 同义词 for {@link #ACTION_VIEW}, the "standard" action that is
      * performed on a piece of data.
      */
     public static final String ACTION_DEFAULT = ACTION_VIEW;
@@ -662,9 +663,9 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * Activity Action: Quick view the data. Launches a quick viewer for
      * a URI or a list of URIs.
-     * <p>Activities handling this intent action should handle the vast majority of
+     * <p>Activities handling this intent action should handle the vast 大量的 majority 多数 of
      * MIME types rather than only specific ones.
-     * <p>Input: {@link #getData} is a mandatory content URI of the item to
+     * <p>Input: {@link #getData} is a mandatory 强制的 content URI of the item to
      * preview. {@link #getClipData} contains an optional list of content URIs
      * if there is more than one item to preview. {@link #EXTRA_INDEX} is an
      * optional index of the URI in the clip data to show first.
@@ -677,7 +678,7 @@ public class Intent implements Parcelable, Cloneable {
      * Used to indicate that some piece of data should be attached to some other
      * place.  For example, image data could be attached to a contact.  It is up
      * to the recipient to decide where the data should be attached; the intent
-     * does not specify the ultimate destination.
+     * does not specify the ultimate 终极的 destination 目标 .
      * <p>Input: {@link #getData} is URI of data to be attached.
      * <p>Output: nothing.
      */
@@ -850,7 +851,7 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * Activity Action: Display an activity chooser, allowing the user to pick
-     * what they want to before proceeding.  This can be used as an alternative
+     * what they want to before proceeding 进行 .  This can be used as an alternative
      * to the standard activity picker that is displayed by the system when
      * you try to start an activity with multiple possible matches, with these
      * differences in behavior:
@@ -932,8 +933,8 @@ public class Intent implements Parcelable, Cloneable {
      *
      * <p>The caller may optionally supply an {@link IntentSender} to receive a callback
      * when the user makes a choice. This can be useful if the calling application wants
-     * to remember the last chosen target and surface it as a more prominent or one-touch
-     * affordance elsewhere in the UI for next time.</p>
+     * to remember the last chosen target and surface 显露 it as a more prominent 突出的 or one-touch
+     * affordance 功能可视性 elsewhere in the UI for next time.</p>
      *
      * @param target The Intent that the user will be selecting an activity
      * to perform.
@@ -954,7 +955,7 @@ public class Intent implements Parcelable, Cloneable {
             intent.putExtra(EXTRA_CHOSEN_COMPONENT_INTENT_SENDER, sender);
         }
 
-        // Migrate any clip data and flags from target.
+        // Migrate 迁移 any clip data and flags from target.
         int permFlags = target.getFlags() & (FLAG_GRANT_READ_URI_PERMISSION
                 | FLAG_GRANT_WRITE_URI_PERMISSION | FLAG_GRANT_PERSISTABLE_URI_PERMISSION
                 | FLAG_GRANT_PREFIX_URI_PERMISSION);
@@ -1052,7 +1053,7 @@ public class Intent implements Parcelable, Cloneable {
      * number.
      * <p>Output: nothing.
      *
-     * <p>Note: there will be restrictions on which applications can initiate a
+     * <p>Note: there will be restrictions 限制 on which applications can initiate a
      * call; most applications should use the {@link #ACTION_DIAL}.
      * <p>Note: this Intent <strong>cannot</strong> be used to call emergency
      * numbers.  Applications can <strong>dial</strong> emergency numbers using
@@ -1079,12 +1080,12 @@ public class Intent implements Parcelable, Cloneable {
      * specified by the data.
      * <p>Input: {@link #getData} is URI of a phone number to be dialed or a
      * tel: URI of an explicit phone number.
-     * <p>Output: nothing.
+     * <p>Output: nothing. PRIVILEGED privileged 特许的
      * @hide
      */
     public static final String ACTION_CALL_PRIVILEGED = "android.intent.action.CALL_PRIVILEGED";
     /**
-     * Activity action: Activate the current SIM card.  If SIM cards do not require activation,
+     * Activity action: Activate 激活 the current SIM card.  If SIM cards do not require activation,
      * sending this intent is a no-op.
      * <p>Input: No data should be specified.  get*Extra may have an optional
      * {@link #EXTRA_SIM_ACTIVATION_RESPONSE} field containing a PendingIntent through which to
@@ -1216,7 +1217,7 @@ public class Intent implements Parcelable, Cloneable {
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
     public static final String ACTION_RUN = "android.intent.action.RUN";
     /**
-     * Activity Action: Perform a data synchronization.
+     * Activity Action: Perform a data synchronization 同步 .
      * <p>Input: ?
      * <p>Output: ?
      */
@@ -1236,7 +1237,7 @@ public class Intent implements Parcelable, Cloneable {
      * Activity Action: Perform a search.
      * <p>Input: {@link android.app.SearchManager#QUERY getStringExtra(SearchManager.QUERY)}
      * is the text to search for.  If empty, simply
-     * enter your search results Activity with the search UI activated.
+     * enter your search results Activity with the search UI activated 启动 .
      * <p>Output: nothing.
      */
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
@@ -1267,8 +1268,8 @@ public class Intent implements Parcelable, Cloneable {
      * Activity Action: Perform assist action.
      * <p>
      * Input: {@link #EXTRA_ASSIST_PACKAGE}, {@link #EXTRA_ASSIST_CONTEXT}, can provide
-     * additional optional contextual information about where the user was when they
-     * requested the assist; {@link #EXTRA_REFERRER} may be set with additional referrer
+     * additional optional contextual 上下文的 information about where the user was when they
+     * requested the assist; {@link #EXTRA_REFERRER} may be set with additional referrer 推荐人
      * information.
      * Output: nothing.
      */
@@ -1471,7 +1472,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String ACTION_INSTALL_PACKAGE = "android.intent.action.INSTALL_PACKAGE";
 
     /**
-     * Activity Action: Launch ephemeral installer.
+     * Activity Action: Launch ephemeral 短暂的 installer.
      * <p>
      * Input: The data must be a http: URI that the ephemeral application is registered
      * to handle.
@@ -1525,7 +1526,7 @@ public class Intent implements Parcelable, Cloneable {
             = "android.intent.extra.ORIGINATING_URI";
 
     /**
-     * This extra can be used with any Intent used to launch an activity, supplying information
+     * REFERRER referrer 推荐人 This extra can be used with any Intent used to launch an activity, supplying information
      * about who is launching that activity.  This field contains a {@link android.net.Uri}
      * object, typically an http: or https: URI of the web site that the referral came from;
      * it can also use the {@link #URI_ANDROID_APP_SCHEME android-app:} scheme to identify
@@ -1534,7 +1535,7 @@ public class Intent implements Parcelable, Cloneable {
      * <p>To retrieve this value in a client, use {@link android.app.Activity#getReferrer}
      * instead of directly retrieving the extra.  It is also valid for applications to
      * instead supply {@link #EXTRA_REFERRER_NAME} for cases where they can only create
-     * a string, not a Uri; the field here, if supplied, will always take precedence,
+     * a string, not a Uri; the field here, if supplied, will always take precedence 优先权 ,
      * however.</p>
      *
      * @see #EXTRA_REFERRER_NAME
@@ -1556,7 +1557,7 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * Used as an int extra field with {@link #ACTION_INSTALL_PACKAGE} and
-     * {@link #ACTION_VIEW} to indicate the uid of the package that initiated the install
+     * {@link #ACTION_VIEW} to indicate the uid of the package that initiated 发起 开始 the install
      * @hide
      */
     @SystemApi
@@ -1662,7 +1663,7 @@ public class Intent implements Parcelable, Cloneable {
      * app components can run.
      * <p>
      * Input: {@link #EXTRA_PACKAGE_NAME} specifies the package whose
-     * permissions will be reviewed (mandatory).
+     * permissions will be reviewed (mandatory 强制的 ).
      * </p>
      * <p>
      * Input: {@link #EXTRA_INTENT} specifies a pending intent to
@@ -1868,7 +1869,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String ACTION_TIMEZONE_CHANGED = "android.intent.action.TIMEZONE_CHANGED";
     /**
      * Clear DNS Cache Action: This is broadcast when networks have changed and old
-     * DNS entries should be tossed.
+     * DNS entries should be tossed 扔 .
      * @hide
      */
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
@@ -1931,12 +1932,12 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * Broadcast Action: This is broadcast when a user action should request a
-     * temporary system dialog to dismiss.  Some examples of temporary system
+     * temporary 临时的 system dialog to dismiss.  Some examples of temporary system
      * dialogs are the notification window-shade and the recent tasks dialog.
      */
     public static final String ACTION_CLOSE_SYSTEM_DIALOGS = "android.intent.action.CLOSE_SYSTEM_DIALOGS";
     /**
-     * Broadcast Action: Trigger the download and eventual installation
+     * Broadcast Action: Trigger the download and eventual 最终的 installation
      * of a package.
      * <p>Input: {@link #getData} is the URI of the package file to download.
      *
@@ -2076,7 +2077,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String ACTION_PACKAGE_RESTARTED = "android.intent.action.PACKAGE_RESTARTED";
     /**
      * Broadcast Action: The user has cleared the data of a package.  This should
-     * be preceded by {@link #ACTION_PACKAGE_RESTARTED}, after which all of
+     * be preceded 在之前 by {@link #ACTION_PACKAGE_RESTARTED}, after which all of
      * its persistent data is erased and this broadcast sent.
      * Note that the cleared package does <em>not</em>
      * receive this broadcast. The data contains the name of the package.
@@ -2090,7 +2091,7 @@ public class Intent implements Parcelable, Cloneable {
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
     public static final String ACTION_PACKAGE_DATA_CLEARED = "android.intent.action.PACKAGE_DATA_CLEARED";
     /**
-     * Broadcast Action: Packages have been suspended.
+     * Broadcast Action: Packages have been suspended 暂停 .
      * <p>Includes the following extras:
      * <ul>
      * <li> {@link #EXTRA_CHANGED_PACKAGE_LIST} is the set of packages which have been suspended
@@ -2202,7 +2203,7 @@ public class Intent implements Parcelable, Cloneable {
      * The extra data {@link #EXTRA_CHANGED_UID_LIST} contains a
      * list of uids of packages whose availability changed.
      * The specified set of packages can no longer be
-     * launched and are practically unavailable on the system.
+     * launched and are practically 几乎 实际上 unavailable on the system.
      * <p>Inclues the following extras:
      * <ul>
      * <li> {@link #EXTRA_CHANGED_PACKAGE_LIST} is the set of packages
@@ -2382,7 +2383,7 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * Broadcast Action:  A sticky broadcast that indicates a memory full
      * condition on the device. This is intended for activities that want
-     * to be able to fill the data partition completely, leaving only
+     * to be able to fill the data partition 分区 completely, leaving only
      * enough free space to prevent system-wide SQLite failures.
      *
      * <p class="note">This is a protected intent that can only be sent
@@ -2404,7 +2405,7 @@ public class Intent implements Parcelable, Cloneable {
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
     public static final String ACTION_DEVICE_STORAGE_NOT_FULL = "android.intent.action.DEVICE_STORAGE_NOT_FULL";
     /**
-     * Broadcast Action:  Indicates low memory condition notification acknowledged by user
+     * Broadcast Action:  Indicates low memory condition notification acknowledged 承认的 by user
      * and package management should be started.
      * This is triggered by the user from the ACTION_DEVICE_STORAGE_LOW
      * notification.
@@ -2453,7 +2454,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String ACTION_MEDIA_CHECKING = "android.intent.action.MEDIA_CHECKING";
 
     /**
-     * Broadcast Action:  External media is present, but is using an incompatible fs (or is blank)
+     * Broadcast Action:  External media is present, but is using an incompatible 不兼容 fs (or is blank)
      * The path to the mount point for the checking media is contained in the Intent.mData field.
      */
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
@@ -2500,7 +2501,7 @@ public class Intent implements Parcelable, Cloneable {
    /**
      * Broadcast Action:  User has expressed the desire to remove the external storage media.
      * Applications should close all files they have open within the mount point when they receive this intent.
-     * The path to the mount point for the media to be ejected is contained in the Intent.mData field.
+     * The path to the mount point for the media to be ejected 弹出 is contained in the Intent.mData field.
      */
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
     public static final String ACTION_MEDIA_EJECT = "android.intent.action.MEDIA_EJECT";
@@ -2603,7 +2604,7 @@ public class Intent implements Parcelable, Cloneable {
      * This intent will be sent at boot (if the count is non-zero) and when the
      * data set changes. It is possible for the data set to change without the
      * count changing (for example, if a new unread message arrives in the same
-     * sync operation in which a message is archived). The phone should still
+     * sync operation in which a message is archived 存档 ). The phone should still
      * ring/vibrate/etc as normal in this case.
      */
     @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
@@ -2611,7 +2612,7 @@ public class Intent implements Parcelable, Cloneable {
             "android.intent.action.PROVIDER_CHANGED";
 
     /**
-     * Broadcast Action: Wired Headset plugged in or unplugged.
+     * Broadcast Action: Wired Headset plugged in 插电 or unplugged.
      *
      * Same as {@link android.media.AudioManager#ACTION_HEADSET_PLUG}, to be consulted for value
      *   and documentation.
@@ -2638,7 +2639,7 @@ public class Intent implements Parcelable, Cloneable {
             = "android.intent.action.ADVANCED_SETTINGS";
 
     /**
-     *  Broadcast Action: Sent after application restrictions are changed.
+     *  Broadcast Action: Sent after application restrictions 约束 are changed.
      *
      * <p class="note">This is a protected intent that can only be sent
      * by the system.</p>
@@ -2662,7 +2663,7 @@ public class Intent implements Parcelable, Cloneable {
      * might verify that the user is authorized to place the call at that
      * time, then a number-rewriting application might add an area code if
      * one was not specified.</p>
-     * <p>For consistency, any receiver whose purpose is to prohibit phone
+     * <p>For consistency, any receiver whose purpose is to prohibit 禁止 phone
      * calls should have a priority of 0, to ensure it will see the final
      * phone number to be dialed.
      * Any receiver whose purpose is to rewrite phone numbers to be called
@@ -2718,15 +2719,15 @@ public class Intent implements Parcelable, Cloneable {
             "android.intent.action.DOCK_EVENT";
 
     /**
-     * Broadcast Action: A broadcast when idle maintenance can be started.
+     * Broadcast Action: A broadcast when idle 空闲 maintenance 维护 can be started.
      * This means that the user is not interacting with the device and is
      * not expected to do so soon. Typical use of the idle maintenance is
-     * to perform somehow expensive tasks that can be postponed at a moment
-     * when they will not degrade user experience.
+     * to perform somehow expensive tasks that can be postponed 延期 at a moment
+     * when they will not degrade 降低 user experience.
      * <p>
      * <p class="note">In order to keep the device responsive in case of an
      * unexpected user interaction, implementations of a maintenance task
-     * should be interruptible. In such a scenario a broadcast with action
+     * should be interruptible 可中断的 . In such a scenario 方案 a broadcast with action
      * {@link #ACTION_IDLE_MAINTENANCE_END} will be sent. In other words, you
      * should not do the maintenance work in
      * {@link BroadcastReceiver#onReceive(Context, Intent)}, rather start a
@@ -2807,7 +2808,7 @@ public class Intent implements Parcelable, Cloneable {
             "android.intent.action.PRE_BOOT_COMPLETED";
 
     /**
-     * Broadcast to a specific application to query any supported restrictions to impose
+     * Broadcast to a specific application to query any supported restrictions to impose 强加
      * on restricted users. The broadcast intent contains an extra
      * {@link #EXTRA_RESTRICTIONS_BUNDLE} with the currently persisted
      * restrictions as a Bundle of key/value pairs. The value types can be Boolean, String or
@@ -3002,7 +3003,7 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * Broadcast sent to the primary user when an associated managed profile has become available.
-     * Currently this includes when the user disables quiet mode for the profile. Carries an extra
+     * Currently this includes when the user disables quiet 静音 mode for the profile. Carries an extra
      * {@link #EXTRA_USER} that specifies the UserHandle of the profile. When quiet mode is changed,
      * this broadcast will carry a boolean extra {@link #EXTRA_QUIET_MODE} indicating the new state
      * of quiet mode. This is only sent to registered receivers, not manifest receivers.
@@ -3219,8 +3220,8 @@ public class Intent implements Parcelable, Cloneable {
             "android.intent.extra.PROCESS_TEXT_READONLY";
 
     /**
-     * Broadcast action: reports when a new thermal event has been reached. When the device
-     * is reaching its maximum temperatue, the thermal level reported
+     * Broadcast action: reports when a new thermal 热的 event has been reached. When the device
+     * is reaching its maximum temperatue 温度 , the thermal level reported
      * {@hide}
      */
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
@@ -3237,7 +3238,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final int EXTRA_THERMAL_STATE_NORMAL = 0;
 
     /**
-     * Thermal state where the device is approaching its maximum threshold. This state is sent in
+     * Thermal state where the device is approaching its maximum threshold 阈值 . This state is sent in
      * the {@link #ACTION_THERMAL_EVENT} broadcast as {@link #EXTRA_THERMAL_STATE}.
      * {@hide}
      */
@@ -3271,8 +3272,8 @@ public class Intent implements Parcelable, Cloneable {
      * and clicks on a link in the text, the Intent generated execute that
      * link will require the BROWSABLE category, so that only activities
      * supporting this category will be considered as possible actions.  By
-     * supporting this category, you are promising that there is nothing
-     * damaging (without user intervention) that can happen by invoking any
+     * supporting this category, you are promising 允许 that there is nothing
+     * damaging 损害 (without user intervention 介入 ) that can happen by invoking any
      * matching Intent.
      */
     @SdkConstant(SdkConstantType.INTENT_CATEGORY)
@@ -3387,7 +3388,7 @@ public class Intent implements Parcelable, Cloneable {
     @SdkConstant(SdkConstantType.INTENT_CATEGORY)
     public static final String CATEGORY_APP_MARKET = "android.intent.category.APP_MARKET";
     /**
-     * This activity may be exercised by the monkey or other automated test tools.
+     * This activity may be exercised 锻炼 by the monkey or other automated test tools.
      */
     @SdkConstant(SdkConstantType.INTENT_CATEGORY)
     public static final String CATEGORY_MONKEY = "android.intent.category.MONKEY";
@@ -3419,7 +3420,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String CATEGORY_OPENABLE = "android.intent.category.OPENABLE";
 
     /**
-     * To be used as code under test for framework instrumentation tests.
+     * To be used as code under test for framework instrumentation 手段 tests.
      */
     public static final String CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST =
             "android.intent.category.FRAMEWORK_INSTRUMENTATION_TEST";
@@ -3538,7 +3539,7 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * Used with {@link #ACTION_MAIN} to launch the maps application.
-     * The activity should be able to show the user's current location and surroundings.
+     * The activity should be able to show the user's current location and surroundings 周围事物 .
      * <p>NOTE: This should not be used as the primary key of an Intent,
      * since it will not result in the app launching with the correct
      * action and category.  Instead, use this with
@@ -3614,12 +3615,12 @@ public class Intent implements Parcelable, Cloneable {
     public static final String EXTRA_EMAIL       = "android.intent.extra.EMAIL";
 
     /**
-     * A String[] holding e-mail addresses that should be carbon copied.
+     * A String[] holding e-mail addresses that should be carbon copied 抄送 .
      */
     public static final String EXTRA_CC       = "android.intent.extra.CC";
 
     /**
-     * A String[] holding e-mail addresses that should be blind carbon copied.
+     * A String[] holding e-mail addresses that should be blind 盲目的 carbon copied.
      */
     public static final String EXTRA_BCC      = "android.intent.extra.BCC";
 
@@ -3654,9 +3655,9 @@ public class Intent implements Parcelable, Cloneable {
      * An Intent[] describing additional, alternate choices you would like shown with
      * {@link #ACTION_CHOOSER}.
      *
-     * <p>An app may be capable of providing several different payload types to complete a
+     * <p>An app may be capable of providing several different payload 装备 types to complete a
      * user's intended action. For example, an app invoking {@link #ACTION_SEND} to share photos
-     * with another app may use EXTRA_ALTERNATE_INTENTS to have the chooser transparently offer
+     * with another app may use EXTRA_ALTERNATE_INTENTS to have the chooser transparently 显然的 offer
      * several different supported sending mechanisms for sharing, such as the actual "image/*"
      * photo data or a hosted link where the photos can be viewed.</p>
      *
@@ -3671,12 +3672,12 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * A {@link ComponentName ComponentName[]} describing components that should be filtered out
-     * and omitted from a list of components presented to the user.
+     * and omitted 省略 from a list of components presented to the user.
      *
      * <p>When used with {@link #ACTION_CHOOSER}, the chooser will omit any of the components
      * in this array if it otherwise would have shown them. Useful for omitting specific targets
      * from your own package or other apps from your organization if the idea of sending to those
-     * targets would be redundant with other app functionality. Filtered components will not
+     * targets would be redundant 多余的  with other app functionality. Filtered components will not
      * be able to present targets from an associated <code>ChooserTargetService</code>.</p>
      */
     public static final String EXTRA_EXCLUDE_COMPONENTS
@@ -3687,7 +3688,7 @@ public class Intent implements Parcelable, Cloneable {
      * describing additional high-priority deep-link targets for the chooser to present to the user.
      *
      * <p>Targets provided in this way will be presented inline with all other targets provided
-     * by services from other apps. They will be prioritized before other service targets, but
+     * by services from other apps. They will be prioritized 按重要性排列 before other service targets, but
      * after those targets provided by sources that the user has manually pinned to the front.</p>
      *
      * @see #ACTION_CHOOSER
@@ -3700,7 +3701,7 @@ public class Intent implements Parcelable, Cloneable {
      *
      * <p>An app preparing an action for another app to complete may wish to allow the user to
      * disambiguate between several options for completing the action based on the chosen target
-     * or otherwise refine the action before it is invoked.
+     * or otherwise refine 提炼 改善 the action before it is invoked.
      * </p>
      *
      * <p>When sent, this IntentSender may be filled in with the following extras:</p>
@@ -3759,7 +3760,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String EXTRA_INITIAL_INTENTS = "android.intent.extra.INITIAL_INTENTS";
 
     /**
-     * A {@link IntentSender} to start after ephemeral installation success.
+     * A {@link IntentSender} to start after ephemeral 短暂的 installation success.
      * @hide
      */
     public static final String EXTRA_EPHEMERAL_SUCCESS = "android.intent.extra.EPHEMERAL_SUCCESS";
@@ -3803,7 +3804,7 @@ public class Intent implements Parcelable, Cloneable {
      * will have the extra {@link #EXTRA_CHOSEN_COMPONENT} appended to it containing the
      * {@link ComponentName} of the chosen component.
      *
-     * <p>In some situations this callback may never come, for example if the user abandons
+     * <p>In some situations this callback may never come, for example if the user abandons 放弃
      * the chooser, switches to another task or any number of other reasons. Apps should not
      * be written assuming that this callback will always occur.</p>
      */
@@ -4125,7 +4126,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final String EXTRA_WIPE_EXTERNAL_STORAGE = "android.intent.extra.WIPE_EXTERNAL_STORAGE";
 
     /**
-     * Optional {@link android.app.PendingIntent} extra used to deliver the result of the SIM
+     * Optional {@link android.app.PendingIntent} extra used to deliver 发表 the result of the SIM
      * activation request.
      * TODO: Add information about the structure and response data used with the pending intent.
      * @hide
@@ -4143,8 +4144,8 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * Optional boolean extra indicating whether quiet mode has been switched on or off.
      * When a profile goes into quiet mode, all apps in the profile are killed and the
-     * profile user is stopped. Widgets originating from the profile are masked, and app
-     * launcher icons are grayed out.
+     * profile user is stopped. Widgets originating 来源于 from the profile are masked, and app
+     * launcher icons are grayed out 变灰的 .
      */
     public static final String EXTRA_QUIET_MODE = "android.intent.extra.QUIET_MODE";
 
@@ -4250,7 +4251,7 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * When combined with {@link #FLAG_GRANT_READ_URI_PERMISSION} and/or
      * {@link #FLAG_GRANT_WRITE_URI_PERMISSION}, the URI permission grant can be
-     * persisted across device reboots until explicitly revoked with
+     * persisted across device reboots until explicitly revoked 撤销 with
      * {@link Context#revokeUriPermission(Uri, int)}. This flag only offers the
      * grant for possible persisting; the receiving application must call
      * {@link ContentResolver#takePersistableUriPermission(Uri, int)} to
@@ -4280,7 +4281,7 @@ public class Intent implements Parcelable, Cloneable {
      * that come and go over time. In particular:
      * <ul>
      * <li>Apps installed on external storage, which will appear to be
-     * uninstalled while the the device is ejected.
+     * uninstalled while the the device is ejected 弹出 .
      * <li>Apps with encryption unaware components, which will appear to not
      * exist while the device is locked.
      * </ul>
@@ -4337,7 +4338,7 @@ public class Intent implements Parcelable, Cloneable {
      * search through existing tasks for ones matching this Intent. Only if no such
      * task is found would a new task be created. When paired with
      * FLAG_ACTIVITY_MULTIPLE_TASK both of these behaviors are modified to skip
-     * the search for a matching task and unconditionally start a new task.
+     * the search for a matching task and unconditionally 无条件的 start a new task.
      *
      * <strong>When used with {@link #FLAG_ACTIVITY_NEW_TASK} do not use this
      * flag unless you are implementing your own
@@ -4401,7 +4402,7 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * If set and this intent is being used to launch a new activity from an
      * existing one, then the reply target of the existing activity will be
-     * transfered to the new activity.  This way the new activity can call
+     * transfered 转移 to the new activity.  This way the new activity can call
      * {@link android.app.Activity#setResult} and have that result sent back to
      * the reply target of the original activity.
      */
@@ -4411,7 +4412,7 @@ public class Intent implements Parcelable, Cloneable {
      * existing one, the current activity will not be counted as the top
      * activity for deciding whether the new intent should be delivered to
      * the top instead of starting a new one.  The previous activity will
-     * be used as the top, with the assumption being that the current activity
+     * be used as the top, with the assumption 假设 being that the current activity
      * will finish itself immediately.
      */
     public static final int FLAG_ACTIVITY_PREVIOUS_IS_TOP = 0x01000000;
@@ -4431,7 +4432,7 @@ public class Intent implements Parcelable, Cloneable {
      * If set, and this activity is either being started in a new task or
      * bringing to the top an existing task, then it will be launched as
      * the front door of the task.  This will result in the application of
-     * any affinities needed to have that task in the proper state (either
+     * any affinities 喜好 needed to have that task in the proper state (either
      * moving activities to or from it), or simply resetting that task to
      * its initial state if needed.
      */
@@ -4485,9 +4486,9 @@ public class Intent implements Parcelable, Cloneable {
      * paused as the newly-started activity is brought to the front.
      *
      * <p>Typically, an activity can rely on that callback to indicate that an
-     * explicit user action has caused their activity to be moved out of the
+     * explicit 明确的 user action has caused their activity to be moved out of the
      * foreground. The callback marks an appropriate point in the activity's
-     * lifecycle for it to dismiss any notifications that it intends to display
+     * lifecycle for it to dismiss any notifications that it intends 打算 to display
      * "until the user has seen them," such as a blinking LED.
      *
      * <p>If an activity is ever started via any non-user-driven events such as
@@ -4584,7 +4585,7 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * If set, when sending a broadcast the recipient is allowed to run at
      * foreground priority, with a shorter timeout interval.  During normal
-     * broadcasts the receivers are not automatically hoisted out of the
+     * broadcasts the receivers are not automatically hoisted 吊起 out of the
      * background priority class.
      */
     public static final int FLAG_RECEIVER_FOREGROUND = 0x10000000;
@@ -4633,7 +4634,7 @@ public class Intent implements Parcelable, Cloneable {
     public static final int FLAG_RECEIVER_EXCLUDE_BACKGROUND = 0x00800000;
 
     /**
-     * @hide Flags that can't be changed with PendingIntent.
+     * @hide Flags that can't be changed with PendingIntent. IMMUTABLE immutable 不可改变的
      */
     public static final int IMMUTABLE_FLAGS = FLAG_GRANT_READ_URI_PERMISSION
             | FLAG_GRANT_WRITE_URI_PERMISSION | FLAG_GRANT_PERSISTABLE_URI_PERMISSION
@@ -4806,7 +4807,7 @@ public class Intent implements Parcelable, Cloneable {
     }
 
     /**
-     * Make a clone of only the parts of the Intent that are relevant for
+     * Make a clone of only the parts of the Intent that are relevant 有关的 for
      * filter matching: the action, data, type, component, and categories.
      */
     public Intent cloneFilter() {
@@ -4835,7 +4836,7 @@ public class Intent implements Parcelable, Cloneable {
      * something like com.google.app.myapp.CUSTOM_ACTION.
      *
      * <p><em>Note: scheme and host name matching in the Android framework is
-     * case-sensitive, unlike the formal RFC.  As a result,
+     * case-sensitive, unlike the formal 正规的 RFC.  As a result,
      * you should always ensure that you write your Uri with these elements
      * using lower case letters, and normalize any Uris you receive from
      * outside of Android to ensure the scheme and host is lower case.</em></p>
@@ -4854,7 +4855,7 @@ public class Intent implements Parcelable, Cloneable {
      * calls.  This provides a convenient way to create an intent that is
      * intended to execute a hard-coded class name, rather than relying on the
      * system to find an appropriate class for you; see {@link #setComponent}
-     * for more information on the repercussions of this.
+     * for more information on the repercussions 反响 of this.
      *
      * @param packageContext A Context of the application package implementing
      * this class.
@@ -5933,7 +5934,7 @@ public class Intent implements Parcelable, Cloneable {
     /**
      * Return the MIME data type of this intent, only if it will be needed for
      * intent resolution.  This is not generally useful for application code;
-     * it is used by the frameworks for communicating with back-end system
+     * it is used by the frameworks for communicating with back-end 后端 system
      * services.
      *
      * @param resolver A ContentResolver that can be used to determine the MIME
@@ -6594,7 +6595,7 @@ public class Intent implements Parcelable, Cloneable {
     }
 
     /**
-     * Get the bounds of the sender of this intent, in screen coordinates.  This can be
+     * Get the bounds of the sender of this intent, in screen coordinates 坐标 .  This can be
      * used as a hint to the receiver for animations and the like.  Null means that there
      * is no source bounds.
      */
@@ -6631,7 +6632,7 @@ public class Intent implements Parcelable, Cloneable {
      * <p>If multiple activities are found to satisfy the intent, the one with
      * the highest priority will be used.  If there are multiple activities
      * with the same priority, the system will either pick the best activity
-     * based on user preference, or resolve to a system class that will allow
+     * based on user preference, or resolve 解决 to a system class that will allow
      * the user to pick an activity and forward from there.
      *
      * <p>This method is implemented simply by calling
@@ -6864,8 +6865,8 @@ public class Intent implements Parcelable, Cloneable {
 
     /**
      * (Usually optional) Set the data for the intent along with an explicit
-     * MIME data type.  This method should very rarely be used -- it allows you
-     * to override the MIME type that would ordinarily be inferred from the
+     * MIME data type.  This method should very rarely 很少的 be used -- it allows you
+     * to override the MIME type that would ordinarily 平常的 be inferred from the
      * data with your own type given here.
      *
      * <p><em>Note: MIME type and Uri scheme matching in the
@@ -6963,7 +6964,7 @@ public class Intent implements Parcelable, Cloneable {
     }
 
     /**
-     * Set a selector for this Intent.  This is a modification to the kinds of
+     * Set a selector for this Intent.  This is a modification 修正 to the kinds of
      * things the Intent will match.  If the selector is set, it will be used
      * when trying to find entities that can handle the Intent, instead of the
      * main contents of the Intent.  This allows you build an Intent containing
@@ -6975,7 +6976,7 @@ public class Intent implements Parcelable, Cloneable {
      * main entry point of an application is actually {@link #ACTION_MAIN}
      * {@link #CATEGORY_LAUNCHER} with {@link #setComponent(ComponentName)}
      * used to specify the actual Activity to launch.  If you launch the browser
-     * with something different, undesired behavior may happen if the user has
+     * with something different, undesired 非想望的 behavior may happen if the user has
      * previously or later launches it the normal way, since they do not match.
      * Instead, you can build an Intent with the MAIN action (but no ComponentName
      * yet specified) and set a selector with {@link #ACTION_MAIN} and
@@ -7010,7 +7011,7 @@ public class Intent implements Parcelable, Cloneable {
      * previously set ClipData.
      *
      * <p>The ClipData in an intent is not used for Intent matching or other
-     * such operations.  Semantically it is like extras, used to transmit
+     * such operations.  Semantically 语义的 it is like extras, used to transmit 传输
      * additional data with the Intent.  The main feature of using this over
      * the extras for data is that {@link #FLAG_GRANT_READ_URI_PERMISSION}
      * and {@link #FLAG_GRANT_WRITE_URI_PERMISSION} will operate on any URI
@@ -7027,7 +7028,7 @@ public class Intent implements Parcelable, Cloneable {
      * <p>The MIME type, label, and icon in the ClipData object are not
      * directly used by Intent.  Applications should generally rely on the
      * MIME type of the Intent itself, not what it may find in the ClipData.
-     * A common practice is to construct a ClipData for use with an Intent
+     * A common practice 惯例 is to construct a ClipData for use with an Intent
      * with a MIME type of "*&#47;*".
      *
      * @param clip The new clip to set.  May be null to clear the current clip.
@@ -8995,8 +8996,8 @@ public class Intent implements Parcelable, Cloneable {
      }
 
     /**
-     * Migrate any {@link #EXTRA_STREAM} in {@link #ACTION_SEND} and
-     * {@link #ACTION_SEND_MULTIPLE} to {@link ClipData}. Also inspects nested
+     * Migrate 迁移 any {@link #EXTRA_STREAM} in {@link #ACTION_SEND} and
+     * {@link #ACTION_SEND_MULTIPLE} to {@link ClipData}. Also inspects 检查 nested
      * intents in {@link #ACTION_CHOOSER}.
      *
      * @return Whether any contents were migrated.

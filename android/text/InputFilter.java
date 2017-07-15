@@ -28,7 +28,7 @@ public interface InputFilter
      * with the new text from the range <code>start &hellip; end</code>
      * of <code>source</code>.  Return the CharSequence that you would
      * like to have placed there instead, including an empty string
-     * if appropriate, or <code>null</code> to accept the original
+     * if appropriate 适当的 , or <code>null</code> to accept the original
      * replacement.  Be careful to not to reject 0-length replacements,
      * as this is what happens when you delete text.  Also beware that
      * you should not attempt to make any changes to <code>dest</code>
@@ -43,7 +43,7 @@ public interface InputFilter
                                Spanned dest, int dstart, int dend);
 
     /**
-     * This filter will capitalize all the lower case letters that are added
+     * This filter will capitalize 大写 all the lower case letters that are added
      * through edits.
      */
     public static class AllCaps implements InputFilter {

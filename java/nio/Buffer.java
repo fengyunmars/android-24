@@ -31,7 +31,7 @@ import java.util.Spliterator;
 /**
  * A container for data of a specific primitive type.
  *
- * <p> A buffer is a linear, finite sequence of elements of a specific
+ * <p> A buffer is a linear, finite 有限的 sequence of elements of a specific
  * primitive type.  Aside from its content, the essential properties of a
  * buffer are its capacity, limit, and position: </p>
  *
@@ -84,13 +84,13 @@ import java.util.Spliterator;
  * <p> A buffer's <i>mark</i> is the index to which its position will be reset
  * when the {@link #reset reset} method is invoked.  The mark is not always
  * defined, but when it is defined it is never negative and is never greater
- * than the position.  If the mark is defined then it is discarded when the
+ * than the position.  If the mark is defined then it is discarded 丢弃的 when the
  * position or the limit is adjusted to a value smaller than the mark.  If the
  * mark is not defined then invoking the {@link #reset reset} method causes an
  * {@link InvalidMarkException} to be thrown.
  *
  *
- * <h4> Invariants </h4>
+ * <h4> Invariants 不变形 </h4>
  *
  * <p> The following invariant holds for the mark, position, limit, and
  * capacity values:
@@ -136,10 +136,10 @@ import java.util.Spliterator;
  * <h4> Read-only buffers </h4>
  *
  * <p> Every buffer is readable, but not every buffer is writable.  The
- * mutation methods of each buffer class are specified as <i>optional
+ * mutation 转变 methods of each buffer class are specified as <i>optional
  * operations</i> that will throw a {@link ReadOnlyBufferException} when
  * invoked upon a read-only buffer.  A read-only buffer does not allow its
- * content to be changed, but its mark, position, and limit values are mutable.
+ * content to be changed, but its mark, position, and limit values are mutable 易变得 .
  * Whether or not a buffer is read-only may be determined by invoking its
  * {@link #isReadOnly isReadOnly} method.
  *
@@ -175,7 +175,7 @@ import java.util.Spliterator;
 public abstract class Buffer {
 
     /**
-     * The characteristics of Spliterators that traverse and split elements
+     * The characteristics 性质 of Spliterators that traverse and split elements
      * maintained in Buffers.
      */
     static final int SPLITERATOR_CHARACTERISTICS =
@@ -269,7 +269,7 @@ public abstract class Buffer {
      * @param newLimit The new limit value; must be non-negative
      *                 and no larger than this buffer's capacity
      * @return This buffer
-     * @throws IllegalArgumentException If the preconditions on <tt>newLimit</tt> do not hold
+     * @throws IllegalArgumentException If the preconditions 前提条件 on <tt>newLimit</tt> do not hold
      */
     public final Buffer limit(int newLimit) {
         if ((newLimit > capacity) || (newLimit < 0))
@@ -364,7 +364,7 @@ public abstract class Buffer {
      * discarded.
      *
      * <p> Invoke this method before a sequence of channel-write or <i>get</i>
-     * operations, assuming that the limit has already been set
+     * operations, assuming 假定 that the limit has already been set
      * appropriately.  For example:
      *
      * <blockquote><pre>

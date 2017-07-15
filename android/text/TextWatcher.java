@@ -42,10 +42,10 @@ public interface TextWatcher extends NoCopySpan {
     /**
      * This method is called to notify you that, somewhere within
      * <code>s</code>, the text has been changed.
-     * It is legitimate to make further changes to <code>s</code> from
-     * this callback, but be careful not to get yourself into an infinite
+     * It is legitimate 合法的 to make further changes to <code>s</code> from
+     * this callback, but be careful not to get yourself into an infinite 无限的
      * loop, because any changes you make will cause this method to be
-     * called again recursively.
+     * called again recursively 递归的 .
      * (You are not told where the change took place because other
      * afterTextChanged() methods may already have made other changes
      * and invalidated the offsets.  But if you need to know here,

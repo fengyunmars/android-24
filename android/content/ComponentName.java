@@ -29,7 +29,7 @@ import java.lang.Comparable;
  * {@link android.app.Service},
  * {@link android.content.BroadcastReceiver}, or
  * {@link android.content.ContentProvider}) that is available.  Two
- * pieces of information, encapsulated here, are required to identify
+ * pieces of information, encapsulated 囊括 here, are required to identify
  * a component: the package (a String) it exists in, and the class (a String)
  * name inside of that package.
  * 
@@ -190,7 +190,7 @@ public final class ComponentName implements Parcelable, Cloneable, Comparable<Co
     }
 
     /**
-     * Return a String that unambiguously describes both the package and
+     * Return a String that unambiguously 明白的 describes both the package and
      * class names contained in the ComponentName.  You can later recover
      * the ComponentName from this string through
      * {@link #unflattenFromString(String)}.
@@ -206,7 +206,7 @@ public final class ComponentName implements Parcelable, Cloneable, Comparable<Co
     }
     
     /**
-     * The same as {@link #flattenToString()}, but abbreviates the class
+     * The same as {@link #flattenToString()}, but abbreviates 缩写 the class
      * name if it is a suffix of the package.  The result can still be used
      * with {@link #unflattenFromString(String)}.
      * 
@@ -279,6 +279,7 @@ public final class ComponentName implements Parcelable, Cloneable, Comparable<Co
 
     @Override
     public String toString() {
+        // TODO: 16/8/17 add a fragment and set mToolbar title
         return "ComponentInfo{" + mPackage + "/" + mClass + "}";
     }
 

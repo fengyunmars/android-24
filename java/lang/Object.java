@@ -161,7 +161,7 @@ public class Object {
     }
 
     /**
-     * Creates and returns a copy of this object.  The precise meaning
+     * Creates and returns a copy of this object.  The precise 精确地 meaning
      * of "copy" may depend on the class of the object. The general
      * intent is that, for any object {@code x}, the expression:
      * <blockquote>
@@ -187,7 +187,7 @@ public class Object {
      * of this object (which is being cloned).  To achieve this independence,
      * it may be necessary to modify one or more fields of the object returned
      * by {@code super.clone} before returning it.  Typically, this means
-     * copying any mutable objects that comprise the internal "deep structure"
+     * copying any mutable 易变得 objects that comprise 包括 the internal "deep structure"
      * of the object being cloned and replacing the references to these
      * objects with references to the copies.  If a class contains only
      * primitive fields or references to immutable objects, then it is usually

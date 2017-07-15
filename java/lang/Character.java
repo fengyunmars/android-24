@@ -4551,11 +4551,11 @@ class Character implements java.io.Serializable, Comparable<Character> {
      * Determines if the given {@code char} value is a
      * <a href="http://www.unicode.org/glossary/#high_surrogate_code_unit">
      * Unicode high-surrogate code unit</a>
-     * (also known as <i>leading-surrogate code unit</i>).
+     * (also known as <i>leading-surrogate 代理 code unit</i>).
      *
      * <p>Such values do not represent characters by themselves,
      * but are used in the representation of
-     * <a href="#supplementary">supplementary characters</a>
+     * <a href="#supplementary">supplementary 填补的 characters</a>
      * in the UTF-16 encoding.
      *
      * @param  ch the {@code char} value to be tested.

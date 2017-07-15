@@ -20,7 +20,7 @@ import android.content.ContentResolver;
 import android.content.Intent;
 
 /**
- * These are standard columns for openable URIs. Providers that serve openable
+ * These are standard columns for openable URIs. Providers that serve 提供 openable
  * URIs <em>must</em> support at least these columns when queried.
  * <p>
  * To find the content type of a URI, use

@@ -23,8 +23,7 @@ package android.text;
  * of an Editable, the layout will be reflowed as the text is changed.
  */
 public interface Editable
-extends CharSequence, GetChars, Spannable, Appendable
-{
+        extends CharSequence, GetChars, Spannable, Appendable {
     /**
      * Replaces the specified range (<code>st&hellip;en</code>) of text in this
      * Editable with a copy of the slice <code>start&hellip;end</code> from
@@ -45,56 +44,64 @@ extends CharSequence, GetChars, Spannable, Appendable
      * paragraph boundary constraint, it is not retained. As a special case, the
      * cursor position is preserved even when the entire range where it is located
      * is replaced.
-     * @return  a reference to this object.
      *
+     * @return a reference to this object.
      * @see Spanned#SPAN_PARAGRAPH
      */
     public Editable replace(int st, int en, CharSequence source, int start, int end);
 
     /**
      * Convenience for replace(st, en, text, 0, text.length())
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable replace(int st, int en, CharSequence text);
 
     /**
      * Convenience for replace(where, where, text, start, end)
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable insert(int where, CharSequence text, int start, int end);
 
     /**
      * Convenience for replace(where, where, text, 0, text.length());
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable insert(int where, CharSequence text);
 
     /**
      * Convenience for replace(st, en, "", 0, 0)
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable delete(int st, int en);
 
     /**
      * Convenience for replace(length(), length(), text, 0, text.length())
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable append(CharSequence text);
 
     /**
      * Convenience for replace(length(), length(), text, start, end)
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable append(CharSequence text, int start, int end);
 
     /**
      * Convenience for append(String.valueOf(text)).
+     *
      * @see #replace(int, int, CharSequence, int, int)
      */
     public Editable append(char text);
 
     /**
      * Convenience for replace(0, length(), "", 0, 0)
+     *
      * @see #replace(int, int, CharSequence, int, int)
      * Note that this clears the text, not the spans;
      * use {@link #clearSpans} if you need that.
@@ -108,7 +115,7 @@ extends CharSequence, GetChars, Spannable, Appendable
     public void clearSpans();
 
     /**
-     * Sets the series of filters that will be called in succession
+     * Sets the series of filters that will be called in succession 一系列
      * whenever the text of this Editable is changed, each of which has
      * the opportunity to limit or transform the text that is being inserted.
      */

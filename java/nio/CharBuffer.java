@@ -47,8 +47,8 @@ import java.util.stream.IntStream;
  * {@link #put(char) </code><i>put</i><code>} methods that read and write
  * single chars; </p></li>
  *
- * <li><p> Relative {@link #get(char[]) </code><i>bulk get</i><code>}
- * methods that transfer contiguous sequences of chars from this buffer
+ * <li><p> Relative {@link #get(char[]) </code><i>bulk get</i><code>} 大块
+ * methods that transfer contiguous 邻近的 sequences of chars from this buffer
  * into an array; and</p></li>
  *
  * <li><p> Relative {@link #put(char[]) </code><i>bulk put</i><code>}
@@ -57,13 +57,13 @@ import java.util.stream.IntStream;
  * buffer into this buffer;&#32;and </p></li>
  *
  * <li><p> Methods for {@link #compact </code>compacting<code>}, {@link
- * #duplicate </code>duplicating<code>}, and {@link #slice
- * </code>slicing<code>} a char buffer.  </p></li>
+ * #duplicate </code>duplicating 复制<code>}, and {@link #slice
+ * </code>slicing 切割<code>} a char buffer.  </p></li>
  *
  * </ul>
  *
  * <p> Char buffers can be created either by {@link #allocate
- * </code><i>allocation</i><code>}, which allocates space for the buffer's
+ * </code><i>allocation 分配</i><code>}, which allocates space for the buffer's
  * content, by {@link #wrap(char[]) </code><i>wrapping</i><code>} an existing
  * char array or&#32;string into a buffer, or by creating a
  * <a href="ByteBuffer.html#views"><i>view</i></a> of an existing byte buffer.
@@ -112,7 +112,7 @@ public abstract class CharBuffer
     // reduce the number of virtual method invocations needed to access these
     // values, which is especially costly when coding small buffers.
     //
-    final char[] hb;                  // Non-null only for heap buffers
+    final char[] hb;                  // Non-null only for heap 堆 buffers
     final int offset;
     boolean isReadOnly;                 // Valid only for heap buffers
 
@@ -431,7 +431,7 @@ public abstract class CharBuffer
      *     for (int i = off; i < off + len; i++)
      *         dst[i] = src.get(); </pre>
      *
-     * except that it first checks that there are sufficient chars in
+     * except that it first checks that there are sufficient 足够的 chars in
      * this buffer and it is potentially much more efficient. </p>
      *
      * @param dst    The array into which chars are to be written
@@ -778,7 +778,7 @@ public abstract class CharBuffer
      * elements; that is, upon the elements from <tt>position()</tt> up to, and
      * including, the element at <tt>limit()</tt>&nbsp;-&nbsp;<tt>1</tt>.
      *
-     * <p> Because buffer hash codes are content-dependent, it is inadvisable
+     * <p> Because buffer hash codes are content-dependent, it is inadvisable 不明智的
      * to use buffers as keys in hash maps or similar data structures unless it
      * is known that their contents will not change.  </p>
      *
@@ -805,7 +805,7 @@ public abstract class CharBuffer
      * </p></li>
      *
      * <li><p> The two sequences of remaining elements, considered
-     * independently of their starting positions, are pointwise equal.
+     * independently of their starting positions, are pointwise 逐点的 equal.
      *
      *
      *
@@ -849,7 +849,7 @@ public abstract class CharBuffer
      * Compares this buffer to another.
      *
      * <p> Two char buffers are compared by comparing their sequences of
-     * remaining elements lexicographically, without regard to the starting
+     * remaining elements lexicographically 字典序 , without regard to the starting
      * position of each sequence within its corresponding buffer.
      *
      *
