@@ -42,7 +42,7 @@ public interface ViewParent {
 
     /**
      * Called when a child wants the view hierarchy to gather and report
-     * transparent regions to the window compositor. Views that "punch" holes in
+     * transparent regions to the window compositor 排字工人 . Views that "punch" 打孔 holes in
      * the view hierarchy, such as SurfaceView can use this API to improve
      * performance of the system. When no such a view is present in the
      * hierarchy, this optimization in unnecessary and might slightly reduce the
@@ -64,7 +64,7 @@ public interface ViewParent {
     /**
      * All or part of a child is dirty and needs to be redrawn.
      *
-     * <p>The location array is an array of two int values which respectively
+     * <p>The location array is an array of two int values which respectively 各自地
      * define the left and the top position of the dirty child.</p>
      *
      * <p>This method must return the parent of this ViewParent if the specified
@@ -199,7 +199,7 @@ public interface ViewParent {
      * @param originalView the source view where the context menu was first
      *                     invoked
      * @param x the X coordinate in pixels relative to the original view to
-     *          which the menu should be anchored, or {@link Float#NaN} to
+     *          which the menu should be anchored 固定 , or {@link Float#NaN} to
      *          disable anchoring
      * @param y the Y coordinate in pixels relative to the original view to
      *          which the menu should be anchored, or {@link Float#NaN} to
@@ -211,7 +211,7 @@ public interface ViewParent {
 
     /**
      * Have the parent populate the specified context menu if it has anything to
-     * add (and then recurse on its parent).
+     * add (and then recurse 递归 on its parent).
      * 
      * @param menu The menu to populate
      */
@@ -268,7 +268,7 @@ public interface ViewParent {
      * after this parent has received an up or a cancel.</p>
      * 
      * @param disallowIntercept True if the child does not want the parent to
-     *            intercept touch events.
+     *            intercept touch events. disallow 驳回  Intercept 拦截
      */
     public void requestDisallowInterceptTouchEvent(boolean disallowIntercept);
 
@@ -281,7 +281,7 @@ public interface ViewParent {
      *   <li>rectangle will be in the child's content coordinates</li>
      * </ul>
      *
-     * <p>{@link ViewGroup}s overriding this should uphold the contract:</p>
+     * <p>{@link ViewGroup}s overriding this should uphold 维持 the contract:</p>
      * <ul>
      *   <li>nothing will change if the rectangle is already visible</li>
      *   <li>the view port will be scrolled only just enough to make the
@@ -317,7 +317,7 @@ public interface ViewParent {
     public boolean requestSendAccessibilityEvent(View child, AccessibilityEvent event);
 
     /**
-     * Called when a child view now has or no longer is tracking transient state.
+     * Called when a child view now has or no longer is tracking transient 短暂的 state.
      *
      * <p>"Transient state" is any state that a View might hold that is not expected to
      * be reflected in the data model that the View currently presents. This state only
@@ -328,7 +328,7 @@ public interface ViewParent {
      * that a particular view is tracking something complex but encapsulated.
      * A <code>ListView</code> for example may acknowledge that list item Views
      * with transient state should be preserved within their position or stable item ID
-     * instead of treating that view as trivially replaceable by the backing adapter.
+     * instead of treating that view as trivially 平凡地 replaceable by the backing adapter.
      * This allows adapter implementations to be simpler instead of needing to track
      * the state of item view animations in progress such that they could be restored
      * in the event of an unexpected recycling and rebinding of attached item views.</p>
@@ -350,7 +350,7 @@ public interface ViewParent {
     /**
      * Gets the parent of a given View for accessibility. Since some Views are not
      * exposed to the accessibility layer the parent for accessibility is not
-     * necessarily the direct parent of the View, rather it is a predecessor.
+     * necessarily the direct parent of the View, rather it is a predecessor 前辈 .
      *
      * @return The parent or <code>null</code> if no such is found.
      */
@@ -457,7 +457,7 @@ public interface ViewParent {
     public int getTextAlignment();
 
     /**
-     * React to a descendant view initiating a nestable scroll operation, claiming the
+     * React to a descendant view initiating a nestable scroll operation, claiming 声称 the
      * nested scroll operation if appropriate.
      *
      * <p>This method will be called in response to a descendant view invoking
@@ -520,9 +520,9 @@ public interface ViewParent {
      * {@link #onStartNestedScroll(View, View, int)}.</p>
      *
      * <p>Both the consumed and unconsumed portions of the scroll distance are reported to the
-     * ViewParent. An implementation may choose to use the consumed portion to match or chase scroll
+     * ViewParent. An implementation may choose to use the consumed portion to match or chase 追求 scroll
      * position of multiple child elements, for example. The unconsumed portion may be used to
-     * allow continuous dragging of multiple scrolling or draggable elements, such as scrolling
+     * allow continuous 连续的 dragging of multiple scrolling or draggable elements, such as scrolling
      * a list within a vertical drawer where the drawer begins dragging once the edge of inner
      * scrolling content is reached.</p>
      *
@@ -560,7 +560,7 @@ public interface ViewParent {
     /**
      * Request a fling from a nested scroll.
      *
-     * <p>This method signifies that a nested scrolling child has detected suitable conditions
+     * <p>This method signifies 表示…的意思 that a nested scrolling child has detected suitable conditions
      * for a fling. Generally this means that a touch scroll has ended with a
      * {@link VelocityTracker velocity} in the direction of scrolling that meets or exceeds
      * the {@link ViewConfiguration#getScaledMinimumFlingVelocity() minimum fling velocity}
@@ -587,7 +587,7 @@ public interface ViewParent {
      * the {@link ViewConfiguration#getScaledMinimumFlingVelocity() minimum fling velocity}
      * along a scrollable axis.</p>
      *
-     * <p>If a nested scrolling parent is consuming motion as part of a
+     * <p>If a nested scrolling parent is consuming motion 手势 as part of a
      * {@link #onNestedPreScroll(View, int, int, int[]) pre-scroll}, it may be appropriate for
      * it to also consume the pre-fling to complete that same motion. By returning
      * <code>true</code> from this method, the parent indicates that the child should not

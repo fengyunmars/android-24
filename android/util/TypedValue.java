@@ -453,7 +453,7 @@ public class TypedValue {
      * @param type The data type identifier.
      * @param data The data value.
      * 
-     * @return String The coerced string value.  If the value is
+     * @return String The coerced 强迫 string value.  If the value is
      *         null or the type is not known, null is returned.
      */
     public static final String coerceToString(int type, int data)

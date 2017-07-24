@@ -585,7 +585,7 @@ public final class Math {
      * Results must be semi-monotonic.
      *
      * @param   a   the base.
-     * @param   b   the exponent.
+     * @param   b   the exponent 指数 .
      * @return  the value {@code a}<sup>{@code b}</sup>.
      */
     public static native double pow(double a, double b);

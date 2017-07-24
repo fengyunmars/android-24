@@ -21,7 +21,7 @@ package android.graphics;
  * edges of a Rectangle. By convention, positive values move edges towards the
  * centre of the rectangle.
  * <p>
- * Insets are immutable so may be treated as values.
+ * Insets are immutable 不可改变的 so may be treated as values.
  *
  * @hide
  */
@@ -72,7 +72,7 @@ public class Insets {
 
     /**
      * Two Insets instances are equal iff they belong to the same class and their fields are
-     * pairwise equal.
+     * pairwise 成对[双]地 equal.
      *
      * @param o the object to compare this instance with.
      *

@@ -25,7 +25,7 @@ import com.android.internal.R;
  * one or more of those states.
  *
  * A state spec is an array of signed ints where each element
- * represents a required (if positive) or an undesired (if negative)
+ * represents a required (if positive) or an undesired 不受欢迎的 (if negative)
  * {@link android.view.View} state.
  *
  * Utils dealing with state sets.

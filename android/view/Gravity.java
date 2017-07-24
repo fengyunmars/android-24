@@ -18,7 +18,7 @@ package android.view;
 import android.graphics.Rect;
 
 /**
- * Standard constants and tools for placing an object within a potentially
+ * Standard constants and tools for placing an object within a potentially 可能地
  * larger container.
  */
 public class Gravity

@@ -324,7 +324,7 @@ public class Build {
         public static final int FROYO = 8;
 
         /**
-         * November 2010: Android 2.3
+         * November 2010: Android 2.3 GINGERBREAD 姜饼
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -336,12 +336,12 @@ public class Build {
         public static final int GINGERBREAD = 9;
 
         /**
-         * February 2011: Android 2.3.3.
+         * February 2011: Android 2.3.3. GINGERBREAD 姜饼
          */
         public static final int GINGERBREAD_MR1 = 10;
 
         /**
-         * February 2011: Android 3.0.
+         * February 2011: Android 3.0. HONEYCOMB 蜂窝
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>

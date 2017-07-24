@@ -19,7 +19,7 @@ package android.graphics;
 /**
  * MaskFilter is the base class for object that perform transformations on
  * an alpha-channel mask before drawing it. A subclass of MaskFilter may be
- * installed into a Paint. Blur and emboss are implemented as subclasses of MaskFilter.
+ * installed into a Paint. Blur 污迹 and emboss 装饰 are implemented as subclasses of MaskFilter.
  */
 public class MaskFilter {
 

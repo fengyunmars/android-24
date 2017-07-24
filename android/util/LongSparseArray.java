@@ -23,7 +23,7 @@ import libcore.util.EmptyArray;
 
 /**
  * SparseArray mapping longs to Objects.  Unlike a normal array of Objects,
- * there can be gaps in the indices.  It is intended to be more memory efficient
+ * there can be gaps 间隔 in the indices.  It is intended to be more memory efficient
  * than using a HashMap to map Longs to Objects, both because it avoids
  * auto-boxing keys and its data structure doesn't rely on an extra entry object
  * for each mapping.
@@ -45,7 +45,7 @@ import libcore.util.EmptyArray;
  *
  * <p>It is possible to iterate over the items in this container using
  * {@link #keyAt(int)} and {@link #valueAt(int)}. Iterating over the keys using
- * <code>keyAt(int)</code> with ascending values of the index will return the
+ * <code>keyAt(int)</code> with ascending 向上的 values of the index will return the
  * keys in ascending order, or the values corresponding to the keys in ascending
  * order in the case of <code>valueAt(int)</code>.</p>
  */

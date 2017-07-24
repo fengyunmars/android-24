@@ -250,27 +250,28 @@ import java.util.Locale;
  */
 @RemoteView
 public class TextView extends View implements ViewTreeObserver.OnPreDrawListener {
+
     static final String LOG_TAG = "TextView";
     static final boolean DEBUG_EXTRACT = false;
 
     // Enum for the "typeface" XML parameter.
     // TODO: How can we get this from the XML instead of hardcoding it here?
     private static final int SANS = 1;
-    private static final int SERIF = 2;
-    private static final int MONOSPACE = 3;
+    private static final int SERIF = 2; // 衬线体
+    private static final int MONOSPACE = 3; // 单间隔
 
     // Bitfield for the "numeric" XML parameter.
     // TODO: How can we get this from the XML instead of hardcoding it here?
     private static final int SIGNED = 2;
-    private static final int DECIMAL = 4;
+    private static final int DECIMAL = 4; // 十进位的
 
     /**
-     * Draw marquee text with fading edges as usual
+     * Draw marquee 选取框 text with fading 褪色 edges as usual
      */
     private static final int MARQUEE_FADE_NORMAL = 0;
 
     /**
-     * Draw marquee text as ellipsize end while inactive instead of with the fade.
+     * Draw marquee text as ellipsize 省略 end while inactive instead of with the fade.
      * (Useful for devices where the fade can be expensive if overdone)
      */
     private static final int MARQUEE_FADE_SWITCH_SHOW_ELLIPSIS = 1;
@@ -543,8 +544,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     private int mLastLayoutDirection = -1;
 
     /**
-     * On some devices the fading edges add a performance penalty if used
-     * extensively in the same layout. This mode indicates how the marquee
+     * On some devices the fading edges add a performance penalty 害处 if used
+     * extensively 广泛地 in the same layout. This mode indicates how the marquee
      * is currently being shown, if applicable. (mEllipsize will == MARQUEE)
      */
     private int mMarqueeFadeMode = MARQUEE_FADE_NORMAL;

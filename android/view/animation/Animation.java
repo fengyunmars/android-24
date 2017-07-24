@@ -976,7 +976,7 @@ public abstract class Animation implements Cloneable {
      * method should always replace the specified Transformation or document
      * they are doing otherwise.
      *
-     * @param interpolatedTime The value of the normalized time (0.0 to 1.0)
+     * @param interpolatedTime interpolated 以内插值替换的 The value of the normalized time (0.0 to 1.0)
      *                         after it has been run through the interpolation function.
      * @param t                The Transformation object to fill in with the current
      *                         transforms.

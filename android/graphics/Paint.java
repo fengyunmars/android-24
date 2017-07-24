@@ -34,14 +34,14 @@ import libcore.util.NativeAllocationRegistry;
 
 /**
  * The Paint class holds the style and color information about how to draw
- * geometries, text and bitmaps.
+ * geometries 几何形状 , text and bitmaps.
  */
 public class Paint {
 
     private long mNativePaint;
     private long mNativeShader = 0;
 
-    // The approximate size of a native paint object.
+    // The approximate 大概的 size of a native paint object.
     private static final long NATIVE_PAINT_SIZE = 98;
 
     // Use a Holder to allow static initialization of Paint in the boot image.
@@ -58,8 +58,8 @@ public class Paint {
     private ColorFilter mColorFilter;
     private MaskFilter  mMaskFilter;
     private PathEffect  mPathEffect;
-    private Rasterizer  mRasterizer;
-    private Shader      mShader;
+    private Rasterizer  mRasterizer; // 光栅处理器
+    private Shader      mShader;     // 著色器
     private Typeface    mTypeface;
     private Xfermode    mXfermode;
 
@@ -73,7 +73,7 @@ public class Paint {
     private static final Object sCacheLock = new Object();
 
     /**
-     * Cache for the Minikin language list ID.
+     * Cache for the Minikin 微小的 language list ID.
      *
      * A map from a string representation of the LocaleList to Minikin's language list ID.
      */
@@ -83,7 +83,7 @@ public class Paint {
     /**
      * @hide
      */
-    public  int         mBidiFlags = BIDI_DEFAULT_LTR;
+    public  int mBidiFlags = BIDI_DEFAULT_LTR;
 
     static final Style[] sStyleArray = {
         Style.FILL, Style.STROKE, Style.FILL_AND_STROKE
@@ -99,7 +99,7 @@ public class Paint {
     };
 
     /**
-     * Paint flag that enables antialiasing when drawing.
+     * Paint flag that enables antialiasing 反锯齿 when drawing.
      *
      * <p>Enabling this flag will cause all draw operations that support
      * antialiasing to use it.</p>
@@ -109,12 +109,12 @@ public class Paint {
      */
     public static final int ANTI_ALIAS_FLAG     = 0x01;
     /**
-     * Paint flag that enables bilinear sampling on scaled bitmaps.
+     * Paint flag that enables bilinear 双线性的 sampling 抽样 on scaled bitmaps.
      *
      * <p>If cleared, scaled bitmaps will be drawn with nearest neighbor
-     * sampling, likely resulting in artifacts. This should generally be on
+     * sampling, likely resulting in artifacts 工件 . This should generally be on
      * when drawing bitmaps, unless performance-bound (rendering to software
-     * canvas) or preferring pixelation artifacts to blurriness when scaling
+     * canvas) or preferring 提出 pixelation 像素化 artifacts to blurriness 模糊强度 when scaling
      * significantly.</p>
      *
      * <p>If bitmaps are scaled for device density at creation time (as
@@ -126,7 +126,7 @@ public class Paint {
      */
     public static final int FILTER_BITMAP_FLAG  = 0x02;
     /**
-     * Paint flag that enables dithering when blitting.
+     * Paint flag that enables dithering 抖动 when blitting 位块传输 .
      *
      * <p>Enabling this flag applies a dither to any blit operation where the
      * target's colour space is more constrained than the source.
@@ -150,7 +150,7 @@ public class Paint {
      */
     public static final int STRIKE_THRU_TEXT_FLAG = 0x10;
     /**
-     * Paint flag that applies a synthetic bolding effect to drawn text.
+     * Paint flag that applies a synthetic 虚构的 bolding effect to drawn text.
      *
      * <p>Enabling this flag will cause text draw operations to apply a
      * simulated bold effect when drawing a {@link Typeface} that is not
@@ -164,9 +164,9 @@ public class Paint {
      * Paint flag that enables smooth linear scaling of text.
      *
      * <p>Enabling this flag does not actually scale text, but rather adjusts
-     * text draw operations to deal gracefully with smooth adjustment of scale.
+     * text draw operations to deal gracefully 优雅地 with smooth adjustment of scale.
      * When this flag is enabled, font hinting is disabled to prevent shape
-     * deformation between scale factors, and glyph caching is disabled due to
+     * deformation 变形 between scale factors, and glyph 象形文字 caching is disabled due to
      * the large number of glyph images that will be generated.</p>
      *
      * <p>{@link #SUBPIXEL_TEXT_FLAG} should be used in conjunction with this
@@ -178,13 +178,13 @@ public class Paint {
      */
     public static final int LINEAR_TEXT_FLAG    = 0x40;
     /**
-     * Paint flag that enables subpixel positioning of text.
+     * Paint flag that enables subpixel 子像素 positioning of text.
      *
      * <p>Enabling this flag causes glyph advances to be computed with subpixel
-     * accuracy.</p>
+     * accuracy 精确（性） .</p>
      *
      * <p>This can be used with {@link #LINEAR_TEXT_FLAG} to prevent text from
-     * jittering during smooth scale transitions.</p>
+     * jittering 紧张不安 during smooth scale transitions.</p>
      *
      * @see #Paint(int)
      * @see #setFlags(int)
@@ -229,7 +229,7 @@ public class Paint {
     public static final int HINTING_ON = 0x1;
 
     /**
-     * Bidi flag to set LTR paragraph direction.
+     * Bidi 双向的 bidirectional flag to set LTR paragraph direction.
      *
      * @hide
      */
@@ -243,7 +243,7 @@ public class Paint {
     public static final int BIDI_RTL = 0x1;
 
     /**
-     * Bidi flag to detect paragraph direction via heuristics, defaulting to
+     * Bidi flag to detect paragraph direction via heuristics 探索法 , defaulting to
      * LTR.
      *
      * @hide
@@ -355,7 +355,7 @@ public class Paint {
          * Geometry and text drawn with this style will be both filled and
          * stroked at the same time, respecting the stroke-related fields on
          * the paint. This mode can give unexpected results if the geometry
-         * is oriented counter-clockwise. This restriction does not apply to
+         * is oriented 以…为方向的 counter-clockwise 逆时针方向 . This restriction does not apply to
          * either FILL or STROKE.
          */
         FILL_AND_STROKE (2);
@@ -376,12 +376,12 @@ public class Paint {
          */
         BUTT    (0),
         /**
-         * The stroke projects out as a semicircle, with the center at the
+         * The stroke projects out as a semicircle 半圆形 , with the center at the
          * end of the path.
          */
         ROUND   (1),
         /**
-         * The stroke projects out as a square, with the center at the end
+         * The stroke projects out as a square 正方形 , with the center at the end
          * of the path.
          */
         SQUARE  (2);
@@ -393,7 +393,7 @@ public class Paint {
     }
 
     /**
-     * The Join specifies the treatment where lines and curve segments
+     * The Join specifies the treatment where lines and curve 弧线 segments
      * join on a stroked path. The default is MITER.
      */
     public enum Join {
@@ -402,7 +402,7 @@ public class Paint {
          */
         MITER   (0),
         /**
-         * The outer edges of a join meet in a circular arc.
+         * The outer edges of a join meet in a circular 圆形的 arc 弧（度）.
          */
         ROUND   (1),
         /**
@@ -457,7 +457,7 @@ public class Paint {
         mNativePaint = nInit();
         NoImagePreloadHolder.sRegistry.registerNativeAllocation(this, mNativePaint);
         setFlags(flags | HIDDEN_DEFAULT_PAINT_FLAGS);
-        // TODO: Turning off hinting has undesirable side effects, we need to
+        // TODO: Turning off hinting has undesirable 不受欢迎的 side 方面 effects, we need to
         //       revisit hinting once we add support for subpixel positioning
         // setHinting(DisplayMetrics.DENSITY_DEVICE >= DisplayMetrics.DENSITY_TV
         //        ? HINTING_OFF : HINTING_ON);
@@ -559,7 +559,7 @@ public class Paint {
 
     /**
      * Return the pointer to the native object while ensuring that any
-     * mutable objects that are attached to the paint are also up-to-date.
+     * mutable 易变的 objects that are attached to the paint are also up-to-date.
      *
      * @hide
      */
@@ -640,7 +640,7 @@ public class Paint {
     /**
      * Helper for getFlags(), returning true if ANTI_ALIAS_FLAG bit is set
      * AntiAliasing smooths out the edges of what is being drawn, but is has
-     * no impact on the interior of the shape. See setDither() and
+     * no impact on the interior 内部 of the shape. See setDither() and
      * setFilterBitmap() to affect how colors are treated.
      *
      * @return true if the antialias bit is set in the paint's flags.
@@ -650,9 +650,9 @@ public class Paint {
     }
 
     /**
-     * Helper for setFlags(), setting or clearing the ANTI_ALIAS_FLAG �����  bit
-     * AntiAliasing smooths out ����  the edges of what is being drawn, but is has
-     * no impact on the interior �ڲ���  of the shape. See setDither() and
+     * Helper for setFlags(), setting or clearing the ANTI_ALIAS_FLAG   bit
+     * AntiAliasing smooths out  the edges of what is being drawn, but is has
+     * no impact on the interior of the shape. See setDither() and
      * setFilterBitmap() to affect how colors are treated.
      *
      * @param aa true to set the antialias bit in the flags, false to clear it
@@ -665,10 +665,10 @@ public class Paint {
 
     /**
      * Helper for getFlags(), returning true if DITHER_FLAG bit is set
-     * Dithering affects how colors that are higher precision than the device
-     * are down-sampled. No dithering is generally faster, but higher precision
+     * Dithering affects how colors that are higher precision 精确度 than the device
+     * are down-sampled 取样速率 . No dithering is generally faster, but higher precision
      * colors are just truncated down (e.g. 8888 -> 565). Dithering tries to
-     * distribute the error inherent in this process, to reduce the visual
+     * distribute the error inherent 天生 in this process, to reduce the visual
      * artifacts.
      *
      * @return true if the dithering bit is set in the paint's flags.
@@ -799,8 +799,8 @@ public class Paint {
     private native void nSetFakeBoldText(long paintPtr, boolean fakeBoldText);
 
     /**
-     * Whether or not the bitmap filter is activated.
-     * Filtering affects the sampling of bitmaps when they are transformed.
+     * Whether or not the bitmap filter is activated 有活性的 .
+     * Filtering affects the sampling 取样 of bitmaps when they are transformed.
      * Filtering does not affect how the colors in the bitmap are converted into
      * device pixels. That is dependent on dithering and xfermodes.
      *
@@ -849,7 +849,7 @@ public class Paint {
 
     /**
      * Return the paint's color. Note that the color is a 32bit value
-     * containing alpha as well as r,g,b. This 32bit value is not premultiplied,
+     * containing alpha as well as r,g,b. This 32bit value is not premultiplied 左乘 ,
      * meaning that its alpha can be any value, regardless of the values of
      * r,g,b. See the Color class for more details.
      *
@@ -917,7 +917,7 @@ public class Paint {
     /**
      * Return the width for stroking.
      * <p />
-     * A value of 0 strokes in hairline mode.
+     * A value of 0 strokes in hairline 极细的织物 mode.
      * Hairlines always draws a single pixel independent of the canva's matrix.
      *
      * @return the paint's stroke width, used whenever the paint's style is
@@ -944,7 +944,7 @@ public class Paint {
     private native void nSetStrokeWidth(long paintPtr, float width);
 
     /**
-     * Return the paint's stroke miter value. Used to control the behavior
+     * Return the paint's stroke miter 头饰 value. Used to control the behavior
      * of miter joins when the joins angle is sharp.
      *
      * @return the paint's miter limit, used whenever the paint's style is
@@ -1200,7 +1200,7 @@ public class Paint {
      *
      * @return         the paint's rasterizer (or null)
      *
-     *  @deprecated Rasterizer is not supported by either the HW or PDF backends.
+     *  @deprecated Rasterizer is not supported by either the HW or PDF backends 后端 .
      */
     @Deprecated
     public Rasterizer getRasterizer() {
@@ -1232,11 +1232,11 @@ public class Paint {
 
     /**
      * This draws a shadow layer below the main layer, with the specified
-     * offset and color, and blur radius. If radius is 0, then the shadow
+     * offset and color, and blur radius 模糊半径 . If radius is 0, then the shadow
      * layer is removed.
      * <p>
-     * Can be used to create a blurred shadow underneath text. Support for use
-     * with other drawing operations is constrained to the software rendering
+     * Can be used to create a blurred shadow 阴影 underneath 在下面 text. Support for use
+     * with other drawing operations is constrained被强迫的  to the software rendering
      * pipeline.
      * <p>
      * The alpha of the shadow will be the paint's alpha if the shadow color is
@@ -1339,7 +1339,7 @@ public class Paint {
      * the order those locales appear in the list is considered for deciding the font.
      *
      * This distinction is important because Chinese and Japanese text both use many
-     * of the same Unicode code points but their appearance is subtly different for
+     * of the same Unicode code points but their appearance is subtly 隐隐约约地 different for
      * each language.
      *
      * By default, the text locale list is initialized to a one-member list just containing the
@@ -1378,7 +1378,7 @@ public class Paint {
     }
 
     /**
-     * Get the elegant metrics flag.
+     * Get the elegant 优美的 metrics flag.
      *
      * @return true if elegant metrics are enabled for text drawing.
      */
@@ -1449,7 +1449,7 @@ public class Paint {
     private native void nSetTextScaleX(long paintPtr, float scaleX);
 
     /**
-     * Return the paint's horizontal skew factor for text. The default value
+     * Return the paint's horizontal skew 斜的 factor for text. The default value
      * is 0.
      *
      * @return         the paint's skew factor in X for drawing text.
@@ -1462,7 +1462,7 @@ public class Paint {
 
     /**
      * Set the paint's horizontal skew factor for text. The default value
-     * is 0. For approximating oblique text, use values around -0.25.
+     * is 0. For approximating 接近 oblique text, use values around -0.25.
      *
      * @param skewX set the paint's skew factor in X for drawing text.
      */
@@ -1485,7 +1485,7 @@ public class Paint {
     /**
      * Set the paint's letter-spacing for text. The default value
      * is 0.  The value is in 'EM' units.  Typical values for slight
-     * expansion will be around 0.05.  Negative values tighten text.
+     * expansion will be around 0.05.  Negative values tighten 变紧 text.
      *
      * @param letterSpacing set the paint's letter-spacing for drawing text.
      */
@@ -1531,7 +1531,7 @@ public class Paint {
     }
 
     /**
-     * Get the current value of hyphen edit.
+     * Get the current value of hyphen 连字符 edit.
      *
      * @return the current hyphen edit value
      *
@@ -1554,7 +1554,7 @@ public class Paint {
     }
 
     /**
-     * Return the distance above (negative) the baseline (ascent) based on the
+     * Return the distance above (negative) the baseline (ascent 上升 ) based on the
      * current typeface and text size.
      *
      * @return the distance above (negative) the baseline (ascent) based on the
@@ -1567,7 +1567,7 @@ public class Paint {
     private native float nAscent(long paintPtr, long typefacePtr);
 
     /**
-     * Return the distance below (positive) the baseline (descent) based on the
+     * Return the distance below (positive) the baseline (descent 下降 ) based on the
      * current typeface and text size.
      *
      * @return the distance below (positive) the baseline (descent) based on

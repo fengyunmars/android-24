@@ -21,7 +21,7 @@ import android.view.View;
 
 /**
  * TextView uses TransformationMethods to do things like replacing the
- * characters of passwords with dots, or keeping the newline characters
+ * characters of passwords with dots 小圆点 , or keeping the newline characters
  * from causing line breaks in single-line text fields.
  */
 public interface TransformationMethod

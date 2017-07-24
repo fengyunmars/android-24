@@ -32,6 +32,7 @@ import java.io.Reader;
  * {@hide}
  */
 final class XmlBlock {
+
     private static final boolean DEBUG=false;
 
     public XmlBlock(byte[] data) {
@@ -74,13 +75,15 @@ final class XmlBlock {
         }
     }
 
-    /*package*/ final class Parser implements XmlResourceParser {
+    /*package*/
+    final class Parser implements XmlResourceParser {
         Parser(long parseState, XmlBlock block) {
             mParseState = parseState;
             mBlock = block;
             block.mOpenCount++;
         }
 
+        @Override
         public void setFeature(String name, boolean state) throws XmlPullParserException {
             if (FEATURE_PROCESS_NAMESPACES.equals(name) && state) {
                 return;
@@ -90,6 +93,7 @@ final class XmlBlock {
             }
             throw new XmlPullParserException("Unsupported feature: " + name);
         }
+
         public boolean getFeature(String name) {
             if (FEATURE_PROCESS_NAMESPACES.equals(name)) {
                 return true;
@@ -138,6 +142,7 @@ final class XmlBlock {
         public int getDepth() {
             return mDepth;
         }
+
         public String getText() {
             int id = nativeGetText(mParseState);
             return id >= 0 ? mStrings.get(id).toString() : null;
@@ -155,6 +160,8 @@ final class XmlBlock {
         public String getPrefix() {
             throw new RuntimeException("getPrefix not supported");
         }
+
+        @Override
         public char[] getTextCharacters(int[] holderForStartAndLength) {
             String txt = getText();
             char[] chars = null;
@@ -166,14 +173,17 @@ final class XmlBlock {
             }
             return chars;
         }
+
         public String getNamespace() {
             int id = nativeGetNamespace(mParseState);
             return id >= 0 ? mStrings.get(id).toString() : "";
         }
+
         public String getName() {
             int id = nativeGetName(mParseState);
             return id >= 0 ? mStrings.get(id).toString() : null;
         }
+
         public String getAttributeNamespace(int index) {
             int id = nativeGetAttributeNamespace(mParseState, index);
             if (DEBUG) System.out.println("getAttributeNamespace of " + index + " = " + id);
@@ -197,6 +207,8 @@ final class XmlBlock {
         public int getAttributeCount() {
             return mEventType == START_TAG ? nativeGetAttributeCount(mParseState) : -1;
         }
+
+        @Override
         public String getAttributeValue(int index) {
             int id = nativeGetAttributeStringValue(mParseState, index);
             if (DEBUG) System.out.println("getAttributeValue of " + index + " = " + id);
@@ -264,6 +276,7 @@ final class XmlBlock {
             }
             return ev;
         }
+
         public void require(int type, String namespace, String name) throws XmlPullParserException,IOException {
             if (type != getEventType()
                 || (namespace != null && !namespace.equals( getNamespace () ) )
@@ -375,7 +388,7 @@ final class XmlBlock {
                 boolean defaultValue) {
             int t = nativeGetAttributeDataType(mParseState, idx);
             // Note: don't attempt to convert any other types, because
-            // we want to count on aapt doing the conversion for us.
+            // we want to count on aapt doing the conversion 转变 for us.
             if (t >= TypedValue.TYPE_FIRST_INT &&
                 t <= TypedValue.TYPE_LAST_INT) {
                 return nativeGetAttributeData(mParseState, idx) != 0;
@@ -454,11 +467,13 @@ final class XmlBlock {
             close();
         }
 
-        /*package*/ final CharSequence getPooledString(int id) {
+        /*package*/
+        final CharSequence getPooledString(int id) {
             return mStrings.get(id);
         }
 
-        /*package*/ long mParseState;
+        /*package*/
+        long mParseState;
         private final XmlBlock mBlock;
         private boolean mStarted = false;
         private boolean mDecNextDepth = false;
@@ -484,7 +499,8 @@ final class XmlBlock {
 
     private final AssetManager mAssets;
     private final long mNative;
-    /*package*/ final StringBlock mStrings;
+    /*package*/
+    final StringBlock mStrings;
     private boolean mOpen = true;
     private int mOpenCount = 1;
 

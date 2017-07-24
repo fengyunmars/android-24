@@ -22,10 +22,11 @@ import android.graphics.Color;
 
 /**
  * Defines an abstract class for the complex color information, like
- * {@link android.content.res.ColorStateList} or {@link android.content.res.GradientColor}
+ * {@link android.content.res.ColorStateList} or {@link android.content.res.GradientColor} 梯度
  * @hide
  */
 public abstract class ComplexColor {
+
     private int mChangingConfigurations;
 
     /**

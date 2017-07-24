@@ -85,8 +85,8 @@ abstract class ThemedResourceCache<T> {
      */
     @Nullable
     public T get(long key, @Nullable Theme theme) {
-        // The themed (includes null-themed) and unthemed caches are mutually
-        // exclusive, so we'll give priority to whichever one we think we'll
+        // The themed (includes null-themed) and unthemed caches are mutually 互相地
+        // exclusive 单独的 , so we'll give priority to whichever one we think we'll
         // hit first. Since most of the framework drawables are themed, that's
         // probably going to be the themed cache.
         synchronized (this) {
@@ -111,7 +111,7 @@ abstract class ThemedResourceCache<T> {
     }
 
     /**
-     * Prunes cache entries that have been invalidated by a configuration
+     * Prunes 修剪 cache entries that have been invalidated by a configuration
      * change.
      *
      * @param configChanges a bitmask of configuration changes
@@ -170,7 +170,7 @@ abstract class ThemedResourceCache<T> {
     }
 
     /**
-     * Returns the theme-agnostic cached data.
+     * Returns the theme-agnostic 不可知论者 cached data.
      *
      * @param create {@code true} to create an entry if one does not already
      *               exist, {@code false} otherwise

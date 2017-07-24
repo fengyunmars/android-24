@@ -20,8 +20,8 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 
 /**
- * The Path class encapsulates compound (multiple contour) geometric paths
- * consisting of straight line segments, quadratic curves, and cubic curves.
+ * The Path class encapsulates compound 复合的 (multiple contour 轮廓 ) geometric paths
+ * consisting of straight line segments, quadratic 二次的 curves 曲线 , and cubic 三次曲线 curves.
  * It can be drawn with canvas.drawPath(path, paint), either filled or stroked
  * (based on the paint's Style), or it can be used for clipping or to draw
  * text on a path.
@@ -82,7 +82,7 @@ public class Path {
     }
 
     /**
-     * Rewinds the path: clears any lines and curves from the path but
+     * Rewinds 倒回 the path: clears any lines and curves from the path but
      * keeps the internal data structure for faster reuse.
      */
     public void rewind() {
@@ -121,7 +121,7 @@ public class Path {
      */
     public enum Op {
         /**
-         * Subtract the second path from the first path.
+         * Subtract 减去 the second path from the first path.
          */
         DIFFERENCE,
         /**
@@ -129,11 +129,11 @@ public class Path {
          */
         INTERSECT,
         /**
-         * Union (inclusive-or) the two paths.
+         * Union (inclusive-or 包括的 ) the two paths.
          */
         UNION,
         /**
-         * Exclusive-or the two paths.
+         * Exclusive-or 排外的 the two paths.
          */
         XOR,
         /**
@@ -144,11 +144,11 @@ public class Path {
 
     /**
      * Set this path to the result of applying the Op to this path and the specified path.
-     * The resulting path will be constructed from non-overlapping contours.
-     * The curve order is reduced where possible so that cubics may be turned
+     * The resulting path will be constructed from non-overlapping 重叠 contours 轮廓 .
+     * The curve order 次序 is reduced where possible so that cubics may be turned
      * into quadratics, and quadratics maybe turned into lines.
      *
-     * @param path The second operand (for difference, the subtrahend)
+     * @param path The second operand 操作数 (for difference, the subtrahend 减数 )
      *
      * @return True if operation succeeded, false otherwise and this path remains unmodified.
      *
@@ -183,9 +183,9 @@ public class Path {
     }
 
     /**
-     * Returns the path's convexity, as defined by the content of the path.
+     * Returns the path's convexity 凸状 , as defined by the content of the path.
      * <p>
-     * A path is convex if it has a single contour, and only ever curves in a
+     * A path is convex 凸形 if it has a single contour 轮廓 , and only ever curves 弯成弧形 in a
      * single direction.
      * <p>
      * This function will calculate the convexity of the path from its control
@@ -208,7 +208,7 @@ public class Path {
          */
         WINDING         (0),
         /**
-         * Specifies that "inside" is computed by an odd number of edge
+         * Specifies that "inside" is computed by an odd 奇数的 number of edge
          * crossings.
          */
         EVEN_ODD        (1),
@@ -238,7 +238,7 @@ public class Path {
 
     /**
      * Return the path's fill type. This defines how "inside" is
-     * computed. The default value is WINDING.
+     * computed. The default value is WINDING 弯曲 .
      *
      * @return the path's fill type
      */
@@ -311,7 +311,7 @@ public class Path {
 
     /**
      * Hint to the path to prepare for adding more points. This can allow the
-     * path to more efficiently allocate its storage.
+     * path to more efficiently allocate its storage. Reserve 储备
      *
      * @param extraPtCount The number of extra points that may be added to this
      *                     path
@@ -321,7 +321,7 @@ public class Path {
     }
 
     /**
-     * Set the beginning of the next contour to the point (x,y).
+     * Set the beginning of the next contour 轮廓 to the point (x,y).
      *
      * @param x The x-coordinate of the start of a new contour
      * @param y The y-coordinate of the start of a new contour
@@ -373,7 +373,7 @@ public class Path {
     }
 
     /**
-     * Add a quadratic bezier from the last point, approaching control point
+     * Add a quadratic 二次的 bezier 贝塞尔曲线 from the last point, approaching 逼近的 control point
      * (x1,y1), and ending at (x2,y2). If no moveTo() call has been made for
      * this contour, the first point is automatically set to (0,0).
      *
@@ -442,9 +442,9 @@ public class Path {
      * start of the arc. However, if the path is empty, then we call moveTo()
      * with the first point of the arc.
      *
-     * @param oval        The bounds of oval defining shape and size of the arc
+     * @param oval        The bounds of oval 椭圆形的 defining shape and size of the arc
      * @param startAngle  Starting angle (in degrees) where the arc begins
-     * @param sweepAngle  Sweep angle (in degrees) measured clockwise, treated
+     * @param sweepAngle  Sweep 扫过 angle (in degrees) measured clockwise, treated
      *                    mod 360.
      * @param forceMoveTo If true, always begin a new contour with the arc
      */
@@ -500,9 +500,9 @@ public class Path {
      * are added to a path.
      */
     public enum Direction {
-        /** clockwise */
+        /** clockwise 顺时针方向的 */
         CW  (0),    // must match enum in SkPath.h
-        /** counter-clockwise */
+        /** counter-clockwise  反向移动 逆时针方向 */
         CCW (1);    // must match enum in SkPath.h
 
         Direction(int ni) {
@@ -572,7 +572,7 @@ public class Path {
      *
      * @param x   The x-coordinate of the center of a circle to add to the path
      * @param y   The y-coordinate of the center of a circle to add to the path
-     * @param radius The radius of a circle to add to the path
+     * @param radius The radius 半径 of a circle to add to the path
      * @param dir    The direction to wind the circle's contour
      */
     public void addCircle(float x, float y, float radius, Direction dir) {
@@ -780,7 +780,7 @@ public class Path {
     }
 
     /**
-     * Approximate the <code>Path</code> with a series of line segments.
+     * Approximate 使接近 the <code>Path</code> with a series of line segments.
      * This returns float[] with the array containing point components.
      * There are three components for each point, in order:
      * <ul>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,7 +20,7 @@ import java.io.PrintWriter;
 
 
 /**
- * The Matrix ���� class holds a 3x3 matrix for transforming coordinates.
+ * The Matrix 矩阵 class holds a 3x3 matrix for transforming coordinates.
  */
 public class Matrix {
 
@@ -237,7 +237,7 @@ public class Matrix {
     }
 
     /**
-     * Returns true if the matrix is identity.
+     * Returns true if the matrix is identity 恒等 .
      * This maybe faster than testing if (getType() == 0)
      */
     public boolean isIdentity() {
@@ -245,8 +245,8 @@ public class Matrix {
     }
 
     /**
-     * Gets whether this matrix is affine. An affine matrix preserves
-     * straight lines and has no perspective.
+     * Gets whether this matrix is affine 仿射（几何学）的姻亲 . An affine matrix preserves 保持
+     * straight lines and has no perspective 透视的 .
      *
      * @return Whether the matrix is affine.
      */
@@ -286,7 +286,7 @@ public class Matrix {
 
     @Override
     public int hashCode() {
-        // This should generate the hash code by performing some arithmetic operation on all
+        // This should generate the hash code by performing some arithmetic  算术 operation on all
         // the matrix elements -- our equals() does an element-by-element comparison, and we
         // need to ensure that the hash code for two equal objects is the same.  We're not
         // really using this at the moment, so we take the easy way out.
@@ -348,7 +348,7 @@ public class Matrix {
     }
 
     /**
-     * Set the matrix to skew by sx and sy, with a pivot point at (px, py).
+     * Set the matrix to skew 使歪斜 by sx and sy, with a pivot point at (px, py).
      * The pivot point is the coordinate that should remain unchanged by the
      * specified transformation.
      */
@@ -369,7 +369,7 @@ public class Matrix {
      * <code>matrixA.setConcat(matrixA, matrixB);</code> is valid.</p>
      *
      * <p class="note">In {@link android.os.Build.VERSION_CODES#GINGERBREAD_MR1} and below, this
-     * function returns true only if the result can be represented. In
+     * function returns true only if the result can be represented 表现. In
      * {@link android.os.Build.VERSION_CODES#HONEYCOMB} and above, it always returns true.</p>
      */
     public boolean setConcat(Matrix a, Matrix b) {
@@ -423,7 +423,7 @@ public class Matrix {
     }
 
     /**
-     * Preconcats the matrix with the specified skew.
+     * Preconcats the matrix with the specified skew 使歪斜 .
      * M' = M * K(kx, ky, px, py)
      */
     public boolean preSkew(float kx, float ky, float px, float py) {
@@ -527,7 +527,7 @@ public class Matrix {
     public enum ScaleToFit {
         /**
          * Scale in X and Y independently, so that src matches dst exactly.
-         * This may change the aspect ratio of the src.
+         * This may change the aspect 方向 ratio of the src.
          */
         FILL    (0),
         /**
@@ -612,7 +612,7 @@ public class Matrix {
     }
 
     /**
-     * If this matrix can be inverted, return true and if inverse is not null,
+     * If this matrix can be inverted 使反转 , return true and if inverse is not null,
      * set inverse to be the inverse of this matrix. If this matrix cannot be
      * inverted, ignore inverse and return false.
      */
@@ -745,7 +745,7 @@ public class Matrix {
     }
 
     /**
-     * Return the mean radius of a circle after it has been mapped by
+     * Return the mean 几何平均 radius 半径 of a circle after it has been mapped by
      * this matrix. NOTE: in perspective this value assumes the circle
      * has its center at the origin.
      */

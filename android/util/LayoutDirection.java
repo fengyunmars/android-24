@@ -18,7 +18,7 @@ package android.util;
 
 /**
  * A class for defining layout directions. A layout direction can be left-to-right (LTR)
- * or right-to-left (RTL). It can also be inherited (from a parent) or deduced from the default
+ * or right-to-left (RTL). It can also be inherited (from a parent) or deduced 推论 from the default
  * language script of a locale.
  */
 public final class LayoutDirection {

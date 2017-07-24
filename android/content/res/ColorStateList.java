@@ -123,6 +123,7 @@ import java.util.Arrays;
  * @attr ref android.R.styleable#ColorStateListItem_color
  */
 public class ColorStateList extends ComplexColor implements Parcelable {
+
     private static final String TAG = "ColorStateList";
 
     private static final int DEFAULT_COLOR = Color.RED;
@@ -170,7 +171,7 @@ public class ColorStateList extends ComplexColor implements Parcelable {
                     return cached;
                 }
 
-                // Prune missing entry.
+                // Prune 删除 missing entry.
                 sCache.removeAt(index);
             }
 
@@ -349,7 +350,7 @@ public class ColorStateList extends ComplexColor implements Parcelable {
             }
             stateSpec = StateSet.trimStateSet(stateSpec, j);
 
-            // Apply alpha modulation. If we couldn't resolve the color or
+            // Apply alpha modulation 调制 . If we couldn't resolve the color or
             // alpha yet, the default values leave us enough information to
             // modulate again during applyTheme().
             final int color = modulateColorAlpha(baseColor, alphaMod);

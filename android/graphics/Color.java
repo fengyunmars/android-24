@@ -26,9 +26,9 @@ import java.util.Locale;
 
 /**
  * The Color class defines methods for creating and converting color ints.
- * Colors are represented as packed ints, made up of 4 bytes: alpha, red,
- * green, blue. The values are unpremultiplied, meaning any transparency is
- * stored solely in the alpha component, and not in the color components. The
+ * Colors are represented as packed 包装 ints, made up of 4 bytes: alpha, red,
+ * green, blue. The values are unpremultiplied, meaning any transparency 透明度 is
+ * stored solely 仅仅 in the alpha component, and not in the color components. The
  * components are stored as follows (alpha << 24) | (red << 16) |
  * (green << 8) | blue. Each component ranges between 0..255 with 0
  * meaning no contribution for that component, and 255 meaning 100%
@@ -47,9 +47,9 @@ public class Color {
     @ColorInt public static final int BLUE        = 0xFF0000FF;
     @ColorInt public static final int YELLOW      = 0xFFFFFF00;
     //青色
-    @ColorInt public static final int CYAN        = 0xFF00FFFF;
+    @ColorInt public static final int CYAN        = 0xFF00FFFF; // 青色
     //品红
-    @ColorInt public static final int MAGENTA     = 0xFFFF00FF;
+    @ColorInt public static final int MAGENTA     = 0xFFFF00FF; // 品红
     //透明
     @ColorInt public static final int TRANSPARENT = 0;
 
@@ -116,9 +116,9 @@ public class Color {
     }
 
     /**
-     * Returns the relative luminance of a color.
+     * Returns the relative luminance 亮度 of a color.
      * <p>
-     * Assumes sRGB encoding. Based on the formula for relative luminance
+     * Assumes sRGB encoding. Based on the formula 公式 for relative luminance
      * defined in WCAG 2.0, W3C Recommendation 11 December 2008.
      *
      * @return a value between 0 (darkest black) and 1 (lightest white)

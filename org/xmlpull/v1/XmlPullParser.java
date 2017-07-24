@@ -609,7 +609,7 @@ public interface XmlPullParser {
      * The 'xml' prefix is bound to "http://www.w3.org/XML/1998/namespace", as
      * defined in the
      * <a href="http://www.w3.org/TR/REC-xml-names/#ns-using">Namespaces in XML</a>
-     * specification. Analogous, the 'xmlns' prefix is resolved to
+     * specification. Analogous 相似的 , the 'xmlns' prefix is resolved to
      * <a href="http://www.w3.org/2000/xmlns/">http://www.w3.org/2000/xmlns/</a>
      *
      * @see #getNamespaceCount
@@ -620,13 +620,13 @@ public interface XmlPullParser {
 
 
     // --------------------------------------------------------------------------
-    // miscellaneous reporting methods
+    // miscellaneous 混杂的 reporting methods
 
     /**
      * Returns the current depth of the element.
      * Outside the root element, the depth is 0. The
      * depth is incremented by 1 when a start tag is reached.
-     * The depth is decremented AFTER the end tag
+     * The depth is decremented 递减 AFTER the end tag
      * event was observed.
      *
      * <pre>
@@ -760,7 +760,7 @@ public interface XmlPullParser {
      * null is returned.
      * <p><b>Please note:</b> To reconstruct the raw element name
      *  when namespaces are enabled and the prefix is not null,
-     * you will need to  add the prefix and a colon to localName..
+     * you will need to  add the prefix and a colon 冒号 to localName..
      *
      */
     String getName();
@@ -776,7 +776,7 @@ public interface XmlPullParser {
 
     /**
      * Returns true if the current event is START_TAG and the tag
-     * is degenerated
+     * is degenerated 退化的
      * (e.g. &lt;foobar/&gt;).
      * <p><b>NOTE:</b> if the parser is not on START_TAG, an exception
      * will be thrown.
@@ -913,7 +913,7 @@ public interface XmlPullParser {
         throws XmlPullParserException;
 
     /**
-     * Get next parsing event - element content will be coalesced and only one
+     * Get next parsing event - element content will be coalesced 合并 and only one
      * TEXT event must be returned for whole element content
      * (comments and processing instructions will be ignored and entity references
      * must be expanded or exception must be thrown if entity reference can not be expanded).
@@ -921,7 +921,7 @@ public interface XmlPullParser {
      *
      * <p><b>NOTE:</b> empty element (such as &lt;tag/>) will be reported
      *  with  two separate events: START_TAG, END_TAG - it must be so to preserve
-     *   parsing equivalency of empty element to &lt;tag>&lt;/tag>.
+     *   parsing equivalency 相等 of empty element to &lt;tag>&lt;/tag>.
      *  (see isEmptyElementTag ())
      *
      * @see #isEmptyElementTag
@@ -960,7 +960,7 @@ public interface XmlPullParser {
      * <dt>END_TAG<dd>null unless FEATURE_XML_ROUNDTRIP
      *  id enabled and then returns XML tag, ex: &lt;/tag>
      * <dt>TEXT<dd>return element content.
-     *  <br>Note: that element content may be delivered in multiple consecutive TEXT events.
+     *  <br>Note: that element content may be delivered in multiple consecutive 连续的 TEXT events.
      * <dt>IGNORABLE_WHITESPACE<dd>return characters that are determined to be ignorable white
      * space. If the FEATURE_XML_ROUNDTRIP is enabled all whitespace content outside root
      * element will always reported as IGNORABLE_WHITESPACE otherwise reporting is optional.

@@ -33,6 +33,7 @@ import android.text.*;
  * </p>
  */
 public interface MovementMethod {
+
     public void initialize(TextView widget, Spannable text);
     public boolean onKeyDown(TextView widget, Spannable text, int keyCode, KeyEvent event);
     public boolean onKeyUp(TextView widget, Spannable text, int keyCode, KeyEvent event);

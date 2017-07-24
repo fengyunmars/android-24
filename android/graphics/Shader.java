@@ -41,7 +41,7 @@ public class Shader {
 
     public enum TileMode {
         /**
-         * replicate the edge color if the shader draws outside of its
+         * replicate 复制 the edge color if the shader draws outside of its
          * original bounds
          */
         CLAMP   (0),
@@ -51,7 +51,7 @@ public class Shader {
         REPEAT  (1),
         /**
          * repeat the shader's image horizontally and vertically, alternating
-         * mirror images so that adjacent images always seam
+         * mirror images so that adjacent 相邻的 images always seam 缝合
          */
         MIRROR  (2);
     
@@ -62,7 +62,7 @@ public class Shader {
     }
 
     /**
-     * Return true if the shader has a non-identity local matrix.
+     * Return true if the shader has a non-identity 非全同 local matrix.
      * @param localM If not null, it is set to the shader's local matrix.
      * @return true if the shader has a non-identity local matrix
      */
