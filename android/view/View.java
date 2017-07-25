@@ -16452,8 +16452,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * should return true.
      *
      * Subclasses should check the return value of this method to provide
-     * different behaviors if their normal behavior might interfere with the
-     * host environment. For instance: the class spawns a thread in its
+     * different behaviors if their normal behavior might interfere 冲突 with the
+     * host environment. For instance: the class spawns 产卵数目 a thread in its
      * constructor, the drawing code relies on device-specific features, etc.
      *
      * This method is usually checked in the drawing code of custom widgets.
