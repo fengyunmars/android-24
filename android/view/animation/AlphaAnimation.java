@@ -27,6 +27,7 @@ import android.util.AttributeSet;
  *
  */
 public class AlphaAnimation extends Animation {
+
     private float mFromAlpha;
     private float mToAlpha;
 

@@ -19,7 +19,7 @@ package android.graphics;
 import android.annotation.NonNull;
 
 /**
- * Shader used to draw a bitmap as a texture. The bitmap can be repeated or
+ * Shader used to draw a bitmap as a texture 结构 . The bitmap can be repeated or
  * mirrored by setting the tiling mode.
  */
 public class BitmapShader extends Shader {

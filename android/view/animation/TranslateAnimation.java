@@ -27,6 +27,7 @@ import android.util.AttributeSet;
  *
  */
 public class TranslateAnimation extends Animation {
+
     private int mFromXType = ABSOLUTE;
     private int mToXType = ABSOLUTE;
 
@@ -153,7 +154,7 @@ public class TranslateAnimation extends Animation {
         mToYType = toYType;
     }
 
-
+    //interpolated 以内插值替换的
     @Override
     protected void applyTransformation(float interpolatedTime, Transformation t) {
         float dx = mFromXDelta;

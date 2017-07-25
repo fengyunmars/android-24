@@ -257,11 +257,11 @@ public class RectF implements Parcelable {
     
     /**
      * Inset the rectangle by (dx,dy). If dx is positive, then the sides are
-     * moved inwards, making the rectangle narrower. If dx is negative, then the
-     * sides are moved outwards, making the rectangle wider. The same holds true
+     * moved inwards 向内的 , making the rectangle narrower. If dx is negative, then the
+     * sides are moved outwards 向外的 , making the rectangle wider. The same holds true
      * for dy and the top and bottom.
      *
-     * @param dx The amount to add(subtract) from the rectangle's left(right)
+     * @param dx The amount to add(subtract 减去 ) from the rectangle's left(right)
      * @param dy The amount to add(subtract) from the rectangle's top(bottom)
      */
     public void inset(float dx, float dy) {
@@ -279,7 +279,7 @@ public class RectF implements Parcelable {
      *
      * @param x The X coordinate of the point being tested for containment
      * @param y The Y coordinate of the point being tested for containment
-     * @return true iff (x,y) are contained by the rectangle, where containment
+     * @return true iff (x,y) are contained by the rectangle, where containment 包含
      *              means left <= x < right and top <= y < bottom
      */
     public boolean contains(float x, float y) {
@@ -515,7 +515,7 @@ public class RectF implements Parcelable {
     }
     
     /**
-     * Swap top/bottom or left/right if there are flipped (i.e. left > right
+     * Swap top/bottom or left/right if there are flipped 翻转 (i.e. left > right
      * and/or top > bottom). This can be called if
      * the edges are computed separately, and may have crossed over each other.
      * If the edges are already correct (i.e. left <= right and top <= bottom)

@@ -41,7 +41,7 @@ public interface Readable {
      * Attempts to read characters into the specified character buffer.
      * The buffer is used as a repository of characters as-is: the only
      * changes made are the results of a put operation. No flipping or
-     * rewinding of the buffer is performed.
+     * rewinding 倒回 of the buffer is performed.
      *
      * @param cb the buffer to read characters into
      * @return The number of {@code char} values added to the buffer,

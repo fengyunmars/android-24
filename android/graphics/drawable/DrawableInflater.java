@@ -42,9 +42,10 @@ import java.util.HashMap;
  * it only works with an XmlPullParser returned from a compiled resource (R.
  * <em>something</em> file.)
  *
- * @hide Pending API finalization.
+ * @hide Pending API finalization 定稿 .
  */
 public final class DrawableInflater {
+
     private static final HashMap<String, Constructor<? extends Drawable>> CONSTRUCTOR_MAP =
             new HashMap<>();
 

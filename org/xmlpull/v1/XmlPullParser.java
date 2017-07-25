@@ -20,10 +20,10 @@ import java.io.Reader;
  *   FEATURE_VALIDATION is true (and that implies that FEATURE_PROCESS_DOCDECL is true)
  * <li>when FEATURE_PROCESS_DOCDECL is false (this is default and
  *   if different value is required necessary must be changed before parsing is started)
- *   then parser behaves like XML 1.0 compliant non-validating parser under condition that
+ *   then parser behaves like XML 1.0 compliant 一致的 non-validating parser under condition that
  *  <em>no DOCDECL is present</em> in XML documents
  *   (internal entites can still be defined with defineEntityReplacementText()).
- *   This mode of operation is intended <b>for operation in constrained environments</b> such as J2ME.
+ *   This mode of operation is intended <b>for operation in constrained 拘束的 environments</b> such as J2ME.
  * </ul>
  *
  *
@@ -34,7 +34,7 @@ import java.io.Reader;
  * <p>The current event state of the parser
  * can be determined by calling the
  * <a href="#getEventType()">getEventType()</a> method.
- * Initially, the parser is in the <a href="#START_DOCUMENT">START_DOCUMENT</a>
+ * Initially 开始 , the parser is in the <a href="#START_DOCUMENT">START_DOCUMENT</a>
  * state.
  *
  * <p>The method <a href="#next()">next()</a> advances the parser to the
@@ -147,7 +147,7 @@ public interface XmlPullParser {
     // EVENT TYPES as reported by next()
 
     /**
-     * Signalize that parser is at the very beginning of the document
+     * Signalize 发信号 that parser is at the very beginning of the document
      * and nothing was read yet.
      * This event type can only be observed by calling getEvent()
      * before the first call to next(), nextToken, or nextTag()</a>).
@@ -213,7 +213,7 @@ public interface XmlPullParser {
     /**
      * Character data was read and will is available by calling getText().
      * <p><strong>Please note:</strong> <a href="#next()">next()</a> will
-     * accumulate multiple
+     * accumulate 积累 multiple
      * events into one TEXT event, skipping IGNORABLE_WHITESPACE,
      * PROCESSING_INSTRUCTION and COMMENT events,
      * In contrast, <a href="#nextToken()">nextToken()</a> will stop reading
@@ -221,7 +221,7 @@ public interface XmlPullParser {
      * Also, when the state was reached by calling next(), the text value will
      * be normalized, whereas getText() will
      * return unnormalized content in the case of nextToken(). This allows
-     * an exact roundtrip without changing line ends when examining low
+     * an exact roundtrip 往返的 without changing line ends when examining low
      * level events, whereas for high level applications the text is
      * normalized appropriately.
      *
@@ -322,8 +322,8 @@ public interface XmlPullParser {
      * to a string. For example, the value of TYPES[START_TAG] is
      * the string "START_TAG".
      *
-     * This array is intended for diagnostic output only. Relying
-     * on the contents of the array may be dangerous since malicious
+     * This array is intended for diagnostic 诊断的 output only. Relying
+     * on the contents of the array may be dangerous since malicious 恶意的
      * applications may alter the array, although it is final, due
      * to limitations of the Java language.
      */
@@ -349,7 +349,7 @@ public interface XmlPullParser {
      * This feature determines whether the parser processes
      * namespaces. As for all features, the default value is false.
      * <p><strong>NOTE:</strong> The value can not be changed during
-     * parsing an must be set before parsing.
+     * parsing and must be set before parsing.
      *
      * @see #getFeature
      * @see #setFeature
@@ -412,7 +412,7 @@ public interface XmlPullParser {
      * <p>Example: call setFeature(FEATURE_PROCESS_NAMESPACES, true) in order
      * to switch on namespace processing. The initial settings correspond
      * to the properties requested from the XML Pull Parser factory.
-     * If none were requested, all features are deactivated by default.
+     * If none were requested, all features are deactivated 无效 by default.
      *
      * @exception XmlPullParserException If the feature is not supported or can not be set
      * @exception IllegalArgumentException If string with the feature name is null
@@ -511,14 +511,14 @@ public interface XmlPullParser {
      * function will result in an exception -- when processing of DOCDECL is
      * enabled, there is no need to the entity replacement text manually.
      *
-     * <p>The motivation for this function is to allow very small
+     * <p>The motivation 动机 for this function is to allow very small
      * implementations of XMLPULL that will work in J2ME environments.
      * Though these implementations may not be able to process the document type
      * declaration, they still can work with known DTDs by using this function.
      *
      * <p><b>Please notes:</b> The given value is used literally as replacement text
      * and it corresponds to declaring entity in DTD that has all special characters
-     * escaped: left angle bracket is replaced with &amp;lt;, ampersand with &amp;amp;
+     * escaped: left angle bracket is replaced with &amp;lt;, ampersand &的记号名称 with &amp;amp;
      * and so on.
      *
      * <p><b>Note:</b> The given value is the literal replacement text and must not
@@ -609,7 +609,7 @@ public interface XmlPullParser {
      * The 'xml' prefix is bound to "http://www.w3.org/XML/1998/namespace", as
      * defined in the
      * <a href="http://www.w3.org/TR/REC-xml-names/#ns-using">Namespaces in XML</a>
-     * specification. Analogous, the 'xmlns' prefix is resolved to
+     * specification. Analogous 相似的 , the 'xmlns' prefix is resolved to
      * <a href="http://www.w3.org/2000/xmlns/">http://www.w3.org/2000/xmlns/</a>
      *
      * @see #getNamespaceCount
@@ -620,13 +620,13 @@ public interface XmlPullParser {
 
 
     // --------------------------------------------------------------------------
-    // miscellaneous reporting methods
+    // miscellaneous 混杂的 reporting methods
 
     /**
      * Returns the current depth of the element.
      * Outside the root element, the depth is 0. The
      * depth is incremented by 1 when a start tag is reached.
-     * The depth is decremented AFTER the end tag
+     * The depth is decremented 递减 AFTER the end tag
      * event was observed.
      *
      * <pre>
@@ -760,7 +760,7 @@ public interface XmlPullParser {
      * null is returned.
      * <p><b>Please note:</b> To reconstruct the raw element name
      *  when namespaces are enabled and the prefix is not null,
-     * you will need to  add the prefix and a colon to localName..
+     * you will need to  add the prefix and a colon 冒号 to localName..
      *
      */
     String getName();
@@ -776,7 +776,7 @@ public interface XmlPullParser {
 
     /**
      * Returns true if the current event is START_TAG and the tag
-     * is degenerated
+     * is degenerated 退化的
      * (e.g. &lt;foobar/&gt;).
      * <p><b>NOTE:</b> if the parser is not on START_TAG, an exception
      * will be thrown.
@@ -913,7 +913,7 @@ public interface XmlPullParser {
         throws XmlPullParserException;
 
     /**
-     * Get next parsing event - element content will be coalesced and only one
+     * Get next parsing event - element content will be coalesced 合并 and only one
      * TEXT event must be returned for whole element content
      * (comments and processing instructions will be ignored and entity references
      * must be expanded or exception must be thrown if entity reference can not be expanded).
@@ -921,7 +921,7 @@ public interface XmlPullParser {
      *
      * <p><b>NOTE:</b> empty element (such as &lt;tag/>) will be reported
      *  with  two separate events: START_TAG, END_TAG - it must be so to preserve
-     *   parsing equivalency of empty element to &lt;tag>&lt;/tag>.
+     *   parsing equivalency 相等 of empty element to &lt;tag>&lt;/tag>.
      *  (see isEmptyElementTag ())
      *
      * @see #isEmptyElementTag
@@ -960,7 +960,7 @@ public interface XmlPullParser {
      * <dt>END_TAG<dd>null unless FEATURE_XML_ROUNDTRIP
      *  id enabled and then returns XML tag, ex: &lt;/tag>
      * <dt>TEXT<dd>return element content.
-     *  <br>Note: that element content may be delivered in multiple consecutive TEXT events.
+     *  <br>Note: that element content may be delivered in multiple consecutive 连续的 TEXT events.
      * <dt>IGNORABLE_WHITESPACE<dd>return characters that are determined to be ignorable white
      * space. If the FEATURE_XML_ROUNDTRIP is enabled all whitespace content outside root
      * element will always reported as IGNORABLE_WHITESPACE otherwise reporting is optional.

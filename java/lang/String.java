@@ -2845,7 +2845,7 @@ public final class String
      * <code>s.intern()&nbsp;==&nbsp;t.intern()</code> is <code>true</code>
      * if and only if <code>s.equals(t)</code> is <code>true</code>.
      * <p>
-     * All literal strings and string-valued constant expressions are
+     * All literal 原义的 strings and string-valued constant expressions are
      * interned. String literals are defined in section 3.10.5 of the
      * <cite>The Java&trade; Language Specification</cite>.
      *

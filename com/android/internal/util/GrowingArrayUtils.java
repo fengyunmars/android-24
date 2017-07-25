@@ -18,7 +18,7 @@ package com.android.internal.util;
 
 /**
  * A helper class that aims to provide comparable growth performance to ArrayList, but on primitive
- * arrays. Common array operations are implemented for efficient use in dynamic containers.
+ * arrays. Common array operations are implemented for efficient 有效率的 use in dynamic containers.
  *
  * All methods in this class assume that the length of an array is equivalent to its capacity and
  * NOT the number of elements in the array. The current size of the array is always passed in as a

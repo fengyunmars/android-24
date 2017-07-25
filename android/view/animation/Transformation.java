@@ -25,11 +25,10 @@ import java.io.PrintWriter;
 /**
  * Defines the transformation to be applied at
  * one point in time of an Animation.
- *
  */
 public class Transformation {
     /**
-     * Indicates a transformation that has no effect (alpha = 1 and identity matrix.)
+     * Indicates a transformation that has no effect (alpha = 1 and identity 同一的 matrix 矩阵 .)
      */
     public static final int TYPE_IDENTITY = 0x0;
     /**
@@ -80,7 +79,7 @@ public class Transformation {
      * Indicates the nature of this transformation.
      *
      * @return {@link #TYPE_ALPHA}, {@link #TYPE_MATRIX},
-     *         {@link #TYPE_BOTH} or {@link #TYPE_IDENTITY}.
+     * {@link #TYPE_BOTH} or {@link #TYPE_IDENTITY}.
      */
     public int getTransformationType() {
         return mTransformationType;
@@ -90,8 +89,8 @@ public class Transformation {
      * Sets the transformation type.
      *
      * @param transformationType One of {@link #TYPE_ALPHA},
-     *        {@link #TYPE_MATRIX}, {@link #TYPE_BOTH} or
-     *        {@link #TYPE_IDENTITY}.
+     *                           {@link #TYPE_MATRIX}, {@link #TYPE_BOTH} or
+     *                           {@link #TYPE_IDENTITY}.
      */
     public void setTransformationType(int transformationType) {
         mTransformationType = transformationType;
@@ -117,6 +116,7 @@ public class Transformation {
     /**
      * Apply this Transformation to an existing Transformation, e.g. apply
      * a scale effect to something that has already been rotated.
+     *
      * @param t
      */
     public void compose(Transformation t) {
@@ -132,10 +132,11 @@ public class Transformation {
             }
         }
     }
-    
+
     /**
      * Like {@link #compose(Transformation)} but does this.postConcat(t) of
      * the transformation matrix.
+     *
      * @hide
      */
     public void postCompose(Transformation t) {
@@ -159,17 +160,19 @@ public class Transformation {
     public Matrix getMatrix() {
         return mMatrix;
     }
-    
+
     /**
-     * Sets the degree of transparency
+     * Sets the degree 程度 of transparency 透明度
+     *
      * @param alpha 1.0 means fully opaqe and 0.0 means fully transparent
      */
-    public void setAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {
+    public void setAlpha(@FloatRange(from = 0.0, to = 1.0) float alpha) {
         mAlpha = alpha;
     }
 
     /**
      * Sets the current Transform's clip rect
+     *
      * @hide
      */
     public void setClipRect(Rect r) {
@@ -178,6 +181,7 @@ public class Transformation {
 
     /**
      * Sets the current Transform's clip rect
+     *
      * @hide
      */
     public void setClipRect(int l, int t, int r, int b) {
@@ -187,6 +191,7 @@ public class Transformation {
 
     /**
      * Returns the current Transform's clip rect
+     *
      * @hide
      */
     public Rect getClipRect() {
@@ -195,6 +200,7 @@ public class Transformation {
 
     /**
      * Returns whether the current Transform's clip rect is set
+     *
      * @hide
      */
     public boolean hasClipRect() {
@@ -207,7 +213,7 @@ public class Transformation {
     public float getAlpha() {
         return mAlpha;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder(64);
@@ -215,31 +221,35 @@ public class Transformation {
         toShortString(sb);
         return sb.toString();
     }
-    
+
     /**
-     * Return a string representation of the transformation in a compact form.
+     * Return a string representation of the transformation in a compact 简洁的 form.
      */
     public String toShortString() {
         StringBuilder sb = new StringBuilder(64);
         toShortString(sb);
         return sb.toString();
     }
-    
+
     /**
      * @hide
      */
     public void toShortString(StringBuilder sb) {
-        sb.append("{alpha="); sb.append(mAlpha);
-        sb.append(" matrix="); mMatrix.toShortString(sb);
+        sb.append("{alpha=");
+        sb.append(mAlpha);
+        sb.append(" matrix=");
+        mMatrix.toShortString(sb);
         sb.append('}');
     }
-    
+
     /**
      * Print short string, to optimize dumping.
+     *
      * @hide
      */
     public void printShortString(PrintWriter pw) {
-        pw.print("{alpha="); pw.print(mAlpha);
+        pw.print("{alpha=");
+        pw.print(mAlpha);
         pw.print(" matrix=");
         mMatrix.printShortString(pw);
         pw.print('}');

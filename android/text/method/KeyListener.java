@@ -21,9 +21,9 @@ import android.view.KeyEvent;
 import android.view.View;
 
 /**
- * Interface for converting text key events into edit operations on an
+ * Interface for converting 转化 text key events into edit operations on an
  * Editable class.  Note that for most cases this interface has been
- * superceded by general soft input methods as defined by
+ * superceded 取代 by general soft input methods as defined by
  * {@link android.view.inputmethod.InputMethod}; it should only be used
  * for cases where an application has its own on-screen keypad and also wants
  * to process hard keyboard events to match it.

@@ -17,7 +17,7 @@
 package android.animation;
 
 /**
- * A time interpolator defines the rate of change of an animation. This allows animations
+ * A time interpolator 插值器 defines the rate of change of an animation. This allows animations
  * to have non-linear motion, such as acceleration and deceleration.
  */
 public interface TimeInterpolator {

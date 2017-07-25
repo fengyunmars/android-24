@@ -42,7 +42,7 @@ public final class Outline {
     /** @hide */
     public static final int MODE_ROUND_RECT = 1;
     /** @hide */
-    public static final int MODE_CONVEX_PATH = 2;
+    public static final int MODE_CONVEX_PATH = 2;  //CONVEX 凸形
 
     /** @hide */
     @Retention(RetentionPolicy.SOURCE)
@@ -222,7 +222,7 @@ public final class Outline {
     }
 
     /**
-     * Sets the outline to the oval defined by input rect.
+     * Sets the outline to the oval 椭圆形的 defined by input rect.
      */
     public void setOval(int left, int top, int right, int bottom) {
         if (left >= right || top >= bottom) {
@@ -231,7 +231,7 @@ public final class Outline {
         }
 
         if ((bottom - top) == (right - left)) {
-            // represent circle as round rect, for efficiency, and to enable clipping
+            // represent circle as round rect, for efficiency 效率 , and to enable clipping
             setRoundRect(left, top, right, bottom, (bottom - top) / 2.0f);
             return;
         }

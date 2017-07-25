@@ -658,7 +658,7 @@ public final
      * keyword corresponding to the primitive type or void.
      *
      * <p> If this class object represents a class of arrays, then the internal
-     * form of the name consists of the name of the element type preceded by
+     * form of the name consists of the name of the element type preceded 在之前 by
      * one or more '{@code [}' characters representing the depth of the array
      * nesting.  The encoding of element type names is as follows:
      *

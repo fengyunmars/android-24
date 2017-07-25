@@ -575,7 +575,7 @@ public class TypedArray {
     }
 
     /**
-     * Retrieve a dimensional unit attribute at <var>index</var>. Unit
+     * Retrieve a dimensional 尺寸的 unit attribute at <var>index</var>. Unit
      * conversions are based on the current {@link DisplayMetrics}
      * associated with the resources this {@link TypedArray} object
      * came from.
@@ -588,7 +588,7 @@ public class TypedArray {
      *                 not a resource.
      *
      * @return Attribute dimension value multiplied by the appropriate
-     *         metric, or defValue if not defined.
+     *         metric 度量的 , or defValue if not defined.
      * @throws RuntimeException if the TypedArray has already been recycled.
      * @throws UnsupportedOperationException if the attribute is defined but is
      *         not an integer.
@@ -800,7 +800,7 @@ public class TypedArray {
     }
 
     /**
-     * Retrieves a fractional unit attribute at <var>index</var>.
+     * Retrieves a fractional 分数的 unit attribute at <var>index</var>.
      *
      * @param index Index of attribute to retrieve.
      * @param base The base value of this fraction.  In other words, a
@@ -1217,7 +1217,8 @@ public class TypedArray {
         return mAssets.getPooledStringForCookie(cookie, data[index+AssetManager.STYLE_DATA]);
     }
 
-    /*package*/ TypedArray(Resources resources, int[] data, int[] indices, int len) {
+    /*package*/
+    TypedArray(Resources resources, int[] data, int[] indices, int len) {
         mResources = resources;
         mMetrics = mResources.getDisplayMetrics();
         mAssets = mResources.getAssets();

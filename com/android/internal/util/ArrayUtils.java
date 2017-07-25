@@ -37,6 +37,7 @@ import java.util.Objects;
  * the most efficient increments by which to grow arrays.
  */
 public class ArrayUtils {
+
     private static final int CACHE_SIZE = 73;
     private static Object[] sCache = new Object[CACHE_SIZE];
 

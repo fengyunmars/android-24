@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The Typeface class specifies the typeface and intrinsic style of a font.
+ * The Typeface class specifies the typeface and intrinsic 先天性 style of a font.
  * This is used in the paint, along with optionally Paint settings like
  * textSize, textSkewX, textScaleX to specify
  * how text appears when drawn (and measured).

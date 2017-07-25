@@ -21,7 +21,7 @@ import android.annotation.StringRes;
 import android.graphics.Rect;
 
 /**
- * Represents a contextual mode of the user interface. Action modes can be used to provide
+ * Represents a contextual 前后关系的 mode of the user interface. Action modes can be used to provide
  * alternative interaction modes and replace parts of the normal UI until finished.
  * Examples of good action modes include text selection and contextual actions.
  * <div class="special reference">
@@ -130,14 +130,14 @@ public abstract class ActionMode {
      * Set whether or not the title/subtitle display for this action mode
      * is optional.
      *
-     * <p>In many cases the supplied title for an action mode is merely
-     * meant to add context and is not strictly required for the action
+     * <p>In many cases the supplied title for an action mode is merely 仅仅 只不过
+     * meant to add context and is not strictly 严格地 required for the action
      * mode to be useful. If the title is optional, the system may choose
-     * to hide the title entirely rather than truncate it due to a lack
+     * to hide the title entirely rather than truncate 缩短 it due to a lack
      * of available space.</p>
      *
      * <p>Note that this is merely a hint; the underlying implementation
-     * may choose to ignore this setting under some circumstances.</p>
+     * may choose to ignore this setting under some circumstances 境况 .</p>
      *
      * @param titleOptional true if the title only presents optional information.
      */
@@ -213,9 +213,9 @@ public abstract class ActionMode {
     public void invalidateContentRect() {}
 
     /**
-     * Hide the action mode view from obstructing the content below for a short duration.
+     * Hide the action mode view from obstructing 阻碍 the content below for a short duration.
      * This only makes sense for action modes that support dynamic positioning on the screen.
-     * If this method is called again before the hide duration expires, the later hide call will
+     * If this method is called again before the hide duration expires 期满 , the later hide call will
      * cancel the former and then take effect.
      * NOTE that there is an internal limit to how long the mode can be hidden for. It's typically
      * about a few seconds.
@@ -347,11 +347,11 @@ public abstract class ActionMode {
     public static abstract class Callback2 implements ActionMode.Callback {
 
         /**
-         * Called when an ActionMode needs to be positioned on screen, potentially occluding view
+         * Called when an ActionMode needs to be positioned on screen, potentially 潜在地 occluding 堵塞 view
          * content. Note this may be called on a per-frame basis.
          *
          * @param mode The ActionMode that requires positioning.
-         * @param view The View that originated the ActionMode, in whose coordinates the Rect should
+         * @param view The View that originated 产生 the ActionMode, in whose coordinates the Rect should
          *          be provided.
          * @param outRect The Rect to be populated with the content position. Use this to specify
          *          where the content in your app lives within the given view. This will be used

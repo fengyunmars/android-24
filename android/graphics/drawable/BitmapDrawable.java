@@ -52,7 +52,7 @@ import java.io.IOException;
 import java.util.Collection;
 
 /**
- * A Drawable that wraps a bitmap and can be tiled, stretched, or aligned. You can create a
+ * A Drawable that wraps a bitmap and can be tiled 平铺的 , stretched 伸展 , or aligned 对准的 . You can create a
  * BitmapDrawable from a file path, an input stream, through XML inflation, or from
  * a {@link android.graphics.Bitmap} object.
  * <p>It can be defined in an XML file with the <code>&lt;bitmap></code> element.  For more
@@ -73,6 +73,7 @@ import java.util.Collection;
  * @attr ref android.R.styleable#BitmapDrawable_tileMode
  */
 public class BitmapDrawable extends Drawable {
+
     private static final int DEFAULT_PAINT_FLAGS =
             Paint.FILTER_BITMAP_FLAG | Paint.DITHER_FLAG;
 
@@ -97,7 +98,7 @@ public class BitmapDrawable extends Drawable {
     private int mBitmapWidth;
     private int mBitmapHeight;
 
-    /** Optical insets due to gravity. */
+    /** Optical 视觉的 insets due to gravity. */
     private Insets mOpticalInsets = Insets.NONE;
 
     // Mirroring matrix for using with Shaders
@@ -977,7 +978,7 @@ public class BitmapDrawable extends Drawable {
 
     /**
      * Initializes local dynamic properties from state. This should be called
-     * after significant state changes, e.g. from the One True Constructor and
+     * after significant 重要的 state changes, e.g. from the One True Constructor and
      * after inflating or applying a theme.
      */
     private void updateLocalState(Resources res) {

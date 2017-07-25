@@ -40,10 +40,10 @@ public class TypedValue {
     public static final int TYPE_STRING = 0x03;
     /** The <var>data</var> field holds an IEEE 754 floating point number. */
     public static final int TYPE_FLOAT = 0x04;
-    /** The <var>data</var> field holds a complex number encoding a
+    /** The <var>data</var> field holds a complex 复杂的 number encoding a
      *  dimension value. */
     public static final int TYPE_DIMENSION = 0x05;
-    /** The <var>data</var> field holds a complex number encoding a fraction
+    /** The <var>data</var> field holds a complex number encoding a fraction 一小部分
      *  of a container. */
     public static final int TYPE_FRACTION = 0x06;
 
@@ -53,7 +53,7 @@ public class TypedValue {
     public static final int TYPE_FIRST_INT = 0x10;
 
     /** The <var>data</var> field holds a number that was
-     *  originally specified in decimal. */
+     *  originally specified in decimal 十进制的 . */
     public static final int TYPE_INT_DEC = 0x10;
     /** The <var>data</var> field holds a number that was
      *  originally specified in hexadecimal (0xn). */
@@ -104,9 +104,9 @@ public class TypedValue {
     public static final int COMPLEX_UNIT_SP = 2;
     /** {@link #TYPE_DIMENSION} complex unit: Value is in points. */
     public static final int COMPLEX_UNIT_PT = 3;
-    /** {@link #TYPE_DIMENSION} complex unit: Value is in inches. */
+    /** {@link #TYPE_DIMENSION} complex unit: Value is in inches 英寸 . */
     public static final int COMPLEX_UNIT_IN = 4;
-    /** {@link #TYPE_DIMENSION} complex unit: Value is in millimeters. */
+    /** {@link #TYPE_DIMENSION} complex unit: Value is in millimeters 毫米 . */
     public static final int COMPLEX_UNIT_MM = 5;
 
     /** {@link #TYPE_FRACTION} complex unit: A basic fraction of the overall
@@ -115,8 +115,8 @@ public class TypedValue {
     /** {@link #TYPE_FRACTION} complex unit: A fraction of the parent size. */
     public static final int COMPLEX_UNIT_FRACTION_PARENT = 1;
 
-    /** Complex data: where the radix information is, telling where the decimal
-     *  place appears in the mantissa. */
+    /** Complex data: where the radix 根 基数  information is, telling where the decimal
+     *  place appears in the mantissa 尾数 . */
     public static final int COMPLEX_RADIX_SHIFT = 4;
     /** Complex data: mask to extract radix information (after shifting by
      * {@link #COMPLEX_RADIX_SHIFT}). This give us 4 possible fixed point 
@@ -125,7 +125,7 @@ public class TypedValue {
 
     /** Complex data: the mantissa is an integral number -- i.e., 0xnnnnnn.0 */
     public static final int COMPLEX_RADIX_23p0 = 0;
-    /** Complex data: the mantissa magnitude is 16 bits -- i.e, 0xnnnn.nn */
+    /** Complex data: the mantissa magnitude 量级 is 16 bits -- i.e, 0xnnnn.nn */
     public static final int COMPLEX_RADIX_16p7 = 1;
     /** Complex data: the mantissa magnitude is 8 bits -- i.e, 0xnn.nnnn */
     public static final int COMPLEX_RADIX_8p15 = 2;
@@ -167,7 +167,7 @@ public class TypedValue {
     /* ------------------------------------------------------------ */
 
     /** The type held by this value, as defined by the constants here.
-     *  This tells you how to interpret the other fields in the object. */
+     *  This tells you how to interpret 解释 the other fields in the object. */
     public int type;
 
     /** If the value holds a string, this is it. */
@@ -233,8 +233,8 @@ public class TypedValue {
      * point value. The given <var>data</var> must be structured as a 
      * {@link #TYPE_DIMENSION}.
      *  
-     * @param data A complex data value holding a unit, magnitude, and 
-     *             mantissa.
+     * @param data A complex data value holding a unit, magnitude 量级 , and
+     *             mantissa 尾数 .
      * @param metrics Current display metrics to use in the conversion -- 
      *                supplies display density and scaling information.
      * 
@@ -244,9 +244,9 @@ public class TypedValue {
     public static float complexToDimension(int data, DisplayMetrics metrics)
     {
         return applyDimension(
-            (data>>COMPLEX_UNIT_SHIFT)&COMPLEX_UNIT_MASK,
-            complexToFloat(data),
-            metrics);
+                (data >> COMPLEX_UNIT_SHIFT) & COMPLEX_UNIT_MASK,
+                complexToFloat(data),
+                metrics);
     }
 
     /**
@@ -427,7 +427,7 @@ public class TypedValue {
      * string value.  For example, a color type will be converted to a
      * string of the form #aarrggbb.
      * 
-     * @return CharSequence The coerced string value.  If the value is
+     * @return CharSequence The coerced 强制的 string value.  If the value is
      *         null or the type is not known, null is returned.
      */
     public final CharSequence coerceToString()
@@ -453,7 +453,7 @@ public class TypedValue {
      * @param type The data type identifier.
      * @param data The data value.
      * 
-     * @return String The coerced string value.  If the value is
+     * @return String The coerced 强迫 string value.  If the value is
      *         null or the type is not known, null is returned.
      */
     public static final String coerceToString(int type, int data)

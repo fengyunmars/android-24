@@ -170,7 +170,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * gains or loses focus. You can register such a listener using
  * {@link #setOnFocusChangeListener(android.view.View.OnFocusChangeListener)}.
  * Other view subclasses offer more specialized listeners. For example, a Button
- * exposes a listener to notify clients when the button is clicked.</li>
+ * exposes 暴露 a listener to notify clients when the button is clicked.</li>
  * <li><strong>Set visibility:</strong> You can hide or show views using
  * {@link #setVisibility(int)}.</li>
  * </ul>
@@ -325,7 +325,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <h3>Position</h3>
  * <p>
  * The geometry 几何结构  of a view is that of a rectangle. A view has a location,
- * expressed as a pair of <em>left</em> and <em>top</em> coordinates, and
+ * expressed as a pair of <em>left</em> and <em>top</em> coordinates 坐标 , and
  * two dimensions, expressed as a width and a height. The unit for location
  * and dimensions is the pixel.
  * </p>
@@ -335,7 +335,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * {@link #getLeft()} and {@link #getTop()}. The former returns the left, or X,
  * coordinate of the rectangle representing the view. The latter returns the
  * top, or Y, coordinate of the rectangle representing the view. These methods
- * both return the location of the view relative to its parent. For instance,
+ * both return the <b>location</b> of the view <b>relative to its parent</b>. For instance,
  * when getLeft() returns 20, that means the view is located 20 pixels to the
  * right of the left edge of its direct parent.
  * </p>
@@ -353,11 +353,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <h3>Size, padding and margins</h3>
  * <p>
  * The size of a view is expressed with a width and a height. A view actually
- * possess two pairs of width and height values.
+ * possess 拥有 two pairs of width and height values.
  * </p>
  *
  * <p>
- * The first pair is known as <em>measured width</em> and
+ * The first pair is known as <em>measured 测量 width</em> and
  * <em>measured height</em>. These dimensions define how big a view wants to be
  * within its parent (see <a href="#Layout">Layout</a> for more details.) The
  * measured dimensions can be obtained by calling {@link #getMeasuredWidth()}
@@ -409,7 +409,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * When a view's measure() method returns, its {@link #getMeasuredWidth()} and
  * {@link #getMeasuredHeight()} values must be set, along with those for all of
  * that view's descendants 后代 . A view's measured width and measured height values
- * must respect the constraints imposed 施加的  by the view's parents. This guarantees
+ * must respect 遵守 the constraints 约束 imposed 施加的  by the view's parents. This guarantees
  * that at the end of the measure pass, all parents accept all of their
  * children's measurements. A parent view may call measure() more than once on
  * its children. For example, the parent may measure each child once with
@@ -429,7 +429,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <li>MATCH_PARENT, which means the view wants to be as big as its parent
  * (minus padding)
  * <li> WRAP_CONTENT, which means that the view wants to be just big enough to
- * enclose its content (plus padding).
+ * enclose 把…围起来 its content (plus padding).
  * </ul>
  * There are subclasses of LayoutParams for different subclasses of ViewGroup.
  * For example, AbsoluteLayout has its own subclass of LayoutParams which adds
@@ -464,11 +464,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * Drawing is handled by walking the tree and recording the drawing commands of
  * any View that needs to update. After this, the drawing commands of the
- * entire tree are issued to screen, clipped to the newly damaged area.
+ * entire tree are issued 发行 to screen, clipped to the newly damaged 被损坏的 area.
  * </p>
  *
  * <p>
- * The tree is largely recorded and drawn in order, with parents drawn before
+ * The tree is largely 主要的 recorded and drawn in order, with parents drawn before
  * (i.e., behind) their children, with siblings drawn in the order they appear
  * in the tree. If you set a background drawable for a View, then the View will
  * draw it before calling back to its <code>onDraw()</code> method. The child
@@ -498,10 +498,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * </ol>
  * </p>
  *
- * <p><em>Note: The entire view tree is single threaded. You must always be on
- * the UI thread when calling any method on any view.</em>
- * If you are doing work on other threads and want to update the state of a view
- * from that thread, you should use a {@link Handler}.
+ * <p><em><b>Note: The entire view tree</b> is <b>single threaded</b>. <b>You must always be on
+ * the UI thread</b> when <b>calling any method on any view</b>.</em>
+ * If you are <b>doing work on other threads and want to update the state of a view
+ * from that thread</b>, you should <b>use a {@link Handler}</b>.
  * </p>
  *
  * <a name="FocusHandling"></a>
@@ -509,14 +509,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * The framework will handle routine 日常的  focus movement in response to user input.
  * This includes changing the focus as views are removed or hidden, or as new
- * views become available. Views indicate their willingness to take focus
+ * views become available. Views indicate their willingness 乐意 to take focus
  * through the {@link #isFocusable} method. To change whether a view can take
  * focus, call {@link #setFocusable(boolean)}.  When in touch mode (see notes below)
  * views indicate whether they still would like focus via {@link #isFocusableInTouchMode}
  * and can change this via {@link #setFocusableInTouchMode(boolean)}.
  * </p>
  * <p>
- * Focus movement is based on an algorithm which finds the nearest neighbor in a
+ * Focus movement is based on an algorithm 算法 which finds the nearest neighbor in a
  * given direction. In rare cases, the default algorithm may not match the
  * intended behavior of the developer. In these situations, you can provide
  * explicit overrides by using these XML attributes in the layout file:
@@ -536,11 +536,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <a name="TouchMode"></a>
  * <h3>Touch Mode</h3>
  * <p>
- * When a user is navigating a user interface via directional keys such as a D-pad, it is
+ * When a user is navigating a user interface via directional 方向的 keys such as a D-pad, it is
  * necessary to give focus to actionable items such as buttons so the user can see
  * what will take input.  If the device has touch capabilities, however, and the user
  * begins interacting with the interface by touching it, it is no longer necessary to
- * always highlight, or give focus to, a particular view.  This motivates 促使  a mode
+ * always highlight, or give focus to, a particular view.  This motivates 促动  a mode
  * for interaction named 'touch mode'.
  * </p>
  * <p>
@@ -551,7 +551,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * only fire the on click listeners.
  * </p>
  * <p>
- * Any time a user hits a directional key, such as a D-pad direction, the view device will
+ * Any time a user hits a directional key, such as a D-pad direction, the view device 策略 will
  * exit touch mode, and find a view to take focus, so that the user may resume interacting
  * with the user interface without touching the screen again.
  * </p>
@@ -563,7 +563,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <a name="Scrolling"></a>
  * <h3>Scrolling</h3>
  * <p>
- * The framework provides basic support for views that wish to internally
+ * The framework provides basic support for views that wish to internally 本质地
  * scroll their content. This includes keeping track of the X and Y scroll
  * offset as well as mechanisms for drawing scrollbars. See
  * {@link #scrollBy(int, int)}, {@link #scrollTo(int, int)}, and
@@ -573,7 +573,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <a name="Tags"></a>
  * <h3>Tags</h3>
  * <p>
- * Unlike IDs, tags are not used to identify views. Tags are essentially an
+ * Unlike IDs, tags are not used to identify 确定 识别 views. Tags are essentially an
  * extra piece of information that can be associated with a view. They are most
  * often used as a convenience to store data related to views in the views
  * themselves rather than by putting them in a separate structure.
@@ -645,10 +645,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Starting with Android 3.0, the preferred way of animating views is to use the
  * {@link android.animation} package APIs. These {@link android.animation.Animator Animator}-based
  * classes change actual properties of the View object, such as {@link #setAlpha(float) alpha} and
- * {@link #setTranslationX(float) translationX}. This behavior is contrasted to that of the pre-3.0
+ * {@link #setTranslationX(float) translationX}. This behavior is contrasted 形成对比 to that of the pre-3.0
  * {@link android.view.animation.Animation Animation}-based classes, which instead animate only
  * how the view is drawn on the display. In particular, the {@link ViewPropertyAnimator} class
- * makes animating these View properties particularly easy and efficient.
+ * makes animating these View properties particularly easy and efficient 有效率的 .
  * </p>
  * <p>
  * Alternatively, you can use the pre-3.0 animation classes to animate how Views are rendered.
@@ -672,7 +672,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * As a remedy 补救 , the framework offers a touch filtering mechanism that can be used to
  * improve the security of views that provide access to sensitive functionality.
  * </p><p>
- * To enable touch filtering, call {@link #setFilterTouchesWhenObscured(boolean)} or set the
+ * To enable touch filtering, call {@link #setFilterTouchesWhenObscured(boolean)} 掩盖 or set the
  * android:filterTouchesWhenObscured layout attribute to true.  When enabled, the framework
  * will discard 放弃  touches that are received whenever the view's window is obscured by
  * another visible window.  As a result, the view will not receive touches whenever a
@@ -755,6 +755,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 @UiThread
 public class View implements Drawable.Callback, KeyEvent.Callback,
         AccessibilityEventSource {
+
     private static final boolean DBG = false;
 
     /**
@@ -782,7 +783,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int NO_ID = -1;
 
     /**
-     * Signals that compatibility booleans have been initialized according to
+     * Signals 标志 that compatibility booleans have been initialized according to
      * target SDK versions.
      */
     private static boolean sCompatibilityDone = false;
@@ -798,7 +799,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static boolean sUseZeroUnspecifiedMeasureSpec = false;
 
     /**
-     * Ignore any optimizations using the measure cache.
+     * Ignore any optimizations 优化 using the measure cache.
      */
     private static boolean sIgnoreMeasureCache = false;
 
@@ -820,7 +821,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static boolean sTextureViewIgnoresDrawableSetters = false;
 
     /**
-     * This view does not want keystrokes. Use with TAKES_FOCUS_MASK when
+     * This view does not want keystrokes 按键 . Use with TAKES_FOCUS_MASK when
      * calling setFlags.
      */
     private static final int NOT_FOCUSABLE = 0x00000000;
@@ -854,7 +855,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int VISIBLE = 0x00000000;
 
     /**
-     * This view is invisible, but it still takes up space for layout purposes.
+     * This view is <b>invisible</b>, but it <b>still takes up space</b> for layout purposes.
      * Use with {@link #setVisibility} and <a href="#attr_android:visibility">{@code
      * android:visibility}.
      */
@@ -876,7 +877,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private static final int[] VISIBILITY_FLAGS = {VISIBLE, INVISIBLE, GONE};
 
     /**
-     * This view is enabled. Interpretation varies by subclass.
+     * This view is enabled. Interpretation 理解 varies 呈现不同 by subclass.
      * Use with ENABLED_MASK when calling setFlags.
      * {@hide}
      */
@@ -957,7 +958,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int FADING_EDGE_NONE = 0x00000000;
 
     /**
-     * <p>This view shows horizontal fading edges.</p>
+     * <p>This view shows horizontal fading 已褪色的 edges 边缘 .</p>
      * {@hide}
      */
     static final int FADING_EDGE_HORIZONTAL = 0x00001000;
@@ -989,7 +990,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int DRAWING_CACHE_ENABLED = 0x00008000;
 
     /**
-     * <p>Indicates that no icicle should be saved for this view.<p>
+     * <p>Indicates that no icicle 冰柱 should be saved for this view.<p>
      * {@hide}
      */
     static final int SAVE_DISABLED = 0x000010000;
@@ -1065,7 +1066,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * <p>
      * Indicates this view can be context clicked. When context clickable, a View reacts to a
-     * context click (e.g. a primary stylus button press or right mouse click) by notifying the
+     * context click (e.g. a primary stylus 尖笔  button press or right mouse click) by notifying the
      * OnContextClickListener.
      * </p>
      * {@hide}
@@ -1085,8 +1086,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * The scrollbar style to display the scrollbars inside the content area,
-     * without increasing the padding. The scrollbars will be overlaid with
-     * translucency on the view's content.
+     * without increasing the padding. The scrollbars will be overlaid 覆盖 with
+     * translucency 半透明 on the view's content.
      */
     public static final int SCROLLBARS_INSIDE_OVERLAY = 0;
 
@@ -1131,7 +1132,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * View flag indicating that the screen should remain on while the
-     * window containing this view is visible to the user.  This effectively
+     * window containing this view is visible to the user.  This effectively 实际上
      * takes care of automatically setting the WindowManager's
      * {@link WindowManager.LayoutParams#FLAG_KEEP_SCREEN_ON}.
      */
@@ -1144,7 +1145,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int SOUND_EFFECTS_ENABLED = 0x08000000;
 
     /**
-     * View flag indicating whether this view should have haptic feedback
+     * View flag indicating whether this view should have haptic 触觉的 feedback 反馈
      * enabled for events such as long presses.
      */
     public static final int HAPTIC_FEEDBACK_ENABLED = 0x10000000;
@@ -1619,7 +1620,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Accessibility event types that are dispatched for text population.
+     * Accessibility 可达性 event types that are dispatched for text population.
      */
     private static final int POPULATING_ACCESSIBILITY_EVENT_TYPES =
             AccessibilityEvent.TYPE_VIEW_CLICKED
@@ -1725,7 +1726,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /** {@hide} */
     static final int PFLAG_DRAWN                       = 0x00000020;
     /**
-     * When this flag is set, this view is running an animation on behalf of its
+     * When this flag is set, this view is running an animation on behalf 维护 of its
      * children and should therefore not cancel invalidate requests, even if they
      * lie outside of this view's bounds.
      *
@@ -1839,7 +1840,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Indicates that we should awaken scroll bars once attached
      *
      * PLEASE NOTE: This flag is now unused as we now send onVisibilityChanged
-     * during window attachment and it is no longer needed. Feel free to repurpose it.
+     * during window attachment and it is no longer needed. Feel free to repurpose 赋予新的用途 it.
      *
      * @hide
      */
@@ -1913,7 +1914,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Indicates that this view has reported that it can accept the current drag's content.
-     * Cleared when the drag operation concludes.
+     * Cleared when the drag operation concludes 结束 .
      * @hide
      */
     static final int PFLAG2_DRAG_CAN_ACCEPT            = 0x00000001;
@@ -2139,7 +2140,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             << PFLAG2_TEXT_DIRECTION_RESOLVED_MASK_SHIFT;
 
     /**
-     * Indicates whether the view text direction has been resolved to the "first strong" heuristic.
+     * Indicates whether the view text direction has been resolved to the "first strong" heuristic 探试的 .
      * @hide
      */
     static final int PFLAG2_TEXT_DIRECTION_RESOLVED_DEFAULT =
@@ -2166,7 +2167,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Default for the root view. The gravity determines the text alignment, ALIGN_NORMAL,
-     * ALIGN_CENTER, or ALIGN_OPPOSITE, which are relative to each paragraph鈥檚 text direction.
+     * ALIGN_CENTER, or ALIGN_OPPOSITE 对立的 , which are relative to each paragraph text direction.
      *
      * Use with {@link #setTextAlignment(int)}
      */
@@ -2194,7 +2195,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_CENTER = 4;
 
     /**
-     * Align to the start of the view, which is ALIGN_LEFT if the view鈥檚 resolved
+     * Align to the start of the view, which is ALIGN_LEFT if the view resolved
      * layoutDirection is LTR, and ALIGN_RIGHT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2202,7 +2203,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_VIEW_START = 5;
 
     /**
-     * Align to the end of the view, which is ALIGN_RIGHT if the view鈥檚 resolved
+     * Align to the end of the view, which is ALIGN_RIGHT if the view resolved
      * layoutDirection is LTR, and ALIGN_LEFT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2334,13 +2335,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Live region mode specifying that accessibility services should announce
      * changes to this view.
      * <p>
-     * Use with {@link #setAccessibilityLiveRegion(int)}.
+     * Use with {@link #setAccessibilityLiveRegion(int)}. POLITE 文雅的
      */
     public static final int ACCESSIBILITY_LIVE_REGION_POLITE = 0x00000001;
 
     /**
      * Live region mode specifying that accessibility services should interrupt
-     * ongoing speech to immediately announce changes to this view.
+     * ongoing speech to immediately announce changes to this view ASSERTIVE assertive 坚决主张的.
      * <p>
      * Use with {@link #setAccessibilityLiveRegion(int)}.
      */
@@ -2381,7 +2382,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * for use in measurement, layout, drawing, etc. This is set by {@link #resolvePadding()}
      * and checked by {@link #measure(int, int)} to determine if padding needs to be resolved
      * during measurement. In some special cases this is required such as when an adapter-based
-     * view measures prospective children without attaching them to a window.
+     * view measures prospective 预期的 children without attaching them to a window.
      */
     static final int PFLAG2_PADDING_RESOLVED = 0x20000000;
 
@@ -2393,7 +2394,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Indicates that the view is tracking some sort of transient state
      * that the app should not need to be aware of, but that the framework
-     * should take special care to preserve.
+     * should take special care to preserve 保持 .
      */
     static final int PFLAG2_HAS_TRANSIENT_STATE = 0x80000000;
 
@@ -2440,7 +2441,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Flag indicating that view has a transform animation set on it. This is used to track whether
-     * an animation is cleared between successive frames, in order to tell the associated
+     * an animation is cleared between successive 连续的 frames, in order to tell the associated
      * DisplayList to clear its animation matrix.
      */
     static final int PFLAG3_VIEW_IS_ANIMATING_TRANSFORM = 0x1;
@@ -2482,8 +2483,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Flag indicating that nested scrolling is enabled for this view.
-     * The view will optionally cooperate with views up its parent chain to allow for
-     * integrated nested scrolling along the same axis.
+     * The view will optionally cooperate 配合 with views up its parent chain to allow for
+     * integrated 结合的 nested scrolling along the same axis.
      */
     static final int PFLAG3_NESTED_SCROLLING_ENABLED = 0x80;
 
@@ -2529,7 +2530,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Mask for use with setFlags indicating bits used for indicating which
-     * scroll indicators are enabled.
+     * scroll indicators 指示物 are enabled.
      */
     static final int SCROLL_INDICATORS_PFLAG3_MASK = PFLAG3_SCROLL_INDICATOR_TOP
             | PFLAG3_SCROLL_INDICATOR_BOTTOM | PFLAG3_SCROLL_INDICATOR_LEFT
@@ -2654,7 +2655,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private static final int PFLAG3_POINTER_ICON_VALUE_START = 2 << PFLAG3_POINTER_ICON_LSHIFT;
 
     /**
-     * Whether this view has rendered elements that overlap (see {@link
+     * Whether this view has rendered elements that overlap 重叠 (see {@link
      * #hasOverlappingRendering()}, {@link #forceHasOverlappingRendering(boolean)}, and
      * {@link #getHasOverlappingRendering()} ). The value in this bit is only valid when
      * PFLAG3_HAS_OVERLAPPING_RENDERING_FORCED has been set. Otherwise, the value is
@@ -2729,7 +2730,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Flag for {@link #setSystemUiVisibility(int)}: View has requested that the
      * system navigation be temporarily hidden.
      *
-     * <p>This is an even less obtrusive state than that called for by
+     * <p>This is an even less obtrusive 刺眼的 state than that called for by
      * {@link #SYSTEM_UI_FLAG_LOW_PROFILE}; on devices that draw essential navigation controls
      * (Home, Back, and the like) on screen, <code>SYSTEM_UI_FLAG_HIDE_NAVIGATION</code> will cause
      * those to disappear. This is useful (in conjunction with the
@@ -2754,7 +2755,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>This has the same visual effect as
      * {@link android.view.WindowManager.LayoutParams#FLAG_FULLSCREEN
      * WindowManager.LayoutParams.FLAG_FULLSCREEN},
-     * meaning that non-critical screen decorations (such as the status bar) will be
+     * meaning that non-critical 非重要的 screen decorations (such as the status bar) will be
      * hidden while the user is in the View's window, focusing the experience on
      * that content.  Unlike the window flag, if you are using ActionBar in
      * overlay mode with {@link Window#FEATURE_ACTION_BAR_OVERLAY
@@ -2764,7 +2765,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>This approach to going fullscreen is best used over the window flag when
      * it is a transient state -- that is, the application does this at certain
      * points in its user interaction where it wants to allow the user to focus
-     * on content, but not as a continuous state.  For situations where the application
+     * on content, but not as a continuous 连续的 state.  For situations where the application
      * would like to simply stay full screen the entire time (such as a game that
      * wants to take over the screen), the
      * {@link android.view.WindowManager.LayoutParams#FLAG_FULLSCREEN window flag}
@@ -2775,7 +2776,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>When using this flag, the application should provide some easy facility
      * for the user to go out of it.  A common example would be in an e-book
      * reader, where tapping on the screen brings back whatever screen and UI
-     * decorations that had been hidden while the user was immersed in reading
+     * decorations that had been hidden while the user was immersed 浸入的 in reading
      * the book.
      *
      * @see #setSystemUiVisibility(int)
@@ -2804,7 +2805,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * If you have set the window flag {@link WindowManager.LayoutParams#FLAG_FULLSCREEN}
      * to hide the status bar (instead of using {@link #SYSTEM_UI_FLAG_FULLSCREEN}),
      * then a hidden status bar will be considered a "stable" state for purposes
-     * here.  This allows your UI to continually hide the status bar, while still
+     * here.  This allows your UI to continually 持续地 hide the status bar, while still
      * using the system UI flags to hide the action bar while still retaining
      * a stable layout.  Note that changing the window fullscreen flag will never
      * provide a stable layout for a clean transition.
@@ -2820,7 +2821,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Flag for {@link #setSystemUiVisibility(int)}: View would like its window
      * to be laid out as if it has requested
      * {@link #SYSTEM_UI_FLAG_HIDE_NAVIGATION}, even if it currently hasn't.  This
-     * allows it to avoid artifacts when switching in and out of that mode, at
+     * allows it to avoid artifacts 史前古器物 when switching in and out of that mode, at
      * the expense that some of its user interface may be covered by screen
      * decorations when they are shown.  You can perform layout of your inner
      * UI elements to account for the navigation system UI through the
@@ -2857,10 +2858,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * experience while also hiding the system bars.  If this flag is not set,
      * {@link #SYSTEM_UI_FLAG_HIDE_NAVIGATION} will be force cleared by the system on any user
      * interaction, and {@link #SYSTEM_UI_FLAG_FULLSCREEN} will be force-cleared by the system
-     * if the user swipes from the top of the screen.
-     * <p>When system bars are hidden in immersive mode, they can be revealed temporarily with
+     * if the user swipes 刷 from the top of the screen.
+     * <p>When system bars are hidden in immersive mode, they can be revealed 显示 temporarily with
      * system gestures, such as swiping from the top of the screen.  These transient system bars
-     * will overlay app鈥檚 content, may have some degree of transparency, and will automatically
+     * will overlay app content, may have some degree of transparency, and will automatically
      * hide after a short timeout.
      * </p><p>Since this flag is a modifier for {@link #SYSTEM_UI_FLAG_FULLSCREEN} and
      * {@link #SYSTEM_UI_FLAG_HIDE_NAVIGATION}, it only has an effect when used in combination
@@ -2920,7 +2921,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to disable incoming notification alerts.  This will not block
-     * icons, but it will block sound, vibrating and other visual or aural notifications.
+     * icons, but it will block sound, vibrating and other visual or aural 视听效果 notifications.
      */
     public static final int STATUS_BAR_DISABLE_NOTIFICATION_ALERTS = 0x00040000;
 
@@ -3017,7 +3018,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
-     * Flag to specify that the navigation bar is displayed in transient mode.
+     * Flag to specify that the navigation bar is displayed in transient 短暂的 mode.
      */
     public static final int NAVIGATION_BAR_TRANSIENT = 0x08000000;
 
@@ -3047,7 +3048,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
-     * Flag to specify that the status bar is displayed in translucent mode.
+     * Flag to specify that the status bar is displayed in translucent 半透明的 mode.
      */
     public static final int STATUS_BAR_TRANSLUCENT = 0x40000000;
 
@@ -3078,7 +3079,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * Makes navigation bar transparent (but not the status bar).
+     * Makes navigation bar transparent 透明的 (but not the status bar).
      */
     public static final int NAVIGATION_BAR_TRANSPARENT = 0x00008000;
 
@@ -3181,7 +3182,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int SCROLL_AXIS_NONE = 0;
 
     /**
-     * Indicates scrolling along the horizontal axis.
+     * Indicates scrolling along the horizontal axis 轴 .
      */
     public static final int SCROLL_AXIS_HORIZONTAL = 1 << 0;
 
@@ -3310,7 +3311,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     TransformationInfo mTransformationInfo;
 
     /**
-     * Current clip bounds. to which all drawing of this view are constrained.
+     * Current clip bounds. to which all drawing of this view are constrained 约束 .
      */
     Rect mClipBounds = null;
 
@@ -3407,7 +3408,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private int mLabelForId = View.NO_ID;
 
     /**
-     * Predicate for matching labeled view id with its label for
+     * Predicate 断言 for matching labeled view id with its label for
      * accessibility purposes.
      */
     private MatchLabelForPredicate mMatchLabelForPredicate;
@@ -3682,9 +3683,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private boolean mHasPerformedLongPress;
 
     /**
-     * Whether a context click button is currently pressed down. This is true when the stylus is
+     * Whether a context click button is currently pressed down. This is true when the stylus 尖笔 is
      * touching the screen and the primary button has been pressed, or if a mouse's right button is
-     * pressed. This is false once the button is released or if the stylus has been lifted.
+     * pressed. This is false once the button is released or if the stylus has been lifted 抬起 .
      */
     private boolean mInContextButtonPress;
 
@@ -3710,7 +3711,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private int mMinWidth;
 
     /**
-     * The delegate to handle touch events that are physically in this view
+     * The delegate 委派代表 to handle touch events that are physically in this view
      * but should be handled by another view.
      */
     private TouchDelegate mTouchDelegate = null;
@@ -3727,7 +3728,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private ViewTreeObserver mFloatingTreeObserver;
 
     /**
-     * Cache the touch slop from the context that created the view.
+     * Cache the touch slop 溢出 from the context that created the view.
      */
     private int mTouchSlop;
 
@@ -3790,7 +3791,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Flag indicating that the drag shadow will be opaque.  When
      * {@link #startDragAndDrop(ClipData, DragShadowBuilder, Object, int)} is called
-     * with this flag set, the drag shadow will be opaque, otherwise, it will be semitransparent.
+     * with this flag set, the drag shadow will be opaque, otherwise, it will be semitransparent 半透明的 .
      */
     public static final int DRAG_FLAG_OPAQUE = 1 << 9;
 
@@ -3836,12 +3837,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * <p>Software layers have various usages:</p>
      * <p>When the application is not using hardware acceleration, a software layer
-     * is useful to apply a specific color filter and/or blending mode and/or
-     * translucency to a view and all its children.</p>
+     * is useful to apply a specific color filter and/or blending 混和 mode and/or
+     * translucency 半透明 to a view and all its children.</p>
      * <p>When the application is using hardware acceleration, a software layer
      * is useful to render drawing primitives not supported by the hardware
      * accelerated pipeline. It can also be used to cache a complex view tree
-     * into a texture and reduce the complexity of drawing operations. For instance,
+     * into a texture 结构 and reduce the complexity of drawing operations. For instance,
      * when animating a complex view tree with a translation, a software layer can
      * be used to render the view tree only once.</p>
      * <p>Software layers should be avoided when the affected view tree updates
@@ -3897,7 +3898,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     public boolean mCachingFailed;
     private Bitmap mDrawingCache;
-    private Bitmap mUnscaledDrawingCache;
+    private Bitmap mUnscaledDrawingCache; //unscaled 不成比例的
 
     /**
      * RenderNode holding View properties, potentially holding a DisplayList of View content.
@@ -3910,7 +3911,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Set to true when the view is sending hover accessibility events because it
-     * is the innermost hovered view.
+     * is the innermost 最深处的 hovered view.
      */
     private boolean mSendingHoverAccessibilityEvents;
 
@@ -3926,7 +3927,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     ViewOverlay mOverlay;
 
     /**
-     * The currently active parent view for receiving delegated nested scrolling events.
+     * The currently active parent view for receiving delegated 授与的 nested scrolling events.
      * This is set by {@link #startNestedScroll(int)} during a touch interaction and cleared
      * by {@link #stopNestedScroll()} at the same point where we clear
      * requestDisallowInterceptTouchEvent.
@@ -3934,7 +3935,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private ViewParent mNestedScrollingParent;
 
     /**
-     * Consistency verifier for debugging purposes.
+     * Consistency 前后一致 verifier for debugging purposes.
      * @hide
      */
     protected final InputEventConsistencyVerifier mInputEventConsistencyVerifier =
@@ -3953,7 +3954,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     GhostView mGhostView;
 
     /**
-     * Holds pairs of adjacent attribute data: attribute name followed by its value.
+     * Holds pairs of adjacent 相邻 attribute data: attribute name followed by its value.
      * @hide
      */
     @ViewDebug.ExportedProperty(category = "attributes", hasAdjacentMapping = true)
@@ -4030,7 +4031,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
             // Prior to N, layout params could change without requiring a
             // subsequent call to setLayoutParams() and they would usually
-            // work. Partial layout breaks this assumption.
+            // work. Partial 部分的 layout breaks this assumption 假设 .
             sLayoutParamsAlwaysChanged = targetSdkVersion <= M;
 
             // Prior to N, TextureView would silently ignore calls to setBackground/setForeground.

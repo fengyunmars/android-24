@@ -58,7 +58,7 @@ import java.util.List;
  * Defines the contract between a documents provider and the platform.
  * <p>
  * To create a document provider, extend {@link DocumentsProvider}, which
- * provides a foundational implementation of this contract.
+ * provides a foundational 基本的 implementation of this contract.
  * <p>
  * All client apps must hold a valid URI permission grant to access documents,
  * typically issued when a user makes a selection through
@@ -69,6 +69,7 @@ import java.util.List;
  * @see DocumentsProvider
  */
 public final class DocumentsContract {
+
     private static final String TAG = "DocumentsContract";
 
     // content://com.example/root/
@@ -84,7 +85,7 @@ public final class DocumentsContract {
     }
 
     /**
-     * Intent action used to identify {@link DocumentsProvider} instances. This
+     * Intent action used to identify 识别 {@link DocumentsProvider} instances. This
      * is used in the {@code <intent-filter>} of a {@code <provider>}.
      */
     public static final String PROVIDER_INTERFACE = "android.content.action.DOCUMENTS_PROVIDER";
@@ -134,7 +135,7 @@ public final class DocumentsContract {
             ACTION_DOCUMENT_ROOT_SETTINGS = "android.provider.action.DOCUMENT_ROOT_SETTINGS";
 
     /**
-     * Buffer is large enough to rewind past any EXIF headers.
+     * Buffer is large enough to rewind 倒回 past any EXIF headers.
      */
     private static final int THUMBNAIL_BUFFER_SIZE = (int) (128 * KB_IN_BYTES);
 
@@ -158,14 +159,14 @@ public final class DocumentsContract {
         }
 
         /**
-         * Unique ID of a document. This ID is both provided by and interpreted
+         * Unique ID of a document. This ID is both provided by and interpreted 解释
          * by a {@link DocumentsProvider}, and should be treated as an opaque
          * value by client applications. This column is required.
          * <p>
          * Each document must have a unique ID within a provider, but that
          * single document may be included as a child of multiple directories.
          * <p>
-         * A provider must always return durable IDs, since they will be used to
+         * A provider must always return durable 持久的 IDs, since they will be used to
          * issue long-term URI permission grants when an application interacts
          * with {@link Intent#ACTION_OPEN_DOCUMENT} and
          * {@link Intent#ACTION_CREATE_DOCUMENT}.
@@ -206,8 +207,8 @@ public final class DocumentsContract {
          * Timestamp when a document was last modified, in milliseconds since
          * January 1, 1970 00:00:00.0 UTC. This column is required, and may be
          * {@code null} if unknown. A {@link DocumentsProvider} can update this
-         * field using events from {@link OnCloseListener} or other reliable
-         * {@link ParcelFileDescriptor} transports.
+         * field using events from {@link OnCloseListener} or other reliable 可靠地
+         * {@link ParcelFileDescriptor} transports 运送 .
          * <p>
          * Type: INTEGER (long)
          *
@@ -470,14 +471,14 @@ public final class DocumentsContract {
 
         /**
          * Number of bytes available in this root. This column is optional, and
-         * may be {@code null} if unknown or unbounded.
+         * may be {@code null} if unknown or unbounded 无限的 .
          * <p>
          * Type: INTEGER (long)
          */
         public static final String COLUMN_AVAILABLE_BYTES = "available_bytes";
 
         /**
-         * Capacity of a root in bytes. This column is optional, and may be
+         * Capacity 容量 of a root in bytes. This column is optional, and may be
          * {@code null} if unknown or unbounded.
          * <p>
          * Type: INTEGER (long)
@@ -507,7 +508,7 @@ public final class DocumentsContract {
         public static final int FLAG_SUPPORTS_CREATE = 1;
 
         /**
-         * Flag indicating that this root offers content that is strictly local
+         * Flag indicating that this root offers content that is strictly 严格的 local
          * on the device. That is, no network requests are made for the content.
          *
          * @see #COLUMN_FLAGS
@@ -599,7 +600,7 @@ public final class DocumentsContract {
      * Optional boolean flag included in a directory {@link Cursor#getExtras()}
      * indicating that a document provider is still loading data. For example, a
      * provider has returned some results, but is still waiting on an
-     * outstanding network request. The provider must send a content changed
+     * outstanding 未完成的 network request. The provider must send a content changed
      * notification when loading is finished.
      *
      * @see ContentResolver#notifyChange(Uri, android.database.ContentObserver,
@@ -688,7 +689,7 @@ public final class DocumentsContract {
      */
     public static Uri buildHomeUri() {
         // TODO: Avoid this type of interpackage copying. Added here to avoid
-        // direct coupling, but not ideal.
+        // direct coupling 连接 , but not ideal.
         return DocumentsContract.buildRootUri("com.android.externalstorage.documents", "home");
     }
 
@@ -993,7 +994,7 @@ public final class DocumentsContract {
             final long offset = afd.getStartOffset();
 
             // Try seeking on the returned FD, since it gives us the most
-            // optimal decode path; otherwise fall back to buffering.
+            // optimal 最佳的 decode path; otherwise fall back to buffering.
             BufferedInputStream is = null;
             try {
                 Os.lseek(fd, offset, SEEK_SET);

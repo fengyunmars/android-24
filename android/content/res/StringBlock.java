@@ -33,6 +33,7 @@ import java.util.Arrays;
  * {@hide}
  */
 final class StringBlock {
+
     private static final String TAG = "AssetManager";
     private static final boolean localLOGV = false;
 

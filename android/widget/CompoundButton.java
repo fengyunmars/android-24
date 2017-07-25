@@ -52,6 +52,7 @@ import android.view.accessibility.AccessibilityNodeInfo;
  * </p>
  */
 public abstract class CompoundButton extends Button implements Checkable {
+
     private boolean mChecked;
     private boolean mBroadcasting;
 

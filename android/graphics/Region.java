@@ -107,7 +107,7 @@ public class Region implements Parcelable {
      * Set the region to the area described by the path and clip.
      * Return true if the resulting region is non-empty. This produces a region
      * that is identical to the pixels that would be drawn by the path
-     * (with no antialiasing).
+     * (with no antialiasing 抗锯齿 ).
      */
     public boolean setPath(Path path, Region clip) {
         return nativeSetPath(mNativeRegion, path.ni(), clip.mNativeRegion);
@@ -150,7 +150,7 @@ public class Region implements Parcelable {
     }
 
     /**
-     * Return the boundary of the region as a new Path. If the region is empty,
+     * Return the boundary  边线 of the region as a new Path. If the region is empty,
      * the path will also be empty.
      */
     public Path getBoundaryPath() {

@@ -53,7 +53,7 @@ public abstract class Reader implements Readable, Closeable {
     /**
      * The object used to synchronize operations on this stream.  For
      * efficiency, a character-stream object may use an object other than
-     * itself to protect critical sections.  A subclass should therefore use
+     * itself to protect critical 关键的 sections.  A subclass should therefore use
      * the object in this field rather than <tt>this</tt> or a synchronized
      * method.
      */
@@ -216,12 +216,12 @@ public abstract class Reader implements Readable, Closeable {
     }
 
     /**
-     * Marks the present position in the stream.  Subsequent calls to reset()
+     * Marks the present 出现 position in the stream.  Subsequent calls to reset()
      * will attempt to reposition the stream to this point.  Not all
      * character-input streams support the mark() operation.
      *
      * @param  readAheadLimit  Limit on the number of characters that may be
-     *                         read while still preserving the mark.  After
+     *                         read while still preserving 保持 the mark.  After
      *                         reading this many characters, attempting to
      *                         reset the stream may fail.
      *
