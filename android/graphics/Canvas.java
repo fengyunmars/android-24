@@ -53,7 +53,7 @@ public class Canvas {
 
     /**
      * Should only be assigned in constructors (or setBitmap if software canvas),
-     * freed by NativeAllocation.
+     * freed é‡Šæ”¾ by NativeAllocation.
      * @hide
      */
     protected long mNativeCanvasWrapper;
@@ -178,7 +178,7 @@ public class Canvas {
     /**
      * Specify a bitmap for the canvas to draw into. All canvas state such as
      * layers, filters, and the save/restore stack are reset with the exception
-     * of the current matrix and clip stack. Additionally, as a side-effect
+     * of the current matrix and clip stack. Additionally, as a side-effect å‰¯ä½œç”¨
      * the canvas' target density is updated to match that of the bitmap.
      *
      * @param bitmap Specifies a mutable bitmap for the canvas to draw into.
@@ -1320,9 +1320,9 @@ public class Canvas {
      *
      * <p>Note: if the paint contains a maskfilter that generates a mask which
      * extends beyond the bitmap's original width/height (e.g. BlurMaskFilter),
-     * then the bitmap will be drawn as if it were in a Shader ÖøÉ«Æ÷  with CLAMP mode.
+     * then the bitmap will be drawn as if it were in a Shader ï¿½ï¿½É«ï¿½ï¿½  with CLAMP mode.
      * Thus the color outside of the original width/height will be the edge
-     * color replicated ÖØ¸´µÄ .
+     * color replicated ï¿½Ø¸ï¿½ï¿½ï¿½ .
      *
      * <p>If the bitmap and canvas have different densities, this function
      * will take care of automatically scaling the bitmap to draw at the
@@ -1387,7 +1387,7 @@ public class Canvas {
   }
 
     /**
-     * Draw the specified bitmap, scaling/translating ±ä»»  automatically to fill
+     * Draw the specified bitmap, scaling/translating ï¿½ä»»  automatically to fill
      * the destination rectangle. If the source rectangle is not null, it
      * specifies the subset of the bitmap to draw.
      *

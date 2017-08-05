@@ -69,6 +69,7 @@ import java.io.IOException;
  * @attr ref android.R.styleable#ShapeDrawable_height
  */
 public class ShapeDrawable extends Drawable {
+
     private ShapeState mShapeState;
     private PorterDuffColorFilter mTintFilter;
     private boolean mMutated;
@@ -207,6 +208,7 @@ public class ShapeDrawable extends Drawable {
         }
     }
 
+    // modulate 调整
     private static int modulateAlpha(int paintAlpha, int alpha) {
         int scale = alpha + (alpha >>> 7); // convert to 0..256
         return paintAlpha * scale >>> 8;
@@ -526,8 +528,10 @@ public class ShapeDrawable extends Drawable {
      * Defines the intrinsic properties of this ShapeDrawable's Shape.
      */
     final static class ShapeState extends ConstantState {
+
         int[] mThemeAttrs;
-        @Config int mChangingConfigurations;
+        @Config
+        int mChangingConfigurations;
         Paint mPaint;
         Shape mShape;
         ColorStateList mTint = null;
@@ -618,7 +622,7 @@ public class ShapeDrawable extends Drawable {
         public abstract Shader resize(int width, int height);
     }
 
-    // other subclass could wack the Shader's localmatrix based on the
+    // other subclass could wack 怪人 the Shader's localmatrix based on the
     // resize params (e.g. scaletofit, etc.). This could be used to scale
     // a bitmap to fill the bounds without needing any other special casing.
 }

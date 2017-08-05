@@ -23,7 +23,7 @@ import java.lang.annotation.Target;
 
 /**
  * This is a class annotation that signals that it is safe to create
- * a native interpolator counterpart via {@link NativeInterpolatorFactory}
+ * a native interpolator counterpart 副本 via {@link NativeInterpolatorFactory}
  *
  * The idea here is to prevent subclasses of interpolators from being treated as a
  * NativeInterpolatorFactory, and instead have them fall back to the LUT & LERP

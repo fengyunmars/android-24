@@ -20,20 +20,20 @@ import dalvik.system.VMRuntime;
 import sun.misc.Cleaner;
 
 /**
- * A NativeAllocationRegistry is used to associate native allocations with
+ * A NativeAllocationRegistry is used to associate 联合 native allocations with
  * Java objects and register them with the runtime.
  * There are two primary benefits of registering native allocations associated
  * with Java objects:
  * <ol>
- *  <li>The runtime will account for the native allocations when scheduling
+ *  <li>The runtime will account for 对…负责 the native allocations when scheduling
  *  garbage collection to run.</li>
- *  <li>The runtime will arrange for the native allocation to be automatically
+ *  <li>The runtime will arrange for 安置 the native allocation to be automatically
  *  freed by a user-supplied function when the associated Java object becomes
  *  unreachable.</li>
  * </ol>
- * A separate NativeAllocationRegistry should be instantiated for each kind
- * of native allocation, where the kind of a native allocation consists of the
- * native function used to free the allocation and the estimated size of the
+ * A separate 分离 NativeAllocationRegistry should be instantiated 实例化 for each kind
+ * of native allocation, where the kind of a native allocation consists of 包括 the
+ * native function used to free the allocation and the estimated 估计的 size of the
  * allocation. Once a NativeAllocationRegistry is instantiated, it can be
  * used to register any number of native allocations of that kind.
  * @hide
@@ -87,11 +87,11 @@ public class NativeAllocationRegistry {
      * Registers a new native allocation and associated Java object with the
      * runtime.
      * This NativeAllocationRegistry's <code>freeFunction</code> will
-     * automatically be called with <code>nativePtr</code> as its sole
+     * automatically be called with <code>nativePtr</code> as its sole 惟一的
      * argument when <code>referent</code> becomes unreachable. If you
      * maintain copies of <code>nativePtr</code> outside
      * <code>referent</code>, you must not access these after
-     * <code>referent</code> becomes unreachable, because they may be dangling
+     * <code>referent</code> becomes unreachable, because they may be dangling 悬吊着
      * pointers.
      * <p>
      * The returned Runnable can be used to free the native allocation before
@@ -214,7 +214,7 @@ public class NativeAllocationRegistry {
     }
 
     // TODO: Change the runtime to support passing the size as a long instead
-    // of an int. For now, we clamp the size to fit.
+    // of an int. For now, we clamp 夹紧 the size to fit.
     private static void registerNativeAllocation(long size) {
         VMRuntime.getRuntime().registerNativeAllocation((int)Math.min(size, Integer.MAX_VALUE));
     }

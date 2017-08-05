@@ -54,7 +54,7 @@ import java.util.Locale;
 /**
  * The implementation of Resource access. This class contains the AssetManager and all caches
  * associated with it.
- *
+ * <p>
  * {@link Resources} is just a thing wrapper around this class. When a configuration change
  * occurs, clients can retain the same {@link Resources} reference because the underlying
  * {@link ResourcesImpl} object will be updated or re-created.
@@ -88,7 +88,9 @@ public class ResourcesImpl {
     private static final LongSparseArray<android.content.res.ConstantState<ComplexColor>>
             sPreloadedComplexColors = new LongSparseArray<>();
 
-    /** Lock object used to protect access to caches and configuration. */
+    /**
+     * Lock object used to protect access to caches and configuration.
+     */
     private final Object mAccessLock = new Object();
 
     // These are protected by mAccessLock.
@@ -102,7 +104,9 @@ public class ResourcesImpl {
     private final ConfigurationBoundResourceCache<StateListAnimator> mStateListAnimatorCache =
             new ConfigurationBoundResourceCache<>();
 
-    /** Size of the cyclical cache used to map XML files to blocks. */
+    /**
+     * Size of the cyclical cache used to map XML files to blocks.
+     */
     private static final int XML_BLOCK_CACHE_SIZE = 4;
 
     // Cyclical cache used for recently-accessed XML files.
@@ -129,16 +133,16 @@ public class ResourcesImpl {
     /**
      * Creates a new ResourcesImpl object with CompatibilityInfo.
      *
-     * @param assets Previously created AssetManager.
-     * @param metrics Current display metrics to consider when
-     *                selecting/computing resource values.
-     * @param config Desired device configuration to consider when
-     *               selecting/computing resource values (optional).
+     * @param assets             Previously created AssetManager.
+     * @param metrics            Current display metrics to consider when
+     *                           selecting/computing resource values.
+     * @param config             Desired device configuration to consider when
+     *                           selecting/computing resource values (optional).
      * @param displayAdjustments this resource's Display override and compatibility info.
      *                           Must not be null.
      */
     public ResourcesImpl(@NonNull AssetManager assets, @Nullable DisplayMetrics metrics,
-            @Nullable Configuration config, @NonNull DisplayAdjustments displayAdjustments) {
+                         @Nullable Configuration config, @NonNull DisplayAdjustments displayAdjustments) {
         mAssets = assets;
         mMetrics.setToDefaults();
         mDisplayAdjustments = displayAdjustments;
@@ -191,7 +195,7 @@ public class ResourcesImpl {
     }
 
     void getValueForDensity(@AnyRes int id, int density, TypedValue outValue,
-            boolean resolveRefs) throws NotFoundException {
+                            boolean resolveRefs) throws NotFoundException {
         boolean found = mAssets.getResourceValue(id, density, outValue, resolveRefs);
         if (found) {
             return;
@@ -272,12 +276,18 @@ public class ResourcesImpl {
 
     private static int attrForQuantityCode(String quantityCode) {
         switch (quantityCode) {
-            case PluralRules.KEYWORD_ZERO: return 0x01000005;
-            case PluralRules.KEYWORD_ONE:  return 0x01000006;
-            case PluralRules.KEYWORD_TWO:  return 0x01000007;
-            case PluralRules.KEYWORD_FEW:  return 0x01000008;
-            case PluralRules.KEYWORD_MANY: return 0x01000009;
-            default:                       return ID_OTHER;
+            case PluralRules.KEYWORD_ZERO:
+                return 0x01000005;
+            case PluralRules.KEYWORD_ONE:
+                return 0x01000006;
+            case PluralRules.KEYWORD_TWO:
+                return 0x01000007;
+            case PluralRules.KEYWORD_FEW:
+                return 0x01000008;
+            case PluralRules.KEYWORD_MANY:
+                return 0x01000009;
+            default:
+                return ID_OTHER;
         }
     }
 
@@ -447,7 +457,9 @@ public class ResourcesImpl {
      * @param config the new configuration
      * @return bitmask of config changes
      */
-    public @Config int calcConfigChanges(@Nullable Configuration config) {
+    public
+    @Config
+    int calcConfigChanges(@Nullable Configuration config) {
         if (config == null) {
             // If there is no configuration, assume all flags have changed.
             return 0xFFFFFFFF;
@@ -470,10 +482,10 @@ public class ResourcesImpl {
     /**
      * {@code Locale.toLanguageTag} will transform the obsolete (and deprecated)
      * language codes "in", "ji" and "iw" to "id", "yi" and "he" respectively.
-     *
+     * <p>
      * All released versions of android prior to "L" used the deprecated language
      * tags, so we will need to support them for backwards compatibility.
-     *
+     * <p>
      * Note that this conversion needs to take place *after* the call to
      * {@code toLanguageTag} because that will convert all the deprecated codes to
      * the new ones, even if they're set manually.
@@ -517,7 +529,7 @@ public class ResourcesImpl {
 
     @Nullable
     Drawable loadDrawable(Resources wrapper, TypedValue value, int id, Resources.Theme theme,
-            boolean useCache) throws NotFoundException {
+                          boolean useCache) throws NotFoundException {
         try {
             if (TRACE_FOR_PRELOAD) {
                 // Log only framework resources
@@ -610,7 +622,7 @@ public class ResourcesImpl {
     }
 
     private void cacheDrawable(TypedValue value, boolean isColorDrawable, DrawableCache caches,
-            Resources.Theme theme, boolean usesTheme, long key, Drawable dr) {
+                               Resources.Theme theme, boolean usesTheme, long key, Drawable dr) {
         final Drawable.ConstantState cs = dr.getConstantState();
         if (cs == null) {
             return;
@@ -644,12 +656,12 @@ public class ResourcesImpl {
     }
 
     private boolean verifyPreloadConfig(@Config int changingConfigurations,
-            @Config int allowVarying, @AnyRes int resourceId, @Nullable String name) {
+                                        @Config int allowVarying, @AnyRes int resourceId, @Nullable String name) {
         // We allow preloading of resources even if they vary by font scale (which
         // doesn't impact resource selection) or density (which we handle specially by
         // simply turning off all preloading), as well as any other configs specified
         // by the caller.
-        if (((changingConfigurations&~(ActivityInfo.CONFIG_FONT_SCALE |
+        if (((changingConfigurations & ~(ActivityInfo.CONFIG_FONT_SCALE |
                 ActivityInfo.CONFIG_DENSITY)) & ~allowVarying) != 0) {
             String resName;
             try {
@@ -682,7 +694,7 @@ public class ResourcesImpl {
      * Loads a drawable from XML or resources stream.
      */
     private Drawable loadDrawableForCookie(Resources wrapper, TypedValue value, int id,
-            Resources.Theme theme) {
+                                           Resources.Theme theme) {
         if (value.string == null) {
             throw new NotFoundException("Resource \"" + getResourceName(id) + "\" ("
                     + Integer.toHexString(id) + ") is not a Drawable (color or path): " + value);
@@ -738,7 +750,7 @@ public class ResourcesImpl {
      * Last, parse the XML and generate the CSL.
      */
     private ComplexColor loadComplexColorFromName(Resources wrapper, Resources.Theme theme,
-            TypedValue value, int id) {
+                                                  TypedValue value, int id) {
         final long key = (((long) value.assetCookie) << 32) | value.data;
         final ConfigurationBoundResourceCache<ComplexColor> cache = mComplexColorCache;
         ComplexColor complexColor = cache.getInstance(key, wrapper, theme);
@@ -773,7 +785,7 @@ public class ResourcesImpl {
 
     @Nullable
     ComplexColor loadComplexColor(Resources wrapper, @NonNull TypedValue value, int id,
-            Resources.Theme theme) {
+                                  Resources.Theme theme) {
         if (TRACE_FOR_PRELOAD) {
             // Log only framework resources
             if ((id >>> 24) == 0x1) {
@@ -814,7 +826,7 @@ public class ResourcesImpl {
 
     @Nullable
     ColorStateList loadColorStateList(Resources wrapper, TypedValue value, int id,
-            Resources.Theme theme)
+                                      Resources.Theme theme)
             throws NotFoundException {
         if (TRACE_FOR_PRELOAD) {
             // Log only framework resources
@@ -866,7 +878,7 @@ public class ResourcesImpl {
     /**
      * Load a ComplexColor based on the XML file content. The result can be a GradientColor or
      * ColorStateList. Note that pure color will be wrapped into a ColorStateList.
-     *
+     * <p>
      * We deferred the parser creation to this function b/c we need to differentiate b/t gradient
      * and selector tag.
      *
@@ -874,7 +886,7 @@ public class ResourcesImpl {
      */
     @Nullable
     private ComplexColor loadComplexColorForCookie(Resources wrapper, TypedValue value, int id,
-            Resources.Theme theme) {
+                                                   Resources.Theme theme) {
         if (value.string == null) {
             throw new UnsupportedOperationException(
                     "Can't convert to ComplexColor: type=0x" + value.type);
@@ -944,16 +956,16 @@ public class ResourcesImpl {
     /**
      * Loads an XML parser for the specified file.
      *
-     * @param file the path for the XML file to parse
-     * @param id the resource identifier for the file
+     * @param file        the path for the XML file to parse
+     * @param id          the resource identifier for the file
      * @param assetCookie the asset cookie for the file
-     * @param type the type of resource (used for logging)
+     * @param type        the type of resource (used for logging)
      * @return a parser for the specified XML file
      * @throws NotFoundException if the file could not be loaded
      */
     @NonNull
     XmlResourceParser loadXmlResourceParser(@NonNull String file, @AnyRes int id, int assetCookie,
-            @NonNull String type)
+                                            @NonNull String type)
             throws NotFoundException {
         if (id != 0) {
             try {
@@ -1074,11 +1086,13 @@ public class ResourcesImpl {
             return mKey;
         }
 
-        /*package*/ long getNativeTheme() {
+        /*package*/
+        long getNativeTheme() {
             return mTheme;
         }
 
-        /*package*/ int getAppliedStyleResId() {
+        /*package*/
+        int getAppliedStyleResId() {
             return mThemeResId;
         }
 
@@ -1104,10 +1118,10 @@ public class ResourcesImpl {
 
         @NonNull
         TypedArray obtainStyledAttributes(@NonNull Resources.Theme wrapper,
-                AttributeSet set,
-                @StyleableRes int[] attrs,
-                @AttrRes int defStyleAttr,
-                @StyleRes int defStyleRes) {
+                                          AttributeSet set,
+                                          @StyleableRes int[] attrs,
+                                          @AttrRes int defStyleAttr,
+                                          @StyleRes int defStyleRes) {
             synchronized (mKey) {
                 final int len = attrs.length;
                 final TypedArray array = TypedArray.obtain(wrapper.getResources(), len);
@@ -1129,8 +1143,8 @@ public class ResourcesImpl {
 
         @NonNull
         TypedArray resolveAttributes(@NonNull Resources.Theme wrapper,
-                @NonNull int[] values,
-                @NonNull int[] attrs) {
+                                     @NonNull int[] values,
+                                     @NonNull int[] attrs) {
             synchronized (mKey) {
                 final int len = attrs.length;
                 if (values == null || len != values.length) {
@@ -1156,7 +1170,8 @@ public class ResourcesImpl {
             return mAssets.getStyleAttributes(getAppliedStyleResId());
         }
 
-        @Config int getChangingConfigurations() {
+        @Config
+        int getChangingConfigurations() {
             synchronized (mKey) {
                 final int nativeChangingConfig =
                         AssetManager.getThemeChangingConfigurations(mTheme);

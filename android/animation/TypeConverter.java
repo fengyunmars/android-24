@@ -41,7 +41,7 @@ public abstract class TypeConverter<T, V> {
     }
 
     /**
-     * Returns the source conversion type.
+     * Returns the source conversion 转变 type.
      */
     Class<T> getSourceType() {
         return mFromClass;

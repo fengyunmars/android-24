@@ -69,15 +69,15 @@ import java.util.ArrayList;
  * representing how far the operation has progressed; the application can
  * change the amount of progress (modifying the length of the bar) as it moves
  * forward.  There is also a secondary progress displayable on a progress bar
- * which is useful for displaying intermediate progress, such as the buffer
+ * which is useful for displaying intermediate 中间的 progress, such as the buffer
  * level during a streaming playback progress bar.
  * </p>
  *
  * <p>
- * A progress bar can also be made indeterminate. In indeterminate mode, the
- * progress bar shows a cyclic animation without an indication of progress. This mode is used by
+ * A progress bar can also be made indeterminate不明确的  . In indeterminate mode, the
+ * progress bar shows a cyclic 循环的 animation without an indication of progress. This mode is used by
  * applications when the length of the task is unknown. The indeterminate progress bar can be either
- * a spinning wheel or a horizontal bar.
+ * a spinning wheel 手纺车 or a horizontal bar.
  * </p>
  *
  * <p>The following code example shows how a progress bar can be used from
@@ -458,11 +458,11 @@ public class ProgressBar extends View {
     }
 
     /**
-     * Converts a drawable to a tiled version of itself. It will recursively
+     * Converts a drawable to a tiled version of itself. It will recursively 递归地
      * traverse layer and state list drawables.
      */
     private Drawable tileify(Drawable drawable, boolean clip) {
-        // TODO: This is a terrible idea that potentially destroys any drawable
+        // TODO: This is a terrible 劣质的 idea that potentially 可能地 destroys any drawable
         // that extends any of these classes. We *really* need to remove this.
 
         if (drawable instanceof LayerDrawable) {
@@ -593,7 +593,7 @@ public class ProgressBar extends View {
      * mode, the progress is ignored and the progress bar shows an infinite
      * animation instead.</p>
      *
-     * If this progress bar's style only supports indeterminate mode (such as the circular
+     * If this progress bar's style only supports indeterminate mode (such as the circular 圆形的
      * progress bars), then this will be ignored.
      *
      * @param indeterminate true to enable the indeterminate mode
@@ -1282,6 +1282,7 @@ public class ProgressBar extends View {
     }
 
     private static class RefreshData {
+
         private static final int POOL_MAX = 24;
         private static final SynchronizedPool<RefreshData> sPool =
                 new SynchronizedPool<RefreshData>(POOL_MAX);
@@ -1576,7 +1577,7 @@ public class ProgressBar extends View {
     }
 
     /**
-     * <p>Start the indeterminate progress animation.</p>
+     * <p>Start the indeterminate 不明确的 progress animation.</p>
      */
     void startAnimation() {
         if (getVisibility() != VISIBLE || getWindowVisibility() != VISIBLE) {
@@ -1613,6 +1614,7 @@ public class ProgressBar extends View {
         }
         postInvalidate();
     }
+    }
 
     /**
      * <p>Stop the indeterminate progress animation.</p>
@@ -1627,7 +1629,7 @@ public class ProgressBar extends View {
     }
 
     /**
-     * Sets the acceleration curve for the indeterminate animation.
+     * Sets the acceleration curve 曲线 for the indeterminate animation.
      * The interpolator is loaded as a resource from the specified context.
      *
      * @param context The application environment
@@ -1701,7 +1703,7 @@ public class ProgressBar extends View {
 
     private void updateDrawableBounds(int w, int h) {
         // onDraw will translate the canvas so we draw starting at 0,0.
-        // Subtract out padding for the purposes of the calculations below.
+        // Subtract out 减去了 padding for the purposes of the calculations below.
         w -= mPaddingRight + mPaddingLeft;
         h -= mPaddingTop + mPaddingBottom;
 
@@ -1711,10 +1713,10 @@ public class ProgressBar extends View {
         int left = 0;
 
         if (mIndeterminateDrawable != null) {
-            // Aspect ratio logic does not apply to AnimationDrawables
+            // Aspect ratio 宽高比 logic does not apply to AnimationDrawables
             if (mOnlyIndeterminate && !(mIndeterminateDrawable instanceof AnimationDrawable)) {
                 // Maintain aspect ratio. Certain kinds of animated drawables
-                // get very confused otherwise.
+                // get very confused 糊涂的 otherwise.
                 final int intrinsicWidth = mIndeterminateDrawable.getIntrinsicWidth();
                 final int intrinsicHeight = mIndeterminateDrawable.getIntrinsicHeight();
                 final float intrinsicAspect = (float) intrinsicWidth / intrinsicHeight;

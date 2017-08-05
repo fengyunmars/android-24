@@ -28,12 +28,13 @@ import java.lang.ref.WeakReference;
  * Provides a low-level mechanism for an application to receive display events
  * such as vertical sync.
  *
- * The display event receive is NOT thread safe.  Moreover, its methods must only
+ * The display event receive is NOT thread safe.  Moreover 此外 , its methods must only
  * be called on the Looper thread to which it is attached.
  *
  * @hide
  */
 public abstract class DisplayEventReceiver {
+
     private static final String TAG = "DisplayEventReceiver";
 
     private final CloseGuard mCloseGuard = CloseGuard.get();
@@ -97,21 +98,21 @@ public abstract class DisplayEventReceiver {
     }
 
     /**
-     * Called when a vertical sync pulse is received.
-     * The recipient should render a frame and then call {@link #scheduleVsync}
+     * Called when a vertical sync pulse  脉动 is received.
+     * The recipient 接受者 should render a frame and then call {@link #scheduleVsync}
      * to schedule the next vertical sync pulse.
      *
      * @param timestampNanos The timestamp of the pulse, in the {@link System#nanoTime()}
      * timebase.
-     * @param builtInDisplayId The surface flinger built-in display id such as
+     * @param builtInDisplayId The surface flinger 投掷的人 built-in display id such as
      * {@link SurfaceControl#BUILT_IN_DISPLAY_ID_MAIN}.
-     * @param frame The frame number.  Increases by one for each vertical sync interval.
+     * @param frame The frame number.  Increases by one for each vertical sync interval 间隔 .
      */
     public void onVsync(long timestampNanos, int builtInDisplayId, int frame) {
     }
 
     /**
-     * Called when a display hotplug event is received.
+     * Called when a display hotplug 热插拔 event is received.
      *
      * @param timestampNanos The timestamp of the event, in the {@link System#nanoTime()}
      * timebase.

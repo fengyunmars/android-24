@@ -40,9 +40,9 @@ public class DecelerateInterpolator extends BaseInterpolator implements NativeIn
     /**
      * Constructor
      *
-     * @param factor Degree to which the animation should be eased. Setting factor to 1.0f produces
-     *        an upside-down y=x^2 parabola. Increasing factor above 1.0f makes exaggerates the
-     *        ease-out effect (i.e., it starts even faster and ends evens slower)
+     * @param factor Degree to which the animation should be eased 减轻 . Setting factor to 1.0f produces
+     *        an upside-down 颠倒的 y=x^2 parabola 抛物线 . Increasing factor above 1.0f makes exaggerates  扩大 the
+     *        ease-out 减速 effect (i.e., it starts even faster and ends evens slower)
      */
     public DecelerateInterpolator(float factor) {
         mFactor = factor;

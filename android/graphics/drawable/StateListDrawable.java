@@ -59,6 +59,7 @@ import android.util.StateSet;
  * @attr ref android.R.styleable#DrawableStates_state_pressed
  */
 public class StateListDrawable extends DrawableContainer {
+
     private static final String TAG = "StateListDrawable";
 
     private static final boolean DEBUG = false;
@@ -229,7 +230,7 @@ public class StateListDrawable extends DrawableContainer {
      * Gets the number of states contained in this drawable.
      *
      * @return The number of states contained in this drawable.
-     * @hide pending API council
+     * @hide pending API council 委员会
      * @see #getStateSet(int)
      * @see #getStateDrawable(int)
      */

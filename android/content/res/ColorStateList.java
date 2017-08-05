@@ -410,6 +410,7 @@ public class ColorStateList extends ComplexColor implements Parcelable {
      * @param t the theme to apply
      */
     private void applyTheme(Theme t) {
+
         if (mThemeAttrs == null) {
             return;
         }

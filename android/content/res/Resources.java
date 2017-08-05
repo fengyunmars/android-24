@@ -1277,7 +1277,7 @@ public class Resources {
      * these are used in conjunction with {@link TypedArray}
      * to resolve the final value for an attribute.
      * <p>
-     * <p>The Theme's attributes come into play in two ways: (1) a styled
+     * <p>The Theme's attributes come into play 起作用 in two ways: (1) a styled
      * attribute can explicit 明确的 reference a value in the theme through the
      * "?themeAttribute" syntax; (2) if no value has been defined for a
      * particular styled attribute, as a last resort 求助 we will try to find that
@@ -1426,7 +1426,7 @@ public class Resources {
 
         /**
          * Retrieve the values for a set of attributes in the Theme. The
-         * contents of the typed array are ultimately filled in by
+         * contents of the typed array are ultimately 最终 filled in by
          * {@link Resources#getValue}.
          *
          * @param values The base set of attribute values, must be equal in
@@ -1445,7 +1445,7 @@ public class Resources {
 
         /**
          * Retrieve the value of an attribute in the Theme.  The contents of
-         * <var>outValue</var> are ultimately filled in by
+         * <var>outValue</var> are ultimately 最终 filled in by
          * {@link Resources#getValue}.
          *
          * @param resid       The resource identifier of the desired theme

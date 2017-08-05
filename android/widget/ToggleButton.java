@@ -24,7 +24,7 @@ import android.util.AttributeSet;
 
 /**
  * Displays checked/unchecked states as a button
- * with a "light" indicator and by default accompanied with the text "ON" or "OFF".
+ * with a "light" indicator 指示器 and by default accompanied 同时发生 with the text "ON" or "OFF".
  *
  * <p>See the <a href="{@docRoot}guide/topics/ui/controls/togglebutton.html">Toggle Buttons</a>
  * guide.</p>

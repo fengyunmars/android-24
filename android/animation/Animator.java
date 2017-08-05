@@ -124,7 +124,7 @@ public abstract class Animator implements Cloneable {
     }
 
     /**
-     * Resumes a paused animation, causing the animator to pick up where it left off
+     * Resumes a paused animation, causing the animator to pick up 接载 where it left off
      * when it was paused. This method should only be called on the same thread on
      * which the animation was started. Calls to resume() on an animator that is
      * not currently paused will be ignored.
@@ -191,7 +191,7 @@ public abstract class Animator implements Cloneable {
 
     /**
      * Gets the total duration of the animation, accounting for animation sequences, start delay,
-     * and repeating. Return {@link #DURATION_INFINITE} if the duration is infinite.
+     * and repeating. Return {@link #DURATION_INFINITE} if the duration is infinite 无限的 .
      *
      * @return  Total time an animation takes to finish, starting from the time {@link #start()}
      *          is called. {@link #DURATION_INFINITE} will be returned if the animation or any
@@ -227,14 +227,14 @@ public abstract class Animator implements Cloneable {
 
     /**
      * Returns whether this Animator is currently running (having been started and gone past any
-     * initial startDelay period and not yet ended).
+     * initial startDelay period 时间 and not yet ended).
      *
      * @return Whether the Animator is running.
      */
     public abstract boolean isRunning();
 
     /**
-     * Returns whether this Animator has been started and not yet ended. For reusable
+     * Returns whether this Animator has been started and not yet ended. For reusable 可重用的
      * Animators (which most Animators are, apart from the one-shot animator produced by
      * {@link android.view.ViewAnimationUtils#createCircularReveal(
      * android.view.View, int, int, float, float) createCircularReveal()}),
@@ -435,7 +435,7 @@ public abstract class Animator implements Cloneable {
     /**
      * Sets the target object whose property will be animated by this animation. Not all subclasses
      * operate on target objects (for example, {@link ValueAnimator}, but this method
-     * is on the superclass for the convenience of dealing generically with those subclasses
+     * is on the superclass for the convenience of dealing generically 一般地 with those subclasses
      * that do handle targets.
      * <p>
      * <strong>Note:</strong> The target is stored as a weak reference internally to avoid leaking
@@ -448,7 +448,7 @@ public abstract class Animator implements Cloneable {
     }
 
     // Hide reverse() and canReverse() for now since reverse() only work for simple
-    // cases, like we don't support sequential, neither startDelay.
+    // cases, like we don't support sequential 相继的 , neither startDelay.
     // TODO: make reverse() works for all the Animators.
     /**
      * @hide
@@ -527,7 +527,7 @@ public abstract class Animator implements Cloneable {
     }
 
     /**
-     * <p>Whether or not the Animator is allowed to run asynchronously off of
+     * <p>Whether or not the Animator is allowed to run asynchronously 异步的 off of
      * the UI thread. This is a hint that informs the Animator that it is
      * OK to run the animation off-thread, however the Animator may decide
      * that it must run the animation on the UI thread anyway.
@@ -537,7 +537,7 @@ public abstract class Animator implements Cloneable {
      *
      * <p>To be able to use this hint the following must be true:</p>
      * <ol>
-     * <li>The animator is immutable while {@link #isStarted()} is true. Requests
+     * <li>The animator is immutable 不可改变的 while {@link #isStarted()} is true. Requests
      *    to change duration, delay, etc... may be ignored.</li>
      * <li>Lifecycle callback events may be asynchronous. Events such as
      *    {@link Animator.AnimatorListener#onAnimationEnd(Animator)} or
@@ -549,7 +549,7 @@ public abstract class Animator implements Cloneable {
      *    may be asynchronous. It is guaranteed that all state changes that are
      *    performed on the UI thread in the same frame will be applied as a single
      *    atomic update, however that frame may be the current frame,
-     *    the next frame, or some future frame. This will also impact the observed
+     *    the next frame, or some future frame. This will also impact 影响 the observed
      *    state of the Animator. For example, {@link #isStarted()} may still return true
      *    after a call to {@link #end()}. Using the lifecycle callbacks is preferred over
      *    queries to {@link #isStarted()}, {@link #isRunning()}, and {@link #isPaused()}

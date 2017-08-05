@@ -28,7 +28,7 @@ import java.lang.annotation.RetentionPolicy;
  * Defines a simple shape, used for bounding graphical regions.
  * <p>
  * Can be computed for a View, or computed by a Drawable, to drive the shape of
- * shadows cast by a View, or to clip the contents of the View.
+ * shadows 阴影 cast by a View, or to clip the contents of the View.
  *
  * @see android.view.ViewOutlineProvider
  * @see android.view.View#setOutlineProvider(android.view.ViewOutlineProvider)
@@ -120,14 +120,14 @@ public final class Outline {
 
     /**
      * Sets the alpha represented by the Outline - the degree to which the
-     * producer is guaranteed to be opaque over the Outline's shape.
+     * producer is guaranteed 担保 to be opaque over the Outline's shape.
      * <p>
      * An alpha value of <code>0.0f</code> either represents completely
      * transparent content, or content that isn't guaranteed to fill the shape
      * it publishes.
      * <p>
      * Content producing a fully opaque (alpha = <code>1.0f</code>) outline is
-     * assumed by the drawing system to fully cover content beneath it,
+     * assumed by the drawing system to fully cover content beneath 在下面 it,
      * meaning content beneath may be optimized away.
      */
     public void setAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {

@@ -603,7 +603,7 @@ public abstract class Drawable {
     /**
      * Specifies tint color for this drawable as a color state list.
      * <p>
-     * A Drawable's drawing content will be blended together with its tint
+     * A Drawable's drawing content will be blended 混合 together with its tint
      * before it is drawn to the screen. This functions similarly to
      * {@link #setColorFilter(int, PorterDuff.Mode)}.
      * </p>
@@ -754,7 +754,7 @@ public abstract class Drawable {
     }
 
     /**
-     * If this Drawable does transition animations between states, ask that
+     * If this Drawable does transition 转变 animations between states, ask that
      * it immediately jump to the current state and skip any active animations.
      */
     public void jumpToCurrentState() {
@@ -807,7 +807,7 @@ public abstract class Drawable {
     }
 
     /**
-     * Set whether this Drawable is visible.  This generally does not impact
+     * Set whether this Drawable is visible.  This generally does not impact 影响
      * the Drawable's behavior, but is a hint that can be used by some
      * Drawables, for example, to decide whether run animations.
      *
@@ -1054,7 +1054,7 @@ public abstract class Drawable {
     }
 
     /**
-     * Return in insets the layout insets suggested by this Drawable for use with alignment
+     * Return in insets the layout insets suggested 暗示的 by this Drawable for use with alignment
      * operations during layout.
      *
      * @hide
@@ -1309,7 +1309,7 @@ public abstract class Drawable {
     /**
      * This abstract class is used by {@link Drawable}s to store shared constant state and data
      * between Drawables. {@link BitmapDrawable}s created from the same resource will for instance
-     * share a unique bitmap stored in their ConstantState.
+     * share a unique 唯一的 bitmap stored in their ConstantState.
      * <p>
      * <p>
      * {@link #newDrawable(Resources)} can be used as a factory to create new Drawable instances

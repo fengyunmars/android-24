@@ -32,11 +32,11 @@ public class PixelFormat {
 
     public static final int UNKNOWN     = 0;
 
-    /** System chooses a format that supports translucency (many alpha bits) */
+    /** System chooses a format that supports translucency 半透明 (many alpha bits) */
     public static final int TRANSLUCENT = -3;
 
     /**
-     * System chooses a format that supports transparency
+     * System chooses a format that supports transparency 透明
      * (at least 1 alpha bit)
      */
     public static final int TRANSPARENT = -2;

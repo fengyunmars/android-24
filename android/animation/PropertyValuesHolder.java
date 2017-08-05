@@ -33,7 +33,7 @@ import java.util.List;
  * This class holds information about a property and the values that that property
  * should take on during an animation. PropertyValuesHolder objects can be used to create
  * animations with ValueAnimator or ObjectAnimator that operate on several different properties
- * in parallel.
+ * in parallel 平行的 .
  */
 public class PropertyValuesHolder implements Cloneable {
 
@@ -85,7 +85,7 @@ public class PropertyValuesHolder implements Cloneable {
     // We try several different types when searching for appropriate setter/getter functions.
     // The caller may have supplied values in a type that does not match the setter/getter
     // functions (such as the integers 0 and 1 to represent floating point values for alpha).
-    // Also, the use of generics in constructors means that we end up with the Object versions
+    // Also, the use of generics 类的 in constructors means that we end up with the Object versions
     // of primitive types (Float vs. float). But most likely, the setter/getter functions
     // will take primitive types instead.
     // So we supply an ordered array of other types to try before giving up.
@@ -98,13 +98,13 @@ public class PropertyValuesHolder implements Cloneable {
 
     // These maps hold all property entries for a particular class. This map
     // is used to speed up property/setter/getter lookups for a given class/property
-    // combination. No need to use reflection on the combination more than once.
+    // combination. No need to use reflection on the combination 结合 more than once.
     private static final HashMap<Class, HashMap<String, Method>> sSetterPropertyMap =
             new HashMap<Class, HashMap<String, Method>>();
     private static final HashMap<Class, HashMap<String, Method>> sGetterPropertyMap =
             new HashMap<Class, HashMap<String, Method>>();
 
-    // Used to pass single value to varargs parameter in setter invocation
+    // Used to pass single value to varargs 可变参数 parameter in setter invocation
     final Object[] mTmpValueArray = new Object[1];
 
     /**
@@ -172,7 +172,7 @@ public class PropertyValuesHolder implements Cloneable {
      * Constructs and returns a PropertyValuesHolder with a given property name and
      * set of <code>int[]</code> values. At least two <code>int[]</code> values must be supplied,
      * a start and end value. If more values are supplied, the values will be animated from the
-     * start, through all intermediate values to the end value. When used with ObjectAnimator,
+     * start, through all intermediate 中间的 values to the end value. When used with ObjectAnimator,
      * the elements of the array represent the parameters of the setter function.
      *
      * @param propertyName The name of the property being animated. Can also be the
@@ -363,7 +363,7 @@ public class PropertyValuesHolder implements Cloneable {
     /**
      * Constructs and returns a PropertyValuesHolder object with the specified property name or
      * setter name for use in a multi-float setter function using ObjectAnimator. The values can be
-     * of any type, but the type should be consistent so that the supplied
+     * of any type, but the type should be consistent 一致的 so that the supplied
      * {@link android.animation.TypeEvaluator} can be used to to evaluate the animated value. The
      * <code>converter</code> converts the values to parameters in the setter function.
      *
@@ -1073,7 +1073,7 @@ public class PropertyValuesHolder implements Cloneable {
 
     /**
      * PropertyValuesHolder is Animators use to hold internal animation related data.
-     * Therefore, in order to replicate the animation behavior, we need to get data out of
+     * Therefore, in order to replicate 复制 the animation behavior, we need to get data out of
      * PropertyValuesHolder.
      * @hide
      */
@@ -1083,7 +1083,7 @@ public class PropertyValuesHolder implements Cloneable {
         values.type = mValueType;
         values.startValue = mKeyframes.getValue(0);
         if (values.startValue instanceof PathParser.PathData) {
-            // PathData evaluator returns the same mutable PathData object when query fraction,
+            // PathData evaluator returns the same mutable 易变的 PathData object when query fraction,
             // so we have to make a copy here.
             values.startValue = new PathParser.PathData((PathParser.PathData) values.startValue);
         }
@@ -1118,12 +1118,12 @@ public class PropertyValuesHolder implements Cloneable {
      * prefix is typically "set" or "get" and the first letter of the property name is
      * capitalized.
      *
-     * @param prefix The precursor to the method name, before the property name begins, typically
+     * @param prefix The precursor 前驱 to the method name, before the property name begins, typically
      * "set" or "get".
-     * @param propertyName The name of the property that represents the bulk of the method name
+     * @param propertyName The name of the property that represents the bulk 主体 of the method name
      * after the prefix. The first letter of this word will be capitalized in the resulting
      * method name.
-     * @return String the property name converted to a method name according to the conventions
+     * @return String the property name converted to a method name according to the conventions 协议
      * specified above.
      */
     static String getMethodName(String prefix, String propertyName) {

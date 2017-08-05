@@ -317,7 +317,7 @@ public abstract class CompoundButton extends Button implements Checkable {
     }
 
     /**
-     * @return the blending mode used to apply the tint to the button drawable
+     * @return the blending 混和 mode used to apply the tint to the button drawable
      * @attr ref android.R.styleable#CompoundButton_buttonTintMode
      * @see #setButtonTintMode(PorterDuff.Mode)
      */
@@ -339,7 +339,7 @@ public abstract class CompoundButton extends Button implements Checkable {
             }
 
             // The drawable (or one of its children) may not have been
-            // stateful before applying the tint, so let's try again.
+            // stateful 有状态的 before applying the tint, so let's try again.
             if (mButtonDrawable.isStateful()) {
                 mButtonDrawable.setState(getDrawableState());
             }

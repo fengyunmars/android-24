@@ -35,7 +35,7 @@ import java.util.HashMap;
  * This class provides a simple timing engine for running animations
  * which calculate animated values and set them on target objects.
  *
- * <p>There is a single timing pulse that all animations use. It runs in a
+ * <p>There is a single timing pulse 脉动 that all animations use. It runs in a
  * custom handler to ensure that property changes happen on the UI thread.</p>
  *
  * <p>By default, ValueAnimator uses non-linear time interpolation, via the
@@ -50,10 +50,10 @@ import java.util.HashMap;
  *
  * <p>It is also possible to use a combination of {@link PropertyValuesHolder} and
  * {@link Keyframe} resource tags to create a multi-step animation.
- * Note that you can specify explicit fractional values (from 0 to 1) for
+ * Note that you can specify explicit fractional 分数的 values (from 0 to 1) for
  * each keyframe to determine when, in the overall duration, the animation should arrive at that
  * value. Alternatively, you can leave the fractions off and the keyframes will be equally
- * distributed within the total duration:</p>
+ * distributed 分布式的 within the total duration:</p>
  *
  * {@sample development/samples/ApiDemos/res/anim/value_animator_pvh_kf.xml
  * ValueAnimatorKeyframeResources}
@@ -67,6 +67,7 @@ import java.util.HashMap;
  */
 @SuppressWarnings("unchecked")
 public class ValueAnimator extends Animator implements AnimationHandler.AnimationFrameCallback {
+
     private static final String TAG = "ValueAnimator";
     private static final boolean DEBUG = false;
 
@@ -78,7 +79,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
     /**
      * Internal variables
      * NOTE: This object implements the clone() method, making a deep copy of any referenced
-     * objects. As other non-trivial fields are added to this class, make sure to add logic
+     * objects. As other non-trivial 非平凡的 fields are added to this class, make sure to add logic
      * to clone() to make deep copies of them.
      */
 
@@ -92,10 +93,10 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
     long mStartTime;
 
     /**
-     * When true, the start time has been firmly committed as a chosen reference point in
+     * When true, the start time has been firmly 坚定地 committed as a chosen 精选的 reference point in
      * time by which the progress of the animation will be evaluated.  When false, the
      * start time may be updated when the first animation frame is committed so as
-     * to compensate for jank that may have occurred between when the start time was
+     * to compensate 补偿 for jank 闪避 that may have occurred between when the start time was
      * initialized and when the frame was actually drawn.
      *
      * This flag is generally set to false during the first frame of the animation
@@ -106,7 +107,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
     boolean mStartTimeCommitted;
 
     /**
-     * Set when setCurrentPlayTime() is called. If negative, animation is not currently seeked
+     * Set when setCurrentPlayTime() is called. If negative, animation is not currently seeked 寻求
      * to a value.
      */
     float mSeekFraction = -1;
@@ -129,22 +130,22 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
             new AccelerateDecelerateInterpolator();
 
     /**
-     * Flag to indicate whether this animator is playing in reverse mode, specifically
-     * by being started or interrupted by a call to reverse(). This flag is different than
-     * mPlayingBackwards, which indicates merely whether the current iteration of the
-     * animator is playing in reverse. It is used in corner cases to determine proper end
+     * Flag to indicate whether this animator is playing in reverse mode, specifically 明确地
+     * by being started or interrupted 中断的 by a call to reverse(). This flag is different than
+     * mPlayingBackwards, which indicates 表明或暗示 merely 仅仅 whether the current iteration 循环 of the
+     * animator is playing in reverse. It is used in corner cases 极端情况 to determine proper end
      * behavior.
      */
     private boolean mReversing;
 
     /**
-     * Tracks the overall fraction of the animation, ranging from 0 to mRepeatCount + 1
+     * Tracks the overall fraction 分数 of the animation, ranging from 0 to mRepeatCount + 1
      */
     private float mOverallFraction = 0f;
 
     /**
      * Tracks current elapsed/eased fraction, for querying in getAnimatedFraction().
-     * This is calculated by interpolating the fraction (range: [0, 1]) in the current iteration.
+     * This is calculated by interpolating the fraction (range: [0, 1]) in the current iteration 循环 .
      */
     private float mCurrentFraction = 0f;
 
@@ -195,7 +196,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
     private long mDuration = 300;
 
     // The amount of time in ms to delay starting the animation after start() is called. Note
-    // that this start delay is unscaled. When there is a duration scale set on the animator, the
+    // that this start delay is unscaled 不成比例的 . When there is a duration scale set on the animator, the
     // scaling factor will be applied to this delay.
     private long mStartDelay = 0;
 
@@ -204,7 +205,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
     private int mRepeatCount = 0;
 
     /**
-     * The type of repetition that will occur when repeatMode is nonzero. RESTART means the
+     * The type of repetition 反复 that will occur when repeatMode is nonzero. RESTART means the
      * animation will start from the beginning on every new cycle. REVERSE means the animation
      * will reverse directions on each iteration.
      */
@@ -284,7 +285,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
      * Constructs and returns a ValueAnimator that animates between int values. A single
      * value implies that that value is the one being animated to. However, this is not typically
      * useful in a ValueAnimator object because there is no way for the object to determine the
-     * starting value for the animation (unlike ObjectAnimator, which can derive that value
+     * starting value for the animation (unlike ObjectAnimator, which can derive 导出 that value
      * from the target object and property being animated). Therefore, there should typically
      * be two or more values.
      *
@@ -565,13 +566,13 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
 
     /**
      * Sets the position of the animation to the specified point in time. This time should
-     * be between 0 and the total duration of the animation, including any repetition. If
-     * the animation has not yet been started, then it will not advance forward after it is
+     * be between 0 and the total duration of the animation, including any repetition 重复 . If
+     * the animation has not yet been started, then it will not advance 将…提前 forward after it is
      * set to this time; it will simply set the time to this value and perform any appropriate
      * actions based on that time. If the animation is already running, then setCurrentPlayTime()
      * will set the current playing time to this value and continue playing from that point.
      *
-     * @param playTime The time, in milliseconds, to which the animation is advanced or rewound.
+     * @param playTime The time, in milliseconds, to which the animation is advanced or rewound 倒回 .
      */
     public void setCurrentPlayTime(long playTime) {
         float fraction = mDuration > 0 ? (float) playTime / mDuration : 1;
@@ -582,7 +583,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
      * Sets the position of the animation to the specified fraction. This fraction should
      * be between 0 and the total fraction of the animation, including any repetition. That is,
      * a fraction of 0 will position the animation at the beginning, a value of 1 at the end,
-     * and a value of 2 at the end of a reversing animator that repeats once. If
+     * and a value of 2 at the end of a reversing  反转 animator that repeats once. If
      * the animation has not yet been started, then it will not advance forward after it is
      * set to this fraction; it will simply set the fraction to this value and perform any
      * appropriate actions based on that fraction. If the animation is already running, then
@@ -592,7 +593,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
      * is running.
      *
      * @param fraction The fraction to which the animation is advanced or rewound. Values
-     * outside the range of 0 to the maximum fraction for the animator will be clamped to
+     * outside the range of 0 to the maximum fraction for the animator will be clamped 夹紧 to
      * the correct range.
      */
     public void setCurrentFraction(float fraction) {
@@ -601,7 +602,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
         long seekTime = (long) (getScaledDuration() * fraction);
         long currentTime = AnimationUtils.currentAnimationTimeMillis();
         mStartTime = currentTime - seekTime;
-        mStartTimeCommitted = true; // do not allow start time to be compensated for jank
+        mStartTimeCommitted = true; // do not allow start time to be compensated 补偿 for jank 闪避
         if (!isPulsingInternal()) {
             // If the animation loop hasn't started, the startTime will be adjusted in the first
             // frame based on seek fraction.
@@ -727,13 +728,13 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
 
     /**
      * The amount of time, in milliseconds, between each frame of the animation. This is a
-     * requested time that the animation will attempt to honor, but the actual delay between
+     * requested time that the animation will attempt to honor 尊敬 , but the actual delay between
      * frames may be different, depending on system load and capabilities. This is a static
      * function because the same delay will be applied to all animations, since they are all
      * run off of a single timing loop.
      *
      * The frame delay may be ignored when the animation system uses an external timing
-     * source, such as the display refresh rate (vsync), to govern animations.
+     * source, such as the display refresh rate (vsync), to govern 支配 animations.
      *
      * Note that this method should be called from the same thread that {@link #start()} is
      * called in order to check the frame delay for that animation. A runtime exception will be
@@ -767,7 +768,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
 
     /**
      * The most recent value calculated by this <code>ValueAnimator</code> when there is just one
-     * property being animated. This value is only sensible while the animation is running. The main
+     * property being animated. This value is only sensible 合乎情理的 while the animation is running. The main
      * purpose for this read-only property is to retrieve the value from the <code>ValueAnimator</code>
      * during a call to {@link AnimatorUpdateListener#onAnimationUpdate(ValueAnimator)}, which
      * is called during each animation frame, immediately after the value is calculated.
@@ -800,7 +801,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
         if (valuesHolder != null) {
             return valuesHolder.getAnimatedValue();
         } else {
-            // At least avoid crashing if called with bogus propertyName
+            // At least avoid crashing if called with bogus 假冒的 propertyName
             return null;
         }
     }
@@ -984,14 +985,14 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
         mRunning = false;
         // Resets mLastFrameTime when start() is called, so that if the animation was running,
         // calling start() would put the animation in the
-        // started-but-not-yet-reached-the-first-frame phase.
+        // started-but-not-yet-reached-the-first-frame phase 相位 .
         mLastFrameTime = 0;
         AnimationHandler animationHandler = AnimationHandler.getInstance();
         animationHandler.addAnimationFrameCallback(this, (long) (mStartDelay * sDurationScale));
 
         if (mStartDelay == 0 || mSeekFraction >= 0) {
             // If there's no start delay, init the animation and notify start listeners right away
-            // to be consistent with the previous behavior. Otherwise, postpone this until the first
+            // to be consistent 一致的 with the previous behavior. Otherwise, postpone 延缓 this until the first
             // frame after the start delay.
             startAnimation();
             if (mSeekFraction == -1) {
@@ -1392,7 +1393,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
      */
     public static interface AnimatorUpdateListener {
         /**
-         * <p>Notifies the occurrence of another frame of the animation.</p>
+         * <p>Notifies the occurrence 发生 of another frame of the animation.</p>
          *
          * @param animation The animation which was repeated.
          */

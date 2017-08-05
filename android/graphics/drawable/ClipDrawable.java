@@ -40,7 +40,7 @@ import java.io.IOException;
  * progress bars, by increasing the drawable's level with {@link
  * android.graphics.drawable.Drawable#setLevel(int) setLevel()}.
  * <p class="note"><strong>Note:</strong> The drawable is clipped completely and not visible when
- * the level is 0 and fully revealed when the level is 10,000.</p>
+ * the level is 0 and fully revealed 显示 when the level is 10,000.</p>
  *
  * <p>It can be defined in an XML file with the <code>&lt;clip></code> element.  For more
  * information, see the guide to <a
@@ -51,6 +51,7 @@ import java.io.IOException;
  * @attr ref android.R.styleable#ClipDrawable_drawable
  */
 public class ClipDrawable extends DrawableWrapper {
+
     public static final int HORIZONTAL = 1;
     public static final int VERTICAL = 2;
 

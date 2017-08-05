@@ -39,7 +39,7 @@ public abstract class BidirectionalTypeConverter<T, V> extends TypeConverter<T, 
     public abstract T convertBack(V value);
 
     /**
-     * Returns the inverse of this converter, where the from and to classes are reversed.
+     * Returns the inverse 相反的 of this converter, where the from and to classes are reversed 反转 .
      * The inverted converter uses this convert to call {@link #convertBack(Object)} for
      * {@link #convert(Object)} calls and {@link #convert(Object)} for
      * {@link #convertBack(Object)} calls.

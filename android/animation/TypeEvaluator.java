@@ -28,8 +28,8 @@ public interface TypeEvaluator<T> {
 
     /**
      * This function returns the result of linearly interpolating the start and end values, with
-     * <code>fraction</code> representing the proportion between the start and end values. The
-     * calculation is a simple parametric calculation: <code>result = x0 + t * (x1 - x0)</code>,
+     * <code>fraction</code> representing the proportion 比率 between the start and end values. The
+     * calculation is a simple parametric 参（变）量的 calculation: <code>result = x0 + t * (x1 - x0)</code>,
      * where <code>x0</code> is <code>startValue</code>, <code>x1</code> is <code>endValue</code>,
      * and <code>t</code> is <code>fraction</code>.
      *

@@ -812,7 +812,7 @@ public class Paint {
 
     /**
      * Helper for setFlags(), setting or clearing the FILTER_BITMAP_FLAG bit.
-     * Filtering affects the sampling of bitmaps when they are transformed.
+     * Filtering affects the sampling 抽样 of bitmaps when they are transformed.
      * Filtering does not affect how the colors in the bitmap are converted into
      * device pixels. That is dependent on dithering and xfermodes.
      *

@@ -60,7 +60,7 @@ public abstract class Keyframe implements Cloneable {
     Class mValueType;
 
     /**
-     * The optional time interpolator for the interval preceding this keyframe. A null interpolator
+     * The optional time interpolator for the interval 间隔 preceding 在前的 this keyframe. A null interpolator
      * (the default) results in linear interpolation over the interval.
      */
     private TimeInterpolator mInterpolator = null;
@@ -69,13 +69,13 @@ public abstract class Keyframe implements Cloneable {
 
     /**
      * Constructs a Keyframe object with the given time and value. The time defines the
-     * time, as a proportion of an overall animation's duration, at which the value will hold true
+     * time, as a proportion 比率 of an overall animation's duration, at which the value will hold true
      * for the animation. The value for the animation between keyframes will be calculated as
      * an interpolation between the values at those keyframes.
      *
      * @param fraction The time, expressed as a value between 0 and 1, representing the fraction
      * of time elapsed of the overall animation duration.
-     * @param value The value that the object will animate to as the animation time approaches
+     * @param value The value that the object will animate to as the animation time approaches 方法
      * the time in this keyframe, and the the value animated from as the time passes the time in
      * this keyframe.
      */
@@ -166,7 +166,7 @@ public abstract class Keyframe implements Cloneable {
     /**
      * Indicates whether this keyframe has a valid value. This method is called internally when
      * an {@link ObjectAnimator} first starts; keyframes without values are assigned values at
-     * that time by deriving the value for the property from the target object.
+     * that time by deriving 得到 the value for the property from the target object.
      *
      * @return boolean Whether this object has a value assigned.
      */

@@ -28,6 +28,7 @@ import android.graphics.RectF;
  * the RectShape to a {@link android.graphics.drawable.ShapeDrawable}.
  */
 public class RectShape extends Shape {
+
     private RectF mRect = new RectF();
 
     public RectShape() {}

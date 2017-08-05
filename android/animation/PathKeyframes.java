@@ -21,9 +21,9 @@ import android.graphics.PointF;
 import java.util.ArrayList;
 
 /**
- * PathKeyframes relies on approximating the Path as a series of line segments.
- * The line segments are recursively divided until there is less than 1/2 pixel error
- * between the lines and the curve. Each point of the line segment is converted
+ * PathKeyframes relies on approximating 接近 the Path as a series of line segments.
+ * The line segments are recursively 递归地 divided until there is less than 1/2 pixel error
+ * between the lines and the curve 曲线 . Each point of the line segment is converted
  * to a Keyframe and a linear interpolation between Keyframes creates a good approximation
  * of the curve.
  * <p>

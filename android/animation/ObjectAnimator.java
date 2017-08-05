@@ -30,7 +30,7 @@ import java.lang.ref.WeakReference;
 /**
  * This subclass of {@link ValueAnimator} provides support for animating properties on target objects.
  * The constructors of this class take parameters to define the target object that will be animated
- * as well as the name of the property that will be animated. Appropriate set/get functions
+ * as well as the name of the property that will be animated. Appropriate 适当的 set/get functions
  * are then determined internally and the animation will call these functions as necessary to
  * animate the property.
  *
@@ -69,6 +69,7 @@ import java.lang.ref.WeakReference;
  *
  */
 public final class ObjectAnimator extends ValueAnimator {
+
     private static final String LOG_TAG = "ObjectAnimator";
 
     private static final boolean DBG = false;
@@ -96,7 +97,7 @@ public final class ObjectAnimator extends ValueAnimator {
      * <p>For best performance of the mechanism that calls the setter function determined by the
      * name of the property being animated, use <code>float</code> or <code>int</code> typed values,
      * and make the setter function for those properties have a <code>void</code> return value. This
-     * will cause the code to take an optimized path for these constrained circumstances. Other
+     * will cause the code to take an optimized 最优化的 path for these constrained 拘泥的 circumstances 境况 . Other
      * property types and return types will work, but will have more overhead in processing
      * the requests due to normal reflection mechanisms.</p>
      *
@@ -112,7 +113,7 @@ public final class ObjectAnimator extends ValueAnimator {
      * @param propertyName The name of the property being animated. Should not be null.
      */
     public void setPropertyName(@NonNull String propertyName) {
-        // mValues could be null if this is being constructed piecemeal. Just record the
+        // mValues could be null if this is being constructed piecemeal 零碎地 . Just record the
         // propertyName to be used later when setValues() is called if so.
         if (mValues != null) {
             PropertyValuesHolder valuesHolder = mValues[0];
@@ -193,7 +194,7 @@ public final class ObjectAnimator extends ValueAnimator {
     }
 
     /**
-     * Creates a new ObjectAnimator object. This default constructor is primarily for
+     * Creates a new ObjectAnimator object. This default constructor is primarily 首先 for
      * use internally; the other constructors which take parameters are more generally
      * useful.
      */
@@ -231,7 +232,7 @@ public final class ObjectAnimator extends ValueAnimator {
      * will be derived from the property being animated and the target object when {@link #start()}
      * is called for the first time. Two values imply starting and ending values. More than two
      * values imply a starting value, values to animate through along the way, and an ending value
-     * (these values will be distributed evenly across the duration of the animation).
+     * (these values will be distributed 分布式的 evenly 均匀地 across the duration of the animation).
      *
      * @param target The object whose property is to be animated. This object should
      * have a public method on it called <code>setName()</code>, where <code>name</code> is
@@ -248,9 +249,9 @@ public final class ObjectAnimator extends ValueAnimator {
 
     /**
      * Constructs and returns an ObjectAnimator that animates coordinates along a <code>Path</code>
-     * using two properties. A <code>Path</code></> animation moves in two dimensions, animating
-     * coordinates <code>(x, y)</code> together to follow the line. In this variation, the
-     * coordinates are integers that are set to separate properties designated by
+     * using two properties. A <code>Path</code></> animation moves in two dimensions 尺寸 , animating
+     * coordinates <code>(x, y)</code> together to follow the line. In this variation 变化 , the
+     * coordinates are integers that are set to separate properties designated 指派 by
      * <code>xPropertyName</code> and <code>yPropertyName</code>.
      *
      * @param target The object whose properties are to be animated. This object should
@@ -760,7 +761,7 @@ public final class ObjectAnimator extends ValueAnimator {
     @Override
     public void setIntValues(int... values) {
         if (mValues == null || mValues.length == 0) {
-            // No values yet - this animator is being constructed piecemeal. Init the values with
+            // No values yet - this animator is being constructed piecemeal 零碎地 . Init the values with
             // whatever the current propertyName is
             if (mProperty != null) {
                 setValues(PropertyValuesHolder.ofInt(mProperty, values));
@@ -870,7 +871,7 @@ public final class ObjectAnimator extends ValueAnimator {
      * This function is called immediately before processing the first animation
      * frame of an animation. If there is a nonzero <code>startDelay</code>, the
      * function is called after that delay ends.
-     * It takes care of the final initialization steps for the
+     * It takes care of the final initialization 初始化 steps for the
      * animation. This includes setting mEvaluator, if the user has not yet
      * set it up, and the setter/getter methods, if the user did not supply
      * them.

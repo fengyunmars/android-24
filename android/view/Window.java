@@ -1290,7 +1290,7 @@ public abstract class Window {
      * directly into the screen's view hierarchy.  It can itself be a complex
      * view hierarchy.
      *
-     * <p>Note that calling this function "locks in" various characteristics
+     * <p>Note that calling this function "locks in 使固定 " various characteristics
      * of the window that can not, from this point forward, be changed: the
      * features that have been requested with {@link #requestFeature(int)},
      * and certain window flags as described in {@link #setFlags(int, int)}.</p>

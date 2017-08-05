@@ -18,9 +18,10 @@ package android.animation;
 
 /**
  * This evaluator can be used to perform type interpolation between integer
- * values that represent ARGB colors.
+ * values that represent  代表 ARGB colors.
  */
 public class ArgbEvaluator implements TypeEvaluator {
+
     private static final ArgbEvaluator sInstance = new ArgbEvaluator();
 
     /**
@@ -39,7 +40,7 @@ public class ArgbEvaluator implements TypeEvaluator {
      * This function returns the calculated in-between value for a color
      * given integers that represent the start and end values in the four
      * bytes of the 32-bit int. Each channel is separately linearly interpolated
-     * and the resulting calculated values are recombined into the return value.
+     * and the resulting calculated values are recombined 重组 into the return value.
      *
      * @param fraction The fraction from the starting to the ending values
      * @param startValue A 32-bit int value representing colors in the

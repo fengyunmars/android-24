@@ -57,12 +57,13 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * A Drawable with a color gradient for buttons, backgrounds, etc.
+ * A Drawable with a color gradient 梯度 for buttons, backgrounds, etc.
  *
  * <p>It can be defined in an XML file with the <code>&lt;shape></code> element. For more
  * information, see the guide to <a
  * href="{@docRoot}guide/topics/resources/drawable-resource.html">Drawable Resources</a>.</p>
  *
+ * <p><a href="GradientDrawableDemo.html">OnLine Demo Resources</a>.</p>
  * @attr ref android.R.styleable#GradientDrawable_visible
  * @attr ref android.R.styleable#GradientDrawable_shape
  * @attr ref android.R.styleable#GradientDrawable_innerRadiusRatio
@@ -98,7 +99,7 @@ public class GradientDrawable extends Drawable {
     public static final int RECTANGLE = 0;
 
     /**
-     * Shape is an ellipse
+     * Shape is an ellipse 椭圆
      */
     public static final int OVAL = 1;
 
@@ -108,7 +109,7 @@ public class GradientDrawable extends Drawable {
     public static final int LINE = 2;
 
     /**
-     * Shape is a ring.
+     * Shape is a ring 指环 .
      */
     public static final int RING = 3;
 
@@ -123,12 +124,12 @@ public class GradientDrawable extends Drawable {
     public static final int LINEAR_GRADIENT = 0;
 
     /**
-     * Gradient is circular.
+     * Gradient is circular 圆形的 . RADIAL radial 放射式的
      */
     public static final int RADIAL_GRADIENT = 1;
 
     /**
-     * Gradient is a sweep.
+     * Gradient is a sweep 扫除 .
      */
     public static final int SWEEP_GRADIENT  = 2;
 
@@ -143,7 +144,7 @@ public class GradientDrawable extends Drawable {
     /** Radius is a fraction of the base size. */
     private static final int RADIUS_TYPE_FRACTION = 1;
 
-    /** Radius is a fraction of the bounds size. */
+    /** Radius 半径 is a fraction of the bounds size. */
     private static final int RADIUS_TYPE_FRACTION_PARENT = 2;
 
     /** @hide */
@@ -1764,7 +1765,8 @@ public class GradientDrawable extends Drawable {
         float mCenterX = 0.5f;
         float mCenterY = 0.5f;
         float mGradientRadius = 0.5f;
-        @RadiusType int mGradientRadiusType = RADIUS_TYPE_PIXELS;
+        @RadiusType
+        int mGradientRadiusType = RADIUS_TYPE_PIXELS;
         boolean mUseLevel = false;
         boolean mUseLevelForShape = true;
 

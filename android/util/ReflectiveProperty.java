@@ -20,8 +20,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * Internal class to automatically generate a Property for a given class/name pair, given the
- * specification of {@link Property#of(java.lang.Class, java.lang.Class, java.lang.String)}
+ * Reflective 反射的 Internal class to automatically generate a Property for a given class/name pair, given the
+ * specification 规格 of {@link Property#of(java.lang.Class, java.lang.Class, java.lang.String)}
  */
 class ReflectiveProperty<T, V> extends Property<T, V> {
 
@@ -38,7 +38,7 @@ class ReflectiveProperty<T, V> extends Property<T, V> {
      * field results in throwing NoSuchPropertyException.
      *
      * @param propertyHolder The class on which the methods or field are found
-     * @param name The name of the property, where this name is capitalized and appended to
+     * @param name The name of the property, where this name is capitalized 大写的 and appended to
      * "get" and "is to search for the appropriate methods. If the get/is methods are not found,
      * the constructor will search for a field with that exact name.
      */
@@ -67,7 +67,7 @@ class ReflectiveProperty<T, V> extends Property<T, V> {
                     }
                     return;
                 } catch (NoSuchFieldException e2) {
-                    // no way to access property - throw appropriate exception
+                    // no way to access property - throw appropriate 适当的 exception
                     throw new NoSuchPropertyException("No accessor method or field found for"
                             + " property with name " + name);
                 }
@@ -90,7 +90,7 @@ class ReflectiveProperty<T, V> extends Property<T, V> {
     /**
      * Utility method to check whether the type of the underlying field/method on the target
      * object matches the type of the Property. The extra checks for primitive types are because
-     * generics will force the Property type to be a class, whereas the type of the underlying
+     * generics 类的 will force the Property type to be a class, whereas the type of the underlying
      * method/field will probably be a primitive type instead. Accept float as matching Float,
      * etc.
      */

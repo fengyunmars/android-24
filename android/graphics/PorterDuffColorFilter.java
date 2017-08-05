@@ -20,10 +20,11 @@ import android.annotation.ColorInt;
 import android.annotation.NonNull;
 
 /**
- * A color filter that can be used to tint the source pixels using a single
- * color and a specific {@link PorterDuff Porter-Duff composite mode}.
+ * A color filter that can be used to tint 染色 the source pixels using a single
+ * color and a specific {@link PorterDuff Porter-Duff composite 混合物 mode}.
  */
 public class PorterDuffColorFilter extends ColorFilter {
+
     private int mColor;
     private PorterDuff.Mode mMode;
 

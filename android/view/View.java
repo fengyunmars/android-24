@@ -1057,7 +1057,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * <p>Indicates that this view gets its drawable states from its direct parent
-     * and ignores its original internal states.</p>
+     * and ignores its original internal states.</p> DUPLICATE 复制
      *
      * @hide
      */
@@ -9124,6 +9124,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             @ViewDebug.IntToString(from = IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS,
                     to = "noHideDescendants")
         })
+
     public int getImportantForAccessibility() {
         return (mPrivateFlags2 & PFLAG2_IMPORTANT_FOR_ACCESSIBILITY_MASK)
                 >> PFLAG2_IMPORTANT_FOR_ACCESSIBILITY_SHIFT;
@@ -13899,7 +13900,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             attachInfo.mViewRootImpl.mChoreographer.postCallback(
                     Choreographer.CALLBACK_ANIMATION, action, null);
         } else {
-            // Postpone the runnable until we know
+            // Postpone 延缓 the runnable until we know
             // on which thread it needs to run.
             getRunQueue().post(action);
         }
@@ -13958,7 +13959,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * <p>Cause an invalidate to happen on a subsequent cycle through the event loop.
+     * <p>Cause an invalidate to happen on a subsequent cycle 循环 through the event loop.
      * Use this to invalidate the View from a non-UI thread.</p>
      *
      * <p>This method can be invoked from outside of the UI thread
@@ -13992,7 +13993,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * <p>Cause an invalidate to happen on a subsequent cycle through the event
+     * <p>Cause an invalidate to happen on a subsequent cycle 循环 through the event
      * loop. Waits for the specified amount of time.</p>
      *
      * <p>This method can be invoked from outside of the UI thread

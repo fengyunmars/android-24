@@ -23,20 +23,20 @@ import android.view.Choreographer;
 import java.util.ArrayList;
 
 /**
- * This custom, static handler handles the timing pulse that is shared by all active
+ * This custom, static handler handles the timing 定时 pulse 脉动 that is shared by all active
  * ValueAnimators. This approach ensures that the setting of animation values will happen on the
  * same thread that animations start on, and that all animations will share the same times for
  * calculating their values, which makes synchronizing animations possible.
  *
- * The handler uses the Choreographer by default for doing periodic callbacks. A custom
+ * The handler uses the Choreographer 编舞者 by default for doing periodic 周期的 callbacks. A custom
  * AnimationFrameCallbackProvider can be set on the handler to provide timing pulse that
- * may be independent of UI frame update. This could be useful in testing.
+ * may be independent 自主的 of UI frame update. This could be useful in testing.
  *
  * @hide
  */
 public class AnimationHandler {
     /**
-     * Internal per-thread collections used to avoid set collisions as animations start and end
+     * Internal per-thread collections used to avoid set collisions 冲突 as animations start and end
      * while being processed.
      * @hide
      */
@@ -281,13 +281,13 @@ public class AnimationHandler {
         void doAnimationFrame(long frameTime);
 
         /**
-         * This notifies the callback of frame commit time. Frame commit time is the time after
-         * traversals happen, as opposed to the normal animation frame time that is before
-         * traversals. This is used to compensate expensive traversals that happen as the
+         * This notifies 通知 the callback of frame commit time. Frame commit time is the time after
+         * traversals 遍历 happen, as opposed to the normal animation frame time that is before
+         * traversals. This is used to compensate 补偿 expensive traversals that happen as the
          * animation starts. When traversals take a long time to complete, the rendering of the
          * initial frame will be delayed (by a long time). But since the startTime of the
          * animation is set before the traversal, by the time of next frame, a lot of time would
-         * have passed since startTime was set, the animation will consequently skip a few frames
+         * have passed since startTime was set, the animation will consequently 因此 skip a few frames
          * to respect the new frameTime. By having the commit time, we can adjust the start time to
          * when the first frame was drawn (after any expensive traversals) so that no frames
          * will be skipped.
@@ -299,9 +299,9 @@ public class AnimationHandler {
     }
 
     /**
-     * The intention for having this interface is to increase the testability of ValueAnimator.
+     * The intention  意图 for having this interface is to increase the testability 易测性 of ValueAnimator.
      * Specifically, we can have a custom implementation of the interface below and provide
-     * timing pulse without using Choreographer. That way we could use any arbitrary interval for
+     * timing pulse without using Choreographer. That way we could use any arbitrary interval 间隔 for
      * our timing pulse in the tests.
      *
      * @hide

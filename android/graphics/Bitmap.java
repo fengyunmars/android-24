@@ -34,6 +34,7 @@ import java.nio.IntBuffer;
 import java.nio.ShortBuffer;
 
 public final class Bitmap implements Parcelable {
+
     private static final String TAG = "Bitmap";
 
     /**
@@ -44,7 +45,7 @@ public final class Bitmap implements Parcelable {
      */
     public static final int DENSITY_NONE = 0;
 
-    // Estimated size of the Bitmap native allocation, not including
+    // Estimated 估算的 size of the Bitmap native allocation 分配 , not including
     // pixel data.
     private static final long NATIVE_ALLOCATION_SIZE = 32;
 
@@ -65,7 +66,7 @@ public final class Bitmap implements Parcelable {
      * without alpha.
      *
      * setPremultiplied() does directly set the value so that setConfig() and
-     * setPremultiplied() aren't order dependent, despite being setters.
+     * setPremultiplied() aren't order dependent 依赖的 , despite 尽管 being setters.
      *
      * The native bitmap's premultiplication state is kept up to date by
      * pushing down this preference for every config change.
@@ -145,7 +146,7 @@ public final class Bitmap implements Parcelable {
     }
 
     /**
-     * Native bitmap has been reconfigured, so set premult and cached
+     * Native bitmap has been reconfigured, so set premult 预乘 and cached
      * width/height values
      */
     // called from JNI
@@ -162,7 +163,7 @@ public final class Bitmap implements Parcelable {
      * unless the current application does not support different screen
      * densities in which case it is
      * {@link android.util.DisplayMetrics#DENSITY_DEFAULT}.  Note that
-     * compatibility mode is determined by the application that was initially
+     * compatibility 通用性 mode is determined by the application that was initially
      * loaded into a process -- applications that share the same process should
      * all have the same compatibility, or ensure they explicitly set the
      * density of their bitmaps appropriately.</p>
@@ -424,7 +425,7 @@ public final class Bitmap implements Parcelable {
 
         /**
          * Each pixel is stored as a single translucency (alpha) channel.
-         * This is very useful to efficiently store masks for instance.
+         * This is very useful to efficiently 效率高地 store masks for instance.
          * No color information is stored.
          * With this configuration, each pixel requires 1 byte of memory.
          */
@@ -438,11 +439,11 @@ public final class Bitmap implements Parcelable {
          *
          * This configuration can produce slight visual artifacts depending
          * on the configuration of the source. For instance, without
-         * dithering, the result might show a greenish tint. To get better
+         * dithering, the result might show a greenish 呈绿色的 tint 浅色 . To get better
          * results dithering should be applied.
          *
          * This configuration may be useful when using opaque bitmaps
-         * that do not require high color fidelity.
+         * that do not require high color fidelity 保真度 .
          */
         RGB_565     (3),
 
@@ -578,7 +579,7 @@ public final class Bitmap implements Parcelable {
     /**
      * Tries to make a new bitmap based on the dimensions of this bitmap,
      * setting the new bitmap's config to the one specified, and then copying
-     * this bitmap's pixels into the new bitmap. If the conversion is not
+     * this bitmap's pixels into the new bitmap. If the conversion 转变 is not
      * supported, or the allocator fails, then this returns NULL.  The returned
      * bitmap initially has the same density as the original.
      *
@@ -702,7 +703,7 @@ public final class Bitmap implements Parcelable {
     }
 
     /**
-     * Returns an immutable �����  bitmap from subset of the source bitmap,
+     * Returns an immutable 不可改变的  bitmap from subset of the source bitmap,
      * transformed by the optional matrix. The new bitmap may be the
      * same object as source, or a copy may have been made. It is
      * initialized with the same density as the original bitmap.
@@ -754,7 +755,7 @@ public final class Bitmap implements Parcelable {
 
         Config newConfig = Config.ARGB_8888;
         final Config config = source.getConfig();
-        // GIF files generate null configs, assume ARGB_8888
+        // GIF files generate null configs, assume 假定 ARGB_8888
         if (config != null) {
             switch (config) {
                 case RGB_565:
@@ -1046,7 +1047,7 @@ public final class Bitmap implements Parcelable {
     private final static int WORKING_COMPRESS_STORAGE = 4096;
 
     /**
-     * Write a compressed ѹ����  version of the bitmap to the specified outputstream.
+     * Write a compressed 压缩的  version of the bitmap to the specified outputstream.
      * If this returns true, the bitmap can be reconstructed by passing a
      * corresponding inputstream to BitmapFactory.decodeStream(). Note: not
      * all Formats support all bitmap configs directly, so it is possible that
@@ -1057,7 +1058,7 @@ public final class Bitmap implements Parcelable {
      * @param format   The format of the compressed image
      * @param quality  Hint to the compressor, 0-100. 0 meaning compress for
      *                 small size, 100 meaning compress for max quality. Some
-     *                 formats, like PNG which is lossless, will ignore the
+     *                 formats, like PNG which is lossless 无损的 , will ignore the
      *                 quality setting
      * @param stream   The outputstream to write the compressed data.
      * @return true if successfully compressed to the specified stream.
@@ -1126,7 +1127,7 @@ public final class Bitmap implements Parcelable {
      * {@link Canvas} for performance reasons. Storing un-pre-multiplied data in
      * a Bitmap (through {@link #setPixel}, {@link #setPixels}, or {@link
      * BitmapFactory.Options#inPremultiplied BitmapFactory.Options.inPremultiplied})
-     * can lead to incorrect blending if drawn by the framework.</p>
+     * can lead to incorrect blending 混和物 if drawn by the framework.</p>
      *
      * <p>This method will not affect the behavior of a bitmap without an alpha
      * channel, or if {@link #hasAlpha()} returns false.</p>
@@ -1230,7 +1231,7 @@ public final class Bitmap implements Parcelable {
     /**
      * Return the number of bytes between rows in the bitmap's pixels. Note that
      * this refers to the pixels as stored natively by the bitmap. If you call
-     * getPixels() or setPixels(), then the pixels are uniformly treated as
+     * getPixels() or setPixels(), then the pixels are uniformly 一致地 treated as
      * 32bit values, packed according to the Color class.
      *
      * <p>As of {@link android.os.Build.VERSION_CODES#KITKAT}, this method
@@ -1259,7 +1260,7 @@ public final class Bitmap implements Parcelable {
     }
 
     /**
-     * Returns the size of the allocated memory used to store this bitmap's pixels.
+     * Returns the size of the allocated 分配 memory used to store this bitmap's pixels.
      *
      * <p>This can be larger than the result of {@link #getByteCount()} if a bitmap is reused to
      * decode other bitmaps of smaller size, or by manual reconfiguration. See {@link
@@ -1323,7 +1324,7 @@ public final class Bitmap implements Parcelable {
     }
 
     /**
-     * Indicates whether the renderer responsible for drawing this
+     * Indicates whether the renderer 渲染器 responsible for drawing this
      * bitmap should attempt to use mipmaps when this bitmap is drawn
      * scaled down.
      *
@@ -1608,7 +1609,7 @@ public final class Bitmap implements Parcelable {
      * These values may be affected by the optional Paint parameter, which
      * can contain its own alpha, and may also contain a MaskFilter which
      * could change the actual dimensions of the resulting bitmap (e.g.
-     * a blur maskfilter might enlarge the resulting bitmap). If offsetXY
+     * a blur maskfilter might enlarge 扩大 the resulting bitmap). If offsetXY
      * is not null, it returns the amount to offset the returned bitmap so
      * that it will logically align with the original. For example, if the
      * paint contains a blur of radius 2, then offsetXY[] would contains
@@ -1622,7 +1623,7 @@ public final class Bitmap implements Parcelable {
      *              resulting bitmap. Pass null for default behavior.
      * @param offsetXY Optional array that returns the X (index 0) and Y
      *                 (index 1) offset needed to position the returned bitmap
-     *                 so that it visually lines up with the original.
+     *                 so that it visually lines up 排成一行 with the original.
      * @return new bitmap containing the (optionally modified by paint) alpha
      *         channel of the original bitmap. This may be drawn with
      *         Canvas.drawBitmap(), where the color(s) will be taken from the
@@ -1657,13 +1658,13 @@ public final class Bitmap implements Parcelable {
 
     /**
      * Rebuilds any caches associated with the bitmap that are used for
-     * drawing it. In the case of purgeable bitmaps, this call will attempt to
+     * drawing it. In the case of purgeable 可清除的 bitmaps, this call will attempt to
      * ensure that the pixels have been decoded.
      * If this is called on more than one bitmap in sequence, the priority is
      * given in LRU order (i.e. the last bitmap called will be given highest
      * priority).
      *
-     * For bitmaps with no associated caches, this call is effectively a no-op,
+     * For bitmaps with no associated caches, this call is effectively 实际上 a no-op,
      * and therefore is harmless.
      */
     public void prepareToDraw() {

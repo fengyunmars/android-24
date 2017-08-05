@@ -29,9 +29,9 @@ import android.util.TimeUtils;
 import java.io.PrintWriter;
 
 /**
- * Coordinates the timing of animations, input and drawing.
+ * Coordinates 协调 the timing of animations, input and drawing.
  * <p>
- * The choreographer receives timing pulses (such as vertical synchronization)
+ * The choreographer receives timing pulses (such as vertical 垂直的 synchronization 同步 )
  * from the display subsystem then schedules work to occur as part of rendering
  * the next display frame.
  * </p><p>
@@ -49,7 +49,7 @@ import java.io.PrintWriter;
  * <li>To post a call to {@link View#invalidate()} to occur once at the beginning of the
  * next display frame, use {@link View#postInvalidateOnAnimation()} or
  * {@link View#postInvalidateOnAnimation(int, int, int, int)}.</li>
- * <li>To ensure that the contents of a {@link View} scroll smoothly and are drawn in
+ * <li>To ensure that the contents of a {@link View} scroll smoothly  平滑地 and are drawn in
  * sync with display frame rendering, do nothing.  This already happens automatically.
  * {@link View#onDraw} will be called at the appropriate time.</li>
  * </ul>
@@ -60,7 +60,7 @@ import java.io.PrintWriter;
  * <ul>
  * <li>If your application does its rendering in a different thread, possibly using GL,
  * or does not use the animation framework or view hierarchy at all
- * and you want to ensure that it is appropriately synchronized with the display, then use
+ * and you want to ensure that it is appropriately 适当地 synchronized with the display, then use
  * {@link Choreographer#postFrameCallback}.</li>
  * <li>... and that's about it.</li>
  * </ul>
@@ -83,10 +83,10 @@ public final class Choreographer {
     // When vsync is not enabled, we want to have some idea of how long we should
     // wait before posting the next animation message.  It is important that the
     // default value be less than the true inter-frame delay on all devices to avoid
-    // situations where we might skip frames by waiting too long (we must compensate
-    // for jitter and hardware variations).  Regardless of this value, the animation
-    // and display loop is ultimately rate-limited by how fast new graphics buffers can
-    // be dequeued.
+    // situations where we might skip frames by waiting too long (we must compensate  补偿
+    // for jitter 抖动 and hardware variations) 变异 .  Regardless of this value, the animation
+    // and display loop is ultimately 最终 rate-limited by how fast new graphics buffers can
+    // be dequeued 列中移除 .
     private static final long DEFAULT_FRAME_DELAY = 10;
 
     // The number of milliseconds between animation frames.
@@ -808,9 +808,9 @@ public final class Choreographer {
         @Override
         public void onVsync(long timestampNanos, int builtInDisplayId, int frame) {
             // Ignore vsync from secondary display.
-            // This can be problematic because the call to scheduleVsync() is a one-shot.
+            // This can be problematic 不确定的 because the call to scheduleVsync() is a one-shot.
             // We need to ensure that we will still receive the vsync from the primary
-            // display which is the one we really care about.  Ideally we should schedule
+            // display which is the one we really care about.  Ideally 理想地 we should schedule
             // vsync for a particular display.
             // At this time Surface Flinger won't send us vsyncs for secondary displays
             // but that could change in the future so let's log a message to help us remember
@@ -825,10 +825,10 @@ public final class Choreographer {
             }
 
             // Post the vsync event to the Handler.
-            // The idea is to prevent incoming vsync events from completely starving
+            // The idea is to prevent 预防 incoming vsync events from completely starving 挨饿的
             // the message queue.  If there are no messages in the queue with timestamps
             // earlier than the frame time, then the vsync event will be processed immediately.
-            // Otherwise, messages that predate the vsync event will be handled first.
+            // Otherwise, messages that predate 居先 the vsync event will be handled first.
             long now = System.nanoTime();
             if (timestampNanos > now) {
                 Log.w(TAG, "Frame time is " + ((timestampNanos - now) * 0.000001f)
@@ -876,7 +876,7 @@ public final class Choreographer {
     private final class CallbackQueue {
         private CallbackRecord mHead;
 
-        public boolean hasDueCallbacksLocked(long now) {
+        public boolean hasDueCallbacksLocked(long now) {    // due 到期
             return mHead != null && mHead.dueTime <= now;
         }
 

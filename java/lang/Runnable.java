@@ -44,7 +44,7 @@ package java.lang;
  * be used if you are only planning to override the <code>run()</code>
  * method and no other <code>Thread</code> methods.
  * This is important because classes should not be subclassed
- * unless the programmer intends on modifying or enhancing the fundamental
+ * unless the programmer intends on modifying or enhancing 提高 the fundamental 基本的
  * behavior of the class.
  *
  * @author  Arthur van Hoff
@@ -52,8 +52,7 @@ package java.lang;
  * @see     java.util.concurrent.Callable
  * @since   JDK1.0
  */
-public
-interface Runnable {
+public interface Runnable {
     /**
      * When an object implementing interface <code>Runnable</code> is used
      * to create a thread, starting the thread causes the object's
@@ -61,7 +60,7 @@ interface Runnable {
      * thread.
      * <p>
      * The general contract of the method <code>run</code> is that it may
-     * take any action whatsoever.
+     * take any action whatsoever 无论什么 .
      *
      * @see     java.lang.Thread#run()
      */

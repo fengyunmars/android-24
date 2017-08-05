@@ -17,10 +17,10 @@
 package android.graphics;
 
 /**
- * The NinePatch class permits drawing a bitmap in nine or more sections.
- * Essentially, it allows the creation of custom graphics that will scale the
+ * The NinePatch class permits 允许 drawing a bitmap in nine or more sections.
+ * Essentially 本质上 , it allows the creation of custom graphics that will scale the
  * way that you define, when content added within the image exceeds the normal
- * bounds of the graphic. For a thorough explanation of a NinePatch image, 
+ * bounds of the graphic. For a thorough 彻底的 explanation 解释 of a NinePatch image,
  * read the discussion in the 
  * <a href="{@docRoot}guide/topics/graphics/2d-graphics.html#nine-patch">2D
  * Graphics</a> document.
@@ -34,8 +34,8 @@ public class NinePatch {
     /**
      * Struct of inset information attached to a 9 patch bitmap.
      *
-     * Present on a 9 patch bitmap if it optical insets were manually included,
-     * or if outline insets were automatically included by aapt.
+     * Present 现在 on a 9 patch bitmap if it optical 光学的 insets were manually 手工地 included,
+     * or if outline 轮廓 insets were automatically included by aapt.
      *
      * @hide
      */

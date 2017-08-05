@@ -629,7 +629,7 @@ public class Path {
     }
 
     /**
-     * Add a closed round-rectangle contour to the path. Each corner receives
+     * Add a closed round-rectangle contour 轮廓 to the path. Each corner receives
      * two radius values [X, Y]. The corners are ordered top-left, top-right,
      * bottom-right, bottom-left
      *

@@ -50,7 +50,7 @@ public class Shader {
          */
         REPEAT  (1),
         /**
-         * repeat the shader's image horizontally and vertically, alternating
+         * repeat the shader's image horizontally and vertically, alternating 交替
          * mirror images so that adjacent 相邻的 images always seam 缝合
          */
         MIRROR  (2);

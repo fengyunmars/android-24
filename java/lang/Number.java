@@ -27,7 +27,7 @@ package java.lang;
 
 /**
  * The abstract class <code>Number</code> is the superclass of classes
- * <code>BigDecimal</code>, <code>BigInteger</code>,
+ * <code>BigDecimal</code> 十进位的 , <code>BigInteger</code>,
  * <code>Byte</code>, <code>Double</code>, <code>Float</code>,
  * <code>Integer</code>, <code>Long</code>, and <code>Short</code>.
  * <p>
@@ -49,7 +49,7 @@ package java.lang;
 public abstract class Number implements java.io.Serializable {
     /**
      * Returns the value of the specified number as an <code>int</code>.
-     * This may involve rounding or truncation.
+     * This may involve rounding 舍入 or truncation 截断 .
      *
      * @return  the numeric value represented by this object after conversion
      *          to type <code>int</code>.

@@ -77,7 +77,7 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
     public static final int PADDING_MODE_NEST = 0;
 
     /**
-     * Padding mode used to stack each layer directly atop the previous layer.
+     * Padding mode used to stack 堆成堆 each layer directly atop 在（…）顶上 the previous layer.
      *
      * @see #setPaddingMode(int)
      */
@@ -101,7 +101,7 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
     private final Rect mTmpRect = new Rect();
     private final Rect mTmpOutRect = new Rect();
     private final Rect mTmpContainer = new Rect();
-    private Rect mHotspotBounds;
+    private Rect mHotspotBounds; // 热点
     private boolean mMutated;
 
     private boolean mSuspendChildInvalidation;
@@ -648,14 +648,14 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
     }
 
     /**
-     * Sets an explicit size for the specified layer.
+     * Sets an explicit 明确的 size for the specified layer.
      * <p>
      * <strong>Note:</strong> Setting an explicit layer size changes the
      * default layer gravity behavior. See {@link #setLayerGravity(int, int)}
      * for more information.
      *
      * @param index the index of the layer to adjust
-     * @param w width in pixels, or -1 to use the intrinsic width
+     * @param w width in pixels, or -1 to use the intrinsic 固有的 width
      * @param h height in pixels, or -1 to use the intrinsic height
      * @see #getLayerWidth(int)
      * @see #getLayerHeight(int)
@@ -948,7 +948,7 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
     }
 
     /**
-     * Temporarily suspends child invalidation.
+     * Temporarily 临时地 suspends 暂停 child invalidation 无效 .
      *
      * @see #resumeChildInvalidation()
      */
@@ -1584,7 +1584,7 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
      * <p>
      * If the client hasn't specified a gravity but has specified an explicit
      * dimension, defaults to START or TOP. Otherwise, defaults to FILL to
-     * preserve legacy behavior.
+     * preserve 保持 legacy 遗产 behavior.
      *
      * @param gravity layer gravity
      * @param width width of the layer if set, -1 otherwise
@@ -1893,6 +1893,7 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
     }
 
     static class LayerState extends ConstantState {
+
         private int[] mThemeAttrs;
 
         int mNum;
@@ -1909,8 +1910,10 @@ public class LayerDrawable extends Drawable implements Drawable.Callback {
         int mPaddingEnd = -1;
         int mOpacityOverride = PixelFormat.UNKNOWN;
 
-        @Config int mChangingConfigurations;
-        @Config int mChildrenChangingConfigurations;
+        @Config
+        int mChangingConfigurations;
+        @Config
+        int mChildrenChangingConfigurations;
 
         private boolean mHaveOpacity;
         private int mOpacity;

@@ -278,7 +278,7 @@ public class AnimationDrawable extends DrawableContainer implements Runnable, An
             unscheduleSelf(this);
         }
         if (animate) {
-            // Unscheduling may have clobbered these values; restore them
+            // Unscheduling may have clobbered 彻底打垮 these values; restore them
             mCurFrame = frame;
             mRunning = true;
             scheduleSelf(this, SystemClock.uptimeMillis() + mAnimationState.mDurations[frame]);
@@ -379,6 +379,7 @@ public class AnimationDrawable extends DrawableContainer implements Runnable, An
     }
 
     private final static class AnimationState extends DrawableContainerState {
+
         private int[] mDurations;
         private boolean mOneShot = false;
 
@@ -409,7 +410,7 @@ public class AnimationDrawable extends DrawableContainer implements Runnable, An
         }
 
         public void addFrame(Drawable dr, int dur) {
-            // Do not combine the following. The array index must be evaluated before
+            // Do not combine the following. The array index must be evaluated 估价的 before
             // the array is accessed because super.addChild(dr) has a side effect on mDurations.
             int pos = super.addChild(dr);
             mDurations[pos] = dur;

@@ -24,10 +24,11 @@ import android.graphics.Paint;
 /**
  * Defines a generic graphical "shape."
  * Any Shape can be drawn to a Canvas with its own draw() method,
- * but more graphical control is available if you instead pass
+ * but more graphical 绘画的 control is available if you instead pass
  * it to a {@link android.graphics.drawable.ShapeDrawable}.
  */
 public abstract class Shape implements Cloneable {
+
     private float mWidth;
     private float mHeight;
     
@@ -50,7 +51,7 @@ public abstract class Shape implements Cloneable {
      * Before calling this, you must call {@link #resize(float,float)}.
      * 
      * @param canvas the Canvas within which this shape should be drawn
-     * @param paint  the Paint object that defines this shape's characteristics
+     * @param paint  the Paint object that defines this shape's characteristics 特性
      */
     public abstract void draw(Canvas canvas, Paint paint);
 

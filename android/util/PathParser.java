@@ -20,6 +20,7 @@ import android.graphics.Path;
  * @hide
  */
 public class PathParser {
+
     static final String LOGTAG = PathParser.class.getSimpleName();
 
     /**
@@ -36,7 +37,7 @@ public class PathParser {
     }
 
     /**
-     * Interpret PathData as path commands and insert the commands to the given path.
+     * Interpret 解释 PathData as path commands and insert the commands to the given path.
      *
      * @param data The source PathData to be converted.
      * @param outPath The Path object where path commands will be inserted.
@@ -48,7 +49,7 @@ public class PathParser {
     /**
      * @param pathDataFrom The source path represented in PathData
      * @param pathDataTo The target path represented in PathData
-     * @return whether the <code>nodesFrom</code> can morph into <code>nodesTo</code>
+     * @return whether the <code>nodesFrom</code> can morph 变体 into <code>nodesTo</code>
      */
     public static boolean canMorph(PathData pathDataFrom, PathData pathDataTo) {
         return nCanMorph(pathDataFrom.mNativePathData, pathDataTo.mNativePathData);
@@ -56,7 +57,7 @@ public class PathParser {
 
     /**
      * PathData class is a wrapper around the native PathData object, which contains
-     * the result of parsing a path string. Specifically, there are verbs and points
+     * the result of parsing a path string. Specifically, there are verbs 动词 and points
      * associated with each verb stored in PathData. This data can then be used to
      * generate commands to manipulate a Path.
      */

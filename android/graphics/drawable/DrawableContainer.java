@@ -43,6 +43,7 @@ import java.util.Collection;
  * You can subclass it to create your own DrawableContainers or directly use one its child classes.
  */
 public class DrawableContainer extends Drawable implements Drawable.Callback {
+
     private static final boolean DEBUG = false;
     private static final String TAG = "DrawableContainer";
 
@@ -54,7 +55,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
      * default/initial setting.
      *
      * The initial setting for dither is now true, since it almost always seems
-     * to improve the quality at negligible cost.
+     * to improve the quality at negligible 微不足道的 cost.
      */
     private static final boolean DEFAULT_DITHER = true;
     private DrawableContainerState mDrawableContainerState;
@@ -212,7 +213,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
 
     /**
      * Change the global fade duration when a new drawable is entering
-     * the scene.
+     * the scene 现场 .
      * @param ms The amount of time to fade in milliseconds.
      */
     public void setEnterFadeDuration(int ms) {
@@ -340,7 +341,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
     @Override
     public boolean onLayoutDirectionChanged(@View.ResolvedLayoutDir int layoutDirection) {
         // Let the container handle setting its own layout direction. Otherwise,
-        // we're accessing potentially unused states.
+        // we're accessing potentially 潜在地 unused states.
         return mDrawableContainerState.setLayoutDirection(layoutDirection, getCurrentIndex());
     }
 
@@ -480,7 +481,8 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         if (mEnterAnimationEnd != 0 || mExitAnimationEnd != 0) {
             if (mAnimationRunnable == null) {
                 mAnimationRunnable = new Runnable() {
-                    @Override public void run() {
+                    @Override
+                    public void run() {
                         animate(true);
                         invalidateSelf();
                     }
@@ -666,8 +668,10 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
 
         Resources mSourceRes;
         int mDensity = DisplayMetrics.DENSITY_DEFAULT;
-        @Config int mChangingConfigurations;
-        @Config int mChildrenChangingConfigurations;
+        @Config
+        int mChangingConfigurations;
+        @Config
+        int mChildrenChangingConfigurations;
 
         SparseArray<ConstantState> mDrawableFutures;
         Drawable[] mDrawables;
@@ -764,7 +768,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
                     mCheckedStateful = true;
                 }
 
-                // Postpone cloning children and futures until we're absolutely
+                // Postpone 延缓 cloning children and futures 前途 until we're absolutely
                 // sure that we're done computing values for the original state.
                 final Drawable[] origDr = orig.mDrawables;
                 mDrawables = new Drawable[origDr.length];
@@ -1217,7 +1221,7 @@ public class DrawableContainer extends Drawable implements Drawable.Callback {
         }
 
         // Clear out the last drawable. We don't have enough information to
-        // propagate local state from the past.
+        // propagate 扩散 local state from the past.
         mLastIndex = -1;
         mLastDrawable = null;
     }

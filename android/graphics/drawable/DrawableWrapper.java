@@ -174,7 +174,7 @@ public abstract class DrawableWrapper extends Drawable implements Drawable.Callb
      * <p>
      * Implementing subclasses should call through to the super method first.
      *
-     * @param a the typed array rom which properties should be read
+     * @param a the typed array from which properties should be read
      */
     private void updateStateFromTypedArray(@NonNull TypedArray a) {
         final DrawableWrapperState state = mState;
@@ -445,7 +445,8 @@ public abstract class DrawableWrapper extends Drawable implements Drawable.Callb
     abstract static class DrawableWrapperState extends Drawable.ConstantState {
         private int[] mThemeAttrs;
 
-        @Config int mChangingConfigurations;
+        @Config
+        int mChangingConfigurations;
         int mDensity = DisplayMetrics.DENSITY_DEFAULT;
 
         Drawable.ConstantState mDrawableState;

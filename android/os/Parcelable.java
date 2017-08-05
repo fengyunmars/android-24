@@ -18,7 +18,7 @@ package android.os;
 
 /**
  * Interface for classes whose instances can be written to
- * and restored from a {@link Parcel}.  Classes implementing the Parcelable
+ * and restored from a {@link Parcel} 包裹 .  Classes implementing the Parcelable
  * interface must also have a non-null static field called <code>CREATOR</code>
  * of a type that implements the {@link Parcelable.Creator} interface.
  * 
@@ -65,17 +65,17 @@ public interface Parcelable {
 
     /**
      * Flag for use with {@link #writeToParcel}: a parent object will take
-     * care of managing duplicate state/data that is nominally replicated
-     * across its inner data members.  This flag instructs the inner data
-     * types to omit that data during marshaling.  Exact behavior may vary
-     * on a case by case basis.
+     * care of managing duplicate 重复 state/data that is nominally 表面地 replicated 复制
+     * across its inner data members.  This flag instructs 命令 the inner data
+     * types to omit 省略 that data during marshaling 安排 .  Exact behavior may vary
+     * on a case by case basis 基本原则 .
      * @hide
      */
     public static final int PARCELABLE_ELIDE_DUPLICATES = 0x0002;
 
     /*
      * Bit masks for use with {@link #describeContents}: each bit represents a
-     * kind of object considered to have potential special significance when
+     * kind of object considered to have potential 潜在的 special significance 意义 when
      * marshalled.
      */
 
@@ -88,7 +88,7 @@ public interface Parcelable {
     public static final int CONTENTS_FILE_DESCRIPTOR = 0x0001;
     
     /**
-     * Describe the kinds of special objects contained in this Parcelable
+     * Describe 描写 the kinds of special objects contained in this Parcelable
      * instance's marshaled representation. For example, if the object will
      * include a file descriptor in the output of {@link #writeToParcel(Parcel, int)},
      * the return value of this method must include the
@@ -102,7 +102,7 @@ public interface Parcelable {
     public int describeContents();
     
     /**
-     * Flatten this object in to a Parcel.
+     * Flatten 水平地 this object in to a Parcel.
      * 
      * @param dest The Parcel in which the object should be written.
      * @param flags Additional flags about how the object should be written.
