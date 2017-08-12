@@ -29,13 +29,13 @@ import android.view.KeyCharacterMap.KeyData;
  * <p>
  * Each key press is described by a sequence of key events.  A key press
  * starts with a key event with {@link #ACTION_DOWN}.  If the key is held
- * sufficiently long that it repeats, then the initial down is followed
+ * sufficiently 足够地 long that it repeats, then the initial down is followed
  * additional key events with {@link #ACTION_DOWN} and a non-zero value for
  * {@link #getRepeatCount()}.  The last key event is a {@link #ACTION_UP}
  * for the key up.  If the key press is canceled, the key up event will have the
  * {@link #FLAG_CANCELED} flag set.
  * </p><p>
- * Key events are generally accompanied by a key code ({@link #getKeyCode()}),
+ * Key events are generally accompanied  陪伴 by a key code ({@link #getKeyCode()}),
  * scan code ({@link #getScanCode()}) and meta state ({@link #getMetaState()}).
  * Key code constants are defined in this class.  Scan code constants are raw
  * device-specific codes obtained from the OS and so are not generally meaningful
@@ -50,12 +50,12 @@ import android.view.KeyCharacterMap.KeyData;
  * to characters.  Be aware that there may be multiple key input devices active
  * at the same time and each will have its own key character map.
  * </p><p>
- * As soft input methods can use multiple and inventive ways of inputting text,
+ * As soft input methods can use multiple 多样的 and inventive 有发明才能的 ways of inputting text,
  * there is no guarantee that any key press on a soft keyboard will generate a key
- * event: this is left to the IME's discretion, and in fact sending such events is
+ * event: this is left to the IME's discretion 自由裁量权 , and in fact sending such events is
  * discouraged.  You should never rely on receiving KeyEvents for any key on a soft
  * input method.  In particular, the default software keyboard will never send any
- * key event to any application targetting Jelly Bean or later, and will only send
+ * key event to any application targetting Jelly Bean 4.1 果冻豆 or later, and will only send
  * events for some presses of the delete and return keys to applications targetting
  * Ice Cream Sandwich or earlier.  Be aware that other software input methods may
  * never send key events regardless of the version.  Consider using editor actions
@@ -68,9 +68,9 @@ import android.view.KeyCharacterMap.KeyData;
  * that single repeated key code or a sequence of characters to insert.
  * </p><p>
  * In general, the framework cannot guarantee that the key events it delivers
- * to a view always constitute complete key sequences since some events may be dropped
+ * to a view always constitute 组成 complete key sequences since some events may be dropped
  * or modified by containing views before they are delivered.  The view implementation
- * should be prepared to handle {@link #FLAG_CANCELED} and should tolerate anomalous
+ * should be prepared to handle {@link #FLAG_CANCELED} and should tolerate 宽恕 anomalous 异常的
  * situations such as receiving a new {@link #ACTION_DOWN} without first having
  * received an {@link #ACTION_UP} for the prior key press.
  * </p><p>
@@ -87,7 +87,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * of the display. */
     public static final int KEYCODE_SOFT_LEFT       = 1;
     /** Key code constant: Soft Right key.
-     * Usually situated below the display on phones and used as a multi-function
+     * Usually situated 位于 below the display on phones and used as a multi-function
      * feature key for selecting a software defined function shown on the bottom right
      * of the display. */
     public static final int KEYCODE_SOFT_RIGHT      = 2;
@@ -128,7 +128,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * May also be synthesized from trackball motions. */
     public static final int KEYCODE_DPAD_UP         = 19;
     /** Key code constant: Directional Pad Down key.
-     * May also be synthesized from trackball motions. */
+     * May also be synthesized 综合 from trackball motions. */
     public static final int KEYCODE_DPAD_DOWN       = 20;
     /** Key code constant: Directional Pad Left key.
      * May also be synthesized from trackball motions. */
@@ -226,7 +226,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: Explorer special function key.
      * Used to launch a browser application. */
     public static final int KEYCODE_EXPLORER        = 64;
-    /** Key code constant: Envelope special function key.
+    /** Key code constant: Envelope信封  special function key.
      * Used to launch a mail application. */
     public static final int KEYCODE_ENVELOPE        = 65;
     /** Key code constant: Enter key. */
@@ -234,7 +234,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: Backspace key.
      * Deletes characters before the insertion point, unlike {@link #KEYCODE_FORWARD_DEL}. */
     public static final int KEYCODE_DEL             = 67;
-    /** Key code constant: '`' (backtick) key. */
+    /** Key code constant: '`' (backtick 反引号 ) key. */
     public static final int KEYCODE_GRAVE           = 68;
     /** Key code constant: '-'. */
     public static final int KEYCODE_MINUS           = 69;
@@ -281,11 +281,11 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int KEYCODE_MEDIA_NEXT      = 87;
     /** Key code constant: Play Previous media key. */
     public static final int KEYCODE_MEDIA_PREVIOUS  = 88;
-    /** Key code constant: Rewind media key. */
+    /** Key code constant: Rewind 倒回 media key. */
     public static final int KEYCODE_MEDIA_REWIND    = 89;
     /** Key code constant: Fast Forward media key. */
     public static final int KEYCODE_MEDIA_FAST_FORWARD = 90;
-    /** Key code constant: Mute key.
+    /** Key code constant: Mute 减弱……的声音 key.
      * Mutes the microphone, unlike {@link #KEYCODE_VOLUME_MUTE}. */
     public static final int KEYCODE_MUTE            = 91;
     /** Key code constant: Page Up key. */
@@ -296,7 +296,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * Used to switch symbol sets (Emoji, Kao-moji). */
     public static final int KEYCODE_PICTSYMBOLS     = 94;   // switch symbol-sets (Emoji,Kao-moji)
     /** Key code constant: Switch Charset modifier key.
-     * Used to switch character sets (Kanji, Katakana). */
+     * Used to switch character sets (Kanji 日本汉字 , Katakana 片假名 ). */
     public static final int KEYCODE_SWITCH_CHARSET  = 95;   // switch char-sets (Kanji,Katakana)
     /** Key code constant: A Button key.
      * On a game controller, the A button should be either the button labeled A
@@ -390,16 +390,16 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * Toggles insert / overwrite edit mode. */
     public static final int KEYCODE_INSERT          = 124;
     /** Key code constant: Forward key.
-     * Navigates forward in the history stack.  Complement of {@link #KEYCODE_BACK}. */
+     * Navigates forward in the history stack.  Complement 补足 of {@link #KEYCODE_BACK}. */
     public static final int KEYCODE_FORWARD         = 125;
     /** Key code constant: Play media key. */
     public static final int KEYCODE_MEDIA_PLAY      = 126;
     /** Key code constant: Pause media key. */
     public static final int KEYCODE_MEDIA_PAUSE     = 127;
     /** Key code constant: Close media key.
-     * May be used to close a CD tray, for example. */
+     * May be used to close a CD tray 托盘 , for example. */
     public static final int KEYCODE_MEDIA_CLOSE     = 128;
-    /** Key code constant: Eject media key.
+    /** Key code constant: Eject 驱逐 media key.
      * May be used to eject a CD tray, for example. */
     public static final int KEYCODE_MEDIA_EJECT     = 129;
     /** Key code constant: Record media key. */
@@ -460,7 +460,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int KEYCODE_NUMPAD_SUBTRACT = 156;
     /** Key code constant: Numeric keypad '+' key (for addition). */
     public static final int KEYCODE_NUMPAD_ADD      = 157;
-    /** Key code constant: Numeric keypad '.' key (for decimals or digit grouping). */
+    /** Key code constant: Numeric keypad '.' key (for decimals 小数 or digit grouping). */
     public static final int KEYCODE_NUMPAD_DOT      = 158;
     /** Key code constant: Numeric keypad ',' key (for decimals or digit grouping). */
     public static final int KEYCODE_NUMPAD_COMMA    = 159;
@@ -468,7 +468,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int KEYCODE_NUMPAD_ENTER    = 160;
     /** Key code constant: Numeric keypad '=' key. */
     public static final int KEYCODE_NUMPAD_EQUALS   = 161;
-    /** Key code constant: Numeric keypad '(' key. */
+    /** Key code constant: Numeric keypad '(' key. PAREN 括弧*/
     public static final int KEYCODE_NUMPAD_LEFT_PAREN = 162;
     /** Key code constant: Numeric keypad ')' key. */
     public static final int KEYCODE_NUMPAD_RIGHT_PAREN = 163;
@@ -506,7 +506,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: Bookmark key.
      * On some TV remotes, bookmarks content or web pages. */
     public static final int KEYCODE_BOOKMARK        = 174;
-    /** Key code constant: Toggle captions key.
+    /** Key code constant: Toggle captions 字幕 key.
      * Switches the mode for closed-captioning text, for example during television shows. */
     public static final int KEYCODE_CAPTIONS        = 175;
     /** Key code constant: Settings key.
@@ -610,7 +610,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int KEYCODE_MUHENKAN        = 213;
     /** Key code constant: Japanese conversion key. */
     public static final int KEYCODE_HENKAN          = 214;
-    /** Key code constant: Japanese katakana / hiragana key. */
+    /** Key code constant: Japanese katakana 片假名 / hiragana 平假名 key. */
     public static final int KEYCODE_KATAKANA_HIRAGANA = 215;
     /** Key code constant: Japanese Yen key. */
     public static final int KEYCODE_YEN             = 216;
@@ -639,7 +639,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * has no effect if the device is already awake. */
     public static final int KEYCODE_WAKEUP          = 224;
     /** Key code constant: Pairing key.
-     * Initiates peripheral pairing mode. Useful for pairing remote control
+     * Initiates  启动 peripheral 外围的 pairing mode. Useful for pairing remote control
      * devices or game controllers, especially if no other input mode is
      * available. */
     public static final int KEYCODE_PAIRING         = 225;
@@ -663,20 +663,20 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * Toggles TV service / Radio service. */
     public static final int KEYCODE_TV_RADIO_SERVICE = 232;
     /** Key code constant: Teletext key.
-     * Displays Teletext service. */
+     * Displays Teletext 电视文字广播 service. */
     public static final int KEYCODE_TV_TELETEXT = 233;
     /** Key code constant: Number entry key.
      * Initiates to enter multi-digit channel nubmber when each digit key is assigned
      * for selecting separate channel. Corresponds to Number Entry Mode (0x1D) of CEC
      * User Control Code. */
     public static final int KEYCODE_TV_NUMBER_ENTRY = 234;
-    /** Key code constant: Analog Terrestrial key.
+    /** Key code constant: Analog 模拟 Terrestrial key.
      * Switches to analog terrestrial broadcast service. */
     public static final int KEYCODE_TV_TERRESTRIAL_ANALOG = 235;
     /** Key code constant: Digital Terrestrial key.
      * Switches to digital terrestrial broadcast service. */
     public static final int KEYCODE_TV_TERRESTRIAL_DIGITAL = 236;
-    /** Key code constant: Satellite key.
+    /** Key code constant: Satellite 卫星 key.
      * Switches to digital satellite broadcast service. */
     public static final int KEYCODE_TV_SATELLITE = 237;
     /** Key code constant: BS key.
@@ -691,10 +691,10 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: Toggle Network key.
      * Toggles selecting broacast services. */
     public static final int KEYCODE_TV_NETWORK = 241;
-    /** Key code constant: Antenna/Cable key.
+    /** Key code constant: Antenna 天线 /Cable 电缆 key.
      * Toggles broadcast input source between antenna and cable. */
     public static final int KEYCODE_TV_ANTENNA_CABLE = 242;
-    /** Key code constant: HDMI #1 key.
+    /** Key code constant: HDMI （High-Definition 清晰度 Multimedia Interface） #1 key.
      * Switches to HDMI input #1. */
     public static final int KEYCODE_TV_INPUT_HDMI_1 = 243;
     /** Key code constant: HDMI #2 key.
@@ -706,7 +706,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: HDMI #4 key.
      * Switches to HDMI input #4. */
     public static final int KEYCODE_TV_INPUT_HDMI_4 = 246;
-    /** Key code constant: Composite #1 key.
+    /** Key code constant: Composite 合成物 #1 key.
      * Switches to composite video input #1. */
     public static final int KEYCODE_TV_INPUT_COMPOSITE_1 = 247;
     /** Key code constant: Composite #2 key.
@@ -725,7 +725,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * Toggles audio description off / on. */
     public static final int KEYCODE_TV_AUDIO_DESCRIPTION = 252;
     /** Key code constant: Audio description mixing volume up key.
-     * Louden audio description volume as compared with normal audio volume. */
+     * Louden  提高声音 audio description volume as compared with normal audio volume. */
     public static final int KEYCODE_TV_AUDIO_DESCRIPTION_MIX_UP = 253;
     /** Key code constant: Audio description mixing volume down key.
      * Lessen audio description volume as compared with normal audio volume. */
@@ -751,7 +751,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * Goes backward by one item in an ordered collection of items. */
     public static final int KEYCODE_NAVIGATE_PREVIOUS = 260;
     /** Key code constant: Navigate to next key.
-     * Advances to the next item in an ordered collection of items. */
+     * Advances  前进 to the next item in an ordered collection of items. */
     public static final int KEYCODE_NAVIGATE_NEXT   = 261;
     /** Key code constant: Navigate in key.
      * Activates the item that currently has focus or expands to the next level of a navigation
@@ -808,14 +808,14 @@ public class KeyEvent extends InputEvent implements Parcelable {
     //  emulator?
     //  LAST_KEYCODE
     //
-    //  Also Android currently does not reserve code ranges for vendor-
+    //  Also Android currently does not reserve 储存 code ranges for vendor-
     //  specific key codes.  If you have new key codes to have, you
     //  MUST contribute a patch to the open source project to define
     //  those new codes.  This is intended to maintain a consistent
     //  set of key code definitions across all Android devices.
 
-    // Symbolic names of all metakeys in bit order from least significant to most significant.
-    // Accordingly there are exactly 32 values in this table.
+    // Symbolic 符号的 names of all metakeys in bit order from least significant to most significant.
+    // Accordingly 因此 there are exactly 32 values in this table.
     private static final String[] META_SYMBOLIC_NAMES = new String[] {
         "META_SHIFT_ON",
         "META_ALT_ON",
@@ -870,7 +870,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int ACTION_UP               = 1;
     /**
      * {@link #getAction} value: multiple duplicate key events have
-     * occurred in a row, or a complex string is being delivered.  If the
+     * occurred in a row 接连 , or a complex string is being delivered.  If the
      * key code is not {#link {@link #KEYCODE_UNKNOWN} then the
      * {#link {@link #getRepeatCount()} method returns the number of times
      * the given key code should be executed.
@@ -881,7 +881,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
 
     /**
      * SHIFT key locked in CAPS mode.
-     * Reserved for use by {@link MetaKeyKeyListener} for a published constant in its API.
+     * Reserved 保留的 for use by {@link MetaKeyKeyListener} for a published constant in its API.
      * @hide
      */
     public static final int META_CAP_LOCKED = 0x100;
@@ -1114,7 +1114,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /**
      * This mask is set if an event was known to come from a trusted part
      * of the system.  That is, the event is known to come from the user,
-     * and could not have been spoofed by a third party component.
+     * and could not have been spoofed 愚弄 by a third party component.
      */
     public static final int FLAG_FROM_SYSTEM = 0x8;
 
@@ -1142,7 +1142,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /**
      * This key event was generated by a virtual (on-screen) hard key area.
      * Typically this is an area of the touchscreen, outside of the regular
-     * display, dedicated to "hardware" buttons.
+     * display, dedicated 专用的 to "hardware" buttons.
      */
     public static final int FLAG_VIRTUAL_HARD_KEY = 0x40;
 
@@ -1167,7 +1167,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     public static final int FLAG_TRACKING = 0x200;
 
     /**
-     * Set when a key event has been synthesized to implement default behavior
+     * Set when a key event has been synthesized 综合的 to implement default behavior
      * for an event that the application did not handle.
      * Fallback key events are generated by unhandled trackball motions
      * (to emulate a directional keypad) and by certain unhandled key presses
@@ -1207,7 +1207,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     }
 
     /**
-     * Get the character that is produced by putting accent on the character
+     * Get the character that is produced by putting accent 口音 on the character
      * c.
      * For example, getDeadChar('`', 'e') returns &egrave;.
      */
@@ -1216,6 +1216,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     }
 
     static final boolean DEBUG = false;
+
     static final String TAG = "KeyEvent";
 
     private static final int MAX_RECYCLED = 10;
@@ -1590,7 +1591,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /**
      * Recycles a key event.
      * Key events should only be recycled if they are owned by the system since user
-     * code expects them to be essentially immutable, "tracking" notwithstanding.
+     * code expects them to be essentially immutable, "tracking" notwithstanding 尽管 .
      *
      * @hide
      */
@@ -1936,7 +1937,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * <p>
      * For the purposes of this function, {@link #KEYCODE_CAPS_LOCK},
      * {@link #KEYCODE_SCROLL_LOCK}, and {@link #KEYCODE_NUM_LOCK} are
-     * not considered modifier keys.  Consequently, this function specifically masks out
+     * not considered modifier keys.  Consequently 因此 , this function specifically 明确地 masks out
      * {@link #META_CAPS_LOCK_ON}, {@link #META_SCROLL_LOCK_ON} and {@link #META_NUM_LOCK_ON}.
      * </p><p>
      * The value returned consists of the meta state (from {@link #getMetaState})
@@ -2047,11 +2048,11 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * bits are set then the result will also include the universal bit for that modifier.
      * </p><p>
      * If the specified meta state contains {@link #META_ALT_LEFT_ON} then
-     * the result will also contain {@link #META_ALT_ON} in addition to {@link #META_ALT_LEFT_ON}
+     * the result will also contain {@link #META_ALT_ON} in addition to 除…之外 {@link #META_ALT_LEFT_ON}
      * and the other bits that were specified in the input.  The same is process is
      * performed for shift, control and meta.
      * </p><p>
-     * If the specified meta state contains synthetic meta states defined by
+     * If the specified meta state contains synthetic 综合的 meta states defined by
      * {@link MetaKeyKeyListener}, then those states are translated here and the original
      * synthetic meta states are removed from the result.
      * {@link MetaKeyKeyListener#META_CAP_LOCKED} is translated to {@link #META_CAPS_LOCK_ON}.
@@ -2421,7 +2422,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
 
     /**
      * Retrieve the hardware key id of this key event.  These values are not
-     * reliable and vary from device to device.
+     * reliable 可靠的 and vary from device to device.
      *
      * {@more}
      * Mostly this is here for debugging purposes.
@@ -2446,7 +2447,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * Retrieve the time of the most recent key down event,
      * in the {@link android.os.SystemClock#uptimeMillis} time base.  If this
      * is a down event, this will be the same as {@link #getEventTime()}.
-     * Note that when chording keys, this value is the down time of the
+     * Note that when chording 和弦 keys, this value is the down time of the
      * most recently pressed key, which may <em>not</em> be the same physical
      * key of this event.
      *
@@ -2504,7 +2505,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      *
      * @return The associated key character map.
      * @throws {@link KeyCharacterMap.UnavailableException} if the key character map
-     * could not be loaded because it was malformed or the default key character map
+     * could not be loaded because it was malformed 畸形的 or the default key character map
      * is missing from the system.
      *
      * @see KeyCharacterMap#load
@@ -2660,7 +2661,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
      * be made to deliver a single normal event.
      *
      * @param receiver The Callback that will be given the event.
-     * @param state State information retained across events.
+     * @param state State information retained 保留 across events.
      * @param target The target of the dispatch, for use in tracking.
      *
      * @return The return value from the Callback method that was called.

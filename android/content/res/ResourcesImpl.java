@@ -105,7 +105,7 @@ public class ResourcesImpl {
             new ConfigurationBoundResourceCache<>();
 
     /**
-     * Size of the cyclical cache used to map XML files to blocks.
+     * Size of the cyclical 循环的 cache used to map XML files to blocks.
      */
     private static final int XML_BLOCK_CACHE_SIZE = 4;
 
@@ -983,7 +983,7 @@ public class ResourcesImpl {
                     }
 
                     // Not in the cache, create a new block and put it at
-                    // the next slot in the cache.
+                    // the next slot 位置 in the cache.
                     final XmlBlock block = mAssets.openXmlBlockAsset(assetCookie, file);
                     if (block != null) {
                         final int pos = (mLastCachedXmlBlockIndex + 1) % num;

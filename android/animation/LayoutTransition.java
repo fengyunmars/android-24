@@ -31,33 +31,33 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class enables automatic animations on layout changes in ViewGroup objects. To enable
+ * This class enables automatic 自动的 animations on layout changes in ViewGroup objects. To enable
  * transitions for a layout container, create a LayoutTransition object and set it on any
  * ViewGroup by calling {@link ViewGroup#setLayoutTransition(LayoutTransition)}. This will cause
  * default animations to run whenever items are added to or removed from that container. To specify
  * custom animations, use the {@link LayoutTransition#setAnimator(int, Animator)
  * setAnimator()} method.
  *
- * <p>One of the core concepts of these transition animations is that there are two types of
+ * <p>One of the core concepts 概念 of these transition animations is that there are two types of
  * changes that cause the transition and four different animations that run because of
  * those changes. The changes that trigger the transition are items being added to a container
  * (referred to as an "appearing" transition) or removed from a container (also known as
  * "disappearing"). Setting the visibility of views (between GONE and VISIBLE) will trigger
  * the same add/remove logic. The animations that run due to those events are one that animates
  * items being added, one that animates items being removed, and two that animate the other
- * items in the container that change due to the add/remove occurrence. Users of
+ * items in the container that change due to the add/remove occurrence 发生 . Users of
  * the transition may want different animations for the changing items depending on whether
  * they are changing due to an appearing or disappearing event, so there is one animation for
- * each of these variations of the changing event. Most of the API of this class is concerned
+ * each of these variations  变种 of the changing event. Most of the API of this class is concerned
  * with setting up the basic properties of the animations used in these four situations,
  * or with setting up custom animations for any or all of the four.</p>
  *
  * <p>By default, the DISAPPEARING animation begins immediately, as does the CHANGE_APPEARING
  * animation. The other animations begin after a delay that is set to the default duration
- * of the animations. This behavior facilitates a sequence of animations in transitions as
+ * of the animations. This behavior facilitates 帮助 a sequence of animations in transitions as
  * follows: when an item is being added to a layout, the other children of that container will
  * move first (thus creating space for the new item), then the appearing animation will run to
- * animate the item being added. Conversely, when an item is removed from a container, the
+ * animate the item being added. Conversely 相反地 , when an item is removed from a container, the
  * animation to remove it will run first, then the animations of the other children in the
  * layout will run (closing the gap created in the layout when the item was removed). If this
  * default choreography behavior is not desired, the {@link #setDuration(int, long)} and
@@ -84,8 +84,8 @@ import java.util.Map;
  * <p>This class, and the associated XML flag for containers, animateLayoutChanges="true",
  * provides a simple utility meant for automating changes in straightforward situations.
  * Using LayoutTransition at multiple levels of a nested view hierarchy may not work due to the
- * interrelationship of the various levels of layout. Also, a container that is being scrolled
- * at the same time as items are being added or removed is probably not a good candidate for
+ * interrelationship 相互关系 of the various levels of layout. Also, a container that is being scrolled
+ * at the same time as items are being added or removed is probably not a good candidate 候选人 for
  * this utility, because the before/after locations calculated by LayoutTransition
  * may not match the actual locations when the animations finish due to the container
  * being scrolled as the animations are running. You can work around that
@@ -187,7 +187,7 @@ public class LayoutTransition {
     /**
      * The inter-animation delays used on the changing animations
      */
-    private long mChangingAppearingStagger = 0;
+    private long mChangingAppearingStagger = 0; // 交错的
     private long mChangingDisappearingStagger = 0;
     private long mChangingStagger = 0;
 
@@ -242,7 +242,7 @@ public class LayoutTransition {
             new HashMap<View, View.OnLayoutChangeListener>();
 
     /**
-     * Used to track the current delay being assigned to successive animations as they are
+     * Used to track the current delay being assigned to successive 连续的 animations as they are
      * started. This value is incremented for each new animation, then zeroed before the next
      * transition begins.
      */
@@ -263,8 +263,8 @@ public class LayoutTransition {
 
     /**
      * Controls whether changing animations automatically animate the parent hierarchy as well.
-     * This behavior prevents artifacts when wrap_content layouts snap to the end state as the
-     * transition begins, causing visual glitches and clipping.
+     * This behavior prevents artifacts when wrap_content layouts snap to 对齐到 the end state as the
+     * transition begins, causing visual glitches 小毛病 and clipping.
      * Default value is true.
      */
     private boolean mAnimateParentHierarchy = true;
@@ -648,7 +648,7 @@ public class LayoutTransition {
      * CHANGE animations; the APPEARING and DISAPPEARING animations are simply run with
      * the values they have.
      *
-     * <p>It is also worth noting that any and all animations (and their underlying
+     * <p>It is also worth noting 注释 that any and all animations (and their underlying
      * PropertyValuesHolder objects) will have their start and end values set according
      * to the pre- and post-layout values. So, for example, a custom animation on "alpha"
      * as the CHANGE_APPEARING animation will inherit the real value of alpha on the target
@@ -717,7 +717,7 @@ public class LayoutTransition {
      * those views that change, we populate the end values for those animations and start them.
      * Animations are not run on unchanging views.
      *
-     * @param parent The container which is undergoing a change.
+     * @param parent The container which is undergoing 经历 a change.
      * @param newView The view being added to or removed from the parent. May be null if the
      * changeReason is CHANGING.
      * @param changeReason A value of APPEARING, DISAPPEARING, or CHANGING, indicating whether the
@@ -826,7 +826,7 @@ public class LayoutTransition {
 
         // If we already have a listener for this child, then we've already set up the
         // changing animation we need. Multiple calls for a child may occur when several
-        // add/remove operations are run at once on a container; each one will trigger
+        // add/remove operations are run at once 立刻 on a container; each one will trigger
         // changes for the existing children in the container.
         if (layoutChangeListenerMap.get(child) != null) {
             return;
@@ -859,10 +859,10 @@ public class LayoutTransition {
         // Cache the animation in case we need to cancel it later
         pendingAnimations.put(child, anim);
 
-        // For the animations which don't get started, we have to have a means of
-        // removing them from the cache, lest we leak them and their target objects.
+        // For the animations which don't get started, we have to have a means 方法 of
+        // removing them from the cache, lest 以免 we leak 泄漏 them and their target objects.
         // We run an animator for the default duration+100 (an arbitrary time, but one
-        // which should far surpass the delay between setting them up here and
+        // which should far surpass 超越 the delay between setting them up here and
         // handling layout events which start them.
         ValueAnimator pendingAnimRemover = ValueAnimator.ofFloat(0f, 1f).
                 setDuration(duration + 100);
@@ -1244,7 +1244,7 @@ public class LayoutTransition {
      *
      * @param parent The ViewGroup to which the View is being added.
      * @param child The View being added to the ViewGroup.
-     * @param changesLayout Whether the removal will cause changes in the layout of other views
+     * @param changesLayout Whether the removal 移动 will cause changes in the layout of other views
      * in the container. INVISIBLE views becoming VISIBLE will not cause changes and thus will not
      * affect CHANGE_APPEARING or CHANGE_DISAPPEARING animations.
      */

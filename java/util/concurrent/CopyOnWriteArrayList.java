@@ -39,10 +39,10 @@ import libcore.util.Objects;
 /**
  * A thread-safe random-access list.
  *
- * <p>Read operations (including {@link #get}) do not block and may overlap with
+ * <p>Read operations (including {@link #get}) do not block and may overlap 重复 with
  * update operations. Reads reflect the results of the most recently completed
  * operations. Aggregate operations like {@link #addAll} and {@link #clear} are
- * atomic; they never expose an intermediate state.
+ * atomic; they never expose an intermediate 中间的 state.
  *
  * <p>Iterators of this list never throw {@link
  * ConcurrentModificationException}. When an iterator is created, it keeps a
@@ -56,7 +56,7 @@ import libcore.util.Objects;
  *
  * <p>This class offers extended API beyond the {@link List} interface. It
  * includes additional overloads for indexed search ({@link #indexOf} and {@link
- * #lastIndexOf}) and methods for conditional adds ({@link #addIfAbsent} and
+ * #lastIndexOf}) and methods for conditional 有条件的 adds ({@link #addIfAbsent} and
  * {@link #addAllAbsent}).
  */
 public class CopyOnWriteArrayList<E> implements List<E>, RandomAccess, Cloneable, Serializable {

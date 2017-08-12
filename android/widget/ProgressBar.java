@@ -1614,7 +1614,7 @@ public class ProgressBar extends View {
         }
         postInvalidate();
     }
-    }
+
 
     /**
      * <p>Stop the indeterminate progress animation.</p>

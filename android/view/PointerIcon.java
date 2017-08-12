@@ -41,6 +41,7 @@ import android.util.Log;
  * </p>
  */
 public final class PointerIcon implements Parcelable {
+
     private static final String TAG = "PointerIcon";
 
     /** {@hide} Type constant: Custom icon with a user-supplied bitmap. */
@@ -59,7 +60,7 @@ public final class PointerIcon implements Parcelable {
     /** Type constant: Arrow icon.  (Default mouse pointer) */
     public static final int TYPE_ARROW = 1000;
 
-    /** {@hide} Type constant: Spot hover icon for touchpads. */
+    /** {@hide} Type constant: Spot 地点 hover 盘旋 icon for touchpads. */
     public static final int TYPE_SPOT_HOVER = 2000;
 
     /** {@hide} Type constant: Spot touch icon for touchpads. */
@@ -68,7 +69,7 @@ public final class PointerIcon implements Parcelable {
     /** {@hide} Type constant: Spot anchor icon for touchpads. */
     public static final int TYPE_SPOT_ANCHOR = 2002;
 
-    // Type constants for additional predefined icons for mice.
+    // Type constants for additional predefined icons for mice 老鼠（mouse的复数） .
     /** Type constant: context-menu. */
     public static final int TYPE_CONTEXT_MENU = 1001;
 
@@ -84,7 +85,7 @@ public final class PointerIcon implements Parcelable {
     /** Type constant: cell. */
     public static final int TYPE_CELL = 1006;
 
-    /** Type constant: crosshair. */
+    /** Type constant: crosshair 十字丝 . */
     public static final int TYPE_CROSSHAIR = 1007;
 
     /** Type constant: text. */
@@ -112,7 +113,7 @@ public final class PointerIcon implements Parcelable {
     /** Type constant: vertical double arrow mainly for resizing. */
     public static final int TYPE_VERTICAL_DOUBLE_ARROW = 1015;
 
-    /** Type constant: diagonal double arrow -- top-right to bottom-left. */
+    /** Type constant: diagonal 斜线 double arrow -- top-right to bottom-left. */
     public static final int TYPE_TOP_RIGHT_DIAGONAL_DOUBLE_ARROW = 1016;
 
     /** Type constant: diagonal double arrow -- top-left to bottom-right. */
@@ -130,7 +131,7 @@ public final class PointerIcon implements Parcelable {
     /** Type constant: grabbing. */
     public static final int TYPE_GRABBING = 1021;
 
-    // OEM private types should be defined starting at this range to avoid
+    // OEM (original equipment manufacturer) private types should be defined starting at this range to avoid
     // conflicts with any system types that may be defined in the future.
     private static final int TYPE_OEM_FIRST = 10000;
 

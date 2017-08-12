@@ -22,7 +22,7 @@ import android.graphics.Rect;
 
 /**
  * Represents a contextual 前后关系的 mode of the user interface. Action modes can be used to provide
- * alternative interaction modes and replace parts of the normal UI until finished.
+ * alternative 供选择的 interaction modes and replace parts of the normal UI until finished.
  * Examples of good action modes include text selection and contextual actions.
  * <div class="special reference">
  * <h3>Developer Guides</h3>

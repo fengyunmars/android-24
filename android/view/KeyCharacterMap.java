@@ -40,7 +40,7 @@ public class KeyCharacterMap implements Parcelable {
      * might be multiple keyboards installed including external keyboards.
      * When interpreting key presses received from the framework, applications should
      * use the device id specified in the {@link KeyEvent} received.
-     * When synthesizing key presses for delivery elsewhere or when translating key presses
+     * When synthesizing 综合 key presses for delivery 传送 elsewhere or when translating 翻译 key presses
      * from unknown keyboards, applications should use the special {@link #VIRTUAL_KEYBOARD}
      * device id.
      */
@@ -49,18 +49,18 @@ public class KeyCharacterMap implements Parcelable {
 
     /**
      * The id of a generic virtual keyboard with a full layout that can be used to
-     * synthesize key events.  Typically used with {@link #getEvents}.
+     * synthesize 合成 key events.  Typically used with {@link #getEvents}.
      */
     public static final int VIRTUAL_KEYBOARD = -1;
 
     /**
      * A numeric (12-key) keyboard.
      * <p>
-     * A numeric keyboard supports text entry using a multi-tap approach.
+     * A numeric keyboard supports text entry using a multi-tap 多插头插座 approach.
      * It may be necessary to tap a key multiple times to generate the desired letter
      * or symbol.
      * </p><p>
-     * This type of keyboard is generally designed for thumb typing.
+     * This type of keyboard is generally designed for thumb 拇指 typing.
      * </p>
      */
     public static final int NUMERIC = 1;
@@ -68,7 +68,7 @@ public class KeyCharacterMap implements Parcelable {
     /**
      * A keyboard with all the letters, but with more than one letter per key.
      * <p>
-     * This type of keyboard is generally designed for thumb typing.
+     * This type of keyboard is generally designed for thumb typing. predictive 预言性的
      * </p>
      */
     public static final int PREDICTIVE = 2;
@@ -76,11 +76,11 @@ public class KeyCharacterMap implements Parcelable {
     /**
      * A keyboard with all the letters, and maybe some numbers.
      * <p>
-     * An alphabetic keyboard supports text entry directly but may have a condensed
+     * An alphabetic 字母的 keyboard supports text entry directly but may have a condensed 浓缩(
      * layout with a small form factor.  In contrast to a {@link #FULL full keyboard}, some
      * symbols may only be accessible using special on-screen character pickers.
      * In addition, to improve typing speed and accuracy, the framework provides
-     * special affordances for alphabetic keyboards such as auto-capitalization
+     * special affordances 功能可见性 for alphabetic keyboards such as auto-capitalization
      * and toggled / locked shift and alt keys.
      * </p><p>
      * This type of keyboard is generally designed for thumb typing.
@@ -117,12 +117,12 @@ public class KeyCharacterMap implements Parcelable {
 
     /**
      * This private-use character is used to bring up a character picker for
-     * miscellaneous symbols.
+     * miscellaneous 混杂的 symbols.
      */
     public static final char PICKER_DIALOG_INPUT = '\uEF01';
 
     /**
-     * Modifier keys may be chorded with character keys.
+     * Modifier keys may be chorded 和弦 with character keys.
      *
      * @see {#link #getModifierBehavior()} for more details.
      */
@@ -130,13 +130,13 @@ public class KeyCharacterMap implements Parcelable {
 
     /**
      * Modifier keys may be chorded with character keys or they may toggle
-     * into latched or locked states when pressed independently.
+     * into latched 附着 or locked states when pressed independently.
      *
      * @see {#link #getModifierBehavior()} for more details.
      */
     public static final int MODIFIER_BEHAVIOR_CHORDED_OR_TOGGLED = 1;
 
-    /*
+    /**
      * This bit will be set in the return value of {@link #get(int, int)} if the
      * key is a "dead key."
      */
@@ -144,7 +144,7 @@ public class KeyCharacterMap implements Parcelable {
 
     /**
      * Mask the return value from {@link #get(int, int)} with this value to get
-     * a printable representation of the accent character of a "dead key."
+     * a printable representation of the accent 重音符号 character of a "dead key."
      */
     public static final int COMBINING_ACCENT_MASK = 0x7FFFFFFF;
 
@@ -183,7 +183,7 @@ public class KeyCharacterMap implements Parcelable {
     private static final int CHAR_SPACE = ' ';
 
     /**
-     * Maps Unicode combining diacritical to display-form dead key.
+     * Maps Unicode combining diacritical 可区别的 to display-form dead key.
      */
     private static final SparseIntArray sCombiningToAccent = new SparseIntArray();
     private static final SparseIntArray sAccentToCombining = new SparseIntArray();
@@ -245,8 +245,8 @@ public class KeyCharacterMap implements Parcelable {
     private static final SparseIntArray sDeadKeyCache = new SparseIntArray();
     private static final StringBuilder sDeadKeyBuilder = new StringBuilder();
     static {
-        // Non-standard decompositions.
-        // Stroke modifier for Finnish multilingual keyboard and others.
+        // Non-standard decompositions 分解 .
+        // Stroke modifier for Finnish 芬兰的 multilingual keyboard and others.
         addDeadKey(ACCENT_STROKE, 'D', '\u0110');
         addDeadKey(ACCENT_STROKE, 'G', '\u01e4');
         addDeadKey(ACCENT_STROKE, 'H', '\u0126');
@@ -326,7 +326,7 @@ public class KeyCharacterMap implements Parcelable {
      * @param deviceId The device id of the keyboard.
      * @return The associated key character map.
      * @throws {@link UnavailableException} if the key character map
-     * could not be loaded because it was malformed or the default key character map
+     * could not be loaded because it was malformed 畸形的 or the default key character map
      * is missing from the system.
      */
     public static KeyCharacterMap load(int deviceId) {
@@ -410,7 +410,7 @@ public class KeyCharacterMap implements Parcelable {
      * If the key is not a number, but is a symbol, the symbol is retuned.
      * </p><p>
      * This method is intended to to support dial pads and other numeric or
-     * symbolic entry on keyboards where certain keys serve dual function
+     * symbolic 象征的 entry on keyboards where certain keys serve dual function
      * as alphabetic and symbolic keys.  This method returns the number
      * or symbol associated with the key independent of whether the user
      * has pressed the required modifier.
@@ -581,17 +581,17 @@ public class KeyCharacterMap implements Parcelable {
 
     /**
      * Get an array of KeyEvent objects that if put into the input stream
-     * could plausibly generate the provided sequence of characters.  It is
+     * could plausibly 似真地 generate the provided sequence of characters.  It is
      * not guaranteed that the sequence is the only way to generate these
-     * events or that it is optimal.
+     * events or that it is optimal 最优的 .
      * <p>
-     * This function is primarily offered for instrumentation and testing purposes.
+     * This function is primarily offered 提出 for instrumentation  手段 and testing purposes.
      * It may fail to map characters to key codes.  In particular, the key character
      * map for the {@link #BUILT_IN_KEYBOARD built-in keyboard} device id may be empty.
      * Consider using the key character map associated with the
      * {@link #VIRTUAL_KEYBOARD virtual keyboard} device id instead.
      * </p><p>
-     * For robust text entry, do not use this function.  Instead construct a
+     * For robust 粗鲁的 text entry, do not use this function.  Instead construct a
      * {@link KeyEvent} with action code {@link KeyEvent#ACTION_MULTIPLE} that contains
      * the desired string using {@link KeyEvent#KeyEvent(long, String, int, int)}.
      * </p>
@@ -608,7 +608,7 @@ public class KeyCharacterMap implements Parcelable {
     }
 
     /**
-     * Returns true if the specified key produces a glyph.
+     * Returns true if the specified key produces a glyph 象形文字 .
      *
      * @param keyCode The key code.
      * @return True if the key is a printing key.
@@ -734,7 +734,7 @@ public class KeyCharacterMap implements Parcelable {
     }
 
     /**
-     * Specifies a substitute key code and meta state as a fallback action
+     * Specifies a substitute 代替 key code and meta state as a fallback action
      * for an unhandled key.
      * @hide
      */

@@ -30,12 +30,13 @@ import java.util.function.Supplier;
 /**
  * This class consists of {@code static} utility methods for operating
  * on objects.  These utilities include {@code null}-safe or {@code
- * null}-tolerant methods for computing the hash code of an object,
+ * null}-tolerant 宽容的 methods for computing the hash code of an object,
  * returning a string for an object, and comparing two objects.
  *
  * @since 1.7
  */
 public final class Objects {
+
     private Objects() {
         throw new AssertionError("No java.util.Objects instances for you!");
     }
@@ -43,7 +44,7 @@ public final class Objects {
     /**
      * Returns {@code true} if the arguments are equal to each other
      * and {@code false} otherwise.
-     * Consequently, if both arguments are {@code null}, {@code true}
+     * Consequently 因此 , if both arguments are {@code null}, {@code true}
      * is returned and if exactly one argument is {@code null}, {@code
      * false} is returned.  Otherwise, equality is determined by using
      * the {@link Object#equals equals} method of the first
@@ -64,7 +65,7 @@ public final class Objects {
     * and {@code false} otherwise.
     *
     * Two {@code null} values are deeply equal.  If both arguments are
-    * arrays, the algorithm in {@link Arrays#deepEquals(Object[],
+    * arrays, the algorithm 运算法则 in {@link Arrays#deepEquals(Object[],
     * Object[]) Arrays.deepEquals} is used to determine equality.
     * Otherwise, equality is determined by using the {@link
     * Object#equals equals} method of the first argument.

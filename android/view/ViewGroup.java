@@ -111,6 +111,7 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  */
 @UiThread
 public abstract class ViewGroup extends View implements ViewParent, ViewManager {
+
     private static final String TAG = "ViewGroup";
 
     private static final boolean DBG = false;
@@ -191,7 +192,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     // The hover targets are children which have received ACTION_HOVER_ENTER.
     // They might not have actually handled the hover event, but we will
     // continue sending hover events to them as long as the pointer remains over
-    // their bounds and the view group does not intercept hover.
+    // their bounds and the view group does not intercept 拦截 hover.
     private HoverTarget mFirstHoverTarget;
 
     // True if the view group itself received a hover event.
@@ -267,7 +268,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /**
      * When set, the drawing method will call {@link #getChildDrawingOrder(int, int)}
-     * to get the index of the child to draw for that iteration.
+     * to get the index of the child to draw for that iteration 迭代 .
      *
      * @hide
      */
@@ -301,7 +302,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     private static final int FLAG_CHILDREN_DRAWN_WITH_CACHE = 0x8000;
 
     /**
-     * When set, this group will go through its list of children to notify them of
+     * When set, this group will go through 检查 its list of children to notify them of
      * any drawable state change.
      */
     private static final int FLAG_NOTIFY_CHILDREN_ON_DRAWABLE_STATE_CHANGE = 0x10000;
@@ -309,7 +310,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     private static final int FLAG_MASK_FOCUSABILITY = 0x60000;
 
     /**
-     * This view will get focus before any of its descendants.
+     * This view will get focus before any of its descendants 后代 .
      */
     public static final int FOCUS_BEFORE_DESCENDANTS = 0x20000;
 
@@ -362,7 +363,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     static final int FLAG_IS_TRANSITION_GROUP_SET = 0x2000000;
 
     /**
-     * When set, focus will not be permitted to enter this group if a touchscreen is present.
+     * When set, focus will not be permitted 允许 to enter this group if a touchscreen is present.
      */
     static final int FLAG_TOUCHSCREEN_BLOCKS_FOCUS = 0x4000000;
 
@@ -388,7 +389,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /**
      * When set, indicates that a call to showContextMenuForChild was made with explicit
-     * coordinates within the initiating child view.
+     * coordinates within the initiating 开始 child view.
      */
     private static final int FLAG_SHOW_CONTEXT_MENU_WITH_COORDS = 0x20000000;
 
@@ -432,9 +433,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /**
      * This constant is a {@link #setLayoutMode(int) layoutMode}.
-     * Optical bounds describe where a widget appears to be. They sit inside the clip
+     * Optical 光学的 bounds describe where a widget appears to be. They sit inside the clip
      * bounds which need to cover a larger area to allow other effects,
-     * such as shadows and glows, to be drawn.
+     * such as shadows and glows 发光 , to be drawn.
      */
     public static final int LAYOUT_MODE_OPTICAL_BOUNDS = 1;
 
@@ -458,7 +459,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     // considered as children
     private int mChildrenCount;
 
-    // Whether layout calls are currently being suppressed, controlled by calls to
+    // Whether layout calls are currently being suppressed 禁止 , controlled by calls to
     // suppressLayout()
     boolean mSuppressLayout = false;
 
@@ -484,7 +485,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     // being animated.
     private ArrayList<View> mTransitioningViews;
 
-    // List of children changing visibility. This is used to potentially keep rendering
+    // List of children changing visibility. This is used to potentially 可能地 keep rendering
     // views during a transition when they otherwise would have become gone/invisible
     private ArrayList<View> mVisibilityChangingChildren;
 
@@ -492,7 +493,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     // input/software draw dispatch for correctly Z ordering.
     private ArrayList<View> mPreSortedChildren;
 
-    // Indicates how many of this container's child subtrees contain transient state
+    // Indicates how many of this container's child subtrees contain transient 短暂的 state
     @ViewDebug.ExportedProperty(category = "layout")
     private int mChildCountWithTransientState = 0;
 
@@ -509,7 +510,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
 
     /**
-     * Empty ActionMode used as a sentinel in recursive entries to startActionModeForChild.
+     * Empty ActionMode used as a sentinel 哨兵 in recursive entries to startActionModeForChild.
      *
      * @see #startActionModeForChild(View, android.view.ActionMode.Callback)
      * @see #startActionModeForChild(View, android.view.ActionMode.Callback, int)
@@ -6314,7 +6315,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * This method should always be called following an earlier call to
      * {@link #startViewTransition(View)}. The given View is finally removed from its parent
      * and will no longer be displayed. Note that this method does not perform the functionality
-     * of removing a view from its parent; it just discontinues the display of a View that
+     * of removing a view from its parent; it just discontinues 中止 the display of a View that
      * has previously been removed.
      *
      * @return view The View object that has been removed but is being kept around in the visible
@@ -7609,7 +7610,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * This code assumes that pointer ids are always in the range 0..31 such that
      * it can use a bitfield to track which pointer ids are present.
      * As it happens, the lower layers of the input dispatch pipeline also use the
-     * same trick so the assumption should be safe here...
+     * same trick 有决窍的  so the assumption 设想 should be safe here...
      */
     private static final class TouchTarget {
         private static final int MAX_RECYCLED = 32;

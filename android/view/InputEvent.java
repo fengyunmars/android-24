@@ -25,6 +25,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Common base class for input events.
  */
 public abstract class InputEvent implements Parcelable {
+
     /** @hide */
     protected static final int PARCEL_TOKEN_MOTION_EVENT = 1;
     /** @hide */
@@ -42,7 +43,8 @@ public abstract class InputEvent implements Parcelable {
     private static final boolean TRACK_RECYCLED_LOCATION = false;
     private RuntimeException mRecycledLocation;
 
-    /*package*/ InputEvent() {
+    /*package*/
+    InputEvent() {
         mSeq = mNextSeq.getAndIncrement();
     }
 
@@ -124,7 +126,7 @@ public abstract class InputEvent implements Parcelable {
     }
 
     /**
-     * Conditionally recycled the event if it is appropriate to do so after
+     * Conditionally 有条件地 recycled the event if it is appropriate to do so after
      * dispatching the event to an application.
      *
      * If the event is a {@link MotionEvent} then it is recycled.
@@ -150,7 +152,7 @@ public abstract class InputEvent implements Parcelable {
 
     /**
      * Gets a private flag that indicates when the system has detected that this input event
-     * may be inconsistent with respect to the sequence of previously delivered input events,
+     * may be inconsistent 不一致的 with respect to the sequence of previously delivered input events,
      * such as when a key up event is sent but the key was not down or when a pointer
      * move event is sent but the pointer is not down.
      *
@@ -182,7 +184,7 @@ public abstract class InputEvent implements Parcelable {
     /**
      * Retrieve the time this event occurred,
      * in the {@link android.os.SystemClock#uptimeMillis} time base but with
-     * nanosecond (instead of millisecond) precision.
+     * nanosecond 十亿分之一秒 (instead of millisecond) precision.
      * <p>
      * The value is in nanosecond precision but it may not have nanosecond accuracy.
      * </p>
@@ -205,7 +207,7 @@ public abstract class InputEvent implements Parcelable {
     /**
      * Gets the unique sequence number of this event.
      * Every input event that is created or received by a process has a
-     * unique sequence number.  Moreover, a new sequence number is obtained
+     * unique sequence number.  Moreover 而且；此外 , a new sequence number is obtained
      * each time an event object is recycled.
      *
      * Sequence numbers are only guaranteed to be locally unique within a process.

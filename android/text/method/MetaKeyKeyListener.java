@@ -25,8 +25,8 @@ import android.view.View;
 import android.view.KeyCharacterMap;
 
 /**
- * This base class encapsulates the behavior for tracking the state of
- * meta keys such as SHIFT, ALT and SYM as well as the pseudo-meta state of selecting text.
+ * This base class encapsulates the behavior for tracking 跟踪 the state of
+ * meta keys such as SHIFT, ALT and SYM as well as the pseudo-meta 假的 state of selecting text.
  * <p>
  * Key listeners that care about meta state should inherit from this class;
  * you should not instantiate this class directly in a client.
@@ -47,8 +47,8 @@ import android.view.KeyCharacterMap;
  * described by the {@link KeyCharacterMap} of the keyboard device such as
  * the {@link KeyCharacterMap#getModifierBehavior() key modifier behavior}.
  * </p><p>
- * {@link MetaKeyKeyListener} implements chorded and toggled key modifiers.
- * When key modifiers are toggled into a latched or locked state, the state
+ * {@link MetaKeyKeyListener} implements chorded 上…的弦 and toggled key modifiers.
+ * When key modifiers are toggled into a latched 锁住 or locked state, the state
  * of the modifier is stored in the {@link Editable} text buffer or in a
  * meta state integer managed by the client.  These latched or locked modifiers
  * should be considered to be held <b>in addition to</b> those that the
@@ -106,7 +106,7 @@ public abstract class MetaKeyKeyListener {
     public static final int META_SELECTING = KeyEvent.META_SELECTING;
 
     // These bits are privately used by the meta key key listener.
-    // They are deliberately assigned values outside of the representable range of an 'int'
+    // They are deliberately 故意地 assigned values outside of the representable 能被代表的 range of an 'int'
     // so as not to conflict with any meta key states publicly defined by KeyEvent.
     private static final long META_CAP_USED = 1L << 32;
     private static final long META_ALT_USED = 1L << 33;
@@ -187,7 +187,7 @@ public abstract class MetaKeyKeyListener {
     }
 
     // As META_SELECTING is @hide we should not mention it in public comments, hence the
-    // omission in @param meta
+    // omission 省略 in @param meta
     /**
      * Gets the state of a particular meta key.
      *
@@ -267,7 +267,7 @@ public abstract class MetaKeyKeyListener {
     /**
      * Call this method after you handle a keypress so that the meta
      * state will be reset to unshifted (if it is not still down)
-     * or primed to be reset to unshifted (once it is released).
+     * or primed 使准备好 to be reset to unshifted (once it is released).
      */
     public static void adjustMetaAfterKeypress(Spannable content) {
         adjust(content, CAP);
@@ -511,7 +511,7 @@ public abstract class MetaKeyKeyListener {
     /**
      * Call this method after you handle a keypress so that the meta
      * state will be reset to unshifted (if it is not still down)
-     * or primed to be reset to unshifted (once it is released).  Takes
+     * or primed 使准备好 to be reset to unshifted (once it is released).  Takes
      * the current state, returns the new state.
      */
     public static long adjustMetaAfterKeypress(long state) {

@@ -21,7 +21,7 @@ import android.content.Context;
 import android.media.AudioAttributes;
 
 /**
- * Class that operates the vibrator on the device.
+ * Class that operates 操作 the vibrator 振动器 on the device.
  * <p>
  * If your process exits, any vibration you started will stop.
  * </p>
@@ -55,7 +55,7 @@ public abstract class Vibrator {
     public abstract boolean hasVibrator();
 
     /**
-     * Vibrate constantly for the specified period of time.
+     * Vibrate constantly 不断地 for the specified period of time.
      * <p>This method requires the caller to hold the permission
      * {@link android.Manifest.permission#VIBRATE}.
      *
@@ -87,7 +87,7 @@ public abstract class Vibrator {
      * Pass in an array of ints that are the durations for which to turn on or off
      * the vibrator in milliseconds.  The first value indicates the number of milliseconds
      * to wait before turning the vibrator on.  The next value indicates the number of milliseconds
-     * for which to keep the vibrator on before turning it off.  Subsequent values alternate
+     * for which to keep the vibrator on before turning it off.  Subsequent values alternate 交替的
      * between durations in milliseconds to turn the vibrator off or to turn the vibrator on.
      * </p><p>
      * To cause the pattern to repeat, pass the index into the pattern array at which

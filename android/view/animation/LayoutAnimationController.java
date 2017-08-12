@@ -55,7 +55,7 @@ import java.util.Random;
  */
 public class LayoutAnimationController {
     /**
-     * Distributes the animation delays in the order in which view were added
+     * Distributes分配  the animation delays in the order in which view were added
      * to their view group.
      */
     public static final int ORDER_NORMAL  = 0;
@@ -78,7 +78,7 @@ public class LayoutAnimationController {
     protected Animation mAnimation;
 
     /**
-     * The randomizer used when the order is set to random. Subclasses should
+     * The randomizer 随机性发生器 used when the order is set to random. Subclasses should
      * use this object to avoid creating their own.
      */
     protected Random mRandomizer;
@@ -270,7 +270,7 @@ public class LayoutAnimationController {
 
     /**
      * Sets the delay, as a fraction of the animation duration, by which the
-     * children's animations are offset. The general formula is:
+     * children's animations are offset. The general formula 公式 is:
      *
      * <pre>
      * child animation delay = child index * delay * animation duration
@@ -285,7 +285,7 @@ public class LayoutAnimationController {
     }
 
     /**
-     * Indicates whether two children's animations will overlap. Animations
+     * Indicates whether two children's animations will overlap 重叠 . Animations
      * overlap when the delay is lower than 100% (or 1.0).
      *
      * @return true if animations will overlap, false otherwise

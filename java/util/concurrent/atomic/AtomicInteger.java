@@ -10,7 +10,7 @@ import java.util.function.IntBinaryOperator;
 import java.util.function.IntUnaryOperator;
 
 /**
- * An {@code int} value that may be updated atomically.  See the
+ * An {@code int} value that may be updated atomically 原子级的 .  See the
  * {@link java.util.concurrent.atomic} package specification for
  * description of the properties of atomic variables. An
  * {@code AtomicInteger} is used in applications such as atomically
@@ -23,6 +23,7 @@ import java.util.function.IntUnaryOperator;
  * @author Doug Lea
  */
 public class AtomicInteger extends Number implements java.io.Serializable {
+
     private static final long serialVersionUID = 6214790243416807050L;
 
     private static final sun.misc.Unsafe U = sun.misc.Unsafe.getUnsafe();

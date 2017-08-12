@@ -271,6 +271,7 @@ public class StateListAnimator implements Cloneable {
     }
 
     /**
+     * Tuple 数组
      * @hide
      */
     public static class Tuple {

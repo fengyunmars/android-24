@@ -159,7 +159,7 @@ public abstract class Animation implements Cloneable {
 
     /**
      * The number of times the animation must repeat. By default, an animation repeats
-     * indefinitely.
+     * indefinitely 无限期地 .
      */
     int mRepeatCount = 0;
 

@@ -20,7 +20,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * A {@link Parcelable} implementation that should be used by inheritance
+ * A {@link Parcelable} implementation that should be used by inheritance 继承
  * hierarchies to ensure the state of all classes along the chain is saved.
  */
 public abstract class AbsSavedState implements Parcelable {

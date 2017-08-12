@@ -34,15 +34,16 @@ import java.util.List;
  * keyboard may compose the capabilities of a standard keyboard together with a track pad mouse
  * or other pointing device.
  * </p><p>
- * Some input devices present multiple distinguishable sources of input.
- * Applications can query the framework about the characteristics of each distinct source.
+ * Some input devices present multiple distinguishable 可区别的 sources of input.
+ * Applications can query the framework about the characteristics 特征 of each distinct 有区别的 source.
  * </p><p>
- * As a further wrinkle, different kinds of input sources uses different coordinate systems
+ * As a further wrinkle 窍门 , different kinds of input sources uses different coordinate 协调 systems
  * to describe motion events.  Refer to the comments on the input source constants for
- * the appropriate interpretation.
+ * the appropriate interpretation 解释 .
  * </p>
  */
 public final class InputDevice implements Parcelable {
+
     private final int mId;
     private final int mGeneration;
     private final int mControllerNumber;
@@ -60,13 +61,13 @@ public final class InputDevice implements Parcelable {
     private final boolean mHasButtonUnderPad;
     private final ArrayList<MotionRange> mMotionRanges = new ArrayList<MotionRange>();
 
-    private Vibrator mVibrator; // guarded by mMotionRanges during initialization
+    private Vibrator mVibrator; // guarded 保护，控制 by mMotionRanges during initialization
 
     /**
      * A mask for input source classes.
      *
      * Each distinct input source constant has one or more input source class bits set to
-     * specify the desired interpretation for its input events.
+     * specify the desired 想得到的 interpretation 解释 for its input events.
      */
     public static final int SOURCE_CLASS_MASK = 0x000000ff;
 
@@ -96,7 +97,7 @@ public final class InputDevice implements Parcelable {
      * the finger touches the display or when the selection button is pressed/released.
      *
      * Use {@link #getMotionRange} to query the range of the pointing device.  Some devices permit
-     * touches outside the display area so the effective range may be somewhat smaller or larger
+     * touches outside the display area so the effective 实际的 range may be somewhat smaller or larger
      * than the actual display size.
      */
     public static final int SOURCE_CLASS_POINTER = 0x00000002;
@@ -125,7 +126,7 @@ public final class InputDevice implements Parcelable {
     public static final int SOURCE_CLASS_POSITION = 0x00000008;
 
     /**
-     * The input source is a joystick.
+     * The input source is a joystick 操纵杆 .
      *
      * A {@link MotionEvent} should be interpreted as absolute joystick movements.
      *
@@ -181,9 +182,9 @@ public final class InputDevice implements Parcelable {
     public static final int SOURCE_MOUSE = 0x00002000 | SOURCE_CLASS_POINTER;
 
     /**
-     * The input source is a stylus pointing device.
+     * The input source is a stylus 尖笔 pointing device.
      * <p>
-     * Note that this bit merely indicates that an input device is capable of obtaining
+     * Note that this bit merely 仅仅 indicates that an input device is capable of obtaining
      * input from a stylus.  To determine whether a given touch event was produced
      * by a stylus, examine the tool type returned by {@link MotionEvent#getToolType(int)}
      * for each individual pointer.
@@ -192,7 +193,7 @@ public final class InputDevice implements Parcelable {
      * such as an event that has one pointer with tool type
      * {@link MotionEvent#TOOL_TYPE_FINGER} and another pointer with tool type
      * {@link MotionEvent#TOOL_TYPE_STYLUS}.  So it is important to examine
-     * the tool type of each pointer, regardless of the source reported
+     * the tool type of each pointer, regardless 无论如何 of the source reported
      * by {@link MotionEvent#getSource()}.
      * </p>
      *
@@ -218,7 +219,7 @@ public final class InputDevice implements Parcelable {
      * A bluetooth stylus generally receives its pressure and button state
      * information from the stylus itself, and derives the rest from another
      * source. For example, a Bluetooth stylus used in conjunction with a
-     * touchscreen would derive its contact position and pointer size from the
+     * touchscreen would derive its contact 触点 position and pointer size from the
      * touchscreen and may not be any more accurate than other tools such as
      * fingers.
      * </p>
@@ -237,7 +238,7 @@ public final class InputDevice implements Parcelable {
     public static final int SOURCE_TRACKBALL = 0x00010000 | SOURCE_CLASS_TRACKBALL;
 
     /**
-     * The input source is a touch pad or digitizer tablet that is not
+     * The input source is a touch pad or digitizer 数字转换器 tablet that is not
      * associated with a display (unlike {@link #SOURCE_TOUCHSCREEN}).
      *
      * @see #SOURCE_CLASS_POSITION
@@ -247,7 +248,7 @@ public final class InputDevice implements Parcelable {
     /**
      * The input source is a touch device whose motions should be interpreted as navigation events.
      *
-     * For example, an upward swipe should be as an upward focus traversal in the same manner as
+     * For example, an upward swipe should be as an upward focus traversal in the same manner 方式 as
      * pressing up on a D-Pad would be. Swipes to the left, right and down should be treated in a
      * similar manner.
      *
@@ -256,8 +257,8 @@ public final class InputDevice implements Parcelable {
     public static final int SOURCE_TOUCH_NAVIGATION = 0x00200000 | SOURCE_CLASS_NONE;
 
     /**
-     * The input source is a rotating encoder device whose motions should be interpreted as akin to
-     * those of a scroll wheel.
+     * The input source is a rotating encoder device whose motions should be interpreted as akin 类似的 to
+     * those of a scroll wheel. ROTARY rotary 旋转的
      *
      * @see #SOURCE_CLASS_NONE
      * {@hide}
@@ -265,7 +266,7 @@ public final class InputDevice implements Parcelable {
     public static final int SOURCE_ROTARY_ENCODER = 0x00400000 | SOURCE_CLASS_NONE;
 
     /**
-     * The input source is a joystick.
+     * The input source is a joystick 操纵杆 .
      * (It may also be a {@link #SOURCE_GAMEPAD}).
      *
      * @see #SOURCE_CLASS_JOYSTICK
@@ -373,7 +374,7 @@ public final class InputDevice implements Parcelable {
     public static final int KEYBOARD_TYPE_NONE = 0;
 
     /**
-     * The keyboard is not fully alphabetic.  It may be a numeric keypad or an assortment
+     * The keyboard is not fully alphabetic.  It may be a numeric keypad or an assortment 混合物
      * of buttons that are not mapped as alphabetic keys suitable for text input.
      */
     public static final int KEYBOARD_TYPE_NON_ALPHABETIC = 1;
@@ -480,7 +481,7 @@ public final class InputDevice implements Parcelable {
      * <p>
      * Each gamepad or joystick is given a unique, positive controller number when initially
      * configured by the system. This number may change due to events such as device disconnects /
-     * reconnects or user initiated reassignment. Any change in number will trigger an event that
+     * reconnects or user initiated 开始 reassignment 再赋值 . Any change in number will trigger an event that
      * can be observed by registering an {@link InputManager.InputDeviceListener}.
      * </p>
      * <p>
@@ -555,10 +556,10 @@ public final class InputDevice implements Parcelable {
      * </p><p>
      * It is possible for there to be multiple {@link InputDevice} instances that have the
      * same input device descriptor.  This might happen in situations where a single
-     * human input device registers multiple {@link InputDevice} instances (HID collections)
+     * human input device registers multiple {@link InputDevice} instances (HID 隐藏 collections)
      * that describe separate features of the device, such as a keyboard that also
      * has a trackpad.  Alternately, it may be that the input devices are simply
-     * indistinguishable, such as two keyboards made by the same manufacturer.
+     * indistinguishable 不能区别的 , such as two keyboards made by the same manufacturer.
      * </p><p>
      * The input device descriptor returned by {@link #getDescriptor} should only be
      * used when an application needs to remember settings associated with a particular
@@ -590,7 +591,7 @@ public final class InputDevice implements Parcelable {
 
     /**
      * Returns true if the device is external (connected to USB or Bluetooth or some other
-     * peripheral bus), otherwise it is built-in.
+     * peripheral 外围的 bus), otherwise it is built-in.
      *
      * @return True if the device is external.
      *
@@ -871,10 +872,10 @@ public final class InputDevice implements Parcelable {
         }
 
         /**
-         * Gets the extent of the center flat position with respect to this axis.
+         * Gets the extent 程度 of the center flat position with respect to this axis.
          * <p>
          * For example, a flat value of 8 means that the center position is between -8 and +8.
-         * This value is mainly useful for calibrating self-centering devices.
+         * This value is mainly useful for calibrating 校准 self-centering devices.
          * </p>
          * @return The extent of the center flat position.
          */
@@ -883,7 +884,7 @@ public final class InputDevice implements Parcelable {
         }
 
         /**
-         * Gets the error tolerance for input device measurements with respect to this axis.
+         * Gets the error tolerance 限度 for input device measurements with respect to this axis.
          * <p>
          * For example, a value of 2 indicates that the measured value may be up to +/- 2 units
          * away from the actual value due to noise and device sensitivity limitations.
@@ -896,7 +897,7 @@ public final class InputDevice implements Parcelable {
 
         /**
          * Gets the resolution for input device measurements with respect to this axis.
-         * @return The resolution in units per millimeter, or units per radian for rotational axes.
+         * @return The resolution in units per millimeter 毫米 , or units per radian 弧度 for rotational axes.
          */
         public float getResolution() {
             return mResolution;

@@ -71,8 +71,7 @@ public class XmlUtils {
         return defaultValue;
     }
 
-    public static final boolean
-    convertValueToBoolean(CharSequence value, boolean defaultValue) {
+    public static final boolean convertValueToBoolean(CharSequence value, boolean defaultValue) {
         boolean result = false;
 
         if (null == value)
@@ -86,8 +85,7 @@ public class XmlUtils {
         return result;
     }
 
-    public static final int
-    convertValueToInt(CharSequence charSeq, int defaultValue) {
+    public static final int convertValueToInt(CharSequence charSeq, int defaultValue) {
         if (null == charSeq)
             return defaultValue;
 

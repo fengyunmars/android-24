@@ -214,7 +214,7 @@ public class TypedArray {
 
     /**
      * Retrieves the string value for the attribute at <var>index</var>, but
-     * only if that string comes from an immediate value in an XML file.  That
+     * only if that string comes from an immediate 直接的 value in an XML file.  That
      * is, this does not allow references to string resources, string
      * attributes, or conversions from other types.  As such, this method
      * will only return strings for TypedArray objects that come from

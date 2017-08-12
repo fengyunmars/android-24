@@ -32,7 +32,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * for more information.
  */
 public final class ViewTreeObserver {
-    // Recursive listeners use CopyOnWriteArrayList
+    // Recursive 递归的 listeners use CopyOnWriteArrayList
     private CopyOnWriteArrayList<OnWindowFocusChangeListener> mOnWindowFocusListeners;
     private CopyOnWriteArrayList<OnWindowAttachListener> mOnWindowAttachListeners;
     private CopyOnWriteArrayList<OnGlobalFocusChangeListener> mOnGlobalFocusListeners;
@@ -48,7 +48,7 @@ public final class ViewTreeObserver {
     private CopyOnWriteArray<OnPreDrawListener> mOnPreDrawListeners;
     private CopyOnWriteArray<OnWindowShownListener> mOnWindowShownListeners;
 
-    // These listeners cannot be mutated during dispatch
+    // These listeners cannot be mutated 突变 during dispatch
     private ArrayList<OnDrawListener> mOnDrawListeners;
 
     /** Remains false until #dispatchOnWindowShown() is called. If a listener registers after
@@ -126,7 +126,7 @@ public final class ViewTreeObserver {
          * views in the tree have been measured and given a frame. Clients can use this to adjust
          * their scroll bounds or even to request a new layout before drawing occurs.
          *
-         * @return Return true to proceed with the current drawing pass, or false to cancel.
+         * @return Return true to proceed 开始 with the current drawing pass, or false to cancel.
          *
          * @see android.view.View#onMeasure
          * @see android.view.View#onLayout
@@ -299,7 +299,7 @@ public final class ViewTreeObserver {
 
     /**
      * Interface definition for a callback to be invoked when layout has
-     * completed and the client can compute its interior insets.
+     * completed and the client can compute its interior 内部的 insets.
      * 
      * We are not yet ready to commit to this API and support it, so
      * @hide
@@ -434,7 +434,7 @@ public final class ViewTreeObserver {
     /**
      * Remove a previously installed window attach callback.
      *
-     * @param victim The callback to remove
+     * @param victim 受害人 The callback to remove
      *
      * @throws IllegalStateException If {@link #isAlive()} returns false
      *
@@ -847,8 +847,8 @@ public final class ViewTreeObserver {
      */
     final void dispatchOnWindowAttachedChange(boolean attached) {
         // NOTE: because of the use of CopyOnWriteArrayList, we *must* use an iterator to
-        // perform the dispatching. The iterator is a safe guard against listeners that
-        // could mutate the list by calling the various add/remove methods. This prevents
+        // perform the dispatching. The iterator is a safe guard 守卫 against listeners that
+        // could mutate 改变 the list by calling the various add/remove methods. This prevents
         // the array from being modified while we iterate it.
         final CopyOnWriteArrayList<OnWindowAttachListener> listeners
                 = mOnWindowAttachListeners;
@@ -1072,7 +1072,7 @@ public final class ViewTreeObserver {
 
     /**
      * Copy on write array. This array is not thread safe, and only one loop can
-     * iterate over this array at any given time. This class avoids allocations
+     * iterate over this array at any given time. This class avoids allocations 分配
      * until a concurrent modification happens.
      * 
      * Usage:

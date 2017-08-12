@@ -132,7 +132,7 @@ public interface Spanned
 
     /**
      * The bits numbered SPAN_USER_SHIFT and above are available
-     * for callers to use to store scalar data associated with their
+     * for callers to use to store scalar 数量 data associated with their
      * span object.
      */
     public static final int SPAN_USER_SHIFT = 24;

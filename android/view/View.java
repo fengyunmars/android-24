@@ -3904,7 +3904,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * RenderNode holding View properties, potentially holding a DisplayList of View content.
      * <p>
      * When non-null and valid, this is expected to contain an up-to-date copy
-     * of the View content. Its DisplayList content is cleared on temporary detach and reset on
+     * of the View content. Its DisplayList content is cleared on temporary 暂时的 detach and reset on
      * cleanup.
      */
     final RenderNode mRenderNode;
@@ -10311,7 +10311,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Called when the user-visibility of this View is potentially affected by a change
+     * Called when the user-visibility of this View is potentially 可能地 affected by a change
      * to this view itself, an ancestor view or the window this view is attached to.
      *
      * @param isVisible true if this view and all of its ancestors are {@link #VISIBLE}
@@ -15572,7 +15572,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Hook allowing a view to generate a representation of its internal state
      * that can later be used to create a new instance with that same state.
-     * This state should only contain information that is not persistent or can
+     * This state should only contain information that is not persistent 持续的 or can
      * not be reconstructed later. For example, you will never store your
      * current position on screen because that will be computed again when a
      * new instance of the view is placed in its view hierarchy.
@@ -20401,13 +20401,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * </div>
      */
     public static class DragShadowBuilder {
+
         private final WeakReference<View> mView;
 
         /**
          * Constructs a shadow image builder based on a View. By default, the resulting drag
          * shadow will have the same appearance and dimensions as the View, with the touch point
          * over the center of the View.
-         * @param view A View. Any View in scope can be used.
+         * @param view A View. Any View in scope 视野 can be used.
          */
         public DragShadowBuilder(View view) {
             mView = new WeakReference<View>(view);
@@ -20456,7 +20457,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
          * image.
          *
          * @param outShadowTouchPoint A {@link android.graphics.Point} for the position within the
-         * shadow image that should be underneath the touch point during the drag and drop
+         * shadow image that should be underneath 在…的下面 the touch point during the drag and drop
          * operation. Your application must set {@link android.graphics.Point#x} to the
          * X coordinate and {@link android.graphics.Point#y} to the Y coordinate of this position.
          */
@@ -20466,7 +20467,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 outShadowSize.set(view.getWidth(), view.getHeight());
                 outShadowTouchPoint.set(outShadowSize.x / 2, outShadowSize.y / 2);
             } else {
-                Log.e(View.VIEW_LOG_TAG, "Asked for drag thumb metrics but no view");
+                Log.e(View.VIEW_LOG_TAG, "Asked for drag thumb 拇指 metrics but no view");
             }
         }
 
@@ -20500,7 +20501,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Starts a drag and drop operation. When your application calls this method, it passes a
      * {@link android.view.View.DragShadowBuilder} object to the system. The
      * system calls this object's {@link DragShadowBuilder#onProvideShadowMetrics(Point, Point)}
-     * to get metrics for the drag shadow, and then calls the object's
+     * to get metrics 度量 for the drag shadow, and then calls the object's
      * {@link DragShadowBuilder#onDrawShadow(Canvas)} to draw the drag shadow itself.
      * <p>
      *  Once the system has the drag shadow, it begins the drag and drop operation by sending
@@ -20527,7 +20528,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * current drag.
      * <p>
      * myLocalState is a lightweight mechanism for the sending information from the dragged View
-     * to the target Views. For example, it can contain flags that differentiate between a
+     * to the target Views. For example, it can contain flags that differentiate 区别 between a
      * a copy operation and a move operation.
      * </p>
      * @param flags Flags that control the drag and drop operation. This can be set to 0 for no

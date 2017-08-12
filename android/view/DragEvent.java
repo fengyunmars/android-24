@@ -41,7 +41,7 @@ import com.android.internal.view.IDragAndDropPermissions;
  *  to the View receiving the event.
  * </p>
  * <p>
- *  Most methods return valid data only for certain event actions. This is summarized in the
+ *  Most methods return valid data only for certain event actions. This is summarized 总结 in the
  *  following table. Each possible {@link #getAction()} value is listed in the first column. The
  *  other columns indicate which method or methods return valid data for that getAction() value:
  * </p>
@@ -124,6 +124,7 @@ import com.android.internal.view.IDragAndDropPermissions;
  * </div>
  */
 public class DragEvent implements Parcelable {
+
     private static final boolean TRACK_RECYCLED_LOCATION = false;
 
     int mAction;
@@ -149,7 +150,7 @@ public class DragEvent implements Parcelable {
      * drag and drop operation. The View should return {@code true} from its
      * {@link View#onDragEvent(DragEvent) onDragEvent()} handler method or
      * {@link View.OnDragListener#onDrag(View,DragEvent) OnDragListener.onDrag()} listener
-     * if it can accept a drop. The onDragEvent() or onDrag() methods usually inspect the metadata
+     * if it can accept a drop. The onDragEvent() or onDrag() methods usually inspect 检查 the metadata
      * from {@link #getClipDescription()} to determine if they can accept the data contained in
      * this drag. For an operation that doesn't represent data transfer, these methods may
      * perform other actions to determine whether or not the View should accept the drag.
@@ -187,7 +188,7 @@ public class DragEvent implements Parcelable {
     public static final int ACTION_DRAG_LOCATION = 2;
 
     /**
-     * Action constant returned by {@link #getAction()}: Signals to a View that the user
+     * Action constant returned by {@link #getAction()}: Signals 标志 to a View that the user
      * has released the drag shadow, and the drag point is within the bounding box of the View.
      * The View should retrieve the data from the DragEvent by calling {@link #getClipData()}.
      * The methods {@link #getX()} and {@link #getY()} return the X and Y position of the drop point
@@ -208,7 +209,7 @@ public class DragEvent implements Parcelable {
 
     /**
      * Action constant returned by {@link #getAction()}:  Signals to a View that the drag and drop
-     * operation has concluded.  A View that changed its appearance during the operation should
+     * operation has concluded 结束 .  A View that changed its appearance during the operation should
      * return to its usual drawing state in response to this event.
      * <p>
      * All views that received an ACTION_DRAG_STARTED event will receive the

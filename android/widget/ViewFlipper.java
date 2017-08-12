@@ -36,6 +36,7 @@ import android.widget.RemoteViews.RemoteView;
  */
 @RemoteView
 public class ViewFlipper extends ViewAnimator {
+
     private static final String TAG = "ViewFlipper";
     private static final boolean LOGD = false;
 

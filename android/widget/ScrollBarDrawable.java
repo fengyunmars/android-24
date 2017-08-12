@@ -33,14 +33,15 @@ import android.graphics.drawable.Drawable;
  * {@hide}
  */
 public class ScrollBarDrawable extends Drawable implements Drawable.Callback {
-    private Drawable mVerticalTrack;
+
+    private Drawable mVerticalTrack; // 轨道
     private Drawable mHorizontalTrack;
-    private Drawable mVerticalThumb;
+    private Drawable mVerticalThumb; // 拇指
     private Drawable mHorizontalThumb;
 
     private int mRange;
     private int mOffset;
-    private int mExtent;
+    private int mExtent; // 长度
 
     private boolean mVertical;
     private boolean mBoundsChanged;

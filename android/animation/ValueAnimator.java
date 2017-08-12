@@ -79,7 +79,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
     /**
      * Internal variables
      * NOTE: This object implements the clone() method, making a deep copy of any referenced
-     * objects. As other non-trivial 非平凡的 fields are added to this class, make sure to add logic
+     * objects. As other non-trivial 非平凡的 重大 fields are added to this class, make sure to add logic
      * to clone() to make deep copies of them.
      */
 
@@ -156,7 +156,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
 
     /**
      * Additional playing state to indicate whether an animator has been start()'d. There is
-     * some lag between a call to start() and the first animation frame. We should still note
+     * some lag 迟延 between a call to start() and the first animation frame. We should still note
      * that the animation has been started, even if it's first animation frame has not yet
      * happened, and reflect that state in isRunning().
      * Note that delayed animations are different: they are not started until their first
@@ -254,7 +254,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
      */
     public static final int REVERSE = 2;
     /**
-     * This value used used with the {@link #setRepeatCount(int)} property to repeat
+     * This value used with the {@link #setRepeatCount(int)} property to repeat
      * the animation indefinitely.
      */
     public static final int INFINITE = -1;
@@ -620,7 +620,7 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
      */
     private int getCurrentIteration(float fraction) {
         fraction = clampFraction(fraction);
-        // If the overall fraction is a positive integer, we consider the current iteration to be
+        // If the overall fraction is a positive <b>integer</b>, we consider the current iteration to be
         // complete. In other words, the fraction for the current iteration would be 1, and the
         // current iteration would be overall fraction - 1.
         double iteration = Math.floor(fraction);
@@ -1220,14 +1220,14 @@ public class ValueAnimator extends Animator implements AnimationHandler.Animatio
 
     /**
      * This internal function processes a single animation frame for a given animation. The
-     * currentTime parameter is the timing pulse sent by the handler, used to calculate the
+     * currentTime parameter is the timing pulse 定时脉冲 sent by the handler, used to calculate the
      * elapsed duration, and therefore
      * the elapsed fraction, of the animation. The return value indicates whether the animation
      * should be ended (which happens when the elapsed time of the animation exceeds the
      * animation's duration, including the repeatCount).
      *
      * @param currentTime The current time, as tracked by the static timing handler
-     * @return true if the animation's duration, including any repetitions due to
+     * @return true if the animation's duration, including any repetitions 重复次数 due to
      * <code>repeatCount</code> has been exceeded and the animation should be ended.
      */
     boolean animateBasedOnTime(long currentTime) {
