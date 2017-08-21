@@ -603,7 +603,7 @@ public class Build {
         public static final int L = 21;
 
         /**
-         * November 2014: Lollipop.  A flat one with beautiful shadows.  But still tasty.
+         * Android 5.0 November 2014: Lollipop.  A flat one with beautiful shadows.  But still tasty.
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>

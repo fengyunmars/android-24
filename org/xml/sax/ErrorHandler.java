@@ -75,11 +75,11 @@ public interface ErrorHandler {
 
 
     /**
-     * Receive notification of a recoverable error.
+     * Receive notification of a recoverable 可恢复的 error.
      *
      * <p>This corresponds to the definition of "error" in section 1.2
      * of the W3C XML 1.0 Recommendation.  For example, a validating
-     * parser would use this callback to report the violation of a
+     * parser would use this callback to report the violation 违反 of a
      * validity constraint.  The default behaviour is to take no
      * action.</p>
      *
@@ -106,7 +106,7 @@ public interface ErrorHandler {
     /**
      * Receive notification of a non-recoverable error.
      *
-     * <p><strong>There is an apparent contradiction between the
+     * <p><strong>There is an apparent 显然的 contradiction 矛盾 between the
      * documentation for this method and the documentation for {@link
      * org.xml.sax.ContentHandler#endDocument}.  Until this ambiguity
      * is resolved in a future major release, clients should make no
@@ -116,12 +116,12 @@ public interface ErrorHandler {
      *
      * <p>This corresponds to the definition of "fatal error" in
      * section 1.2 of the W3C XML 1.0 Recommendation.  For example, a
-     * parser would use this callback to report the violation of a
-     * well-formedness constraint.</p>
+     * parser would use this callback to report the violation 违反 of a
+     * well-formedness 不合语法 constraint.</p>
      *
      * <p>The application must assume that the document is unusable
      * after the parser has invoked this method, and should continue
-     * (if at all) only for the sake of collecting additional error
+     * (if at all) only for the sake 目的 of collecting additional error
      * messages: in fact, SAX parsers are free to stop reporting any
      * other events once this method has been invoked.</p>
      *

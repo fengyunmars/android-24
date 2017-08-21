@@ -163,7 +163,7 @@ public class ActivityInfo extends ComponentInfo
      */
     public static final int RESIZE_MODE_UNRESIZEABLE = 0;
     /**
-     * Activity can not be resized and always occupies the fullscreen area with all windows cropped
+     * Activity can not be resized and always occupies the fullscreen area with all windows cropped 剪裁
      * to either the task or stack bounds.
      * @hide
      */
@@ -201,7 +201,7 @@ public class ActivityInfo extends ComponentInfo
      * Bit in {@link #flags} indicating whether this activity is able to
      * run in multiple processes.  If
      * true, the system may instantiate it in the some process as the
-     * process starting it in order to conserve resources.  If false, the
+     * process starting it in order to conserve 保存 resources.  If false, the
      * default, it always runs in {@link #processName}.  Set from the
      * {@link android.R.attr#multiprocess} attribute.
      */
@@ -276,7 +276,7 @@ public class ActivityInfo extends ComponentInfo
      */
     public static final int FLAG_SHOW_FOR_ALL_USERS = 0x0400;
     /**
-     * Bit in {@link #flags} corresponding to an immersive activity
+     * Bit in {@link #flags} corresponding to an immersive 沉浸式的 activity
      * that wishes not to be interrupted by notifications.
      * Applications that hide the system notification bar with
      * {@link android.view.WindowManager.LayoutParams#FLAG_FULLSCREEN}
@@ -300,11 +300,11 @@ public class ActivityInfo extends ComponentInfo
     public static final int FLAG_IMMERSIVE = 0x0800;
     /**
      * Bit in {@link #flags}: If set, a task rooted at this activity will have its
-     * baseIntent replaced by the activity immediately above this. Each activity may further
-     * relinquish its identity to the activity above it using this flag. Set from the
+     * baseIntent replaced by the activity immediately 立即 above this. Each activity may further
+     * relinquish 放弃 its identity to the activity above it using this flag. Set from the
      * {@link android.R.attr#relinquishTaskIdentity} attribute.
      */
-    public static final int FLAG_RELINQUISH_TASK_IDENTITY = 0x1000;
+    public static final int FLAG_RELINQUISH_TASK_IDENTITY = 0x1000;  // 放弃
     /**
      * Bit in {@link #flags} indicating that tasks started with this activity are to be
      * removed from the recent list of tasks when the last activity in the task is finished.
@@ -527,7 +527,7 @@ public class ActivityInfo extends ComponentInfo
 
     /**
      * Bit in {@link #configChanges} that indicates that the activity
-     * can itself handle changes to the IMSI MCC.  Set from the
+     * can itself handle changes to the IMSI 国际移动用户识别码（International Mobile Subscriber Identity） MCC.  Set from the
      * {@link android.R.attr#configChanges} attribute.
      */
     public static final int CONFIG_MCC = 0x0001;
@@ -558,7 +558,7 @@ public class ActivityInfo extends ComponentInfo
     /**
      * Bit in {@link #configChanges} that indicates that the activity
      * can itself handle changes to the keyboard or navigation being hidden/exposed.
-     * Note that inspite of the name, this applies to the changes to any
+     * Note that inspite 不论 of the name, this applies to the changes to any
      * hidden states: keyboard or navigation.
      * Set from the {@link android.R.attr#configChanges} attribute.
      */
@@ -990,7 +990,7 @@ public class ActivityInfo extends ComponentInfo
     /**
      * Contains information about position and size of the activity on the display.
      *
-     * Used in freeform mode to set desired position when activity is first launched.
+     * Used in freeform 任意的 mode to set desired position when activity is first launched.
      * It describes how big the activity wants to be in both width and height,
      * the minimal allowed size, and the gravity to be applied.
      *

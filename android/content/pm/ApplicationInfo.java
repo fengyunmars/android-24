@@ -44,7 +44,7 @@ import java.util.Objects;
 public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     
     /**
-     * Default task affinity of all activities in this application. See 
+     * Default task affinity 密切关系 of all activities in this application. See
      * {@link ActivityInfo#taskAffinity} for more information.  This comes 
      * from the "taskAffinity" attribute. 
      */
@@ -105,9 +105,9 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
      * <p>0 is the default and means the app's entire data folder + managed external storage will
      * be backed up;
      * Any negative value indicates the app does not support full-data backup, though it may still
-     * want to participate via the traditional key/value backup API;
+     * want to participate 参与 via the traditional key/value backup API;
      * A positive number specifies an xml resource in which the application has defined its backup
-     * include/exclude criteria.
+     * include/exclude criteria 条件 .
      * <p>If android:allowBackup is set to false, this attribute is ignored.
      *
      * @see android.content.Context#getNoBackupFilesDir()
@@ -164,7 +164,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     /**
      * Value for {@link #flags}: default value for the corresponding ActivityInfo flag.
      * Comes from {@link android.R.styleable#AndroidManifestApplication_allowTaskReparenting
-     * android:allowTaskReparenting} of the &lt;application&gt; tag.
+     * android:allowTaskReparenting} 重新定义 of the &lt;application&gt; tag.
      */
     public static final int FLAG_ALLOW_TASK_REPARENTING = 1<<5;
     
@@ -222,7 +222,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     
     /**
      * Value for {@link #flags}: true when the application knows how to
-     * accomodate different screen densities.  Corresponds to
+     * accomodate 容纳；使…适应 different screen densities.  Corresponds to
      * {@link android.R.styleable#AndroidManifestSupportsScreens_anyDensity
      * android:anyDensity}.
      */
@@ -238,7 +238,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
 
     /**
      * Value for {@link #flags}: set to <code>false</code> if the application does not wish
-     * to permit any OS-driven backups of its data; <code>true</code> otherwise.
+     * to permit 允许 any OS-driven backups of its data; <code>true</code> otherwise.
      * 
      * <p>Comes from the
      * {@link android.R.styleable#AndroidManifestApplication_allowBackup android:allowBackup}
@@ -249,8 +249,8 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
     /**
      * Value for {@link #flags}: set to <code>false</code> if the application must be kept
      * in memory following a full-system restore operation; <code>true</code> otherwise.
-     * Ordinarily, during a full system restore operation each application is shut down
-     * following execution of its agent's onRestore() method.  Setting this attribute to
+     * Ordinarily 通常地 , during a full system restore operation each application is shut down
+     * following execution of its agent's 代理人 onRestore() method.  Setting this attribute to
      * <code>false</code> prevents this.  Most applications will not need to set this attribute.
      *
      * <p>If
@@ -267,7 +267,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
 
     /**
      * Value for {@link #flags}: Set to <code>true</code> if the application's backup
-     * agent claims to be able to handle restore data even "from the future,"
+     * agent claims 要求 to be able to handle restore data even "from the future,"
      * i.e. from versions of the application with a versionCode greater than
      * the one currently installed on the device.  <i>Use with caution!</i>  By default
      * this attribute is <code>false</code> and the Backup Manager will ensure that data
@@ -351,7 +351,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
      * Value for {@link #flags}: {@code true} if the application asks that only
      * full-data streaming backups of its data be performed even though it defines
      * a {@link android.app.backup.BackupAgent BackupAgent}, which normally
-     * indicates that the app will manage its backed-up data via incremental
+     * indicates that the app will manage its backed-up data via incremental 增加的
      * key/value updates.
      */
     public static final int FLAG_FULL_BACKUP_ONLY = 1<<26;
@@ -502,14 +502,14 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
      *
      * @hide
      */
-    public static final int PRIVATE_FLAG_PARTIALLY_DIRECT_BOOT_AWARE = 1 << 8;
+    public static final int PRIVATE_FLAG_PARTIALLY_DIRECT_BOOT_AWARE = 1 << 8; // PARTIALLY partially 部分地
 
     /**
      * Value for {@link #flags}: {@code true} if the application is blocked via restrictions
      * and for most purposes is considered as not installed.
      * {@hide}
      */
-    public static final int PRIVATE_FLAG_EPHEMERAL = 1 << 9;
+    public static final int PRIVATE_FLAG_EPHEMERAL = 1 << 9; // EPHEMERAL ephemeral 短暂的
 
     /**
      * When set, signals that the application is required for the system user and should not be
@@ -666,7 +666,7 @@ public class ApplicationInfo extends PackageItemInfo implements Parcelable {
      * are stored, if present.
      *
      * The main reason this exists is for bundled multi-arch apps, where
-     * it's not trivial to calculate the location of libs for the secondary abi
+     * it's not trivial 不重要的 to calculate the location of libs for the secondary abi
      * given the location of the primary.
      *
      * TODO: Change the layout of bundled installs so that we can use

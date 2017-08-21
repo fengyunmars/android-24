@@ -62,7 +62,7 @@ public class Interpolator {
     
     /**
      * Assign the keyFrame (specified by index) a time value and an array of key
-     * values (with an implicity blend array of [0, 0, 1, 1] giving linear
+     * values (with an implicity 隐含性 blend 混合 array of [0, 0, 1, 1] giving linear
      * transition to the next set of key values).
      * 
      * @param index The index of the key frame to assign
@@ -88,6 +88,7 @@ public class Interpolator {
         if (index < 0 || index >= mFrameCount) {
             throw new IndexOutOfBoundsException();
         }
+        // TODO: 2017/8/15
         if (values.length < mValueCount) {
             throw new ArrayStoreException();
         }
@@ -98,7 +99,7 @@ public class Interpolator {
     }
     
     /**
-     * Set a repeat count (which may be fractional) for the interpolator, and
+     * Set a repeat count (which may be fractional 小数的 ) for the interpolator, and
      * whether the interpolator should mirror its repeats. The default settings
      * are repeatCount = 1, and mirror = false.
      */

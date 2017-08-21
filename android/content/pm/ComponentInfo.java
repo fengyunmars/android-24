@@ -67,7 +67,7 @@ public class ComponentInfo extends PackageItemInfo {
 
     /**
      * Indicates if this component is aware of direct boot lifecycle, and can be
-     * safely run before the user has entered their credentials (such as a lock
+     * safely run before the user has entered their credentials 证书 (such as a lock
      * pattern or PIN).
      */
     public boolean directBootAware = false;

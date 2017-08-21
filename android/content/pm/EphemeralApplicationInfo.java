@@ -28,6 +28,7 @@ import android.os.Parcelable;
  * @hide
  */
 public final class EphemeralApplicationInfo implements Parcelable {
+
     private final ApplicationInfo mApplicationInfo;
 
     private final String mPackageName;

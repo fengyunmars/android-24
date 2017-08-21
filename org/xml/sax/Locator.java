@@ -80,16 +80,16 @@ public interface Locator {
 
     /**
      * Return the line number where the current document event ends.
-     * Lines are delimited by line ends, which are defined in
+     * Lines are delimited  划定…的界限 by line ends, which are defined in
      * the XML specification.
      *
      * <p><strong>Warning:</strong> The return value from the method
-     * is intended only as an approximation for the sake of diagnostics;
+     * is intended only as an approximation  近似值 for the sake 目的 of diagnostics 诊断学 ;
      * it is not intended to provide sufficient information
      * to edit the character content of the original XML document.
      * In some cases, these "line" numbers match what would be displayed
      * as columns, and in others they may not match the source text
-     * due to internal entity expansion.  </p>
+     * due to internal entity expansion 阐述 .  </p>
      *
      * <p>The return value is an approximation of the line number
      * in the document entity or external parsed entity where the
@@ -115,7 +115,7 @@ public interface Locator {
      * it is not intended to provide sufficient information
      * to edit the character content of the original XML document.
      * For example, when lines contain combining character sequences, wide
-     * characters, surrogate pairs, or bi-directional text, the value may
+     * characters, surrogate 代理 pairs, or bi-directional text, the value may
      * not correspond to the column in a text editor's display. </p>
      *
      * <p>The return value is an approximation of the column number

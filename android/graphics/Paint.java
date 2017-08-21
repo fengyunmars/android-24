@@ -355,7 +355,7 @@ public class Paint {
          * Geometry and text drawn with this style will be both filled and
          * stroked at the same time, respecting the stroke-related fields on
          * the paint. This mode can give unexpected results if the geometry
-         * is oriented 以…为方向的 counter-clockwise 逆时针方向 . This restriction does not apply to
+         * is oriented 以…为方向的 counter-clockwise 逆时针方向 . This restriction 限制 does not apply to
          * either FILL or STROKE.
          */
         FILL_AND_STROKE (2);

@@ -36,9 +36,9 @@ import java.security.SignatureException;
 import sun.security.x509.X509CertImpl;
 
 /**
- * <p>Abstract class for managing a variety of identity certificates.
- * An identity certificate is a binding of a principal to a public key which
- * is vouched for by another principal.  (A principal represents
+ * <p>Abstract class for managing a variety of identity 身份 certificates 证书 .
+ * An identity certificate is a binding of a principal 当事人 to a public key which
+ * is vouched 证明 for by another principal 当事人 .  (A principal represents
  * an entity such as an individual user, a group, or a corporation.)
  *<p>
  * This class is an abstraction for certificates that have different
@@ -201,7 +201,7 @@ public abstract class Certificate implements java.io.Serializable {
     public abstract PublicKey getPublicKey();
 
     /**
-     * Alternate Certificate class for serialization.
+     * Alternate 替换物 Certificate class for serialization.
      * @since 1.3
      */
     protected static class CertificateRep implements java.io.Serializable {

@@ -34,7 +34,8 @@ import java.util.List;
  */
 @SystemApi
 public final class EphemeralResolveInfo implements Parcelable {
-    /** Algorithm that will be used to generate the domain digest */
+
+    /** Algorithm that will be used to generate the domain 域名 digest 文摘 */
     public static final String SHA_ALGORITHM = "SHA-256";
 
     /** Full digest of the domain hash */

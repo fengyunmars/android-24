@@ -33,10 +33,10 @@ import java.security.cert.X509Certificate;
 import java.util.Arrays;
 
 /**
- * Opaque, immutable representation of a signing certificate associated with an
+ * Opaque, 不透明的 immutable 不变的 representation of a signing certificate 证书 associated with an
  * application package.
  * <p>
- * This class name is slightly misleading, since it's not actually a signature.
+ * This class name is slightly misleading 令人误解的 , since it's not actually a signature.
  */
 public class Signature implements Parcelable {
     private final byte[] mSignature;
@@ -256,8 +256,8 @@ public class Signature implements Parcelable {
     }
 
     /**
-     * Test if given {@link Signature} sets are effectively equal. In rare
-     * cases, certificates can have slightly malformed encoding which causes
+     * Test if given {@link Signature} sets are effectively 有效地 equal. In rare
+     * cases, certificates can have slightly malformed 畸形的 encoding which causes
      * exact-byte checks to fail.
      * <p>
      * To identify effective equality, we bounce the certificates through an
@@ -265,7 +265,7 @@ public class Signature implements Parcelable {
      * surface area, we only allow a byte size delta of a few bytes.
      *
      * @throws CertificateException if the before/after length differs
-     *             substantially, usually a signal of something fishy going on.
+     *             substantially  实质上 , usually a signal of something fishy 可疑的 going on.
      * @hide
      */
     public static boolean areEffectiveMatch(Signature[] a, Signature[] b)

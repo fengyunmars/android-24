@@ -10,27 +10,27 @@ import java.io.Reader;
 
 /**
  * A single input source for an XML entity.
- *
+ * <p>
  * <blockquote>
  * <em>This module, both source code and documentation, is in the
  * Public Domain, and comes with <strong>NO WARRANTY</strong>.</em>
  * See <a href='http://www.saxproject.org'>http://www.saxproject.org</a>
  * for further information.
  * </blockquote>
- *
+ * <p>
  * <p>This class allows a SAX application to encapsulate information
  * about an input source in a single object, which may include
  * a public identifier, a system identifier, a byte stream (possibly
  * with a specified encoding), and/or a character stream.</p>
- *
+ * <p>
  * <p>There are two places that the application can deliver an
  * input source to the parser: as the argument to the Parser.parse
  * method, or as the return value of the EntityResolver.resolveEntity
  * method.</p>
- *
+ * <p>
  * <p>The SAX parser will use the InputSource object to determine how
  * to read XML input.  If there is a character stream available, the
- * parser will read that stream directly, disregarding any text
+ * parser will read that stream directly, disregarding 忽视 any text
  * encoding declaration found in that stream.
  * If there is no character stream, but there is
  * a byte stream, the parser will use that byte stream, using the
@@ -41,7 +41,7 @@ import java.io.Reader;
  * byte stream is available, the parser will attempt to open a URI
  * connection to the resource identified by the system
  * identifier.</p>
- *
+ * <p>
  * <p>An InputSource object belongs to the application: the SAX parser
  * shall never modify it in any way (it may modify a copy if
  * necessary).  However, standard processing of both byte and
@@ -49,13 +49,13 @@ import java.io.Reader;
  * so applications should not attempt to re-use such streams after they
  * have been handed to a parser.  </p>
  *
- * @since SAX 1.0
  * @author David Megginson
  * @version 2.0.1 (sax2r2)
  * @see org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
  * @see org.xml.sax.EntityResolver#resolveEntity
  * @see java.io.InputStream
  * @see java.io.Reader
+ * @since SAX 1.0
  */
 public class InputSource {
 
@@ -68,18 +68,17 @@ public class InputSource {
      * @see #setCharacterStream
      * @see #setEncoding
      */
-    public InputSource ()
-    {
+    public InputSource() {
     }
 
 
     /**
      * Create a new input source with a system identifier.
-     *
+     * <p>
      * <p>Applications may use setPublicId to include a
      * public identifier as well, or setEncoding to specify
      * the character encoding, if known.</p>
-     *
+     * <p>
      * <p>If the system identifier is a URL, it must be fully
      * resolved (it may not be a relative URL).</p>
      *
@@ -90,15 +89,14 @@ public class InputSource {
      * @see #setEncoding
      * @see #setCharacterStream
      */
-    public InputSource (String systemId)
-    {
-    setSystemId(systemId);
+    public InputSource(String systemId) {
+        setSystemId(systemId);
     }
 
 
     /**
      * Create a new input source with a byte stream.
-     *
+     * <p>
      * <p>Application writers should use setSystemId() to provide a base
      * for resolving relative URIs, may use setPublicId to include a
      * public identifier, and may use setEncoding to specify the object's
@@ -111,19 +109,18 @@ public class InputSource {
      * @see #setByteStream
      * @see #setCharacterStream
      */
-    public InputSource (InputStream byteStream)
-    {
-    setByteStream(byteStream);
+    public InputSource(InputStream byteStream) {
+        setByteStream(byteStream);
     }
 
 
     /**
      * Create a new input source with a character stream.
-     *
+     * <p>
      * <p>Application writers should use setSystemId() to provide a base
      * for resolving relative URIs, and may use setPublicId to include a
      * public identifier.</p>
-     *
+     * <p>
      * <p>The character stream shall not include a byte order mark.</p>
      *
      * @param characterStream The raw character stream containing the document.
@@ -132,15 +129,14 @@ public class InputSource {
      * @see #setByteStream
      * @see #setCharacterStream
      */
-    public InputSource (Reader characterStream)
-    {
-    setCharacterStream(characterStream);
+    public InputSource(Reader characterStream) {
+        setCharacterStream(characterStream);
     }
 
 
     /**
      * Set the public identifier for this input source.
-     *
+     * <p>
      * <p>The public identifier is always optional: if the application
      * writer includes one, it will be provided as part of the
      * location information.</p>
@@ -150,9 +146,8 @@ public class InputSource {
      * @see org.xml.sax.Locator#getPublicId
      * @see org.xml.sax.SAXParseException#getPublicId
      */
-    public void setPublicId (String publicId)
-    {
-    this.publicId = publicId;
+    public void setPublicId(String publicId) {
+        this.publicId = publicId;
     }
 
 
@@ -162,26 +157,25 @@ public class InputSource {
      * @return The public identifier, or null if none was supplied.
      * @see #setPublicId
      */
-    public String getPublicId ()
-    {
-    return publicId;
+    public String getPublicId() {
+        return publicId;
     }
 
 
     /**
      * Set the system identifier for this input source.
-     *
+     * <p>
      * <p>The system identifier is optional if there is a byte stream
      * or a character stream, but it is still useful to provide one,
      * since the application can use it to resolve relative URIs
      * and can include it in error messages and warnings (the parser
      * will attempt to open a connection to the URI only if
      * there is no byte stream or character stream specified).</p>
-     *
+     * <p>
      * <p>If the application knows the character encoding of the
      * object pointed to by the system identifier, it can register
      * the encoding using the setEncoding method.</p>
-     *
+     * <p>
      * <p>If the system identifier is a URL, it must be fully
      * resolved (it may not be a relative URL).</p>
      *
@@ -191,56 +185,53 @@ public class InputSource {
      * @see org.xml.sax.Locator#getSystemId
      * @see org.xml.sax.SAXParseException#getSystemId
      */
-    public void setSystemId (String systemId)
-    {
-    this.systemId = systemId;
+    public void setSystemId(String systemId) {
+        this.systemId = systemId;
     }
 
 
     /**
      * Get the system identifier for this input source.
-     *
+     * <p>
      * <p>The getEncoding method will return the character encoding
      * of the object pointed to, or null if unknown.</p>
-     *
+     * <p>
      * <p>If the system ID is a URL, it will be fully resolved.</p>
      *
      * @return The system identifier, or null if none was supplied.
      * @see #setSystemId
      * @see #getEncoding
      */
-    public String getSystemId ()
-    {
-    return systemId;
+    public String getSystemId() {
+        return systemId;
     }
 
 
     /**
      * Set the byte stream for this input source.
-     *
+     * <p>
      * <p>The SAX parser will ignore this if there is also a character
      * stream specified, but it will use a byte stream in preference
      * to opening a URI connection itself.</p>
-     *
+     * <p>
      * <p>If the application knows the character encoding of the
      * byte stream, it should set it with the setEncoding method.</p>
      *
      * @param byteStream A byte stream containing an XML document or
-     *        other entity.
+     *                   other entity.
      * @see #setEncoding
      * @see #getByteStream
      * @see #getEncoding
      * @see java.io.InputStream
      */
-    public void setByteStream (InputStream byteStream)
-    {
-    this.byteStream = byteStream;
+    public void setByteStream(InputStream byteStream) {
+        this.byteStream = byteStream;
     }
 
 
     /**
      * Get the byte stream for this input source.
-     *
+     * <p>
      * <p>The getEncoding method will return the character
      * encoding for this byte stream, or null if unknown.</p>
      *
@@ -248,19 +239,18 @@ public class InputSource {
      * @see #getEncoding
      * @see #setByteStream
      */
-    public InputStream getByteStream ()
-    {
-    return byteStream;
+    public InputStream getByteStream() {
+        return byteStream;
     }
 
 
     /**
      * Set the character encoding, if known.
-     *
+     * <p>
      * <p>The encoding must be a string acceptable for an
      * XML encoding declaration (see section 4.3.3 of the XML 1.0
      * recommendation).</p>
-     *
+     * <p>
      * <p>This method has no effect when the application provides a
      * character stream.</p>
      *
@@ -269,9 +259,8 @@ public class InputSource {
      * @see #setByteStream
      * @see #getEncoding
      */
-    public void setEncoding (String encoding)
-    {
-    this.encoding = encoding;
+    public void setEncoding(String encoding) {
+        this.encoding = encoding;
     }
 
 
@@ -285,27 +274,25 @@ public class InputSource {
      * @see #getSystemId
      * @see #getByteStream
      */
-    public String getEncoding ()
-    {
-    return encoding;
+    public String getEncoding() {
+        return encoding;
     }
 
 
     /**
      * Set the character stream for this input source.
-     *
+     * <p>
      * <p>If there is a character stream specified, the SAX parser
      * will ignore any byte stream and will not attempt to open
      * a URI connection to the system identifier.</p>
      *
      * @param characterStream The character stream containing the
-     *        XML document or other entity.
+     *                        XML document or other entity.
      * @see #getCharacterStream
      * @see java.io.Reader
      */
-    public void setCharacterStream (Reader characterStream)
-    {
-    this.characterStream = characterStream;
+    public void setCharacterStream(Reader characterStream) {
+        this.characterStream = characterStream;
     }
 
 
@@ -315,13 +302,11 @@ public class InputSource {
      * @return The character stream, or null if none was supplied.
      * @see #setCharacterStream
      */
-    public Reader getCharacterStream ()
-    {
-    return characterStream;
+    public Reader getCharacterStream() {
+        return characterStream;
     }
 
 
-
     ////////////////////////////////////////////////////////////////////
     // Internal state.
     ////////////////////////////////////////////////////////////////////

@@ -41,27 +41,28 @@ import static android.Manifest.permission.CONFIGURE_DISPLAY_COLOR_TRANSFORM;
 /**
  * Provides information about the size and density of a logical display.
  * <p>
- * The display area is described in two different ways.
+ * The display 显示 area is described in two different ways.
  * <ul>
  * <li>The application display area specifies the part of the display that may contain
  * an application window, excluding the system decorations.  The application display area may
- * be smaller than the real display area because the system subtracts the space needed
+ * be smaller than the real display area because the system subtracts 减去 the space needed
  * for decor elements such as the status bar.  Use the following methods to query the
  * application display area: {@link #getSize}, {@link #getRectSize} and {@link #getMetrics}.</li>
  * <li>The real display area specifies the part of the display that contains content
  * including the system decorations.  Even so, the real display area may be smaller than the
- * physical size of the display if the window manager is emulating a smaller display
+ * physical size of the display if the window manager is emulating 仿效 a smaller display
  * using (adb shell am display-size).  Use the following methods to query the
  * real display area: {@link #getRealSize}, {@link #getRealMetrics}.</li>
  * </ul>
  * </p><p>
  * A logical display does not necessarily represent a particular physical display device
- * such as the built-in screen or an external monitor.  The contents of a logical
+ * such as the built-in screen or an external monitor 显示屏 .  The contents of a logical
  * display may be presented on one or more physical displays according to the devices
  * that are currently attached and whether mirroring has been enabled.
  * </p>
  */
 public final class Display {
+
     private static final String TAG = "Display";
     private static final boolean DEBUG = false;
 

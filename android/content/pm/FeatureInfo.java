@@ -25,12 +25,12 @@ import android.os.Parcelable;
  * <p>
  * This object is used to represent both features supported by a device and
  * features requested by an app. Apps can request that certain features be
- * available as a prerequisite to being installed through the
+ * available as a prerequisite 先决条件 to being installed through the
  * {@code uses-feature} tag in their manifests.
  * <p>
  * Starting in {@link android.os.Build.VERSION_CODES#N}, features can have a
  * version, which must always be backwards compatible. That is, a device
- * claiming to support version 3 of a specific feature must support apps
+ * claiming 声称 to support version 3 of a specific feature must support apps
  * requesting version 1 of that feature.
  */
 public class FeatureInfo implements Parcelable {

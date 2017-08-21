@@ -44,7 +44,7 @@ package org.xml.sax;
  * import org.xml.sax.*;
  * </pre>
  *
- * <p>In fact, "import ...*" is usually a sign of sloppy programming
+ * <p>In fact, "import ...*" is usually a sign of sloppy 粗心的 programming
  * anyway, so the user should consider this a feature rather than a
  * bug.</p>
  *
@@ -73,7 +73,7 @@ public interface ContentHandler
      * use this information for reporting its own errors (such as
      * character content that does not match an application's
      * business rules).  The information returned by the locator
-     * is probably not sufficient for use with a search engine.</p>
+     * is probably not sufficient 充分的 for use with a search engine.</p>
      *
      * <p>Note that the locator will return correct information only
      * during the invocation SAX event callbacks after
@@ -106,18 +106,18 @@ public interface ContentHandler
     /**
      * Receive notification of the end of a document.
      *
-     * <p><strong>There is an apparent contradiction between the
+     * <p><strong>There is an apparent 显然的 表面上的 contradiction 矛盾 between the
      * documentation for this method and the documentation for {@link
-     * org.xml.sax.ErrorHandler#fatalError}.  Until this ambiguity is
+     * org.xml.sax.ErrorHandler#fatalError}.  Until this ambiguity 含糊 is
      * resolved in a future major release, clients should make no
-     * assumptions about whether endDocument() will or will not be
+     * assumptions 假定 about whether endDocument() will or will not be
      * invoked when the parser has reported a fatalError() or thrown
      * an exception.</strong></p>
      *
      * <p>The SAX parser will invoke this method only once, and it will
      * be the last method invoked during the parse.  The parser shall
-     * not invoke this method until it has either abandoned parsing
-     * (because of an unrecoverable error) or reached the end of
+     * not invoke this method until it has either abandoned 被抛弃的 parsing
+     * (because of an unrecoverable 不可恢复的 error) or reached the end of
      * input.</p>
      *
      * @throws org.xml.sax.SAXException any SAX exception, possibly
@@ -288,8 +288,8 @@ public interface ContentHandler
     /**
      * Receive notification of character data.
      *
-     * <p>The Parser will call this method to report each chunk of
-     * character data.  SAX parsers may return all contiguous character
+     * <p>The Parser will call this method to report each chunk 大块 of
+     * character data.  SAX parsers may return all contiguous 连续的 character
      * data in a single chunk, or they may split it into several
      * chunks; however, all of the characters in any single event
      * must come from the same external entity so that the Locator
@@ -298,22 +298,22 @@ public interface ContentHandler
      * <p>The application must not attempt to read from the array
      * outside of the specified range.</p>
      *
-     * <p>Individual characters may consist of more than one Java
+     * <p>Individual 个体 characters may consist of more than one Java
      * <code>char</code> value.  There are two important cases where this
      * happens, because characters can't be represented in just sixteen bits.
      * In one case, characters are represented in a <em>Surrogate Pair</em>,
      * using two special Unicode values. Such characters are in the so-called
      * "Astral Planes", with a code point above U+FFFF.  A second case involves
      * composite characters, such as a base character combining with one or
-     * more accent characters. </p>
+     * more accent 口音 characters. </p>
      *
      * <p> Your code should not assume that algorithms using
      * <code>char</code>-at-a-time idioms will be working in character
      * units; in some cases they will split characters.  This is relevant
      * wherever XML permits arbitrary characters, such as attribute values,
      * processing instruction data, and comments as well as in data reported
-     * from this method.  It's also generally relevant whenever Java code
-     * manipulates internationalized text; the issue isn't unique to XML.</p>
+     * from this method.  It's also generally relevant 相关的 whenever Java code
+     * manipulates 操纵 internationalized text; the issue isn't unique to XML.</p>
      *
      * <p>Note that some parsers will report whitespace in element
      * content using the {@link #ignorableWhitespace ignorableWhitespace}
@@ -341,7 +341,7 @@ public interface ContentHandler
      * use this method if they are capable of parsing and using
      * content models.</p>
      *
-     * <p>SAX parsers may return all contiguous whitespace in a single
+     * <p>SAX parsers may return all contiguous 连续的 whitespace in a single
      * chunk, or they may split it into several chunks; however, all of
      * the characters in any single event must come from the same
      * external entity, so that the Locator provides useful
@@ -391,7 +391,7 @@ public interface ContentHandler
      * Receive notification of a skipped entity.
      * This is not called for entity references within markup constructs
      * such as element start tags or markup declarations.  (The XML
-     * recommendation requires reporting skipped external entities.
+     * recommendation 建议 requires reporting skipped external entities.
      * SAX also reports internal entity expansion/non-expansion, except
      * within markup constructs.)
      *

@@ -23,8 +23,7 @@ import libcore.util.EmptyArray;
 
 import java.lang.reflect.Array;
 
-/* package */ abstract class SpannableStringInternal
-{
+/* package */ abstract class SpannableStringInternal {
     /* package */ SpannableStringInternal(CharSequence source,
                                           int start, int end) {
         if (start == 0 && end == source.length())
@@ -47,9 +46,9 @@ import java.lang.reflect.Array;
     /**
      * Copies another {@link Spanned} object's spans between [start, end] into this object.
      *
-     * @param src Source object to copy from.
+     * @param src   Source object to copy from.
      * @param start Start index in the source object.
-     * @param end End index in the source object.
+     * @param end   End index in the source object.
      */
     private final void copySpans(Spanned src, int start, int end) {
         Object[] spans = src.getSpans(start, end, Object.class);
@@ -72,9 +71,9 @@ import java.lang.reflect.Array;
      * Copies a {@link SpannableStringInternal} object's spans between [start, end] into this
      * object.
      *
-     * @param src Source object to copy from.
+     * @param src   Source object to copy from.
      * @param start Start index in the source object.
-     * @param end End index in the source object.
+     * @param end   End index in the source object.
      */
     private final void copySpans(SpannableStringInternal src, int start, int end) {
         if (start == 0 && end == src.length()) {
@@ -160,7 +159,7 @@ import java.lang.reflect.Array;
                 if (c != '\n')
                     throw new RuntimeException(
                             "PARAGRAPH span must start at paragraph boundary" +
-                            " (" + start + " follows " + c + ")");
+                                    " (" + start + " follows " + c + ")");
             }
 
             if (end != 0 && end != length()) {
@@ -169,7 +168,7 @@ import java.lang.reflect.Array;
                 if (c != '\n')
                     throw new RuntimeException(
                             "PARAGRAPH span must end at paragraph boundary" +
-                            " (" + end + " follows " + c + ")");
+                                    " (" + end + " follows " + c + ")");
             }
         }
 
@@ -227,7 +226,7 @@ import java.lang.reflect.Array;
 
                 System.arraycopy(spans, i + 1, spans, i, c);
                 System.arraycopy(data, (i + 1) * COLUMNS,
-                                 data, i * COLUMNS, c * COLUMNS);
+                        data, i * COLUMNS, c * COLUMNS);
 
                 mSpanCount--;
 
@@ -276,7 +275,7 @@ import java.lang.reflect.Array;
             }
         }
 
-        return 0; 
+        return 0;
     }
 
     public <T> T[] getSpans(int queryStart, int queryEnd, Class<T> kind) {
@@ -402,7 +401,7 @@ import java.lang.reflect.Array;
 
     private void sendSpanChanged(Object what, int s, int e, int st, int en) {
         SpanWatcher[] recip = getSpans(Math.min(s, st), Math.max(e, en),
-                                       SpanWatcher.class);
+                SpanWatcher.class);
         int n = recip.length;
 
         for (int i = 0; i < n; i++) {
@@ -417,22 +416,22 @@ import java.lang.reflect.Array;
     private void checkRange(final String operation, int start, int end) {
         if (end < start) {
             throw new IndexOutOfBoundsException(operation + " " +
-                                                region(start, end) +
-                                                " has end before start");
+                    region(start, end) +
+                    " has end before start");
         }
 
         int len = length();
 
         if (start > len || end > len) {
             throw new IndexOutOfBoundsException(operation + " " +
-                                                region(start, end) +
-                                                " ends beyond length " + len);
+                    region(start, end) +
+                    " ends beyond length " + len);
         }
 
         if (start < 0 || end < 0) {
             throw new IndexOutOfBoundsException(operation + " " +
-                                                region(start, end) +
-                                                " starts before 0");
+                    region(start, end) +
+                    " starts before 0");
         }
     }
 

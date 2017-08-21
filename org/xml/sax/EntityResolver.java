@@ -24,7 +24,7 @@ import java.io.IOException;
  * {@link org.xml.sax.XMLReader#setEntityResolver setEntityResolver}
  * method.</p>
  *
- * <p>The XML reader will then allow the application to intercept any
+ * <p>The XML reader will then allow the application to intercept 拦截 any
  * external entities (including the external DTD subset and external
  * parameter entities, if any) before including them.</p>
  *
@@ -57,7 +57,7 @@ import java.io.IOException;
  * </pre>
  *
  * <p>The application can also use this interface to redirect system
- * identifiers to local URIs or to look up replacements in a catalog
+ * identifiers to local URIs or to look up 查阅 replacements in a catalog 目录
  * (possibly by using the public identifier).</p>
  *
  * @since SAX 1.0
@@ -90,7 +90,7 @@ public interface EntityResolver {
      * box).  Neither XML nor SAX specifies a preferred policy for using
      * public or system IDs to resolve resources.  However, SAX specifies
      * how to interpret any InputSource returned by this method, and that
-     * if none is returned, then the system ID will be dereferenced as
+     * if none is returned, then the system ID will be dereferenced 被间接引用的 as
      * a URL.  </p>
      *
      * <p>If the system identifier is a URL, the SAX parser must

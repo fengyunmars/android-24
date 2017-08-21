@@ -22,6 +22,7 @@ import com.android.internal.util.ArrayUtils;
  * @hide
  */
 public class TemporaryBuffer {
+
     public static char[] obtain(int len) {
         char[] buf;
 

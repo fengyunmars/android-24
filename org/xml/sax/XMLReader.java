@@ -14,14 +14,14 @@ import java.io.IOException;
  *
  * <blockquote>
  * <em>This module, both source code and documentation, is in the
- * Public Domain, and comes with <strong>NO WARRANTY</strong>.</em>
+ * Public Domain, and comes with <strong>NO WARRANTY 授权 </strong>.</em>
  * See <a href='http://www.saxproject.org'>http://www.saxproject.org</a>
  * for further information.
  * </blockquote>
  *
- * <p><strong>Note:</strong> despite its name, this interface does
+ * <p><strong>Note:</strong> despite 不管 its name, this interface does
  * <em>not</em> extend the standard Java {@link java.io.Reader Reader}
- * interface, because reading XML is a fundamentally different activity
+ * interface, because reading XML is a fundamentally 根本地 different activity
  * than reading character data.</p>
  *
  * <p>XMLReader is the interface that an XML parser's SAX2 driver must
@@ -37,7 +37,7 @@ import java.io.IOException;
  *
  * <p>This interface replaces the (now deprecated) SAX 1.0 {@link
  * org.xml.sax.Parser Parser} interface.  The XMLReader interface
- * contains two important enhancements over the old Parser
+ * contains two important enhancements 增强 over the old Parser
  * interface (as well as some minor ones):</p>
  *
  * <ol>
@@ -300,7 +300,7 @@ public interface XMLReader
      * Allow an application to register an error event handler.
      *
      * <p>If the application does not register an error handler, all
-     * error events reported by the SAX parser will be silently
+     * error events reported by the SAX parser will be silently 默默地
      * ignored; however, normal processing may not continue.  It is
      * highly recommended that all SAX applications implement an
      * error handler to avoid unexpected bugs.</p>
@@ -333,7 +333,7 @@ public interface XMLReader
     /**
      * Parse an XML document.
      *
-     * <p>The application can use this method to instruct the XML
+     * <p>The application can use this method to instruct 指导 the XML
      * reader to begin parsing an XML document from any valid input
      * source (a character stream, a byte stream, or a URI).</p>
      *

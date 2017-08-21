@@ -174,8 +174,8 @@ public class IntentFilter implements Parcelable {
     public static final int SYSTEM_LOW_PRIORITY = -1000;
 
     /**
-     * The part of a match constant that describes the category of match
-     * that occurred.  May be either {@link #MATCH_CATEGORY_EMPTY},
+     * The part of a match constant that describes the category 种类 of match
+     * that occurred 发生 .  May be either {@link #MATCH_CATEGORY_EMPTY},
      * {@link #MATCH_CATEGORY_SCHEME}, {@link #MATCH_CATEGORY_SCHEME_SPECIFIC_PART},
      * {@link #MATCH_CATEGORY_HOST}, {@link #MATCH_CATEGORY_PORT},
      * {@link #MATCH_CATEGORY_PATH}, or {@link #MATCH_CATEGORY_TYPE}.  Higher

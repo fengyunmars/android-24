@@ -64,16 +64,16 @@ import sun.util.locale.ParseStatus;
 import sun.util.locale.UnicodeLocaleExtension;
 
 /**
- * A <code>Locale</code> object represents a specific geographical, political,
+ * A <code>Locale</code> object represents a specific geographical 地理的 , political 政治的 ,
  * or cultural region. An operation that requires a <code>Locale</code> to perform
  * its task is called <em>locale-sensitive</em> and uses the <code>Locale</code>
- * to tailor information for the user. For example, displaying a number
+ * to tailor 剪裁 information for the user. For example, displaying a number
  * is a locale-sensitive operation&mdash; the number should be formatted
  * according to the customs and conventions of the user's native country,
  * region, or culture.
  *
- * <p> The <code>Locale</code> class implements identifiers
- * interchangeable with BCP 47 (IETF BCP 47, "Tags for Identifying
+ * <p> The <code>Locale</code> class implements identifiers 标识符
+ * interchangeable 可交换的 with BCP 47 (IETF BCP 47, "Tags for Identifying
  * Languages"), with support for the LDML (UTS#35, "Unicode Locale
  * Data Markup Language") BCP 47-compatible extensions for locale data
  * exchange.
@@ -85,12 +85,12 @@ import sun.util.locale.UnicodeLocaleExtension;
  *   <dt><a name="def_language"></a><b>language</b></dt>
  *
  *   <dd>ISO 639 alpha-2 or alpha-3 language code, or registered
- *   language subtags up to 8 alpha letters (for future enhancements).
+ *   language subtags up to 8 alpha letters (for future enhancements 增强 ).
  *   When a language has both an alpha-2 code and an alpha-3 code, the
  *   alpha-2 code must be used.  You can find a full list of valid
  *   language codes in the IANA Language Subtag Registry (search for
  *   "Type: language").  The language field is case insensitive, but
- *   <code>Locale</code> always canonicalizes to lower case.</dd><br>
+ *   <code>Locale</code> always canonicalizes 规范化转换 to lower case.</dd><br>
  *
  *   <dd>Well-formed language values have the form
  *   <code>[a-zA-Z]{2,8}</code>.  Note that this is not the the full
@@ -98,7 +98,7 @@ import sun.util.locale.UnicodeLocaleExtension;
  *   not needed since modern three-letter language codes replace
  *   them.</dd><br>
  *
- *   <dd>Example: "en" (English), "ja" (Japanese), "kok" (Konkani)</dd><br>
+ *   <dd>Example: "en" (English), "ja" (Japanese), "kok" (Konkani) 孔卡尼语 </dd><br>
  *
  *   <dt><a name="def_script"/></a><b>script</b></dt>
  *
@@ -112,7 +112,7 @@ import sun.util.locale.UnicodeLocaleExtension;
  *   <dd>Well-formed script values have the form
  *   <code>[a-zA-Z]{4}</code></dd><br>
  *
- *   <dd>Example: "Latn" (Latin), "Cyrl" (Cyrillic)</dd><br>
+ *   <dd>Example: "Latn" (Latin), "Cyrl" (Cyrillic 斯拉夫字母 )</dd><br>
  *
  *   <dt><a name="def_region"></a><b>country (region)</b></dt>
  *
@@ -126,7 +126,7 @@ import sun.util.locale.UnicodeLocaleExtension;
  *   the form <code>[a-zA-Z]{2} | [0-9]{3}</code></dd><br>
  *
  *   <dd>Example: "US" (United States), "FR" (France), "029"
- *   (Caribbean)</dd><br>
+ *   (Caribbean 加勒比海 )</dd><br>
  *
  *   <dt><a name="def_variant"></a><b>variant</b></dt>
  *
@@ -138,7 +138,7 @@ import sun.util.locale.UnicodeLocaleExtension;
  *
  *   <dd>Note: IETF BCP 47 places syntactic restrictions on variant
  *   subtags.  Also BCP 47 subtags are strictly used to indicate
- *   additional variations that define a language or its dialects that
+ *   additional variations that define a language or its dialects 方言 that
  *   are not covered by any combinations of language, script and
  *   region subtags.  You can find a full list of valid variant codes
  *   in the IANA Language Subtag Registry (search for "Type: variant").
@@ -155,7 +155,7 @@ import sun.util.locale.UnicodeLocaleExtension;
  *   <dd>Well-formed variant values have the form <code>SUBTAG
  *   (('_'|'-') SUBTAG)*</code> where <code>SUBTAG =
  *   [0-9][0-9a-zA-Z]{3} | [0-9a-zA-Z]{5,8}</code>. (Note: BCP 47 only
- *   uses hyphen ('-') as a delimiter, this is more lenient).</dd><br>
+ *   uses hyphen 连字号 ('-') as a delimiter 定界符 , this is more lenient 宽大的 ).</dd><br>
  *
  *   <dd>Example: "polyton" (Polytonic Greek), "POSIX"</dd><br>
  *
@@ -190,7 +190,7 @@ import sun.util.locale.UnicodeLocaleExtension;
  * <h4><a name="def_locale_extension"></a>Unicode locale/language extension</h4>
  *
  * <p>UTS#35, "Unicode Locale Data Markup Language" defines optional
- * attributes and keywords to override or refine the default behavior
+ * attributes and keywords to override or refine 精炼 the default behavior
  * associated with a locale.  A keyword is represented by a pair of
  * key and type.  For example, "nu-thai" indicates that Thai local
  * digits (value:"thai") should be used for formatting numbers

@@ -39,9 +39,9 @@ public class ScrollBarDrawable extends Drawable implements Drawable.Callback {
     private Drawable mVerticalThumb; // 拇指
     private Drawable mHorizontalThumb;
 
-    private int mRange;
-    private int mOffset;
-    private int mExtent; // 长度
+    private int mRange;  // 代表滾動條從頭至尾滾動過程中所跨越的範圍有多大，比如你想用滾動條來標示一萬行代碼，那range就可以設置10000
+    private int mOffset; // 代表滾動條當前的偏移量，或者是可視的第一行在整個滾動跨度的什麼位置，比如當前已經滾動到600行了，那offset就是600
+    private int mExtent; // 代表顯示滾動條的視圖View在屏幕上的可視高度或寬度，比如200dp
 
     private boolean mVertical;
     private boolean mBoundsChanged;
@@ -279,6 +279,7 @@ public class ScrollBarDrawable extends Drawable implements Drawable.Callback {
             }
         }
     }
+
 
     public int getSize(boolean vertical) {
         if (vertical) {

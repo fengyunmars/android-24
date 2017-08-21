@@ -8,6 +8,7 @@ package org.xml.sax;
 
 
 /**
+ * Simple API for XML
  * Interface for a list of XML attributes.
  *
  * <blockquote>
@@ -32,17 +33,17 @@ package org.xml.sax;
  * the <code>http://xml.org/sax/features/namespace-prefixes</code>
  * feature is set to <var>true</var> (it is <var>false</var> by
  * default).
- * Because SAX2 conforms to the original "Namespaces in XML"
+ * Because SAX2 conforms 符合 to the original "Namespaces in XML"
  * recommendation, it normally does not
  * give namespace declaration attributes a namespace URI.
  * </p>
  *
  * <p>Some SAX2 parsers may support using an optional feature flag
  * (<code>http://xml.org/sax/features/xmlns-uris</code>) to request
- * that those attributes be given URIs, conforming to a later
+ * that those attributes be given URIs, conforming 遵照 to a later
  * backwards-incompatible revision of that recommendation.  (The
  * attribute's "local name" will be the prefix, or "xmlns" when
- * defining a default element namespace.)  For portability, handler
+ * defining a default element namespace.)  For portability 可移植性 , handler
  * code should always resolve that conflict, rather than requiring
  * parsers that can change the setting of that feature flag.  </p>
  *
@@ -66,8 +67,7 @@ package org.xml.sax;
  * @see org.xml.sax.helpers.AttributesImpl
  * @see org.xml.sax.ext.DeclHandler#attributeDecl
  */
-public interface Attributes
-{
+public interface Attributes{
 
 
     ////////////////////////////////////////////////////////////////////
@@ -139,8 +139,8 @@ public interface Attributes
      * return the value "CDATA" as stated in the XML 1.0 Recommendation
      * (clause 3.3.3, "Attribute-Value Normalization").</p>
      *
-     * <p>For an enumerated attribute that is not a notation, the
-     * parser will report the type as "NMTOKEN".</p>
+     * <p>For an enumerated 枚举 attribute that is not a notation, the
+     * parser will report the type as "NMTOKEN" 名称标记 .</p>
      *
      * @param index The attribute index (zero-based).
      * @return The attribute's type as a string, or null if the
@@ -154,8 +154,8 @@ public interface Attributes
      * Look up an attribute's value by index.
      *
      * <p>If the attribute value is a list of tokens (IDREFS,
-     * ENTITIES, or NMTOKENS), the tokens will be concatenated
-     * into a single string with each token separated by a
+     * ENTITIES, or NMTOKENS), the tokens will be concatenated 串级
+     * into a single string with each token 记号 separated by a
      * single space.</p>
      *
      * @param index The attribute index (zero-based).

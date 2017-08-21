@@ -57,7 +57,7 @@ public class PermissionInfo extends PackageItemInfo implements Parcelable {
 
     /**
      * Additional flag for {@link #protectionLevel}, corresponding
-     * to the <code>privileged</code> value of
+     * to the <code>privileged 享有特权的 </code> value of
      * {@link android.R.attr#protectionLevel}.
      */
     public static final int PROTECTION_FLAG_PRIVILEGED = 0x10;

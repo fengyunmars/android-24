@@ -151,7 +151,7 @@ public class ResolveInfo implements Parcelable {
     /**
      * Set to true if the icon cannot be obtained by resource ids alone.
      * It is set to true for ResolveInfos from the managed profile: They need to
-     * have their icon badged, so it cannot be obtained by resource ids alone.
+     * have their icon badged 标记 , so it cannot be obtained by resource ids alone.
      * @hide
      */
     public boolean noResourceId;

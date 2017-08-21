@@ -20,11 +20,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * A Picture records drawing calls (via the canvas returned by beginRecording)
+ * A Picture影片  records drawing calls (via the canvas returned by beginRecording)
  * and can then play them back into Canvas (via {@link Picture#draw(Canvas)} or 
  * {@link Canvas#drawPicture(Picture)}).For most content (e.g. text, lines, rectangles),
  * drawing a sequence from a picture can be faster than the equivalent API
- * calls, since the picture performs its playback without incurring any
+ * calls, since the picture performs its playback without incurring 招致（遭受） any
  * method-call overhead.
  */
 public class Picture {
@@ -114,7 +114,7 @@ public class Picture {
      * <p>
      * Prior to {@link android.os.Build.VERSION_CODES#LOLLIPOP}, this call could
      * have the side effect of changing the matrix and clip of the canvas
-     * if this picture had imbalanced saves/restores.
+     * if this picture had imbalanced 不平衡的 saves/restores.
      *
      * <p>
      * <strong>Note:</strong> This forces the picture to internally call
@@ -188,6 +188,7 @@ public class Picture {
     private static native void nativeDestructor(long nativePicture);
 
     private static class RecordingCanvas extends Canvas {
+
         private final Picture mPicture;
 
         public RecordingCanvas(Picture pict, long nativeCanvas) {

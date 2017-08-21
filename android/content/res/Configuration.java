@@ -61,7 +61,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
     public float fontScale;
 
     /**
-     * IMSI MCC (Mobile Country Code), corresponding to
+     * IMSI 国际移动用户识别码（International Mobile Subscriber Identity）MCC (Mobile Country Code), corresponding to
      * <a href="{@docRoot}guide/topics/resources/providing-resources.html#MccQualifier">mcc</a>
      * resource qualifier.  0 if undefined.
      */
@@ -90,7 +90,8 @@ public final class Configuration implements Parcelable, Comparable<Configuration
      * {@link #setLocales(LocaleList)}. If only the primary locale is needed,
      * <code>getLocales().get(0)</code> is now the preferred accessor.
      */
-    @Deprecated public Locale locale;
+    @Deprecated
+    public Locale locale;
 
     private LocaleList mLocaleList;
 
@@ -244,7 +245,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         boolean screenLayoutLong;
         boolean screenLayoutCompatNeeded;
 
-        // These semi-magic numbers define our compatibility modes for
+        // These semi-magic半挂车  戏法 numbers define our compatibility modes for
         // applications with different screens.  These are guarantees to
         // app developers about the space they can expect for a particular
         // configuration.  DO NOT CHANGE!
@@ -544,7 +545,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
     public static final int UI_MODE_TYPE_TELEVISION = 0x04;
     /** Constant for {@link #uiMode}: a {@link #UI_MODE_TYPE_MASK}
      * value that corresponds to the
-     * <a href="{@docRoot}guide/topics/resources/providing-resources.html#UiModeQualifier">appliance</a>
+     * <a href="{@docRoot}guide/topics/resources/providing-resources.html#UiModeQualifier">appliance 装置 </a>
      * resource qualifier. */
     public static final int UI_MODE_TYPE_APPLIANCE = 0x05;
     /** Constant for {@link #uiMode}: a {@link #UI_MODE_TYPE_MASK}
@@ -1221,7 +1222,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
      */
     public boolean isOtherSeqNewer(Configuration other) {
         if (other == null) {
-            // Sanity check.
+            // Sanity 明智 check.
             return false;
         }
         if (other.seq == 0) {
@@ -1231,7 +1232,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         }
         if (seq == 0) {
             // If this sequence is not specified, then we also consider the
-            // other is better.  Yes we have a preference for other.  Sue us.
+            // other is better.  Yes we have a preference for other.  Sue 请求 us.
             return true;
         }
         int diff = other.seq - seq;
@@ -1807,7 +1808,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
      * Generate a delta Configuration between <code>base</code> and <code>change</code>. The
      * resulting delta can be used with {@link #updateFrom(Configuration)}.
      * <p />
-     * Caveat: If the any of the Configuration's members becomes undefined, then
+     * Caveat 警告 : If the any of the Configuration's members becomes undefined, then
      * {@link #updateFrom(Configuration)} will treat it as a no-op and not update that member.
      *
      * This is fine for device configurations as no member is ever undefined.

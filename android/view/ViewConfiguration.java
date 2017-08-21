@@ -64,7 +64,7 @@ public class ViewConfiguration {
     private static final int DEFAULT_LONG_PRESS_TIMEOUT = 500;
 
     /**
-     * Defines the time between successive key repeats in milliseconds.
+     * Defines the time between successive 连续的 key repeats in milliseconds.
      */
     private static final int KEY_REPEAT_DELAY = 50;
 
@@ -129,14 +129,14 @@ public class ViewConfiguration {
     private static final int EDGE_SLOP = 12;
 
     /**
-     * Distance a touch can wander before we think the user is scrolling in dips.
-     * Note that this value defined here is only used as a fallback by legacy/misbehaving
+     * Distance a touch can wander 徘徊 before we think the user is scrolling in dips.
+     * Note that this value defined here is only used as a fallback by legacy/misbehaving 行为不礼貌
      * applications that do not provide a Context for determining density/configuration-dependent
      * values.
      *
      * To alter this value, see the configuration resource config_viewConfigurationTouchSlop
      * in frameworks/base/core/res/res/values/config.xml or the appropriate device resource overlay.
-     * It may be appropriate to tweak this on a device-specific basis in an overlay based on
+     * It may be appropriate 合适的 to tweak 扭 this on a device-specific basis in an overlay based on
      * the characteristics of the touch panel and firmware.
      */
     private static final int TOUCH_SLOP = 8;
@@ -183,9 +183,9 @@ public class ViewConfiguration {
     private static final int MAXIMUM_FLING_VELOCITY = 8000;
 
     /**
-     * Delay before dispatching a recurring accessibility event in milliseconds.
+     * Delay before dispatching a recurring 循环的 accessibility event in milliseconds.
      * This delay guarantees that a recurring event will be send at most once
-     * during the {@link #SEND_RECURRING_ACCESSIBILITY_EVENTS_INTERVAL_MILLIS} time
+     * during the {@link #SEND_RECURRING_ACCESSIBILITY_EVENTS_INTERVAL_MILLIS} 间距 time
      * frame.
      */
     private static final long SEND_RECURRING_ACCESSIBILITY_EVENTS_INTERVAL_MILLIS = 100;
@@ -198,7 +198,7 @@ public class ViewConfiguration {
     private static final int MAXIMUM_DRAWING_CACHE_SIZE = 480 * 800 * 4; // ARGB8888
 
     /**
-     * The coefficient of friction applied to flings/scrolls.
+     * The coefficient 系数 of friction 摩擦 applied to flings/scrolls.
      */
     private static final float SCROLL_FRICTION = 0.015f;
 
@@ -221,7 +221,7 @@ public class ViewConfiguration {
      * Configuration values for overriding {@link #hasPermanentMenuKey()} behavior.
      * These constants must match the definition in res/values/config.xml.
      */
-    private static final int HAS_PERMANENT_MENU_KEY_AUTODETECT = 0;
+    private static final int HAS_PERMANENT_MENU_KEY_AUTODETECT = 0; // 永久的
     private static final int HAS_PERMANENT_MENU_KEY_TRUE = 1;
     private static final int HAS_PERMANENT_MENU_KEY_FALSE = 2;
 
@@ -238,7 +238,7 @@ public class ViewConfiguration {
     private final int mMaximumDrawingCacheSize;
     private final int mOverscrollDistance;
     private final int mOverflingDistance;
-    private final boolean mFadingMarqueeEnabled;
+    private final boolean mFadingMarqueeEnabled; // 选取框
     private final long mGlobalActionsKeyTimeout;
 
     private boolean sHasPermanentMenuKey;

@@ -78,7 +78,7 @@ public class CompatibilityInfo implements Parcelable {
     private static final int NEEDS_SCREEN_COMPAT = 8;
 
     /**
-     * The effective screen density we have selected for this application.
+     * The effective 起作用的 screen density we have selected for this application.
      */
     public final int applicationDensity;
     
@@ -88,7 +88,7 @@ public class CompatibilityInfo implements Parcelable {
     public final float applicationScale;
 
     /**
-     * Application's inverted scale.
+     * Application's inverted 倒转的 scale.
      */
     public final float applicationInvertedScale;
 

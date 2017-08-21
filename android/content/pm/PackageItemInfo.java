@@ -41,10 +41,11 @@ import java.util.Comparator;
  * a label, icon, and meta-data.  This class is not intended
  * to be used by itself; it is simply here to share common definitions
  * between all items returned by the package manager.  As such, it does not
- * itself implement Parcelable, but does provide convenience methods to assist
+ * itself implement Parcelable, but does provide convenience methods to assist 帮助
  * in the implementation of Parcelable in subclasses.
  */
 public class PackageItemInfo {
+
     private static final float MAX_LABEL_SIZE_PX = 500f;
     /**
      * Public name of this item. From the "android:name" attribute.
@@ -77,7 +78,7 @@ public class PackageItemInfo {
     
     /**
      * A drawable resource identifier (in the package's resources) of this
-     * component's banner.  From the "banner" attribute or, if not set, 0.
+     * component's banner.  From the "banner" 横幅,标语 attribute or, if not set, 0.
      */
     public int banner;
 
@@ -151,9 +152,9 @@ public class PackageItemInfo {
      * Same as {@link #loadLabel(PackageManager)} with the addition that
      * the returned label is safe for being presented in the UI since it
      * will not contain new lines and the length will be limited to a
-     * reasonable amount. This prevents a malicious party to influence UI
-     * layout via the app label misleading the user into performing a
-     * detrimental for them action. If the label is too long it will be
+     * reasonable amount. This prevents a malicious 恶意的 party 当事人  to influence 影响 UI
+     * layout via the app label misleading 把…引入歧途 the user into performing a
+     * detrimental 有害的 for them action. If the label is too long it will be
      * truncated and ellipsized at the end.
      *
      * @param pm A PackageManager from which the label can be loaded; usually
@@ -221,7 +222,7 @@ public class PackageItemInfo {
 
     /**
      * Retrieve the current graphical icon associated with this item without
-     * the addition of a work badge if applicable.
+     * the addition of a work badge 徽章 if applicable 可应用的 .
      * This will call back on the given PackageManager to load the icon from
      * the application.
      *

@@ -222,7 +222,7 @@ public class Html {
     /**
      * Returns displayable styled text from the provided HTML string. Any &lt;img&gt; tags in the
      * HTML will use the specified ImageGetter to request a representation of the image (use null
-     * if you don't want this) and the specified TagHandler to handle unknown tags (specify null if
+     * if you don't want this) and the specified TagHandler to handle unknown tags (specify  指定 null if
      * you don't want this).
      *
      * <p>This uses TagSoup to handle real HTML, including all of the brokenness 破碎 found in the wild.
@@ -254,7 +254,7 @@ public class Html {
     }
 
     /**
-     * Returns an HTML representation of the provided Spanned text. A best effort is
+     * Returns an HTML representation of the provided Spanned text. A best effort 努力 is
      * made to add HTML tags corresponding to spans. Also note that HTML metacharacters
      * (such as "&lt;" and "&amp;") within the input text are escaped.
      *

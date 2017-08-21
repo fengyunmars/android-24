@@ -50,7 +50,7 @@ public class PackageInfo implements Parcelable {
     public String versionName;
 
     /**
-     * The revision number of the base APK for this package, as specified by the
+     * The revision 修正 number of the base APK for this package, as specified by the
      * &lt;manifest&gt; tag's
      * {@link android.R.styleable#AndroidManifest_revisionCode revisionCode}
      * attribute.
@@ -373,8 +373,8 @@ public class PackageInfo implements Parcelable {
         requiredAccountType = source.readString();
         overlayTarget = source.readString();
 
-        // The component lists were flattened with the redundant ApplicationInfo
-        // instances omitted.  Distribute the canonical one here as appropriate.
+        // The component lists were flattened with the redundant flattened . ApplicationInfo
+        // instances omitted.  Distribute 分配 the canonical 权威的 one here as appropriate.
         if (applicationInfo != null) {
             propagateApplicationInfo(applicationInfo, activities);
             propagateApplicationInfo(applicationInfo, receivers);

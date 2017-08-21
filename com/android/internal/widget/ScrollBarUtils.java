@@ -28,6 +28,7 @@ public class ScrollBarUtils {
         return length;
     }
 
+    //// TODO: 2017/8/15 why
     public static int getThumbOffset(int size, int thumbLength, int extent, int range, int offset) {
         // Avoid the too-big thumb.
         int thumbOffset = Math.round((float) (size - thumbLength) * offset / (range - extent));

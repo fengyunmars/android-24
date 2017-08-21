@@ -67,6 +67,7 @@ import java.util.List;
  * You can find this class through {@link Context#getPackageManager}.
  */
 public abstract class PackageManager {
+
     private static final String TAG = "PackageManager";
 
     /** {@hide} */
@@ -101,10 +102,10 @@ public abstract class PackageManager {
     }
 
     /**
-     * As a guiding principle:
+     * As a guiding 指导 principle 原则 :
      * <p>
      * {@code GET_} flags are used to request additional data that may have been
-     * elided to save wire space.
+     * elided 省略 to save wire 电线 space.
      * <p>
      * {@code MATCH_} flags are used to include components or packages that
      * would have otherwise been omitted from a result set by current system
@@ -350,7 +351,7 @@ public abstract class PackageManager {
     /**
      * Resolution and querying flag: if set, only filters that support the
      * {@link android.content.Intent#CATEGORY_DEFAULT} will be considered for
-     * matching.  This is a synonym for including the CATEGORY_DEFAULT in your
+     * matching.  This is a synonym 同义词 for including the CATEGORY_DEFAULT in your
      * supplied Intent.
      */
     public static final int MATCH_DEFAULT_ONLY  = 0x00010000;
@@ -417,7 +418,7 @@ public abstract class PackageManager {
 
     /**
      * Internal {@link PackageInfo} flag: include only components on the system image.
-     * This will not return information on any unbundled update to system components.
+     * This will not return information on any unbundled 非捆绑的 update to system components.
      * @hide
      */
     public static final int MATCH_FACTORY_ONLY = 0x00200000;
@@ -655,11 +656,11 @@ public abstract class PackageManager {
     public static final int INSTALL_GRANT_RUNTIME_PERMISSIONS = 0x00000100;
 
     /** {@hide} */
-    public static final int INSTALL_FORCE_VOLUME_UUID = 0x00000200;
+    public static final int INSTALL_FORCE_VOLUME_UUID = 0x00000200;  // 通用唯一标识符（Universally Unique Identifier）
 
     /**
      * Flag parameter for {@link #installPackage} to indicate that we always want to force
-     * the prompt for permission approval. This overrides any special behaviour for internal
+     * the prompt 提示 for permission approval 批准 . This overrides any special behaviour for internal
      * components.
      *
      * @hide
@@ -668,7 +669,7 @@ public abstract class PackageManager {
 
     /**
      * Flag parameter for {@link #installPackage} to indicate that this package is
-     * to be installed as a lightweight "ephemeral" app.
+     * to be installed as a lightweight "ephemeral 短暂的 " app.
      *
      * @hide
      */
@@ -805,7 +806,7 @@ public abstract class PackageManager {
      * @hide
      */
     @SystemApi
-    public static final int INSTALL_FAILED_REPLACE_COULDNT_DELETE = -10;
+    public static final int INSTALL_FAILED_REPLACE_COULDNT_DELETE = -10;  //COULDNT couldnt 不可能
 
     /**
      * Installation return code: this is passed to the
@@ -863,7 +864,7 @@ public abstract class PackageManager {
     /**
      * Installation return code: this is passed to the
      * {@link IPackageInstallObserver} if the package being installed contains
-     * native code, but none that is compatible with the device's CPU_ABI.
+     * native code, but none that is compatible with the device's CPU_ABI. Application Binary Interface
      *
      * @hide
      */
@@ -1012,7 +1013,7 @@ public abstract class PackageManager {
 
     /**
      * Installation parse return code: this is passed to the
-     * {@link IPackageInstallObserver} if the parser found inconsistent
+     * {@link IPackageInstallObserver} if the parser found inconsistent 不一致的；前后矛盾的
      * certificates on the files in the .apk.
      *
      * @hide
@@ -1125,11 +1126,11 @@ public abstract class PackageManager {
     public static final int NO_NATIVE_LIBRARIES = -114;
 
     /** {@hide} */
-    public static final int INSTALL_FAILED_ABORTED = -115;
+    public static final int INSTALL_FAILED_ABORTED = -115; // 流产的；夭折的
 
     /**
-     * Installation failed return code: ephemeral app installs are incompatible with some
-     * other installation flags supplied for the operation; or other circumstances such
+     * Installation failed return code: ephemeral 短暂的 app installs are incompatible with some
+     * other installation flags supplied for the operation; or other circumstances 情况 such
      * as trying to upgrade a system app via an ephemeral install.
      * @hide
      */
@@ -1211,7 +1212,7 @@ public abstract class PackageManager {
     /**
      * Deletion failed return code: this is passed to the
      * {@link IPackageDeleteObserver} if the system failed to delete the package
-     * since the user is restricted.
+     * since the user is restricted. 受限制的
      *
      * @hide
      */
@@ -1331,7 +1332,7 @@ public abstract class PackageManager {
      *
      * @hide
      */
-    public static final int VERIFICATION_ALLOW_WITHOUT_SUFFICIENT = 2;
+    public static final int VERIFICATION_ALLOW_WITHOUT_SUFFICIENT = 2; // sufficient 足够的；充分的
 
     /**
      * Used as the {@code verificationCode} argument for
@@ -1377,7 +1378,7 @@ public abstract class PackageManager {
     /**
      * Used as the {@code status} argument for
      * {@link #updateIntentVerificationStatusAsUser} to indicate that the User
-     * will always be prompted the Intent Disambiguation Dialog if there are two
+     * will always be prompted 提示 the Intent Disambiguation 解疑 Dialog if there are two
      * or more Intent resolved for the IntentFilter's domain(s).
      *
      * @hide
@@ -1409,7 +1410,7 @@ public abstract class PackageManager {
     /**
      * Used as the {@code status} argument for
      * {@link #updateIntentVerificationStatusAsUser} to indicate that this app
-     * should always be considered as an ambiguous candidate for handling the
+     * should always be considered as an ambiguous 引起歧义的 candidate 候选人 for handling the
      * matching Intent even if there are other candidate apps in the "always"
      * state. Put another way: if there are any 'always ask' apps in a set of
      * more than one candidate app, then a disambiguation is *always* presented
@@ -1429,7 +1430,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and {@link #hasSystemFeature}: The device's
-     * audio pipeline is low-latency, more suitable for audio applications sensitive to delays or
+     * audio pipeline is low-latency 低延时 , more suitable for audio applications sensitive to delays or
      * lag in sound input or output.
      */
     @SdkConstant(SdkConstantType.FEATURE)
@@ -1445,7 +1446,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and {@link #hasSystemFeature}:
-     * The device has professional audio level of functionality and performance.
+     * The device has professional 专业的 audio level of functionality and performance.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_AUDIO_PRO = "android.hardware.audio.pro";
@@ -1553,7 +1554,7 @@ public abstract class PackageManager {
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: The device is capable of communicating with
-     * consumer IR devices.
+     * consumer 用户 IR  信息检索（information retrieval） devices.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_CONSUMER_IR = "android.hardware.consumerir";
@@ -1569,15 +1570,15 @@ public abstract class PackageManager {
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: The device has a Global Positioning System
-     * receiver and can report precise location.
+     * receiver and can report precise 精确的 location.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_LOCATION_GPS = "android.hardware.location.gps";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device can report location with coarse
-     * accuracy using a network-based geolocation system.
+     * {@link #hasSystemFeature}: The device can report location with coarse 粗糙的
+     * accuracy 准确性 using a network-based geolocation 定位 system.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_LOCATION_NETWORK = "android.hardware.location.network";
@@ -1601,7 +1602,7 @@ public abstract class PackageManager {
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: The device supports host-
-     * based NFC card emulation.
+     * based NFC card emulation 仿真 .
      *
      * TODO remove when depending apps have moved to new constant.
      * @hide
@@ -1638,8 +1639,8 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature(String, int)}: If this feature is supported, the Vulkan native API
-     * will enumerate at least one {@code VkPhysicalDevice}, and the feature version will indicate
+     * {@link #hasSystemFeature(String, int)}: If this feature is supported, the Vulkan 跨平台的2D和3D绘图应用程序接口 native API
+     * will enumerate 枚举 at least one {@code VkPhysicalDevice}, and the feature version will indicate
      * what level of optional hardware features limits it supports.
      * <p>
      * Level 0 includes the base Vulkan requirements as well as:
@@ -1680,14 +1681,14 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes an accelerometer.
+     * {@link #hasSystemFeature}: The device includes an accelerometer 加速计 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_ACCELEROMETER = "android.hardware.sensor.accelerometer";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a barometer (air
+     * {@link #hasSystemFeature}: The device includes a barometer 气压计 (air
      * pressure sensor.)
      */
     @SdkConstant(SdkConstantType.FEATURE)
@@ -1695,14 +1696,14 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a magnetometer (compass).
+     * {@link #hasSystemFeature}: The device includes a magnetometer  磁力计 (compass).
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_COMPASS = "android.hardware.sensor.compass";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a gyroscope.
+     * {@link #hasSystemFeature}: The device includes a gyroscope 陀螺仪 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_GYROSCOPE = "android.hardware.sensor.gyroscope";
@@ -1716,35 +1717,35 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a proximity sensor.
+     * {@link #hasSystemFeature}: The device includes a proximity sensor 近距离传感器.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_PROXIMITY = "android.hardware.sensor.proximity";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a hardware step counter.
+     * {@link #hasSystemFeature}: The device includes a hardware step counter 步进计数器 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_STEP_COUNTER = "android.hardware.sensor.stepcounter";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a hardware step detector.
+     * {@link #hasSystemFeature}: The device includes a hardware step detector 步测器 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_STEP_DETECTOR = "android.hardware.sensor.stepdetector";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a heart rate monitor.
+     * {@link #hasSystemFeature}: The device includes a heart rate monitor 心率监视器 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_HEART_RATE = "android.hardware.sensor.heartrate";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The heart rate sensor on this device is an Electrocardiogram.
+     * {@link #hasSystemFeature}: The heart rate sensor on this device is an Electrocardiogram 心电图 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_HEART_RATE_ECG =
@@ -1752,7 +1753,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes a relative humidity sensor.
+     * {@link #hasSystemFeature}: The device includes a relative humidity 湿度 sensor.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_RELATIVE_HUMIDITY =
@@ -1760,7 +1761,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device includes an ambient temperature sensor.
+     * {@link #hasSystemFeature}: The device includes an ambient 周围的 temperature 温度 sensor.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SENSOR_AMBIENT_TEMPERATURE =
@@ -1768,7 +1769,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports high fidelity sensor processing
+     * {@link #hasSystemFeature}: The device supports high fidelity 保真度 sensor processing
      * capabilities.
      */
     @SdkConstant(SdkConstantType.FEATURE)
@@ -1777,7 +1778,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device has a telephony radio with data
+     * {@link #hasSystemFeature}: The device has a telephony radio 电话广播 with data
      * communication support.
      */
     @SdkConstant(SdkConstantType.FEATURE)
@@ -1807,7 +1808,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports connecting to USB accessories.
+     * {@link #hasSystemFeature}: The device supports connecting to USB accessories 辅助程序 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_USB_ACCESSORY = "android.hardware.usb.accessory";
@@ -1821,7 +1822,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports SIP-based VOIP.
+     * {@link #hasSystemFeature}: The device supports SIP-based VOIP 互联网协议电话（Voice over Internet Portocol） .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_SIP_VOIP = "android.software.sip.voip";
@@ -1860,7 +1861,7 @@ public abstract class PackageManager {
      * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: The device's touch screen is capable of
      * tracking a full hand of fingers fully independently -- that is, 5 or
-     * more simultaneous independent pointers.
+     * more simultaneous 同时的 independent pointers.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_TOUCHSCREEN_MULTITOUCH_JAZZHAND = "android.hardware.touchscreen.multitouch.jazzhand";
@@ -1911,14 +1912,14 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device has biometric hardware to detect a fingerprint.
+     * {@link #hasSystemFeature}: The device has biometric 计量生物学 hardware to detect a fingerprint.
       */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_FINGERPRINT = "android.hardware.fingerprint";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports portrait orientation
+     * {@link #hasSystemFeature}: The device supports portrait 肖像 orientation
      * screens.  For backwards compatibility, you can assume that if neither
      * this nor {@link #FEATURE_SCREEN_LANDSCAPE} is set then the device supports
      * both portrait and landscape.
@@ -1953,8 +1954,8 @@ public abstract class PackageManager {
      * @hide
      * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: The device supports
-     * {@link android.service.voice.VoiceInteractionService} and
-     * {@link android.app.VoiceInteractor}.
+     * {@link android.service.voice.VoiceInteractionService} 互动 and
+     * {@link android.app.VoiceInteractor} 交互器 .
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_VOICE_RECOGNIZERS = "android.software.voice_recognizers";
@@ -1978,14 +1979,14 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports device policy enforcement via device admins.
+     * {@link #hasSystemFeature}: The device supports device policy enforcement 执行 via device admins.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_DEVICE_ADMIN = "android.software.device_admin";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports leanback UI. This is
+     * {@link #hasSystemFeature}: The device supports leanback  往后靠 UI. This is
      * typically used in a living room television experience, but is a software
      * feature unlike {@link #FEATURE_TELEVISION}. Devices running with this
      * feature will use resources associated with the "television" UI mode.
@@ -2038,14 +2039,14 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: This is a device dedicated to showing UI
-     * on a vehicle headunit. A headunit here is defined to be inside a
+     * {@link #hasSystemFeature}: This is a device dedicated 专用的 to showing UI
+     * on a vehicle 车辆 headunit 音响主机 . A headunit here is defined to be inside a
      * vehicle that may or may not be moving. A headunit uses either a
-     * primary display in the center console and/or additional displays in
-     * the instrument cluster or elsewhere in the vehicle. Headunit display(s)
+     * primary display in the center console 控制台 and/or additional displays in
+     * the instrument 仪器 cluster 簇 or elsewhere in the vehicle. Headunit display(s)
      * have limited size and resolution. The user will likely be focused on
-     * driving so limiting driver distraction is a primary concern. User input
-     * can be a variety of hard buttons, touch, rotary controllers and even mouse-
+     * driving so limiting driver distraction 注意力分散 is a primary concern 关心 . User input
+     * can be a variety of hard buttons, touch, rotary  旋转的 controllers and even mouse-
      * like interfaces.
      */
     @SdkConstant(SdkConstantType.FEATURE)
@@ -2056,7 +2057,7 @@ public abstract class PackageManager {
      * {@link #hasSystemFeature}: This is a device dedicated to showing UI
      * on a television.  Television here is defined to be a typical living
      * room television experience: displayed on a big screen, where the user
-     * is sitting far away from it, and the dominant form of input will be
+     * is sitting far away from it, and the dominant 显性 form of input will be
      * something like a DPAD, not through touch or mouse.
      * @deprecated use {@link #FEATURE_LEANBACK} instead.
      */
@@ -2068,7 +2069,7 @@ public abstract class PackageManager {
      * Feature for {@link #getSystemAvailableFeatures} and
      * {@link #hasSystemFeature}: This is a device dedicated to showing UI
      * on a watch. A watch here is defined to be a device worn on the body, perhaps on
-     * the wrist. The user is very close when interacting with the device.
+     * the wrist 手腕 . The user is very close when interacting with the device.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_WATCH = "android.hardware.type.watch";
@@ -2089,7 +2090,7 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: The device supports freeform window management.
+     * {@link #hasSystemFeature}: The device supports freeform 任意的 window management.
      * Windows have title bars and can be moved and resized.
      */
     // If this feature is present, you also need to set
@@ -2150,14 +2151,14 @@ public abstract class PackageManager {
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: This device supports ethernet.
+     * {@link #hasSystemFeature}: This device supports ethernet 以太网.
      */
     @SdkConstant(SdkConstantType.FEATURE)
     public static final String FEATURE_ETHERNET = "android.hardware.ethernet";
 
     /**
      * Feature for {@link #getSystemAvailableFeatures} and
-     * {@link #hasSystemFeature}: This device supports HDMI-CEC.
+     * {@link #hasSystemFeature}: This device supports HDMI-CEC High-Definition Multimedia Interface - Consumer Electronic Control .
      * @hide
      */
     @SdkConstant(SdkConstantType.FEATURE)
@@ -2181,7 +2182,7 @@ public abstract class PackageManager {
     /**
      * Feature for {@link #getSystemAvailableFeatures} and {@link #hasSystemFeature}:
      * The device implements an optimized mode for virtual reality (VR) applications that handles
-     * stereoscopic rendering of notifications, and disables most monocular system UI components
+     * stereoscopic 立体的 rendering of notifications, and disables most monocular 单眼的 system UI components
      * while a VR application has user focus.
      * Devices declaring this feature must include an application implementing a
      * {@link android.service.vr.VrListenerService} that can be targeted by VR applications via
@@ -2196,11 +2197,11 @@ public abstract class PackageManager {
      * to provide a high-quality VR experience.  In general, devices declaring this feature will
      * additionally:
      * <ul>
-     *   <li>Deliver consistent performance at a high framerate over an extended period of time
+     *   <li>Deliver consistent performance at a high framerate 帧速率 over an extended period of time
      *   for typical VR application CPU/GPU workloads with a minimal number of frame drops for VR
      *   applications that have called
-     *   {@link android.view.Window#setSustainedPerformanceMode}.</li>
-     *   <li>Implement {@link #FEATURE_HIFI_SENSORS} and have a low sensor latency.</li>
+     *   {@link android.view.Window#setSustainedPerformanceMode}.持续的 </li>
+     *   <li>Implement {@link #FEATURE_HIFI_SENSORS} and have a low sensor latency 传感器延迟 .</li>
      *   <li>Include optimizations to lower display persistence while running VR applications.</li>
      *   <li>Implement an optimized render path to minimize latency to draw to the device's main
      *   display.</li>
@@ -2208,7 +2209,7 @@ public abstract class PackageManager {
      *   EGL_ANDROID_front_buffer_auto_refresh, EGL_EXT_protected_content,
      *   EGL_KHR_mutable_render_buffer, EGL_KHR_reusable_sync, and EGL_KHR_wait_sync.</li>
      *   <li>Provide at least one CPU core that is reserved for use solely by the top, foreground
-     *   VR application process for critical render threads while such an application is
+     *   VR application process for critical 临界的 render threads while such an application is
      *   running.</li>
      * </ul>
      */
@@ -2333,7 +2334,7 @@ public abstract class PackageManager {
             = "android.content.pm.extra.INTENT_FILTER_VERIFICATION_PACKAGE_NAME";
 
     /**
-     * The action used to request that the user approve a permission request
+     * The action used to request that the user approve  批准 a permission request
      * from the application.
      *
      * @hide
@@ -2415,7 +2416,7 @@ public abstract class PackageManager {
 
     /**
      * Permission flag: The permission is set in a granted state but
-     * access to resources it guards is restricted by other means to
+     * access to resources it guards 守卫 is restricted by other means to
      * enable revoking a permission on legacy apps that do not support
      * runtime permissions. If this permission is upgraded to runtime
      * because the app was updated to support runtime permissions, the
@@ -2447,7 +2448,7 @@ public abstract class PackageManager {
     public static final int FLAG_PERMISSION_GRANTED_BY_DEFAULT =  1 << 5;
 
     /**
-     * Permission flag: The permission has to be reviewed before any of
+     * Permission flag: The permission has to be reviewed 评估 before any of
      * the app components can run.
      *
      * @hide
@@ -2466,7 +2467,7 @@ public abstract class PackageManager {
     /**
      * This is a library that contains components apps can invoke. For
      * example, a services for apps to bind to, or standard chooser UI,
-     * etc. This library is versioned and backwards compatible. Clients
+     * etc. This library is versioned 解释 and backwards compatible. Clients
      * should check its version via {@link android.ext.services.Version
      * #getVersionCode()} and avoid calling APIs added in later versions.
      *
@@ -2647,7 +2648,7 @@ public abstract class PackageManager {
 
     /**
      * Map from the current package names in use on the device to whatever
-     * the current canonical name of that package is.
+     * the current canonical 权威的 name of that package is.
      * @param names Array of current names to be mapped.
      * @return Returns an array of the same size as the original, containing
      * the canonical name for each package.
@@ -2694,7 +2695,7 @@ public abstract class PackageManager {
     public abstract Intent getLeanbackLaunchIntentForPackage(String packageName);
 
     /**
-     * Return an array of all of the POSIX secondary group IDs that have been
+     * Return an array of all of the POSIX (PortableOperatingSystemforUNIX) 可移植操作系统接口 secondary group IDs that have been
      * assigned to the given package.
      * <p>
      * Note that the same package may have different GIDs under different
@@ -3035,7 +3036,7 @@ public abstract class PackageManager {
      *         to modify the data returned.
      *
      * @return A List of PackageInfo objects, one for each installed package,
-     *         containing information about the package.  In the unlikely case
+     *         containing information about the package.  In the unlikely 不太可能的 case
      *         there are no installed packages, an empty list is returned. If
      *         flag {@code MATCH_UNINSTALLED_PACKAGES} is set, the package
      *         information is retrieved from the list of uninstalled
@@ -3176,9 +3177,9 @@ public abstract class PackageManager {
     public abstract int checkPermission(String permName, String pkgName);
 
     /**
-     * Checks whether a particular permissions has been revoked for a
+     * Checks whether a particular permissions has been revoked 取消的 for a
      * package by policy. Typically the device owner or the profile owner
-     * may apply such a policy. The user cannot grant policy revoked
+     * may apply such a policy. The user cannot grant 允许 policy revoked
      * permissions, hence the only way for an app to get such a permission
      * is by a policy change.
      *
@@ -3210,8 +3211,8 @@ public abstract class PackageManager {
      * matches the name of the permission tree + ".": for example,
      * "com.foo.bar" is a member of the permission tree "com.foo".
      *
-     * <p>It is good to make your permission tree name descriptive, because you
-     * are taking possession of that entire set of permission names.  Thus, it
+     * <p>It is good to make your permission tree name descriptive 描写的 , because you
+     * are taking possession 拥有 of that entire set of permission names.  Thus, it
      * must be under a domain you control, with a suffix that will not match
      * any normal permissions that may be declared in any applications that
      * are part of that domain.
@@ -3245,7 +3246,7 @@ public abstract class PackageManager {
 
     /**
      * Removes a permission that was previously added with
-     * {@link #addPermission(PermissionInfo)}.  The same ownership rules apply
+     * {@link #addPermission(PermissionInfo)}.  The same ownership 所有权 rules apply
      * -- you are only allowed to remove permissions that you are allowed
      * to add.
      *
@@ -3355,10 +3356,10 @@ public abstract class PackageManager {
             @NonNull UserHandle user);
 
     /**
-     * Gets whether you should show UI with rationale for requesting a permission.
+     * Gets whether you should show UI with rationale 合理的 for requesting a permission.
      * You should do this only if you do not have the permission and the context in
      * which the permission is requested does not clearly communicate to the user
-     * what would be the benefit from grating this permission.
+     * what would be the benefit 利益 from grating this permission.
      *
      * @param permission A permission your app wants to request.
      * @return Whether you can show permission rationale UI.
@@ -3413,7 +3414,7 @@ public abstract class PackageManager {
      * Like {@link #checkSignatures(String, String)}, but takes UIDs of
      * the two packages to be checked.  This can be useful, for example,
      * when doing the check in an IPC, where the UID is the only identity
-     * available.  It is functionally identical to determining the package
+     * available.  It is functionally identical 同一的 to determining the package
      * associated with the UIDs and checking their signatures.
      *
      * @param uid1 First UID whose signature will be compared.
@@ -3503,7 +3504,7 @@ public abstract class PackageManager {
     public abstract List<ApplicationInfo> getInstalledApplications(@ApplicationInfoFlags int flags);
 
     /**
-     * Gets the ephemeral applications the user recently used. Requires
+     * Gets the ephemeral 短暂的 applications the user recently used. Requires
      * holding "android.permission.ACCESS_EPHEMERAL_APPS".
      *
      * @return The ephemeral app list.
@@ -4211,7 +4212,7 @@ public abstract class PackageManager {
 
     /**
      * Retrieve all of the information we know about a particular
-     * instrumentation class.
+     * instrumentation 手段 class.
      *
      * @param className The full name (i.e.
      *                  com.google.apps.contacts.InstrumentList) of an
@@ -5397,7 +5398,7 @@ public abstract class PackageManager {
      *                   {@link #COMPONENT_ENABLED_STATE_DISABLED}
      *                   and
      *                   {@link #COMPONENT_ENABLED_STATE_DEFAULT}
-     *                 The last one removes the setting, thereby restoring the applications's state to
+     *                 The last one removes the setting, thereby 因此 restoring the applications's state to
      *                 whatever was set in its manifest (or enabled, by default).
      * @param flags Optional behavior flags: {@link #DONT_KILL_APP} or 0.
      */

@@ -27,7 +27,7 @@ public class PaintFlagsDrawFilter extends DrawFilter {
      */
     public PaintFlagsDrawFilter(int clearBits, int setBits) {
         // our native constructor can return 0, if the specified bits
-        // are effectively a no-op
+        // are effectively 实际上 a no-op
         mNativeInt = nativeConstructor(clearBits, setBits);
     }
     

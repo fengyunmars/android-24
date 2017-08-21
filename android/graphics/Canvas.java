@@ -110,7 +110,7 @@ public class Canvas {
     public Canvas() {
         if (!isHardwareAccelerated()) {
             // 0 means no native bitmap
-            mNativeCanvasWrapper = initRaster(null);
+            mNativeCanvasWrapper = initRaster(null); // 光栅
             mFinalizer = NoImagePreloadHolder.sRegistry.registerNativeAllocation(
                     this, mNativeCanvasWrapper);
         } else {
@@ -120,7 +120,7 @@ public class Canvas {
 
     /**
      * Construct a canvas with the specified bitmap to draw into. The bitmap
-     * must be mutable.
+     * must be mutable 易变的 .
      *
      * <p>The initial target density of the canvas is the same as the given
      * bitmap's density.
@@ -206,15 +206,15 @@ public class Canvas {
         mBitmap = bitmap;
     }
 
-    /** @hide */
+    /** @hide Contrast 对比；差别 */
     public void setHighContrastText(boolean highContrastText) {
         native_setHighContrastText(mNativeCanvasWrapper, highContrastText);
     }
 
-    /** @hide */
+    /** @hide Barrier 界线 */
     public void insertReorderBarrier() {}
 
-    /** @hide */
+    /** @hide Inorder 中序遍历 */
     public void insertInorderBarrier() {}
 
     /**
@@ -306,7 +306,7 @@ public class Canvas {
         return MAXMIMUM_BITMAP_SIZE;
     }
 
-    // the SAVE_FLAG constants must match their native equivalents
+    // the SAVE_FLAG constants must match their native equivalents 等同物
 
     /** @hide */
     @IntDef(flag = true,
@@ -337,12 +337,12 @@ public class Canvas {
     public static final int HAS_ALPHA_LAYER_SAVE_FLAG = 0x04;
 
     /**
-     * The layer requires full 8-bit precision for each color channel.
+     * The layer requires full 8-bit precision 精度 for each color channel.
      */
     public static final int FULL_COLOR_LAYER_SAVE_FLAG = 0x08;
 
     /**
-     * Clip drawing to the bounds of the offscreen layer, omit at your own peril.
+     * Clip drawing to the bounds of the offscreen 画面以外的 layer, omit 省略 at your own peril 危险 .
      * <p class="note"><strong>Note:</strong> it is strongly recommended to not
      * omit this flag for any call to <code>saveLayer()</code> and
      * <code>saveLayerAlpha()</code> variants. Not passing this flag generally
@@ -362,10 +362,10 @@ public class Canvas {
     /**
      * Saves the current matrix and clip onto a private stack.
      * <p>
-     * Subsequent calls to translate,scale,rotate,skew,concat or clipRect,
-     * clipPath will all operate as usual, but when the balancing call to
+     * Subsequent calls to translate,scale,rotate,skew 歪斜 ,concat or clipRect,
+     * clipPath will all operate as usual, but when the balancing 调零装置 call to
      * restore() is made, those calls will be forgotten, and the settings that
-     * existed before the save() will be reinstated.
+     * existed before the save() will be reinstated 恢复 .
      *
      * @return The value to pass to restoreToCount() to balance this save()
      */
@@ -395,9 +395,9 @@ public class Canvas {
 
     /**
      * This behaves the same as save(), but in addition it allocates and
-     * redirects drawing to an offscreen bitmap.
+     * redirects drawing to an offscreen 画面以外的 bitmap.
      * <p class="note"><strong>Note:</strong> this method is very expensive,
-     * incurring more than double rendering cost for contained content. Avoid
+     * incurring 招致 more than double rendering cost for contained content. Avoid
      * using this method, especially if the bounds provided are large, or if
      * the {@link #CLIP_TO_LAYER_SAVE_FLAG} is omitted from the
      * {@code saveFlags} parameter. It is recommended to use a
@@ -405,7 +405,7 @@ public class Canvas {
      * to apply an xfermode, color filter, or alpha, as it will perform much
      * better than this method.
      * <p>
-     * All drawing calls are directed to a newly allocated offscreen bitmap.
+     * All drawing calls are directed 定向的 to a newly allocated offscreen bitmap.
      * Only when the balancing call to restore() is made, is that offscreen
      * buffer drawn back to the current target of the Canvas (either the
      * screen, it's target Bitmap, or the previous layer).
@@ -532,7 +532,7 @@ public class Canvas {
     }
 
     /**
-     * Efficient way to pop any calls to save() that happened after the save
+     * Efficient 有效率的 way to pop any calls to save() that happened after the save
      * count reached saveCount. It is an error for saveCount to be less than 1.
      *
      * Example:
@@ -622,7 +622,8 @@ public class Canvas {
      * @param matrix The matrix to preconcatenate with the current matrix
      */
     public void concat(@Nullable Matrix matrix) {
-        if (matrix != null) native_concat(mNativeCanvasWrapper, matrix.native_instance);
+        if (matrix != null)
+            native_concat(mNativeCanvasWrapper, matrix.native_instance);
     }
 
     /**
@@ -665,7 +666,7 @@ public class Canvas {
      * @deprecated {@link #isHardwareAccelerated() Hardware accelerated} canvases may have any
      * matrix when passed to a View or Drawable, as it is implementation defined where in the
      * hierarchy such canvases are created. It is recommended in such cases to either draw contents
-     * irrespective of the current matrix, or to track relevant transform state outside of the
+     * irrespective 不考虑的 of the current matrix, or to track relevant 有关的 transform state outside of the
      * canvas.
      */
     @Deprecated
@@ -1020,7 +1021,7 @@ public class Canvas {
 
     /**
      * Draw a series of points. Each point is centered at the coordinate
-     * specified by pts[], and its diameter is specified by the paint's stroke
+     * specified by pts[], and its diameter 直径 is specified by the paint's stroke
      * width (as transformed by the canvas' CTM), with special treatment for
      * a stroke width of 0, which always draws exactly 1 pixel (or at most 4
      * if antialiasing is enabled). The shape of the point is controlled by
@@ -1057,9 +1058,9 @@ public class Canvas {
      * Draw a line segment with the specified start and stop x,y coordinates,
      * using the specified paint.
      *
-     * <p>Note that since a line is always "framed", the Style is ignored in the paint.</p>
+     * <p>Note that since a line is always "framed" 加外框 , the Style is ignored in the paint.</p>
      *
-     * <p>Degenerate lines (length is 0) will not be drawn.</p>
+     * <p>Degenerate 堕落的 lines (length is 0) will not be drawn.</p>
      *
      * @param startX The x-coordinate of the start point of the line
      * @param startY The y-coordinate of the start point of the line
@@ -1133,7 +1134,7 @@ public class Canvas {
     }
 
     /**
-     * Draw the specified oval using the specified paint. The oval will be
+     * Draw the specified oval using the specified paint. The oval 椭圆形 will be
      * filled or framed based on the Style in the paint.
      *
      * @param oval The rectangle bounds of the oval to be drawn
@@ -1168,11 +1169,11 @@ public class Canvas {
     }
 
     /**
-     * <p>Draw the specified arc, which will be scaled to fit inside the
+     * <p>Draw the specified arc 圆弧的 , which will be scaled to fit inside the
      * specified oval.</p>
      *
      * <p>If the start angle is negative or >= 360, the start angle is treated
-     * as start angle modulo 360.</p>
+     * as start angle modulo 以…为模 360.</p>
      *
      * <p>If the sweep angle is >= 360, then the oval is drawn
      * completely. Note that this differs slightly from SkPath::arcTo, which
@@ -1187,7 +1188,7 @@ public class Canvas {
      * @param startAngle Starting angle (in degrees) where the arc begins
      * @param sweepAngle Sweep angle (in degrees) measured clockwise
      * @param useCenter If true, include the center of the oval in the arc, and
-                        close it if it is being stroked. This will draw a wedge
+                        close it if it is being stroked. This will draw a wedge 楔子
      * @param paint      The paint used to draw the arc
      */
     public void drawArc(@NonNull RectF oval, float startAngle, float sweepAngle, boolean useCenter,
@@ -1320,9 +1321,9 @@ public class Canvas {
      *
      * <p>Note: if the paint contains a maskfilter that generates a mask which
      * extends beyond the bitmap's original width/height (e.g. BlurMaskFilter),
-     * then the bitmap will be drawn as if it were in a Shader ��ɫ��  with CLAMP mode.
+     * then the bitmap will be drawn as if it were in a Shader 著色器 with CLAMP  夹钳，螺丝钳 mode.
      * Thus the color outside of the original width/height will be the edge
-     * color replicated �ظ��� .
+     * color replicated 重复的 .
      *
      * <p>If the bitmap and canvas have different densities, this function
      * will take care of automatically scaling the bitmap to draw at the
@@ -1352,7 +1353,7 @@ public class Canvas {
      *
      * <p>This function <em>ignores the density associated with the bitmap</em>.
      * This is because the source and destination rectangle coordinate
-     * spaces are in their respective densities, so must already have the
+     * spaces are in their respective 各自的 densities, so must already have the
      * appropriate scaling factor applied.
      *
      * @param bitmap The bitmap to be drawn
@@ -1387,7 +1388,7 @@ public class Canvas {
   }
 
     /**
-     * Draw the specified bitmap, scaling/translating �任  automatically to fill
+     * Draw the specified bitmap, scaling/translating 转换 automatically to fill
      * the destination rectangle. If the source rectangle is not null, it
      * specifies the subset of the bitmap to draw.
      *
@@ -1454,7 +1455,7 @@ public class Canvas {
      *
      * @deprecated Usage with a {@link #isHardwareAccelerated() hardware accelerated} canvas
      * requires an internal copy of color buffer contents every time this method is called. Using a
-     * Bitmap avoids this copy, and allows the application to more explicitly control the lifetime
+     * Bitmap avoids this copy, and allows the application to more explicitly 明确地 control the lifetime
      * and copies of pixel data.
      */
     @Deprecated
@@ -1480,7 +1481,7 @@ public class Canvas {
         if (width == 0 || height == 0) {
             return;
         }
-        // punch down to native for the actual draw
+        // punch down 压下来 to native for the actual draw
         native_drawBitmap(mNativeCanvasWrapper, colors, offset, stride, x, y, width, height, hasAlpha,
                 paint != null ? paint.getNativeInstance() : 0);
     }
@@ -1523,9 +1524,9 @@ public class Canvas {
     }
 
     /**
-     * Draw the bitmap through the mesh, where mesh vertices are evenly
+     * Draw the bitmap through the mesh 网丝 , where mesh vertices 至高点 are evenly 均匀地
      * distributed across the bitmap. There are meshWidth+1 vertices across, and
-     * meshHeight+1 vertices down. The verts array is accessed in row-major
+     * meshHeight+1 vertices down. The verts 绿色 array is accessed in row-major
      * order, so that the first meshWidth+1 vertices are distributed across the
      * top of the bitmap from left to right. A more general version of this
      * method is drawVertices().
@@ -1600,7 +1601,7 @@ public class Canvas {
      * @param mode How to interpret the array of vertices
      * @param vertexCount The number of values in the vertices array (and
      *      corresponding texs and colors arrays if non-null). Each logical
-     *      vertex is two values (x, y), vertexCount must be a multiple of 2.
+     *      vertex is two values (x, y), vertexCount must be a multiple 倍数 of 2.
      * @param verts Array of vertices for the mesh
      * @param vertOffset Number of values in the verts to skip before drawing.
      * @param texs May be null. If not null, specifies the coordinates to sample
@@ -1637,7 +1638,7 @@ public class Canvas {
     }
 
     /**
-     * Draw the text, with origin at (x,y), using the specified paint. The
+     * Draw the text, with origin 原点 at (x,y), using the specified paint. The
      * origin is interpreted based on the Align setting in the paint.
      *
      * @param text  The text to be drawn
@@ -1783,7 +1784,7 @@ public class Canvas {
      * <= text.length} must hold on entry.
      *
      * <p>Also see {@link android.graphics.Paint#getRunAdvance} for a corresponding method to
-     * measure the text; the advance width of the text drawn matches the value obtained from that
+     * measure the text; the advance 前进 width of the text drawn matches the value obtained from that
      * method.
      *
      * @param text the text to render
@@ -1843,9 +1844,9 @@ public class Canvas {
      *                 character
      * @param paint    The paint used for the text (e.g. color, size, style)
      *
-     * @deprecated This method does not support glyph composition and decomposition and
+     * @deprecated This method does not support glyph 图象字符 composition 构成 and decomposition 分解 and
      * should therefore not be used to render complex scripts. It also doesn't
-     * handle supplementary characters (eg emoji).
+     * handle supplementary 补充的 characters (eg emoji).
      */
     @Deprecated
     public void drawPosText(@NonNull char[] text, int index, int count,
