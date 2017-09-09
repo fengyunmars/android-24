@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 /**
- * The algorithm used for finding the next focusable view in a given direction
+ * The algorithm 算法 used for finding the next focusable view in a given direction
  * from a view that currently has focus.
  */
 public class FocusFinder {
@@ -49,7 +49,7 @@ public class FocusFinder {
     final Rect mFocusedRect = new Rect();
     final Rect mOtherRect = new Rect();
     final Rect mBestCandidateRect = new Rect();
-    final SequentialFocusComparator mSequentialFocusComparator = new SequentialFocusComparator();
+    final SequentialFocusComparator mSequentialFocusComparator = new SequentialFocusComparator(); // 连续的
 
     private final ArrayList<View> mTempList = new ArrayList<View>();
 
@@ -206,8 +206,8 @@ public class FocusFinder {
 
     View findNextFocusInAbsoluteDirection(ArrayList<View> focusables, ViewGroup root, View focused,
             Rect focusedRect, int direction) {
-        // initialize the best candidate to something impossible
-        // (so the first plausible view will become the best choice)
+        // initialize the best candidate 候选人 to something impossible
+        // (so the first plausible 似是而非的 似合理的 似乎可信的 view will become the best choice)
         mBestCandidateRect.set(focusedRect);
         switch(direction) {
             case View.FOCUS_LEFT:
@@ -272,7 +272,7 @@ public class FocusFinder {
 
     /**
      * Is rect1 a better candidate than rect2 for a focus search in a particular
-     * direction from a source rect?  This is the core routine that determines
+     * direction from a source rect?  This is the core routine 程序 that determines
      * the order of focus searching.
      * @param direction the direction (up, down, left, right)
      * @param source The source we are searching from
@@ -304,7 +304,7 @@ public class FocusFinder {
             return false;
         }
 
-        // otherwise, do fudge-tastic comparison of the major and minor axis
+        // otherwise, do fudge-tastic 胡说 精彩的 comparison of the major and minor axis
         return (getWeightedDistanceFor(
                         majorAxisDistance(direction, source, rect1),
                         minorAxisDistance(direction, source, rect1))
@@ -314,16 +314,17 @@ public class FocusFinder {
     }
 
     /**
-     * One rectangle may be another candidate than another by virtue of being
-     * exclusively in the beam of the source rect.
+     * One rectangle may be another candidate than another by virtue . 美德；优点；贞操；功效 of being
+     * exclusively 唯一地；专有地；排外地 in the beam of the source rect.
      * @return Whether rect1 is a better candidate than rect2 by virtue of it being in src's
      *      beam
      */
     boolean beamBeats(int direction, Rect source, Rect rect1, Rect rect2) {
         final boolean rect1InSrcBeam = beamsOverlap(direction, source, rect1);
         final boolean rect2InSrcBeam = beamsOverlap(direction, source, rect2);
-
-        // if rect1 isn't exclusively in the src beam, it doesn't win
+        
+        //// TODO: 2017/8/29  
+        // if rect1 isn't exclusively  唯一地；专有地； in the src beam, it doesn't win
         if (rect2InSrcBeam || !rect1InSrcBeam) {
             return false;
         }
@@ -334,6 +335,7 @@ public class FocusFinder {
         // for example, for direction left, if rect1 is to the left of the source
         // and rect2 is below, then we always prefer the in beam rect1, since rect2
         // could be reached by going down.
+        //// TODO: 2017/8/29  
         if (!isToDirectionOf(direction, source, rect2)) {
             return true;
         }
@@ -352,9 +354,9 @@ public class FocusFinder {
     }
 
     /**
-     * Fudge-factor opportunity: how to calculate distance given major and minor
-     * axis distances.  Warning: this fudge factor is finely tuned, be sure to
-     * run all focus tests if you dare tweak it.
+     * Fudge-factor 容差系数 opportunity 机会 : how to calculate distance given major and minor
+     * axis distances.  Warning: this fudge factor is finely tuned 精密调整 , be sure to
+     * run all focus tests if you dare tweak 敢调整 it.
      */
     int getWeightedDistanceFor(int majorAxisDistance, int minorAxisDistance) {
         return 13 * majorAxisDistance * majorAxisDistance
@@ -363,7 +365,7 @@ public class FocusFinder {
 
     /**
      * Is destRect a candidate for the next focus given the direction?  This
-     * checks whether the dest is at least partially to the direction of (e.g left of)
+     * checks whether the dest is at least partially 部分地 to the direction of (e.g left of)
      * from source.
      *
      * Includes an edge case for an empty rect (which is used in some cases when
@@ -390,7 +392,8 @@ public class FocusFinder {
 
 
     /**
-     * Do the "beams" w.r.t the given direction's axis of rect1 and rect2 overlap?
+     * Do the "beams [计量] 秤杆 " w.r.t with regard to 的缩写,意思是"关于".常用于email,网络聊天,短消息等等场合.也可以不加点,直接用wrt.
+     * the given direction's axis of rect1 and rect2 overlap 重叠 ?
      * @param direction the direction (up, down, left, right)
      * @param rect1 The first rectangle
      * @param rect2 The second rectangle
@@ -400,6 +403,7 @@ public class FocusFinder {
         switch (direction) {
             case View.FOCUS_LEFT:
             case View.FOCUS_RIGHT:
+                //// TODO: 2017/8/29  
                 return (rect2.bottom >= rect1.top) && (rect2.top <= rect1.bottom);
             case View.FOCUS_UP:
             case View.FOCUS_DOWN:
@@ -607,13 +611,14 @@ public class FocusFinder {
     }
 
     /**
-     * Sorts views according to their visual layout and geometry for default tab order.
+     * Sorts views according to their visual layout and geometry 几何结构 for default tab order.
      * If views are part of a focus chain (nextFocusForwardId), then they are all grouped
      * together. The head of the chain is used to determine the order of the chain and is
      * first in the order and the tail of the chain is the last in the order. The views
      * in the middle of the chain can be arbitrary order.
      * This is used for sequential focus traversal.
      */
+    //// TODO: 2017/8/28  
     private static final class SequentialFocusComparator implements Comparator<View> {
         private final Rect mFirstRect = new Rect();
         private final Rect mSecondRect = new Rect();
@@ -661,14 +666,13 @@ public class FocusFinder {
         }
 
         private void setHeadOfChain(View head) {
-            for (View view = head; view != null;
-                    view = mFocusables.get(view.getNextFocusForwardId())) {
+            for (View view = head; view != null; view = mFocusables.get(view.getNextFocusForwardId())) {
                 final View otherHead = mHeadsOfChains.get(view);
                 if (otherHead != null) {
                     if (otherHead == head) {
                         return; // This view has already had its head set properly
                     }
-                    // A hydra -- multi-headed focus chain (e.g. A->C and B->C)
+                    // A hydra 九头蛇 -- multi-headed focus chain (e.g. A->C and B->C)
                     // Use the one we've already chosen instead and reset this chain.
                     view = head;
                     head = otherHead;
@@ -681,7 +685,7 @@ public class FocusFinder {
             if (first == second) {
                 return 0;
             }
-            // Order between views within a chain is immaterial -- next/previous is
+            // Order between views within a chain is immaterial 非物质的；无形的；不重要的；非实质的 -- next/previous is
             // within a chain is handled elsewhere.
             View firstHead = mHeadsOfChains.get(first);
             View secondHead = mHeadsOfChains.get(second);

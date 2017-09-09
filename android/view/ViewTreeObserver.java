@@ -32,6 +32,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * for more information.
  */
 public final class ViewTreeObserver {
+
     // Recursive 递归的 listeners use CopyOnWriteArrayList
     private CopyOnWriteArrayList<OnWindowFocusChangeListener> mOnWindowFocusListeners;
     private CopyOnWriteArrayList<OnWindowAttachListener> mOnWindowAttachListeners;
@@ -307,7 +308,7 @@ public final class ViewTreeObserver {
     public interface OnComputeInternalInsetsListener {
         /**
          * Callback method to be invoked when layout has completed and the
-         * client can compute its interior insets.
+         * client can compute its interior interior insets.
          *
          * @param inoutInfo Should be filled in by the implementation with
          * the information about the insets of the window.  This is called

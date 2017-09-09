@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <View android:id="@id/sep" android:background="@color/sep" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="10.0dip" />
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/news_thread_padding_top">
+        <com.ludashi.benchmark.ui.view.RoundImageView android:id="@id/avatar" android:layout_width="36.0dip" android:layout_height="36.0dip" android:layout_marginLeft="10.0dip" android:layout_marginRight="8.0dip" android:src="@drawable/default_avatar" app:border_width="0.0dip" app:border_color="#ffffffff" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="13.0dip" android:textColor="#ff576b95" android:id="@id/nickname" android:paddingBottom="2.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="约翰接僧" />
+            <TextView android:textSize="11.0dip" android:textColor="#ffaaaaaa" android:gravity="center_vertical" android:id="@id/author_info" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="四川成都 魅族MX5 15分钟前" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:textSize="15.0dip" android:textColor="#ff333333" android:id="@id/content" android:paddingTop="7.0dip" android:paddingRight="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/comment_left_offset" android:text="把沟通留给机器人和排版还真是可怕,不过同上去就是一个不同样的东西范德萨发" android:lineSpacingExtra="7.0dip" />
+</LinearLayout>

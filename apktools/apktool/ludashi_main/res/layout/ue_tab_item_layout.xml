@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/iv_tab_icon" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/ue_tab_icon_phone" android:scaleType="center" android:contentDescription="@null" />
+    <TextView android:textSize="12.0sp" android:textColor="@color/ue_tab_item_text" android:id="@id/tv_tab_name" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/ue_tab_phones" android:singleLine="true" />
+</LinearLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#fff5f5f5" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:paddingBottom="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <TextView android:textSize="14.0dip" android:textColor="#ff999999" android:id="@id/cancel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/news_cancel" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="14.0dip" android:textColor="#ff117ed9" android:id="@id/send" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:text="@string/news_send" android:layout_alignParentRight="true" />
+        <TextView android:textSize="17.0dip" android:textColor="#ff333333" android:gravity="center" android:id="@id/caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/news_write_comment" android:drawablePadding="6.0dip" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <EditText android:gravity="center|left|top" android:id="@id/content" android:background="@drawable/white_edittext_background" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minLines="5" android:maxLength="500" />
+</LinearLayout>

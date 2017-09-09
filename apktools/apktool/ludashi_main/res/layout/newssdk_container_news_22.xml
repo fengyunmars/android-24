@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/news_root_layout_12" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/card_divider_top" android:layout_width="fill_parent" android:layout_height="3.0dip" />
+    <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/cantiner_padding_left" android:paddingRight="@dimen/cantiner_padding_right" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+        <TextView android:textSize="17.0dip" android:textColor="#ff2c2c2c" android:ellipsize="none" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/card_interest_title" android:paddingLeft="4.0dip" android:paddingRight="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/container12_tip" android:singleLine="true" />
+        <TextView android:textSize="11.0dip" android:textColor="#ffcdcdcd" android:ellipsize="end" android:layout_gravity="center_vertical" android:id="@id/card_interest_title_desc" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:singleLine="true" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center|right" android:orientation="horizontal" android:id="@id/card_interest_ignore" android:paddingLeft="4.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent">
+            <ImageView android:layout_gravity="center|right" android:background="@drawable/newssdk_icon_close_1" android:layout_width="18.699982dip" android:layout_height="13.299988dip" android:layout_marginRight="3.6999817dip" />
+        </LinearLayout>
+    </LinearLayout>
+    <HorizontalScrollView android:id="@id/card_interest_scroll" android:paddingLeft="@dimen/cantiner_padding_left" android:paddingTop="9.0dip" android:paddingRight="@dimen/cantiner_padding_right" android:paddingBottom="9.0dip" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="9.0dip" android:layout_marginBottom="9.0dip">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/card_interest_ll" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    </HorizontalScrollView>
+    <View android:id="@id/card_divider_bottom" android:layout_width="fill_parent" android:layout_height="3.0dip" />
+</LinearLayout>

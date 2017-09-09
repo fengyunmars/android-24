@@ -98,13 +98,13 @@ import static android.os.Trace.TRACE_TAG_PACKAGE_MANAGER;
 
 /**
  * Parser for package files (APKs) on disk. This supports apps packaged either
- * as a single "monolithic" APK, or apps packaged as a "cluster" of multiple
+ * as a single "monolithic 完全统一的 " APK, or apps packaged as a "cluster 群；簇 " of multiple
  * APKs in a single directory.
  * <p>
  * Apps packaged as multiple APKs always consist of a single "base" APK (with a
  * {@code null} split name) and zero or more "split" APKs (with unique split
  * names). Any subset of those split APKs are a valid install, as long as the
- * following constraints are met:
+ * following constraints 约束 are met:
  * <ul>
  * <li>All APKs must have the exact same package name, version code, and signing
  * certificates.
@@ -115,6 +115,7 @@ import static android.os.Trace.TRACE_TAG_PACKAGE_MANAGER;
  * @hide
  */
 public class PackageParser {
+
     private static final boolean DEBUG_JAR = false;
     private static final boolean DEBUG_PARSER = false;
     private static final boolean DEBUG_BACKUP = false;
@@ -224,7 +225,7 @@ public class PackageParser {
     };
 
     /**
-     * List of permissions that have been split into more granular or dependent
+     * List of permissions that have been split into more granular 颗粒的 or dependent
      * permissions.
      * @hide
      */
@@ -4712,7 +4713,7 @@ public class PackageParser {
         /** Names of any split APKs, ordered by parsed splitName */
         public String[] splitNames;
 
-        // TODO: work towards making these paths invariant
+        // TODO: work towards making these paths invariant 不变量
 
         public String volumeUuid;
 
@@ -4849,7 +4850,7 @@ public class PackageParser {
          * TODO: This seems like a horrible place to put the abiOverride because
          * this isn't something the packageParser parsers. However, this fits in with
          * the rest of the PackageManager where package scanning randomly pushes
-         * and prods fields out of {@code this.applicationInfo}.
+         * and prods 触头 fields out of {@code this.applicationInfo}.
          */
         public String cpuAbiOverride;
         /**

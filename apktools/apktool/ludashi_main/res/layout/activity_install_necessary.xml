@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/header" android:background="@color/new_title_bg_color" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height">
+        <LinearLayout android:orientation="horizontal" android:id="@id/ll_return" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/imgReturn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/title_bar_margin" android:src="@drawable/bg_btn_back" />
+            <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="@string/install_necessary_title" />
+        </LinearLayout>
+        <RelativeLayout android:orientation="horizontal" android:id="@id/rl_app_download_list" android:layout_width="60.0dip" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+            <ImageView android:id="@id/iv_download" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/title_bar_margin" android:layout_marginRight="@dimen/title_bar_margin" android:src="@drawable/download_icon" android:layout_centerInParent="true" android:contentDescription="@null" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ListView android:id="@id/list_view" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:divider="@null" android:overScrollMode="never" android:overScrollFooter="@null" />
+</LinearLayout>

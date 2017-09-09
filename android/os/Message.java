@@ -53,7 +53,7 @@ public final class Message implements Parcelable {
     public int arg2;
 
     /**
-     * An arbitrary object to send to the recipient.  When using
+     * An arbitrary object to send to the recipient 接受者 .  When using
      * {@link Messenger} to send the message across processes this can only
      * be non-null if it contains a Parcelable of a framework class (not one
      * implemented by the application).   For other data transfer use
@@ -62,6 +62,7 @@ public final class Message implements Parcelable {
      * <p>Note that Parcelable objects here are not supported prior to
      * the {@link android.os.Build.VERSION_CODES#FROYO} release.
      */
+    //// TODO: 2017/8/29  
     public Object obj;
 
     /**
@@ -80,32 +81,41 @@ public final class Message implements Parcelable {
 
     /** If set message is in use.
      * This flag is set when the message is enqueued and remains set while it
-     * is delivered and afterwards when it is recycled.  The flag is only cleared
+     * is delivered and afterwards 后来 when it is recycled.  The flag is only cleared
      * when a new message is created or obtained since that is the only time that
      * applications are allowed to modify the contents of the message.
      *
      * It is an error to attempt to enqueue or recycle a message that is already in use.
      */
-    /*package*/ static final int FLAG_IN_USE = 1 << 0;
+    /*package*/
+    static final int FLAG_IN_USE = 1 << 0;
 
     /** If set message is asynchronous */
-    /*package*/ static final int FLAG_ASYNCHRONOUS = 1 << 1;
+    /*package*/
+    static final int FLAG_ASYNCHRONOUS = 1 << 1;
 
     /** Flags to clear in the copyFrom method */
-    /*package*/ static final int FLAGS_TO_CLEAR_ON_COPY_FROM = FLAG_IN_USE;
+    /*package*/
+    static final int FLAGS_TO_CLEAR_ON_COPY_FROM = FLAG_IN_USE;
 
-    /*package*/ int flags;
+    /*package*/
+    int flags;
 
-    /*package*/ long when;
+    /*package*/
+    long when;
     
-    /*package*/ Bundle data;
+    /*package*/
+    Bundle data;
     
-    /*package*/ Handler target;
+    /*package*/
+    Handler target;
     
-    /*package*/ Runnable callback;
+    /*package*/
+    Runnable callback;
     
     // sometimes we store linked lists of these things
-    /*package*/ Message next;
+    /*package*/
+    Message next;
 
     private static final Object sPoolSync = new Object();
     private static Message sPool;
@@ -269,7 +279,7 @@ public final class Message implements Parcelable {
      * Return a Message instance to the global pool.
      * <p>
      * You MUST NOT touch the Message after calling this function because it has
-     * effectively been freed.  It is an error to recycle a message that is currently
+     * effectively 实际上 been freed.  It is an error to recycle a message that is currently
      * enqueued or that is in the process of being delivered to a Handler.
      * </p>
      */
@@ -286,7 +296,7 @@ public final class Message implements Parcelable {
 
     /**
      * Recycles a Message that may be in-use.
-     * Used internally by the MessageQueue and Looper when disposing of queued Messages.
+     * Used internally by the MessageQueue and Looper when disposing 处理 of queued Messages.
      */
     void recycleUnchecked() {
         // Mark the message as in use while it remains in the recycled object pool.
@@ -334,7 +344,7 @@ public final class Message implements Parcelable {
     }
 
     /**
-     * Return the targeted delivery time of this message, in milliseconds.
+     * Return the targeted delivery  交付 time of this message, in milliseconds.
      */
     public long getWhen() {
         return when;
@@ -347,7 +357,7 @@ public final class Message implements Parcelable {
     /**
      * Retrieve the a {@link android.os.Handler Handler} implementation that
      * will receive this message. The object must implement
-     * {@link android.os.Handler#handleMessage(android.os.Message)
+     * {@link android.os.Handler#handleMessa ge(android.os.Message)
      * Handler.handleMessage()}. Each Handler has its own name-space for
      * message codes, so you do not need to
      * worry about yours conflicting with other handlers.
@@ -440,11 +450,11 @@ public final class Message implements Parcelable {
      * ready to be drawn.  The synchronization barrier ensures that the invalidation
      * request is completely handled before resuming.
      * </p><p>
-     * Asynchronous messages are exempt from synchronization barriers.  They typically
+     * Asynchronous messages are exempt 免除；豁免 from synchronization barriers.  They typically
      * represent interrupts, input events, and other signals that must be handled independently
      * even while other work has been suspended.
      * </p><p>
-     * Note that asynchronous messages may be delivered out of order with respect to
+     * Note that asynchronous messages may be delivered out of order 次序颠倒 with respect to
      * synchronous messages although they are always delivered in order among themselves.
      * If the relative order of these messages matters then they probably should not be
      * asynchronous in the first place.  Use with caution.
@@ -462,11 +472,13 @@ public final class Message implements Parcelable {
         }
     }
 
-    /*package*/ boolean isInUse() {
+    /*package*/
+    boolean isInUse() {
         return ((flags & FLAG_IN_USE) == FLAG_IN_USE);
     }
 
-    /*package*/ void markInUse() {
+    /*package*/
+    void markInUse() {
         flags |= FLAG_IN_USE;
     }
 

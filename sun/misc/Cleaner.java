@@ -56,9 +56,7 @@ import java.security.PrivilegedAction;
  * @author Mark Reinhold
  */
 
-public class Cleaner
-    extends PhantomReference
-{
+public class Cleaner extends PhantomReference {
 
     // Dummy reference queue, needed because the PhantomReference constructor
     // insists that we pass a queue.  Nothing will ever be placed on this queue

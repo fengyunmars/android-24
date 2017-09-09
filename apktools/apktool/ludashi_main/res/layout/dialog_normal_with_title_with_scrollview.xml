@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="300.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <TextView android:textSize="@dimen/dialog_title_size" android:textColor="@color/main_btn_blue" android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:id="@id/dialog_factory_title" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginTop="23.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="30.0dip" android:layout_weight="1.0" android:lineSpacingExtra="2.0dip" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/default_black_text" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/version" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:text="最新版本：" android:lineSpacingExtra="2.0dip" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/default_black_text" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/feature" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="20.0dip" android:text="新版特性" android:lineSpacingExtra="2.0dip" />
+        <ScrollView android:gravity="center_horizontal" android:layout_gravity="center_horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_weight="1.0">
+            <TextView android:textSize="14.0sp" android:textColor="#ff4c4c4c" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/dialog_factory_msg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:lineSpacingExtra="10.0dip" />
+        </ScrollView>
+        <ListView android:id="@id/promoption" android:background="#fff9f9f9" android:padding="10.0dip" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:divider="@null" />
+        <View android:background="@color/new_ui_dialog_divider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/btns_bar" android:layout_width="fill_parent" android:layout_height="@dimen/dialog_button_height">
+            <Button android:textSize="@dimen/dialog_button_size" android:textColor="@color/new_ui_dialog_gray" android:id="@id/btn_left" android:background="@null" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/dialog_cancel" android:layout_weight="1.0" />
+            <View android:background="@color/new_ui_dialog_divider" android:layout_width="1.0dip" android:layout_height="fill_parent" />
+            <Button android:textSize="@dimen/dialog_button_size" android:textColor="@color/main_btn_blue" android:id="@id/btn_right" android:background="@null" android:layout_width="0.0dip" android:layout_height="fill_parent" android:text="@string/dialog_ok" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

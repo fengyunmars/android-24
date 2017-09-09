@@ -1,0 +1,34 @@
+
+body { font-family: sans-serif;
+       margin: 20px; 
+       background-color: #262626; 
+       color: #ffffff }
+
+h2 { background-color: #262626; 
+     margin: -20px -20px 0px -20px; 
+     padding: 30px 20px 30px 20px; 
+     color: #ffffff;
+     border-bottom: 2px solid #ffffff;
+     border-top: 1px solid #ffffff;
+     zoom: 1.0 /* I CAN HAS LAYOUT? (ie hack) */ }
+
+dt { font-weight: bold }
+
+dd { margin-bottom: 1em; margin-top: 0.5em }
+
+:link { color: #1363A1 }
+:visited { color: #5113A1 }
+
+#testframe { margin-top: 20px;
+             width: 80%;
+             height: 500px;
+			 color : #FFFFFF;
+             border: 2px solid #175c9a
+			 }
+
+#logo { float: left;
+        position: relative; 
+        bottom: 0.33em;
+        padding-right: 20px;
+        margin-bottom: -40px; 
+        font-size: 3em }

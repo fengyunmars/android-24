@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/title_layout" layout="@layout/common_title_view" />
+    <ListView android:scrollbarStyle="outsideOverlay" android:id="@id/lv_exposurelist" android:background="@color/bg_home_list" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@color/news_list_divider" android:dividerHeight="0.5dip" />
+</LinearLayout>

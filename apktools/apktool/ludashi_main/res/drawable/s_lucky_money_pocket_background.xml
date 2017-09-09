@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/lucky_money_pocket_revealing_background" />
+    <item>
+        <bitmap android:gravity="left" android:src="@drawable/lucky_money_pocket_star1" />
+    </item>
+    <item>
+        <bitmap android:gravity="right" android:src="@drawable/lucky_money_pocket_star2" />
+    </item>
+</layer-list>

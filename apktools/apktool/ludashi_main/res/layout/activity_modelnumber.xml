@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/list_item_title" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/xuinb" android:background="@drawable/titlebar_bg" style="@style/CommonNaviBar" />
+        <View android:background="#ffdadbdd" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <ScrollView android:id="@id/scrollView" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.ludashi.benchmark.business.recycle.view.UITableView android:id="@id/tableView" style="@style/UITableView" />
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

@@ -31,14 +31,14 @@ import android.util.AndroidException;
  * A description of an Intent and target action to perform with it.
  * The returned object can be
  * handed to other applications so that they can perform the action you
- * described on your behalf at a later time.
+ * described on your behalf 代表 at a later time.
  *
  * <p>By giving a IntentSender to another application,
  * you are granting it the right to perform the operation you have specified
  * as if the other application was yourself (with the same permissions and
  * identity).  As such, you should be careful about how you build the IntentSender:
  * often, for example, the base Intent you supply will have the component
- * name explicitly set to one of your own components, to ensure it is ultimately
+ * name explicitly set to one of your own components, to ensure it is ultimately 最后
  * sent there and nowhere else.
  *
  * <p>A IntentSender itself is simply a reference to a token maintained by
@@ -55,6 +55,7 @@ import android.util.AndroidException;
  * {@link android.app.PendingIntent#getIntentSender() PendingIntent.getIntentSender()}.
  */
 public class IntentSender implements Parcelable {
+
     private final IIntentSender mTarget;
 
     /**
@@ -75,7 +76,7 @@ public class IntentSender implements Parcelable {
     }
 
     /**
-     * Callback interface for discovering when a send operation has
+     * Callback interface for discovering 使被知晓 when a send operation has
      * completed.  Primarily for use with a IntentSender that is
      * performing a broadcast, this provides the same information as
      * calling {@link Context#sendOrderedBroadcast(Intent, String,
@@ -110,6 +111,8 @@ public class IntentSender implements Parcelable {
             mWho = who;
             mHandler = handler;
         }
+
+        @Override
         public void performReceive(Intent intent, int resultCode, String data,
                 Bundle extras, boolean serialized, boolean sticky, int sendingUser) {
             mIntent = intent;
@@ -170,7 +173,7 @@ public class IntentSender implements Parcelable {
      * @param handler Handler identifying the thread on which the callback
      * should happen.  If null, the callback will happen from the thread
      * pool of the process.
-     * @param requiredPermission Name of permission that a recipient of the PendingIntent
+     * @param requiredPermission Name of permission that a recipient 接受者 of the PendingIntent
      * is required to hold.  This is only valid for broadcast intents, and
      * corresponds to the permission argument in
      * {@link Context#sendBroadcast(Intent, String) Context.sendOrderedBroadcast(Intent, String)}.
@@ -219,7 +222,7 @@ public class IntentSender implements Parcelable {
      * Return the package name of the application that created this
      * IntentSender, that is the identity under which you will actually be
      * sending the Intent.  The returned string is supplied by the system, so
-     * that an application can not spoof its package.
+     * that an application can not spoof 行骗 its package.
      *
      * @return The package name of the PendingIntent, or null if there is
      * none associated with it.

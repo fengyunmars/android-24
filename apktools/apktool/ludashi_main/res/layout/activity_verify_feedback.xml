@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/feedback_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/header" android:background="#ff00a5df" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height">
+        <LinearLayout android:orientation="horizontal" android:id="@id/ll_return" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+            <ImageView android:layout_gravity="center_vertical" android:id="@id/imgReturn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/title_bar_margin" android:src="@drawable/bg_btn_back" />
+            <TextView android:textSize="17.0sp" android:textColor="#ffffffff" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="@string/verify_feedback" />
+        </LinearLayout>
+        <TextView android:textSize="13.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/feedback_submit" android:background="@drawable/bg_btn_verify" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0sp" android:text="@string/submit" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <ListView android:id="@id/feedback_list_view" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="15.0dip" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:divider="@null" android:overScrollMode="never" android:overScrollFooter="@null" />
+</LinearLayout>

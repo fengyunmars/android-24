@@ -20,7 +20,7 @@ package java.lang.ref;
  * @hide
  */
 public final class FinalizerReference<T> extends Reference<T> {
-    // This queue contains those objects eligible for finalization.
+    // This queue contains those objects eligible 合格者 for finalization.
     public static final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
 
     // Guards the list (not the queue).
@@ -35,7 +35,7 @@ public final class FinalizerReference<T> extends Reference<T> {
     private FinalizerReference<?> next;
 
     // When the GC wants something finalized, it moves it from the 'referent' field to
-    // the 'zombie' field instead.
+    // the 'zombie' 行尸走肉 field instead.
     private T zombie;
 
     public FinalizerReference(T r, ReferenceQueue<? super T> q) {
@@ -83,10 +83,10 @@ public final class FinalizerReference<T> extends Reference<T> {
      * Waits for all currently-enqueued references to be finalized.
      */
     public static void finalizeAllEnqueued(long timeout) throws InterruptedException {
-        // Alloate a new sentinel, this creates a FinalizerReference.
+        // Alloate a new sentinel 哨兵 , this creates a FinalizerReference.
         Sentinel sentinel;
         // Keep looping until we safely enqueue our sentinel FinalizerReference.
-        // This is done to prevent races where the GC updates the pendingNext
+        // This is done to prevent races 竞赛 where the GC updates the pendingNext
         // before we get the chance.
         do {
             sentinel = new Sentinel();

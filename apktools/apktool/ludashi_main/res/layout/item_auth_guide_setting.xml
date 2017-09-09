@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_action" android:paddingLeft="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="55.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <TextView android:textSize="18.0sp" android:textColor="#ff303030" android:id="@id/tv_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/auth_guide_cooling_setting" />
+        <TextView android:textSize="14.0sp" android:textColor="#ff666666" android:id="@id/tv_hint" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="8.0dip" />
+    </LinearLayout>
+    <ImageButton android:layout_gravity="center_vertical" android:id="@id/ib_switcher" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="10.0dip" android:src="@drawable/on" android:contentDescription="@null" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="center_vertical" android:id="@id/btn_chevron" android:background="@drawable/s_round_rect_blue_setting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="10.0dip" android:text="@string/auth_guide_setting_btn" />
+</LinearLayout>

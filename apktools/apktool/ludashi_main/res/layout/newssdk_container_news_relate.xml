@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/sdk_relatenews_root" android:paddingTop="11.5dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:paddingLeft="@dimen/cantiner_padding_left" android:paddingRight="@dimen/cantiner_padding_right" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_gravity="center_vertical" android:orientation="vertical" android:paddingRight="5.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+            <TextView android:ellipsize="end" android:id="@id/sdk_relatenews_title" android:maxLines="2" style="@style/NewsTitle" />
+            <TextView android:id="@id/sdk_relatenews_desc" android:layout_marginTop="5.0dip" android:layout_alignParentBottom="true" style="@style/NewsTime" />
+        </LinearLayout>
+        <ImageView android:id="@id/sdk_relatenews_large_image" android:layout_width="108.0dip" android:layout_height="70.0dip" android:layout_marginLeft="6.0dip" android:scaleType="fitXY" />
+    </LinearLayout>
+    <View android:id="@id/sdk_relatenews_dividershort" android:background="#ffe8e8e8" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginLeft="@dimen/cantiner_padding_left" android:layout_marginTop="11.5dip" android:layout_marginRight="@dimen/cantiner_padding_right" />
+    <View android:id="@id/sdk_relatenews_dividerlong" android:background="#ffe8e8e8" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginTop="11.5dip" />
+</LinearLayout>

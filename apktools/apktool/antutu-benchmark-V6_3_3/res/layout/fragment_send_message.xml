@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/commen_light_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_nocomment" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="bottom|center" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginBottom="16.0dip" android:layout_weight="1.0">
+            <ImageView android:layout_gravity="bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/exclamation" />
+        </LinearLayout>
+        <LinearLayout android:gravity="bottom|center" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="16.0dip" android:layout_weight="1.0">
+            <TextView android:textColor="@color/shallow_gray_text" android:gravity="center" android:layout_gravity="center|top" android:id="@id/tv_nocomment" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_comment_look_other" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.antutu.benchmark.view.CustomSwipeRefreshLayout android:id="@id/sr_ll_refresh" android:background="@color/commen_light_bg" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ListView android:scrollbarThumbVertical="@drawable/scrollbar" android:scrollbarStyle="outsideOverlay" android:id="@id/list" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:cacheColorHint="#00000000" android:divider="@color/news_list_divider" android:dividerHeight="0.5dip" />
+    </com.antutu.benchmark.view.CustomSwipeRefreshLayout>
+</LinearLayout>

@@ -466,6 +466,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     // Whether any layout calls have actually been suppressed while mSuppressLayout
     // has been true. This tracks whether we need to issue a requestLayout() when
     // layout is later re-enabled.
+    //// TODO: 2017/9/8
     private boolean mLayoutCalledWhileSuppressed = false;
 
     private static final int ARRAY_INITIAL_CAPACITY = 12;
@@ -510,7 +511,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
 
     /**
-     * Empty ActionMode used as a sentinel 哨兵 in recursive entries to startActionModeForChild.
+     * Empty ActionMode used as a sentinel 哨兵 in recursive 递归的 entries to startActionModeForChild.
      *
      * @see #startActionModeForChild(View, android.view.ActionMode.Callback)
      * @see #startActionModeForChild(View, android.view.ActionMode.Callback, int)
@@ -682,6 +683,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         @ViewDebug.IntToString(from = FOCUS_AFTER_DESCENDANTS, to = "FOCUS_AFTER_DESCENDANTS"),
         @ViewDebug.IntToString(from = FOCUS_BLOCK_DESCENDANTS, to = "FOCUS_BLOCK_DESCENDANTS")
     })
+
     public int getDescendantFocusability() {
         return mGroupFlags & FLAG_MASK_FOCUSABILITY;
     }
@@ -873,9 +875,10 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         }
         return null;
     }
-
+    
+    //// TODO: 2017/8/29  
     @Override
-    public boolean requestChildRectangleOnScreen(View child, Rect rectangle, boolean immediate) {
+    public boolean requestChildRectangleOnScreen(View child, Rect rectangle, boolean immediate) {  // 立即的
         return false;
     }
 
@@ -928,7 +931,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     }
 
     /**
-     * Called when a child view has changed whether or not it is tracking transient state.
+     * Called when a child view has changed whether or not it is tracking transient 短暂的 state.
      */
     @Override
     public void childHasTransientStateChanged(View child, boolean childHasTransientState) {
@@ -1102,8 +1105,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         }
 
         // we add ourselves (if focusable) in all cases except for when we are
-        // FOCUS_AFTER_DESCENDANTS and there are some descendants focusable.  this is
-        // to avoid the focus search finding layouts when a more precise search
+        // FOCUS_AFTER_DESCENDANTS and there are some descendants 后代 focusable.  this is
+        // to avoid the focus search finding layouts when a more precise 精确的 search
         // among the focusable children would be more interesting.
         if ((descendantFocusability != FOCUS_AFTER_DESCENDANTS
                 // No focusable descendants
@@ -1125,6 +1128,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             mGroupFlags |= FLAG_TOUCHSCREEN_BLOCKS_FOCUS;
             if (hasFocus()) {
                 final View focusedChild = getDeepestFocusedChild();
+                //// TODO: 2017/8/29  
                 if (!focusedChild.isFocusableInTouchMode()) {
                     final View newFocus = focusSearch(FOCUS_FORWARD);
                     if (newFocus != null) {
@@ -1352,7 +1356,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     }
 
     private PointF getLocalPoint() {
-        if (mLocalPoint == null) mLocalPoint = new PointF();
+        if (mLocalPoint == null)
+            mLocalPoint = new PointF();
         return mLocalPoint;
     }
 
@@ -1406,7 +1411,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 mCurrentDragStartEvent.recycle();
                 mCurrentDragStartEvent = null;
             }
-        } break;
+        }
+        break;
 
         case DragEvent.ACTION_DRAG_ENDED: {
             // Release the bookkeeping now that the drag lifecycle has ended
@@ -1433,7 +1439,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 }
                 mIsInterestedInDrag = false;
             }
-        } break;
+        }
+        break;
 
         case DragEvent.ACTION_DRAG_LOCATION: {
             // Find the [possibly new] drag target
@@ -1442,8 +1449,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 target = this;
             }
 
-            // If we've changed apparent drag target, tell the view root which view
-            // we're over now [for purposes of the eventual drag-recipient-changed
+            // If we've changed apparent 表面上的 drag target, tell the view root which view
+            // we're over now [for purposes of the eventual 结果的 drag-recipient-changed
             // notifications to the framework] and tell the new target that the drag
             // has entered its bounds.  The root will see setDragFocus() calls all
             // the way down to the final leaf view that is handling the LOCATION event
@@ -1502,7 +1509,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                     retval = super.dispatchDragEvent(event);
                 }
             }
-        } break;
+        }
+        break;
 
         /* Entered / exited dispatch
          *
@@ -1530,13 +1538,16 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
                 mCurrentDragView = null;
             }
-        } break;
+        }
+        break;
 
         case DragEvent.ACTION_DROP: {
-            if (ViewDebug.DEBUG_DRAG) Log.d(View.VIEW_LOG_TAG, "Drop event: " + event);
+            if (ViewDebug.DEBUG_DRAG)
+                Log.d(View.VIEW_LOG_TAG, "Drop event: " + event);
             View target = findFrontmostDroppableChildAt(event.mX, event.mY, localPoint);
             if (target != null) {
-                if (ViewDebug.DEBUG_DRAG) Log.d(View.VIEW_LOG_TAG, "   dispatch drop to " + target);
+                if (ViewDebug.DEBUG_DRAG)
+                    Log.d(View.VIEW_LOG_TAG, "   dispatch drop to " + target);
                 event.mX = localPoint.x;
                 event.mY = localPoint.y;
                 retval = target.dispatchDragEvent(event);
@@ -1549,7 +1560,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                     Log.d(View.VIEW_LOG_TAG, "   not dropped on an accepting view");
                 }
             }
-        } break;
+        }
+        break;
         }
 
         return retval;
@@ -1860,13 +1872,13 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                         }
                     } else if (action == MotionEvent.ACTION_HOVER_MOVE) {
                         if (!wasHovered) {
-                            // Synthesize an enter from a move.
+                            // Synthesize 合成 an enter from a move.
                             eventNoHistory = obtainMotionEventNoHistoryOrSelf(eventNoHistory);
                             eventNoHistory.setAction(MotionEvent.ACTION_HOVER_ENTER);
                             handled |= dispatchTransformedGenericPointerEvent(
                                     eventNoHistory, child); // enter
                             eventNoHistory.setAction(action);
-
+                            //// TODO: 2017/9/6  
                             handled |= dispatchTransformedGenericPointerEvent(
                                     eventNoHistory, child); // move
                         } else {
@@ -2045,12 +2057,12 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * The view group can prevent its children from receiving hover events by
      * implementing this method and returning <code>true</code> to indicate
      * that it would like to intercept hover events.  The view group must
-     * continuously return <code>true</code> from {@link #onInterceptHoverEvent}
+     * continuously 连续不断地 return <code>true</code> from {@link #onInterceptHoverEvent}
      * for as long as it wishes to continue intercepting hover events from
      * its children.
      * </p><p>
-     * Interception preserves the invariant that at most one view can be
-     * hovered at a time by transferring hover focus from the currently hovered
+     * Interception preserves 保存 the invariant 不变的 that at most one view can be
+     * hovered at a time by transferring 转移 hover focus from the currently hovered
      * child to the view group or vice-versa as needed.
      * </p><p>
      * If this method returns <code>true</code> and a child is already hovered, then the
@@ -2178,6 +2190,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         return transformedEvent;
     }
 
+    //// TODO: 2017/9/7
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (mInputEventConsistencyVerifier != null) {
@@ -2254,6 +2267,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
                     // Clean up earlier touch targets for this pointer id in case they
                     // have become out of sync.
+                    //// TODO: 2017/9/7  
                     removePointersFromTouchTargets(idBitsToAssign);
 
                     final int childrenCount = mChildrenCount;
@@ -2275,7 +2289,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                             // If there is a view that has accessibility focus we want it
                             // to get the event first and if not handled we will perform a
                             // normal dispatch. We may do a double iteration but this is
-                            // safer given the timeframe.
+                            // safer given the timeframe 时间表 .
+                            //// TODO: 2017/9/7  
                             if (childWithAccessibilityFocus != null) {
                                 if (childWithAccessibilityFocus != child) {
                                     continue;
@@ -2283,7 +2298,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                                 childWithAccessibilityFocus = null;
                                 i = childrenCount - 1;
                             }
-
+                            //// TODO: 2017/9/7
                             if (!canViewReceivePointerEvents(child)
                                     || !isTransformedTouchPointInView(x, y, child, null)) {
                                 ev.setTargetAccessibilityFocus(false);
@@ -2397,7 +2412,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     /**
      * Provide custom ordering of views in which the touch will be dispatched.
      *
-     * This is called within a tight loop, so you are not allowed to allocate objects, including
+     * This is called within a tight 密封的 loop, so you are not allowed to allocate objects, including
      * the return array. Instead, you should return a pre-allocated list that will be cleared
      * after the dispatch is finished.
      * @hide
@@ -2522,7 +2537,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     }
 
     /**
-     * Removes the pointer ids from consideration.
+     * Removes the pointer ids from consideration 考虑 .
      */
     private void removePointersFromTouchTargets(int pointerIdBits) {
         TouchTarget predecessor = null;
@@ -2595,8 +2610,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * Child must not be null.
      * @hide
      */
-    protected boolean isTransformedTouchPointInView(float x, float y, View child,
-            PointF outLocalPoint) {
+    protected boolean isTransformedTouchPointInView(float x, float y, View child, PointF outLocalPoint) {
         final float[] point = getTempPoint();
         point[0] = x;
         point[1] = y;
@@ -2622,7 +2636,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /**
      * Transforms a motion event into the coordinate space of a particular child view,
-     * filters out irrelevant pointer ids, and overrides its action if necessary.
+     * filters out irrelevant 不相干的 pointer ids, and overrides its action if necessary.
      * If child is null, assumes the MotionEvent will be sent to this ViewGroup instead.
      */
     private boolean dispatchTransformedTouchEvent(MotionEvent event, boolean cancel,
@@ -2645,16 +2659,18 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
         // Calculate the number of pointers to deliver.
         final int oldPointerIdBits = event.getPointerIdBits();
+        //// TODO: 2017/9/7  
         final int newPointerIdBits = oldPointerIdBits & desiredPointerIdBits;
 
         // If for some reason we ended up in an inconsistent state where it looks like we
         // might produce a motion event with no pointers in it, then drop the event.
+        //// TODO: 2017/9/7  
         if (newPointerIdBits == 0) {
             return false;
         }
 
-        // If the number of pointers is the same and we don't need to perform any fancy
-        // irreversible transformations, then we can reuse the motion event for this
+        // If the number of pointers is the same and we don't need to perform any fancy 昂贵的
+        // irreversible 不可逆的 transformations, then we can reuse the motion event for this
         // dispatch as long as we are careful to revert any changes we make.
         // Otherwise we need to make a copy.
         final MotionEvent transformedEvent;
@@ -2797,7 +2813,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * allows you to watch events as they are dispatched to your children, and
      * take ownership of the current gesture at any point.
      *
-     * <p>Using this function takes some care, as it has a fairly complicated
+     * <p>Using this function takes some care, as it has a fairly complicated 难懂的
      * interaction with {@link View#onTouchEvent(MotionEvent)
      * View.onTouchEvent(MotionEvent)}, and using it requires implementing
      * that method as well as this one in the correct way.  Events will be
@@ -2842,7 +2858,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     /**
      * {@inheritDoc}
      *
-     * Looks for a view to give focus to respecting the setting specified by
+     * Looks for a view to give focus to respecting 考虑 the setting specified by
      * {@link #getDescendantFocusability()}.
      *
      * Uses {@link #onRequestFocusInDescendants(int, android.graphics.Rect)} to
@@ -3652,7 +3668,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     private boolean hasChildWithZ() {
         for (int i = 0; i < mChildrenCount; i++) {
-            if (mChildren[i].getZ() != 0) return true;
+            if (mChildren[i].getZ() != 0)
+                return true;
         }
         return false;
     }
@@ -3662,12 +3679,13 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * sorted first by Z, then by child drawing order (if applicable). This list must be cleared
      * after use to avoid leaking child Views.
      *
-     * Uses a stable, insertion sort which is commonly O(n) for ViewGroups with very few elevated
+     * Uses a stable, insertion sort which is commonly O(n) for ViewGroups with very few elevated 提高的
      * children.
      */
     ArrayList<View> buildOrderedChildList() {
         final int childrenCount = mChildrenCount;
-        if (childrenCount <= 1 || !hasChildWithZ()) return null;
+        if (childrenCount <= 1 || !hasChildWithZ())
+            return null;
 
         if (mPreSortedChildren == null) {
             mPreSortedChildren = new ArrayList<>(childrenCount);
@@ -4055,7 +4073,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     }
 
     /**
-     * This method adds a view to this container at the specified index purely for the
+     * This method adds a view to this container at the specified index purely 仅仅 for the
      * purposes of allowing that view to draw even though it is not a normal child of
      * the container. That is, the view does not participate in layout, focus, accessibility,
      * input, or other normal view operations; it is purely an item to be drawn during the normal
@@ -5451,9 +5469,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         ViewParent theParent = descendant.mParent;
 
         // search and offset up to the parent
-        while ((theParent != null)
-                && (theParent instanceof View)
-                && (theParent != this)) {
+        while ((theParent != null) && (theParent instanceof View) && (theParent != this)) {
 
             if (offsetFromChildToParent) {
                 rect.offset(descendant.mLeft - descendant.mScrollX,
@@ -6583,6 +6599,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             viewAncestor.requestTransitionStart(transition);
         }
     }
+
 
     /**
      * @hide
@@ -7791,9 +7808,9 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         }
 
         private void sort(ArrayList<ViewLocationHolder> holders) {
-            // This is gross but the least risky solution. The current comparison
-            // strategy breaks transitivity but produces very good results. Coming
-            // up with a new strategy requires time which we do not have, so ...
+            // This is gross 粗野的 but the least risky 风险最小 solution. The current comparison
+            // strategy breaks transitivity 传递性 but produces very good results. Coming
+            // up with 找出 a new strategy requires time which we do not have, so ...
             try {
                 ViewLocationHolder.setComparisonStrategy(
                         ViewLocationHolder.COMPARISON_STRATEGY_STRIPE);
@@ -7900,8 +7917,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             if (widthDiference != 0) {
                 return -widthDiference;
             }
-            // Just break the tie somehow. The accessibliity ids are unique
-            // and stable, hence this is deterministic tie breaking.
+            // Just break the tie 打破僵局 somehow 以某种方法 . The accessibliity ids are unique
+            // and stable, hence this is deterministic 确定性的 决定性的 tie breaking.
             return mView.getAccessibilityViewId() - another.mView.getAccessibilityViewId();
         }
 

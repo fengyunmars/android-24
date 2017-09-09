@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/c_charger_bg_blue" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" android:layout_alignParentTop="true" custom:buttonCount="Left" custom:TitleText="@string/charger" style="@style/CommonNaviBar" />
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/ll_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="70.0dip" android:layout_alignParentTop="true" android:layout_centerHorizontal="true">
+        <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/searching_charger" />
+        <TextView android:textSize="30.0sp" android:textColor="@android:color/white" android:id="@id/tv_time_counter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dip" />
+    </LinearLayout>
+    <FrameLayout android:id="@id/fl_egg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:layout_gravity="center" android:id="@id/iv_egg1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c_search_pic" android:scaleType="fitCenter" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center" android:id="@id/iv_egg2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c_search_anim_pic" android:scaleType="fitCenter" android:contentDescription="@null" />
+    </FrameLayout>
+    <Button android:id="@id/btn_stop_search" android:background="@drawable/c_btn_alpha" android:text="@string/stop_search" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/chargeButtonAlpha" />
+    <TextView android:id="@id/tv_tip" android:text="@string/tip_search_charger" android:layout_alignTop="@id/btn_stop_search" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/chargePageBottomText" />
+</RelativeLayout>

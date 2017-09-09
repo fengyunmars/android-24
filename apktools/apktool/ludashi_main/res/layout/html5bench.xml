@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/h5_main_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:id="@id/pnlTop" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height" android:layout_marginTop="4.0dip">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_return" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <ImageView android:id="@id/imgReturn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/bg_btn_back" />
+                <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@id/txtTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/html5benching" />
+            </LinearLayout>
+            <Button android:id="@id/btnShare" android:background="@drawable/ue_btn_share_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <TextView android:textSize="19.0sp" android:textColor="#ffffffff" android:layout_gravity="center" android:id="@id/txtDevice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" />
+        <TextView android:textSize="32.0sp" android:textStyle="bold" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/txtScore" android:layout_width="wrap_content" android:layout_height="0.0dip" android:layout_marginTop="8.0dip" android:layout_marginBottom="8.0dip" android:layout_weight="1.0" />
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/pnlRank" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="4.0dip">
+            <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:id="@id/txtAllRank" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:id="@id/txtDeviceRank" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_vertical" android:orientation="horizontal" android:padding="@dimen/screen_margin_big" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <Button android:textSize="16.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/rebench_btn" android:background="@drawable/bg_btn_verify" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="开始检测" android:layout_weight="1.0" />
+            <TextView android:textSize="16.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:id="@id/rank_btn" android:background="@drawable/bg_btn_verify" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:text="@string/h5_rank" android:layout_weight="1.0" />
+        </LinearLayout>
+        <View android:background="@color/main_divider_new" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <TextView android:textSize="14.0sp" android:textColor="#ccffffff" android:layout_gravity="center" android:padding="@dimen/screen_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h5_desc" />
+    </LinearLayout>
+    <ListView android:id="@id/listItems" android:background="@color/list_item_title" android:padding="8.0dip" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:listSelector="#00000000" android:cacheColorHint="#00000000" android:divider="#ffffcc00" android:dividerHeight="0.0px" android:layout_weight="1.0" android:overScrollMode="never" android:overScrollFooter="@null" />
+</LinearLayout>

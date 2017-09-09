@@ -28,7 +28,7 @@ import java.lang.ref.WeakReference;
 import java.lang.SuppressWarnings;
 
 /**
- * Provides streaming access to frame stats information from the rendering
+ * Provides streaming access to frame stats 统计 information from the rendering
  * subsystem to apps.
  *
  * @hide
@@ -40,8 +40,10 @@ public class FrameMetricsObserver {
 
     private FrameMetrics mFrameMetrics;
 
-    /* package */ Window.OnFrameMetricsAvailableListener mListener;
-    /* package */ VirtualRefBasePtr mNative;
+    /* package */
+    Window.OnFrameMetricsAvailableListener mListener;
+    /* package */
+    VirtualRefBasePtr mNative;
 
     /**
      * Creates a FrameMetricsObserver

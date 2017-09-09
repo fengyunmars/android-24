@@ -1179,7 +1179,7 @@ public final
     }
 
     /**
-     * Returns the canonical name of the underlying class as
+     * Returns the canonical 标准 name of the underlying class as
      * defined by the Java Language Specification.  Returns null if
      * the underlying class does not have a canonical name (i.e., if
      * it is a local or anonymous class or an array whose component

@@ -644,7 +644,7 @@ public final class InputMethodManager {
     }
     
     /**
-     * Private optimization: retrieve the global InputMethodManager instance,
+     * Private optimization 最优化 : retrieve the global InputMethodManager instance,
      * if it exists.
      * @hide
      */

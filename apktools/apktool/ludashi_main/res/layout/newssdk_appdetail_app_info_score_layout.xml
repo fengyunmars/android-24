@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/app_info_comment_score_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip">
+        <View android:background="#ffff7a31" android:layout_width="3.0dip" android:layout_height="13.0dip" android:layout_marginRight="8.0dip" />
+        <TextView android:textSize="@dimen/app_info_title_text_size" android:textColor="#ff333333" android:gravity="center_vertical" android:id="@id/app_info_comment_score_title_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_info_comment_score_title_text" android:singleLine="true" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/app_info_comment_score_total_score_ll" android:layout_width="113.0dip" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_below="@id/app_info_comment_score_title">
+        <TextView android:textSize="30.0dip" android:textColor="#ffffaf31" android:gravity="center|left" android:id="@id/app_info_comment_score_total_score" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <TextView android:textSize="14.0dip" android:textColor="#ffffaf31" android:gravity="bottom|center|left" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="3.0dip" android:layout_marginBottom="3.0dip" android:text="@string/minute" />
+    </LinearLayout>
+    <TextView android:textSize="12.0dip" android:textColor="#ff8d8d8d" android:gravity="center" android:id="@id/app_info_comment_score_total_count" android:layout_width="113.0dip" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:singleLine="true" android:layout_below="@id/app_info_comment_score_total_score_ll" />
+    <View android:id="@id/app_info_comment_score_sep" android:background="#ffe2e2e2" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="12.0dip" android:layout_below="@id/app_info_comment_score_total_count" />
+    <LinearLayout android:orientation="vertical" android:id="@id/app_info_comment_score_star" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="12.0dip" android:layout_toRightOf="@id/app_info_comment_score_total_score_ll" android:layout_above="@id/app_info_comment_score_sep">
+        <include android:id="@id/app_info_comment_score_content_1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/newssdk_appdetail_app_info_score_item" />
+        <include android:id="@id/app_info_comment_score_content_2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/newssdk_appdetail_app_info_score_item" />
+        <include android:id="@id/app_info_comment_score_content_3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/newssdk_appdetail_app_info_score_item" />
+        <include android:id="@id/app_info_comment_score_content_4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/newssdk_appdetail_app_info_score_item" />
+        <include android:id="@id/app_info_comment_score_content_5" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" layout="@layout/newssdk_appdetail_app_info_score_item" />
+    </LinearLayout>
+</merge>

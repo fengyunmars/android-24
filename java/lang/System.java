@@ -292,10 +292,10 @@ public final class System {
 
     /**
      * Returns the current value of the running Java Virtual Machine's
-     * high-resolution time source, in nanoseconds.
+     * high-resolution time source, in nanoseconds 纳秒 .
      *
      * <p>This method can only be used to measure elapsed time and is
-     * not related to any other notion of system or wall-clock time.
+     * not related to any other notion 概念 of system or wall-clock time.
      * The value returned represents nanoseconds since some fixed but
      * arbitrary <i>origin</i> time (perhaps in the future, so values
      * may be negative).  The same origin is used by all invocations of
@@ -307,7 +307,7 @@ public final class System {
      * - no guarantees are made except that the resolution is at least as
      * good as that of {@link #currentTimeMillis()}.
      *
-     * <p>Differences in successive calls that span greater than
+     * <p>Differences in successive  连续的 calls that span greater than
      * approximately 292 years (2<sup>63</sup> nanoseconds) will not
      * correctly compute elapsed time due to numerical overflow.
      *

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ll_main_tab" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/h5_title_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/html5_benchmark_navi" android:background="@color/transparent" custom:buttonCount="Left" style="@style/CommonNaviBar" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/h5_top_margin">
+            <TextView android:gravity="center" android:id="@id/bm_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/percent_small" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:layout_gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+            <TextView android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/h5_testing" android:maxLines="1" android:lines="1" />
+            <TextView android:textColor="#ffffffff" android:gravity="center" android:id="@id/bm_descr" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" android:lines="2" />
+        </LinearLayout>
+        <ProgressBar android:id="@id/progressBar" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="22.0dip" android:layout_marginTop="@dimen/h5_top_margin" android:layout_marginRight="22.0dip" android:progress="0" android:indeterminate="false" android:indeterminateOnly="false" style="@style/MyProgressBarStyleHorizontal" />
+        <Button android:textSize="18.0sp" android:textColor="@color/text_btn_color" android:layout_gravity="center_horizontal" android:id="@id/cancel_btn" android:background="@drawable/bg_btn_verify" android:layout_width="200.0dip" android:layout_height="wrap_content" android:layout_marginLeft="55.0dip" android:layout_marginTop="@dimen/h5_top_margin" android:layout_marginRight="55.0dip" android:layout_marginBottom="@dimen/h5_top_margin" android:text="@string/h5_stop" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:background="#ff262626" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <WebView android:scrollbarStyle="outsideInset" android:id="@id/web_content" android:background="#ff262626" android:focusable="false" android:focusableInTouchMode="false" android:layout_width="fill_parent" android:layout_height="fill_parent" android:hapticFeedbackEnabled="false" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/check_in_btn_bg_color_disabled" />
+    <stroke android:width="1.0px" android:color="@color/check_in_btn_border_color_disabled" />
+    <corners android:radius="150.0dip" />
+</shape>

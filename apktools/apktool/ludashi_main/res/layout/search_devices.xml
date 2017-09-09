@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/search_devices" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/xuinb" android:background="@drawable/titlebar_bg" custom:buttonCount="Left" custom:TitleText="@string/brand_filter" custom:TitleTextColor="@android:color/white" style="@style/CommonNaviBar" />
+    <View android:background="#ffdadbdd" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/xxx" android:background="#ffefeff0" android:focusable="true" android:focusableInTouchMode="true" android:layout_width="fill_parent" android:layout_height="80.0dip">
+        <EditText android:textSize="15.0sp" android:textColor="#ff00a5df" android:textColorHint="#ff969696" android:layout_gravity="center" android:id="@id/search" android:background="@drawable/input_bg" android:paddingRight="40.0dip" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="15.0dip" android:hint="@string/search_text" android:singleLine="true" android:maxLength="20" android:inputType="textFilter" android:imeOptions="actionDone" />
+    </RelativeLayout>
+    <TextView android:textSize="15.0sp" android:textColor="#ff999999" android:layout_gravity="center_horizontal" android:id="@id/tvNoMsg" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:text="@string/search_no_msg" android:drawableTop="@drawable/load_fail" android:drawablePadding="20.0dip" />
+    <ListView android:id="@id/listSearchs" android:visibility="gone" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@android:color/transparent" android:scrollingCache="true" android:divider="@null" android:fastScrollEnabled="false" />
+</LinearLayout>

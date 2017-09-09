@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/common_bg_white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.qihoo360.newssdk.ui.common.CommonWebView android:id="@id/fragment_webview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <ProgressBar android:id="@id/fragment_webview_progress" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxHeight="1.0dip" android:progress="0" android:minHeight="1.0dip" style="@style/ProgressBar_WebView" />
+</RelativeLayout>

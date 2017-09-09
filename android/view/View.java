@@ -2454,7 +2454,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int PFLAG3_VIEW_IS_ANIMATING_ALPHA = 0x2;
 
     /**
-     * Flag indicating that the view has been through at least one layout since it
+     * Flag indicating that the view has been through  彻底 at least one layout since it
      * was last attached to a window.
      */
     static final int PFLAG3_IS_LAID_OUT = 0x4;
@@ -3916,7 +3916,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private boolean mSendingHoverAccessibilityEvents;
 
     /**
-     * Delegate for injecting accessibility functionality.
+     * Delegate for injecting 注射 accessibility functionality.
      */
     AccessibilityDelegate mAccessibilityDelegate;
 
@@ -5916,7 +5916,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *        focus moved when requestFocus() is called. It may not always
      *        apply, in which case use the default View.FOCUS_DOWN.
      * @param previouslyFocusedRect The rectangle of the view that had focus
-     *        prior in this View's coordinate system.
+     *        prior 在先的 in this View's coordinate system.
      */
     void handleFocusGainInternal(@FocusRealDirection int direction, Rect previouslyFocusedRect) {
         if (DBG) {
@@ -6135,7 +6135,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Called by the view system when the focus state of this view changes.
      * When the focus change event is caused by directional navigation, direction
-     * and previouslyFocusedRect provide insight into where the focus is coming from.
+     * and previouslyFocusedRect provide insight 洞悉 into where the focus is coming from.
      * When overriding, be sure to call up through to the super class so that
      * the standard focus handling will occur.
      *
@@ -6451,7 +6451,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 if (mAttachInfo != null) {
                     focusablesTempList.clear();
                 }
-            } break;
+            }
+            break;
             case AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED: {
                 CharSequence text = getIterableTextForAccessibility();
                 if (text != null && text.length() > 0) {
@@ -6459,7 +6460,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     event.setToIndex(getAccessibilitySelectionEnd());
                     event.setItemCount(text.length());
                 }
-            } break;
+            }
+            break;
         }
     }
 
@@ -6560,6 +6562,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @param clipToParent Whether to clip child bounds to the parent ones.
      * @hide
      */
+    //// TODO: 2017/9/8  
     public void getBoundsOnScreen(Rect outRect, boolean clipToParent) {
         if (mAttachInfo == null) {
             return;
@@ -7346,7 +7349,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see #onFocusChanged(boolean, int, android.graphics.Rect)
      * @see #onWindowFocusChanged(boolean)
      *
-     * @hide pending API council approval
+     * @hide pending API council 委员会 approval 批准
      */
     @CallSuper
     protected void onFocusLost() {
@@ -7421,6 +7424,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             if ((mPrivateFlags&PFLAG_SCROLL_CONTAINER_ADDED) != 0) {
                 mAttachInfo.mScrollContainers.remove(this);
             }
+            //// TODO: 2017/9/7  
             mPrivateFlags &= ~(PFLAG_SCROLL_CONTAINER|PFLAG_SCROLL_CONTAINER_ADDED);
         }
     }
@@ -8238,7 +8242,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * app should not need to concern itself with saving and restoring, but that
      * the framework should take special note to preserve when possible.
      *
-     * <p>A view with transient state cannot be trivially rebound from an external
+     * <p>A view with transient state cannot be trivially 琐细地 rebound 重新装订 from an external
      * data source, such as an adapter binding item views in a list. This may be
      * because the view is performing an animation, tracking user selection
      * of content, or similar.</p>
@@ -8668,7 +8672,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * This method is the last chance for the focused view and its ancestors to
-     * respond to an arrow key. This is called when the focused view did not
+     * respond to an arrow 箭头 key. This is called when the focused view did not
      * consume the key internally, nor could the view system find a new view in
      * the requested direction to give focus to.
      *
@@ -8709,6 +8713,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             case FOCUS_BACKWARD: {
                 if (mID == View.NO_ID) return null;
                 final int id = mID;
+                //// TODO: 2017/8/28  
                 return root.findViewByPredicateInsideOut(this, new Predicate<View>() {
                     @Override
                     public boolean apply(View t) {
@@ -8746,7 +8751,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Add any focusable views that are descendants of this view (possibly
+     * Add any focusable views that are descendants 后代 of this view (possibly
      * including this view if it is focusable itself) to views.  If we are in touch mode,
      * only add views that are also focusable in touch mode.
      *
@@ -8789,7 +8794,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Finds the Views that contain given text. The containment is case insensitive.
+     * Finds the Views that contain given text. The containment 包含 is case insensitive.
      * The search is performed by either the text that the View renders or the content
      * description that describes the view for accessibility purposes and the view does
      * not render or both. Clients can specify how the search is to be performed via
@@ -8918,10 +8923,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     private void sendAccessibilityHoverEvent(int eventType) {
         // Since we are not delivering to a client accessibility events from not
-        // important views (unless the clinet request that) we need to fire the
-        // event from the deepest view exposed to the client. As a consequence if
+        // important views (unless the client request that) we need to fire the
+        // event from the deepest view exposed to the client. As a consequence 结果 if
         // the user crosses a not exposed view the client will see enter and exit
-        // of the exposed predecessor followed by and enter and exit of that same
+        // of the exposed predecessor 前任 followed by and enter and exit of that same
         // predecessor when entering and exiting the not exposed descendant. This
         // is fine since the client has a clear idea which view is hovered at the
         // price of a couple more events being sent. This is a simple and
@@ -9010,9 +9015,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Call this to try to give focus to a specific view or to one of its descendants
-     * and give it hints about the direction and a specific rectangle that the focus
-     * is coming from.  The rectangle can help give larger views a finer grained hint
+     * Call this to try to give focus to a specific view or to one of its descendants 后代
+     * and give it hints 提示 about the direction and a specific rectangle that the focus
+     * is coming from.  The rectangle can help give larger views a finer 更精细 grained 粒状的 hint
      * about where focus is coming from, and therefore, where to show selection, or
      * forward focus change internally.
      *
@@ -9256,7 +9261,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Computes whether this view should be exposed for accessibility. In
-     * general, views that are interactive or provide information are exposed
+     * general, views that are interactive 交互式的 or provide information are exposed
      * while views that serve only as containers are hidden.
      * <p>
      * If an ancestor of this view has importance
@@ -9331,7 +9336,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Adds the children of this View relevant for accessibility to the given list
+     * Adds the children of this View relevant 相关的 for accessibility to the given list
      * as output. Since some Views are not important for accessibility the added
      * child views are not necessarily direct children of this view, rather they are
      * the first level of descendants important for accessibility.
@@ -9352,6 +9357,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @hide
      */
+    //// TODO: 2017/9/8  
     public boolean includeForAccessibility() {
         if (mAttachInfo != null) {
             return (mAttachInfo.mAccessibilityFetchFlags
@@ -9841,7 +9847,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Dispatch a key event before it is processed by any input method
-     * associated with the view hierarchy.  This can be used to intercept
+     * associated with the view hierarchy.  This can be used to intercept 拦截
      * key events in special situations before the IME consumes them; a
      * typical example would be handling the BACK key to update the application's
      * UI instead of allowing the IME to see it and close itself.
@@ -9912,6 +9918,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 return false;
             }
             // We have focus and got the event, then use normal event dispatch.
+            //// TODO: 2017/9/6  
             event.setTargetAccessibilityFocus(false);
         }
 
@@ -9923,7 +9930,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         final int actionMasked = event.getActionMasked();
         if (actionMasked == MotionEvent.ACTION_DOWN) {
-            // Defensive cleanup for new gesture
+            // Defensive 防御 cleanup 清理 for new gesture
             stopNestedScroll();
         }
 
@@ -9966,7 +9973,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Filter the touch event to apply security policies.
+     * Filter the touch event to apply security policies 策略 .
      *
      * @param event The motion event to be filtered.
      * @return True if the event should be dispatched, false if the event should be dropped.
@@ -10297,11 +10304,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * ViewGroup. Intended to only be called when {@link #isAttachedToWindow()},
      * {@link #getWindowVisibility()} is {@link #VISIBLE} and this view's parent {@link #isShown()}.
      *
-     * @param isVisible true if this view's visibility to the user is uninterrupted by its
+     * @param isVisible true if this view's visibility to the user is uninterrupted 连续的 by its
      *                  ancestors or by window visibility
      * @return true if this view is visible to the user, not counting clipping or overlapping
      */
-    @Visibility boolean dispatchVisibilityAggregated(boolean isVisible) {
+    @Visibility
+    boolean dispatchVisibilityAggregated(boolean isVisible) {
         final boolean thisVisible = getVisibility() == VISIBLE;
         // If we're not visible but something is telling us we are, ignore it.
         if (thisVisible || !isVisible) {
@@ -11228,7 +11236,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Remove the longpress detection timer.
+     * Remove the longpress detection 探测 timer.
      */
     private void removeLongPressCallback() {
         if (mPendingCheckForLongPress != null) {
@@ -11830,7 +11838,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Utility method to retrieve the inverse of the current mMatrix property.
+     * Utility method to retrieve the inverse 相反的 of the current mMatrix property.
      * We cache the matrix to avoid recalculating it when transform properties
      * have not changed.
      *
@@ -12712,7 +12720,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * The base elevation of this view relative to its parent, in pixels.
+     * The base elevation 海拔 of this view relative to its parent, in pixels.
      *
      * @return The base depth position of the view, in pixels.
      */
@@ -12977,13 +12985,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * outline without invalidating the view itself. This is intended to be called from
      * within methods in the View class itself which are the result of the view being
      * invalidated already. For example, when we are drawing the background of a View,
-     * we invalidate the outline in case it changed in the meantime, but we do not
+     * we invalidate the outline in case it changed in the meantime 其间 , but we do not
      * need to invalidate the view because we're already drawing the background as part
      * of drawing the view in response to an earlier invalidation of the view.
      */
     private void rebuildOutline() {
         // Unattached views ignore this signal, and outline is recomputed in onAttachedToWindow()
-        if (mAttachInfo == null) return;
+        if (mAttachInfo == null)
+            return;
 
         if (mOutlineProvider == null) {
             // no provider, remove outline
@@ -13035,13 +13044,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Determines whether the given point, in local coordinates is inside the view.
      */
-    /*package*/ final boolean pointInView(float localX, float localY) {
+    /*package*/
+    final boolean pointInView(float localX, float localY) {
         return pointInView(localX, localY, 0);
     }
 
     /**
      * Utility method to determine whether the given point, in local coordinates,
-     * is inside the view, where the area of the view is expanded by the slop factor.
+     * is inside the view, where the area of the view is expanded by the slop 溢出 factor.
      * This method is called while processing touch-move events to determine if the event
      * is still within the view.
      *
@@ -13879,7 +13889,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             return attachInfo.mHandler.postDelayed(action, delayMillis);
         }
 
-        // Postpone the runnable until we know on which thread it needs to run.
+        // Postpone 延期 the runnable until we know on which thread it needs to run.
         // Assume that the runnable will be successfully placed after attach.
         getRunQueue().postDelayed(action, delayMillis);
         return true;
@@ -14557,7 +14567,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * <p>Compute the vertical offset of the vertical scrollbar's thumb
-     * within the horizontal range. This value is used to compute the position
+     * within the horizontal 水平的 range. This value is used to compute the position
      * of the thumb within the scrollbar's track.</p>
      *
      * <p>The range is expressed in arbitrary units that must be the same as the
@@ -14728,6 +14738,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         switch (verticalScrollbarPosition) {
             default:
             case SCROLLBAR_POSITION_RIGHT:
+                //// TODO: 2017/9/4  
                 bounds.left = mScrollX + width - size - (mUserPaddingRight & inside);
                 break;
             case SCROLLBAR_POSITION_LEFT:
@@ -14736,6 +14747,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         }
         bounds.top = mScrollY + (mPaddingTop & inside);
         bounds.right = bounds.left + size;
+        ///// TODO: 2017/9/4  
         bounds.bottom = mScrollY + height - (mUserPaddingBottom & inside);
     }
 
@@ -14776,9 +14788,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     cache.scrollBar.mutate().setAlpha(Math.round(values[0]));
                 }
 
-                // This will make the scroll bars inval themselves after
+                // This will make the scroll bars inval 侵略 themselves after
                 // drawing. We only want this when we're fading so that
-                // we prevent excessive redraws
+                // we prevent excessive 过多的 redraws
                 invalidate = true;
             } else {
                 // We're just on -- but we may have been fading before so
@@ -14906,14 +14918,15 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     @CallSuper
     protected void onAttachedToWindow() {
-        if ((mPrivateFlags & PFLAG_REQUEST_TRANSPARENT_REGIONS) != 0) {
+        if ((mPrivateFlags & PFLAG_REQUEST_TRANSPARENT_REGIONS) != 0) { // TRANSPARENT 透明的
             mParent.requestTransparentRegion(this);
         }
 
         mPrivateFlags3 &= ~PFLAG3_IS_LAID_OUT;
 
         jumpDrawablesToCurrentState();
-
+    
+        //// TODO: 2017/9/8  
         resetSubtreeAccessibilityStateChanged();
 
         // rebuild, since Outline not maintained while View is detached
@@ -16209,6 +16222,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see #getDrawingCache()
      * @see #destroyDrawingCache()
      */
+    //// TODO: 2017/9/8  
     public void buildDrawingCache(boolean autoScale) {
         if ((mPrivateFlags & PFLAG_DRAWING_CACHE_VALID) == 0 || (autoScale ?
                 mDrawingCache == null : mUnscaledDrawingCache == null)) {
@@ -17875,7 +17889,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * This function is called whenever the view hotspot changes and needs to
+     * This function is called whenever the view hotspot 热点 changes and needs to
      * be propagated to drawables or child views managed by the view.
      * <p>
      * Dispatching to child views is handled by
@@ -19314,8 +19328,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * {@hide}
      * Look for a child view that matches the specified predicate,
-     * starting with the specified view and its descendents and then
-     * recusively searching the ancestors and siblings of that view
+     * starting with the specified view and its descendents 后代 and then
+     * recusively 递归地 searching the ancestors and siblings of that view
      * until this view is reached.
      *
      * This method is useful in cases where the predicate does not match
@@ -20194,7 +20208,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * BZZZTT!!1!
      *
-     * <p>Provide haptic feedback to the user for this view.
+     * <p>Provide haptic 触觉的 feedback 反馈 to the user for this view.
      *
      * <p>The framework will provide haptic feedback for some built in actions,
      * such as long presses, but you may wish to provide feedback for your
@@ -20223,7 +20237,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         if (mAttachInfo == null) {
             return false;
         }
-        //noinspection SimplifiableIfStatement
+        //noinspection 检查 SimplifiableIfStatement 简化
         if ((flags & HapticFeedbackConstants.FLAG_IGNORE_VIEW_SETTING) == 0
                 && !isHapticFeedbackEnabled()) {
             return false;
@@ -20350,6 +20364,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     visibility & PUBLIC_STATUS_BAR_VISIBILITY_MASK);
         }
     }
+
 
     boolean updateLocalSystemUiVisibility(int localValue, int localChanges) {
         int val = (mSystemUiVisibility&~localChanges) | (localValue&localChanges);
@@ -20577,7 +20592,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         try {
             mAttachInfo.mDragToken = mAttachInfo.mSession.prepareDrag(mAttachInfo.mWindow,
                     flags, shadowSize.x, shadowSize.y, mAttachInfo.mDragSurface);
-            if (ViewDebug.DEBUG_DRAG) Log.d(VIEW_LOG_TAG, "prepareDrag returned token="
+            if (ViewDebug.DEBUG_DRAG)
+                Log.d(VIEW_LOG_TAG, "prepareDrag returned token="
                     + mAttachInfo.mDragToken + " surface=" + mAttachInfo.mDragSurface);
             if (mAttachInfo.mDragToken != null) {
                 Canvas canvas = mAttachInfo.mDragSurface.lockCanvas(null);
@@ -20593,13 +20609,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 // Cache the local state object for delivery with DragEvents
                 root.setLocalDragState(myLocalState);
 
-                // repurpose 'shadowSize' for the last touch point
+                // repurpose 改换意图 'shadowSize' for the last touch point
                 root.getLastTouchPoint(shadowSize);
 
                 okay = mAttachInfo.mSession.performDrag(mAttachInfo.mWindow, mAttachInfo.mDragToken,
                         root.getLastTouchSource(), shadowSize.x, shadowSize.y,
                         shadowTouchPoint.x, shadowTouchPoint.y, data);
-                if (ViewDebug.DEBUG_DRAG) Log.d(VIEW_LOG_TAG, "performDrag returned " + okay);
+                if (ViewDebug.DEBUG_DRAG)
+                    Log.d(VIEW_LOG_TAG, "performDrag returned " + okay);
             }
         } catch (Exception e) {
             Log.e(VIEW_LOG_TAG, "Unable to initiate drag", e);
@@ -21009,7 +21026,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Begin a nestable scroll operation along the given axes.
      *
-     * <p>A view starting a nested scroll promises to abide by the following contract:</p>
+     * <p>A view starting a nested scroll promises 允诺 to abide 忍受，容忍 遵守 by the following contract:</p>
      *
      * <p>The view will call startNestedScroll upon initiating a scroll operation. In the case
      * of a touch scroll this corresponds to the initial {@link MotionEvent#ACTION_DOWN}.
@@ -21018,7 +21035,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * In the event of programmatic scrolling the caller must explicitly call
      * {@link #stopNestedScroll()} to indicate the end of the nested scroll.</p>
      *
-     * <p>If <code>startNestedScroll</code> returns true, a cooperative parent was found.
+     * <p>If <code>startNestedScroll</code> returns true, a cooperative 合作的 parent was found.
      * If it returns false the caller may ignore the rest of this contract until the next scroll.
      * Calling startNestedScroll while a nested scroll is already in progress will return true.</p>
      *
@@ -23122,7 +23139,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
             paint = new Paint();
             matrix = new Matrix();
-            // use use a height of 1, and then wack the matrix each time we
+            // use use a height of 1, and then wack 发送一个等待认可 the matrix each time we
             // actually use it.
             shader = new LinearGradient(0, 0, 0, 1, 0xFF000000, 0, Shader.TileMode.CLAMP);
             paint.setShader(shader);
@@ -23170,7 +23187,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
                 state = FADING;
 
-                // Kick off the fade animation
+                // Kick off 开始 the fade animation
                 host.invalidate(true);
             }
         }

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_webview_view" android:background="@color/qihoo_accounts_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/qihoo_accounts_webview_top_title" />
+    </LinearLayout>
+    <com.ludashi.account.qihoo360.v.SafeWebView android:orientation="vertical" android:id="@id/web_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

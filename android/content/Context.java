@@ -565,7 +565,7 @@ public abstract class Context {
     public abstract Resources.Theme getTheme();
 
     /**
-     * Retrieve 鍙栭敓鏂ゆ嫹  styled attribute information in this Context's theme.  See
+     * Retrieve 取回 styled attribute information in this Context's theme.  See
      * {@link android.content.res.Resources.Theme#obtainStyledAttributes(int[])}
      * for more information.
      *
@@ -1757,7 +1757,7 @@ public abstract class Context {
     /**
      * Broadcast the given intent to all interested BroadcastReceivers.  This
      * call is asynchronous; it returns immediately, and you will continue
-     * executing while the receivers are run.  No results are propagated from
+     * executing while the receivers are run.  No results are propagated 传播 from
      * receivers and receivers can not abort the broadcast. If you want
      * to allow receivers to propagate results or abort the broadcast, you must
      * send an ordered broadcast using

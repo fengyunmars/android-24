@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/sc_ll_scan_root" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="@dimen/sc_erase_progress_margin_left" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:background="#ffdddddd" android:layout_width="1.0dip" android:layout_height="@dimen/sc_erase_progress_vertical_line_height" android:layout_marginLeft="@dimen/sc_erase_progress_vertical_line_margin_left" />
+            <RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <FrameLayout android:id="@id/fl_clean" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ProgressBar android:layout_gravity="center_vertical" android:id="@id/pb_progressBar_clean" android:visibility="gone" android:layout_width="@dimen/sc_erase_progress_icon_width" android:layout_height="@dimen/sc_erase_progress_icon_width" android:indeterminateDrawable="@drawable/progress_circle_shape" android:indeterminateDuration="1200" />
+                    <ImageView android:id="@id/iv_icon_clean" android:background="@drawable/sc_sel_clean" android:layout_width="@dimen/sc_erase_progress_icon_width" android:layout_height="@dimen/sc_erase_progress_icon_width" />
+                </FrameLayout>
+                <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:id="@id/tv_hint_clean" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/tip_storage_cellect" android:layout_toRightOf="@id/fl_clean" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <LinearLayout android:background="#ffdddddd" android:layout_width="1.0dip" android:layout_height="@dimen/sc_erase_progress_vertical_line_height" android:layout_marginLeft="@dimen/sc_erase_progress_vertical_line_margin_left" />
+            <RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <FrameLayout android:id="@id/fl_cacl" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ProgressBar android:layout_gravity="center_vertical" android:id="@id/pb_progressBar_cacl" android:layout_width="@dimen/sc_erase_progress_icon_width" android:layout_height="@dimen/sc_erase_progress_icon_width" android:indeterminateDrawable="@drawable/progress_circle_shape" android:indeterminateDuration="1200" />
+                    <ImageView android:id="@id/iv_icon_cacl" android:background="@drawable/sc_icon_cacl" android:layout_width="@dimen/sc_erase_progress_icon_width" android:layout_height="@dimen/sc_erase_progress_icon_width" />
+                </FrameLayout>
+                <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:id="@id/tv_hint_cacl" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/tip_storage_cacl" android:layout_toRightOf="@id/fl_cacl" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <LinearLayout android:background="#ffdddddd" android:layout_width="1.0dip" android:layout_height="@dimen/sc_erase_progress_vertical_line_height" android:layout_marginLeft="@dimen/sc_erase_progress_vertical_line_margin_left" />
+            <RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <FrameLayout android:id="@id/fl_order" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <ProgressBar android:layout_gravity="center_vertical" android:id="@id/pb_progressBar_order" android:visibility="gone" android:layout_width="@dimen/sc_erase_progress_icon_width" android:layout_height="@dimen/sc_erase_progress_icon_width" android:indeterminateDrawable="@drawable/progress_circle_shape" android:indeterminateDuration="1200" />
+                    <ImageView android:id="@id/iv_icon_order" android:background="@drawable/sc_norm_order" android:layout_width="@dimen/sc_erase_progress_icon_width" android:layout_height="@dimen/sc_erase_progress_icon_width" />
+                </FrameLayout>
+                <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:id="@id/tv_hint_order" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/tip_storage_order" android:layout_toRightOf="@id/fl_order" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+    <TextView android:textSize="12.0sp" android:textColor="#ff999999" android:layout_gravity="center" android:id="@id/tv_btm_hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip" android:text="@string/tip_erase_desc" />
+    <Button android:textSize="15.0sp" android:textColor="#ff333333" android:layout_gravity="center_horizontal" android:id="@id/btn_stop" android:background="@drawable/sc_button_stop" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:minWidth="220.0dip" android:text="@string/tip_button_stop" />
+</LinearLayout>

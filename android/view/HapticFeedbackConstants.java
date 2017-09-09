@@ -17,7 +17,7 @@
 package android.view;
 
 /**
- * Constants to be used to perform haptic feedback effects via
+ * Constants to be used to perform haptic 触觉的 feedback 反馈 effects via
  * {@link View#performHapticFeedback(int)} 
  */
 public class HapticFeedbackConstants {
@@ -31,7 +31,7 @@ public class HapticFeedbackConstants {
     public static final int LONG_PRESS = 0;
     
     /**
-     * The user has pressed on a virtual on-screen key.
+     * The user has pressed on a virtual 虚拟的 on-screen key.
      */
     public static final int VIRTUAL_KEY = 1;
     
@@ -41,7 +41,7 @@ public class HapticFeedbackConstants {
     public static final int KEYBOARD_TAP = 3;
 
     /**
-     * The user has pressed either an hour or minute tick of a Clock.
+     * The user has pressed either an hour or minute tick 滴答声 of a Clock.
      */
     public static final int CLOCK_TICK = 4;
 
@@ -57,7 +57,7 @@ public class HapticFeedbackConstants {
     public static final int CONTEXT_CLICK = 6;
 
     /**
-     * This is a private constant.  Feel free to renumber as desired.
+     * This is a private constant.  Feel free to renumber 重编号 as desired.
      * @hide
      */
     public static final int SAFE_MODE_DISABLED = 10000;

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#66000000" android:fitsSystemWindows="true" android:clipToPadding="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/rl_clean_mem" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/anim_circle_bg" android:background="@drawable/cool_mem_background" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:contentDescription="@null" />
+        <ImageView android:id="@id/silent_arrow" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/cool_mem_arrow" android:layout_centerInParent="true" android:contentDescription="@null" />
+        <ImageView android:id="@id/anim_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/cool_mem_arrow" android:scaleType="fitXY" android:layout_alignBottom="@id/silent_arrow" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_clear_mem" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/tv_clear_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="1.0dip" android:text="@string/cooling_clear_mem" />
+            <TextView android:textSize="37.0sp" android:textColor="@color/white" android:layout_gravity="center" android:id="@id/tv_clear_mem" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="888.8" />
+            <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_gravity="center_horizontal" android:id="@id/tv_clear_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="MB" />
+        </LinearLayout>
+    </RelativeLayout>
+    <include android:id="@id/snow" android:visibility="gone" layout="@layout/layout_launcher_monitor_background" />
+</RelativeLayout>

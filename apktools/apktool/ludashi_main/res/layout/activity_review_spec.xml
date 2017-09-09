@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/nv_navibar" android:background="#ff117ed9" app:RightButtonTextSize="14.0dip" app:TitleText="@string/review_spec_verification" style="@style/CommonNaviBar" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ListView android:id="@id/lv_main_spec" android:fadingEdge="none" android:fadingEdgeLength="0.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <RelativeLayout android:id="@id/rl_mask" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/layout_review_spec_footer" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

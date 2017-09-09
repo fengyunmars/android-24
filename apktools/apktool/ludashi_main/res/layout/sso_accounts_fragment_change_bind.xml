@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:id="@id/sso_accounts_btn_get_code" android:text="@string/sso_accounts_get_code" android:layout_alignBaseline="@id/sso_accounts_et_phone" style="@style/Account_Button_Get_Code" />
+    <TextView android:enabled="false" android:gravity="center_vertical" android:id="@id/sso_accounts_et_phone" android:text="@string/sso_accounts_binded_phone" android:layout_toLeftOf="@id/sso_accounts_btn_get_code" android:inputType="phone" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider1" android:layout_below="@id/sso_accounts_et_phone" style="@style/Account_Divider" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_auth_code" android:hint="@string/sso_accounts_code" android:maxEms="6" android:minEms="4" android:drawableLeft="@drawable/sso_accounts_ic_auth_code" android:layout_below="@id/divider1" android:inputType="text" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider2" android:layout_below="@id/sso_accounts_et_auth_code" style="@style/Account_Divider" />
+    <Button android:enabled="false" android:id="@id/sso_accounts_btn_get_code_new" android:text="@string/sso_accounts_get_code" android:layout_below="@id/divider2" android:layout_alignBaseline="@id/sso_accounts_et_phone_new" style="@style/Account_Button_Get_Code" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_phone_new" android:hint="@string/sso_accounts_new_phone" android:drawableLeft="@drawable/sso_accounts_ic_phone" android:layout_toLeftOf="@id/sso_accounts_btn_get_code_new" android:layout_below="@id/sso_accounts_et_auth_code" android:inputType="phone" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider3" android:layout_below="@id/sso_accounts_et_phone_new" style="@style/Account_Divider" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_auth_code_new" android:hint="@string/sso_accounts_new_code" android:maxEms="6" android:minEms="4" android:drawableLeft="@drawable/sso_accounts_ic_auth_code" android:layout_below="@id/divider3" android:inputType="text" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider4" android:layout_below="@id/sso_accounts_et_auth_code_new" style="@style/Account_Divider" />
+    <Button android:id="@id/sso_accounts_btn_confirm" android:layout_marginLeft="@dimen/sso_accounts_margin_left" android:layout_marginTop="15.0dip" android:layout_marginRight="@dimen/sso_accounts_margin_right" android:text="@string/sso_accounts_confirm" android:layout_below="@id/divider4" style="@style/Account_Button_Highlight" />
+</RelativeLayout>

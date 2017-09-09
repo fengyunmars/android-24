@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/title_text" android:gravity="center_vertical" android:background="#ff000000" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="46.0dip" android:text="@string/app_name_long" android:drawableLeft="@drawable/logo_s" android:drawablePadding="10.0dip" />
+    <ListView android:id="@id/listViewApps" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="50.0dip" android:layout_marginBottom="60.0dip" />
+    <TextView android:textSize="24.0sp" android:id="@id/textNoApp" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/no_app" android:layout_centerInParent="true" />
+    <Button android:id="@id/btn_one_click" android:layout_width="200.0dip" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip" android:text="@string/one_click_kill" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/layoutProgress" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:layout_centerVertical="true">
+        <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyle" />
+        <TextView android:textSize="20.0sp" android:layout_gravity="center_vertical" android:id="@id/textProgress" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:text="@string/loading" android:layout_marginStart="5.0dip" />
+        <TextView android:textSize="20.0sp" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/please_wait" />
+    </LinearLayout>
+</RelativeLayout>

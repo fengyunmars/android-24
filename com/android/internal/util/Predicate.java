@@ -17,7 +17,7 @@
 package com.android.internal.util;
 
 /**
- * A Predicate can determine a true or false value for any input of its
+ * A Predicate 断言 can determine a true or false value for any input of its
  * parameterized type. For example, a {@code RegexPredicate} might implement
  * {@code Predicate<String>}, and return true for any String that matches its
  * given regular expression.

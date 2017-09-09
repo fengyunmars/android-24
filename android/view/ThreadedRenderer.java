@@ -46,7 +46,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.HashSet;
 
 /**
- * Hardware renderer that proxies the rendering to a render thread. Most calls
+ * Hardware renderer that proxies 代理 the rendering to a render thread. Most calls
  * are currently synchronous.
  *
  * The UI thread can block on the RenderThread, but RenderThread must never

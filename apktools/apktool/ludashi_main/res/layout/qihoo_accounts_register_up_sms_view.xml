@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ludashi.account.qihoo360.v.RegisterUpSmsView android:orientation="vertical" android:id="@id/register_up_sms_view" android:padding="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="@dimen/qihoo_accounts_textsize_normal" android:textColor="@color/qihoo_accounts_black" android:id="@id/register_password_tip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/qihoo_accounts_register_up_sms_tips" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="@dimen/qihoo_accounts_input_box_height" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin" android:baselineAligned="false">
+        <RelativeLayout android:orientation="horizontal" android:id="@id/qihoo_accounts_reg_up_sms_psw_layout" android:background="@drawable/qihoo_accounts_input_border" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <Button android:id="@id/register_up_sms_delete_password" android:visibility="gone" android:layout_alignParentRight="true" style="@style/qihoo_accounts_input_delete_btn_style" />
+            <EditText android:id="@id/register_up_sms_password_text" android:hint="@string/qihoo_accounts_register_password_hint" android:layout_toLeftOf="@id/register_up_sms_delete_password" style="@style/qihoo_accounts_pwd_input_text_style" />
+        </RelativeLayout>
+        <Button android:id="@id/register_up_sms_show_password" android:layout_marginLeft="@dimen/qihoo_accounts_show_pwd_margin_left" android:text="@string/qihoo_accounts_show_password" style="@style/qihoo_accounts_input_show_btn_style" />
+    </LinearLayout>
+    <Button android:id="@id/register_up_sms_click" android:layout_width="fill_parent" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin" android:text="@string/qihoo_accounts_register_btn_text" style="@style/qihoo_accounts_main_btn_style" />
+    <RelativeLayout android:orientation="horizontal" android:id="@id/qihoo_accounts_up_sms_lisence_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin">
+        <CheckBox android:gravity="center_vertical" android:id="@id/register_up_sms_auto_read_lisence" android:background="@null" android:checked="true" android:button="@null" android:text="@string/qihoo_accounts_auto_read_license" android:drawableLeft="@drawable/qihoo_accounts_checkbox_selector" android:drawablePadding="@dimen/qihoo_accounts_show_pwd_margin_left" android:layout_alignParentLeft="true" style="@style/qihoo_accounts_tip_text_style" />
+        <TextView android:textSize="@dimen/qihoo_accounts_textsize_normal" android:textColor="@color/qihoo_accounts_green" android:id="@id/register_up_sms_license" android:background="@null" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/qihoo_accounts_register_license" android:layout_toRightOf="@id/register_up_sms_auto_read_lisence" />
+    </RelativeLayout>
+    <TextView android:layout_gravity="right" android:id="@id/register_up_sms_free_register" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin" android:text="@string/qihoo_accounts_register_other" style="@style/qihoo_accounts_link_btn_style" />
+</com.ludashi.account.qihoo360.v.RegisterUpSmsView>

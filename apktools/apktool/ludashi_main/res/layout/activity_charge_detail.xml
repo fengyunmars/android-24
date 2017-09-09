@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/c_charger_bg_blue" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" custom:buttonCount="Left" custom:TitleText="@string/charger" style="@style/CommonNaviBar" />
+    <com.ludashi.benchmark.business.charger.view.PageScrollView android:id="@id/pageScrollView" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </com.ludashi.benchmark.business.charger.view.PageScrollView>
+</LinearLayout>

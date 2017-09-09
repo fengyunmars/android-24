@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/feedback_item" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginRight="15.0dip" android:layout_marginBottom="5.0dip">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/feedback_item_header" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="35.0dip">
+            <CheckBox android:id="@id/feedback_item_checkbox" android:clickable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="false" style="@style/FeedBackCheckBox" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff303030" android:id="@id/feedback_item_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_marginRight="5.0dip" android:text="机型名:" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff303030" android:ellipsize="end" android:id="@id/feedback_item_detail" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="魅族MX4" android:singleLine="true" />
+        </LinearLayout>
+        <EditText android:textSize="13.0sp" android:id="@id/feedback_item_content" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="40.0dip" android:hint="@string/feedback_item_hint" android:singleLine="true" android:maxLength="101" />
+    </LinearLayout>
+</LinearLayout>

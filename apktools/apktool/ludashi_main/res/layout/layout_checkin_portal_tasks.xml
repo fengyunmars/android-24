@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="75.0dip" android:layout_marginTop="15.0dip" android:layout_marginBottom="15.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="12.0dip" android:textColor="#ff666666" android:gravity="center" android:id="@id/tv_tasks" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/do_tasks_to_gain_coin" android:drawableTop="@drawable/tasks" android:drawablePadding="10.0dip" android:layout_weight="1.0" />
+    <View android:background="@color/gray" android:layout_width="1.0px" android:layout_height="fill_parent" />
+    <TextView android:textSize="12.0dip" android:textColor="#ff666666" android:gravity="center" android:id="@id/tv_exchange" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/prize_exchange" android:drawableTop="@drawable/gifts" android:drawablePadding="10.0dip" android:layout_weight="1.0" />
+</LinearLayout>

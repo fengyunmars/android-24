@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="0" android:drawable="@drawable/cool_anim_bg0" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg1" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg2" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg3" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg4" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg5" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg6" />
+    <item android:duration="140" android:drawable="@drawable/cool_anim_bg7" />
+</animation-list>

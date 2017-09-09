@@ -185,7 +185,7 @@ class Thread implements Runnable {
         return threadInitNumber++;
     }
 
-    /* ThreadLocal values pertaining to this thread. This map is maintained
+    /* ThreadLocal values pertaining 附属 to this thread. This map is maintained
      * by the ThreadLocal class. */
     ThreadLocal.ThreadLocalMap threadLocals = null;
 

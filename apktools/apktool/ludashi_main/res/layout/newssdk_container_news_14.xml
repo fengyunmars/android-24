@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/news_root_layout_14" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:paddingLeft="15.0dip" android:paddingTop="13.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:id="@id/jokes_content_14" android:layout_width="fill_parent" android:layout_height="wrap_content" android:singleLine="false" android:lineSpacingExtra="4.0dip" style="@style/essay_content" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/user_action_layout_14" android:layout_width="fill_parent" android:layout_height="48.0dip">
+            <RelativeLayout android:id="@id/action_likes_container_14" android:layout_width="76.0dip" android:layout_height="fill_parent">
+                <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="@color/likes_bury_num" android:id="@id/likes_addone_14" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_marginTop="0.0dip" android:text="+1" android:layout_alignParentTop="true" />
+                <LinearLayout android:gravity="center" android:id="@id/action_likes_14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_marginBottom="17.0dip" android:scaleType="fitXY" android:layout_alignParentBottom="true">
+                    <ImageView android:id="@id/action_likes_image_14" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/newssdk_hand_up" android:scaleType="fitXY" />
+                    <TextView android:id="@id/likes_num_14" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/essay_image_list_btn" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/action_bury_container_14" android:layout_width="69.0dip" android:layout_height="fill_parent">
+                <TextView android:textSize="12.0dip" android:textStyle="bold" android:textColor="@color/likes_bury_num" android:id="@id/bury_addone_14" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" android:layout_marginTop="0.0dip" android:text="+1" android:layout_alignParentTop="true" />
+                <LinearLayout android:gravity="center" android:id="@id/action_bury_14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_marginBottom="17.0dip" android:scaleType="fitXY" android:layout_alignParentBottom="true">
+                    <ImageView android:id="@id/action_bury_image_14" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/newssdk_hand_down" android:scaleType="fitXY" />
+                    <TextView android:id="@id/bury_num_14" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/essay_image_list_btn" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/action_comment_container_14" android:layout_width="69.0dip" android:layout_height="fill_parent">
+                <LinearLayout android:gravity="center" android:id="@id/action_comment_14" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_marginBottom="17.0dip" android:scaleType="fitXY" android:layout_alignParentBottom="true">
+                    <ImageView android:id="@id/action_comment_image_14" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/newssdk_icon_comment" android:scaleType="fitXY" />
+                    <TextView android:id="@id/comment_num_14" android:paddingLeft="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" style="@style/essay_image_list_btn" />
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/favorite_repost_layout_14" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <LinearLayout android:id="@id/action_favoritelayout_14" android:paddingLeft="5.0dip" android:paddingRight="0.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_toLeftOf="@id/action_repostlayout_14" android:layout_alignWithParentIfMissing="true">
+                    <ImageView android:id="@id/action_favorite_14" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginTop="13.0dip" android:layout_marginBottom="17.0dip" android:src="@drawable/newssdk_favorite_normal" android:scaleType="fitXY" />
+                </LinearLayout>
+                <LinearLayout android:id="@id/action_repostlayout_14" android:paddingLeft="24.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_alignParentRight="true">
+                    <ImageView android:id="@id/action_repost_14" android:layout_width="18.0dip" android:layout_height="18.0dip" android:layout_marginTop="13.0dip" android:layout_marginBottom="17.0dip" android:src="@drawable/newssdk_icon_share_normal" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

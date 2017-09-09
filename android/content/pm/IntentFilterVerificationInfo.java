@@ -44,6 +44,7 @@ import java.util.ArrayList;
  * @hide
  */
 public final class IntentFilterVerificationInfo implements Parcelable {
+
     private static final String TAG = IntentFilterVerificationInfo.class.getName();
 
     private static final String TAG_DOMAIN = "domain";

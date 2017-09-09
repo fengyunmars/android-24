@@ -25,7 +25,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Defines a simple shape, used for bounding graphical regions.
+ * Defines a simple shape, used for bounding 边界框 graphical regions.
  * <p>
  * Can be computed for a View, or computed by a Drawable, to drive the shape of
  * shadows 阴影 cast by a View, or to clip the contents of the View.

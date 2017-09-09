@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/no_net_container" android:background="@color/device_info_page_background" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerInParent="true">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <TextView android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/net_unvalid" />
+            <TextView android:layout_gravity="center_horizontal" android:id="@id/try_again" android:background="@drawable/btn_grey" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/try_now" />
+        </LinearLayout>
+    </RelativeLayout>
+    <com.antutu.benchmark.view.CustomSwipeRefreshLayout android:id="@id/sr_ll_refresh" android:background="@color/white" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <android.support.v7.widget.RecyclerView android:scrollbarStyle="outsideOverlay" android:id="@id/list" android:background="@color/bg_deep_gray" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="8.0dip" android:layout_marginRight="8.0dip" android:cacheColorHint="#00000000" android:divider="@null" />
+    </com.antutu.benchmark.view.CustomSwipeRefreshLayout>
+</RelativeLayout>

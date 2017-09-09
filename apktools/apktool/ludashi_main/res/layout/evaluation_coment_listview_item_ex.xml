@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="top" android:layout_gravity="top" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/iv_more_dot" android:background="@drawable/more_dot" android:visibility="gone" android:layout_width="6.0dip" android:layout_height="6.0dip" android:layout_marginLeft="15.0dip" android:layout_marginTop="18.0dip" />
+        <RelativeLayout android:orientation="vertical" android:id="@id/data_item" android:paddingRight="12.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/child_comments_margin_left">
+            <LinearLayout android:orientation="horizontal" android:id="@id/ll_from_to" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_alignParentTop="true">
+                <TextView android:textSize="12.0sp" android:textColor="#ff576b95" android:id="@id/tv_from" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="用户昵称1" />
+                <TextView android:textSize="12.0sp" android:textColor="#ffaaaaaa" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:text="@string/comments_reply" />
+                <TextView android:textSize="12.0sp" android:textColor="#ff576b95" android:id="@id/tv_to" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:text="用户昵称2" />
+            </LinearLayout>
+            <TextView android:textSize="14.0sp" android:textColor="#ff4c4c4c" android:id="@id/tv_comment" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/ll_from_to" />
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_bottom_line" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_below="@id/tv_comment">
+                <TextView android:textSize="14.0sp" android:textColor="#ffaaaaaa" android:gravity="center|left" android:id="@id/date" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginRight="8.0dip" android:layout_weight="1.0" />
+                <Button android:textSize="16.0sp" android:textColor="@color/ev_comment_vote_btn_text" android:gravity="center|left" android:id="@id/btn_vote" android:background="@android:color/transparent" android:padding="4.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:drawableLeft="@drawable/vote_icon" android:drawablePadding="4.0dip" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center|right" android:orientation="horizontal" android:id="@id/ll_more_comment" android:paddingBottom="10.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:layout_marginBottom="10.0dip" android:layout_below="@id/ll_bottom_line" android:layout_alignParentRight="true">
+                <TextView android:textSize="12.0sp" android:textColor="#ff999999" android:gravity="center|right" android:id="@id/tv_more_comment" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/comments_to_me_more" />
+                <ImageView android:id="@id/iv_more_comment" android:background="@drawable/more_item_arrow_normal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" />
+            </LinearLayout>
+            <TextView android:textSize="14.0sp" android:textColor="@color/ev_comment_vote_anim_text" android:gravity="bottom" android:id="@id/tv_vote_anim" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/ll_bottom_line" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:id="@id/v_line" android:background="#fff4f4f4" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="60.0dip" />
+</FrameLayout>

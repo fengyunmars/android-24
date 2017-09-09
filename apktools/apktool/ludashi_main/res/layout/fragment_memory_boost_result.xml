@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/leading_rocket_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:id="@id/leading_rocket" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/transition_rocket" android:scaleType="fitXY" android:layout_centerInParent="true" />
+        <ImageView android:id="@id/leading_rocket_tail" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/transition_rocket_tail" android:scaleType="fitXY" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:orientation="vertical" android:id="@id/content_wrapper" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:id="@id/btn_wrapper" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+            <Button android:textSize="18.0dip" android:textColor="#ff333333" android:gravity="center" android:id="@id/btn_done" android:background="@drawable/s_white_btn_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:text="@string/done" />
+        </LinearLayout>
+        <GridView android:id="@id/gv_locked_apps" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@drawable/s_grid_item_selector" android:numColumns="4" android:layout_above="@id/btn_wrapper" />
+        <View android:id="@id/sep" android:background="#ffeeeeee" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_above="@id/gv_locked_apps" />
+        <TextView android:textColor="#ff666666" android:gravity="center|left" android:id="@id/tv_locked_apps_label" android:background="#fffafafa" android:paddingLeft="15.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:text="@string/locked_apps" android:layout_above="@id/sep" />
+        <include android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/tv_locked_apps_label" android:layout_alignParentTop="true" layout="@layout/layout_memory_boost_banner" />
+    </RelativeLayout>
+</FrameLayout>

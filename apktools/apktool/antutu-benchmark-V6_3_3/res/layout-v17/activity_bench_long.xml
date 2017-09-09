@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_test" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/title_layout" layout="@layout/common_title_view" />
+        <TextView android:textSize="24.0sp" android:textColor="#ff000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="5.0dip" android:text="@string/stress_test" />
+        <RelativeLayout android:layout_gravity="center" android:layout_width="160.0dip" android:layout_height="140.0dip" android:layout_marginBottom="8.0dip">
+            <com.antutu.utils.library.TitanicTextView android:textSize="120.0sp" android:textColor="#ff313131" android:gravity="center" android:id="@id/text_percent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/zero" />
+            <TextView android:textSize="24.0sp" android:textColor="#ffc14141" android:gravity="bottom" android:id="@id/text_percent_mark" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:text="%" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+        <Button android:textColor="#ffefefef" android:layout_gravity="center" android:id="@id/btn_test_stop" android:background="@color/red_button_bg" android:layout_width="100.0dip" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/stop_str" />
+        <LinearLayout android:layout_gravity="center_horizontal" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="30.0dip">
+            <RelativeLayout android:layout_gravity="center" android:layout_width="50.0dip" android:layout_height="50.0dip" android:layout_marginLeft="20.0dip">
+                <ImageView android:id="@id/img_static" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/loading_sm" android:layout_centerInParent="true" />
+                <ImageView android:id="@id/img_anim" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/loading_big" android:layout_centerInParent="true" />
+            </RelativeLayout>
+            <TextView android:textSize="18.0sp" android:textColor="#ff393939" android:layout_gravity="center" android:id="@id/text_info_testing" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="@string/Testing" />
+        </LinearLayout>
+        <TextView android:textSize="15.0sp" android:textColor="#ff696969" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginTop="50.0dip" android:layout_marginRight="30.0dip" android:text="@string/stress_test_tips" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/layout_result" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/title_layout_result" layout="@layout/common_title_view" />
+        <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center" android:layout_gravity="center" android:id="@id/device_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="6.0dip" android:text="@string/stress_test" />
+        <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <ListView android:id="@id/listViewChart" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="70.0dip" />
+            <Button android:textSize="15.0sp" android:textColor="#ffefefef" android:id="@id/btn_test_again" android:background="@color/red_button_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:layout_marginRight="40.0dip" android:layout_marginBottom="10.0dip" android:text="@string/test_again" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

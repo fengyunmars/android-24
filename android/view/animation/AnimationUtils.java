@@ -56,6 +56,7 @@ public class AnimationUtils {
      * @see android.os.SystemClock
      */
     public static long currentAnimationTimeMillis() {
+
         return SystemClock.uptimeMillis();
     }
 

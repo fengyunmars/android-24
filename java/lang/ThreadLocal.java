@@ -29,11 +29,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * This class provides thread-local variables.  These variables differ from
- * their normal counterparts in that each thread that accesses one (via its
- * <tt>get</tt> or <tt>set</tt> method) has its own, independently initialized
+ * their normal counterparts 相对物 in that each thread that accesses one (via its
+ * <tt>get</tt> or <tt>set</tt> method) has its own, independently 各自地 initialized
  * copy of the variable.  <tt>ThreadLocal</tt> instances are typically private
  * static fields in classes that wish to associate state with a thread (e.g.,
- * a user ID or Transaction ID).
+ * a user ID or Transaction 事务 ID).
  *
  * <p>For example, the class below generates unique identifiers local to each
  * thread.
@@ -60,7 +60,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *     }
  * }
  * </pre>
- * <p>Each thread holds an implicit reference to its copy of a thread-local
+ * <p>Each thread holds an implicit 含蓄的 reference to its copy of a thread-local
  * variable as long as the thread is alive and the <tt>ThreadLocal</tt>
  * instance is accessible; after a thread goes away, all of its copies of
  * thread-local instances are subject to garbage collection (unless other
@@ -71,12 +71,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class ThreadLocal<T> {
     /**
-     * ThreadLocals rely on per-thread linear-probe hash maps attached
+     * ThreadLocals rely on per-thread linear-probe 探针 hash maps attached
      * to each thread (Thread.threadLocals and
-     * inheritableThreadLocals).  The ThreadLocal objects act as keys,
+     * inheritableThreadLocals 可继承的 ).  The ThreadLocal objects act as keys,
      * searched via threadLocalHashCode.  This is a custom hash code
-     * (useful only within ThreadLocalMaps) that eliminates collisions
-     * in the common case where consecutively constructed ThreadLocals
+     * (useful only within ThreadLocalMaps) that eliminates 消除 collisions 冲突
+     * in the common case where consecutively 连续地 constructed ThreadLocals
      * are used by the same threads, while remaining well-behaved in
      * less common cases.
      */
@@ -90,9 +90,9 @@ public class ThreadLocal<T> {
         new AtomicInteger();
 
     /**
-     * The difference between successively generated hash codes - turns
-     * implicit sequential thread-local IDs into near-optimally spread
-     * multiplicative hash values for power-of-two-sized tables.
+     * The difference between successively 相继地 generated hash codes - turns
+     * implicit 含蓄的 sequential 连续的 thread-local IDs into near-optimally 最佳 spread
+     * multiplicative  乘法的 hash values for power-of-two-sized tables.
      */
     private static final int HASH_INCREMENT = 0x61c88647;
 
@@ -170,7 +170,7 @@ public class ThreadLocal<T> {
     /**
      * Sets the current thread's copy of this thread-local variable
      * to the specified value.  Most subclasses will have no need to
-     * override this method, relying solely on the {@link #initialValue}
+     * override this method, relying solely 唯一地 on the {@link #initialValue}
      * method to set the values of thread-locals.
      *
      * @param value the value to be stored in the current thread's copy of
@@ -187,11 +187,11 @@ public class ThreadLocal<T> {
 
     /**
      * Removes the current thread's value for this thread-local
-     * variable.  If this thread-local variable is subsequently
+     * variable.  If this thread-local variable is subsequently 随后
      * {@linkplain #get read} by the current thread, its value will be
      * reinitialized by invoking its {@link #initialValue} method,
      * unless its value is {@linkplain #set set} by the current thread
-     * in the interim.  This may result in multiple invocations of the
+     * in the interim  临时的 .  This may result in multiple invocations of the
      * <tt>initialValue</tt> method in the current thread.
      *
      * @since 1.5
@@ -241,7 +241,7 @@ public class ThreadLocal<T> {
      * InheritableThreadLocal, but is internally defined here for the
      * sake of providing createInheritedMap factory method without
      * needing to subclass the map class in InheritableThreadLocal.
-     * This technique is preferable to the alternative of embedding
+     * This technique is preferable 更好的 to the alternative 选择性的 of embedding 植入
      * instanceof tests in methods.
      */
     T childValue(T parentValue) {
@@ -249,13 +249,13 @@ public class ThreadLocal<T> {
     }
 
     /**
-     * ThreadLocalMap is a customized hash map suitable only for
+     * ThreadLocalMap is a customized 自定义 hash map suitable only for
      * maintaining thread local values. No operations are exported
      * outside of the ThreadLocal class. The class is package private to
      * allow declaration of fields in class Thread.  To help deal with
      * very large and long-lived usages, the hash table entries use
      * WeakReferences for keys. However, since reference queues are not
-     * used, stale entries are guaranteed to be removed only when
+     * used, stale 不新鲜的 entries are guaranteed to be removed only when
      * the table starts running out of space.
      */
     static class ThreadLocalMap {
@@ -265,10 +265,11 @@ public class ThreadLocal<T> {
          * its main ref field as the key (which is always a
          * ThreadLocal object).  Note that null keys (i.e. entry.get()
          * == null) mean that the key is no longer referenced, so the
-         * entry can be expunged from table.  Such entries are referred to
-         * as "stale entries" in the code that follows.
+         * entry can be expunged 删掉 from table.  Such entries are referred to
+         * as "stale 不新鲜的 entries" in the code that follows.
          */
         static class Entry extends WeakReference<ThreadLocal> {
+
             /** The value associated with this ThreadLocal. */
             Object value;
 
@@ -307,7 +308,7 @@ public class ThreadLocal<T> {
         }
 
         /**
-         * Increment i modulo len.
+         * Increment i modulo 以…为模 len.
          */
         private static int nextIndex(int i, int len) {
             return ((i + 1 < len) ? i + 1 : 0);
@@ -334,7 +335,7 @@ public class ThreadLocal<T> {
         }
 
         /**
-         * Construct a new map including all Inheritable ThreadLocals
+         * Construct a new map including all Inheritable 可继承的 ThreadLocals
          * from given parent map. Called only by createInheritedMap.
          *
          * @param parentMap the map associated with parent thread.
@@ -383,7 +384,7 @@ public class ThreadLocal<T> {
 
         /**
          * Version of getEntry method for use when key is not found in
-         * its direct hash slot.
+         * its direct hash slot 位置 .
          *
          * @param  key the thread local object
          * @param  i the table index for key's hash code
@@ -413,6 +414,7 @@ public class ThreadLocal<T> {
          * @param key the thread local object
          * @param value the value to be set
          */
+        //// TODO: 2017/8/28  
         private void set(ThreadLocal key, Object value) {
 
             // We don't use a fast path as with get() because it is at
@@ -424,9 +426,8 @@ public class ThreadLocal<T> {
             int len = tab.length;
             int i = key.threadLocalHashCode & (len-1);
 
-            for (Entry e = tab[i];
-                 e != null;
-                 e = tab[i = nextIndex(i, len)]) {
+            for (Entry e = tab[i]; e != null; e = tab[i = nextIndex(i, len)]) {
+
                 ThreadLocal k = e.get();
 
                 if (k == key) {
@@ -465,12 +466,12 @@ public class ThreadLocal<T> {
         }
 
         /**
-         * Replace a stale entry encountered during a set operation
+         * Replace a stale 陈腐的 entry encountered during a set operation
          * with an entry for the specified key.  The value passed in
          * the value parameter is stored in the entry, whether or not
          * an entry already exists for the specified key.
          *
-         * As a side effect, this method expunges all stale entries in the
+         * As a side effect, this method expunges 删掉 all stale entries in the
          * "run" containing the stale entry.  (A run is a sequence of entries
          * between two null slots.)
          *
@@ -486,21 +487,17 @@ public class ThreadLocal<T> {
             Entry e;
 
             // Back up to check for prior stale entry in current run.
-            // We clean out whole runs at a time to avoid continual
-            // incremental rehashing due to garbage collector freeing
-            // up refs in bunches (i.e., whenever the collector runs).
+            // We clean out whole runs at a time to avoid continual 持续不断的
+            // incremental 增值的 rehashing due to garbage collector freeing
+            // up refs in bunches 束 (i.e., whenever the collector runs).
             int slotToExpunge = staleSlot;
-            for (int i = prevIndex(staleSlot, len);
-                 (e = tab[i]) != null;
-                 i = prevIndex(i, len))
+            for (int i = prevIndex(staleSlot, len); (e = tab[i]) != null; i = prevIndex(i, len))
                 if (e.get() == null)
                     slotToExpunge = i;
 
             // Find either the key or trailing null slot of run, whichever
             // occurs first
-            for (int i = nextIndex(staleSlot, len);
-                 (e = tab[i]) != null;
-                 i = nextIndex(i, len)) {
+            for (int i = nextIndex(staleSlot, len); (e = tab[i]) != null; i = nextIndex(i, len)) {
                 ThreadLocal k = e.get();
 
                 // If we find key, then we need to swap it
@@ -538,9 +535,9 @@ public class ThreadLocal<T> {
         }
 
         /**
-         * Expunge a stale entry by rehashing any possibly colliding entries
+         * Expunge 删掉 a stale 不新鲜的 entry by rehashing 重散列 any possibly colliding 冲突 entries
          * lying between staleSlot and the next null slot.  This also expunges
-         * any other stale entries encountered before the trailing null.  See
+         * any other stale entries encountered before the trailing 拖尾的 null.  See
          * Knuth, Section 6.4
          *
          * @param staleSlot index of slot known to have null key
@@ -560,9 +557,7 @@ public class ThreadLocal<T> {
             // Rehash until we encounter null
             Entry e;
             int i;
-            for (i = nextIndex(staleSlot, len);
-                 (e = tab[i]) != null;
-                 i = nextIndex(i, len)) {
+            for (i = nextIndex(staleSlot, len); (e = tab[i]) != null; i = nextIndex(i, len)) {
                 ThreadLocal k = e.get();
                 if (k == null) {
                     e.value = null;
@@ -585,13 +580,13 @@ public class ThreadLocal<T> {
         }
 
         /**
-         * Heuristically scan some cells looking for stale entries.
+         * Heuristically 试探性地 scan some cells looking for stale entries.
          * This is invoked when either a new element is added, or
          * another stale one has been expunged. It performs a
-         * logarithmic number of scans, as a balance between no
+         * logarithmic 对数的 number of scans, as a balance between no
          * scanning (fast but retains garbage) and a number of scans
-         * proportional to number of elements, that would find all
-         * garbage but would cause some insertions to take O(n) time.
+         * proportional 比例项 to number of elements, that would find all
+         * garbage but would cause some insertions 插入 to take O(n) time.
          *
          * @param i a position known NOT to hold a stale entry. The
          * scan starts at the element after i.

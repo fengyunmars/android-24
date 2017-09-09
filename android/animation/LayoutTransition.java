@@ -82,7 +82,7 @@ import java.util.Map;
  * property names that are known on the target object.</p>
  *
  * <p>This class, and the associated XML flag for containers, animateLayoutChanges="true",
- * provides a simple utility meant for automating changes in straightforward situations.
+ * provides a simple utility meant for automating 自动化的 changes in straightforward situations.
  * Using LayoutTransition at multiple levels of a nested view hierarchy may not work due to the
  * interrelationship 相互关系 of the various levels of layout. Also, a container that is being scrolled
  * at the same time as items are being added or removed is probably not a good candidate 候选人 for
@@ -197,6 +197,7 @@ public class LayoutTransition {
     private static TimeInterpolator ACCEL_DECEL_INTERPOLATOR =
             new AccelerateDecelerateInterpolator();
     private static TimeInterpolator DECEL_INTERPOLATOR = new DecelerateInterpolator();
+
     private static TimeInterpolator sAppearingInterpolator = ACCEL_DECEL_INTERPOLATOR;
     private static TimeInterpolator sDisappearingInterpolator = ACCEL_DECEL_INTERPOLATOR;
     private static TimeInterpolator sChangingAppearingInterpolator = DECEL_INTERPOLATOR;
@@ -216,7 +217,7 @@ public class LayoutTransition {
      * These hashmaps are used to store the animations that are currently running as part of
      * the transition. The reason for this is that a further layout event should cause
      * existing animations to stop where they are prior to starting new animations. So
-     * we cache all of the current animations in this map for possible cancellation on
+     * we cache all of the current animations in this map for possible cancellation  取消 on
      * another layout event. LinkedHashMaps are used to preserve the order in which animations
      * are inserted, so that we process events (such as setting up start values) in the same order.
      */
@@ -1253,7 +1254,7 @@ public class LayoutTransition {
             return;
         }
         if ((mTransitionTypes & FLAG_APPEARING) == FLAG_APPEARING) {
-            // Want disappearing animations to finish up before proceeding
+            // Want disappearing animations to finish up 完成 before proceeding
             cancel(DISAPPEARING);
         }
         if (changesLayout && (mTransitionTypes & FLAG_CHANGE_APPEARING) == FLAG_CHANGE_APPEARING) {

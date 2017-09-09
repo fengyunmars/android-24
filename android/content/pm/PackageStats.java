@@ -25,6 +25,7 @@ import android.os.UserHandle;
  * application package.
  */
 public class PackageStats implements Parcelable {
+
     /** Name of the package to which this stats applies. */
     public String packageName;
 

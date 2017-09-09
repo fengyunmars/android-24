@@ -1256,6 +1256,7 @@ public class ImageView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
+//        mContext.getDrawable();
         if (mDrawable == null) {
             return; // couldn't resolve the URI
         }

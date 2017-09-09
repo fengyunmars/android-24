@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/rl_container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/tabbar" android:background="@color/ue_tab_bar_bg" android:layout_width="fill_parent" android:layout_height="65.0dip" android:baselineAligned="false" android:layout_alignParentBottom="true">
+        <include android:id="@id/tab_phone" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" layout="@layout/ue_tab_item_layout" />
+        <include android:id="@id/tab_pad" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" layout="@layout/ue_tab_item_layout" />
+        <include android:id="@id/tab_notebook" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" layout="@layout/ue_tab_item_layout" />
+        <include android:id="@id/tab_pc" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0" layout="@layout/ue_tab_item_layout" />
+    </LinearLayout>
+    <View android:id="@id/view_divider_line" android:background="@color/ue_divider_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_above="@id/tabbar" />
+    <FrameLayout android:id="@id/basicscroll_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/view_divider_line" android:layout_alignParentTop="true" />
+</RelativeLayout>

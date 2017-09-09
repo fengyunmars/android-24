@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:background="@drawable/titlebar_bg" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height">
+        <TextView android:textSize="19.0sp" android:textColor="@android:color/white" android:id="@id/phone_detail_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/detail" android:drawableLeft="@drawable/bg_btn_back" android:drawablePadding="15.0dip" android:layout_centerVertical="true" />
+        <TextView android:textSize="13.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/phone_to_vs" android:background="@drawable/bg_btn_verify" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0sp" android:text="@string/vs_text" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="12.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/vs_count" android:background="@drawable/dot" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="3.0dip" android:layout_alignRight="@id/phone_to_vs" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <ListView android:id="@id/lvParameters" android:background="@android:color/transparent" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@android:color/transparent" android:divider="@drawable/listview_common_divider" android:dividerHeight="0.5dip" />
+        <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    </RelativeLayout>
+</LinearLayout>

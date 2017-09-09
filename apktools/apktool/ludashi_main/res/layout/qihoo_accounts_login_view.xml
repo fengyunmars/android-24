@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_login_top_title_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/qihoo_accounts_top_title" />
+    </LinearLayout>
+    <LinearLayout android:orientation="horizontal" android:id="@id/login_tips" android:paddingTop="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qihoo_accounts_title_bar_margin" android:src="@drawable/qihoo_accounts_login_360_icon" />
+        <TextView android:textSize="@dimen/qihoo_accounts_textsize_normal" android:textColor="@color/qihoo_accounts_color6_gray" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:text="@string/qihoo_accounts_login_top_tips" />
+    </LinearLayout>
+    <com.ludashi.account.qihoo360.v.IcsLinearLayout android:orientation="vertical" android:paddingTop="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" ics:icsDivider="@drawable/qihoo_accounts_vertical_divider_drawable" ics:icsShowDividers="middle" xmlns:ics="http://schemas.android.com/apk/res-auto">
+        <include layout="@layout/qihoo_accounts_sel_countries_item" />
+        <RelativeLayout android:orientation="horizontal" android:id="@id/qihoo_accounts_login_account_layout" android:background="@color/qihoo_accounts_white" android:layout_width="fill_parent" android:layout_height="@dimen/qihoo_accounts_input_box_height">
+            <View android:id="@id/separator" android:background="@color/qihoo_accounts_color6_gray" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_above="@id/login_input_layout" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/login_input_layout" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qihoo_accounts_input_icon_left_margin" android:src="@drawable/qihoo_accounts_login_user_icon" />
+                <com.ludashi.account.qihoo360.v.QAccountEditText android:id="@id/login_qaet_account" android:layout_height="fill_parent" android:layout_weight="1.0" style="@style/qihoo_accounts_input_text_style" />
+            </LinearLayout>
+        </RelativeLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/qihoo_accounts_login_psw" android:background="@color/qihoo_accounts_white" android:layout_width="fill_parent" android:layout_height="@dimen/qihoo_accounts_input_box_height" android:baselineAligned="false">
+            <RelativeLayout android:orientation="horizontal" android:id="@id/qihoo_accounts_login_psw_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/login_passwd_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qihoo_accounts_input_icon_left_margin" android:src="@drawable/qihoo_accounts_login_passwd_icon" android:layout_centerVertical="true" />
+                <Button android:id="@id/login_delete_password" android:visibility="gone" android:layout_alignParentRight="true" style="@style/qihoo_accounts_input_delete_btn_style" />
+                <EditText android:id="@id/login_password" android:hint="@string/qihoo_accounts_login_password_hint" android:layout_toLeftOf="@id/login_delete_password" android:layout_toRightOf="@id/login_passwd_icon" style="@style/qihoo_accounts_pwd_input_text_style" />
+            </RelativeLayout>
+            <View android:background="@color/qihoo_accounts_color9_gray" android:layout_width="0.35000002dip" android:layout_height="fill_parent" android:layout_marginTop="10.0dip" android:layout_marginRight="0.0dip" android:layout_marginBottom="10.0dip" />
+            <Button android:id="@id/login_show_password" android:text="@string/qihoo_accounts_show_password" style="@style/qihoo_accounts_input_show_hide_btn_style" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/login_captcha_layout" android:background="@color/qihoo_accounts_white" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="@dimen/qihoo_accounts_input_box_height">
+            <RelativeLayout android:background="@color/qihoo_accounts_white" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/login_captcha_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qihoo_accounts_input_icon_left_margin" android:src="@drawable/qihoo_accounts_login_captcha_icon" android:layout_centerVertical="true" />
+                <EditText android:id="@id/login_captcha_text" android:hint="@string/qihoo_accounts_image_captcha_hint" android:maxLength="4" android:layout_toRightOf="@id/login_captcha_icon" style="@style/qihoo_accounts_input_text_style" />
+                <Button android:id="@id/login_delete_captcha_btn" android:visibility="gone" android:layout_alignParentRight="true" style="@style/qihoo_accounts_input_delete_btn_style" />
+            </RelativeLayout>
+            <ImageView android:id="@id/login_captcha_imageView" android:layout_width="wrap_content" android:layout_height="fill_parent" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qihoo_accounts_login_left_padding" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin" android:layout_marginRight="@dimen/qihoo_accounts_login_left_padding">
+            <Button android:id="@id/login_quick_register" android:layout_width="0.0dip" android:layout_marginTop="@dimen/qihoo_accounts_login_top_padding" android:layout_marginRight="@dimen/qihoo_accounts_login_margin_padding" android:text="@string/qihoo_accounts_register_btn_text" android:layout_weight="1.0" style="@style/qihoo_accounts_main_register_style" />
+            <Button android:id="@id/login_click" android:layout_width="0.0dip" android:layout_marginTop="@dimen/qihoo_accounts_login_top_padding" android:text="@string/qihoo_accounts_login_btn_text" android:layout_weight="1.0" style="@style/qihoo_accounts_main_btn_style" />
+        </LinearLayout>
+    </com.ludashi.account.qihoo360.v.IcsLinearLayout>
+</LinearLayout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@drawable/c_charger_bg_blue" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" custom:buttonCount="Left" custom:TitleText="@string/charger" style="@style/CommonNaviBar" />
+    <TextView android:textSize="@dimen/charge_page_title_text_big" android:textColor="@android:color/white" android:gravity="center" android:id="@id/tv_tip1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="65.0dip" android:layout_marginRight="10.0dip" android:text="@string/profile_charger_failed" android:layout_centerHorizontal="true" android:lineSpacingExtra="@dimen/charge_page_title_extra_space" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/ll_connect" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c_connect_part1" android:scaleType="fitCenter" android:contentDescription="@null" />
+        <ImageView android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="15.0dip" android:src="@drawable/c_connect_failed" android:scaleType="fitCenter" android:contentDescription="@null" />
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c_connect_part2" android:scaleType="fitCenter" android:contentDescription="@null" />
+    </LinearLayout>
+    <Button android:id="@id/btn_operate" android:layout_marginBottom="85.0dip" android:text="@string/re_choose_profile" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/chargeButtonAlpha" />
+    <TextView android:id="@id/tv_tip2" android:text="@string/tip_choose_charge_profile_failed_reason" android:layout_alignTop="@id/btn_operate" android:layout_centerHorizontal="true" style="@style/chargePageBottomText" />
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/root" android:background="@color/ev_gray_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/xuinb" android:background="@drawable/titlebar_bg" style="@style/CommonNaviBar" />
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ExpandableListView android:id="@id/hwInfoList" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="#fffafafa" android:cacheColorHint="#00000000" android:groupIndicator="@null" android:divider="#fffafafa" android:dividerHeight="0.0dip" android:overScrollFooter="@null" />
+    </FrameLayout>
+</LinearLayout>

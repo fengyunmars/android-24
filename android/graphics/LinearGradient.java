@@ -15,7 +15,9 @@
  */
 
 package android.graphics;
-
+/**
+ * 梯度 渐变 梯度
+ */
 public class LinearGradient extends Shader {
 
     private static final int TYPE_COLORS_AND_POSITIONS = 1;

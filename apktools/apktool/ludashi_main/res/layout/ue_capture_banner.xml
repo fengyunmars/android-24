@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@drawable/ue_result_header_background" android:layout_width="720.0px" android:layout_height="200.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="25.0px" android:textColor="#ccffffff" android:gravity="bottom|center" android:id="@id/tv_phone_name" android:layout_width="wrap_content" android:layout_height="0.0dip" android:text="我的三星手机GALAXY S6并且" android:layout_weight="1.0" />
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.2">
+        <TextView android:textSize="40.0px" android:textColor="@color/white" android:id="@id/tv_total_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="111.11" android:layout_centerInParent="true" />
+        <TextView android:textSize="30.0px" android:textColor="@color/white" android:id="@id/tv_score_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/score_unit" android:layout_toRightOf="@id/tv_total_score" android:layout_alignBaseline="@id/tv_total_score" />
+    </RelativeLayout>
+</LinearLayout>

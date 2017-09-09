@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/container" android:background="@color/list_item_title" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/pnlTop" android:background="@color/blue_title" android:layout_width="fill_parent" android:layout_height="@dimen/navigation_bar_height">
+        <ImageView android:id="@id/imgReturn" android:paddingLeft="@dimen/screen_margin" android:paddingRight="@dimen/screen_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/bg_btn_back" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <Button android:textColor="#afffffff" android:id="@id/rebench_btn" android:background="@drawable/transport_little_btn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/screen_margin" android:text="@string/rebench" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@id/txtTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/html5benching" android:layout_toRightOf="@id/imgReturn" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <ListView android:id="@id/rank_list" android:background="@null" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginTop="@dimen/screen_margin" android:listSelector="#00000000" android:cacheColorHint="#00000000" android:divider="#ffd1d5dc" android:dividerHeight="0.0px" android:layout_weight="1.0" android:overScrollFooter="@null" />
+    <LinearLayout android:gravity="center" android:id="@id/submit_btn_container" android:padding="@dimen/screen_margin" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textSize="18.0sp" android:textColor="@color/default_black_text" android:id="@id/share_btn" android:background="@drawable/ev_comment_btn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:text="@string/rank_share" android:layout_weight="1.0" />
+        <Button android:textSize="18.0sp" android:textColor="#ff008ee7" android:id="@id/detailBtn" android:background="@drawable/ev_comment_btn" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/rank_2_detal" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

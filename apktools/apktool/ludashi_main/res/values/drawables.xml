@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="drawable" name="blue_coursor">#ff0c80e7</item>
+    <item type="drawable" name="mer_item_h">#ff00a5df</item>
+    <item type="drawable" name="mer_item_normal">#ffffffff</item>
+    <item type="drawable" name="newssdk_share_bg_normal">#fff8f8f8</item>
+    <item type="drawable" name="newssdk_share_bg_selected">#ffe8e8e8</item>
+    <item type="drawable" name="none">#00000000</item>
+    <item type="drawable" name="share_dialog_bg_checked">#ffeaeaea</item>
+    <item type="drawable" name="tag_blue">#ff0d7fe7</item>
+    <item type="drawable" name="tag_red">#fffb7b6c</item>
+</resources>

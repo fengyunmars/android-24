@@ -3628,7 +3628,7 @@ public abstract class PackageManager {
     /**
      * Check whether the given feature name is one of the available features as
      * returned by {@link #getSystemAvailableFeatures()}. This tests for the
-     * presence of <em>any</em> version of the given feature name; use
+     * presence 存在 of <em>any</em> version of the given feature name; use
      * {@link #hasSystemFeature(String, int)} to check for a minimum version.
      *
      * @return Returns true if the devices supports the feature, else false.
@@ -4482,7 +4482,7 @@ public abstract class PackageManager {
             throws NameNotFoundException;
 
     /**
-     * Returns a managed-user-style badged copy of the given drawable allowing the user to
+     * Returns a managed-user-style badged 徽章；证章；标记 copy of the given drawable allowing the user to
      * distinguish it from the original drawable.
      * The caller can specify the location in the bounds of the drawable to be
      * badged where the badge should be applied as well as the density of the
@@ -4735,6 +4735,7 @@ public abstract class PackageManager {
      * @see #MATCH_UNINSTALLED_PACKAGES
      *
      */
+    //// TODO: 2017/8/22  
     public PackageInfo getPackageArchiveInfo(String archiveFilePath, @PackageInfoFlags int flags) {
         final PackageParser parser = new PackageParser();
         final File apkFile = new File(archiveFilePath);
@@ -4879,7 +4880,7 @@ public abstract class PackageManager {
      * {@link android.content.IntentFilter#getAutoVerify()}
      *
      * This is used by the ResolverActivity to change the status depending on what the User select
-     * in the Disambiguation Dialog and also used by the Settings App for changing the default App
+     * in the Disambiguation 解疑 Dialog and also used by the Settings App for changing the default App
      * for a domain.
      *
      * @param packageName The package name of the Activity associated with the IntentFilter.
@@ -5189,7 +5190,7 @@ public abstract class PackageManager {
 
     /**
      * @deprecated This function no longer does anything; it was an old
-     * approach to managing preferred activities, which has been superseded
+     * approach to managing preferred activities, which has been superseded  作废的
      * by (and conflicts with) the modern activity-based preferences.
      */
     @Deprecated
@@ -5313,7 +5314,7 @@ public abstract class PackageManager {
     /**
      * Remove all preferred activity mappings, previously added with
      * {@link #addPreferredActivity}, from the
-     * system whose activities are implemented in the given package name.
+     * system whose activities are implemented 应用的 in the given package name.
      * An application can only clear its own package(s).
      *
      * @param packageName The name of the package whose preferred activity
@@ -5493,7 +5494,7 @@ public abstract class PackageManager {
     public abstract KeySet getSigningKeySet(String packageName);
 
     /**
-     * Return whether the package denoted by packageName has been signed by all
+     * Return whether the package denoted 表示 by packageName has been signed by all
      * of the keys specified by the {@link KeySet} ks.  This will return true if
      * the package has been signed by additional keys (a superset) as well.
      * Compare to {@link #isSignedByExactly(String packageName, KeySet ks)}.

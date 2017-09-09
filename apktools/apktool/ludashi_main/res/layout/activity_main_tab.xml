@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/fl_full_screen" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <TabHost android:id="@android:id/tabhost" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <FrameLayout android:id="@android:id/tabcontent" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+            <TabWidget android:gravity="center" android:id="@android:id/tabs" android:background="@drawable/tabwidget_bg" android:layout_width="fill_parent" android:layout_height="@dimen/tabwidget_height" />
+        </LinearLayout>
+    </TabHost>
+    <LinearLayout android:gravity="right" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/luinb" custom:buttonCount="Four" custom:LeftButtonDrawable="@drawable/main_logo" custom:RightButtonBackground="@drawable/btn_setting" custom:Right2ButtonPaddingRight="10.0dip" custom:Right2ButtonDrawable="@drawable/download_icon" custom:Right3ButtonDrawable="@drawable/download_icon" style="@style/CommonNaviBar" />
+        <LinearLayout android:orientation="horizontal" android:id="@id/dl_float_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="60.0dip">
+            <ImageView android:background="@android:color/transparent" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:src="@drawable/download_float_left" android:scaleType="fitXY" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/dl_float_hint" android:background="@drawable/download_float_mid" android:layout_width="wrap_content" android:layout_height="25.0dip" android:layout_marginTop="5.0dip" android:text="你有3个应用未下载" />
+            <ImageView android:background="@android:color/transparent" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="30.0dip" android:src="@drawable/download_float_right" android:scaleType="fitXY" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageButton android:layout_gravity="right" android:id="@id/ib_spread_entry" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="70.0dip" android:layout_marginRight="20.0dip" android:src="@drawable/icon_spread_entry" />
+    <LinearLayout android:layout_gravity="right" android:orientation="vertical" android:id="@id/ll_calendar_wrapper" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="70.0dip" android:layout_marginRight="20.0dip">
+        <TextView android:textColor="@color/red" android:gravity="center" android:id="@id/tv_caption" android:background="@drawable/calendar_tips" android:paddingTop="30.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/add_to_calendar" android:maxLines="5" android:lineSpacingExtra="10.0dip" />
+        <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/tv_counter" android:background="#ffe33523" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:paddingRight="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/calendar_counter_5s" />
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="right" android:id="@id/main_float_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="70.0dip">
+        <ImageView android:id="@id/main_float_close" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/main_float_close" />
+        <RelativeLayout android:id="@id/main_float_relative" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/main_float_close">
+            <ImageView android:id="@id/main_float_img_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:gravity="center" android:id="@id/main_float_count_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="123123123\n123123" android:layout_centerInParent="true" android:lineSpacingMultiplier="1.1" />
+        </RelativeLayout>
+    </RelativeLayout>
+</FrameLayout>

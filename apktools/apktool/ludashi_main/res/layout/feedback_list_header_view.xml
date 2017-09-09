@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:layout_alignParentRight="true">
+        <EditText android:textSize="13.0sp" android:id="@id/edContact" android:layout_width="fill_parent" android:layout_height="44.0dip" android:layout_marginTop="25.0dip" android:hint="@string/contact_hint" android:singleLine="true" android:maxLength="101" />
+        <TextView android:textSize="14.0sp" android:textColor="#ff303030" android:id="@id/feedback_title_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="13.0dip" android:layout_marginBottom="8.0dip" android:text="@string/verify_feedback_title_tips" />
+    </LinearLayout>
+</RelativeLayout>

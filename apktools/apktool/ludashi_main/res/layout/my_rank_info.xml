@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/all_info" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/mySelf_layout" android:padding="11.0dip" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/phone_price_info" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/screen_margin">
+            <TextView android:textSize="15.0sp" android:textColor="@color/new_ui_blue_text" android:id="@id/phone_model" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <LinearLayout android:id="@id/score_layout" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:textSize="12.0sp" android:textColor="#ff999999" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/rank_avg" />
+                <TextView android:textSize="20.0sp" android:textColor="@color/item_score" android:id="@id/phone_price" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <TextView android:textSize="12.0sp" android:textColor="@color/item_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="分" />
+            </LinearLayout>
+        </LinearLayout>
+        <ImageView android:layout_gravity="center" android:id="@id/title_type" android:background="@drawable/gray_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/screen_margin" />
+    </LinearLayout>
+    <View android:background="#ffeaeaea" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="@dimen/screen_margin" android:layout_marginRight="@dimen/screen_margin" />
+    <LinearLayout android:orientation="vertical" android:id="@id/all_info_ll" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="35.0dip">
+            <TextView android:textSize="12.0sp" android:textColor="@color/new_ui_blue_text" android:layout_gravity="left" android:id="@id/min_score" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <TextView android:textSize="12.0sp" android:textColor="@color/new_ui_blue_text" android:gravity="right" android:id="@id/max_score" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        </LinearLayout>
+        <ImageView android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/kedu" />
+        <SeekBar android:id="@id/seekBar" android:background="@drawable/progress_bg_all" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:layout_marginRight="30.0dip" android:thumb="@drawable/seekbar_img" style="@style/blue_seek_progres_none" />
+        <RelativeLayout android:id="@id/rank_wrapper" android:paddingBottom="@dimen/screen_margin" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_gravity="center_horizontal" android:id="@id/arrow" android:background="@drawable/arraw_san" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/rank_layout" android:padding="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/arrow">
+                <TextView android:textSize="12.0sp" android:textColor="@color/new_ui_blue_text" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/im_here" />
+                <TextView android:textSize="12.0sp" android:textColor="#ff6e6e6e" android:layout_gravity="center_horizontal" android:id="@id/my_rank" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-1.0dip" android:text="@string/my_rank_and_score" android:singleLine="true" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center" android:background="#80000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ProgressBar android:layout_gravity="center_vertical" android:id="@id/progress_revealing" android:visibility="gone" android:layout_width="60.0dip" android:layout_height="60.0dip" android:indeterminateDrawable="@drawable/progress_open_lucky_money" android:indeterminateDuration="4800" />
+    <include android:id="@id/layout_share" layout="@layout/layout_hongbao_share" />
+</RelativeLayout>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/qihoo_accounts_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <include layout="@layout/qihoo_accounts_top_title" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_register_down_sms_captcha_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/qihoo_accounts_register_down_sms_captcha_view" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_register_down_sms_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/qihoo_accounts_register_down_sms_view" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_register_up_sms_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/qihoo_accounts_register_up_sms_view" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_register_email_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/qihoo_accounts_register_email_view" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/qihoo_accounts_register_email_active_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include layout="@layout/qihoo_accounts_register_email_active_view" />
+    </LinearLayout>
+</LinearLayout>

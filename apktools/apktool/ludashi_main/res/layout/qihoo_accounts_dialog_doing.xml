@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/dialog_rotate_layout" android:background="@drawable/qihoo_accounts_doing_dialog_background" android:padding="@dimen/qihoo_accounts_dialog_doing_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/dialog_rotate_image" android:background="@drawable/qihoo_accounts_dialog_logining" android:layout_width="@dimen/qihoo_accounts_dialog_doing_icon_witdh" android:layout_height="@dimen/qihoo_accounts_dialog_doing_icon_height" android:layout_marginRight="@dimen/qihoo_accounts_dialog_doing_icon_right" />
+    <TextView android:gravity="left" android:id="@id/dialog_rotate_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" style="@style/qihoo_accounts_note_text_style" />
+</LinearLayout>

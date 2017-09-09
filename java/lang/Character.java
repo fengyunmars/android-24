@@ -6625,7 +6625,7 @@ public final class Character implements java.io.Serializable, Comparable<Charact
      * if at least one of the following is true:
      * <ul>
      * <li>The method {@code isDigit} is {@code true} of the character
-     * and the Unicode decimal digit value of the character (or its
+     * and the Unicode decimal 十进位的 digit value of the character (or its
      * single-character decomposition 分解 ) is less than the specified radix.
      * In this case the decimal digit value is returned.
      * <li>The character is one of the uppercase Latin letters

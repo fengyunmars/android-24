@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="#ffe6e6e6" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="36.0dip">
+            <View android:layout_gravity="center_vertical" android:id="@id/iv_temp" android:background="@color/common_font_color_5" android:layout_width="2.0dip" android:layout_height="14.0dip" />
+            <TextView android:textSize="@dimen/common_font_size_f" android:textColor="@color/common_font_color_2" android:ellipsize="end" android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/app_short_desc_57" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_marginLeft="4.0dip" android:singleLine="true" android:layout_weight="1.0" />
+            <LinearLayout android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/app_ignore_57" android:paddingLeft="4.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent">
+                <ImageView android:layout_gravity="center|right" android:background="@drawable/newssdk_icon_close_1" android:layout_width="18.699982dip" android:layout_height="13.299988dip" android:layout_marginRight="3.6999817dip" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.qihoo360.newssdk.ui.common.CommonRippleLinearLayout android:id="@id/root_layout_57" android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:id="@id/app_large_image_57" android:layout_width="fill_parent" android:layout_height="164.0dip" android:src="@color/common_bg_gray3" android:scaleType="centerCrop" />
+        </com.qihoo360.newssdk.ui.common.CommonRippleLinearLayout>
+        <RelativeLayout android:paddingLeft="16.0dip" android:paddingRight="16.0dip" android:layout_width="fill_parent" android:layout_height="48.0dip">
+            <LinearLayout android:orientation="horizontal" android:id="@id/app_progress_57_layout" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <com.qihoo360.newssdk.ui.common.TextProgressBar android:layout_gravity="center_vertical" android:id="@id/app_progress_57" android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminateOnly="false" />
+                <ImageView android:layout_gravity="center_vertical" android:id="@id/app_progress_57_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.5dip" android:src="@drawable/newssdk_icon_right_arrow" android:scaleType="fitXY" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="78.0dip" android:layout_marginRight="4.0dip" android:layout_toLeftOf="@id/app_progress_57_layout">
+                <TextView android:textSize="@dimen/common_font_size_f" android:textColor="@color/common_font_color_3" android:ellipsize="end" android:id="@id/app_long_desc_57" android:layout_width="wrap_content" android:layout_height="wrap_content" android:maxLines="2" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <View android:background="#ffe6e6e6" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

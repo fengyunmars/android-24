@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ludashi.account.qihoo360.v.RegisterDownSmsCaptchaView android:orientation="vertical" android:id="@id/register_down_sms_captcha_view" android:paddingTop="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="@dimen/qihoo_accounts_textsize_normal" android:textColor="@color/qihoo_accounts_black" android:layout_gravity="center_vertical" android:id="@id/register_down_sms_captcha_phone_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/qihoo_accounts_left_padding" android:text="@string/qihoo_accounts_register_down_sms_captcha_your_phone" />
+        <TextView android:textColor="@color/qihoo_accounts_black" android:layout_gravity="center_vertical" android:id="@id/register_down_sms_captcha_phone" style="@style/qihoo_accounts_account_text_style" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/qihoo_accounts_white" android:layout_width="fill_parent" android:layout_height="@dimen/qihoo_accounts_input_box_height2" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin">
+        <RelativeLayout android:orientation="horizontal" android:id="@id/qihoo_accounts_reg_down_sms_captcha_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <Button android:id="@id/register_down_sms_captcha_delete" android:visibility="gone" android:layout_alignParentRight="true" style="@style/qihoo_accounts_input_delete_btn_style" />
+            <EditText android:id="@id/register_down_sms_captcha_text" android:paddingLeft="@dimen/qihoo_accounts_padding" android:hint="@string/qihoo_accounts_register_down_sms_captcha_hint" android:layout_toLeftOf="@id/register_down_sms_captcha_delete" android:inputType="textVisiblePassword" style="@style/qihoo_accounts_input_text_style" />
+        </RelativeLayout>
+        <Button android:id="@id/register_down_sms_captcha_send_click" android:padding="5.0dip" android:layout_marginLeft="@dimen/qihoo_accounts_show_pwd_margin_left" android:layout_marginTop="@dimen/qihoo_accounts_top_padding" android:layout_marginRight="@dimen/qihoo_accounts_right_padding" android:layout_marginBottom="@dimen/qihoo_accounts_top_padding" android:text="@string/qihoo_accounts_register_down_sms_captcha_send_click" style="@style/qihoo_accounts_input_show_btn_style" />
+    </LinearLayout>
+    <Button android:id="@id/register_down_sms_captcha_commit" android:layout_width="fill_parent" android:layout_marginLeft="@dimen/qihoo_accounts_padding" android:layout_marginTop="@dimen/qihoo_accounts_input_boxs_margin" android:layout_marginRight="@dimen/qihoo_accounts_padding" android:text="@string/qihoo_accounts_register_btn_text" style="@style/qihoo_accounts_main_register_style" />
+</com.ludashi.account.qihoo360.v.RegisterDownSmsCaptchaView>

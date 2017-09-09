@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:padding="@dimen/news_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v7.widget.CardView android:layout_gravity="center" android:id="@id/card_view" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="@dimen/card_margin" android:foreground="?android:selectableItemBackground" card_view:cardBackgroundColor="@color/white" card_view:cardCornerRadius="@dimen/normal_radius" xmlns:card_view="http://schemas.android.com/apk/res-auto">
+        <com.antutu.benchmark.view.MaterialRippleLayout android:id="@id/ll_bg" android:padding="@dimen/news_padding" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:layout_gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <TextView android:gravity="center_vertical" android:layout_gravity="center_vertical" android:id="@id/tv_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="14.0dip" android:singleLine="true" style="@style/news_title" />
+                <ImageView android:layout_gravity="center" android:id="@id/iv_img" android:layout_width="340.0dip" android:layout_height="187.0dip" android:scaleType="fitCenter" android:adjustViewBounds="true" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+                    <LinearLayout android:gravity="bottom|center|left" android:layout_gravity="bottom" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <ImageView android:layout_gravity="bottom" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/comment_count" />
+                        <TextView android:gravity="bottom|center|left" android:layout_gravity="bottom|center|left" android:id="@id/tv_comment_count" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:layout_weight="1.0" style="@style/news_subtitle" />
+                    </LinearLayout>
+                    <LinearLayout android:gravity="center|left|top" android:layout_gravity="top" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                        <TextView android:gravity="center|left|top" android:layout_gravity="bottom" android:id="@id/tv_love" android:layout_width="wrap_content" android:layout_height="wrap_content" android:drawableLeft="@drawable/heart" android:drawablePadding="3.0dip" style="@style/news_subtitle" />
+                    </LinearLayout>
+                    <TextView android:gravity="center|right|top" android:layout_gravity="center_vertical" android:id="@id/tv_date" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" style="@style/news_subtitle" />
+                </LinearLayout>
+            </LinearLayout>
+        </com.antutu.benchmark.view.MaterialRippleLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

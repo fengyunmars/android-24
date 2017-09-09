@@ -185,7 +185,7 @@ public interface ViewParent {
     public boolean showContextMenuForChild(View originalView);
 
     /**
-     * Shows the context menu for the specified view or its ancestors anchored
+     * Shows the context menu for the specified view or its ancestors 祖先 anchored
      * to the specified view-relative coordinate.
      * <p>
      * In most cases, a subclass does not need to override this. However, if
@@ -300,7 +300,7 @@ public interface ViewParent {
 
     /**
      * Called by a child to request from its parent to send an {@link AccessibilityEvent}.
-     * The child has already populated a record for itself in the event and is delegating
+     * The child has already populated a record for itself in the event and is delegating 授权；委派；授权式
      * to its parent to send the event. The parent can optionally add a record for itself.
      * <p>
      * Note: An accessibility event is fired by an individual view which populates the

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/dualspace_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/s_round_rect_white_inner" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:paddingTop="35.0dip" android:paddingBottom="35.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/empty_application_list" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/empty_app" android:layout_centerInParent="true" style="@style/operation_text" />
+            <RelativeLayout android:id="@id/internal_app" android:paddingRight="30.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/wechat_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/wechat_launcher_icon" android:layout_centerHorizontal="true" />
+                <ImageView android:id="@id/wechat_indicator" android:paddingTop="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/unchecked" android:layout_toRightOf="@id/wechat_icon" android:layout_alignTop="@id/wechat_icon" />
+                <TextView android:text="@string/wechat" android:layout_below="@id/wechat_icon" style="@style/launcher_application_label" />
+            </RelativeLayout>
+            <RelativeLayout android:id="@id/generic_app" android:paddingRight="30.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                <ImageView android:id="@id/today_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/today_launcher_icon" android:layout_centerHorizontal="true" />
+                <ImageView android:id="@id/today_indicator" android:paddingTop="10.0dip" android:paddingRight="10.0dip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/unchecked" android:layout_toRightOf="@id/today_icon" android:layout_alignTop="@id/today_icon" />
+                <TextView android:text="@string/today" android:layout_below="@id/today_icon" style="@style/launcher_application_label" />
+            </RelativeLayout>
+        </LinearLayout>
+        <View android:background="#ffd9d9d9" android:layout_width="wrap_content" android:layout_height="1.0px" android:layout_marginLeft="20.0dip" android:layout_marginRight="20.0dip" />
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/done" android:visibility="gone" android:layout_width="wrap_content" android:text="@string/done" android:drawableLeft="@drawable/add_to_desktop" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" style="@style/operation_text" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/operation_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:id="@id/manage" android:text="@string/application_manage" android:drawableLeft="@drawable/application_manage" style="@style/operation_text" />
+                </RelativeLayout>
+                <View android:background="#ffd9d9d9" android:layout_width="1.0px" android:layout_height="fill_parent" android:layout_marginTop="5.0dip" android:layout_marginBottom="5.0dip" />
+                <RelativeLayout android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+                    <TextView android:id="@id/shortcut" android:text="@string/add_to_desktop" android:drawableLeft="@drawable/add_to_desktop" style="@style/operation_text" />
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <TextView android:textSize="18.0dip" android:textColor="#ffffffff" android:gravity="center" android:id="@id/intro" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="45.0dip" android:text="@string/dualspace_introduction" android:lineSpacingExtra="5.0dip" />
+    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/opening" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip">
+        <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:indeterminateDrawable="@drawable/s_progress_spin" />
+        <TextView android:textSize="21.0dip" android:textColor="#ffffffff" android:id="@id/opening_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/virtual_app_opening" />
+    </LinearLayout>
+</LinearLayout>

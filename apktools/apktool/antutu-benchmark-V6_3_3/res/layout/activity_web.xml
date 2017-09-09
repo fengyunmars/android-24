@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <WebView android:id="@id/webView" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
+    <TextView android:textSize="18.0sp" android:gravity="center" android:focusable="true" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <RelativeLayout android:id="@id/layoutResult" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ListView android:id="@id/listView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="90.0dip" android:layout_marginRight="20.0dip" android:cacheColorHint="#00000000" android:divider="@null" />
+        <TextView android:textSize="12.0sp" android:gravity="center" android:id="@id/textUA" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:layout_below="@id/listView" />
+        <Button android:textStyle="bold" android:textColor="@color/white" android:id="@id/btnTest" android:background="@drawable/btn_grey" android:paddingRight="7.0dip" android:layout_width="120.0dip" android:layout_height="wrap_content" android:layout_margin="30.0dip" android:text="@string/test_again" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+</RelativeLayout>

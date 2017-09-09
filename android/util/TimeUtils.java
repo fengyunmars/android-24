@@ -385,7 +385,7 @@ public class TimeUtils {
         return pos + 1;
     }
 
-    /** @hide Just for debugging; not internationalized. */
+    /** @hide Just for debugging; not internationalized 国际化 . */
     public static void formatDuration(long duration, StringBuilder builder) {
         synchronized (sFormatSync) {
             int len = formatDurationLocked(duration, 0);

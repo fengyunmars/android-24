@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="child_comments_margin_left">10.0dip</dimen>
+    <dimen name="tab_optimize_mem_storage_height">150.0dip</dimen>
+    <dimen name="prevent_touch_open_margin_top_four">9.0dip</dimen>
+    <dimen name="prevent_touch_open_margin_top_one">18.0dip</dimen>
+    <dimen name="prevent_touch_open_margin_top_three">12.0dip</dimen>
+    <dimen name="prevent_touch_open_margin_top_two">8.0dip</dimen>
+    <dimen name="prevent_touch_open_success_divider">5.0dip</dimen>
+    <dimen name="prevent_touch_open_success_margin_bottom_one">9.0dip</dimen>
+    <dimen name="root_page_big_image_height">180.0dip</dimen>
+    <dimen name="root_page_margine_top_one">15.0dip</dimen>
+    <dimen name="root_page_margine_top_three">5.0dip</dimen>
+    <dimen name="root_page_margine_top_two">10.0dip</dimen>
+    <dimen name="tabwidget_height">66.0dip</dimen>
+</resources>

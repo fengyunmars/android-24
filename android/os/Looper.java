@@ -49,7 +49,8 @@ import android.util.Printer;
   *
   *          Looper.loop();
   *      }
-  *  }</pre>
+  *  }
+ *  </pre>
   */
 public final class Looper {
     /*
@@ -58,7 +59,7 @@ public final class Looper {
      * This class contains the code required to set up and manage an event loop
      * based on MessageQueue.  APIs that affect the state of the queue should be
      * defined on MessageQueue or Handler rather than on Looper itself.  For example,
-     * idle handlers and sync barriers are defined on the queue whereas preparing the
+     * idle 闲置的 handlers and sync barriers are defined on the queue whereas 然而 preparing the
      * thread, looping, and quitting are defined on the looper.
      */
 
@@ -66,6 +67,7 @@ public final class Looper {
 
     // sThreadLocal.get() will return null unless you've called prepare().
     static final ThreadLocal<Looper> sThreadLocal = new ThreadLocal<Looper>();
+
     private static Looper sMainLooper;  // guarded by Looper.class
 
     final MessageQueue mQueue;
@@ -162,8 +164,8 @@ public final class Looper {
                 logging.println("<<<<< Finished to " + msg.target + " " + msg.callback);
             }
 
-            // Make sure that during the course of dispatching the
-            // identity of the thread wasn't corrupted.
+            // Make sure that during the course 过程 of dispatching the
+            // identity of the thread wasn't corrupted 损坏的 .
             final long newIdent = Binder.clearCallingIdentity();
             if (ident != newIdent) {
                 Log.wtf(TAG, "Thread identity changed from 0x"

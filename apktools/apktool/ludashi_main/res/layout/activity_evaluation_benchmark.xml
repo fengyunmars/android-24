@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <com.ludashi.benchmark.business.benchmark.ui.view.SomePartTransparentView android:id="@id/animation_view" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/luinb" android:background="#ff052730" custom:TitleText="@string/tag_evaluation" style="@style/CommonNaviBar" />
+            <View android:background="#b2224d7a" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+            <LinearLayout android:gravity="bottom" android:layout_gravity="bottom" android:orientation="vertical" android:id="@id/operation_area" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="17.0sp" android:textColor="@color/white" android:layout_gravity="center" android:id="@id/process_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:lineSpacingExtra="2.0dip" />
+                <TextView android:textSize="15.0sp" android:textColor="#b2ffffff" android:layout_gravity="center" android:id="@id/process_sub_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <Button android:textSize="18.0sp" android:textColor="@color/text_btn_color" android:layout_gravity="center" android:id="@id/terminate_btn" android:background="@drawable/transport_btn_new" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="24.0dip" android:layout_marginBottom="20.0dip" android:minWidth="145.0dip" android:text="@string/terminate_btn" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:background="@drawable/kedu" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_marginTop="12.0dip" android:layout_marginRight="25.0dip" />
+        <ProgressBar android:id="@id/progress" android:paddingLeft="10.0dip" android:paddingRight="10.0dip" android:clickable="false" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" style="@style/blue_seek_progres_new" />
+        <TextView android:textSize="12.0sp" android:textColor="#ff00a5df" android:gravity="center|left|top" android:layout_gravity="center|left|top" android:id="@id/progress_ratio" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <TextView android:textSize="16.0sp" android:textColor="#ff000000" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/device_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+        <TextView android:textSize="32.0sp" android:textStyle="bold" android:textColor="#ff1588f0" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/total_score" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" />
+    </LinearLayout>
+</LinearLayout>

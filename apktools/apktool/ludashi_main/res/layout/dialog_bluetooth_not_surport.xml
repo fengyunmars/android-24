@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:background="@android:color/white" android:layout_width="300.0dip" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:src="@drawable/c_ble_not_surport_icon" android:scaleType="fitCenter" android:contentDescription="@null" />
+    <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="12.0dip" android:text="@string/not_support_ble" android:lineSpacingExtra="6.0dip" />
+    <Button android:textSize="15.0sp" android:textColor="@android:color/white" android:id="@id/btn_ok" android:background="#fff5a912" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginTop="32.0dip" android:text="@string/accept_not_support_ble" />
+</LinearLayout>

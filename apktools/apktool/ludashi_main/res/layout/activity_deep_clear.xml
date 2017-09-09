@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ff32373b" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" android:background="#ff32373b" custom:buttonCount="Left" custom:TitleText="@string/optimize_deeply" style="@style/CommonNaviBar" />
+    <View android:id="@id/line" android:background="#4cffffff" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_below="@id/naviBar" />
+    <FrameLayout android:background="#ff32373b" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/line">
+        <com.ludashi.benchmark.business.clear.ui.TetrisSurfaceView android:layout_gravity="center_horizontal" android:id="@id/sv_tetris" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" custom:cellWidth="@dimen/tetris_cell_width" custom:cellHeight="@dimen/tetris_cell_width" custom:cellCountH="11" custom:cellCountV="14" custom:background="#ff32373b" custom:dividerWidth="1.0px" custom:dividerColor="#ff2a2c32" />
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_scan_state" android:background="#59000000" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/tv_scan_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tip_deep_scanning" />
+                <LinearLayout android:gravity="bottom" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                    <TextView android:textSize="75.0sp" android:textColor="#ccffffff" android:id="@id/tv_trash_size" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:textSize="50.0sp" android:textColor="#ccffffff" android:id="@id/tv_unit" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="2.0dip" />
+                </LinearLayout>
+                <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/tv_scan_result_tip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tip_deep_scan_result" />
+            </LinearLayout>
+            <Button android:textSize="16.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/btn_stop_scan_or_start_optimize" android:background="@drawable/btn_transparent2" android:layout_width="220.0dip" android:layout_height="wrap_content" android:layout_marginTop="40.0dip" android:layout_marginBottom="35.0dip" android:text="@string/stop_scan" />
+        </LinearLayout>
+        <RelativeLayout android:id="@id/rl_optimize_state" android:paddingLeft="14.0dip" android:paddingTop="16.0dip" android:paddingRight="14.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <TextView android:textSize="30.0sp" android:textColor="@android:color/white" android:id="@id/tv_optimize_progress" android:paddingLeft="@dimen/erase_tip_text_paddingLeft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+            <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/tv_optimize_tip1" android:paddingLeft="@dimen/erase_tip_text_paddingLeft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/erase_tip1_1" android:layout_below="@id/tv_optimize_progress" />
+            <TextView android:textSize="13.0sp" android:textColor="#fff8bd02" android:paddingLeft="@dimen/erase_tip_text_paddingLeft" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="@string/tip_deep_optimizing" android:layout_below="@id/tv_optimize_tip1" />
+            <LinearLayout android:orientation="horizontal" android:id="@id/ll_two_btn" android:layout_width="220.0dip" android:layout_height="wrap_content" android:layout_marginBottom="35.0dip" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true">
+                <Button android:textSize="16.0sp" android:textColor="#b2ffffff" android:id="@id/btn_stop" android:background="@drawable/btn_transparent2" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/stop" android:layout_weight="1.0" />
+                <Button android:textSize="16.0sp" android:textColor="@android:color/white" android:id="@id/btn_lock_screen" android:background="@drawable/btn_transparent1" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:text="@string/lock_screen_and_optimize" android:layout_weight="1.0" />
+            </LinearLayout>
+            <ImageView android:id="@id/iv_lock_screen_tip" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="3.0dip" android:src="@drawable/lock_screen_and_optimize_tip" android:scaleType="fitCenter" android:layout_above="@id/ll_two_btn" android:layout_alignParentRight="true" android:contentDescription="@null" />
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_optimize_done" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+                <ImageView android:background="@drawable/optimize_done_tip1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:scaleType="fitCenter" android:contentDescription="@null" />
+                <TextView android:textSize="18.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/tv_done_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="35.0dip" android:text="@string/tip_optimize_deeply_done" />
+                <ImageView android:id="@id/deep_clear_reboot_tip" android:background="@drawable/optimize_done_tip2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="35.0dip" android:scaleType="fitCenter" android:contentDescription="@null" />
+            </LinearLayout>
+            <Button android:textSize="16.0sp" android:textColor="#b2ffffff" android:layout_gravity="center_horizontal" android:id="@id/btn_done" android:background="@drawable/btn_transparent2" android:layout_width="220.0dip" android:layout_height="wrap_content" android:layout_marginBottom="35.0dip" android:text="@string/done" />
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_not_operate" android:background="@drawable/deep_tips_bg" android:paddingLeft="6.0dip" android:paddingRight="6.0dip" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@id/line" android:layout_centerHorizontal="true">
+        <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/tip_ludashi" android:contentDescription="@null" />
+        <TextView android:textSize="13.0sp" android:textColor="#fff8bd02" android:paddingLeft="6.0dip" android:paddingRight="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tip_no_operate" android:lines="2" />
+    </LinearLayout>
+</RelativeLayout>

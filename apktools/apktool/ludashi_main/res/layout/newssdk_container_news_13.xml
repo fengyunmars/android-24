@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/card_layout" android:paddingLeft="@dimen/cantiner_padding_left" android:paddingRight="@dimen/cantiner_padding_right" android:layout_width="fill_parent" android:layout_height="36.0dip" android:layout_marginLeft="@dimen/cantiner_padding_left" android:layout_marginRight="@dimen/cantiner_padding_right" android:layout_marginBottom="10.0dip">
+        <TextView android:textSize="14.0dip" android:ellipsize="end" android:id="@id/card_title" android:layout_width="0.0dip" android:layout_height="wrap_content" android:singleLine="true" android:layout_weight="1.0" />
+        <TextView android:textSize="14.0dip" android:textColor="#ff248cd5" android:ellipsize="end" android:id="@id/card_title_tip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+    </LinearLayout>
+</merge>

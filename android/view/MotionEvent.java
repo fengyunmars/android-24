@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2007 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -36,10 +36,10 @@ import android.util.SparseArray;
  * For example, when the user first touches the screen, the system delivers a touch
  * event to the appropriate {@link View} with the action code {@link #ACTION_DOWN}
  * and a set of axis values that include the X and Y coordinates of the touch and
- * information about the pressure, size and orientation of the contact area.
+ * information about the pressure, size and orientation of the contact 接触 area.
  * </p><p>
  * Some devices can report multiple movement traces at the same time.  Multi-touch
- * screens emit ����  one movement trace for each finger.  The individual fingers or
+ * screens emit 发出 one movement trace for each finger.  The individual fingers or
  * other objects that generate movement traces are referred to as <em>pointers</em>.
  * Motion events contain information about all of the pointers that are currently active
  * even if some of them have not moved since the last event was delivered.
@@ -64,11 +64,11 @@ import android.util.SparseArray;
  * Thus the pointer index of a pointer can change from one event to the next but
  * the pointer id of a pointer is guaranteed to remain constant as long as the pointer
  * remains active.  Use the {@link #getPointerId(int)} method to obtain the
- * pointer id of a pointer to track it across all subsequent ������ motion events in a gesture.
- * Then for successive ������  motion events, use the {@link #findPointerIndex(int)} method
+ * pointer id of a pointer to track it across all subsequent 后来的 motion events in a gesture.
+ * Then for successive 连续的 motion events, use the {@link #findPointerIndex(int)} method
  * to obtain the pointer index for a given pointer id in that motion event.
  * </p><p>
- * Mouse and stylus ����  buttons can be retrieved using {@link #getButtonState()}.  It is a
+ * Mouse and stylus 触针 buttons can be retrieved using {@link #getButtonState()}.  It is a
  * good idea to check the button state while handling {@link #ACTION_DOWN} as part
  * of a touch event.  The application may choose to perform some different action
  * if the touch event starts due to a secondary button click, such as presenting a
@@ -77,12 +77,12 @@ import android.util.SparseArray;
  *
  * <h3>Batching</h3>
  * <p>
- * For efficiency, motion events with {@link #ACTION_MOVE} may batch together
+ * For efficiency 效率 , motion events with {@link #ACTION_MOVE} may batch together
  * multiple movement samples within a single object.  The most current
  * pointer coordinates are available using {@link #getX(int)} and {@link #getY(int)}.
  * Earlier coordinates within the batch are accessed using {@link #getHistoricalX(int, int)}
  * and {@link #getHistoricalY(int, int)}.  The coordinates are "historical" only
- * insofar as �� ... �ķ�Χ��  they are older than the current coordinates in the batch; however,
+ * insofar as 在…情况下 they are older than the current coordinates in the batch; however,
  * they are still distinct from any other coordinates reported in prior motion events.
  * To process all coordinates in the batch in time order, first consume the historical
  * coordinates then consume the current coordinates.
@@ -109,10 +109,10 @@ import android.util.SparseArray;
  *
  * <h3>Device Types</h3>
  * <p>
- * The interpretation ����  of the contents of a MotionEvent varies significantly depending
+ * The interpretation 解释 of the contents of a MotionEvent varies significantly 显著地 depending
  * on the source class of the device.
  * </p><p>
- * On pointing devices with source class {@link InputDevice#SOURCE_CLASS_POINTER}
+ * On pointing devices with source class {@link InputDevice#SOURCE_CLASS _POINTER}
  * such as touch screens, the pointer coordinates specify absolute
  * positions such as view X/Y coordinates.  Each complete gesture is represented
  * by a sequence of motion events with actions that describe pointer state transitions
@@ -125,7 +125,7 @@ import android.util.SparseArray;
  * by a motion event with {@link #ACTION_UP} or when gesture is canceled
  * with {@link #ACTION_CANCEL}.
  * </p><p>
- * Some pointing devices such as mice may support vertical and/or horizontal scrolling.
+ * Some pointing devices such as mice  老鼠 may support vertical and/or horizontal scrolling.
  * A scroll event is reported as a generic motion event with {@link #ACTION_SCROLL} that
  * includes the relative scroll offset in the {@link #AXIS_VSCROLL} and
  * {@link #AXIS_HSCROLL} axes.  See {@link #getAxisValue(int)} for information
@@ -134,10 +134,10 @@ import android.util.SparseArray;
  * On trackball devices with source class {@link InputDevice#SOURCE_CLASS_TRACKBALL},
  * the pointer coordinates specify relative movements as X/Y deltas.
  * A trackball gesture consists of a sequence of movements described by motion
- * events with {@link #ACTION_MOVE} interspersed with occasional {@link #ACTION_DOWN}
+ * events with {@link #ACTION_MOVE} interspersed 散布 with occasional {@link #ACTION_DOWN}
  * or {@link #ACTION_UP} motion events when the trackball button is pressed or released.
  * </p><p>
- * On joystick ���ݸ�  devices with source class {@link InputDevice#SOURCE_CLASS_JOYSTICK},
+ * On joystick 控制杆 devices with source class {@link InputDevice#SOURCE_CLASS_JOYSTICK},
  * the pointer coordinates specify the absolute position of the joystick axes.
  * The joystick axis values are normalized to a range of -1.0 to 1.0 where 0.0 corresponds
  * to the center position.  More information about the set of available axes and the
@@ -149,24 +149,24 @@ import android.util.SparseArray;
  * input devices and sources represent pointer coordinates.
  * </p>
  *
- * <h3>Consistency һ����  Guarantees ��֤ </h3>
+ * <h3>Consistency 一致性 Guarantees 保证  </h3>
  * <p>
- * Motion events are always delivered to views as a consistent һ�µ� stream of events.
- * What constitutes ����  a consistent stream varies depending on the type of device.
+ * Motion events are always delivered to views as a consistent 一致的 stream of events.
+ * What constitutes 构成 a consistent stream varies depending on the type of device.
  * For touch events, consistency implies that pointers go down one at a time,
  * move around as a group and then go up one at a time or are canceled.
  * </p><p>
  * While the framework tries to deliver consistent streams of motion events to
  * views, it cannot guarantee it.  Some events may be dropped or modified by
- * containing views in the application before they are delivered thereby making
+ * containing views in the application before they are delivered thereby 因此 making
  * the stream of events inconsistent.  Views should always be prepared to
- * handle {@link #ACTION_CANCEL} and should tolerate ���� anomalous �쳣��
+ * handle {@link #ACTION_CANCEL} and should tolerate 宽恕 anomalous 不规则的
  * situations such as receiving a new {@link #ACTION_DOWN} without first having
  * received an {@link #ACTION_UP} for the prior gesture.
  * </p>
  */
 public final class MotionEvent extends InputEvent implements Parcelable {
-	
+
     private static final long NS_PER_MS = 1000000;
     private static final String LABEL_PREFIX = "AXIS_";
 
@@ -189,7 +189,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * motion contains the initial starting location.
      * <p>
      * This is also a good time to check the button state to distinguish
-     * secondary and tertiary button clicks and handle them appropriately.
+     * secondary and tertiary 第三的 button clicks and handle them appropriately.
      * Use {@link #getButtonState} to retrieve the button state.
      * </p>
      */
@@ -197,7 +197,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     
     /**
      * Constant for {@link #getActionMasked}: A pressed gesture has finished, the
-     * motion contains the final release location as well as any intermediate
+     * motion contains the final release location as well as any intermediate 中间的
      * points since the last down or move event.
      */
     public static final int ACTION_UP               = 1;
@@ -410,9 +410,9 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * or wholly obscured by another visible window above it.  This flag is set to true
      * even if the event did not directly pass through the obscured area.
      * A security sensitive application can check this flag to identify situations in which
-     * a malicious application may have covered up part of its content for the purpose
-     * of misleading the user or hijacking touches.  An appropriate response might be
-     * to drop the suspect touches or to take additional precautions to confirm the user's
+     * a malicious 恶意的 application may have covered up part of its content for the purpose
+     * of misleading the user or hijacking 劫持 touches.  An appropriate response might be
+     * to drop the suspect 犯罪嫌疑人 touches or to take additional precautions 防范 to confirm 证实 the user's
      * actual intent.
      */
     public static final int FLAG_WINDOW_IS_OBSCURED = 0x1;
@@ -423,7 +423,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * even if the event did not directly pass through the obscured area.
      * A security sensitive application can check this flag to identify situations in which
      * a malicious application may have covered up part of its content for the purpose
-     * of misleading the user or hijacking touches.  An appropriate response might be
+     * of misleading the user or hijacking . 劫持 touches.  An appropriate response might be
      * to drop the suspect touches or to take additional precautions to confirm the user's
      * actual intent.
      *
@@ -444,19 +444,20 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int FLAG_TAINTED = 0x80000000;
 
     /**
-     * Private flag indicating that this event was synthesized by the system and
+     * Private flag indicating that this event was synthesized 综合的 by the system and
      * should be delivered to the accessibility focused view first. When being
-     * dispatched such an event is not handled by predecessors of the accessibility
+     * dispatched such an event is not handled by predecessors 前任 of the accessibility
      * focused view and after the event reaches that view the flag is cleared and
      * normal event dispatch is performed. This ensures that the platform can click
-     * on any view that has accessibility focus which is semantically equivalent to
-     * asking the view to perform a click accessibility action but more generic as
+     * on any view that has accessibility focus which is semantically 语义地 equivalent 相等的 to
+     * asking the view to perform a click accessibility action but more generic 一般的 as
      * views not implementing click action correctly can still be activated.
      *
      * @hide
      * @see #isTargetAccessibilityFocus()
      * @see #setTargetAccessibilityFocus(boolean)
      */
+    //// TODO: 2017/9/4  
     public static final int FLAG_TARGET_ACCESSIBILITY_FOCUS = 0x40000000;
 
 
@@ -491,7 +492,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * to query the effective range of values.
      * <li>For a mouse, reports the absolute X screen position of the mouse pointer.
      * The units are display pixels.
-     * <li>For a trackball, reports the relative horizontal displacement of the trackball.
+     * <li>For a trackball, reports the relative horizontal displacement 位移 of the trackball.
      * The value is normalized to a range from -1.0 (left) to 1.0 (right).
      * <li>For a joystick, reports the absolute X position of the joystick.
      * The value is normalized to a range from -1.0 (left) to 1.0 (right).
@@ -537,7 +538,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <li>For a touch screen or touch pad, reports the approximate pressure applied to the surface
      * by a finger or other tool.  The value is normalized to a range from
      * 0 (no pressure at all) to 1 (normal pressure), although values higher than 1
-     * may be generated depending on the calibration of the input device.
+     * may be generated depending on the calibration 校准 of the input device.
      * <li>For a trackball, the value is set to 1 if the trackball button is pressed
      * or 0 otherwise.
      * <li>For a mouse, the value is set to 1 if the primary mouse button is pressed
@@ -560,7 +561,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * relation to the maximum detectable size for the device.  The value is normalized
      * to a range from 0 (smallest detectable size) to 1 (largest detectable size),
      * although it is not a linear scale.  This value is of limited use.
-     * To obtain calibrated size information, use
+     * To obtain calibrated 校准 size information, use
      * {@link #AXIS_TOUCH_MAJOR} or {@link #AXIS_TOOL_MAJOR}.
      * </ul>
      * </p>
@@ -606,7 +607,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * to query the effective range of values.
      * </ul>
      * </p><p>
-     * When the touch is circular, the major and minor axis lengths will be equal to one another.
+     * When the touch is circular 圆形的 , the major and minor axis lengths will be equal to one another.
      * </p>
      *
      * @see #getTouchMinor(int)
@@ -671,7 +672,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <p>
      * <ul>
      * <li>For a touch screen or touch pad, reports the orientation of the finger
-     * or tool in radians relative to the vertical plane of the device.
+     * or tool in radians 弧度 relative to the vertical plane of the device.
      * An angle of 0 radians indicates that the major axis of contact is oriented
      * upwards, is perfectly circular or is of unknown orientation.  A positive angle
      * indicates that the major axis of contact is oriented to the right.  A negative angle
@@ -735,7 +736,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <ul>
      * <li>For a joystick, reports the absolute Z position of the joystick.
      * The value is normalized to a range from -1.0 (high) to 1.0 (low).
-     * <em>On game pads with two analog joysticks, this axis is often reinterpreted
+     * <em>On game pads with two analog joysticks, this axis is often reinterpreted 重新解释
      * to report the absolute X position of the second joystick instead.</em>
      * </ul>
      * </p>
@@ -878,7 +879,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_THROTTLE = 19;
 
     /**
-     * Axis constant: Rudder axis of a motion event.
+     * Axis constant: Rudder 方向舵 axis of a motion event.
      * <p>
      * <ul>
      * <li>For a joystick, reports the absolute position of the rudder control.
@@ -894,10 +895,10 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_RUDDER = 20;
 
     /**
-     * Axis constant: Wheel axis of a motion event.
+     * Axis constant: Wheel 方向盘 axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a joystick, reports the absolute position of the steering wheel control.
+     * <li>For a joystick, reports the absolute position of the steering 驾驶 wheel control.
      * The value is normalized to a range from -1.0 (turn left) to 1.0 (turn right).
      * </ul>
      * </p>
@@ -927,7 +928,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_GAS = 22;
 
     /**
-     * Axis constant: Brake axis of a motion event.
+     * Axis constant: Brake 刹车 axis of a motion event.
      * <p>
      * <ul>
      * <li>For a joystick, reports the absolute position of the brake control.
@@ -964,7 +965,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <p>
      * <ul>
      * <li>For a stylus, reports the tilt angle of the stylus in radians where
-     * 0 radians indicates that the stylus is being held perpendicular to the
+     * 0 radians indicates that the stylus is being held perpendicular 垂直的 to the
      * surface, and PI/2 radians indicates that the stylus is being held flat
      * against the surface.
      * </ul>
@@ -1273,7 +1274,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int BUTTON_SECONDARY = 1 << 1;
 
     /**
-     * Button constant: Tertiary button (middle mouse button).
+     * Button constant: Tertiary 第三的 button (middle mouse button).
      *
      * @see #getButtonState
      */
@@ -1357,7 +1358,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
 
     /**
      * Tool type constant: Unknown tool type.
-     * This constant is used when the tool type is not known or is not relevant,
+     * This constant is used when the tool type is not known or is not relevant 目的明确的 ,
      * such as for a trackball or other non-pointing device.
      *
      * @see #getToolType
@@ -1379,14 +1380,14 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int TOOL_TYPE_STYLUS = 2;
 
     /**
-     * Tool type constant: The tool is a mouse or trackpad.
+     * Tool type constant: The tool is a mouse or trackpad 触控板 .
      *
      * @see #getToolType
      */
     public static final int TOOL_TYPE_MOUSE = 3;
 
     /**
-     * Tool type constant: The tool is an eraser or a stylus being used in an inverted posture.
+     * Tool type constant: The tool is an eraser or a stylus being used in an inverted 反转 posture 姿势 .
      *
      * @see #getToolType
      */
@@ -1414,7 +1415,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     private static int gRecyclerUsed;
     private static MotionEvent gRecyclerTop;
 
-    // Shared temporary objects used when translating coordinates supplied by
+    // Shared temporary 临时 objects used when translating coordinates supplied by
     // the caller into single element PointerCoords and pointer id arrays.
     private static final Object gSharedTempLock = new Object();
     private static PointerCoords[] gSharedTempPointerCoords;
@@ -1439,66 +1440,6 @@ public final class MotionEvent extends InputEvent implements Parcelable {
 
     private MotionEvent mNext;
 
-    private static native long nativeInitialize(long nativePtr,
-            int deviceId, int source, int action, int flags, int edgeFlags,
-            int metaState, int buttonState,
-            float xOffset, float yOffset, float xPrecision, float yPrecision,
-            long downTimeNanos, long eventTimeNanos,
-            int pointerCount, PointerProperties[] pointerIds, PointerCoords[] pointerCoords);
-    private static native long nativeCopy(long destNativePtr, long sourceNativePtr,
-            boolean keepHistory);
-    private static native void nativeDispose(long nativePtr);
-    private static native void nativeAddBatch(long nativePtr, long eventTimeNanos,
-            PointerCoords[] pointerCoords, int metaState);
-
-    private static native int nativeGetDeviceId(long nativePtr);
-    private static native int nativeGetSource(long nativePtr);
-    private static native int nativeSetSource(long nativePtr, int source);
-    private static native int nativeGetAction(long nativePtr);
-    private static native void nativeSetAction(long nativePtr, int action);
-    private static native boolean nativeIsTouchEvent(long nativePtr);
-    private static native int nativeGetFlags(long nativePtr);
-    private static native void nativeSetFlags(long nativePtr, int flags);
-    private static native int nativeGetEdgeFlags(long nativePtr);
-    private static native void nativeSetEdgeFlags(long nativePtr, int action);
-    private static native int nativeGetMetaState(long nativePtr);
-    private static native int nativeGetButtonState(long nativePtr);
-    private static native void nativeSetButtonState(long nativePtr, int buttonState);
-    private static native int nativeGetActionButton(long nativePtr);
-    private static native void nativeSetActionButton(long nativePtr, int actionButton);
-    private static native void nativeOffsetLocation(long nativePtr, float deltaX, float deltaY);
-    private static native float nativeGetXOffset(long nativePtr);
-    private static native float nativeGetYOffset(long nativePtr);
-    private static native float nativeGetXPrecision(long nativePtr);
-    private static native float nativeGetYPrecision(long nativePtr);
-    private static native long nativeGetDownTimeNanos(long nativePtr);
-    private static native void nativeSetDownTimeNanos(long nativePtr, long downTime);
-
-    private static native int nativeGetPointerCount(long nativePtr);
-    private static native int nativeGetPointerId(long nativePtr, int pointerIndex);
-    private static native int nativeGetToolType(long nativePtr, int pointerIndex);
-    private static native int nativeFindPointerIndex(long nativePtr, int pointerId);
-
-    private static native int nativeGetHistorySize(long nativePtr);
-    private static native long nativeGetEventTimeNanos(long nativePtr, int historyPos);
-    private static native float nativeGetRawAxisValue(long nativePtr,
-            int axis, int pointerIndex, int historyPos);
-    private static native float nativeGetAxisValue(long nativePtr,
-            int axis, int pointerIndex, int historyPos);
-    private static native void nativeGetPointerCoords(long nativePtr,
-            int pointerIndex, int historyPos, PointerCoords outPointerCoords);
-    private static native void nativeGetPointerProperties(long nativePtr,
-            int pointerIndex, PointerProperties outPointerProperties);
-
-    private static native void nativeScale(long nativePtr, float scale);
-    private static native void nativeTransform(long nativePtr, Matrix matrix);
-
-    private static native long nativeReadFromParcel(long nativePtr, Parcel parcel);
-    private static native void nativeWriteToParcel(long nativePtr, Parcel parcel);
-
-    private static native String nativeAxisToString(int axis);
-    private static native int nativeAxisFromString(String label);
-
     private MotionEvent() {
     }
 
@@ -1506,7 +1447,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     protected void finalize() throws Throwable {
         try {
             if (mNativePtr != 0) {
-                nativeDispose(mNativePtr);
+                nativeDispose(mNativePtr); // 处置
                 mNativePtr = 0;
             }
         } finally {
@@ -1552,7 +1493,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * @param deviceId The id for the device that this event came from.  An id of
      * zero indicates that the event didn't come from a physical device; other
      * numbers are arbitrary and you shouldn't depend on the values.
-     * @param edgeFlags A bitfield indicating which edges, if any, were touched by this
+     * @param edgeFlags A bitfield 位字段 indicating which edges, if any, were touched by this
      * MotionEvent.
      * @param source The source of this event.
      * @param flags The motion event flags.
@@ -1858,7 +1799,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     /**
      * Returns true if this motion event is a touch event.
      * <p>
-     * Specifically excludes pointer events with action {@link #ACTION_HOVER_MOVE},
+     * Specifically 特别地 excludes 排除 pointer events with action {@link #ACTION_HOVER_MOVE},
      * {@link #ACTION_HOVER_ENTER}, {@link #ACTION_HOVER_EXIT}, or {@link #ACTION_SCROLL}
      * because they are not actually touch events (the pointer is not down).
      * </p>
@@ -3060,6 +3001,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * Gets an integer where each pointer id present in the event is marked as a bit.
      * @hide
      */
+    //// TODO: 2017/9/7
     public final int getPointerIdBits() {
         int idBits = 0;
         final int pointerCount = nativeGetPointerCount(mNativePtr);
@@ -3073,6 +3015,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * Splits a motion event such that it includes only a subset of pointer ids.
      * @hide
      */
+    //// TODO: 2017/9/7  
     public final MotionEvent split(int idBits) {
         MotionEvent ev = obtain();
         synchronized (gSharedTempLock) {
@@ -3360,6 +3303,67 @@ public final class MotionEvent extends InputEvent implements Parcelable {
         nativeWriteToParcel(mNativePtr, out);
     }
 
+
+    private static native long nativeInitialize(long nativePtr,
+                                                int deviceId, int source, int action, int flags, int edgeFlags,
+                                                int metaState, int buttonState,
+                                                float xOffset, float yOffset, float xPrecision, float yPrecision,
+                                                long downTimeNanos, long eventTimeNanos,
+                                                int pointerCount, PointerProperties[] pointerIds, PointerCoords[] pointerCoords);
+    private static native long nativeCopy(long destNativePtr, long sourceNativePtr,
+                                          boolean keepHistory);
+    private static native void nativeDispose(long nativePtr);
+    private static native void nativeAddBatch(long nativePtr, long eventTimeNanos,
+                                              PointerCoords[] pointerCoords, int metaState);
+
+    private static native int nativeGetDeviceId(long nativePtr);
+    private static native int nativeGetSource(long nativePtr);
+    private static native int nativeSetSource(long nativePtr, int source);
+    private static native int nativeGetAction(long nativePtr);
+    private static native void nativeSetAction(long nativePtr, int action);
+    private static native boolean nativeIsTouchEvent(long nativePtr);
+    private static native int nativeGetFlags(long nativePtr);
+    private static native void nativeSetFlags(long nativePtr, int flags);
+    private static native int nativeGetEdgeFlags(long nativePtr);
+    private static native void nativeSetEdgeFlags(long nativePtr, int action);
+    private static native int nativeGetMetaState(long nativePtr);
+    private static native int nativeGetButtonState(long nativePtr);
+    private static native void nativeSetButtonState(long nativePtr, int buttonState);
+    private static native int nativeGetActionButton(long nativePtr);
+    private static native void nativeSetActionButton(long nativePtr, int actionButton);
+    private static native void nativeOffsetLocation(long nativePtr, float deltaX, float deltaY);
+    private static native float nativeGetXOffset(long nativePtr);
+    private static native float nativeGetYOffset(long nativePtr);
+    private static native float nativeGetXPrecision(long nativePtr);
+    private static native float nativeGetYPrecision(long nativePtr);
+    private static native long nativeGetDownTimeNanos(long nativePtr);
+    private static native void nativeSetDownTimeNanos(long nativePtr, long downTime);
+
+    private static native int nativeGetPointerCount(long nativePtr);
+    private static native int nativeGetPointerId(long nativePtr, int pointerIndex);
+    private static native int nativeGetToolType(long nativePtr, int pointerIndex);
+    private static native int nativeFindPointerIndex(long nativePtr, int pointerId);
+
+    private static native int nativeGetHistorySize(long nativePtr);
+    private static native long nativeGetEventTimeNanos(long nativePtr, int historyPos);
+    private static native float nativeGetRawAxisValue(long nativePtr,
+                                                      int axis, int pointerIndex, int historyPos);
+    private static native float nativeGetAxisValue(long nativePtr,
+                                                   int axis, int pointerIndex, int historyPos);
+    private static native void nativeGetPointerCoords(long nativePtr,
+                                                      int pointerIndex, int historyPos, PointerCoords outPointerCoords);
+    private static native void nativeGetPointerProperties(long nativePtr,
+                                                          int pointerIndex, PointerProperties outPointerProperties);
+
+    private static native void nativeScale(long nativePtr, float scale);
+    private static native void nativeTransform(long nativePtr, Matrix matrix);
+
+    private static native long nativeReadFromParcel(long nativePtr, Parcel parcel);
+    private static native void nativeWriteToParcel(long nativePtr, Parcel parcel);
+
+    private static native String nativeAxisToString(int axis);
+    private static native int nativeAxisFromString(String label);
+
     /**
      * Transfer object for pointer coordinates.
      * 
@@ -3371,6 +3375,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * input devices and sources represent pointer coordinates.
      */
     public static final class PointerCoords {
+
         private static final int INITIAL_PACKED_AXIS_VALUES = 8;
         private long mPackedAxisBits;
         private float[] mPackedAxisValues;
@@ -3428,7 +3433,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
         /**
          * A normalized value that describes the approximate size of the pointer touch area
          * in relation to the maximum detectable size of the device.
-         * It represents some approximation of the area of the screen being
+         * It represents some approximation 近似值 of the area of the screen being
          * pressed; the actual value in pixels corresponding to the
          * touch is normalized with the device specific range of values
          * and scaled to a value between 0 and 1. The value of size can be used to
@@ -3460,8 +3465,8 @@ public final class MotionEvent extends InputEvent implements Parcelable {
         
         /**
          * The length of the major axis of an ellipse that describes the size of
-         * the approaching tool.
-         * The tool area represents the estimated size of the finger or pen that is
+         * the approaching 接近 tool.
+         * The tool area represents the estimated 估计的 size of the finger or pen that is
          * touching the device independent of its actual touch area at the point of contact.
          * If the device is a touch screen, the length is reported in pixels, otherwise it is
          * reported in device-specific units.

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/standby_assistant_actionbar" android:background="@color/new_title_bg_color" custom:buttonCount="Left" style="@style/CommonNaviBar" />
+    <com.ludashi.benchmark.business.standbyassistant.gui.widget.PagerSlidingTabStrip android:id="@id/standby_assistant_tabs" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="12.0dip" android:layout_marginRight="12.0dip" android:layout_below="@id/standby_assistant_actionbar" />
+    <android.support.v4.view.ViewPager android:id="@id/standby_assitant_pager" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/standby_assistant_tabs" />
+</RelativeLayout>

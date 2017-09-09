@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ff32373b" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:scrollbarStyle="insideOverlay" android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="34.0dip">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="40.0dip">
+                <TextView android:textSize="13.0sp" android:textColor="@color/more_title_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0dip" android:text="@string/more_fun_title" />
+            </LinearLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/rl_profile" android:background="@drawable/bg_btn_more" android:layout_width="fill_parent" android:layout_height="55.0dip">
+                <ImageView android:id="@id/iv_profile" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:src="@drawable/more_profile" android:layout_centerVertical="true" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/profile_title" android:layout_toRightOf="@id/iv_profile" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/more_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/rl_seeting" android:background="@drawable/bg_btn_more" android:layout_width="fill_parent" android:layout_height="55.0dip">
+                <ImageView android:id="@id/iv_seeting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:src="@drawable/more_setting" android:layout_centerVertical="true" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/settings_title" android:layout_toRightOf="@id/iv_seeting" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/more_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/rl_recommend" android:background="@drawable/bg_btn_more" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="55.0dip">
+                <ImageView android:id="@id/iv_recommend_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:src="@drawable/entrance" android:layout_centerVertical="true" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/white" android:ellipsize="end" android:id="@id/activity_caption" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/recommend_entry" android:singleLine="true" android:maxLength="8" android:layout_toRightOf="@id/iv_recommend_icon" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/iv_recommend_chevron" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/more_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+                <ImageView android:id="@id/iv_recommend_more" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/more_dot" android:layout_toLeftOf="@id/iv_recommend_chevron" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/rl_360news" android:background="@drawable/bg_btn_more" android:layout_width="fill_parent" android:layout_height="55.0dip">
+                <ImageView android:id="@id/iv_360news" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:src="@drawable/more_news_icon" android:layout_centerVertical="true" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/hot_news" android:layout_toRightOf="@id/iv_360news" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/more_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <RelativeLayout android:gravity="center_vertical" android:id="@id/rl_wechat_account" android:background="@drawable/bg_btn_more" android:layout_width="fill_parent" android:layout_height="55.0dip">
+                <ImageView android:id="@id/iv_wechat_account" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="40.0dip" android:src="@drawable/wechat_public" android:layout_centerVertical="true" />
+                <TextView android:textSize="15.0sp" android:textColor="@color/white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:text="@string/officialAccount" android:layout_toRightOf="@id/iv_wechat_account" android:layout_centerVertical="true" />
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="15.0dip" android:src="@drawable/more_right_arrow" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

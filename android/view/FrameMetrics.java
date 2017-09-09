@@ -23,7 +23,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Class containing timing data for various milestones in a frame
+ * Class containing timing 定时 data for various milestones 时间表 in a frame
  * lifecycle reported by the rendering subsystem.
  * <p>
  * Supported metrics can be queried via their corresponding identifier.
@@ -35,7 +35,7 @@ public final class FrameMetrics {
      * Metric identifier for unknown delay.
      * <p>
      * Represents the number of nanoseconds elapsed waiting for the
-     * UI thread to become responsive and process the frame. This
+     * UI thread to become responsive 响应的 and process the frame. This
      * should be 0 most of the time.
      * </p>
      */
@@ -44,7 +44,7 @@ public final class FrameMetrics {
     /**
      * Metric identifier for input handling duration.
      * <p>
-     * Represents the number of nanoseconds elapsed issuing
+     * Represents the number of nanoseconds elapsed issuing 发行
      * input handling callbacks.
      * </p>
      */
@@ -126,8 +126,8 @@ public final class FrameMetrics {
      * {@link #getMetric(int)} will return 0 for false, 1 for true.
      * </p>
      * <p>
-     * First draw frames are expected to be slow and should usually be exempt
-     * from display jank calculations as they do not cause skips in animations
+     * First draw frames are expected to be slow and should usually be exempt 免除
+     * from display jank 闪避 calculations as they do not cause skips in animations
      * and are usually hidden by window animations or other tricks.
      * </p>
      */
@@ -228,7 +228,8 @@ public final class FrameMetrics {
         Index.INTENDED_VSYNC, Index.FRAME_COMPLETED,
     };
 
-    /* package */ final long[] mTimingData;
+    /* package */
+    final long[] mTimingData;
 
     /**
      * Constructs a FrameMetrics object as a copy.

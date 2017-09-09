@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dip" android:textColor="#ff3e3e3e" android:gravity="center|left" android:id="@id/comm_reply_username_and_content" android:background="#fffafafa" android:paddingLeft="8.0dip" android:paddingTop="8.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="64.0dip" android:layout_marginRight="12.0dip" android:includeFontPadding="false" />
+    <View android:id="@id/comm_reply_inner_block" android:background="#fffafafa" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="8.0dip" android:layout_marginLeft="64.0dip" android:layout_marginRight="12.0dip" android:layout_below="@id/comm_reply_username_and_content" />
+    <View android:id="@id/comm_reply_block" android:background="@null" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="15.0dip" android:layout_below="@id/comm_reply_inner_block" />
+</RelativeLayout>

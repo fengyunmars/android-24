@@ -18,8 +18,13 @@ package com.android.internal.widget;
 
 public class ScrollBarUtils {
 
+    /** Avoid the tiny thumb.
+     * <p>private int mRange;  代表滾動條從頭至尾滾動過程中所跨越的範圍有多大，比如你想用滾動條來標示一萬行代碼，那range就可以設置10000</p>
+     * <p>private int mOffset; 代表滾動條當前的偏移量，或者是可視的第一行在整個滾動跨度的什麼位置，比如當前已經滾動到600行了，那offset就是600</p>
+     * <p>private int mExtent; 代表顯示滾動條的視圖View在屏幕上的可視高度或寬度，比如200dp</p>
+     */
     public static int getThumbLength(int size, int thickness, int extent, int range) {
-        // Avoid the tiny thumb.
+
         final int minLength = thickness * 2;
         int length = Math.round((float) size * extent / range);
         if (length < minLength) {

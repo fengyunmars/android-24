@@ -2671,17 +2671,19 @@ public class KeyEvent extends InputEvent implements Parcelable {
         switch (mAction) {
             case ACTION_DOWN: {
                 mFlags &= ~FLAG_START_TRACKING;
-                if (DEBUG) Log.v(TAG, "Key down to " + target + " in " + state
-                        + ": " + this);
+                if (DEBUG)
+                    Log.v(TAG, "Key down to " + target + " in " + state + ": " + this);
                 boolean res = receiver.onKeyDown(mKeyCode, this);
                 if (state != null) {
                     if (res && mRepeatCount == 0 && (mFlags&FLAG_START_TRACKING) != 0) {
-                        if (DEBUG) Log.v(TAG, "  Start tracking!");
+                        if (DEBUG)
+                            Log.v(TAG, "  Start tracking!");
                         state.startTracking(this, target);
                     } else if (isLongPress() && state.isTracking(this)) {
                         try {
                             if (receiver.onKeyLongPress(mKeyCode, this)) {
-                                if (DEBUG) Log.v(TAG, "  Clear from long press!");
+                                if (DEBUG)
+                                    Log.v(TAG, "  Clear from long press!");
                                 state.performedLongPress(this);
                                 res = true;
                             }
@@ -2692,8 +2694,8 @@ public class KeyEvent extends InputEvent implements Parcelable {
                 return res;
             }
             case ACTION_UP:
-                if (DEBUG) Log.v(TAG, "Key up to " + target + " in " + state
-                        + ": " + this);
+                if (DEBUG)
+                    Log.v(TAG, "Key up to " + target + " in " + state + ": " + this);
                 if (state != null) {
                     state.handleUpEvent(this);
                 }
@@ -2734,7 +2736,8 @@ public class KeyEvent extends InputEvent implements Parcelable {
          * Reset back to initial state.
          */
         public void reset() {
-            if (DEBUG) Log.v(TAG, "Reset: " + this);
+            if (DEBUG)
+                Log.v(TAG, "Reset: " + this);
             mDownKeyCode = 0;
             mDownTarget = null;
             mActiveLongPresses.clear();
@@ -2745,7 +2748,8 @@ public class KeyEvent extends InputEvent implements Parcelable {
          */
         public void reset(Object target) {
             if (mDownTarget == target) {
-                if (DEBUG) Log.v(TAG, "Reset in " + target + ": " + this);
+                if (DEBUG)
+                    Log.v(TAG, "Reset in " + target + ": " + this);
                 mDownKeyCode = 0;
                 mDownTarget = null;
             }
@@ -2766,7 +2770,8 @@ public class KeyEvent extends InputEvent implements Parcelable {
                 throw new IllegalArgumentException(
                         "Can only start tracking on a down event");
             }
-            if (DEBUG) Log.v(TAG, "Start trackingt in " + target + ": " + this);
+            if (DEBUG)
+                Log.v(TAG, "Start trackingt in " + target + ": " + this);
             mDownKeyCode = event.getKeyCode();
             mDownTarget = target;
         }
@@ -2797,15 +2802,18 @@ public class KeyEvent extends InputEvent implements Parcelable {
          */
         public void handleUpEvent(KeyEvent event) {
             final int keyCode = event.getKeyCode();
-            if (DEBUG) Log.v(TAG, "Handle key up " + event + ": " + this);
+            if (DEBUG)
+                Log.v(TAG, "Handle key up " + event + ": " + this);
             int index = mActiveLongPresses.indexOfKey(keyCode);
             if (index >= 0) {
-                if (DEBUG) Log.v(TAG, "  Index: " + index);
+                if (DEBUG)
+                    Log.v(TAG, "  Index: " + index);
                 event.mFlags |= FLAG_CANCELED | FLAG_CANCELED_LONG_PRESS;
                 mActiveLongPresses.removeAt(index);
             }
             if (mDownKeyCode == keyCode) {
-                if (DEBUG) Log.v(TAG, "  Tracking!");
+                if (DEBUG)
+                    Log.v(TAG, "  Tracking!");
                 event.mFlags |= FLAG_TRACKING;
                 mDownKeyCode = 0;
                 mDownTarget = null;

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ludashi.benchmark.business.verify.ui.VerifyListItem android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="4.0">
+        <ImageView android:id="@id/icon" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/small_loading" />
+        <TextView android:textSize="15.0sp" android:textColor="#ff717171" android:gravity="center|left" android:id="@id/text" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:minHeight="32.0dip" android:text="处理器型号：" android:layout_weight="1.0" />
+    </LinearLayout>
+</com.ludashi.benchmark.business.verify.ui.VerifyListItem>

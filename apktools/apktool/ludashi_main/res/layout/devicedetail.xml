@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/container" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/xuinb" android:background="@drawable/titlebar_bg" custom:TitleText="@string/device_title" style="@style/CommonNaviBar" />
+    <View android:background="#ffcbced3" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <View android:background="@color/list_item_title" android:layout_width="fill_parent" android:layout_height="20.0dip" />
+    <View android:background="#ffcbced3" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/pnlTitle" android:background="@color/transparent_white_1" android:padding="@dimen/screen_margin" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/imgDevice" android:layout_width="70.0dip" android:layout_height="70.0dip" android:layout_margin="4.0dip" android:scaleType="centerCrop" />
+        <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip">
+            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true">
+                <TextView android:textSize="20.0sp" android:textColor="#ff303030" android:id="@id/txtDevice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="15.0dip" />
+                <TextView android:textSize="16.0sp" android:textColor="#ff808080" android:id="@id/txtPrice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+                <TextView android:textSize="16.0sp" android:textColor="#ff808080" android:id="@id/txtScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+    <ListView android:id="@id/lvParameters" android:background="@null" android:scrollbars="none" android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="#00000000" android:cacheColorHint="#00000000" android:divider="#ffd1d5dc" android:dividerHeight="0.0px" android:overScrollFooter="@null" />
+</LinearLayout>

@@ -37,7 +37,7 @@ import com.android.internal.view.IDragAndDropPermissions;
  * </p>
  * <p>
  *  During a drag and drop operation, the system displays an image that the user drags. This image
- *  is called a drag shadow. Several action types reflect the position of the drag shadow relative
+ *  is called a drag shadow. Several action types reflect 表达 the position of the drag shadow relative
  *  to the View receiving the event.
  * </p>
  * <p>
@@ -447,7 +447,7 @@ public class DragEvent implements Parcelable {
     }
 
     /**
-     * Returns a string containing a concise, human-readable representation of this DragEvent
+     * Returns a string containing a concise 简明的 , human-readable representation of this DragEvent
      * object.
      * @return A string representation of the DragEvent object.
      */

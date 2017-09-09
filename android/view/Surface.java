@@ -33,6 +33,7 @@ import dalvik.system.CloseGuard;
 
 /**
  * Handle onto a raw buffer that is being managed by the screen compositor.
+ * Surface是原始图像缓冲区（raw buffer）的一个句柄，而原始图像缓冲区是由屏幕图像合成器（screen compositor）管理的
  */
 public class Surface implements Parcelable {
     private static final String TAG = "Surface";

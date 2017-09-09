@@ -41,20 +41,21 @@ public abstract class Reference<T> {
     /**
      * Forces JNI path.
      * If GC is not in progress (ie: not going through slow path), the referent
-     * can be quickly returned through intrinsic without passing through JNI.
-     * This flag forces the JNI path so that it can be tested and benchmarked.
+     * can be quickly returned through intrinsic 本质的 without passing through JNI.
+     * This flag forces the JNI path so that it can be tested and benchmarked 基准 .
      */
     private static boolean disableIntrinsic = false;
 
     /**
      * Slow path flag for the reference processor.
-     * Used by the reference processor to determine whether or not the referent
-     * can be immediately returned. Because the referent might get swept during
+     * Used by the reference processor to determine whether or not the referent 指示物
+     * can be immediately returned. Because the referent might get swept 扫除 during
      * GC, the slow path, which passes through JNI, must be taken.
      */
     private static boolean slowPathEnabled = false;
 
     volatile T referent;         /* Treated specially by GC */
+
     final ReferenceQueue<? super T> queue;
 
     /*
@@ -75,8 +76,8 @@ public abstract class Reference<T> {
 
     /**
      * The pendingNext field is initially set by the GC. After the GC forms a
-     * complete circularly linked list, the list is handed off to the
-     * ReferenceQueueDaemon using the ReferenceQueue.class lock. The
+     * complete circularly 循环地 linked list, the list is handed off to the
+     * ReferenceQueueDaemon 守护进程 using the ReferenceQueue.class lock. The
      * ReferenceQueueDaemon can then read the pendingNext fields without
      * additional synchronization.
      */
@@ -122,9 +123,9 @@ public abstract class Reference<T> {
      *           been enqueued
      */
     public boolean isEnqueued() {
-        // Contrary to what the documentation says, this method returns false
+        // Contrary 相反 to what the documentation says, this method returns false
         // after this reference object has been removed from its queue
-        // (b/26647823). ReferenceQueue.isEnqueued preserves this historically
+        // (b/26647823). ReferenceQueue.isEnqueued preserves 保存 this historically 历史上地
         // incorrect behavior.
         return queue != null && queue.isEnqueued(this);
     }

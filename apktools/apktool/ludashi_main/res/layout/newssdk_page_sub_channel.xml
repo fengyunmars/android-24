@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="vertical" android:id="@id/rl_sub_channel_root" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.qihoo360.newssdk.ui.common.ScrollViewContainer android:orientation="vertical" android:id="@id/sv_sub_cahnnel_container" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:id="@id/rl_sub_cahnnel_top" android:background="@drawable/newssdk_sub_channel_top_bg" android:layout_width="fill_parent" android:layout_height="136.0dip">
+            <RelativeLayout android:id="@id/rl_sub_cahnnel_info" android:layout_width="wrap_content" android:layout_height="136.0dip">
+                <ImageView android:id="@id/iv_sub_cahnnel_logo" android:layout_width="60.0dip" android:layout_height="60.0dip" android:layout_marginLeft="15.0dip" android:layout_marginTop="52.0dip" android:scaleType="centerCrop" />
+                <TextView android:textSize="15.0dip" android:textColor="#ffffffff" android:id="@id/tv_sub_channel_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:layout_marginTop="72.0dip" android:layout_toRightOf="@id/iv_sub_cahnnel_logo" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/ll_sub_cahnnel_bottom" android:layout_width="fill_parent" android:layout_height="fill_parent">
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_sub_channel_all" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <View android:id="@id/v_sub_channel_top_divider" android:background="#ffe8e8e8" android:layout_width="fill_parent" android:layout_height="0.5dip" />
+                <TextView android:textColor="#ff009900" android:gravity="center" android:layout_width="wrap_content" android:layout_height="48.0dip" android:layout_marginLeft="15.0dip" android:text="@string/newssdk_sub_channel_all" />
+                <View android:background="#ff009900" android:layout_width="28.0dip" android:layout_height="3.0dip" android:layout_marginLeft="15.0dip" />
+                <View android:id="@id/v_sub_channel_bottom_divider" android:background="#ffe8e8e8" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_marginTop="-0.5dip" />
+            </LinearLayout>
+        </LinearLayout>
+    </com.qihoo360.newssdk.ui.common.ScrollViewContainer>
+    <com.qihoo360.newssdk.ui.common.CommonTitleBar android:id="@id/sub_channel_titlebar" android:layout_width="fill_parent" android:layout_height="46.0dip" android:layout_alignParentTop="true" />
+    <RelativeLayout android:id="@id/rl_night_overlay" android:background="#65000000" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</RelativeLayout>

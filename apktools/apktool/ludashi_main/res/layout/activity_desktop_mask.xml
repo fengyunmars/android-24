@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:id="@id/ll_desktop_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:background="#d8000000" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.5">
+            <ImageView android:id="@id/iv_ludashi_logo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="30.0dip" android:src="@drawable/desktop_logo" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+            <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="10.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true">
+                <com.ludashi.benchmark.business.cooling.view.BottleProgressView android:id="@id/bottle_progress" android:layout_width="120.0dip" android:layout_height="210.0dip" />
+                <RelativeLayout android:orientation="vertical" android:layout_width="120.0dip" android:layout_height="210.0dip">
+                    <RelativeLayout android:gravity="center" android:layout_width="120.0dip" android:layout_height="120.0dip" android:layout_alignParentBottom="true">
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:textSize="32.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/tv_temp" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                            <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/tv_temp_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/desktop_mask_battery_desc" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </FrameLayout>
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="0.5">
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_marginTop="20.0dip" android:layout_marginBottom="10.0dip">
+                    <com.ludashi.benchmark.business.cooling.view.CardProgressView android:id="@id/storage_progress" android:layout_width="100.0dip" android:layout_height="150.0dip" />
+                    <RelativeLayout android:layout_width="100.0dip" android:layout_height="150.0dip">
+                        <RelativeLayout android:gravity="center" android:layout_width="100.0dip" android:layout_height="100.0dip" android:layout_marginBottom="10.0dip" android:layout_alignParentBottom="true">
+                            <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                                <TextView android:textSize="32.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/storage_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                                <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/storage_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                                <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="@string/desktop_mask_storage" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </RelativeLayout>
+                </FrameLayout>
+                <FrameLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip">
+                    <com.ludashi.benchmark.business.cooling.view.CircleProgressView android:id="@id/memory_progress" android:layout_width="130.0dip" android:layout_height="130.0dip" />
+                    <RelativeLayout android:gravity="center" android:layout_width="130.0dip" android:layout_height="130.0dip">
+                        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content">
+                            <TextView android:textSize="32.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/memory_percent" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                            <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/memory_desc" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                            <TextView android:textSize="11.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/desktop_mask_memory" />
+                        </LinearLayout>
+                    </RelativeLayout>
+                </FrameLayout>
+            </LinearLayout>
+            <ImageButton android:id="@id/ib_options" android:background="@android:color/transparent" android:paddingLeft="25.0dip" android:paddingTop="25.0dip" android:paddingRight="15.0dip" android:paddingBottom="@dimen/desktop_setting_btm_margin" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:src="@drawable/battery_charge_setting" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+            <Button android:textSize="15.0sp" android:textColor="@android:color/white" android:gravity="center|left" android:id="@id/btn_setting" android:background="#4affffff" android:paddingLeft="20.0dip" android:visibility="gone" android:layout_width="110.0dip" android:layout_height="45.0dip" android:layout_marginTop="2.0dip" android:layout_marginRight="20.0dip" android:text="@string/settings_title" android:layout_below="@id/ib_options" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+    </LinearLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="13.0sp" android:textColor="#80ffffff" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="40.0dip" android:text="@string/desktop_mask_close_hint" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</FrameLayout>

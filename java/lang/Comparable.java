@@ -27,7 +27,7 @@ package java.lang;
 import java.util.*;
 
 /**
- * This interface imposes a total ordering on the objects of each class that
+ * This interface imposes 强加于 a total ordering on the objects of each class that
  * implements it.  This ordering is referred to as the class's <i>natural
  * ordering</i>, and the class's <tt>compareTo</tt> method is referred to as
  * its <i>natural comparison method</i>.<p>
@@ -39,9 +39,9 @@ import java.util.*;
  * elements in a {@linkplain SortedSet sorted set}, without the need to
  * specify a {@linkplain Comparator comparator}.<p>
  *
- * The natural ordering for a class <tt>C</tt> is said to be <i>consistent
- * with equals</i> if and only if <tt>e1.compareTo(e2) == 0</tt> has
- * the same boolean value as <tt>e1.equals(e2)</tt> for every
+ * The natural ordering for a class <tt>C</tt> is said to be <i>consistent 一致的
+ * with equals</i> if and only if <b><tt>e1.compareTo(e2) == 0</tt></b> has
+ * the same boolean value as <b><tt>e1.equals(e2)</tt> </b>for every
  * <tt>e1</tt> and <tt>e2</tt> of class <tt>C</tt>.  Note that <tt>null</tt>
  * is not an instance of any class, and <tt>e.compareTo(null)</tt> should
  * throw a <tt>NullPointerException</tt> even though <tt>e.equals(null)</tt>
@@ -51,7 +51,7 @@ import java.util.*;
  * consistent with equals.  This is so because sorted sets (and sorted maps)
  * without explicit comparators behave "strangely" when they are used with
  * elements (or keys) whose natural ordering is inconsistent with equals.  In
- * particular, such a sorted set (or sorted map) violates the general contract
+ * particular, such a sorted set (or sorted map) violates 违反 the general contract
  * for set (or map), which is defined in terms of the <tt>equals</tt>
  * method.<p>
  *
@@ -59,24 +59,24 @@ import java.util.*;
  * <tt>(!a.equals(b) && a.compareTo(b) == 0)</tt> to a sorted
  * set that does not use an explicit comparator, the second <tt>add</tt>
  * operation returns false (and the size of the sorted set does not increase)
- * because <tt>a</tt> and <tt>b</tt> are equivalent from the sorted set's
- * perspective.<p>
+ * because <tt>a</tt> and <tt>b</tt> are equivalent 等价物 from the sorted set's
+ * perspective 观点 .<p>
  *
- * Virtually all Java core classes that implement <tt>Comparable</tt> have natural
+ * Virtually 事实上 all Java core classes that implement <tt>Comparable</tt> have natural
  * orderings that are consistent with equals.  One exception is
- * <tt>java.math.BigDecimal</tt>, whose natural ordering equates
- * <tt>BigDecimal</tt> objects with equal values and different precisions
+ * <tt>java.math.BigDecimal</tt>, whose natural ordering equates 等同
+ * <tt>BigDecimal</tt> objects with equal values and different precisions 精度
  * (such as 4.0 and 4.00).<p>
  *
- * For the mathematically inclined, the <i>relation</i> that defines
+ * For the mathematically 算术地 inclined 趋向于…的 , the <i>relation</i> that defines
  * the natural ordering on a given class C is:<pre>
  *       {(x, y) such that x.compareTo(y) &lt;= 0}.
- * </pre> The <i>quotient</i> for this total order is: <pre>
+ * </pre> The <i>quotient 商数 </i> for this total order is: <pre>
  *       {(x, y) such that x.compareTo(y) == 0}.
  * </pre>
  *
  * It follows immediately from the contract for <tt>compareTo</tt> that the
- * quotient is an <i>equivalence relation</i> on <tt>C</tt>, and that the
+ * quotient is an <i>equivalence 相等 relation</i> on <tt>C</tt>, and that the
  * natural ordering is a <i>total order</i> on <tt>C</tt>.  When we say that a
  * class's natural ordering is <i>consistent with equals</i>, we mean that the
  * quotient for the natural ordering is the equivalence relation defined by
@@ -105,7 +105,7 @@ public interface Comparable<T> {
      * implies that <tt>x.compareTo(y)</tt> must throw an exception iff
      * <tt>y.compareTo(x)</tt> throws an exception.)
      *
-     * <p>The implementor must also ensure that the relation is transitive:
+     * <p>The implementor must also ensure that the relation is transitive 传递 :
      * <tt>(x.compareTo(y)&gt;0 &amp;&amp; y.compareTo(z)&gt;0)</tt> implies
      * <tt>x.compareTo(z)&gt;0</tt>.
      *
@@ -113,15 +113,15 @@ public interface Comparable<T> {
      * implies that <tt>sgn(x.compareTo(z)) == sgn(y.compareTo(z))</tt>, for
      * all <tt>z</tt>.
      *
-     * <p>It is strongly recommended, but <i>not</i> strictly required that
+     * <p>It is strongly recommended, but <i>not</i> strictly 严格地 required that
      * <tt>(x.compareTo(y)==0) == (x.equals(y))</tt>.  Generally speaking, any
-     * class that implements the <tt>Comparable</tt> interface and violates
+     * class that implements the <tt>Comparable</tt> interface and violates 违反
      * this condition should clearly indicate this fact.  The recommended
      * language is "Note: this class has a natural ordering that is
      * inconsistent with equals."
      *
-     * <p>In the foregoing description, the notation
-     * <tt>sgn(</tt><i>expression</i><tt>)</tt> designates the mathematical
+     * <p>In the foregoing 前述的 description, the notation 符号
+     * <tt>sgn(</tt><i>expression</i><tt>)</tt> designates 指明 the mathematical
      * <i>signum</i> function, which is defined to return one of <tt>-1</tt>,
      * <tt>0</tt>, or <tt>1</tt> according to whether the value of
      * <i>expression</i> is negative, zero or positive.

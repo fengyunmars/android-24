@@ -27,8 +27,8 @@ package java.lang.ref;
 
 
 /**
- * Soft reference objects, which are cleared at the discretion of the garbage
- * collector in response to memory demand.
+ * Soft reference objects, which are cleared at the discretion 判定 of the garbage
+ * collector in response to memory demand 需求 .
  *
  * <p> Suppose that the garbage collector determines at a certain point in time
  * that an object is <a href="package-summary.html#reachability">softly
@@ -41,16 +41,16 @@ package java.lang.ref;
  *
  * <p> All soft references to softly-reachable objects are guaranteed to have
  * been cleared before the virtual machine throws an
- * <code>OutOfMemoryError</code>.  Otherwise no constraints are placed upon the
+ * <code>OutOfMemoryError</code>.  Otherwise no constraints 约束 are placed upon the
  * time at which a soft reference will be cleared or the order in which a set
  * of such references to different objects will be cleared.  Virtual machine
- * implementations are, however, encouraged to bias against clearing
+ * implementations are, however, encouraged 鼓励 to bias 偏爱 against clearing
  * recently-created or recently-used soft references.
  *
  * <h3>Avoid Soft References for Caching</h3>
- * In practice, soft references are inefficient for caching. The runtime doesn't
+ * In practice, soft references are inefficient 效率低的 for caching. The runtime doesn't
  * have enough information on which references to clear and which to keep. Most
- * fatally, it doesn't know what to do when given the choice between clearing a
+ * fatally 致命地 , it doesn't know what to do when given the choice between clearing a
  * soft reference and growing the heap.
  *
  * <p>The lack of information on the value to your application of each reference
@@ -58,8 +58,8 @@ package java.lang.ref;
  * early cause unnecessary work; those that are cleared too late waste memory.
  *
  * <p>Most applications should use an {@code android.util.LruCache} instead of
- * soft references. LruCache has an effective eviction policy and lets the user
- * tune how much memory is allotted.
+ * soft references. LruCache has an effective 有效的 eviction 收回 policy and lets the user
+ * tune how much memory is allotted 分配的 .
  *
  * @author   Mark Reinhold
  * @since    1.2

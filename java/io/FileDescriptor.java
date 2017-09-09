@@ -35,7 +35,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Instances of the file descriptor class serve as an opaque handle
  * to the underlying machine-specific structure representing an open
  * file, an open socket, or another source or sink of bytes. The
- * main practical use for a file descriptor is to create a
+ * main practical 实用性的 use for a file descriptor is to create a
  * <code>FileInputStream</code> or <code>FileOutputStream</code> to
  * contain it.
  * <p>
@@ -103,7 +103,7 @@ public final class FileDescriptor {
      * Force all system buffers to synchronize with the underlying
      * device.  This method returns after all modified data and
      * attributes of this FileDescriptor have been written to the
-     * relevant device(s).  In particular, if this FileDescriptor
+     * relevant 相关的 device(s).  In particular, if this FileDescriptor
      * refers to a physical storage medium, such as a file in a file
      * system, sync will not return until all in-memory modified copies
      * of buffers associated with this FileDescriptor have been
@@ -115,7 +115,7 @@ public final class FileDescriptor {
      * might use sync to ensure that all changes to a file caused
      * by a given transaction were recorded on a storage medium.
      *
-     * sync only affects buffers downstream of this FileDescriptor.  If
+     * sync only affects buffers downstream 下游的；顺流的 of this FileDescriptor.  If
      * any in-memory buffering is being done by the application (for
      * example, by a BufferedOutputStream object), those buffers must
      * be flushed into the FileDescriptor (for example, by invoking
@@ -131,7 +131,7 @@ public final class FileDescriptor {
 
     /**
      * Returns the int descriptor. It's highly unlikely you should be calling this. Please discuss
-     * your needs with a libcore maintainer before using this method.
+     * your needs with a libcore maintainer 维护者 before using this method.
      * @hide internal use only
      */
     // Android-added.
@@ -156,8 +156,8 @@ public final class FileDescriptor {
     public boolean isSocket$() {
         return isSocket(descriptor);
     }
-
     // Android-added.
+
     private static FileDescriptor dupFd(int fd) {
         try {
             return new FileDescriptor(Os.fcntlInt(new FileDescriptor(fd), F_DUPFD_CLOEXEC, 0));

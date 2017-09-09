@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/slight_gray" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0dip" android:textColor="#ff666666" android:background="@drawable/s_bottom_line" android:paddingLeft="15.0dip" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/cooling_caption" />
+    <LinearLayout android:orientation="vertical" android:background="@drawable/s_cooling_item_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+        <RelativeLayout style="@style/cooling_down_item_header_wrapper">
+            <ImageView android:id="@id/iv_cpu_icon" android:src="@drawable/reasoncpu" style="@style/coolingdown_caption_icon" />
+            <TextView android:id="@id/tv_caption_cpu" android:text="@string/cpu" android:layout_toRightOf="@id/iv_cpu_icon" style="@style/coolingdown_caption_text" />
+            <TextView android:id="@id/tv_cup_usage" android:text="@string/badly_used" android:layout_toRightOf="@id/tv_caption_cpu" style="@style/coolingdown_usage_text" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/cup_usage_wrapper" style="@style/cooling_item_wapper">
+            <TextView android:id="@id/cup_usage_caption" android:text="@string/cpu_usage_ratio" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/cup_usage_value" android:text="@string/cooling_down_rate_high" android:layout_toRightOf="@id/cup_usage_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/cpu_usage_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/cup_usage_value" style="@style/cooling_down_item_icon" />
+        </RelativeLayout>
+        <RelativeLayout android:id="@id/core_usage_wrapper" style="@style/cooling_item_wapper">
+            <TextView android:id="@id/core_usgae_caption" android:text="@string/cpu_usage_core_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/core_usage_value" android:text="@string/four_of_eight" android:layout_toRightOf="@id/core_usgae_caption" style="@style/cooling_down_item_value" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/mem_usage_caption" android:text="@string/mem_usage_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/mem_usage_value" android:text="@string/cooling_down_rate_high" android:layout_toRightOf="@id/mem_usage_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/mem_usage_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/mem_usage_value" style="@style/cooling_down_item_icon" />
+            <TextView android:textSize="11.0dip" android:textColor="#ff117ed9" android:gravity="center" android:id="@id/iv_clear_mem" android:background="@drawable/s_round_rect_blue_line" android:paddingLeft="7.0dip" android:paddingTop="3.0dip" android:paddingRight="7.0dip" android:paddingBottom="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clearing_memory" android:drawableLeft="@drawable/mem_clear_icon" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="11.0dip" android:textColor="#ff117ed9" android:gravity="center" android:id="@id/tv_clear_state" android:paddingRight="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/memory_clearing" android:layout_alignParentRight="true" />
+            <ImageView android:id="@id/iv_clear_state" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/mem_clearing" android:scaleType="center" android:layout_toLeftOf="@id/tv_clear_state" android:layout_centerVertical="true" android:layout_alignWithParentIfMissing="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="35.0dip">
+            <TextView android:text="@string/cup_cause_hot" style="@style/tips_text" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:background="@drawable/s_cooling_item_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+        <RelativeLayout style="@style/cooling_down_item_header_wrapper">
+            <ImageView android:id="@id/iv_radio_icon" android:src="@drawable/reasonradio" style="@style/coolingdown_caption_icon" />
+            <TextView android:id="@id/tv_caption_radio" android:text="@string/radio" android:layout_toRightOf="@id/iv_radio_icon" style="@style/coolingdown_caption_text" />
+            <TextView android:id="@id/tv_radio_usage" android:text="@string/badly_used" android:layout_toRightOf="@id/tv_caption_radio" style="@style/coolingdown_usage_text" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/radio_usage_caption" android:text="@string/radio_strength" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/radio_usage_value" android:text="@string/while_getting" android:layout_toRightOf="@id/radio_usage_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/radio_usage_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/radio_usage_value" style="@style/cooling_down_item_icon" />
+            <TextView android:id="@id/radio_flight_mode" android:visibility="gone" android:text="@string/flight_mode" style="@style/item_switch_style" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/radio_blue_caption" android:text="@string/radio_blue_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/radio_blue_value" android:text="@string/state_on" android:layout_toRightOf="@id/radio_blue_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/radio_blue_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/radio_blue_value" style="@style/cooling_down_item_icon" />
+            <TextView android:id="@id/radio_blue_turnoff" android:text="@string/close_blueteeth" style="@style/item_switch_style" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/gps_signal_caption" android:text="@string/gps_signal_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/gps_signal_value" android:text="@string/state_on" android:layout_toRightOf="@id/gps_signal_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/gps_signal_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/gps_signal_value" style="@style/cooling_down_item_icon" />
+            <TextView android:id="@id/gps_turnoff" android:text="@string/turnoff_gps" style="@style/item_switch_style" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/wifi_signal_caption" android:text="@string/wifi_signal_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/wifi_signal_value" android:text="@string/state_on" android:layout_toRightOf="@id/wifi_signal_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/wifi_signal_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/wifi_signal_value" android:contentDescription="@null" style="@style/cooling_down_item_icon" />
+            <TextView android:id="@id/wifi_turnoff" android:text="@string/turnoff_wifi" style="@style/item_switch_style" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="35.0dip">
+            <TextView android:text="@string/radio_cause_hot" style="@style/tips_text" />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:background="@drawable/s_cooling_item_wrapper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="5.0dip">
+        <RelativeLayout style="@style/cooling_down_item_header_wrapper">
+            <ImageView android:id="@id/iv_battery_icon" android:src="@drawable/reasonbattery" style="@style/coolingdown_caption_icon" />
+            <TextView android:id="@id/tv_caption_battery" android:text="@string/battery" android:layout_toRightOf="@id/iv_battery_icon" style="@style/coolingdown_caption_text" />
+            <TextView android:id="@id/tv_battery_usage" android:text="@string/badly_used" android:layout_toRightOf="@id/tv_caption_battery" style="@style/coolingdown_usage_text" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/battery_state_caption" android:text="@string/battery_state_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/battery_state_value" android:text="@string/not_charging" android:layout_toRightOf="@id/battery_state_caption" style="@style/cooling_down_item_value" />
+            <ImageView android:id="@id/battery_state_icon" android:src="@drawable/cooling_down_warning" android:layout_toRightOf="@id/battery_state_value" style="@style/cooling_down_item_icon" />
+            <TextView android:textSize="12.0dip" android:textColor="@color/gray" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/charging_tips" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <RelativeLayout style="@style/cooling_item_wapper">
+            <TextView android:id="@id/battery_current_caption" android:text="@string/battery_current_caption" style="@style/cooling_down_item_caption" />
+            <TextView android:id="@id/battery_current_value" android:text="@string/battery_current_normal" android:layout_toRightOf="@id/battery_current_caption" style="@style/cooling_down_item_value" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="35.0dip">
+            <TextView android:text="@string/battery_cause_hot" style="@style/tips_text" />
+        </RelativeLayout>
+    </LinearLayout>
+    <com.ludashi.benchmark.m.view.CommonAdView android:id="@id/view_ad" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+</LinearLayout>

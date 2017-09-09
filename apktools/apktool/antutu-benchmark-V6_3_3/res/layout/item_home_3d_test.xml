@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/transparent" android:padding="@dimen/home_translate_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/home_item_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/white" android:padding="12.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <FrameLayout android:background="@color/white" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_not_tested_3d" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="@dimen/text_size_big" android:textColor="@color/black" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/game_performance" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|left" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game_performance_25000_title" />
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|right" android:layout_gravity="center|right" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/game_performance_25000_desc" android:layout_weight="1.0" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|left" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game_performance_15000_title" />
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|right" android:layout_gravity="center|right" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/game_performance_15000_desc" android:layout_weight="1.0" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|left" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game_performance_0_title" />
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|right" android:layout_gravity="center|right" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/game_performance_0_desc" android:layout_weight="1.0" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_tested_3d" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <TextView android:textSize="@dimen/text_size_normal" android:textColor="@color/deep_black_text" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/game_performance_state" />
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip">
+                    <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/shallow_gray_text" android:gravity="center|left" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game_performance_marooned" />
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|right" android:layout_gravity="center|right" android:id="@id/tv_marooned_score" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+                    <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/shallow_gray_text" android:gravity="center|left" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game_performance_garden" />
+                    <TextView android:textColor="@color/shallow_gray_text" android:gravity="center|right" android:layout_gravity="center|right" android:id="@id/tv_garden_score" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+                </LinearLayout>
+                <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip">
+                    <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/shallow_gray_text" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/tv_device_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/game_performance_device_desc" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+        <View android:background="@color/gray_divider" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="5.0dip" />
+        <Button android:textSize="@dimen/text_size_middle" android:textColor="@color/text_shallow_red" android:gravity="center" android:id="@id/btn_3d_test" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="@dimen/home_item_bottom_button_height" android:text="@string/test_3d" />
+        <View android:background="@color/gray_divider" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    </LinearLayout>
+</LinearLayout>

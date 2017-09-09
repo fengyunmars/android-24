@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/navi" android:background="#ff2a3041" app:buttonCount="Left" app:RightButtonIsImage="false" app:RightButtonBackground="@drawable/btn_round_rect_cyan" app:TitleText="@string/virtualapp" style="@style/CommonNaviBar" />
+    <ScrollView android:background="@color/dualspace_bg" android:paddingTop="30.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include layout="@layout/item_virtual_app_header" />
+            <include android:id="@id/wechat" layout="@layout/item_virtual_app" />
+            <include android:id="@id/sep" layout="@layout/item_virtual_app_sep" />
+            <include android:id="@id/today" layout="@layout/item_virtual_app" />
+            <include layout="@layout/item_virtual_app_footer" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

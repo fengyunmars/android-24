@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/advertisement_actionbar" android:background="@color/new_title_bg_color" android:layout_alignParentTop="true" custom:buttonCount="Left" style="@style/CommonNaviBar" />
+    <WebView android:id="@id/advertise_content" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/advertisement_actionbar" />
+    <com.ludashi.benchmark.ui.view.PromptView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/advertisement_actionbar" />
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:autorotate="http://schemas.android.com/lib/res/com.qihoo360.newssdk">
+    <LinearLayout android:orientation="horizontal" android:id="@id/vinfo_titlecontainer" android:paddingLeft="15.0dip" android:paddingTop="16.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="17.0sp" android:textColor="#ff222222" android:ellipsize="end" android:id="@id/vinfo_titlev" android:layout_width="0.0dip" android:layout_height="wrap_content" android:maxLines="3" android:layout_weight="1.0" />
+        <ImageView android:id="@id/vinfo_titlearraw" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="6.0dip" android:src="@drawable/newssdk_title_arraw_selector" />
+    </LinearLayout>
+    <TextView android:textSize="12.0dip" android:textColor="@color/newssdk_vinfo_pcount" android:id="@id/vinfo_playcount" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginTop="5.0dip" />
+    <LinearLayout android:orientation="vertical" android:id="@id/vinfo_ptimecontainer" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip">
+        <TextView android:textSize="12.0dip" android:textColor="@color/newssdk_vinfo_pcount" android:id="@id/vinfo_ptime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+        <TextView android:textSize="12.0dip" android:textColor="@color/newssdk_vinfo_pcount" android:ellipsize="end" android:id="@id/vinfo_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:maxLines="10" />
+        <TextView android:textSize="12.0dip" android:textColor="@color/newssdk_vinfo_pcount" android:id="@id/vinfo_tagv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" />
+    </LinearLayout>
+    <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip">
+        <TextView android:textSize="12.0sp" android:textColor="#ff878787" android:id="@id/vinfo_zan" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:drawablePadding="5.0dip" android:layout_alignParentLeft="true" />
+        <TextView android:textSize="12.0sp" android:textColor="#ff878787" android:id="@id/vinfo_cai" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="38.0dip" android:layout_marginTop="16.0dip" android:drawablePadding="5.0dip" android:layout_toRightOf="@id/vinfo_zan" />
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/likes_bury_num" android:id="@id/vinfo_zananiview" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="-20.0dip" android:text="+1" android:layout_above="@id/vinfo_zan" />
+        <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/likes_bury_num" android:id="@id/vinfo_caianiview" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="-20.0dip" android:text="+1" android:layout_above="@id/vinfo_cai" android:layout_alignLeft="@id/vinfo_cai" />
+    </RelativeLayout>
+    <View android:id="@id/vinfo_zmtdivider" android:background="#ffc8c8c8" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="16.0dip" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/vinfo_zmtcontainer" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="44.0dip">
+        <com.qihoo360.newssdk.ui.common.AvatarIconView android:gravity="center" android:id="@id/vinfo_zmtAvatar" android:layout_width="35.0dip" android:layout_height="35.0dip" android:layout_marginRight="8.0dip" android:scaleType="fitXY" />
+        <TextView android:textSize="15.0dip" android:textColor="#ff505050" android:ellipsize="end" android:id="@id/vinfo_zmtname" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:singleLine="true" />
+        <View android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <com.qihoo360.newssdk.video.widget.AutoRotateImageView android:id="@id/vinfo_zmtloading" android:visibility="gone" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginRight="7.0dip" android:src="@drawable/newssdk_vinfo_titleloading" autorotate:autoRotateEnable="true" autorotate:rotate_CW="false" />
+        <TextView android:textSize="15.0dip" android:textColor="@color/newssdk_attention_seletor" android:id="@id/vinfo_zmtattention" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="+ 关注" android:drawablePadding="3.0dip" />
+    </LinearLayout>
+    <View android:id="@id/vinfo_zmtdivider2" android:background="#ffc8c8c8" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <com.qihoo360.newssdk.ui.common.NetErrorView android:id="@id/vinfo_neterror" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    <com.qihoo360.newssdk.ui.common.EmptyCommentView android:id="@id/vinfo_emptyview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" />
+</LinearLayout>

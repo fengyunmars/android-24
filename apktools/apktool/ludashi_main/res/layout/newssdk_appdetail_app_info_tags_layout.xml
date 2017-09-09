@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@drawable/newssdk_appdetail_common_list_bg" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/tag_layout_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+            <View android:background="@color/color_00c9b0" android:layout_width="3.0dip" android:layout_height="13.0dip" android:layout_marginRight="8.0dip" />
+            <TextView android:textSize="@dimen/app_info_title_text_size" android:textColor="#ff333333" android:gravity="center|left" android:id="@id/app_info_tag_title" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/app_info_tag_text" />
+        </LinearLayout>
+        <com.qihoo360.newssdk.page.app.view.AppInfoTagView android:id="@id/appinfotagView" android:paddingLeft="7.0dip" android:paddingTop="6.0dip" android:paddingRight="7.0dip" android:paddingBottom="6.0dip" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

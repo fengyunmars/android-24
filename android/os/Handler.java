@@ -28,7 +28,7 @@ import java.lang.reflect.Modifier;
  * queue.  When you create a new Handler, it is bound to the thread /
  * message queue of the thread that is creating it -- from that point on,
  * it will deliver messages and runnables to that message queue and execute
- * them as they come out of the message queue.
+ * them as they come out of 从...出来 the message queue.
  * 
  * <p>There are two main uses for a Handler: (1) to schedule messages and
  * runnables to be executed as some point in the future; and (2) to enqueue
@@ -52,7 +52,7 @@ import java.lang.reflect.Modifier;
  * ticks, and other timing-based behavior.
  * 
  * <p>When a
- * process is created for your application, its main thread is dedicated to
+ * process is created for your application, its main thread is dedicated 专用的 to
  * running a message queue that takes care of managing the top-level
  * application objects (activities, broadcast receivers, etc) and any windows
  * they create.  You can create your own threads, and communicate back with
@@ -63,12 +63,21 @@ import java.lang.reflect.Modifier;
  */
 public class Handler {
     /*
-     * Set this flag to true to detect anonymous, local or member classes
+     * Set this flag to true to detect anonymous  匿名的 , local or member classes
      * that extend this Handler class and that are not static. These kind
      * of classes can potentially create leaks.
      */
     private static final boolean FIND_POTENTIAL_LEAKS = false;
+
     private static final String TAG = "Handler";
+
+    //add dingxiaoquan
+    final Looper mLooper;
+    final MessageQueue mQueue;
+    final Callback mCallback;
+    final boolean mAsynchronous;
+    IMessenger mMessenger;
+    //add dingxiaoquan
 
     /**
      * Callback interface you can use when instantiating a Handler to avoid
@@ -172,12 +181,12 @@ public class Handler {
      * Use the {@link Looper} for the current thread with the specified callback interface
      * and set whether the handler should be asynchronous.
      *
-     * Handlers are synchronous by default unless this constructor is used to make
+     * Handlers are <b>synchronous</b> by default unless this constructor is used to make
      * one that is strictly asynchronous.
      *
      * Asynchronous messages represent interrupts or events that do not require global ordering
-     * with respect to synchronous messages.  Asynchronous messages are not subject to
-     * the synchronization barriers introduced by {@link MessageQueue#enqueueSyncBarrier(long)}.
+     * with respect to synchronous messages.  Asynchronous messages are not subject to 不受
+     * the synchronization barriers 同步屏障 introduced by {@link MessageQueue#enqueueSyncBarrier(long)}.
      *
      * @param callback The callback interface in which to handle messages, or null.
      * @param async If true, the handler calls {@link Message#setAsynchronous(boolean)} for
@@ -416,7 +425,7 @@ public class Handler {
      * message queue. The runnable will be run on the thread to which this
      * handler is attached.
      * <b>This method is only for use in very special circumstances -- it
-     * can easily starve the message queue, cause ordering problems, or have
+     * can easily starve 饿死 the message queue, cause ordering problems, or have
      * other unexpected side-effects.</b>
      *  
      * @param r The Runnable that will be executed.
@@ -431,20 +440,20 @@ public class Handler {
     }
 
     /**
-     * Runs the specified task synchronously.
+     * Scissors 剪刀 Runs the specified task synchronously.
      * <p>
      * If the current thread is the same as the handler thread, then the runnable
      * runs immediately without being enqueued.  Otherwise, posts the runnable
      * to the handler and waits for it to complete before returning.
      * </p><p>
-     * This method is dangerous!  Improper use can result in deadlocks.
+     * This method is dangerous!  Improper 不正确的 use can result in deadlocks 死锁 .
      * Never call this method while any locks are held or use it in a
-     * possibly re-entrant manner.
+     * possibly re-entrant 再进入的 manner 方式 .
      * </p><p>
-     * This method is occasionally useful in situations where a background thread
+     * This method is occasionally 偶尔 useful in situations where a background thread
      * must synchronously await completion of a task that must run on the
-     * handler's thread.  However, this problem is often a symptom of bad design.
-     * Consider improving the design (if possible) before resorting to this method.
+     * handler's thread.  However, this problem is often a symptom 症状 of bad design.
+     * Consider improving the design (if possible) before resorting to 求助于 this method.
      * </p><p>
      * One example of where you might want to use this method is when you just
      * set up a Handler thread and need to perform some initialization steps on
@@ -466,7 +475,7 @@ public class Handler {
      *         Returns false on failure, usually because the
      *         looper processing the message queue is exiting.
      *
-     * @hide This method is prone to abuse and should probably not be in the API.
+     * @hide This method is prone 倾向于 to abuse 滥用 and should probably not be in the API.
      * If we ever do make it part of the API, we might want to rename it to something
      * less funny like runUnsafe().
      */
@@ -490,8 +499,7 @@ public class Handler {
     /**
      * Remove any pending 即将到来的 posts of Runnable r that are in the message queue.
      */
-    public final void removeCallbacks(Runnable r)
-    {
+    public final void removeCallbacks(Runnable r){
         mQueue.removeMessages(this, r, null);
     }
 
@@ -514,8 +522,7 @@ public class Handler {
      *         message queue.  Returns false on failure, usually because the
      *         looper processing the message queue is exiting.
      */
-    public final boolean sendMessage(Message msg)
-    {
+    public final boolean sendMessage(Message msg) {
         return sendMessageDelayed(msg, 0);
     }
 
@@ -695,7 +702,7 @@ public class Handler {
         return mQueue.hasMessages(this, r, null);
     }
 
-    // if we can get rid of this method, the handler need not remember its loop
+    // if we can get rid of 除去 this method, the handler need not remember its loop
     // we could instead export a getMessageQueue() method... 
     public final Looper getLooper() {
         return mLooper;
@@ -751,13 +758,16 @@ public class Handler {
         message.callback.run();
     }
 
-    final Looper mLooper;
-    final MessageQueue mQueue;
-    final Callback mCallback;
-    final boolean mAsynchronous;
-    IMessenger mMessenger;
+    //modify dxq
+//    final Looper mLooper;
+//    final MessageQueue mQueue;
+//    final Callback mCallback;
+//    final boolean mAsynchronous;
+//    IMessenger mMessenger;
+    //modify dxq
 
     private static final class BlockingRunnable implements Runnable {
+
         private final Runnable mTask;
         private boolean mDone;
 

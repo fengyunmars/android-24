@@ -30,7 +30,7 @@ import sun.misc.Cleaner;
 
 /**
  * Reference queues, to which registered reference objects are appended by the
- * garbage collector after the appropriate reachability changes are detected.
+ * garbage collector after the appropriate reachability 可达性 changes are detected.
  *
  * @author   Mark Reinhold
  * @since    1.2
@@ -69,8 +69,8 @@ public class ReferenceQueue<T> {
 
         if (r instanceof Cleaner) {
             // If this reference is a Cleaner, then simply invoke the clean method instead
-            // of enqueueing it in the queue. Cleaners are associated with dummy queues that
-            // are never polled and objects are never enqueued on them.
+            // of enqueueing it in the queue. Cleaners are associated with dummy 假的 queues that
+            // are never polled 剪短 and objects are never enqueued on them.
             Cleaner cl = (sun.misc.Cleaner) r;
             cl.clean();
 
@@ -163,7 +163,7 @@ public class ReferenceQueue<T> {
      *
      * @param  timeout  If positive, block for up to <code>timeout</code>
      *                  milliseconds while waiting for a reference to be
-     *                  added to this queue.  If zero, block indefinitely.
+     *                  added to this queue.  If zero, block indefinitely 无限期地 .
      *
      * @return  A reference object, if one was available within the specified
      *          timeout period, otherwise <code>null</code>
@@ -174,9 +174,7 @@ public class ReferenceQueue<T> {
      * @throws  InterruptedException
      *          If the timeout wait is interrupted
      */
-    public Reference<? extends T> remove(long timeout)
-        throws IllegalArgumentException, InterruptedException
-    {
+    public Reference<? extends T> remove(long timeout) throws IllegalArgumentException, InterruptedException {
         if (timeout < 0) {
             throw new IllegalArgumentException("Negative timeout value");
         }

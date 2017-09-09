@@ -20,7 +20,7 @@ import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 
 /**
- * Interface by which a View builds its {@link Outline}, used for shadow casting and clipping.
+ * Interface by which a View builds its {@link Outline}, used for shadow 阴影 casting and clipping.
  */
 public abstract class ViewOutlineProvider {
     /**

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="@color/pinglun_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/line1" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="top" android:id="@id/headicon" android:background="@drawable/pic_9" android:layout_width="45.0dip" android:layout_height="45.0dip" />
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:ellipsize="end" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="测试用昵称" android:singleLine="true" android:layout_weight="1.0" style="@style/comments_pinglun_item" />
+                <TextView android:textSize="@dimen/text_size_little" android:textColor="@color/comment_item_color" android:gravity="bottom|center" android:layout_gravity="center|right" android:id="@id/tv_reply_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:text="@string/reply" android:drawableLeft="@drawable/comment_count" android:drawablePadding="3.0dip" />
+                <TextView android:textSize="@dimen/text_size_little" android:textColor="@color/comment_item_color" android:gravity="bottom|center" android:layout_gravity="center|right" android:id="@id/tv_love" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:drawableLeft="@drawable/heart" android:drawablePadding="3.0dip" />
+            </LinearLayout>
+            <TextView android:textSize="@dimen/text_size_little" android:gravity="left" android:layout_gravity="left" android:id="@id/time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="今天 18:18" style="@style/comments_pinglun_item" />
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_reply_root" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/black" android:id="@id/pinglun_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="测试 测试" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/start_ll" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+                    <TextView android:textSize="@dimen/text_size_small" android:gravity="center|left" android:layout_gravity="center|left" android:id="@id/star" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/star_level" style="@style/comments_pinglun_item" />
+                    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/luobo_container" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:id="@id/ll_reply" android:background="@color/white" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="13.0dip">
+                <TextView android:textSize="@dimen/text_size_small" android:textColor="@color/black" android:id="@id/tv_reply" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="测试 测试" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/start_ll_child" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                    <TextView android:textSize="@dimen/text_size_small" android:gravity="center|left" android:layout_gravity="center|left" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/star_level" style="@style/comments_pinglun_item" />
+                    <LinearLayout android:gravity="center_vertical" android:layout_gravity="center_vertical" android:orientation="horizontal" android:id="@id/luobo_container_child" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <View android:background="@color/pinglun_divide_line" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_alignParentBottom="true" />
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@color/white" android:layout_width="720.0px" android:layout_height="50.0px"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:layout_gravity="center" android:id="@id/iv_indicator" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="30.0px" android:layout_marginRight="16.0px" android:src="@drawable/ue_result_item_indicator1" android:scaleType="fitCenter" android:contentDescription="@null" />
+    <TextView android:textSize="24.0px" android:textColor="#ff666666" android:gravity="center_vertical" android:id="@id/tv_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/account_no" android:layout_weight="1.0" />
+    <TextView android:textSize="24.0px" android:textColor="#ff666666" android:gravity="center|right" android:id="@id/tv_value" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="30.0px" android:text="@string/account_mode_text" android:layout_weight="1.0" />
+</LinearLayout>

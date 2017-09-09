@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LDS - HTML5 Bitblt Test</title>
+        <style type="text/css">
+            body {
+				 background:url(bg.png) 100% ;
+                width: 100%;
+                font-family: roboto helvetica;
+                margin: 0;
+                color: white;
+                overflow: hidden;
+            }
+            #container {
+                width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        </style>
+        <script type="text/javascript" src="bitblt.js"></script>
+    </head>
+    <body onload="init1();">
+        <canvas id="bgCanvas" style="position:absolute; z-index:-1"></canvas>
+        <div style="text-align: center; padding: 5pt;">
+            <div id="label" style="font-size: 14pt; padding: 5pt;">Loading ...</div>
+        </div>
+        <br/><br/><br/>
+        <div id="container">
+            <canvas id="theCanvas" width="400" height="400">You don't support HTML5 canvas.</canvas>
+        </div>
+    </body> 
+</html>

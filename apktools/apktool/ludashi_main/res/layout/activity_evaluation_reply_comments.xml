@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@id/whole_comment_page" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/luinb" android:background="@color/new_title_bg_color" android:layout_alignParentTop="true" custom:TitleText="@string/comments_reply_title" style="@style/CommonNaviBar" />
+    <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/luinb" />
+    <com.ludashi.benchmark.business.evaluation.ui.view.RefreshListView android:id="@id/list_view" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:layout_above="@id/fl_reply" android:layout_below="@id/luinb" android:overScrollMode="never" android:overScrollFooter="@null" />
+    <FrameLayout android:id="@id/fl_reply" android:background="@color/ev_gray_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="5.0dip" android:layout_marginBottom="5.0dip">
+            <EditText android:id="@id/ll_edit_reply" android:background="@drawable/bg_edit_reply" android:layout_width="280.0dip" android:layout_height="wrap_content" android:minHeight="40.0dip" android:maxLines="4" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textColor="@color/white" android:gravity="center" android:id="@id/ll_send_reply" android:background="@drawable/btn_bg_blue" android:layout_width="50.0dip" android:layout_height="40.0dip" android:layout_marginLeft="5.0dip" android:layout_marginTop="4.0dip" android:layout_marginBottom="4.0dip" android:text="@string/comments_reply" android:singleLine="true" android:layout_toRightOf="@id/ll_edit_reply" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </FrameLayout>
+</RelativeLayout>

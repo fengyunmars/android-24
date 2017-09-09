@@ -264,14 +264,14 @@ public class Object {
      * Wakes up a single thread that is waiting on this object's
      * monitor. If any threads are waiting on this object, one of them
      * is chosen to be awakened. The choice is arbitrary and occurs at
-     * the discretion of the implementation. A thread waits on an object's
+     * the discretion 判定 of the implementation. A thread waits on an object's
      * monitor by calling one of the {@code wait} methods.
      * <p>
-     * The awakened thread will not be able to proceed until the current
-     * thread relinquishes the lock on this object. The awakened thread will
+     * The awakened thread will not be able to proceed 开始 until the current
+     * thread relinquishes 放弃 the lock on this object. The awakened thread will
      * compete in the usual manner with any other threads that might be
-     * actively competing to synchronize on this object; for example, the
-     * awakened thread enjoys no reliable privilege or disadvantage in being
+     * actively competing 竞争的 to synchronize on this object; for example, the
+     * awakened thread enjoys 享有 no reliable 可靠 privilege 特权 or disadvantage 缺点 in being
      * the next thread to lock this object.
      * <p>
      * This method should only be called by a thread that is the owner
@@ -327,9 +327,9 @@ public class Object {
      * The current thread must own this object's monitor.
      * <p>
      * This method causes the current thread (call it <var>T</var>) to
-     * place itself in the wait set for this object and then to relinquish
-     * any and all synchronization claims on this object. Thread <var>T</var>
-     * becomes disabled for thread scheduling purposes and lies dormant
+     * place itself in the wait set for this object and then to relinquish 放弃
+     * any and all synchronization 同步 claims 要求 on this object. Thread <var>T</var>
+     * becomes disabled for thread scheduling purposes and lies dormant 休眠的
      * until one of four things happens:
      * <ul>
      * <li>Some other thread invokes the {@code notify} method for this
@@ -348,7 +348,7 @@ public class Object {
      * usual manner with other threads for the right to synchronize on the
      * object; once it has gained control of the object, all its
      * synchronization claims on the object are restored to the status quo
-     * ante - that is, to the situation as of the time that the {@code wait}
+     * ante quo ante - that is, to the situation as of the time that the {@code wait}
      * method was invoked. Thread <var>T</var> then returns from the
      * invocation of the {@code wait} method. Thus, on return from the
      * {@code wait} method, the synchronization state of the object and of
@@ -356,7 +356,7 @@ public class Object {
      * was invoked.
      * <p>
      * A thread can also wake up without being notified, interrupted, or
-     * timing out, a so-called <i>spurious wakeup</i>.  While this will rarely
+     * timing out, a so-called <i>spurious 假的 wakeup</i>.  While this will rarely
      * occur in practice, applications must guard against it by testing for
      * the condition that should have caused the thread to be awakened, and
      * continuing to wait if the condition is not satisfied.  In other words,
@@ -514,22 +514,22 @@ public class Object {
     /**
      * Called by the garbage collector on an object when garbage collection
      * determines that there are no more references to the object.
-     * A subclass overrides the {@code finalize} method to dispose of
+     * A subclass overrides the {@code finalize} method to dispose of  处理
      * system resources or to perform other cleanup.
      * <p>
      * The general contract of {@code finalize} is that it is invoked
      * if and when the Java<font size="-2"><sup>TM</sup></font> virtual
      * machine has determined that there is no longer any
-     * means by which this object can be accessed by any thread that has
+     * means 方法 by which this object can be accessed by any thread that has
      * not yet died, except as a result of an action taken by the
      * finalization of some other object or class which is ready to be
      * finalized. The {@code finalize} method may take any action, including
      * making this object available again to other threads; the usual purpose
      * of {@code finalize}, however, is to perform cleanup actions before
-     * the object is irrevocably discarded. For example, the finalize method
+     * the object is irrevocably 不能取消地 discarded 丢弃 . For example, the finalize method
      * for an object that represents an input/output connection might perform
-     * explicit I/O transactions to break the connection before the object is
-     * permanently discarded.
+     * explicit 明确的 I/O transactions to break the connection before the object is
+     * permanently 永久地 discarded.
      * <p>
      * The {@code finalize} method of class {@code Object} performs no
      * special action; it simply returns normally. Subclasses of
@@ -538,7 +538,7 @@ public class Object {
      * The Java programming language does not guarantee which thread will
      * invoke the {@code finalize} method for any given object. It is
      * guaranteed, however, that the thread that invokes finalize will not
-     * be holding any user-visible synchronization locks when finalize is
+     * be holding any user-visible synchronization 同步 locks when finalize is
      * invoked. If an uncaught exception is thrown by the finalize method,
      * the exception is ignored and finalization of that object terminates.
      * <p>
@@ -553,7 +553,7 @@ public class Object {
      * virtual machine for any given object.
      * <p>
      * Any exception thrown by the {@code finalize} method causes
-     * the finalization of this object to be halted, but is otherwise
+     * the finalization of this object to be halted 停止 , but is otherwise
      * ignored.
      *
      * @throws Throwable the {@code Exception} raised by this method

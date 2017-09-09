@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/feedback_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <ScrollView android:fadingEdge="none" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/wifi_background" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/xuinb" custom:TitleText="@string/wifi_title" style="@style/CommonNaviBar" />
+                <ImageView android:id="@id/imgWifi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:src="@drawable/wifion" />
+                <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/wifion" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                    <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:text="@string/wifion_tips1" />
+                    <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifion_tips2" android:lines="2" android:drawableLeft="@drawable/wifi_share_tip" android:drawablePadding="4.0dip" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/wifioff" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="55.0dip">
+                    <TextView android:textSize="20.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="30.0dip" android:text="@string/wifioff_tips1" />
+                    <TextView android:textSize="15.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/wifioff_tips2" android:lines="2" android:drawableLeft="@drawable/wifi_share_tip" android:drawablePadding="4.0dip" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <LinearLayout android:gravity="center|left" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_marginBottom="@dimen/screen_margin">
+                    <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:text="@string/wifionhint2" />
+                    <EditText android:textSize="15.0sp" android:textColor="#ff00a5df" android:id="@id/hotpot" android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" android:singleLine="true" android:maxLength="10" android:imeOptions="actionNext" />
+                </LinearLayout>
+                <View android:background="#ffdfdfdf" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+                <LinearLayout android:gravity="center|left" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_marginTop="@dimen/screen_margin">
+                    <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:gravity="center|right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:text="@string/wifionhint3" />
+                    <EditText android:textSize="15.0sp" android:textColor="#ff00a5df" android:gravity="center|left" android:id="@id/password" android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="35.0dip" android:singleLine="true" android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+                </LinearLayout>
+                <View android:background="#ffdfdfdf" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+            </LinearLayout>
+            <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                <Button android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/btnWifiOn" android:background="@drawable/wifi_share_btn_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="25.0dip" android:text="@string/wifioffhint" android:layout_centerInParent="true" />
+                <Button android:textSize="15.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/btnWifiOff" android:background="@drawable/wifi_share_btn_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="25.0dip" android:text="@string/wifionhint" android:layout_centerInParent="true" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

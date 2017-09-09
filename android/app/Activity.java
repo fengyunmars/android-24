@@ -4848,8 +4848,7 @@ public class Activity extends ContextThemeWrapper
      * @hide
      */
     @Override
-    public void startActivityForResult(
-            String who, Intent intent, int requestCode, @Nullable Bundle options) {
+    public void startActivityForResult(String who, Intent intent, int requestCode, @Nullable Bundle options) {
         Uri referrer = onProvideReferrer();
         if (referrer != null) {
             intent.putExtra(Intent.EXTRA_REFERRER, referrer);
@@ -5027,7 +5026,7 @@ public class Activity extends ContextThemeWrapper
     }
 
     /**
-     * Override to generate the desired referrer for the content currently being shown
+     * Override to generate the desired referrer  推荐人 for the content currently being shown
      * by the app.  The default implementation returns null, meaning the referrer will simply
      * be the android-app: of the package name of this activity.  Return a non-null Uri to
      * have that supplied as the {@link Intent#EXTRA_REFERRER} of any activities started from it.

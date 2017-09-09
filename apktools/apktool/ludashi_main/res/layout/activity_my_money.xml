@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:orientation="vertical" android:id="@id/my_money_header" android:background="@color/money_background_red" android:layout_width="fill_parent" android:layout_height="240.0dip">
+            <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/nav_bar_back" app:RightButtonPaddingRight="10.0dip" app:TitleText="@string/my_money_title" style="@style/CommonNaviBar" />
+            <ImageView android:id="@id/my_money_header_bg_img" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/my_money_header_bg" android:layout_alignParentBottom="true" />
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+                <TextView android:textSize="15.0sp" android:textColor="#ccffffff" android:id="@id/tv_head_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/my_money_header_tips" />
+                <LinearLayout android:orientation="horizontal" android:id="@id/sum_money_view" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip">
+                    <TextView android:textSize="50.0sp" android:textColor="@color/share_text_color" android:id="@id/sum_money_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="12.0dip" android:text="0.00" />
+                    <TextView android:textSize="15.0sp" android:textColor="@color/share_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="@string/money_unit" />
+                </LinearLayout>
+                <TextView android:textSize="15.0sp" android:textColor="#ccffffff" android:ellipsize="end" android:gravity="center" android:id="@id/tv_lucky_money_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="@string/lucky_money_default_tips" android:lines="1" />
+            </LinearLayout>
+            <RelativeLayout android:id="@id/rl_notice" android:background="#66000000" android:visibility="visible" android:layout_width="fill_parent" android:layout_height="35.0dip" android:layout_alignParentBottom="true">
+                <ImageView android:id="@id/notice_icon" android:background="@drawable/my_money_notice_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="8.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+                <TextView android:textSize="14.0sp" android:textColor="#ffffffff" android:ellipsize="end" android:id="@id/notice_tips" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="80.0dip" android:text="@string/lucky_360_money_withdraw_tips" android:lines="1" android:layout_toRightOf="@id/notice_icon" android:layout_centerVertical="true" />
+                <ImageView android:background="@drawable/my_money_notice_arrow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="8.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </RelativeLayout>
+        <com.ludashi.benchmark.m.view.ErrHintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="@dimen/navigation_bar_height" />
+    </RelativeLayout>
+    <RelativeLayout android:gravity="center" android:orientation="vertical" android:id="@id/rl_no_data_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/iv_no_red_packet_icon" android:background="@drawable/no_red_packet_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/lucky_money_red" android:id="@id/tv_tips1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="@string/my_money_no_data_tips1" android:layout_below="@id/iv_no_red_packet_icon" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/lucky_money_red" android:id="@id/tv_tips2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="@string/my_money_no_data_tips2" android:layout_below="@id/tv_tips1" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ListView android:id="@id/money_list_view" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:divider="@null" android:layout_above="@id/rl_alipay_view" android:overScrollMode="never" android:overScrollFooter="@null" />
+        <RelativeLayout android:id="@id/rl_alipay_view" android:background="#fff5f5f5" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_alignParentBottom="true">
+            <Button android:textSize="16.0sp" android:textColor="@color/white" android:id="@id/btn_alipay" android:background="@drawable/s_green_btn_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip" android:text="@string/alipay_withdraw" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

@@ -36,6 +36,7 @@ import java.util.ArrayList;
  * {@link Looper#myQueue() Looper.myQueue()}.
  */
 public final class MessageQueue {
+
     private static final String TAG = "MessageQueue";
     private static final boolean DEBUG = false;
 
@@ -79,7 +80,7 @@ public final class MessageQueue {
         }
     }
 
-    // Disposes of the underlying message queue.
+    // Disposes 精力旺盛的 of the underlying message queue.
     // Must only be called on the looper thread or the finalizer.
     private void dispose() {
         if (mPtr != 0) {
@@ -89,7 +90,7 @@ public final class MessageQueue {
     }
 
     /**
-     * Returns true if the looper has no pending messages which are due to be processed.
+     * Returns true if the looper has no pending messages which are due to be 将 processed.
      *
      * <p>This method is safe to call from any thread.
      *
@@ -137,9 +138,9 @@ public final class MessageQueue {
     }
 
     /**
-     * Returns whether this looper's thread is currently polling for more work to do.
-     * This is a good signal that the loop is still alive rather than being stuck
-     * handling a callback.  Note that this method is intrinsically racy, since the
+     * Returns whether this looper's thread is currently polling 轮询 for more work to do.
+     * This is a good signal that the loop is still alive rather than being stuck 卡住
+     * handling a callback.  Note that this method is intrinsically 本质地 racy 保持原味的 , since the
      * state of the loop can change before you get the result back.
      *
      * <p>This method is safe to call from any thread.
@@ -265,7 +266,7 @@ public final class MessageQueue {
         synchronized (this) {
             record = mFileDescriptorRecords.get(fd);
             if (record == null) {
-                return 0; // spurious, no listener registered
+                return 0; // spurious 伪造的 , no listener registered
             }
 
             oldWatchedEvents = record.mEvents;
@@ -305,7 +306,7 @@ public final class MessageQueue {
     }
 
     Message next() {
-        // Return here if the message loop has already quit and been disposed.
+        // Return here if the message loop has already quit and been disposed 处置 .
         // This can happen if the application tries to restart a looper after quit
         // which is not supported.
         final long ptr = mPtr;
@@ -328,7 +329,7 @@ public final class MessageQueue {
                 Message prevMsg = null;
                 Message msg = mMessages;
                 if (msg != null && msg.target == null) {
-                    // Stalled by a barrier.  Find the next asynchronous message in the queue.
+                    // Stalled 止步不前 by a barrier 同步屏障 .  Find the next asynchronous message in the queue.
                     do {
                         prevMsg = msg;
                         msg = msg.next;
@@ -437,11 +438,11 @@ public final class MessageQueue {
      *
      * Message processing occurs as usual until the message queue encounters the
      * synchronization barrier that has been posted.  When the barrier is encountered,
-     * later synchronous messages in the queue are stalled (prevented from being executed)
+     * later synchronous messages in the queue are stalled 止步不前 (prevented from being executed)
      * until the barrier is released by calling {@link #removeSyncBarrier} and specifying
      * the token that identifies the synchronization barrier.
      *
-     * This method is used to immediately postpone execution of all subsequently posted
+     * This method is used to immediately postpone 延期 execution of all subsequently posted
      * synchronous messages until a condition is met that releases the barrier.
      * Asynchronous messages (see {@link Message#isAsynchronous} are exempt from the barrier
      * and continue to be processed as usual.
@@ -477,7 +478,7 @@ public final class MessageQueue {
                     p = p.next;
                 }
             }
-            if (prev != null) { // invariant: p == prev.next
+            if (prev != null) { // invariant 不变量 : p == prev.next
                 msg.next = p;
                 prev.next = msg;
             } else {
@@ -771,7 +772,7 @@ public final class MessageQueue {
     }
 
     /**
-     * Callback interface for discovering when a thread is going to block
+     * Callback interface for discovering 发现 when a thread is going to block
      * waiting for more messages.
      */
     public static interface IdleHandler {

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:layout_marginRight="25.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:background="@drawable/s_round_rect_white_inner_bottom" android:layout_width="fill_parent" android:layout_height="20.0dip" />
+    <View android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="20.0dip" />
+    <TextView android:textSize="18.0dip" android:textColor="#ff747988" android:id="@id/sep_label" android:background="@drawable/s_round_rect_white_inner_top" android:paddingLeft="25.0dip" android:paddingTop="25.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="25.0dip" android:text="@string/apps_not_added" />
+</LinearLayout>

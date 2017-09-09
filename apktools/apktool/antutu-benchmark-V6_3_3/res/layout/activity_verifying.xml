@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/activity_verifying" android:background="#ff1e9e49" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:layout_gravity="center_vertical" android:background="#ff0c7b31" android:layout_width="fill_parent" android:layout_height="45.0dip">
+        <ImageView android:id="@id/verifying_back" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/activity_vertical_margin" android:src="@drawable/back" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="19.0dip" android:textColor="@color/white" android:id="@id/verifying_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/verifying" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <LinearLayout android:orientation="vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true">
+            <FrameLayout android:background="@drawable/bg_oval_verifying" android:layout_width="185.0dip" android:layout_height="185.0dip" android:layout_centerInParent="true">
+                <ImageView android:id="@id/verifying_iv" android:layout_width="185.0dip" android:layout_height="185.0dip" android:src="@drawable/anim_verifying" />
+            </FrameLayout>
+            <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:layout_gravity="center_horizontal" android:id="@id/verifying_waiting" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:text="@string/verifying_get_mobile_info" android:layout_below="@id/verifying_iv" android:layout_centerHorizontal="true" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

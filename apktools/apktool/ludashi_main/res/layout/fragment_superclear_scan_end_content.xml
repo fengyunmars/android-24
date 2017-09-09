@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/sc_scan_content" android:background="@color/sc_bg_color" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.ludashi.benchmark.business.clear.ui.PinnedHeaderExpandableListView android:id="@id/elv_scan_result" android:background="@color/sc_bg_color" android:layout_width="fill_parent" android:layout_height="0.0dip" android:listSelector="@android:color/transparent" android:scrollingCache="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:groupIndicator="@android:color/transparent" android:childDivider="@color/sc_bg_color" android:divider="@color/sc_bg_color" android:layout_weight="1.0" />
+    <LinearLayout android:orientation="vertical" android:background="#fffafafa" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textSize="18.0sp" android:textColor="@android:color/white" android:layout_gravity="center_horizontal" android:id="@id/btn_start_clear" android:background="@drawable/sc_button_clear" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="10.0dip" android:minWidth="220.0dip" android:text="@string/super_clear_trash_hint" />
+    </LinearLayout>
+</LinearLayout>

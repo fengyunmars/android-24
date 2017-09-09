@@ -57,7 +57,7 @@ public abstract class ViewStructure {
     public abstract void setTransformation(Matrix matrix);
 
     /**
-     * Set the visual elevation (shadow) of the view, as per
+     * Set the visual elevation 海拔 (shadow) of the view, as per
      * {@link View#getZ View.getZ()}.  Note this is <em>not</em> related
      * to the physical Z-ordering of this view relative to its other siblings (that is how
      * they overlap when drawing), it is only the visual representation for shadowing.
@@ -175,6 +175,7 @@ public abstract class ViewStructure {
      * @param bgColor The background color, packed as 0xAARRGGBB.
      * @param style Style flags, as defined by {@link android.app.assist.AssistStructure.ViewNode}.
      */
+    //// TODO: 2017/9/8  
     public abstract void setTextStyle(float size, int fgColor, int bgColor, int style);
 
     /**
@@ -186,6 +187,7 @@ public abstract class ViewStructure {
      * @param charOffsets The offset in to {@link #setText} where a line starts.
      * @param baselines The baseline where the line is drawn on screen.
      */
+    //// TODO: 2017/9/8  
     public abstract void setTextLines(int[] charOffsets, int[] baselines);
 
     /**

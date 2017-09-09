@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <Button android:enabled="false" android:id="@id/sso_accounts_btn_get_code" android:text="@string/sso_accounts_get_code" android:layout_alignBaseline="@id/sso_accounts_et_phone" style="@style/Account_Button_Get_Code" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_phone" android:hint="@string/sso_accounts_phone" android:drawableLeft="@drawable/sso_accounts_ic_phone" android:layout_toLeftOf="@id/sso_accounts_btn_get_code" android:inputType="phone" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider1" android:layout_below="@id/sso_accounts_et_phone" style="@style/Account_Divider" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_auth_code" android:hint="@string/sso_accounts_code" android:maxEms="6" android:minEms="4" android:drawableLeft="@drawable/sso_accounts_ic_auth_code" android:layout_below="@id/divider1" android:inputType="text" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider2" android:layout_below="@id/sso_accounts_et_auth_code" style="@style/Account_Divider" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_password" android:hint="@string/sso_accounts_password" android:drawableLeft="@drawable/sso_accounts_ic_password" android:layout_below="@id/divider2" android:inputType="textPassword" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider3" android:layout_below="@id/sso_accounts_et_password" style="@style/Account_Divider" />
+    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_password_confirm" android:hint="@string/sso_accounts_confirm_password" android:drawableLeft="@drawable/sso_accounts_ic_password" android:layout_below="@id/divider3" android:inputType="textPassword" style="@style/Account_EditView_Login" />
+    <View android:id="@id/divider4" android:layout_below="@id/sso_accounts_et_password_confirm" style="@style/Account_Divider" />
+    <include android:id="@id/sso_accounts_stub_img_code" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/divider4" layout="@layout/sso_accounts_layout_img_code" />
+    <CheckBox android:id="@id/sso_accounts_ck_user_agreement" android:paddingLeft="10.0dip" android:layout_marginLeft="@dimen/sso_accounts_margin_left" android:layout_marginTop="20.0dip" android:checked="true" android:button="@drawable/sso_accounts_selector_checkbox" android:text="@string/sso_accounts_read_and_agree" android:layout_below="@id/sso_accounts_stub_img_code" style="@style/Account_TextView_Hint" />
+    <TextView android:id="@id/sso_accounts_tv_user_agreement" android:layout_marginLeft="10.0dip" android:layout_marginTop="20.0dip" android:text="@string/sso_accounts_user_agreement" android:layout_toRightOf="@id/sso_accounts_ck_user_agreement" android:layout_below="@id/sso_accounts_stub_img_code" android:layout_alignBaseline="@id/sso_accounts_ck_user_agreement" style="@style/Account_TextView_Actionable" />
+    <Button android:id="@id/sso_accounts_btn_register" android:layout_marginLeft="@dimen/sso_accounts_margin_left" android:layout_marginTop="25.0dip" android:layout_marginRight="@dimen/sso_accounts_margin_right" android:text="@string/sso_accounts_next" android:layout_below="@id/sso_accounts_ck_user_agreement" style="@style/Account_Button_Highlight" />
+</RelativeLayout>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <View android:id="@id/sep" android:background="@color/sep" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="69.0dip" android:layout_marginRight="20.0dip" />
+    <LinearLayout android:orientation="vertical" style="@style/news_reply_box">
+        <TextView android:textSize="12.0dip" android:textColor="#ff576b95" android:id="@id/title" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <TextView android:textSize="15.0dip" android:textColor="#ff333333" android:id="@id/content" android:paddingTop="4.0dip" android:paddingBottom="4.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/news_reply_sample" android:lineSpacingExtra="5.0dip" />
+        <TextView android:textSize="12.0dip" android:textColor="#ff999999" android:layout_gravity="right" android:id="@id/more" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/news_see_more_reply" android:drawableRight="@drawable/news_reply_more" android:layout_alignParentRight="true" />
+    </LinearLayout>
+</LinearLayout>

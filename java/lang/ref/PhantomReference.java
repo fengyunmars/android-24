@@ -27,9 +27,9 @@ package java.lang.ref;
 
 
 /**
- * Phantom reference objects, which are enqueued after the collector
- * determines that their referents may otherwise be reclaimed.  Phantom
- * references are most often used for scheduling pre-mortem cleanup actions in
+ * Phantom 幻象 reference objects, which are enqueued after the collector
+ * determines that their referents may otherwise be reclaimed 回收利用 .  Phantom
+ * references are most often used for scheduling pre-mortem 事后检验 cleanup actions in
  * a more flexible way than is possible with the Java finalization mechanism.
  *
  * <p> If the garbage collector determines at a certain point in time that the
@@ -37,7 +37,7 @@ package java.lang.ref;
  * href="package-summary.html#reachability">phantom reachable</a>, then at that
  * time or at some later time it will enqueue the reference.
  *
- * <p> In order to ensure that a reclaimable object remains so, the referent of
+ * <p> In order to ensure that a reclaimable 可收回的 object remains so, the referent of
  * a phantom reference may not be retrieved: The <code>get</code> method of a
  * phantom reference always returns <code>null</code>.
  *

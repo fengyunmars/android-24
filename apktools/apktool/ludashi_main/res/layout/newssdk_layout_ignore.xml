@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/ignore_root" android:paddingLeft="@dimen/cantiner_padding_left" android:paddingRight="@dimen/cantiner_padding_right" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/ignore_linear_parent" android:clickable="true" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="30.0dip">
+            <TextView android:textSize="13.0dip" android:textColor="@color/common_4d4d4d" android:ellipsize="end" android:id="@id/ignore_text_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:singleLine="true" android:layout_centerVertical="true" />
+            <com.qihoo360.newssdk.ui.common.CommonBtn5 android:ellipsize="none" android:gravity="center" android:id="@id/ignore_text_titlebutton" android:layout_width="100.0dip" android:layout_height="30.0dip" android:singleLine="true" android:maxLength="4" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <com.qihoo360.newssdk.ui.common.IgnoreReasonGroup android:id="@id/ignore_average_reason" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" />
+    </LinearLayout>
+</LinearLayout>

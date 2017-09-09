@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:orientation="horizontal" android:background="@color/sso_accounts_bg_actionbar_dark_color" android:layout_width="fill_parent" android:layout_height="@dimen/sso_accounts_actionbar_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/img_back_actionbar" android:paddingRight="25.0dip" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/sso_accounts_margin_left_actionbar" android:src="@drawable/sso_accounts_selector_btn_back" android:layout_centerVertical="true" />
+    <TextView android:textSize="@dimen/sso_accounts_actionbar_title_size" android:textColor="@color/sso_accounts_actionbar_title_color" android:id="@id/tv_title_actionbar" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+</RelativeLayout>

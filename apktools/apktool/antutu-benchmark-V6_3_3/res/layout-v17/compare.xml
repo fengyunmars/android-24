@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/compare_layout" android:background="@color/layout_background" android:longClickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include android:id="@id/title_layout" layout="@layout/common_title_view" />
+    <LinearLayout android:orientation="vertical" android:id="@id/ll_compare_content" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="100.0dip" android:layout_marginLeft="7.0dip" android:layout_marginTop="7.0dip" android:layout_marginRight="7.0dip">
+            <ImageView android:id="@id/pic_vs" android:background="@drawable/vs" android:layout_width="76.0dip" android:layout_height="76.0dip" android:scaleType="center" android:layout_centerInParent="true" />
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/text_big" android:layout_gravity="center" android:id="@id/l_name" android:layout_width="105.0dip" android:layout_height="wrap_content" android:text="@string/my_device" android:layout_toLeftOf="@id/pic_vs" android:layout_centerVertical="true" android:layout_toStartOf="@id/pic_vs" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/text_big" android:layout_gravity="center" android:id="@id/l_brand" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="@string/my_device" android:drawableLeft="@drawable/icon_phone" android:drawablePadding="5.0dip" android:layout_alignLeft="@id/l_name" android:layout_centerHorizontal="true" android:drawableStart="@drawable/icon_phone" android:layout_alignStart="@id/l_name" />
+            <TextView android:textSize="16.0sp" android:textStyle="bold" android:textColor="@color/text_big" android:gravity="right" android:id="@id/r_name" android:layout_width="105.0dip" android:layout_height="wrap_content" android:singleLine="false" android:layout_toRightOf="@id/pic_vs" android:layout_centerVertical="true" android:layout_toEndOf="@id/pic_vs" />
+            <TextView android:textSize="14.0sp" android:textColor="@color/text_big" android:gravity="right" android:id="@id/r_brand" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:singleLine="false" android:drawableLeft="@drawable/icon_phone" android:drawablePadding="5.0dip" android:layout_alignRight="@id/r_name" android:layout_centerHorizontal="true" android:drawableStart="@drawable/icon_phone" android:layout_alignEnd="@id/r_name" />
+        </RelativeLayout>
+        <View android:background="#ff252627" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <ListView android:id="@id/CompareList" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="8.0dip" android:cacheColorHint="@color/white" android:divider="#ff252627" android:dividerHeight="1.0px" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <RelativeLayout android:id="@id/whole_comment_page" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/luinb" android:background="@color/new_title_bg_color" android:layout_alignParentTop="true" custom:TitleText="@string/allcomments_title" style="@style/CommonNaviBar" />
+        <LinearLayout android:orientation="vertical" android:id="@id/all_comment_header" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/luinb">
+            <LinearLayout android:orientation="horizontal" android:id="@id/ll_btn_line" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="45.0dip" android:baselineAligned="false">
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/all_button" android:background="@drawable/tab_btn_bg" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <TextView android:textSize="14.0sp" android:textColor="@color/color_comment_buttons_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/all_comment_title" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffb4b4b4" android:id="@id/all_button_count" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/good_button" android:background="@drawable/tab_btn_bg" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <TextView android:textSize="14.0sp" android:textColor="@color/color_comment_buttons_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/good_comment_title" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffb4b4b4" android:id="@id/good_button_count" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/normal_button" android:background="@drawable/tab_btn_bg" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <TextView android:textSize="14.0sp" android:textColor="@color/color_comment_buttons_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/medium_comment_title" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffb4b4b4" android:id="@id/normal_button_count" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+                </LinearLayout>
+                <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/bad_button" android:background="@drawable/tab_btn_bg" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+                    <TextView android:textSize="14.0sp" android:textColor="@color/color_comment_buttons_text" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/bad_comment_title" />
+                    <TextView android:textSize="12.0sp" android:textColor="#ffb4b4b4" android:id="@id/bad_button_count" android:duplicateParentState="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/ll_submit_comment" android:layout_below="@id/all_comment_header" />
+        <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/no_comments" android:background="@drawable/comment_normal_item_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="70.0dip" android:layout_below="@id/all_comment_header">
+            <ImageView android:layout_gravity="center_horizontal" android:background="@drawable/no_comment" android:layout_width="100.0dip" android:layout_height="100.0dip" android:scaleType="fitCenter" android:contentDescription="@null" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff646464" android:layout_gravity="center_horizontal" android:id="@id/tv_description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:text="@string/no_comment" />
+        </LinearLayout>
+        <com.ludashi.benchmark.business.evaluation.ui.view.RefreshListView android:id="@id/list_view" android:background="@android:color/transparent" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:layout_above="@id/ll_submit_comment" android:layout_below="@id/all_comment_header" android:overScrollMode="never" android:overScrollFooter="@null" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/ll_submit_comment" android:layout_width="fill_parent" android:layout_height="70.0dip" android:layout_alignParentBottom="true">
+            <Button android:textSize="18.0sp" android:textColor="#ff00a5df" android:id="@id/comment_btn" android:background="@drawable/ev_comment_btn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="24.0dip" android:layout_marginRight="24.0dip" android:text="@string/comment_btn" />
+        </LinearLayout>
+    </RelativeLayout>
+    <ImageView android:id="@id/iv_top_img" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@null" />
+</FrameLayout>

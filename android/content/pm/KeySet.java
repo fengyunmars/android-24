@@ -22,8 +22,8 @@ import android.os.Parcelable;
 
 /**
  * Represents a {@code KeySet} that has been declared in the AndroidManifest.xml
- * file for the application.  A {@code KeySet} can be used explicitly to
- * represent a trust relationship with other applications on the device.
+ * file for the application.  A {@code KeySet} can be used explicitly 明确地 to
+ * represent a trust 信任 relationship with other applications on the device.
  * @hide
  */
 public class KeySet implements Parcelable {

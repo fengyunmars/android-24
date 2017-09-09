@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#fffafafa" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_alignParentTop="true"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/xuinb" android:background="@drawable/titlebar_bg" custom:buttonCount="Left" custom:TitleTextColor="@android:color/white" style="@style/CommonNaviBar" />
+    <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <com.ludashi.benchmark.business.evaluation.ui.view.XListView android:id="@id/list_view" android:background="@android:color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:listSelector="@android:color/transparent" android:cacheColorHint="@android:color/transparent" android:divider="@null" android:dividerHeight="0.0dip" />
+</LinearLayout>

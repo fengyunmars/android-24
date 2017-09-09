@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="250" android:drawable="@drawable/loading_first" />
+    <item android:duration="250" android:drawable="@drawable/loading_second" />
+    <item android:duration="250" android:drawable="@drawable/loading_third" />
+    <item android:duration="250" android:drawable="@drawable/loading_second" />
+</animation-list>

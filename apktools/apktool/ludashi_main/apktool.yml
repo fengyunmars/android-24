@@ -1,0 +1,39 @@
+!!brut.androlib.meta.MetaInfo
+apkFileName: ludashi_main.apk
+compressionType: false
+doNotCompress:
+- arsc
+- appkey
+- so
+- assets/o_c_adp.dat.timestamp
+- assets/o_c_cus.dat.timestamp
+- dat
+- assets/o_c_p_l.dat.timestamp
+- assets/o_c_spf.dat.timestamp
+- assets/oclt_v2.jar.timestamp
+- pvr
+- apk
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '14'
+  targetSdkVersion: '22'
+sharedLibrary: false
+unknownFiles:
+  com/ludashi/benchmark/business/benchmark/cases/IMazeCallback.aidl: '8'
+  com/sina/weibo/sdk/net/cacert_cn.cer: '8'
+  com/sina/weibo/sdk/net/cacert_com.cer: '8'
+  org/apache/http/entity/mime/version.properties: '8'
+  pinyindb/pinyin_gwoyeu_mapping.xml: '8'
+  pinyindb/pinyin_mapping.xml: '8'
+  pinyindb/unicode_to_hanyu_pinyin.txt: '8'
+usesFramework:
+  ids:
+  - 1
+  tag: null
+version: 2.2.4
+versionInfo:
+  versionCode: '112'
+  versionName: 8.4.3.17.0823

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <android.support.v4.view.ViewPager android:id="@id/vp_banner" android:layout_width="fill_parent" android:layout_height="140.0dip" />
+    <include android:id="@id/view_news1" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ue_tab_content_news_item" />
+    <View android:background="@color/ue_divider_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <include android:id="@id/view_news2" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ue_tab_content_news_item" />
+    <View android:background="@color/ue_divider_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <include android:id="@id/view_filter_line1" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ue_tab_content_filter_line_layout" />
+    <View android:background="@color/ue_divider_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+    <include android:id="@id/view_filter_line2" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/ue_tab_content_filter_line_layout" />
+    <View android:background="@color/ue_divider_line_color" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

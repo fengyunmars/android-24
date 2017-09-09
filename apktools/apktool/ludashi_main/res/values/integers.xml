@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="config_maxResolverActivityColumns">8</integer>
+    <integer name="memory_ratio_bar">85</integer>
+    <integer name="starage_ratio_bar">70</integer>
+    <integer name="temperature_ratio_bar">35</integer>
+</resources>

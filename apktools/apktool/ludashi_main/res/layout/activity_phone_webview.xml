@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" android:background="@drawable/titlebar_bg" custom:buttonCount="Left" custom:TitleText="@string/brand_filter" custom:TitleTextColor="@android:color/white" style="@style/CommonNaviBar" />
+    <ProgressBar android:id="@id/progressBar" android:layout_width="fill_parent" android:layout_height="4.0dip" style="?android:attr/progressBarStyleHorizontal" />
+    <WebView android:id="@id/HTTPViewer" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" />
+</LinearLayout>

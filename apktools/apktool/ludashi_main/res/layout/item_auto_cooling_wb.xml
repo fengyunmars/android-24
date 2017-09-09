@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/more_item_height"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="#ff333333" android:gravity="center_vertical" android:id="@id/tv_title" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="16.0dip" android:layout_marginTop="10.0dip" android:text="@string/cooling_auto_ignore" />
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_action" android:layout_width="fill_parent" android:layout_height="wrap_content" android:minHeight="@dimen/more_item_height">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_weight="1.0">
+            <ImageButton android:layout_gravity="center_vertical" android:id="@id/ib_icon" android:background="@android:color/transparent" android:padding="10.0dip" android:layout_width="60.0dip" android:layout_height="60.0dip" android:src="@drawable/icon" android:scaleType="fitXY" android:contentDescription="@null" />
+            <TextView android:textSize="15.0sp" android:textColor="#ff333333" android:id="@id/tv_hint" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginTop="6.0dip" android:layout_marginBottom="8.0dip" android:text="@string/normal" android:singleLine="true" />
+        </LinearLayout>
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/ib_switcher" android:background="@android:color/transparent" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="5.0dip" android:layout_marginRight="15.0dip" android:src="@drawable/on" android:contentDescription="@null" />
+    </LinearLayout>
+</LinearLayout>

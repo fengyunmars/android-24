@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ludashi.account.qihoo360.v.MainlandLoginView android:orientation="vertical" android:id="@id/login_view" android:background="@color/qihoo_accounts_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/qihoo_accounts_login_view" />
+    <LinearLayout android:orientation="vertical" android:paddingLeft="@dimen/qihoo_accounts_padding" android:paddingRight="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="5.0dip">
+        <RelativeLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:id="@id/login_forget_password" android:text="@string/qihoo_accounts_login_forget_password" android:layout_alignParentLeft="true" android:layout_centerVertical="true" style="@style/qihoo_accounts_link_btn_style" />
+        </RelativeLayout>
+        <TextView android:layout_gravity="center_horizontal" android:id="@id/qihoo_accounts_login_oversea" android:text="@string/qihoo_accounts_login_oversea" style="@style/qihoo_accounts_link_btn_style" />
+    </LinearLayout>
+</com.ludashi.account.qihoo360.v.MainlandLoginView>

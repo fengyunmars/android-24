@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/qihoo_accounts_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout style="@style/qihoo_accounts_top_title_style">
+        <TextView android:id="@id/qihoo_accounts_login_top_title" android:text="@string/qihoo_accounts_login_top_title" style="@style/qihoo_accounts_top_title_text_style" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:padding="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:id="@id/select_account_note" android:text="@string/qihoo_account_select_account_title" style="@style/qihoo_accounts_note_text_style" />
+        <ListView android:id="@id/select_account_list" android:paddingTop="@dimen/qihoo_accounts_padding" android:paddingBottom="@dimen/qihoo_accounts_padding" android:layout_width="fill_parent" android:layout_height="wrap_content" android:divider="@android:color/transparent" android:dividerHeight="@dimen/qihoo_accounts_select_divider_height" android:choiceMode="singleChoice" android:minHeight="@dimen/qihoo_accounts_select_list_height" />
+        <Button android:id="@id/login_other_bt" android:layout_width="fill_parent" android:text="@string/qihoo_account_select_account_loginother" style="@style/qihoo_accounts_main_btn_style" />
+        <Button android:layout_gravity="right" android:id="@id/register_bt" android:text="@string/qihoo_account_select_account_register" style="@style/qihoo_accounts_link_btn_style" />
+    </LinearLayout>
+</LinearLayout>

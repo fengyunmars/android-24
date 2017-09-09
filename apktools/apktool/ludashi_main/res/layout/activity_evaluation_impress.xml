@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:f="http://schemas.android.com/apk/res-auto" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <LinearLayout android:orientation="vertical" android:background="@color/ev_gray_bg" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/luinb" android:background="@color/new_title_bg_color" custom:TitleText="@string/impress_title" style="@style/CommonNaviBar" />
+        <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ip_nums" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/screen_margin_big" android:layout_marginTop="@dimen/screen_margin" android:layout_marginBottom="@dimen/screen_margin">
+            <TextView android:textSize="14.0sp" android:textColor="#ff576b95" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tag_view_all1" />
+            <TextView android:textSize="18.0sp" android:textColor="#fffb7b6c" android:id="@id/tag_num" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff576b95" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tag_view_all2" />
+        </LinearLayout>
+        <ScrollView android:background="#ffffffff" android:padding="@dimen/screen_margin_big" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+            <com.ludashi.benchmark.business.recycle.view.FlowLayout android:id="@id/hot_tags" android:layout_width="fill_parent" android:layout_height="wrap_content" custom:horizontalSpacing="24.0dip" custom:verticalSpacing="8.0dip" />
+        </ScrollView>
+        <View android:background="@color/ev_gray_bg" android:layout_width="fill_parent" android:layout_height="1.0dip" android:layout_marginLeft="@dimen/screen_margin_big" android:layout_marginRight="@dimen/screen_margin_big" />
+        <LinearLayout android:gravity="center" android:id="@id/add_more" android:background="@drawable/bg_btn_more_impress" android:padding="@dimen/screen_margin_big" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="14.0sp" android:textColor="@color/text_color_blue" android:gravity="center" android:id="@id/more_tags_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" android:text="@string/impress_impress_more" />
+            <ImageView android:id="@id/more_impress_narrow_down" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/gray_arrow_down" android:contentDescription="@null" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center" android:background="#00000000" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="20.0dip">
+            <Button android:textSize="19.0sp" android:textColor="@color/text_color_blue" android:gravity="center" android:id="@id/ip_impress_add" android:background="@drawable/ev_comment_btn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/impress_add" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/iv_top_img" android:background="@drawable/impress_top" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:contentDescription="@null" />
+</RelativeLayout>

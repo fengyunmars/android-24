@@ -71,7 +71,7 @@ public class VerifierDeviceIdentity implements Parcelable {
     /**
      * Generate a new device identity.
      *
-     * @return random uniformly-distributed device identity
+     * @return random uniformly-distributed 一致地 分布式的 device identity
      */
     public static VerifierDeviceIdentity generate() {
         final SecureRandom sr = new SecureRandom();
@@ -101,7 +101,7 @@ public class VerifierDeviceIdentity implements Parcelable {
     private static final char SEPARATOR = '-';
 
     private static final String encodeBase32(long input) {
-        final char[] alphabet = ENCODE;
+        final char[] alphabet = ENCODE;  // 字母表
 
         /*
          * Make a character array with room for the separators between each
@@ -113,7 +113,7 @@ public class VerifierDeviceIdentity implements Parcelable {
         for (int i = 0; i < LONG_SIZE; i++) {
             /*
              * Make sure we don't put a separator at the beginning. Since we're
-             * building from the rear of the array, we use (LONG_SIZE %
+             * building from the rear 后面 of the array, we use (LONG_SIZE %
              * GROUP_SIZE) to make the odd-size group appear at the end instead
              * of the beginning.
              */

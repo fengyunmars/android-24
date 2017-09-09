@@ -38,11 +38,11 @@ import java.util.Properties;
  * {@code int}, as well as other constants and methods useful when
  * dealing with an {@code int}.
  *
- * <p>Implementation note: The implementations of the "bit twiddling"
+ * <p>Implementation note: The implementations of the "bit twiddling 位操弄 "
  * methods (such as {@link #highestOneBit(int) highestOneBit} and
  * {@link #numberOfTrailingZeros(int) numberOfTrailingZeros}) are
- * based on material from Henry S. Warren, Jr.'s <i>Hacker's
- * Delight</i>, (Addison Wesley, 2002).
+ * based on material  材料 from Henry S. Warren, Jr.'s <i>Hacker's
+ * Delight</i>, (Addison Wesley 出版社 , 2002).
  *
  * @author  Lee Boynton
  * @author  Arthur van Hoff
@@ -85,7 +85,7 @@ public final class Integer extends Number implements Comparable<Integer> {
 
     /**
      * Returns a string representation of the first argument in the
-     * radix specified by the second argument.
+     * radix 基数 specified by the second argument.
      *
      * <p>If the radix is smaller than {@code Character.MIN_RADIX}
      * or larger than {@code Character.MAX_RADIX}, then the radix
@@ -96,7 +96,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * (<code>'&#92;u002D'</code>). If the first argument is not
      * negative, no sign character appears in the result.
      *
-     * <p>The remaining characters of the result represent the magnitude
+     * <p>The remaining characters of the result represent the magnitude 量级
      * of the first argument. If the magnitude is zero, it is
      * represented by a single zero character {@code '0'}
      * (<code>'&#92;u0030'</code>); otherwise, the first character of
@@ -198,6 +198,7 @@ public final class Integer extends Number implements Comparable<Integer> {
     }
 
     /**
+     * Octal octal 八进制的
      * Returns a string representation of the integer argument as an
      * unsigned integer in base&nbsp;8.
      *
@@ -299,16 +300,16 @@ public final class Integer extends Number implements Comparable<Integer> {
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
         } ;
 
-        // I use the "invariant division by multiplication" trick to
-        // accelerate Integer.toString.  In particular we want to
+        // I use the "invariant 不变量 division 除法 by multiplication 乘法 " trick 决窍 to
+        // accelerate 加速 Integer.toString.  In particular we want to
         // avoid division by 10.
         //
-        // The "trick" has roughly the same performance characteristics
-        // as the "classic" Integer.toString code on a non-JIT VM.
+        // The "trick" has roughly 粗糙地 大致 the same performance characteristics
+        // as the "classic" Integer.toString code on a non-JIT 运行时编译执行的技术， Java语言即采用该技术 VM.
         // The trick avoids .rem and .div calls but has a longer code
-        // path and is thus dominated by dispatch overhead.  In the
-        // JIT case the dispatch overhead doesn't exist and the
-        // "trick" is considerably faster than the classic code.
+        // path and is thus dominated 控制 by dispatch overhead.  In the
+        // JIT case the dispatch overhead 调度开销 doesn't exist and the
+        // "trick" is considerably 相当地 faster than the classic code.
         //
         // TODO-FIXME: convert (x * 52429) into the equiv shift-add
         // sequence.
@@ -332,7 +333,7 @@ public final class Integer extends Number implements Comparable<Integer> {
         if (i == Integer.MIN_VALUE)
             return "-2147483648";
 
-        // Android-changed: cache the string literal for small values.
+        // Android-changed: cache the string literal  文字的 for small values.
         boolean negative = i < 0;
         boolean small = negative ? i > -100 : i < 100;
         if (small) {
@@ -384,7 +385,7 @@ public final class Integer extends Number implements Comparable<Integer> {
         // Generate two digits per iteration
         while (i >= 65536) {
             q = i / 100;
-        // really: r = i - (q * 100);
+            // really: r = i - (q * 100);
             r = i - ((q << 6) + (q << 5) + (q << 2));
             i = q;
             buf [--charPos] = DigitOnes[r];
@@ -470,9 +471,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * @exception  NumberFormatException if the {@code String}
      *             does not contain a parsable {@code int}.
      */
-    public static int parseInt(String s, int radix)
-                throws NumberFormatException
-    {
+    public static int parseInt(String s, int radix) throws NumberFormatException {
         /*
          * WARNING: This method may be invoked early during VM initialization
          * before IntegerCache is initialized. Care must be taken to not use
@@ -515,7 +514,7 @@ public final class Integer extends Number implements Comparable<Integer> {
             }
             multmin = limit / radix;
             while (i < len) {
-                // Accumulating negatively avoids surprises near MAX_VALUE
+                // Accumulating 累加 negatively 负面地 avoids surprises near MAX_VALUE
                 digit = Character.digit(s.charAt(i++),radix);
                 if (digit < 0) {
                     throw NumberFormatException.forInputString(s);
@@ -654,7 +653,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * {@code int} value.  If a new {@code Integer} instance is not
      * required, this method should generally be used in preference to
      * the constructor {@link #Integer(int)}, as this method is likely
-     * to yield significantly better space and time performance by
+     * to yield 收益 significantly 显著地 better space and time performance by
      * caching frequently requested values.
      *
      * This method will always cache values in the range -128 to 127,
@@ -710,6 +709,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the value of this {@code Integer} as a
      * {@code byte}.
      */
+    @Override
     public byte byteValue() {
         return (byte)value;
     }
@@ -718,6 +718,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the value of this {@code Integer} as a
      * {@code short}.
      */
+    @Override
     public short shortValue() {
         return (short)value;
     }
@@ -726,6 +727,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the value of this {@code Integer} as an
      * {@code int}.
      */
+    @Override
     public int intValue() {
         return value;
     }
@@ -734,6 +736,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the value of this {@code Integer} as a
      * {@code long}.
      */
+    @Override
     public long longValue() {
         return (long)value;
     }
@@ -742,6 +745,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the value of this {@code Integer} as a
      * {@code float}.
      */
+    @Override
     public float floatValue() {
         return (float)value;
     }
@@ -750,6 +754,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * Returns the value of this {@code Integer} as a
      * {@code double}.
      */
+    @Override
     public double doubleValue() {
         return (double)value;
     }
@@ -962,10 +967,10 @@ public final class Integer extends Number implements Comparable<Integer> {
      * <i>DecimalNumeral</i>, <i>HexDigits</i>, and <i>OctalDigits</i>
      * are as defined in section 3.10.1 of
      * <cite>The Java&trade; Language Specification</cite>,
-     * except that underscores are not accepted between digits.
+     * except that underscores 下划线 are not accepted between digits.
      *
      * <p>The sequence of characters following an optional
-     * sign and/or radix specifier ("{@code 0x}", "{@code 0X}",
+     * sign and/or radix specifier 说明符 ("{@code 0x}", "{@code 0X}",
      * "{@code #}", or leading zero) is parsed as by the {@code
      * Integer.parseInt} method with the indicated radix (10, 16, or
      * 8).  This sequence of characters must represent a positive
@@ -1019,7 +1024,7 @@ public final class Integer extends Number implements Comparable<Integer> {
             result = negative ? Integer.valueOf(-result.intValue()) : result;
         } catch (NumberFormatException e) {
             // If number is Integer.MIN_VALUE, we'll end up here. The next line
-            // handles this case, and causes any genuine format error to be
+            // handles this case, and causes any genuine 真实的 format error to be
             // rethrown.
             String constant = negative ? ("-" + nm.substring(index))
                                        : nm.substring(index);
@@ -1041,6 +1046,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      *           comparison).
      * @since   1.2
      */
+    @Override
     public int compareTo(Integer anotherInteger) {
         return compare(this.value, anotherInteger.value);
     }
@@ -1068,7 +1074,7 @@ public final class Integer extends Number implements Comparable<Integer> {
 
     /**
      * The number of bits used to represent an {@code int} value in two's
-     * complement binary form.
+     * complement 补集 binary form.
      *
      * @since 1.5
      */
@@ -1129,7 +1135,7 @@ public final class Integer extends Number implements Comparable<Integer> {
      * specified value has no one-bits in its two's complement representation,
      * in other words if it is equal to zero.
      *
-     * <p>Note that this method is closely related to the logarithm base 2.
+     * <p>Note that this method is closely related to the logarithm 对数 base 2.
      * For all positive {@code int} values x:
      * <ul>
      * <li>floor(log<sub>2</sub>(x)) = {@code 31 - numberOfLeadingZeros(x)}
@@ -1181,9 +1187,9 @@ public final class Integer extends Number implements Comparable<Integer> {
     }
 
     /**
-     * Returns the number of one-bits in the two's complement binary
+     * Returns the number of <b>one-bits</b> in the two's complement binary
      * representation of the specified {@code int} value.  This function is
-     * sometimes referred to as the <i>population count</i>.
+     * sometimes referred to as the <i>population 总体 count</i>.
      *
      * @return the number of one-bits in the two's complement binary
      *     representation of the specified {@code int} value.

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/charge_activity_bg_gray" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" android:background="#ff0095f4" custom:buttonCount="Left" custom:TitleText="@string/change_charger_name" custom:TitleTextColor="@android:color/white" style="@style/CommonNaviBar" />
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <RelativeLayout android:background="@drawable/c_blue_circle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="50.0dip" android:layout_marginBottom="40.0dip">
+                <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/c_change_charger_name_icon" android:scaleType="fitCenter" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:contentDescription="@null" />
+            </RelativeLayout>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <TextView android:textSize="15.0sp" android:textColor="@color/charge_tips_item_answer_textColor" android:gravity="center|right" android:id="@id/tv_pet_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="6.0dip" android:text="@string/pet_name" />
+                <EditText android:textSize="17.0sp" android:textColor="#ff06a6dc" android:id="@id/et_name" android:background="@drawable/c_edit_text_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:minWidth="160.0dip" android:hint="@string/hint_input_name" android:singleLine="true" android:maxLength="10" android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:textColor="#ffaaaaaa" android:gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:text="@string/hint_name_style" />
+            <Button android:textSize="15.0sp" android:textColor="@color/charge_yellow" android:id="@id/btn_change" android:background="@drawable/c_btn_yellow" android:layout_width="240.0dip" android:layout_height="35.0dip" android:layout_marginTop="40.0dip" android:layout_marginBottom="20.0dip" android:minWidth="240.0dip" android:text="@string/save" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

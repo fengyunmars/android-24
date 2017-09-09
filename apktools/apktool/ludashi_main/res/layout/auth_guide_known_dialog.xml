@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="300.0dip" android:layout_height="wrap_content" android:minHeight="264.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <RelativeLayout android:id="@id/rl_top_bg" android:background="#ff2ac858" android:layout_width="fill_parent" android:layout_height="94.0dip">
+            <ImageView android:id="@id/img_icon" android:background="@drawable/auth_guide_right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        </RelativeLayout>
+        <TextView android:textSize="20.0sp" android:textColor="#ff2ac858" android:layout_gravity="center_horizontal" android:id="@id/auth_guide_dialog_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="-5.0dip" android:text="@string/auth_guide_running_ok" />
+        <TextView android:textSize="@dimen/dialog_button_size" android:textColor="@color/default_black_text" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/auth_guide_dialog_msg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="20.0dip" android:layout_weight="1.0" android:lineSpacingExtra="2.0dip" />
+        <View android:background="@color/new_ui_dialog_divider" android:layout_width="fill_parent" android:layout_height="1.0dip" />
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/btns_bar" android:layout_width="fill_parent" android:layout_height="@dimen/dialog_button_height">
+            <Button android:textSize="@dimen/dialog_button_size" android:textColor="@color/new_ui_dialog_gray" android:id="@id/auth_guide_btn_left" android:background="@null" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/auth_guide_known" android:layout_weight="1.0" />
+            <View android:background="@color/new_ui_dialog_divider" android:visibility="gone" android:layout_width="1.0dip" android:layout_height="fill_parent" android:layout_marginTop="@dimen/screen_margin" android:layout_marginBottom="@dimen/screen_margin" />
+            <Button android:textSize="@dimen/dialog_button_size" android:textColor="@color/new_ui_blue_text" android:id="@id/auth_guide_btn_right" android:background="@null" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="wrap_content" android:text="@string/auth_guide_dialog_open" android:layout_weight="1.0" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -1106,7 +1106,7 @@ public final class Long extends Number implements Comparable<Long> {
     }
 
     /**
-     * Returns the number of one-bits in the two's complement binary
+     * Returns the number of one-bits in the two's complement 补集 binary
      * representation of the specified {@code long} value.  This function is
      * sometimes referred to as the <i>population count</i>.
      *

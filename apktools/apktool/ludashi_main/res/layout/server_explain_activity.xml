@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
+    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/assist_setting" android:background="#ffe33523" custom:buttonCount="Left" custom:TitleText="@string/hb_server_explain_title" custom:TitleTextColor="@android:color/white" style="@style/CommonNaviBar" />
+    <TextView android:textSize="22.0sp" android:textColor="#ffe33523" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="25.0dip" android:text="@string/hb_server_explain_text_1" />
+    <TextView android:textSize="17.0sp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="20.0dip" android:text="@string/hb_server_explain_text_2" />
+</LinearLayout>
