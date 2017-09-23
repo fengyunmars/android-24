@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/setting_tab_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/viewlayout" android:background="@drawable/setting_sub_tab_bg_new" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/btn_account" android:background="@drawable/btn_account" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginLeft="10.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="22.0sp" android:textColor="@color/setting_tab_skin_listview_item_title_text_color" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/app_name" android:layout_centerInParent="true" />
+        <ImageButton android:layout_gravity="center_vertical" android:id="@id/btn_setting" android:background="@drawable/setting_tab_btn_setting" android:layout_width="24.0dip" android:layout_height="24.0dip" android:layout_marginRight="10.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <com.iflytek.inputmethod.setting.view.ScrollViewEx android:id="@id/operation_scroll_view" android:focusable="false" android:focusableInTouchMode="false" android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginBottom="10.0dip" android:cacheColorHint="#00000000">
+        <LinearLayout android:orientation="vertical" android:id="@id/operation_view_contain" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+    </com.iflytek.inputmethod.setting.view.ScrollViewEx>
+</LinearLayout>

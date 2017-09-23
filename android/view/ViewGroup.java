@@ -3311,6 +3311,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * @param enabled true to enable the cache, false to dispose of it
      */
     protected void setChildrenDrawingCacheEnabled(boolean enabled) {
+        //// TODO: 2017/9/11  
         if (enabled || (mPersistentDrawingCache & PERSISTENT_ALL_CACHES) != PERSISTENT_ALL_CACHES) {
             final View[] children = mChildren;
             final int count = mChildrenCount;
@@ -3345,6 +3346,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         if (skipChildren) {
             for (int i = 0; i < count; i++) {
                 View child = getChildAt(i);
+                //// TODO: 2017/9/13
+                // (child.mViewFlags & ~View.VISIBILITY_MASK) | (child.mViewFlags & VISIBILITY_MASK) & View.VISIBILITY_MASK
                 child.mViewFlags = (child.mViewFlags & ~View.VISIBILITY_MASK)
                         | (visibilities[i] & View.VISIBILITY_MASK);
             }
@@ -3396,7 +3399,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     private static int sign(int x) {
         return (x >= 0) ? 1 : -1;
     }
-
+    
+    //// TODO: 2017/9/13  
     private static void drawCorner(Canvas c, Paint paint, int x1, int y1, int dx, int dy, int lw) {
         fillRect(c, paint, x1, y1, x1 + dx, y1 + lw * sign(dy));
         fillRect(c, paint, x1, y1, x1 + lw * sign(dx), y1 + dy);
@@ -3409,6 +3413,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     private static void drawRectCorners(Canvas canvas, int x1, int y1, int x2, int y2, Paint paint,
             int lineLength, int lineWidth) {
+        //// TODO: 2017/9/13  
         drawCorner(canvas, paint, x1, y1, lineLength, lineLength, lineWidth);
         drawCorner(canvas, paint, x1, y2, lineLength, -lineLength, lineWidth);
         drawCorner(canvas, paint, x2, y1, -lineLength, lineLength, lineWidth);
@@ -3455,7 +3460,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 View c = getChildAt(i);
                 if (c.getVisibility() != View.GONE) {
                     Insets insets = c.getOpticalInsets();
-
+                    //// TODO: 2017/9/13
                     drawRect(canvas, paint,
                             c.getLeft() + insets.left,
                             c.getTop() + insets.top,
@@ -3483,6 +3488,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             for (int i = 0; i < getChildCount(); i++) {
                 View c = getChildAt(i);
                 if (c.getVisibility() != View.GONE) {
+
                     drawRectCorners(canvas, c.getLeft(), c.getTop(), c.getRight(), c.getBottom(),
                             paint, lineLength, lineWidth);
                 }
@@ -3539,7 +3545,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         boolean more = false;
         final long drawingTime = getDrawingTime();
 
-        if (usingRenderNodeProperties) canvas.insertReorderBarrier();
+        if (usingRenderNodeProperties)
+            canvas.insertReorderBarrier();
         final int transientCount = mTransientIndices == null ? 0 : mTransientIndices.size();
         int transientIndex = transientCount != 0 ? 0 : -1;
         // Only use the preordered list if not HW accelerated, since the HW pipeline will do the
@@ -3613,6 +3620,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             // We want to erase the drawing cache and notify the listener after the
             // next frame is drawn because one extra invalidate() is caused by
             // drawChild() after the animation is over
+            //// TODO: 2017/9/13  
             mGroupFlags |= FLAG_NOTIFY_ANIMATION_LISTENER;
             final Runnable end = new Runnable() {
                @Override
@@ -3895,6 +3903,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             // Children that are clickable on their own should not
             // show a pressed state when their parent view does.
             // Clearing a pressed state always propagates.
+            //// TODO: 2017/9/14  
             if (!pressed || (!child.isClickable() && !child.isLongClickable())) {
                 child.setPressed(pressed);
             }
@@ -3903,11 +3912,11 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /**
      * Dispatches drawable hotspot changes to child views that meet at least
-     * one of the following criteria:
+     * one of the following criteria 条件 :
      * <ul>
      *     <li>Returns {@code false} from both {@link View#isClickable()} and
      *     {@link View#isLongClickable()}</li>
-     *     <li>Requests duplication of parent state via
+     *     <li>Requests duplication  复制 of parent state via
      *     {@link View#setDuplicateParentStateEnabled(boolean)}</li>
      * </ul>
      *
@@ -4305,7 +4314,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         if (child == null) {
             throw new IllegalArgumentException("Cannot add a null child view to a ViewGroup");
         }
-
+        //// TODO: 2017/9/15  
         // addViewInner() will call child.requestLayout() when setting the new LayoutParams
         // therefore, we call requestLayout() on ourselves before, so that the child's request
         // will be blocked at our level
@@ -4466,6 +4475,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         if (mTransition != null) {
             // Don't prevent other add transitions from completing, but cancel remove
             // transitions to let them complete the process before we add to the container
+            //// TODO: 2017/9/15  
             mTransition.cancel(LayoutTransition.DISAPPEARING);
         }
 
@@ -4496,6 +4506,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
         // tell our children
         if (preventRequestLayout) {
+            //// TODO: 2017/9/15  
             child.assignParent(this);
         } else {
             child.mParent = this;
@@ -4582,6 +4593,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     // This method also sets the child's mParent to null
     private void removeFromArray(int index) {
         final View[] children = mChildren;
+        //// TODO: 2017/9/15  
         if (!(mTransitioningViews != null && mTransitioningViews.contains(children[index]))) {
             children[index].mParent = null;
         }
@@ -4616,11 +4628,13 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
         if (end == childrenCount) {
             for (int i = start; i < end; i++) {
+                //// TODO: 2017/9/15  
                 children[i].mParent = null;
                 children[i] = null;
             }
         } else {
             for (int i = start; i < end; i++) {
+                //// TODO: 2017/9/15  
                 children[i].mParent = null;
             }
 
@@ -4985,17 +4999,17 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     }
 
     /**
-     * Finishes the removal of a detached view. This method will dispatch the detached from
+     * Finishes the removal 排除 of a detached view. This method will dispatch the detached from
      * window event and notify the hierarchy change listener.
      * <p>
-     * This method is intended to be lightweight and makes no assumptions about whether the
+     * This method is intended to be lightweight and makes no assumptions  假定 about whether the
      * parent or child should be redrawn. Proper use of this method will include also making
      * any appropriate {@link #requestLayout()} or {@link #invalidate()} calls.
      * For example, callers can {@link #post(Runnable) post} a {@link Runnable}
      * which performs a {@link #requestLayout()} on the next frame, after all detach/remove
      * calls are finished, causing layout to be run prior to redrawing the view hierarchy.
      *
-     * @param child the child to be definitely removed from the view hierarchy
+     * @param child the child to be definitely 明确地 removed from the view hierarchy
      * @param animate if true and the view has an animation, the view is placed in the
      *                disappearing views list, otherwise, it is detached from the window
      *
@@ -5175,6 +5189,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * Don't call or override this method. It is used for the implementation of
      * the view hierarchy.
      */
+    //// TODO: 2017/9/15  
     @Override
     public final void invalidateChild(View child, final Rect dirty) {
         ViewParent parent = this;
@@ -5284,6 +5299,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * if this ViewGroup is already fully invalidated or if the dirty rectangle
      * does not intersect with this ViewGroup's bounds.
      */
+    //// TODO: 2017/9/15  
     @Override
     public ViewParent invalidateChildInParent(final int[] location, final Rect dirty) {
         if ((mPrivateFlags & PFLAG_DRAWN) == PFLAG_DRAWN ||
@@ -5339,7 +5355,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     }
 
     /**
-     * Native-calculated damage path
+     * Native-calculated damage 损害 path
      * Returns false if this path was unable to complete successfully. This means
      * it hit a ViewParent it doesn't recognize and needs to fall back to calculating
      * damage area
@@ -5367,6 +5383,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      *
      * @hide
      */
+    //// TODO: 2017/9/15  
     public void damageChild(View child, final Rect dirty) {
         if (damageChildDeferred(child)) {
             return;
@@ -5553,6 +5570,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      *
      * @hide
      */
+    //// TODO: 2017/9/15  
     public boolean getChildVisibleRect(
             View child, Rect r, android.graphics.Point offset, boolean forceParentCheck) {
         // It doesn't make a whole lot of sense to call this on a view that isn't attached,
@@ -5628,7 +5646,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
             }
             super.layout(l, t, r, b);
         } else {
-            // record the fact that we noop'd it; request layout when transition finishes
+            // record the fact that we noop'd 无操作 it; request layout when transition finishes
             mLayoutCalledWhileSuppressed = true;
         }
     }
@@ -5654,6 +5672,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     public void startLayoutAnimation() {
         if (mLayoutAnimationController != null) {
             mGroupFlags |= FLAG_RUN_ANIMATION;
+            //// TODO: 2017/9/16
             requestLayout();
         }
     }
@@ -6173,6 +6192,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
                 resultMode = MeasureSpec.EXACTLY;
             } else if (childDimension == LayoutParams.MATCH_PARENT) {
                 // Child wants to be our size. So be it.
+                //// TODO: 2017/9/20  
                 resultSize = size;
                 resultMode = MeasureSpec.EXACTLY;
             } else if (childDimension == LayoutParams.WRAP_CONTENT) {
@@ -6228,7 +6248,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
     /**
      * Removes any pending animations for views that have been removed. Call
-     * this if you don't want animations for exiting views to stack up.
+     * this if you don't want animations for exiting views to stack up 堆积；累计 .
      */
     public void clearDisappearingChildren() {
         final ArrayList<View> disappearingChildren = mDisappearingChildren;
@@ -6374,6 +6394,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         @Override
         public void endTransition(LayoutTransition transition, ViewGroup container,
                 View view, int transitionType) {
+            //// TODO: 2017/9/18
             if (mLayoutCalledWhileSuppressed && !transition.isChangingLayout()) {
                 requestLayout();
                 mLayoutCalledWhileSuppressed = false;
@@ -6478,6 +6499,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
         if ((mGroupFlags & FLAG_NOTIFY_CHILDREN_ON_DRAWABLE_STATE_CHANGE) != 0) {
             if ((mGroupFlags & FLAG_ADD_STATES_FROM_CHILDREN) != 0) {
+                //// TODO: 2017/9/19  
                 throw new IllegalStateException("addStateFromChildren cannot be enabled if a"
                         + " child has duplicateParentState set to true");
             }
@@ -6830,7 +6852,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * @inheritDoc
      *
      * <p>The default implementation of onStopNestedScroll calls
-     * {@link #stopNestedScroll()} to halt any recursive nested scrolling in progress.</p>
+     * {@link #stopNestedScroll()} to halt 终止 any recursive nested scrolling in progress.</p>
      */
     @Override
     public void onStopNestedScroll(View child) {
@@ -7106,7 +7128,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         }
 
         /**
-         * Use {@code canvas} to draw suitable debugging annotations for these LayoutParameters.
+         * Use {@code canvas} to draw suitable debugging annotations 注解 for these LayoutParameters.
          *
          * @param view the view that contains these layout parameters
          * @param canvas the canvas on which to draw
@@ -7443,7 +7465,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
          * @return the start margin in pixels.
          */
         public int getMarginStart() {
-            if (startMargin != DEFAULT_MARGIN_RELATIVE) return startMargin;
+            if (startMargin != DEFAULT_MARGIN_RELATIVE)
+                return startMargin;
             if ((mMarginFlags & NEED_RESOLUTION_MASK) == NEED_RESOLUTION_MASK) {
                 doResolveMargins();
             }
@@ -7476,7 +7499,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
          * @return the end margin in pixels.
          */
         public int getMarginEnd() {
-            if (endMargin != DEFAULT_MARGIN_RELATIVE) return endMargin;
+            if (endMargin != DEFAULT_MARGIN_RELATIVE)
+                return endMargin;
             if ((mMarginFlags & NEED_RESOLUTION_MASK) == NEED_RESOLUTION_MASK) {
                 doResolveMargins();
             }
@@ -7508,8 +7532,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
          *                     or {@link View#LAYOUT_DIRECTION_RTL}.
          */
         public void setLayoutDirection(int layoutDirection) {
-            if (layoutDirection != View.LAYOUT_DIRECTION_LTR &&
-                    layoutDirection != View.LAYOUT_DIRECTION_RTL) return;
+            if (layoutDirection != View.LAYOUT_DIRECTION_LTR && layoutDirection != View.LAYOUT_DIRECTION_RTL)
+                return;
             if (layoutDirection != (mMarginFlags & LAYOUT_DIRECTION_MASK)) {
                 mMarginFlags &= ~LAYOUT_DIRECTION_MASK;
                 mMarginFlags |= (layoutDirection & LAYOUT_DIRECTION_MASK);
@@ -7541,8 +7565,8 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
 
             // No relative margin or pre JB-MR1 case or no need to resolve, just dont do anything
             // Will use the left and right margins if no relative margin is defined.
-            if (!isMarginRelative() ||
-                    (mMarginFlags & NEED_RESOLUTION_MASK) != NEED_RESOLUTION_MASK) return;
+            if (!isMarginRelative() || (mMarginFlags & NEED_RESOLUTION_MASK) != NEED_RESOLUTION_MASK)
+                return;
 
             // Proceed with resolution
             doResolveMargins();
@@ -7596,7 +7620,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
         @Override
         public void onDebugDraw(View view, Canvas canvas, Paint paint) {
             Insets oi = isLayoutModeOptical(view.mParent) ? view.getOpticalInsets() : Insets.NONE;
-
+            //// TODO: 2017/9/13  
             fillDifference(canvas,
                     view.getLeft()   + oi.left,
                     view.getTop()    + oi.top,

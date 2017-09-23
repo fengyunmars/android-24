@@ -35,6 +35,7 @@ import dalvik.system.CloseGuard;
  * description file}.
  */
 public abstract class Animation implements Cloneable {
+
     /**
      * Repeat the animation indefinitely.
      */
@@ -127,12 +128,15 @@ public abstract class Animation implements Cloneable {
      * Indicates whether the animation transformation should be applied before the
      * animation starts. The value of this variable is only relevant 有意义的 if mFillEnabled is true;
      * otherwise it is assumed to be true.
+     * fillBefore是指动画结束时画面停留在此动画的第一帧; 默认值为true
      */
+    //// TODO: 2017/9/12  
     boolean mFillBefore = true;
 
     /**
      * Indicates whether the animation transformation should be applied after the
      * animation ends.
+     * fillAfter是指动画结束是画面停留在此动画的最后一帧。默认值为false
      */
     boolean mFillAfter = false;
 
@@ -467,10 +471,12 @@ public abstract class Animation implements Cloneable {
         // Reduce the number of repeats to keep below the maximum duration.
         // The comparison between mRepeatCount and duration is to catch
         // overflows after multiplying them.
+        //// TODO: 2017/9/12  
         if (mRepeatCount < 0 || mRepeatCount > durationMillis
                 || (dur * mRepeatCount) > durationMillis) {
-            // Figure out how many times to do the animation.  Subtract 1 since
+            // Figure out how many times to do the animation.  Subtract 减去 1 since
             // repeat count is the number of times to repeat so 0 runs once.
+            //// TODO: 2017/9/12  dur not mDurtion?
             mRepeatCount = (int) (durationMillis / dur) - 1;
             if (mRepeatCount < 0) {
                 mRepeatCount = 0;
@@ -842,6 +848,7 @@ public abstract class Animation implements Cloneable {
         final long duration = mDuration;
         float normalizedTime;
         if (duration != 0) {
+            //// TODO: 2017/9/12
             normalizedTime = ((float) (currentTime - (mStartTime + startOffset))) /
                     (float) duration;
         } else {
@@ -851,9 +858,13 @@ public abstract class Animation implements Cloneable {
 
         final boolean expired = normalizedTime >= 1.0f || isCanceled();
         mMore = !expired;
-
-        if (!mFillEnabled) normalizedTime = Math.max(Math.min(normalizedTime, 1.0f), 0.0f);
-
+        
+        // mFillEnablaed == false  Indicates whether fillBefore should be taken into account.
+        if (!mFillEnabled)
+            normalizedTime = Math.max(Math.min(normalizedTime, 1.0f), 0.0f);
+        //(normalizedTime >= 0.0f && normalizedTime <= 1.0f) || (mFillAfter && mFillBefore) ||
+        //(normalizedTime >= 0.0f && mFillAfter) || (mFillBefore && normalizedTime <= 1.0f)
+        //for fireAnimationStart()
         if ((normalizedTime >= 0.0f || mFillBefore) && (normalizedTime <= 1.0f || mFillAfter)) {
             if (!mStarted) {
                 fireAnimationStart();
@@ -863,7 +874,8 @@ public abstract class Animation implements Cloneable {
                 }
             }
 
-            if (mFillEnabled) normalizedTime = Math.max(Math.min(normalizedTime, 1.0f), 0.0f);
+            if (mFillEnabled)
+                normalizedTime = Math.max(Math.min(normalizedTime, 1.0f), 0.0f);
 
             if (mCycleFlip) {
                 normalizedTime = 1.0f - normalizedTime;
@@ -1034,7 +1046,7 @@ public abstract class Animation implements Cloneable {
 
         final Transformation tempTransformation = mTransformation;
         final Transformation previousTransformation = mPreviousTransformation;
-
+        //// TODO: 2017/9/13  
         tempTransformation.set(transformation);
         transformation.set(previousTransformation);
         previousTransformation.set(tempTransformation);

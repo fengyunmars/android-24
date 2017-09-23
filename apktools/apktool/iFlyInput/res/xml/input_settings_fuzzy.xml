@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/setting_fuzzy_pinyin" android:key="parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference android:persistent="false" android:title="z = zh" android:key="fuzzy_z_zh" />
+    <CheckBoxPreference android:persistent="false" android:title="c = ch" android:key="fuzzy_c_ch" />
+    <CheckBoxPreference android:persistent="false" android:title="s = sh" android:key="fuzzy_s_sh" />
+    <CheckBoxPreference android:persistent="false" android:title="f = h" android:key="fuzzy_f_h" />
+    <CheckBoxPreference android:persistent="false" android:title="l = n" android:key="fuzzy_l_n" />
+    <CheckBoxPreference android:persistent="false" android:title="an = ang" android:key="fuzzy_an_ang" />
+    <CheckBoxPreference android:persistent="false" android:title="en = eng" android:key="fuzzy_en_eng" />
+    <CheckBoxPreference android:persistent="false" android:title="in = ing" android:key="fuzzy_in_ing" />
+    <CheckBoxPreference android:persistent="false" android:title="r = l" android:key="fuzzy_r_l" />
+    <CheckBoxPreference android:persistent="false" android:title="k = g" android:key="fuzzy_k_g" />
+</PreferenceScreen>

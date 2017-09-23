@@ -22,7 +22,8 @@ import android.text.Layout.Directions;
  * Access the ICU bidi implementation.
  * @hide
  */
-/* package */ class AndroidBidi {
+/* package */
+class AndroidBidi {
 
     public static int bidi(int dir, char[] chs, byte[] chInfo, int n, boolean haveInfo) {
         if (chs == null || chInfo == null) {

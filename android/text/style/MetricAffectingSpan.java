@@ -22,9 +22,7 @@ import android.text.TextPaint;
  * The classes that affect character-level text formatting in a way that
  * changes the width or height of characters extend this class.
  */
-public abstract class MetricAffectingSpan
-extends CharacterStyle
-implements UpdateLayout {
+public abstract class MetricAffectingSpan extends CharacterStyle implements UpdateLayout {
 
     public abstract void updateMeasureState(TextPaint p);
 
@@ -46,7 +44,8 @@ implements UpdateLayout {
      * and is therefore able to be attached to the same Spannable
      * to which the specified MetricAffectingSpan is already attached.
      */
-    /* package */ static class Passthrough extends MetricAffectingSpan {
+    /* package */
+    static class Passthrough extends MetricAffectingSpan {
         private MetricAffectingSpan mStyle;
         
         /**

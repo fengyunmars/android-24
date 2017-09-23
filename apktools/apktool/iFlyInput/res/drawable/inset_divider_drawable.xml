@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="utf-8"?>
+<inset android:drawable="@drawable/userphrase_listview_divider" android:insetLeft="@dimen/DIP_8" android:insetRight="@dimen/DIP_8"
+  xmlns:android="http://schemas.android.com/apk/res/android" />

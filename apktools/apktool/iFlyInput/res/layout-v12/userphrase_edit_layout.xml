@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/userphrase_edit_layout" android:background="@color/basiccustom_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:orientation="vertical" android:id="@id/userphrase_edit_top_layout" android:background="@drawable/setting_sub_tab_bg_new" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <Button android:textSize="13.0sp" android:textColor="@color/custom_listview_btn_text_color" android:id="@id/userphrase_edit_cancel_btn_id" android:background="@drawable/userphrase_title_btn_status" android:layout_width="50.0dip" android:layout_height="30.0dip" android:layout_marginLeft="10.0dip" android:text="@string/button_text_cancel" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/custom_listview_btn_text_color" android:id="@id/userphrase_edit_title_id" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/custom_edit_title" android:layout_centerInParent="true" android:layout_centerVertical="true" />
+        <Button android:textSize="13.0sp" android:textColor="@drawable/userphrase_save_btn_text_color" android:id="@id/userphrase_edit_save_btn_id" android:background="@drawable/plugin_manager_btn" android:layout_width="50.0dip" android:layout_height="30.0dip" android:layout_marginRight="10.0dip" android:text="@string/custom_save_text" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/userphrase_edit_bg_layout" android:background="@color/custom_edit_bg_color" android:paddingLeft="20.0dip" android:paddingTop="13.0dip" android:paddingRight="20.0dip" android:paddingBottom="13.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/userphrase_edit_tip_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <TextView android:textSize="13.0sp" android:textColor="@color/custom_edit_lefttip_text_color" android:gravity="left" android:id="@id/userphrase_edit_left_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/custom_edit_tip_title" />
+            <TextView android:textSize="10.0sp" android:textColor="@color/custom_edit_lefttip_text_color" android:gravity="right" android:id="@id/userphrase_edit_right_tip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        </LinearLayout>
+        <EditText android:textSize="18.0sp" android:textColor="@color/custom_edit_text_color" android:gravity="top" android:id="@id/userphrase_edittext_id" android:background="@drawable/userphrase_edittext_bg" android:layout_width="fill_parent" android:layout_height="150.0dip" android:layout_marginTop="8.0dip" android:singleLine="false" android:textCursorDrawable="@null" />
+    </LinearLayout>
+</LinearLayout>

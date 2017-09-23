@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * {@link ViewHierarchyEncoder} is a serializer that is tailored towards writing out
+ * {@link ViewHierarchyEncoder} is a serializer 串行器 that is tailored  定做的 towards writing out
  * view hierarchies (the view tree, along with the properties for each view) to a stream.
  *
  * It is typically used as follows:
@@ -43,6 +43,7 @@ import java.util.Map;
  *
  * @hide
  */
+//// TODO: 2017/9/19  
 public class ViewHierarchyEncoder {
     // Prefixes for simple primitives. These match the JNI definitions.
     private static final byte SIG_BOOLEAN = 'Z';

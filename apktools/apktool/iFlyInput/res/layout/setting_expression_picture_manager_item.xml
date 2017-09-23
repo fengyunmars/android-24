@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/setting_expression_picture_manager_whole" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/setting_expression_picture_manager" android:background="@drawable/expression_bg_up" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/setting_expression_picture_manager_preview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="10.0dip" android:src="@drawable/op_operation" android:maxWidth="100.0dip" android:maxHeight="100.0dip" android:foregroundGravity="center" />
+    </LinearLayout>
+    <RelativeLayout android:layout_gravity="center" android:orientation="horizontal" android:id="@id/setting_expressionshop_picture_item_manager_bottom" android:background="@drawable/expression_bg_down" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/setting_expression_picture_manager_select" android:layout_width="20.0dip" android:layout_height="20.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="20.0dip" android:layout_marginBottom="5.0dip" android:button="@drawable/mark" android:layout_alignParentRight="true" />
+    </RelativeLayout>
+</LinearLayout>

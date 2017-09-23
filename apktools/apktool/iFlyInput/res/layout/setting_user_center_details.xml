@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:paddingLeft="10.0dip" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="16.0sp" android:textColor="@color/listview_override_color" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setting_notlogin_toast" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/listview_override_color" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/setting_user_center_details_dic" android:drawableLeft="@drawable/setting_user_center_details_icon" android:drawablePadding="10.0dip" />
+    <TextView android:textSize="14.0sp" android:textColor="@color/listview_override_color" android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:text="@string/setting_user_center_details_setting" android:drawableLeft="@drawable/setting_user_center_details_icon" android:drawablePadding="10.0dip" />
+</LinearLayout>

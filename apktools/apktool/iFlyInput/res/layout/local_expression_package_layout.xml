@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/setting_tab_title_common" />
+    <include android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/setting_wait_layout_common" />
+    <FrameLayout android:id="@id/expression_empty_tip_layout" android:background="@color/setting_tab_background_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_horizontal" android:layout_gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/no_expression_ic" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/expression_empty_tip_text_color" android:gravity="center" android:layout_gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/expression_tip" />
+        </LinearLayout>
+    </FrameLayout>
+    <ListView android:id="@id/local_expression_list_view" android:background="@color/setting_tab_background_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:listSelector="#00000000" android:cacheColorHint="#00000000" android:divider="@color/setting_common_list_divider_color" android:dividerHeight="1.0px" android:layout_weight="1.0" />
+    <LinearLayout android:layout_gravity="bottom" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <ImageView android:layout_width="fill_parent" android:layout_height="1.0dip" android:src="@color/setting_tab_background_color" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/expression_select_btn_text_normal" android:gravity="center" android:id="@id/goto_expression_picture_view" android:background="@drawable/setting_listview_item" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/setting_expression_picture_local" />
+        <ImageView android:layout_width="fill_parent" android:layout_height="1.0dip" android:src="@color/setting_tab_background_color" />
+        <TextView android:textSize="18.0sp" android:textColor="@color/expression_select_btn_text_normal" android:gravity="center" android:id="@id/goto_expression_import" android:background="@drawable/setting_listview_item" android:layout_width="fill_parent" android:layout_height="50.0dip" android:text="@string/setting_expression_import" />
+    </LinearLayout>
+</LinearLayout>

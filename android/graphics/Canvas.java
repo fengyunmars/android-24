@@ -1772,7 +1772,7 @@ public class Canvas {
      *
      * <p>The run of text includes the characters from {@code start} to {@code end} in the text. In
      * addition, the range {@code contextStart} to {@code contextEnd} is used as context for the
-     * purpose of complex text shaping, such as Arabic text potentially shaped differently based on
+     * purpose of complex text shaping, such as Arabic 阿拉伯语 text potentially shaped differently based on
      * the text next to it.
      *
      * <p>All text outside the range {@code contextStart..contextEnd} is ignored. The text between

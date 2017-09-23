@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:scrollbars="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:orientation="vertical" android:id="@id/sound_adjust_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:orientation="horizontal" android:id="@id/sound_adjust_layout_text_id" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip">
+            <TextView android:textSize="18.0sp" android:gravity="center_vertical" android:id="@id/sound_adjust_id" android:paddingLeft="10.0dip" android:layout_width="wrap_content" android:layout_height="40.0dip" android:layout_marginTop="20.0dip" android:text="@string/setting_sound_adjust" />
+            <TextView android:textSize="18.0sp" android:textColor="@color/setting_voice_more_color" android:gravity="right" android:id="@id/setting_sound_other" android:paddingLeft="10.0dip" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginTop="20.0dip" android:layout_marginRight="10.0dip" android:text="@string/setting_select_other_music_keyboard" />
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal" android:id="@id/sound_adjust_layout_id" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_below="@id/sound_adjust_layout_text_id">
+            <ImageView android:id="@id/smallVoice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            <SeekBar android:id="@id/sound_adjust_layout_seekbar" android:paddingTop="6.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:max="100" android:progress="50" android:layout_weight="8.0" />
+            <ImageView android:id="@id/bigVoice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/voice_large_ic" android:layout_weight="1.0" />
+        </LinearLayout>
+        <RadioGroup android:orientation="vertical" android:id="@id/radioGroup" android:paddingLeft="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_below="@id/sound_adjust_layout_id" android:contentDescription="@string/setting_select_sound">
+            <RadioButton android:id="@id/setting_select_default_sound" android:layout_width="wrap_content" android:layout_height="wrap_content" android:checked="true" android:text="@string/setting_select_default_sound" />
+            <RadioButton android:id="@id/setting_select_music_keyboard" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <RadioButton android:id="@id/setting_select_skin_sound" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_select_skin_sound" />
+        </RadioGroup>
+        <TextView android:textSize="16.0sp" android:id="@id/setting_no_sound_tip" android:paddingLeft="10.0dip" android:paddingBottom="20.0dip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/setting_no_sound_tip_value" android:layout_below="@id/radioGroup" />
+    </RelativeLayout>
+</ScrollView>

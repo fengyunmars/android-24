@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="horizontal" android:background="@color/user_phrase_menu_tittle_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/user_phrase_menu_left" android:background="@color/user_phrase_add_group_bg_color" android:visibility="invisible" android:layout_width="90.0dip" android:layout_height="fill_parent" />
+    <LinearLayout android:orientation="vertical" android:id="@id/user_phrase_menu_right" android:background="@color/user_phrase_menu_right_bottom_color" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <include android:id="@id/user_phrase_menu_import" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/user_phrase_menu_item" />
+        <include android:id="@id/user_phrase_menu_export" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/user_phrase_menu_item" />
+        <RelativeLayout android:id="@id/user_phrase_show_setting" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <include android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/user_phrase_menu_item" />
+            <ImageView android:id="@id/user_phrase_show_all" android:background="@drawable/switch_on" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="20.0dip" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+        <include android:id="@id/user_phrase_menu_add_quickcut" android:layout_width="fill_parent" android:layout_height="wrap_content" layout="@layout/user_phrase_menu_item" />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/user_phrase_menu_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/user_phrase_menu_no_content_tip_color" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/no_user_phrase_tip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="60.0dip" android:text="@string/user_phrase_no_content_tip" />
+    <Button android:textSize="15.0sp" android:textColor="#fffffeff" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/add_button_null" android:background="@drawable/phrase_add_btn_bg_selector" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="38.0dip" android:layout_marginLeft="15.0dip" android:layout_marginTop="40.0dip" android:layout_marginRight="15.0dip" android:layout_marginBottom="30.0dip" android:text="@string/user_phrase_add_btn_text" />
+    <ExpandableListView android:id="@id/user_phrase_expand_list_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

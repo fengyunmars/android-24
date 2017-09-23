@@ -43,6 +43,7 @@ import com.android.internal.util.ArrayUtils;
  * @hide
  */
 class TextLine {
+
     private static final boolean DEBUG = false;
 
     private TextPaint mPaint;
@@ -94,7 +95,7 @@ class TextLine {
      * it has been returned.
      * @param tl the textLine
      * @return null, as a convenience from clearing references to the provided
-     * TextLine
+     * TextLine ???
      */
     static TextLine recycle(TextLine tl) {
         tl.mText = null;
@@ -162,12 +163,13 @@ class TextLine {
             if (hasReplacement) {
                 // Handle these all at once so we don't have to do it as we go.
                 // Replace the first character of each replacement run with the
-                // object-replacement character and the remainder with zero width
-                // non-break space aka BOM.  Cursor movement code skips these
+                // object-replacement character and the remainder 剩余物 with zero width
+                // non-break space aka 又叫做，亦称（also known as） BOM.  Cursor movement code skips these
                 // zero-width characters.
                 char[] chars = mChars;
                 for (int i = start, inext; i < limit; i = inext) {
                     inext = mReplacementSpanSpanSet.getNextTransition(i, limit);
+                    //// TODO: 2017/9/23  
                     if (mReplacementSpanSpanSet.hasSpansIntersecting(i, inext)) {
                         // transition into a span
                         chars[i - start] = '\ufffc';
@@ -339,7 +341,7 @@ class TextLine {
     }
 
     /**
-     * Draws a unidirectional (but possibly multi-styled) run of text.
+     * Draws a unidirectional 单向的 (bidirectional 双向的) (but possibly multi-styled) run of text.
      *
      *
      * @param c the canvas to draw on
@@ -740,6 +742,7 @@ class TextLine {
 
             if (wp.underlineColor != 0) {
                 // kStdUnderline_Offset = 1/9, defined in SkTextFormatParams.h
+                //// TODO: 2017/9/23
                 float underlineTop = y + wp.baselineShift + (1.0f / 9.0f) * wp.getTextSize();
 
                 int previousColor = wp.getColor();
@@ -830,7 +833,7 @@ class TextLine {
     }
 
     /**
-     * Utility function for handling a unidirectional run.  The run must not
+     * Utility function for handling a unidirectional 单向的 run.  The run must not
      * contain tabs but can contain styles.
      *
      *
@@ -893,7 +896,8 @@ class TextLine {
                 // Both intervals [spanStarts..spanEnds] and [mStart + i..mStart + mlimit] are NOT
                 // empty by construction. This special case in getSpans() explains the >= & <= tests
                 if ((mMetricAffectingSpanSpanSet.spanStarts[j] >= mStart + mlimit) ||
-                        (mMetricAffectingSpanSpanSet.spanEnds[j] <= mStart + i)) continue;
+                        (mMetricAffectingSpanSpanSet.spanEnds[j] <= mStart + i))
+                    continue;
                 MetricAffectingSpan span = mMetricAffectingSpanSpanSet.spans[j];
                 if (span instanceof ReplacementSpan) {
                     replacement = (ReplacementSpan)span;

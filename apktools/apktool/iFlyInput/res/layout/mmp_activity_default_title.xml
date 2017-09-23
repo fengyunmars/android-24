@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:gravity="center" android:orientation="horizontal" android:id="@id/activity_default_title" android:background="@drawable/setting_sub_tab_bg_new" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:id="@id/mmp_return_btn_layout" android:layout_width="50.0dip" android:layout_height="@dimen/setting_common_title_height">
+        <ImageButton android:gravity="center_vertical" android:background="@drawable/userphrase_title_back_nor" android:focusable="false" android:clickable="false" android:layout_width="21.0dip" android:layout_height="21.0dip" android:layout_marginLeft="10.0dip" android:scaleType="fitCenter" />
+    </LinearLayout>
+    <TextView android:textSize="@dimen/setting_common_title_text_size" android:textColor="@color/setting_tab_skin_listview_item_title_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/mmp_activity_default_title_text" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <Button android:textSize="@dimen/setting_common_title_sub_text_size" android:textColor="@color/setting_common_title_sub_text_color" android:layout_gravity="center|right" android:id="@id/mmp_btn_share" android:background="@drawable/plugin_manager_btn" android:paddingLeft="@dimen/setting_common_title_sub_padding" android:paddingRight="@dimen/setting_common_title_sub_padding" android:layout_width="wrap_content" android:layout_height="@dimen/setting_common_title_sub_height" android:layout_marginRight="@dimen/setting_common_title_sub_margin" android:minWidth="@dimen/setting_common_title_sub_width_mini" android:text="@string/share" />
+</FrameLayout>

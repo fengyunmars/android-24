@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/setting_traffic_statistics" android:key="@string/setting_traffic_statistics_key" android:summary="@string/setting_current_traffic_statistics_user"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/setting_total_traffic_statistics">
+        <PreferenceScreen android:title="@string/setting_traffic_use_down_total_title" android:key="@string/setting_traffic_use_down_total_key" />
+        <PreferenceScreen android:title="@string/setting_traffic_use_up_total_title" android:key="@string/setting_traffic_use_up_total_key" />
+        <PreferenceScreen android:title="@string/setting_traffic_use_time_total_title" android:key="@string/setting_traffic_use_time_total_key" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting_last_traffic_statistics">
+        <PreferenceScreen android:title="@string/setting_traffic_last_use_down_title" android:key="@string/setting_traffic_last_use_down_key" />
+        <PreferenceScreen android:title="@string/setting_traffic_last_use_up_title" android:key="@string/setting_traffic_last_use_up_key" />
+        <PreferenceScreen android:title="@string/setting_traffic_last_use_time_title" android:key="@string/setting_traffic_last_use_time_key" />
+        <PreferenceScreen android:title="@string/setting_traffic_last_use_begin_time_title" android:key="@string/setting_traffic_last_use_begin_time_key" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/setting_clear_traffic_statistics">
+        <PreferenceScreen android:title="@string/setting_traffic_statistics_clear_title" android:key="@string/setting_traffic_statistics_clear_key" android:summary="@string/setting_traffic_statistics_clear_summary" />
+    </PreferenceCategory>
+</PreferenceScreen>

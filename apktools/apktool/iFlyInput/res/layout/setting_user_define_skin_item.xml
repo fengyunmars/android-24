@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="100.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <FrameLayout android:layout_gravity="center_horizontal" android:id="@id/setting_user_define_skin_item" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/setting_user_define_skin_item_backimg" android:background="@drawable/btn_keyboard_key_normal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_margin="5.0dip" />
+        <TextView android:textSize="16.0sp" android:textColor="#ff000000" android:layout_gravity="center" android:id="@id/setting_user_define_skin_item_text" android:paddingTop="20.0dip" android:paddingBottom="20.0dip" android:layout_width="wrap_content" android:layout_height="60.0dip" />
+        <ImageView android:layout_gravity="bottom|center|right" android:id="@id/setting_user_define_skin_item_selected" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="5.0dip" android:src="@drawable/selected_ic" />
+    </FrameLayout>
+</LinearLayout>

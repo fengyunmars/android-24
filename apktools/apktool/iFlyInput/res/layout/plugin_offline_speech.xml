@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:orientation="vertical" android:background="@color/plugin_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="100.0dip">
+            <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="2.0">
+                <ImageView android:id="@id/icon" android:background="@drawable/icon_bg" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/plugin_offspeech_mic" />
+            </LinearLayout>
+            <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0">
+                <TextView android:textSize="22.0sp" android:textColor="@color/plugin_title_color" android:id="@id/title" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
+                    <ImageView android:id="@id/status_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+                    <TextView android:textSize="18.0sp" android:id="@id/status" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_weight="1.0" />
+                    <Button android:id="@id/btn_delete" android:background="@drawable/btn_uninstall" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_margin="10.0dip" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout android:background="@drawable/plugin_desc" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip">
+            <TextView android:textSize="16.0sp" android:textColor="@color/plugin_desc_color" android:id="@id/description" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:layout_marginBottom="20.0dip" />
+        </LinearLayout>
+        <LinearLayout android:orientation="vertical" android:id="@id/settinglayout" android:background="@drawable/icon_bg" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" />
+        <Button android:textSize="18.0sp" android:textColor="#ffffffff" android:gravity="center" android:id="@id/btn_speech" android:background="@drawable/plugin_btn" android:paddingTop="10.0dip" android:paddingBottom="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="10.0dip" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/plugin_ref_color" android:id="@id/ref" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="15.0dip" android:layout_marginRight="20.0dip" />
+        <TextView android:textSize="15.0sp" android:textColor="#ff0000ff" android:gravity="right" android:id="@id/link" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="5.0dip" android:layout_marginRight="20.0dip" android:text="@string/know_more" />
+    </LinearLayout>
+</ScrollView>

@@ -24,6 +24,7 @@ import android.text.TextPaint;
  * ones may just implement {@link UpdateAppearance}.
  */
 public abstract class CharacterStyle {
+
     public abstract void updateDrawState(TextPaint tp);
 
     /**

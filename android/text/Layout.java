@@ -45,13 +45,16 @@ import java.util.Arrays;
  * For text that will not change, use a {@link StaticLayout}.
  */
 public abstract class Layout {
-    /** @hide */
+    /**
+     * @hide
+     */
     @IntDef({BREAK_STRATEGY_SIMPLE, BREAK_STRATEGY_HIGH_QUALITY, BREAK_STRATEGY_BALANCED})
     @Retention(RetentionPolicy.SOURCE)
-    public @interface BreakStrategy {}
+    public @interface BreakStrategy {
+    }
 
     /**
-     * Value for break strategy indicating simple line breaking. Automatic hyphens are not added
+     * Value for break strategy indicating simple line breaking. Automatic hyphens 连字符 are not added
      * (though soft hyphens are respected), and modifying text generally doesn't affect the layout
      * before it (which yields a more consistent user experience when editing), but layout may not
      * be the highest quality.
@@ -70,11 +73,14 @@ public abstract class Layout {
      */
     public static final int BREAK_STRATEGY_BALANCED = 2;
 
-    /** @hide */
+    /**
+     * @hide
+     */
     @IntDef({HYPHENATION_FREQUENCY_NORMAL, HYPHENATION_FREQUENCY_FULL,
-             HYPHENATION_FREQUENCY_NONE})
+            HYPHENATION_FREQUENCY_NONE})
     @Retention(RetentionPolicy.SOURCE)
-    public @interface HyphenationFrequency {}
+    public @interface HyphenationFrequency {
+    }
 
     /**
      * Value for hyphenation frequency indicating no automatic hyphenation. Useful
@@ -87,20 +93,20 @@ public abstract class Layout {
 
     /**
      * Value for hyphenation frequency indicating a light amount of automatic hyphenation, which
-     * is a conservative default. Useful for informal cases, such as short sentences or chat
+     * is a conservative 保守的 default. Useful for informal 非正式的 cases, such as short sentences or chat
      * messages.
      */
     public static final int HYPHENATION_FREQUENCY_NORMAL = 1;
 
     /**
      * Value for hyphenation frequency indicating the full amount of automatic hyphenation, typical
-     * in typography. Useful for running text and where it's important to put the maximum amount of
+     * in typography 印刷格式 . Useful for running text and where it's important to put the maximum amount of
      * text in a screen with limited space.
      */
     public static final int HYPHENATION_FREQUENCY_FULL = 2;
 
     private static final ParagraphStyle[] NO_PARA_SPANS =
-        ArrayUtils.emptyArray(ParagraphStyle.class);
+            ArrayUtils.emptyArray(ParagraphStyle.class);
 
     /**
      * Return how wide a layout must be in order to display the
@@ -122,16 +128,16 @@ public abstract class Layout {
 
         int next;
         for (int i = start; i <= end; i = next) {
-            next = TextUtils.indexOf(source, '\n', i, end);
+            next = TextUtils.indexOf(source, '\n', i, end); // not found return -1
 
             if (next < 0)
                 next = end;
-
-            // note, omits trailing paragraph char
-            float w = measurePara(paint, source, i, next);
+            // if found next = next '\n' index
+            // note, omits 省略 trailing paragraph char
+            float w = measurePara(paint, source, i, next); // for current line
 
             if (w > need)
-                need = w;
+                need = w;   // max width line
 
             next++;
         }
@@ -142,15 +148,16 @@ public abstract class Layout {
     /**
      * Subclasses of Layout use this constructor to set the display text,
      * width, and other standard properties.
-     * @param text the text to render
-     * @param paint the default paint for the layout.  Styles can override
-     * various attributes of the paint.
-     * @param width the wrapping width for the text.
-     * @param align whether to left, right, or center the text.  Styles can
-     * override the alignment.
+     *
+     * @param text        the text to render
+     * @param paint       the default paint for the layout.  Styles can override
+     *                    various attributes of the paint.
+     * @param width       the wrapping width for the text.
+     * @param align       whether to left, right, or center the text.  Styles can
+     *                    override the alignment.
      * @param spacingMult factor by which to scale the font size to get the
-     * default line spacing
-     * @param spacingAdd amount to add to the default line spacing
+     *                    default line spacing
+     * @param spacingAdd  amount to add to the default line spacing
      */
     protected Layout(CharSequence text, TextPaint paint,
                      int width, Alignment align,
@@ -162,16 +169,16 @@ public abstract class Layout {
     /**
      * Subclasses of Layout use this constructor to set the display text,
      * width, and other standard properties.
-     * @param text the text to render
-     * @param paint the default paint for the layout.  Styles can override
-     * various attributes of the paint.
-     * @param width the wrapping width for the text.
-     * @param align whether to left, right, or center the text.  Styles can
-     * override the alignment.
-     * @param spacingMult factor by which to scale the font size to get the
-     * default line spacing
-     * @param spacingAdd amount to add to the default line spacing
      *
+     * @param text        the text to render
+     * @param paint       the default paint for the layout.  Styles can override
+     *                    various attributes of the paint.
+     * @param width       the wrapping width for the text.
+     * @param align       whether to left, right, or center the text.  Styles can
+     *                    override the alignment.
+     * @param spacingMult factor by which to scale the font size to get the
+     *                    default line spacing
+     * @param spacingAdd  amount to add to the default line spacing
      * @hide
      */
     protected Layout(CharSequence text, TextPaint paint,
@@ -204,8 +211,8 @@ public abstract class Layout {
      * Replace constructor properties of this Layout with new ones.  Be careful.
      */
     /* package */ void replaceWith(CharSequence text, TextPaint paint,
-                              int width, Alignment align,
-                              float spacingmult, float spacingadd) {
+                                   int width, Alignment align,
+                                   float spacingmult, float spacingadd) {
         if (width < 0) {
             throw new IllegalArgumentException("Layout: " + width + " < 0");
         }
@@ -230,14 +237,14 @@ public abstract class Layout {
      * Draw this Layout on the specified canvas, with the highlight path drawn
      * between the background and the text.
      *
-     * @param canvas the canvas
-     * @param highlight the path of the highlight or cursor; can be null
-     * @param highlightPaint the paint for the highlight
+     * @param canvas               the canvas
+     * @param highlight            the path of the highlight or cursor; can be null
+     * @param highlightPaint       the paint for the highlight
      * @param cursorOffsetVertical the amount to temporarily translate the
-     *        canvas while rendering the highlight
+     *                             canvas while rendering the highlight
      */
     public void draw(Canvas canvas, Path highlight, Paint highlightPaint,
-            int cursorOffsetVertical) {
+                     int cursorOffsetVertical) {
         final long lineRange = getLineRangeForDraw(canvas);
         int firstLine = TextUtils.unpackRangeStartFromLong(lineRange);
         int lastLine = TextUtils.unpackRangeEndFromLong(lineRange);
@@ -298,7 +305,7 @@ public abstract class Layout {
                 // our problem.
                 if (start >= spanEnd && (lineNum == firstLine || isFirstParaLine)) {
                     spanEnd = sp.nextSpanTransition(start, textLength,
-                                                    ParagraphStyle.class);
+                            ParagraphStyle.class);
                     spans = getParagraphSpans(sp, start, spanEnd, ParagraphStyle.class);
 
                     paraAlign = mAlignment;
@@ -333,13 +340,13 @@ public abstract class Layout {
                         LeadingMarginSpan margin = (LeadingMarginSpan) spans[n];
                         if (dir == DIR_RIGHT_TO_LEFT) {
                             margin.drawLeadingMargin(canvas, paint, right, dir, ltop,
-                                                     lbaseline, lbottom, buf,
-                                                     start, end, isFirstParaLine, this);
+                                    lbaseline, lbottom, buf,
+                                    start, end, isFirstParaLine, this);
                             right -= margin.getLeadingMargin(useFirstLineMargin);
                         } else {
                             margin.drawLeadingMargin(canvas, paint, left, dir, ltop,
-                                                     lbaseline, lbottom, buf,
-                                                     start, end, isFirstParaLine, this);
+                                    lbaseline, lbottom, buf,
+                                    start, end, isFirstParaLine, this);
                             left += margin.getLeadingMargin(useFirstLineMargin);
                         }
                     }
@@ -361,10 +368,10 @@ public abstract class Layout {
             Alignment align = paraAlign;
             if (align == Alignment.ALIGN_LEFT) {
                 align = (dir == DIR_LEFT_TO_RIGHT) ?
-                    Alignment.ALIGN_NORMAL : Alignment.ALIGN_OPPOSITE;
+                        Alignment.ALIGN_NORMAL : Alignment.ALIGN_OPPOSITE;
             } else if (align == Alignment.ALIGN_RIGHT) {
                 align = (dir == DIR_LEFT_TO_RIGHT) ?
-                    Alignment.ALIGN_OPPOSITE : Alignment.ALIGN_NORMAL;
+                        Alignment.ALIGN_OPPOSITE : Alignment.ALIGN_NORMAL;
             }
 
             int x;
@@ -375,7 +382,7 @@ public abstract class Layout {
                     x = right + getIndentAdjust(lineNum, Alignment.ALIGN_RIGHT);
                 }
             } else {
-                int max = (int)getLineExtent(lineNum, tabStops, false);
+                int max = (int) getLineExtent(lineNum, tabStops, false);
                 if (align == Alignment.ALIGN_OPPOSITE) {
                     if (dir == DIR_LEFT_TO_RIGHT) {
                         x = right - max + getIndentAdjust(lineNum, Alignment.ALIGN_RIGHT);
@@ -408,7 +415,7 @@ public abstract class Layout {
      * @hide
      */
     public void drawBackground(Canvas canvas, Path highlight, Paint highlightPaint,
-            int cursorOffsetVertical, int firstLine, int lastLine) {
+                               int cursorOffsetVertical, int firstLine, int lastLine) {
         // First, draw LineBackgroundSpans.
         // LineBackgroundSpans know nothing about the alignment, margins, or
         // direction of the layout or line.  XXX: Should they?
@@ -511,8 +518,8 @@ public abstract class Layout {
      * Return the start position of the line, given the left and right bounds
      * of the margins.
      *
-     * @param line the line index
-     * @param left the left bounds (0, or leading margin if ltr para)
+     * @param line  the line index
+     * @param left  the left bounds (0, or leading margin if ltr para)
      * @param right the right bounds (width, minus leading margin if rtl para)
      * @return the start position of the line (to right of line if rtl para)
      */
@@ -548,7 +555,7 @@ public abstract class Layout {
                     tabStops = new TabStops(TAB_INCREMENT, tabSpans);
                 }
             }
-            int max = (int)getLineExtent(line, tabStops, false);
+            int max = (int) getLineExtent(line, tabStops, false);
             if (align == Alignment.ALIGN_OPPOSITE) {
                 if (dir == DIR_LEFT_TO_RIGHT) {
                     x = right - max + getIndentAdjust(line, Alignment.ALIGN_RIGHT);
@@ -638,6 +645,7 @@ public abstract class Layout {
 
     /**
      * Return the heuristic used to determine paragraph text direction.
+     *
      * @hide
      */
     public final TextDirectionHeuristic getTextDirectionHeuristic() {
@@ -653,7 +661,8 @@ public abstract class Layout {
      * Return the baseline for the specified line (0&hellip;getLineCount() - 1)
      * If bounds is not null, return the top, left, right, bottom extents
      * of the specified line in it.
-     * @param line which line to examine (0..getLineCount() - 1)
+     *
+     * @param line   which line to examine (0..getLineCount() - 1)
      * @param bounds Optional. If not null, it returns the extent of the line
      * @return the Y-coordinate of the baseline
      */
@@ -704,7 +713,7 @@ public abstract class Layout {
      * Returns the directional run information for the specified line.
      * The array alternates counts of characters in left-to-right
      * and right-to-left segments of the line.
-     *
+     * <p>
      * <p>NOTE: this is inadequate to support bidirectional text, and will change.
      */
     public abstract Directions getLineDirections(int line);
@@ -742,6 +751,7 @@ public abstract class Layout {
     /**
      * Returns true if the character at offset and the preceding character
      * are at different run levels (and thus there's a split caret).
+     *
      * @param offset the offset
      * @return true if at a level boundary
      * @hide
@@ -773,6 +783,7 @@ public abstract class Layout {
 
     /**
      * Returns true if the character at offset is right to left (RTL).
+     *
      * @param offset the offset
      * @return true if the character is RTL, false if it is LTR
      */
@@ -783,15 +794,15 @@ public abstract class Layout {
             return false;
         }
         if (dirs == DIRS_ALL_RIGHT_TO_LEFT) {
-            return  true;
+            return true;
         }
         int[] runs = dirs.mDirections;
         int lineStart = getLineStart(line);
         for (int i = 0; i < runs.length; i += 2) {
             int start = lineStart + runs[i];
-            int limit = start + (runs[i+1] & RUN_LENGTH_MASK);
+            int limit = start + (runs[i + 1] & RUN_LENGTH_MASK);
             if (offset >= start && offset < limit) {
-                int level = (runs[i+1] >>> RUN_LEVEL_SHIFT) & RUN_LEVEL_MASK;
+                int level = (runs[i + 1] >>> RUN_LEVEL_SHIFT) & RUN_LEVEL_MASK;
                 return ((level & 1) != 0);
             }
         }
@@ -801,6 +812,7 @@ public abstract class Layout {
 
     /**
      * Returns the range of the run that the character at offset belongs to.
+     *
      * @param offset the offset
      * @return The range of the run
      * @hide
@@ -815,7 +827,7 @@ public abstract class Layout {
         int lineStart = getLineStart(line);
         for (int i = 0; i < runs.length; i += 2) {
             int start = lineStart + runs[i];
-            int limit = start + (runs[i+1] & RUN_LENGTH_MASK);
+            int limit = start + (runs[i + 1] & RUN_LENGTH_MASK);
             if (offset >= start && offset < limit) {
                 return TextUtils.packRangeInLong(start, limit);
             }
@@ -833,7 +845,7 @@ public abstract class Layout {
         int levelAt = -1;
         for (int i = 0; i < runs.length; i += 2) {
             int start = lineStart + runs[i];
-            int limit = start + (runs[i+1] & RUN_LENGTH_MASK);
+            int limit = start + (runs[i + 1] & RUN_LENGTH_MASK);
             if (limit > lineEnd) {
                 limit = lineEnd;
             }
@@ -842,7 +854,7 @@ public abstract class Layout {
                     // Previous character is at same level, so don't use trailing.
                     return false;
                 }
-                levelAt = (runs[i+1] >>> RUN_LEVEL_SHIFT) & RUN_LEVEL_MASK;
+                levelAt = (runs[i + 1] >>> RUN_LEVEL_SHIFT) & RUN_LEVEL_MASK;
                 break;
             }
         }
@@ -859,12 +871,12 @@ public abstract class Layout {
             offset -= 1;
             for (int i = 0; i < runs.length; i += 2) {
                 int start = lineStart + runs[i];
-                int limit = start + (runs[i+1] & RUN_LENGTH_MASK);
+                int limit = start + (runs[i + 1] & RUN_LENGTH_MASK);
                 if (limit > lineEnd) {
                     limit = lineEnd;
                 }
                 if (offset >= start && offset < limit) {
-                    levelBefore = (runs[i+1] >>> RUN_LEVEL_SHIFT) & RUN_LEVEL_MASK;
+                    levelBefore = (runs[i + 1] >>> RUN_LEVEL_SHIFT) & RUN_LEVEL_MASK;
                     break;
                 }
             }
@@ -885,6 +897,7 @@ public abstract class Layout {
     /**
      * Get the primary horizontal position for the specified text offset, but
      * optionally clamp it so that it doesn't exceed the width of the layout.
+     *
      * @hide
      */
     public float getPrimaryHorizontal(int offset, boolean clamped) {
@@ -904,6 +917,7 @@ public abstract class Layout {
     /**
      * Get the secondary horizontal position for the specified text offset, but
      * optionally clamp it so that it doesn't exceed the width of the layout.
+     *
      * @hide
      */
     public float getSecondaryHorizontal(int offset, boolean clamped) {
@@ -1035,8 +1049,9 @@ public abstract class Layout {
     }
 
     /**
-     * Like {@link #getLineExtent(int,TabStops,boolean)} but determines the
+     * Like {@link #getLineExtent(int, TabStops, boolean)} but determines the
      * tab stops instead of using the ones passed in.
+     *
      * @param line the index of the line
      * @param full whether to include trailing whitespace
      * @return the extent of the line
@@ -1072,9 +1087,10 @@ public abstract class Layout {
     /**
      * Returns the signed horizontal extent of the specified line, excluding
      * leading margin.  If full is false, excludes trailing whitespace.
-     * @param line the index of the line
+     *
+     * @param line     the index of the line
      * @param tabStops the tab stops, can be null if we know they're not used.
-     * @param full whether to include trailing whitespace
+     * @param full     whether to include trailing whitespace
      * @return the extent of the text on this line
      */
     private float getLineExtent(int line, TabStops tabStops, boolean full) {
@@ -1150,10 +1166,9 @@ public abstract class Layout {
      * Get the character offset on the specified line whose position is
      * closest to the specified horizontal position.
      *
-     * @param line the line used to find the closest offset
-     * @param horiz the horizontal position used to find the closest offset
+     * @param line    the line used to find the closest offset
+     * @param horiz   the horizontal position used to find the closest offset
      * @param primary whether to use the primary position or secondary position to find the offset
-     *
      * @hide
      */
     public int getOffsetForHorizontal(int line, float horiz, boolean primary) {
@@ -1180,8 +1195,8 @@ public abstract class Layout {
 
         for (int i = 0; i < dirs.mDirections.length; i += 2) {
             int here = lineStartOffset + dirs.mDirections[i];
-            int there = here + (dirs.mDirections[i+1] & RUN_LENGTH_MASK);
-            boolean isRtl = (dirs.mDirections[i+1] & RUN_RTL_FLAG) != 0;
+            int there = here + (dirs.mDirections[i + 1] & RUN_LENGTH_MASK);
+            boolean isRtl = (dirs.mDirections[i + 1] & RUN_RTL_FLAG) != 0;
             int swap = isRtl ? -1 : 1;
 
             if (there > max)
@@ -1253,7 +1268,7 @@ public abstract class Layout {
      * is not counted) on the specified line.
      */
     public int getLineVisibleEnd(int line) {
-        return getLineVisibleEnd(line, getLineStart(line), getLineStart(line+1));
+        return getLineVisibleEnd(line, getLineStart(line), getLineStart(line + 1));
     }
 
     private int getLineVisibleEnd(int line, int start, int end) {
@@ -1294,7 +1309,7 @@ public abstract class Layout {
      */
     public final int getLineBaseline(int line) {
         // getLineTop(line+1) == getLineTop(line)
-        return getLineTop(line+1) - getLineDescent(line);
+        return getLineTop(line + 1) - getLineDescent(line);
     }
 
     /**
@@ -1303,7 +1318,7 @@ public abstract class Layout {
      */
     public final int getLineAscent(int line) {
         // getLineTop(line+1) - getLineDescent(line) == getLineBaseLine(line)
-        return getLineTop(line) - (getLineTop(line+1) - getLineDescent(line));
+        return getLineTop(line) - (getLineTop(line + 1) - getLineDescent(line));
     }
 
     public int getOffsetToLeftOf(int offset) {
@@ -1384,7 +1399,7 @@ public abstract class Layout {
 
         if (mSpannedText) {
             ReplacementSpan[] spans = ((Spanned) text).getSpans(offset, offset,
-                                                       ReplacementSpan.class);
+                    ReplacementSpan.class);
 
             for (int i = 0; i < spans.length; i++) {
                 int start = ((Spanned) text).getSpanStart(spans[i]);
@@ -1401,6 +1416,7 @@ public abstract class Layout {
     /**
      * Determine whether we should clamp cursor position. Currently it's
      * only robust for left-aligned displays.
+     *
      * @hide
      */
     public boolean shouldClampCursor(int line) {
@@ -1415,6 +1431,7 @@ public abstract class Layout {
         }
 
     }
+
     /**
      * Fills in the specified Path with a representation of a cursor
      * at the specified offset.  This will often be a vertical line
@@ -1427,14 +1444,14 @@ public abstract class Layout {
 
         int line = getLineForOffset(point);
         int top = getLineTop(line);
-        int bottom = getLineTop(line+1);
+        int bottom = getLineTop(line + 1);
 
         boolean clamped = shouldClampCursor(line);
         float h1 = getPrimaryHorizontal(point, clamped) - 0.5f;
         float h2 = isLevelBoundary(point) ? getSecondaryHorizontal(point, clamped) - 0.5f : h1;
 
         int caps = TextKeyListener.getMetaState(editingBuffer, TextKeyListener.META_SHIFT_ON) |
-                   TextKeyListener.getMetaState(editingBuffer, TextKeyListener.META_SELECTING);
+                TextKeyListener.getMetaState(editingBuffer, TextKeyListener.META_SELECTING);
         int fn = TextKeyListener.getMetaState(editingBuffer, TextKeyListener.META_ALT_ON);
         int dist = 0;
 
@@ -1507,7 +1524,7 @@ public abstract class Layout {
 
         for (int i = 0; i < dirs.mDirections.length; i += 2) {
             int here = linestart + dirs.mDirections[i];
-            int there = here + (dirs.mDirections[i+1] & RUN_LENGTH_MASK);
+            int there = here + (dirs.mDirections[i + 1] & RUN_LENGTH_MASK);
 
             if (there > lineend)
                 there = lineend;
@@ -1559,14 +1576,14 @@ public abstract class Layout {
             final float width = mWidth;
 
             addSelection(startline, start, getLineEnd(startline),
-                         top, getLineBottom(startline), dest);
+                    top, getLineBottom(startline), dest);
 
             if (getParagraphDirection(startline) == DIR_RIGHT_TO_LEFT)
                 dest.addRect(getLineLeft(startline), top,
-                              0, getLineBottom(startline), Path.Direction.CW);
+                        0, getLineBottom(startline), Path.Direction.CW);
             else
                 dest.addRect(getLineRight(startline), top,
-                              width, getLineBottom(startline), Path.Direction.CW);
+                        width, getLineBottom(startline), Path.Direction.CW);
 
             for (int i = startline + 1; i < endline; i++) {
                 top = getLineTop(i);
@@ -1578,7 +1595,7 @@ public abstract class Layout {
             bottom = getLineBottom(endline);
 
             addSelection(endline, getLineStart(endline), end,
-                         top, bottom, dest);
+                    top, bottom, dest);
 
             if (getParagraphDirection(endline) == DIR_RIGHT_TO_LEFT)
                 dest.addRect(width, top, getLineRight(endline), bottom, Path.Direction.CW);
@@ -1597,12 +1614,12 @@ public abstract class Layout {
         if (mSpannedText) {
             Spanned sp = (Spanned) mText;
             AlignmentSpan[] spans = getParagraphSpans(sp, getLineStart(line),
-                                                getLineEnd(line),
-                                                AlignmentSpan.class);
+                    getLineEnd(line),
+                    AlignmentSpan.class);
 
             int spanLength = spans.length;
             if (spanLength > 0) {
-                align = spans[spanLength-1].getAlignment();
+                align = spans[spanLength - 1].getAlignment();
             }
         }
 
@@ -1636,6 +1653,7 @@ public abstract class Layout {
     /**
      * Returns the effective leading margin (unsigned) for this line,
      * taking into account LeadingMarginSpan and LeadingMarginSpan2.
+     *
      * @param line the line index
      * @return the leading margin of this line
      */
@@ -1650,7 +1668,7 @@ public abstract class Layout {
         int spanEnd = spanned.nextSpanTransition(lineStart, lineEnd,
                 LeadingMarginSpan.class);
         LeadingMarginSpan[] spans = getParagraphSpans(spanned, lineStart, spanEnd,
-                                                LeadingMarginSpan.class);
+                LeadingMarginSpan.class);
         if (spans.length == 0) {
             return 0; // no leading margin span;
         }
@@ -1658,7 +1676,7 @@ public abstract class Layout {
         int margin = 0;
 
         boolean isFirstParaLine = lineStart == 0 ||
-            spanned.charAt(lineStart - 1) == '\n';
+                spanned.charAt(lineStart - 1) == '\n';
 
         boolean useFirstLineMargin = isFirstParaLine;
         for (int i = 0; i < spans.length; i++) {
@@ -1692,7 +1710,7 @@ public abstract class Layout {
                 dir = Layout.DIR_LEFT_TO_RIGHT;
             } else {
                 directions = AndroidBidi.directions(mt.mDir, mt.mLevels,
-                    0, mt.mChars, 0, mt.mLen);
+                        0, mt.mChars, 0, mt.mLen);
                 dir = mt.mDir;
             }
             char[] chars = mt.mChars;
@@ -1736,7 +1754,8 @@ public abstract class Layout {
     /**
      * @hide
      */
-    /* package */ static class TabStops {
+    /* package */
+    static class TabStops {
         private int[] mStops;
         private int mNumStops;
         private int mIncrement;
@@ -1797,17 +1816,18 @@ public abstract class Layout {
     /**
      * Returns the position of the next tab stop after h on the line.
      *
-     * @param text the text
+     * @param text  the text
      * @param start start of the line
-     * @param end limit of the line
-     * @param h the current horizontal offset
-     * @param tabs the tabs, can be null.  If it is null, any tabs in effect
-     * on the line will be used.  If there are no tabs, a default offset
-     * will be used to compute the tab stop.
+     * @param end   limit of the line
+     * @param h     the current horizontal offset
+     * @param tabs  the tabs, can be null.  If it is null, any tabs in effect
+     *              on the line will be used.  If there are no tabs, a default offset
+     *              will be used to compute the tab stop.
      * @return the offset of the next tab stop.
      */
-    /* package */ static float nextTab(CharSequence text, int start, int end,
-                                       float h, Object[] tabs) {
+    /* package */
+    static float nextTab(CharSequence text, int start, int end,
+                         float h, Object[] tabs) {
         float nh = Float.MAX_VALUE;
         boolean alltabs = false;
 
@@ -1864,12 +1884,13 @@ public abstract class Layout {
      * styles that are already applied to the buffer will apply to text that
      * is inserted into it.
      */
-    /* package */static <T> T[] getParagraphSpans(Spanned text, int start, int end, Class<T> type) {
+    /* package */
+    static <T> T[] getParagraphSpans(Spanned text, int start, int end, Class<T> type) {
         if (start == end && start > 0) {
             return ArrayUtils.emptyArray(type);
         }
 
-        if(text instanceof SpannableStringBuilder) {
+        if (text instanceof SpannableStringBuilder) {
             return ((SpannableStringBuilder) text).getSpans(start, end, type, false);
         } else {
             return text.getSpans(start, end, type);
@@ -1926,8 +1947,11 @@ public abstract class Layout {
         // To simply test for an RTL direction, test the bit using
         // DIR_RTL_FLAG, if set then the direction is rtl.
 
-        /* package */ int[] mDirections;
-        /* package */ Directions(int[] dirs) {
+        /* package */
+        int[] mDirections;
+
+        /* package */
+        Directions(int[] dirs) {
             mDirections = dirs;
         }
     }
@@ -2048,31 +2072,43 @@ public abstract class Layout {
     public static final int DIR_LEFT_TO_RIGHT = 1;
     public static final int DIR_RIGHT_TO_LEFT = -1;
 
-    /* package */ static final int DIR_REQUEST_LTR = 1;
-    /* package */ static final int DIR_REQUEST_RTL = -1;
-    /* package */ static final int DIR_REQUEST_DEFAULT_LTR = 2;
-    /* package */ static final int DIR_REQUEST_DEFAULT_RTL = -2;
+    /* package */
+    static final int DIR_REQUEST_LTR = 1;
+    /* package */
+    static final int DIR_REQUEST_RTL = -1;
+    /* package */
+    static final int DIR_REQUEST_DEFAULT_LTR = 2;
+    /* package */
+    static final int DIR_REQUEST_DEFAULT_RTL = -2;
 
-    /* package */ static final int RUN_LENGTH_MASK = 0x03ffffff;
-    /* package */ static final int RUN_LEVEL_SHIFT = 26;
-    /* package */ static final int RUN_LEVEL_MASK = 0x3f;
-    /* package */ static final int RUN_RTL_FLAG = 1 << RUN_LEVEL_SHIFT;
+    /* package */
+    static final int RUN_LENGTH_MASK = 0x03ffffff;
+    /* package */
+    static final int RUN_LEVEL_SHIFT = 26;
+    /* package */
+    static final int RUN_LEVEL_MASK = 0x3f;
+    /* package */
+    static final int RUN_RTL_FLAG = 1 << RUN_LEVEL_SHIFT;
 
     public enum Alignment {
         ALIGN_NORMAL,
         ALIGN_OPPOSITE,
         ALIGN_CENTER,
-        /** @hide */
+        /**
+         * @hide
+         */
         ALIGN_LEFT,
-        /** @hide */
+        /**
+         * @hide
+         */
         ALIGN_RIGHT,
     }
 
     private static final int TAB_INCREMENT = 20;
 
-    /* package */ static final Directions DIRS_ALL_LEFT_TO_RIGHT =
-        new Directions(new int[] { 0, RUN_LENGTH_MASK });
-    /* package */ static final Directions DIRS_ALL_RIGHT_TO_LEFT =
-        new Directions(new int[] { 0, RUN_LENGTH_MASK | RUN_RTL_FLAG });
+    /* package */
+    static final Directions DIRS_ALL_LEFT_TO_RIGHT = new Directions(new int[]{0, RUN_LENGTH_MASK});
+    /* package */
+    static final Directions DIRS_ALL_RIGHT_TO_LEFT = new Directions(new int[]{0, RUN_LENGTH_MASK | RUN_RTL_FLAG});
 
 }

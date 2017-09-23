@@ -1065,7 +1065,7 @@ public class TextUtils {
      * <code>source</code> to the region
      * <code>destoff...destoff+end-start</code> in <code>dest</code>.
      * Spans in <code>source</code> that begin before <code>start</code>
-     * or end after <code>end</code> but overlap this range are trimmed
+     * or end after <code>end</code> but overlap 重叠 this range are trimmed
      * as if they began at <code>start</code> or ended at <code>end</code>.
      *
      * @throws IndexOutOfBoundsException if any of the copied spans
@@ -1089,7 +1089,7 @@ public class TextUtils {
                 st = start;
             if (en > end)
                 en = end;
-
+            //// TODO: 2017/9/21  
             dest.setSpan(spans[i], st - start + destoff, en - start + destoff,
                     fl);
         }
@@ -1818,8 +1818,7 @@ public class TextUtils {
      * Be careful: this code will need to be updated when vertical scripts will be supported
      */
     public static int getLayoutDirectionFromLocale(Locale locale) {
-        return ((locale != null && !locale.equals(Locale.ROOT)
-                && ULocale.forLocale(locale).isRightToLeft())
+        return ((locale != null && !locale.equals(Locale.ROOT) && ULocale.forLocale(locale).isRightToLeft())
                 // If forcing into RTL layout mode, return RTL as default
                 || SystemProperties.getBoolean(Settings.Global.DEVELOPMENT_FORCE_RTL, false))
                 ? View.LAYOUT_DIRECTION_RTL

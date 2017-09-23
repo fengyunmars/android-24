@@ -267,7 +267,7 @@ public final class WindowInsets {
      * Check if these insets have been fully consumed.
      *
      * <p>Insets are considered "consumed" if the applicable <code>consume*</code> methods
-     * have been called such that all insets have been set to zero. This affects propagation of
+     * have been called such that all insets have been set to zero. This affects propagation 传播 of
      * insets through the view hierarchy; insets that have not been fully consumed will continue
      * to propagate down to child views.</p>
      *

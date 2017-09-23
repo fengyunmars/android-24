@@ -133,6 +133,7 @@ public class TextDirectionHeuristics {
      * direction from the text alone.
      */
     private static abstract class TextDirectionHeuristicImpl implements TextDirectionHeuristic {
+
         private final TextDirectionAlgorithm mAlgorithm;
 
         public TextDirectionHeuristicImpl(TextDirectionAlgorithm algorithm) {
@@ -214,7 +215,8 @@ public class TextDirectionHeuristics {
                 if (0x2066 <= cp && cp <= 0x2068) { // Opening isolates
                     openIsolateCount += 1;
                 } else if (cp == 0x2069) { // POP DIRECTIONAL ISOLATE (PDI)
-                    if (openIsolateCount > 0) openIsolateCount -= 1;
+                    if (openIsolateCount > 0)
+                        openIsolateCount -= 1;
                 } else if (openIsolateCount == 0) {
                     // Only consider the characters outside isolate pairs
                     result = isRtlCodePoint(cp);
@@ -247,7 +249,8 @@ public class TextDirectionHeuristics {
                 if (0x2066 <= cp && cp <= 0x2068) { // Opening isolates
                     openIsolateCount += 1;
                 } else if (cp == 0x2069) { // POP DIRECTIONAL ISOLATE (PDI)
-                    if (openIsolateCount > 0) openIsolateCount -= 1;
+                    if (openIsolateCount > 0)
+                        openIsolateCount -= 1;
                 } else if (openIsolateCount == 0) {
                     // Only consider the characters outside isolate pairs
                     switch (isRtlCodePoint(cp)) {

@@ -341,14 +341,14 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     private boolean mPreDrawRegistered;
     private boolean mPreDrawListenerDetached;
 
-    // A flag to prevent repeated movements from escaping the enclosing text view. The idea here is
+    // A flag to prevent repeated movements from escaping 转义 the enclosing 封闭 text view. The idea here is
     // that if a user is holding down a movement key to traverse text, we shouldn't also traverse
     // the view hierarchy. On the other hand, if the user is using the movement key to traverse views
     // (i.e. the first movement was to traverse out of this view, or this view was traversed into by
     // the user holding the movement key down) then we shouldn't prevent the focus from changing.
     private boolean mPreventDefaultMovement;
 
-    private TextUtils.TruncateAt mEllipsize;
+    private TextUtils.TruncateAt mEllipsize;  // Ellipsize 省略
 
     static class Drawables {
         static final int LEFT = 0;
@@ -394,7 +394,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
         /**
          * @return {@code true} if this object contains metadata that needs to
-         *         be retained, {@code false} otherwise
+         *         be retained 保存 , {@code false} otherwise
          */
         public boolean hasMetadata() {
             return mDrawablePadding != 0 || mHasTintMode || mHasTint;
@@ -10117,16 +10117,20 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             mLength = len;
         }
 
-        /* package */ void set(char[] chars, int start, int len) {
+        /* package */
+
+        void set(char[] chars, int start, int len) {
             mChars = chars;
             mStart = start;
             mLength = len;
         }
 
+        @Override
         public int length() {
             return mLength;
         }
 
+        @Override
         public char charAt(int off) {
             return mChars[off + mStart];
         }
@@ -10136,6 +10140,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             return new String(mChars, mStart, mLength);
         }
 
+        @Override
         public CharSequence subSequence(int start, int end) {
             if (start < 0 || end < 0 || start > mLength || end > mLength) {
                 throw new IndexOutOfBoundsException(start + ", " + end);
@@ -10144,6 +10149,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             return new String(mChars, start + mStart, end - start);
         }
 
+        @Override
         public void getChars(int start, int end, char[] buf, int off) {
             if (start < 0 || end < 0 || start > mLength || end > mLength) {
                 throw new IndexOutOfBoundsException(start + ", " + end);
@@ -10152,11 +10158,12 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             System.arraycopy(mChars, start + mStart, buf, off, end - start);
         }
 
-        public void drawText(Canvas c, int start, int end,
-                             float x, float y, Paint p) {
+        @Override
+        public void drawText(Canvas c, int start, int end, float x, float y, Paint p) {
             c.drawText(mChars, start + mStart, end - start, x, y, p);
         }
 
+        @Override
         public void drawTextRun(Canvas c, int start, int end,
                 int contextStart, int contextEnd, float x, float y, boolean isRtl, Paint p) {
             int count = end - start;
@@ -10165,6 +10172,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                     contextCount, x, y, isRtl, p);
         }
 
+        @Override
         public float measureText(int start, int end, Paint p) {
             return p.measureText(mChars, start + mStart, end - start);
         }
@@ -10173,6 +10181,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             return p.getTextWidths(mChars, start + mStart, end - start, widths);
         }
 
+        @Override
         public float getTextRunAdvances(int start, int end, int contextStart,
                 int contextEnd, boolean isRtl, float[] advances, int advancesIndex,
                 Paint p) {
@@ -10183,6 +10192,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
                     advancesIndex);
         }
 
+        @Override
         public int getTextRunCursor(int contextStart, int contextEnd, int dir,
                 int offset, int cursorOpt, Paint p) {
             int contextCount = contextEnd - contextStart;
@@ -10192,6 +10202,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     }
 
     private static final class Marquee {
+
         // TODO: Add an option to configure this
         private static final float MARQUEE_DELTA_MAX = 0.07f;
         private static final int MARQUEE_DELAY = 1200;

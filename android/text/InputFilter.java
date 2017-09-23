@@ -20,8 +20,7 @@ package android.text;
  * InputFilters can be attached to {@link Editable}s to constrain the
  * changes that can be made to them.
  */
-public interface InputFilter
-{
+public interface InputFilter {
     /**
      * This method is called when the buffer is going to replace the
      * range <code>dstart &hellip; dend</code> of <code>dest</code>
@@ -83,15 +82,20 @@ public interface InputFilter
 
         public CharSequence filter(CharSequence source, int start, int end, Spanned dest,
                 int dstart, int dend) {
+            // dest.length() - (dend - dstart) the length must keep origin
+            // keep means length can add
             int keep = mMax - (dest.length() - (dend - dstart));
+            // can add nothing just return ""
             if (keep <= 0) {
                 return "";
-            } else if (keep >= end - start) {
+            } else if (keep >= end - start) {        // end -start mean src add which length less keep so all can accept
                 return null; // keep original
             } else {
-                keep += start;
+                keep += start; // work with source.subSequence(start, keep);
+                // not a loop because just need examine the last char to replace that is half a char
                 if (Character.isHighSurrogate(source.charAt(keep - 1))) {
                     --keep;
+                    // just for performance
                     if (keep == start) {
                         return "";
                     }

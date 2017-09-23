@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/bottom_tab" android:background="@drawable/body_tab" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_alignParentBottom="true">
+        <FrameLayout android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+            <com.iflytek.inputmethod.input.view.display.expression.emoji.EmojiBottomTabView android:id="@id/expression_emoji_page_bottom_tab" android:scrollbars="none" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="3.0dip" android:overScrollMode="ifContentScrolls" />
+            <ImageView android:layout_gravity="right" android:layout_width="wrap_content" android:layout_height="fill_parent" android:src="@drawable/back_line" android:scaleType="fitXY" />
+        </FrameLayout>
+        <ImageButton android:layout_gravity="center" android:id="@id/expression_emoji_page_back_btn" android:background="@drawable/btn_emoticon_back_bg" android:layout_width="60.0dip" android:layout_height="fill_parent" android:src="@drawable/btn_emoticon_back" android:scaleType="center" />
+    </LinearLayout>
+    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/bottom_tab">
+        <com.iflytek.support.v4.view.ViewPager android:layout_gravity="center" android:id="@id/expression_emoji_view_pager" android:background="@drawable/body_middle_bg" android:paddingLeft="1.0dip" android:paddingRight="1.0dip" android:fadingEdge="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="ifContentScrolls" />
+        <ImageView android:layout_gravity="center|right|top" android:id="@id/expression_backspace" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:layout_marginRight="16.0dip" android:src="@drawable/expression_delete" android:scaleType="fitXY" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/expression_tips_text_color" android:gravity="center" android:layout_gravity="bottom" android:id="@id/expression_tips" android:background="@color/expression_tips_background_color" android:visibility="invisible" android:layout_width="fill_parent" android:layout_height="20.0dip" android:text="@string/expression_nosupport" />
+        <TextView android:textSize="12.0sp" android:textColor="@color/expression_part_tips_text_color" android:gravity="center" android:layout_gravity="bottom" android:id="@id/expression_part_support" android:background="@color/expression_part_tips_background_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="20.0dip" android:text="@string/expression_support_part" />
+        <ProgressBar android:layout_gravity="center" android:id="@id/expression_loadding" android:visibility="visible" android:layout_width="48.0dip" android:layout_height="48.0dip" android:indeterminateDrawable="@drawable/expression_loading" style="?android:attr/progressBarStyleSmall" />
+    </FrameLayout>
+</RelativeLayout>

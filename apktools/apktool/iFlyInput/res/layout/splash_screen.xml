@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/splashview" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/splashscreen" android:layout_alignParentBottom="true" />
+    <ImageView android:id="@id/adimageview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/splashview" />
+    <WebView android:id="@id/adwebview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/splashview" />
+    <RelativeLayout android:id="@id/ad_cancel_relative_layout" android:padding="10.0dip" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+        <TextView android:textSize="16.0sp" android:textColor="@color/skip_btn_text_color" android:gravity="center" android:id="@id/adcancel" android:background="@drawable/rect_gray" android:paddingLeft="12.0dip" android:paddingTop="3.0dip" android:paddingRight="12.0dip" android:paddingBottom="3.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/operation_ad_cancel_text" />
+    </RelativeLayout>
+</RelativeLayout>

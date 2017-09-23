@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="#ff252626" android:layout_width="fill_parent" android:layout_height="64.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/fn_flow_noti_info_layout_null_boss_data_layout" android:background="@mipmap/fn_flow_noti_info_layout_null_boss_bg" android:visibility="gone" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="5.0">
+        <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="流量获取失败" />
+        <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:gravity="center" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="重新刷新" />
+    </LinearLayout>
+    <RelativeLayout android:id="@id/fn_flow_noti_info_layout" android:paddingLeft="10.0dip" android:visibility="visible" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="5.0">
+        <RelativeLayout android:id="@id/fn_flow_noti_info_top" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+            <TextView android:textSize="18.0sp" android:textColor="#ffffffff" android:id="@id/fn_flow_noti_text_flow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="... ..." android:includeFontPadding="false" android:layout_centerVertical="true" />
+            <TextView android:textSize="11.0sp" android:textColor="#ff999999" android:id="@id/fn_flow_noti_text_flow_unit" android:paddingLeft="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="M" android:includeFontPadding="false" android:layout_toRightOf="@id/fn_flow_noti_text_flow" android:layout_alignBottom="@id/fn_flow_noti_text_flow" />
+        </RelativeLayout>
+        <TextView android:textSize="9.0sp" android:textColor="#99ffffff" android:gravity="center_vertical" android:id="@id/fn_flow_noti_info_layout_status_des" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="5.0dip" android:text="剩余流量" android:includeFontPadding="false" android:layout_below="@id/fn_flow_noti_info_top" />
+        <TextView android:textSize="7.0sp" android:textColor="#99ffffff" android:gravity="center_vertical" android:id="@id/fn_flow_noti_info_layout_time" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="12:00更新" android:includeFontPadding="false" android:layout_below="@id/fn_flow_noti_info_layout_status_des" />
+        <ImageView android:layout_width="15.0dip" android:layout_height="15.0dip" android:layout_marginRight="6.0dip" android:layout_marginBottom="7.0dip" android:src="@mipmap/fn_flow_noti_refresh" android:scaleType="fitCenter" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    </RelativeLayout>
+    <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:id="@id/fn_flow_noti_buy_flow_layout" android:paddingTop="15.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="5.0">
+        <Button android:textSize="11.0sp" android:textColor="@drawable/fn_flow_noti_buy_flow_btn_color" android:id="@id/fn_flow_noti_buy_flow_btn" android:background="@drawable/fn_flow_noti_buy_flow_btn_bg" android:layout_width="50.0dip" android:layout_height="22.0dip" android:text="充流量" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8.0dip">
+            <ImageView android:layout_width="7.0dip" android:layout_height="7.0dip" android:src="@mipmap/fn_flow_noti_horn" android:scaleType="fitCenter" />
+            <TextView android:textSize="9.0sp" android:textColor="#a0f5a623" android:gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="3.0dip" android:text="即买即送 30M起" android:includeFontPadding="false" />
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout android:id="@id/fn_flow_noti_hotword_layout" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="8.0">
+        <ImageView android:background="#ff444444" android:layout_width="1.0px" android:layout_height="22.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+        <RelativeLayout android:id="@id/fn_flow_noti_set" android:layout_width="30.0dip" android:layout_height="30.0dip" android:layout_alignParentTop="true" android:layout_alignParentRight="true">
+            <ImageView android:layout_width="15.0dip" android:layout_height="15.0dip" android:layout_marginTop="10.0dip" android:layout_marginRight="10.0dip" android:src="@drawable/fn_flow_noti_buy_flow_set_bg" android:scaleType="fitCenter" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+        </RelativeLayout>
+        <RelativeLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="35.0dip" android:layout_alignParentTop="true">
+            <LinearLayout android:gravity="center|left" android:orientation="horizontal" android:id="@id/fn_flow_noti_hotword_top_layput" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_alignParentLeft="true" android:layout_alignParentTop="true">
+                <ImageView android:layout_width="10.0dip" android:layout_height="10.0dip" android:src="@mipmap/fn_flow_noti_fire" android:scaleType="fitCenter" />
+                <ImageView android:gravity="center_vertical" android:layout_width="50.0dip" android:layout_height="12.0dip" android:layout_marginLeft="5.0dip" android:src="@mipmap/fn_flow_noti_hotword_title" android:scaleType="fitCenter" />
+            </LinearLayout>
+            <TextView android:textSize="12.0sp" android:textColor="#ff999999" android:ellipsize="end" android:id="@id/fn_flow_noti_hotword_content" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:text="词热词热词热词" android:singleLine="true" android:includeFontPadding="false" android:layout_below="@id/fn_flow_noti_hotword_top_layput" android:layout_alignParentLeft="true" />
+            <TextView android:background="#ff999999" android:layout_width="96.0dip" android:layout_height="1.0dip" android:layout_marginTop="-2.0dip" android:layout_below="@id/fn_flow_noti_hotword_content" />
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

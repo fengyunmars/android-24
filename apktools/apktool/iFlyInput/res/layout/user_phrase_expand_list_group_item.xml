@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/group_item_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:minHeight="50.0dip">
+        <LinearLayout android:orientation="horizontal" android:id="@id/left_container" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginRight="14.0dip" android:layout_weight="1.0">
+            <LinearLayout android:orientation="horizontal" android:id="@id/center_container" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="20.0dip" android:layout_marginTop="14.0dip" android:layout_marginBottom="14.0dip" android:layout_weight="1.0">
+                <TextView android:textSize="15.0sp" android:textColor="@color/user_phrase_menu_title_color" android:ellipsize="end" android:gravity="center|left" android:layout_gravity="left" android:id="@id/group_content_tv" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+            </LinearLayout>
+            <TextView android:textSize="11.0sp" android:textColor="@color/user_phrase_expand_list_group_text_color" android:gravity="center_horizontal" android:layout_gravity="center_vertical" android:id="@id/look_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/user_phrase_expand_list_look_text" android:drawableTop="@drawable/phrase_look_ic_selector" />
+        </LinearLayout>
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/user_phrase_group_divider" android:layout_width="1.0px" android:layout_height="16.0dip" android:layout_marginRight="12.0dip" android:src="@color/user_phrase_expand_list_divider_color" />
+        <ImageView android:id="@id/expand_img" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="15.0dip" android:src="@drawable/class_dict_pull_down" />
+    </LinearLayout>
+    <ImageView android:layout_width="fill_parent" android:layout_height="1.0px" android:src="@color/user_phrase_expand_list_divider_color" />
+</LinearLayout>

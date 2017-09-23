@@ -17,7 +17,7 @@
 package android.text;
 
 /**
- * Interface for objects that use a heuristic for guessing at the paragraph direction by examining text.
+ * Interface for objects that use a heuristic  启发式的；探索的 for guessing 猜测 at the paragraph direction by examining text.
  */
 public interface TextDirectionHeuristic {
     /**

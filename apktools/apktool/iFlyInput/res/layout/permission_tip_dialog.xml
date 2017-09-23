@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/custom_symbol_edit_dialog_bg" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/custom_symbol_title_layout" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="17.0sp" android:textColor="@color/custom_symbol_edit_page_text_color" android:gravity="center" android:layout_width="fill_parent" android:layout_height="60.0dip" android:text="@string/permission_management_title_tip" />
+        <View android:orientation="horizontal" android:background="@color/custom_symbol_edit_page_sperator_line_background" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="1.0px" android:layout_marginRight="1.0px" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/input_content_layout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="15.0dip" android:layout_marginRight="15.0dip">
+        <TextView android:textSize="15.0sp" android:textColor="@color/custom_symbol_edit_page_text_color" android:id="@id/permissionTip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="15.0dip" android:layout_marginBottom="15.0dip" />
+    </LinearLayout>
+    <View android:background="@color/custom_symbol_edit_page_sperator_line_background" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginLeft="1.0px" android:layout_marginRight="1.0px" />
+    <LinearLayout android:orientation="horizontal" android:id="@id/button_layout" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <Button android:textSize="15.0sp" android:textColor="@drawable/custom_dialog_ok" android:gravity="center" android:id="@id/konwnButton" android:background="@drawable/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/permission_tip_confirm" android:layout_weight="1.0" />
+    </LinearLayout>
+</LinearLayout>

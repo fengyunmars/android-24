@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/custom_listview_content_bg_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/title_layout" android:background="@drawable/setting_sub_tab_bg_new" android:layout_width="fill_parent" android:layout_height="50.0dip">
+        <LinearLayout android:gravity="center_vertical" android:id="@id/userphrase_detail_return_btn_layout" android:layout_width="50.0dip" android:layout_height="fill_parent">
+            <ImageButton android:gravity="center_vertical" android:id="@id/userphrase_detail_return_btn" android:background="@drawable/userphrase_title_back_nor" android:focusable="false" android:clickable="false" android:layout_width="21.0dip" android:layout_height="21.0dip" android:layout_marginLeft="10.0dip" android:scaleType="fitCenter" />
+        </LinearLayout>
+        <TextView android:textSize="22.0sp" android:textColor="@color/setting_about_top_word" android:id="@id/userphrase_detail_head_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" android:layout_centerVertical="true" />
+    </RelativeLayout>
+    <com.iflytek.util.view.DropExpandableListView android:id="@id/userphrase_detail_listview" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/userphrase_detail_waitview" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ProgressBar android:id="@id/userphrase_detail_head_progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleSmall" />
+        <TextView android:textColor="@color/custom_listview_down_refresh_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_waiting_button_text" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/userphrase_detail_errview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/userphrase_detail_wait_error_imageview" android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@drawable/btn_setting_tab_load" />
+        <TextView android:textColor="@color/custom_listview_down_refresh_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/userphrase_detail_wait_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/custom_reload_tip_content" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/userphrase_detail_nocontentview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textColor="@color/custom_listview_down_refresh_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/custom_no_network_content" />
+    </LinearLayout>
+</LinearLayout>

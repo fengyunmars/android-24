@@ -62,7 +62,7 @@ public abstract class ReplacementSpan extends MetricAffectingSpan {
 
     /**
      * This method does nothing, since ReplacementSpans are measured
-     * explicitly instead of affecting Paint properties.
+     * explicitly 明确地 instead of affecting Paint properties.
      */
     public void updateMeasureState(TextPaint p) { }
 

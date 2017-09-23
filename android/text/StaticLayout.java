@@ -348,16 +348,19 @@ public class StaticLayout extends Layout {
             }
         }
 
-        /* package */ float addStyleRun(TextPaint paint, int start, int end, boolean isRtl) {
+        /* package */ float
+        addStyleRun(TextPaint paint, int start, int end, boolean isRtl) {
             return nAddStyleRun(mNativePtr, paint.getNativeInstance(), paint.mNativeTypeface,
                     start, end, isRtl);
         }
 
-        /* package */ void addMeasuredRun(int start, int end, float[] widths) {
+        /* package */
+        void addMeasuredRun(int start, int end, float[] widths) {
             nAddMeasuredRun(mNativePtr, start, end, widths);
         }
 
-        /* package */ void addReplacementRun(int start, int end, float width) {
+        /* package */
+        void addReplacementRun(int start, int end, float width) {
             nAddReplacementRun(mNativePtr, start, end, width);
         }
 

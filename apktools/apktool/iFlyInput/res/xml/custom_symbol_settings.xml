@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen android:title="@string/setting_custom_symbol_title"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceScreen android:title="@string/setting_custom_keyboard_symbol_title" android:key="@string/settings_custom_keyboard_symbol_key" />
+    <PreferenceScreen android:title="@string/setting_custom_symbol_clear_title" android:key="@string/settings_custom_symbol_clear_key" />
+</PreferenceScreen>

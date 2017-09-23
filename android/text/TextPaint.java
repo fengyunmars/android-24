@@ -40,7 +40,7 @@ public class TextPaint extends Paint {
     @ColorInt
     public int underlineColor = 0;
     /**
-     * Defined as a multiplier of the default underline thickness. Use 1.0f for default thickness.
+     * Defined as a multiplier (数)乘 of the default underline thickness. Use 1.0f for default thickness.
      * @hide
      */
     public float underlineThickness;

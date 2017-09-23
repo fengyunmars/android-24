@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:background="@drawable/all_transparent" android:layout_width="wrap_content" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="@color/user_define_skin_normal_bg_color" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:layout_gravity="center" android:id="@id/setting_expresion_picture_download_tip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_margin="10.0dip" android:src="@drawable/expression_guidemap" />
+        <ImageView android:layout_width="fill_parent" android:layout_height="1.0dip" android:src="@color/setting_tab_background_color" />
+        <Button android:textColor="@drawable/expression_select_all_btn_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/setting_expresion_picture_download_tip_button" android:background="@drawable/custom_symbol_try_btn" android:layout_width="300.0dip" android:layout_height="49.0dip" android:layout_margin="10.0dip" android:text="@string/setting_exppicture_konw_tip" />
+    </LinearLayout>
+</LinearLayout>

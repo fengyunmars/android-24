@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@color/setting_tab_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/setting_tab_title_common" />
+    <ExpandableListView android:id="@id/browser_download_listview" android:layout_width="fill_parent" android:layout_height="0.0dip" android:divider="#00000000" android:dividerHeight="0.0px" android:layout_weight="1.0" />
+    <RelativeLayout android:id="@id/download_nothing_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="26.0sp" android:textColor="#ff494949" android:id="@id/download_nothing_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_download_nothing" android:layout_centerInParent="true" />
+        <ImageView android:background="@drawable/image_big" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="16.0dip" android:layout_above="@id/download_nothing_text" android:layout_centerHorizontal="true" />
+        <TextView android:textSize="16.0sp" android:textColor="#ffa4a4a4" android:id="@id/download_nothing_tosee_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="@string/setting_download_tosee" android:layout_below="@id/download_nothing_text" android:layout_centerHorizontal="true" />
+        <Button android:textColor="@android:color/white" android:id="@id/download_tosee_button" android:background="@drawable/download_tosee_btn" android:layout_width="120.0dip" android:layout_height="40.0dip" android:layout_marginTop="12.0dip" android:text="@string/setting_download_button_see" android:layout_below="@id/download_nothing_tosee_text" android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+</LinearLayout>

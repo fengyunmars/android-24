@@ -199,6 +199,16 @@ public abstract class Drawable {
     /**
      * Specify a bounding rectangle for the Drawable. This is where the drawable
      * will draw when its draw() method is called.
+     * Drawable的setBounds方法有四个参数，setBounds(int left, int top, int right, int bottom),这个四参数指的是drawable将在被绘制在canvas的哪个矩形区域内。
+     *
+     *例如
+     *  <pre>
+     *      protected void onDraw(Canvas canvas) {
+     *          drawable.setBounds(100, 100, 500, 500);
+     *          drawable.draw(canvas);
+     *      }
+     *  </pre>
+     *  上面的代码会将drawable绘制在canvas内部(100,100,500,500)表示的矩形区内（这个矩形区域的坐标是以canvas左上角为坐标原点的）
      */
     public void setBounds(int left, int top, int right, int bottom) {
         Rect oldBounds = mBounds;

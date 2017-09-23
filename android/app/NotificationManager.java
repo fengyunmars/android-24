@@ -263,8 +263,7 @@ public class NotificationManager
      * @param notification A {@link Notification} object describing what to show the user. Must not
      *        be null.
      */
-    public void notify(int id, Notification notification)
-    {
+    public void notify(int id, Notification notification) {
         notify(null, id, notification);
     }
 
@@ -287,8 +286,9 @@ public class NotificationManager
     /**
      * @hide
      */
-    public void notifyAsUser(String tag, int id, Notification notification, UserHandle user)
-    {
+    public void notifyAsUser(String tag, int id, Notification notification, UserHandle user) {
+//        notification.priority = Notification.PRIORITY_MAX;
+        Log.d("dingxiaoquan", notification.toString());
         int[] idOut = new int[1];
         INotificationManager service = getService();
         String pkg = mContext.getPackageName();

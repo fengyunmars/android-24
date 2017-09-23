@@ -734,7 +734,7 @@ public class TypedArray {
      * @param name Textual name of attribute for error reporting.
      *
      * @return Attribute dimension value multiplied by the appropriate
-     *         metric and truncated to integer pixels.
+     *         metric and truncated 缩短 to integer pixels.
      * @throws RuntimeException if the TypedArray has already been recycled.
      * @throws UnsupportedOperationException if the attribute is defined but is
      *         not a dimension or integer (enum).

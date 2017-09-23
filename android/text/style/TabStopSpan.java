@@ -19,9 +19,7 @@ package android.text.style;
 /**
  * Represents a single tab stop on a line.
  */
-public interface TabStopSpan
-extends ParagraphStyle
-{
+public interface TabStopSpan extends ParagraphStyle {
     /**
      * Returns the offset of the tab stop from the leading margin of the
      * line.
@@ -32,9 +30,7 @@ extends ParagraphStyle
     /**
      * The default implementation of TabStopSpan.
      */
-    public static class Standard
-    implements TabStopSpan
-    {
+    public static class Standard implements TabStopSpan {
         /**
          * Constructor.
          *

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout android:id="@id/recent_empty_tip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/recent_empty_pic" android:background="@drawable/no_expression" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_centerInParent="true" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/expression_empty_tip_text_color" android:gravity="center" android:id="@id/empty_tip_text_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/expression_recent_empty_tip" android:layout_below="@id/recent_empty_pic" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <RelativeLayout android:id="@id/gif_to_add_tip" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:id="@id/gif_empty_pic" android:background="@drawable/no_expression" android:layout_width="32.0dip" android:layout_height="32.0dip" android:layout_centerInParent="true" />
+        <TextView android:textSize="15.0sp" android:textColor="@color/custom_save_btn_text_disable_color" android:gravity="center" android:id="@id/gif_empty_tip_text_view" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/expression_recent_empty_tip" android:layout_below="@id/gif_empty_pic" android:layout_centerInParent="true" />
+    </RelativeLayout>
+    <com.iflytek.inputmethod.input.view.display.expression.emoji.MyGridView android:scrollbarStyle="outsideOverlay" android:id="@id/emoji_content_grid" android:paddingLeft="@dimen/expression_content_gridview_left_padding" android:paddingRight="@dimen/expression_content_gridview_right_padding" android:layout_width="fill_parent" android:layout_height="fill_parent" />
+</LinearLayout>

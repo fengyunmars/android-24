@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:id="@id/setting_theme_try_root" android:background="@color/setting_theme_try_window_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="100.0dip">
+        <TextView android:textSize="18.0sp" android:textColor="#ff000000" android:gravity="center" android:id="@id/setting_theme_try_textview" android:layout_width="fill_parent" android:layout_height="51.0dip" android:text="@string/theme_detail_try_title" />
+        <EditText android:textSize="18.0sp" android:textColor="@color/setting_tab_skin_listview_item_title_text_color" android:textColorHint="@color/setting_tab_skin_listview_item_summary_text_color" android:layout_gravity="center" android:id="@id/setting_theme_try_edit" android:background="@drawable/editbox_on" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginLeft="@dimen/DIP_12" android:layout_marginRight="@dimen/DIP_12" android:layout_marginBottom="@dimen/DIP_12" android:hint="@string/theme_detail_try_edit_hint" android:cursorVisible="true" android:singleLine="true" android:imeOptions="actionDone" android:textCursorDrawable="@null">
+            <requestFocus />
+        </EditText>
+    </LinearLayout>
+    <ImageView android:layout_width="fill_parent" android:layout_height="1.0dip" android:src="@color/setting_tab_background_color" />
+    <LinearLayout android:orientation="vertical" android:id="@id/setting_theme_try_share_linear" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <Button android:textSize="18.0sp" android:textColor="@color/skin_share_button_text_color" android:gravity="center" android:id="@id/setting_theme_try_share_button" android:background="@drawable/skin_try_share_btn" android:padding="@dimen/DIP_12" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_margin="@dimen/DIP_12" android:text="@string/setting_theme_share_right_now_text" />
+    </LinearLayout>
+    <LinearLayout android:orientation="vertical" android:id="@id/setting_theme_try_panda_download" android:background="#ffffffff" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="24.0dip">
+        <TextView android:textSize="18.0sp" android:textColor="#ff66ccff" android:layout_gravity="center" android:id="@id/setting_theme_try_panda_link" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/desktop_setting_theme_share_link" />
+    </LinearLayout>
+    <LinearLayout android:gravity="bottom|center" android:layout_gravity="bottom" android:orientation="horizontal" android:id="@id/carousel_theme_setting_layout" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_marginLeft="@dimen/DIP_12" android:layout_marginRight="@dimen/DIP_12" android:layout_marginBottom="@dimen/DIP_12" android:layout_weight="1.0">
+        <RelativeLayout android:id="@id/carousel_theme_setting_layout_bottom" android:background="@drawable/plugin_manager_btn_bg_nl" android:layout_width="fill_parent" android:layout_height="@dimen/DIP_50">
+            <TextView android:textSize="16.0sp" android:textColor="@color/carousel_theme_setting_tip_normal_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/DIP_12" android:text="@string/carousel_theme_setting_tip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            <TextView android:textSize="16.0sp" android:textColor="@color/carousel_theme_setting_tip_clickable_text_color" android:id="@id/carousel_theme_setting_text" android:paddingLeft="@dimen/DIP_12" android:paddingRight="@dimen/DIP_12" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/carousel_theme_setting_text" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

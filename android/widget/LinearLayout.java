@@ -100,14 +100,14 @@ public class LinearLayout extends ViewGroup {
     public static final int SHOW_DIVIDER_END = 4;
 
     /**
-     * Compatibility 兼容性  check. Old versions of the platform would give different
+     * Compatibility 兼容性 check. Old versions of the platform would give different
      * results from measurement passes using EXACTLY and non-EXACTLY modes,
-     * even when the resulting size was the same.
+     * even when the resulting size was the same. Inconsistent 不一致的；前后矛盾的
      */
     private final boolean mAllowInconsistentMeasurement;
 
     /**
-     * Whether the children of this layout are baseline aligned.  Only applicable
+     * Whether the children of this layout are baseline 基线 aligned.  Only applicable 适用的
      * if {@link #mOrientation} is horizontal.
      */
     @ViewDebug.ExportedProperty(category = "layout")
@@ -117,7 +117,7 @@ public class LinearLayout extends ViewGroup {
      * If this layout is part of another layout that is baseline aligned,
      * use the child at this index as the baseline.
      *
-     * Note: this is orthogonal to {@link #mBaselineAligned}, which is concerned
+     * Note: this is orthogonal 正交的 to {@link #mBaselineAligned}, which is concerned 有关的
      * with whether the children of this layout are baseline aligned.
      */
     @ViewDebug.ExportedProperty(category = "layout")
@@ -177,8 +177,8 @@ public class LinearLayout extends ViewGroup {
     @ViewDebug.ExportedProperty(category = "layout")
     private boolean mUseLargestChild;
 
-    private int[] mMaxAscent;
-    private int[] mMaxDescent;
+    private int[] mMaxAscent;  // Ascent 上升
+    private int[] mMaxDescent; // Descent 下降
 
     private static final int VERTICAL_GRAVITY_COUNT = 4;
 
@@ -305,6 +305,7 @@ public class LinearLayout extends ViewGroup {
             mDividerWidth = 0;
             mDividerHeight = 0;
         }
+        //// TODO: 2017/9/20  
         setWillNotDraw(divider == null);
         requestLayout();
     }
@@ -534,7 +535,7 @@ public class LinearLayout extends ViewGroup {
         // and also add:
         // getLocationOffset(child)
         int childTop = mBaselineChildTop;
-
+        //// TODO: 2017/9/20  
         if (mOrientation == VERTICAL) {
             final int majorGravity = mGravity & Gravity.VERTICAL_GRAVITY_MASK;
             if (majorGravity != Gravity.TOP) {
@@ -646,7 +647,7 @@ public class LinearLayout extends ViewGroup {
     /**
      * Determines where to position dividers between children.
      *
-     * @param childIndex Index of child to check for preceding divider
+     * @param childIndex Index of child to check for preceding 在前的 divider
      * @return true if there should be a divider before the child at childIndex
      * @hide Pending API consideration. Currently only used internally by the system.
      */
@@ -734,10 +735,11 @@ public class LinearLayout extends ViewGroup {
 
             final boolean useExcessSpace = lp.height == 0 && lp.weight > 0;
             if (heightMode == MeasureSpec.EXACTLY && useExcessSpace) {
-                // Optimization: don't bother measuring children who are only
+                // Optimization: don't bother 操心 measuring children who are only
                 // laid out using excess space. These views will get measured
                 // later if we have space to distribute.
                 final int totalLength = mTotalLength;
+                //// TODO: 2017/9/20  
                 mTotalLength = Math.max(totalLength, totalLength + lp.topMargin + lp.bottomMargin);
                 skippedMeasure = true;
             } else {
@@ -745,14 +747,14 @@ public class LinearLayout extends ViewGroup {
                     // The heightMode is either UNSPECIFIED or AT_MOST, and
                     // this child is only laid out using excess space. Measure
                     // using WRAP_CONTENT so that we can find out the view's
-                    // optimal height. We'll restore the original height of 0
+                    // optimal 最佳的 height. We'll restore the original height of 0
                     // after measurement.
                     lp.height = LayoutParams.WRAP_CONTENT;
                 }
 
                 // Determine how big this child would like to be. If this or
                 // previous children have given a weight, then we allow it to
-                // use all available space (and we will shrink things later
+                // use all available space (and we will shrink 收缩 things later
                 // if needed).
                 final int usedHeight = totalWeight == 0 ? mTotalLength : 0;
                 measureChildBeforeLayout(child, i, widthMeasureSpec, 0,
@@ -812,7 +814,7 @@ public class LinearLayout extends ViewGroup {
             allFillParent = allFillParent && lp.width == LayoutParams.MATCH_PARENT;
             if (lp.weight > 0) {
                 /*
-                 * Widths of weighted Views are bogus if we end up
+                 * Widths of weighted 加权的 Views are bogus 伪造的 if we end up
                  * remeasuring, so keep them separate.
                  */
                 weightedMaxWidth = Math.max(weightedMaxWidth,
@@ -862,7 +864,7 @@ public class LinearLayout extends ViewGroup {
         // Check against our minimum height
         heightSize = Math.max(heightSize, getSuggestedMinimumHeight());
         
-        // Reconcile our calculated size with the heightMeasureSpec
+        // Reconcile 使一致 our calculated size with the heightMeasureSpec
         int heightSizeAndState = resolveSizeAndState(heightSize, heightMeasureSpec, 0);
         heightSize = heightSizeAndState & MEASURED_SIZE_MASK;
         
@@ -885,15 +887,19 @@ public class LinearLayout extends ViewGroup {
                 final LayoutParams lp = (LayoutParams) child.getLayoutParams();
                 final float childWeight = lp.weight;
                 if (childWeight > 0) {
-                    final int share = (int) (childWeight * remainingExcess / remainingWeightSum);
+                    //// TODO: 2017/9/20  modified
+                    //final int share = (int) (childWeight * remainingExcess / remainingWeightSum);   src
+                    final int share = (int) (remainingExcess * childWeight / remainingWeightSum);
                     remainingExcess -= share;
                     remainingWeightSum -= childWeight;
 
                     final int childHeight;
                     if (mUseLargestChild && heightMode != MeasureSpec.EXACTLY) {
                         childHeight = largestChildHeight;
+                        
+                        //// TODO: 2017/9/20  
                     } else if (lp.height == 0 && (!mAllowInconsistentMeasurement
-                            || heightMode == MeasureSpec.EXACTLY)) {
+                            || heightMode == MeasureSpec.EXACTLY) ) {
                         // This child needs to be laid out from scratch using
                         // only its share of excess space.
                         childHeight = share;
@@ -965,6 +971,7 @@ public class LinearLayout extends ViewGroup {
         }
 
         if (!allFillParent && widthMode != MeasureSpec.EXACTLY) {
+            //// TODO: 2017/9/20  
             maxWidth = alternativeMaxWidth;
         }
         
@@ -993,6 +1000,7 @@ public class LinearLayout extends ViewGroup {
                if (lp.width == LayoutParams.MATCH_PARENT) {
                    // Temporarily force children to reuse their old measured height
                    // FIXME: this may not be right for something like wrapping text?
+                   //// TODO: 2017/9/20
                    int oldHeight = lp.height;
                    lp.height = child.getMeasuredHeight();
                    
@@ -1074,21 +1082,21 @@ public class LinearLayout extends ViewGroup {
 
             final boolean useExcessSpace = lp.width == 0 && lp.weight > 0;
             if (widthMode == MeasureSpec.EXACTLY && useExcessSpace) {
-                // Optimization: don't bother measuring children who are only
+                // Optimization: don't bother 操心 measuring children who are only
                 // laid out using excess space. These views will get measured
                 // later if we have space to distribute.
+                //// TODO: 2017/9/20  diff with mesureVertical() 
                 if (isExactly) {
                     mTotalLength += lp.leftMargin + lp.rightMargin;
                 } else {
                     final int totalLength = mTotalLength;
-                    mTotalLength = Math.max(totalLength, totalLength +
-                            lp.leftMargin + lp.rightMargin);
+                    mTotalLength = Math.max(totalLength, totalLength + lp.leftMargin + lp.rightMargin);
                 }
 
                 // Baseline alignment requires to measure widgets to obtain the
                 // baseline offset (in particular for TextViews). The following
-                // defeats the optimization mentioned above. Allow the child to
-                // use as much space as it wants because we can shrink things
+                // defeats 战胜 the optimization 优化 mentioned 提及的 above. Allow the child to
+                // use as much space as it wants because we can shrink 收缩 things
                 // later (and re-measure).
                 if (baselineAligned) {
                     final int freeWidthSpec = MeasureSpec.makeSafeMeasureSpec(
@@ -1125,7 +1133,7 @@ public class LinearLayout extends ViewGroup {
                     lp.width = 0;
                     usedExcessSpace += childWidth;
                 }
-
+                //// TODO: 2017/9/21  diff with mersureVertical()
                 if (isExactly) {
                     mTotalLength += childWidth + lp.leftMargin + lp.rightMargin
                             + getNextLocationOffset(child);
@@ -1146,6 +1154,7 @@ public class LinearLayout extends ViewGroup {
                 // child said it wanted to match our height. Set a flag indicating that
                 // we need to remeasure at least that view when we know our height.
                 matchHeight = true;
+                //// TODO: 2017/9/21  what's mean? 
                 matchHeightLocally = true;
             }
 
@@ -1173,7 +1182,7 @@ public class LinearLayout extends ViewGroup {
             allFillParent = allFillParent && lp.height == LayoutParams.MATCH_PARENT;
             if (lp.weight > 0) {
                 /*
-                 * Heights of weighted Views are bogus if we end up
+                 * Heights of weighted Views are bogus 假的 if we end up
                  * remeasuring, so keep them separate.
                  */
                 weightedMaxHeight = Math.max(weightedMaxHeight,
@@ -1192,14 +1201,13 @@ public class LinearLayout extends ViewGroup {
 
         // Check mMaxAscent[INDEX_TOP] first because it maps to Gravity.TOP,
         // the most common case
-        if (maxAscent[INDEX_TOP] != -1 ||
-                maxAscent[INDEX_CENTER_VERTICAL] != -1 ||
-                maxAscent[INDEX_BOTTOM] != -1 ||
-                maxAscent[INDEX_FILL] != -1) {
-            final int ascent = Math.max(maxAscent[INDEX_FILL],
+        if (maxAscent[INDEX_TOP] != -1 || maxAscent[INDEX_CENTER_VERTICAL] != -1 ||
+            maxAscent[INDEX_BOTTOM] != -1 || maxAscent[INDEX_FILL] != -1) {
+                final int ascent = Math.max(maxAscent[INDEX_FILL],
                     Math.max(maxAscent[INDEX_CENTER_VERTICAL],
-                    Math.max(maxAscent[INDEX_TOP], maxAscent[INDEX_BOTTOM])));
-            final int descent = Math.max(maxDescent[INDEX_FILL],
+                    Math.max(maxAscent[INDEX_TOP], maxAscent[INDEX_BOTTOM])
+                        ));
+                final int descent = Math.max(maxDescent[INDEX_FILL],
                     Math.max(maxDescent[INDEX_CENTER_VERTICAL],
                     Math.max(maxDescent[INDEX_TOP], maxDescent[INDEX_BOTTOM])));
             maxHeight = Math.max(maxHeight, ascent + descent);
@@ -1242,7 +1250,7 @@ public class LinearLayout extends ViewGroup {
         // Check against our minimum width
         widthSize = Math.max(widthSize, getSuggestedMinimumWidth());
         
-        // Reconcile our calculated size with the widthMeasureSpec
+        // Reconcile 使一致 our calculated size with the widthMeasureSpec
         int widthSizeAndState = resolveSizeAndState(widthSize, widthMeasureSpec, 0);
         widthSize = widthSizeAndState & MEASURED_SIZE_MASK;
         
@@ -1269,6 +1277,7 @@ public class LinearLayout extends ViewGroup {
                 final LayoutParams lp = (LayoutParams) child.getLayoutParams();
                 final float childWeight = lp.weight;
                 if (childWeight > 0) {
+                    //// TODO: 2017/9/21  should remainingExcess * childWeight / remainingWeightSum better?
                     final int share = (int) (childWeight * remainingExcess / remainingWeightSum);
                     remainingExcess -= share;
                     remainingWeightSum -= childWeight;
@@ -1387,7 +1396,7 @@ public class LinearLayout extends ViewGroup {
 
         // Check against our minimum height
         maxHeight = Math.max(maxHeight, getSuggestedMinimumHeight());
-        
+        //// TODO: 2017/9/21  diff with mersureVertical()
         setMeasuredDimension(widthSizeAndState | (childState&MEASURED_STATE_MASK),
                 resolveSizeAndState(maxHeight, heightMeasureSpec,
                         (childState<<MEASURED_HEIGHT_STATE_SHIFT)));
@@ -1890,7 +1899,7 @@ public class LinearLayout extends ViewGroup {
          * Indicates how much of the extra space in the LinearLayout will be
          * allocated to the view associated with these LayoutParams. Specify
          * 0 if the view should not be stretched. Otherwise the extra pixels
-         * will be pro-rated among all views whose weight is greater than 0.
+         * will be pro-rated 按比例 among all views whose weight is greater than 0.
          */
         @ViewDebug.ExportedProperty(category = "layout")
         public float weight;

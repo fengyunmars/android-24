@@ -62,7 +62,8 @@ public class SpanSet<E> {
 
             final int spanStart = spanned.getSpanStart(span);
             final int spanEnd = spanned.getSpanEnd(span);
-            if (spanStart == spanEnd) continue;
+            if (spanStart == spanEnd)
+                continue;
 
             final int spanFlag = spanned.getSpanFlags(span);
 
@@ -88,7 +89,8 @@ public class SpanSet<E> {
     public boolean hasSpansIntersecting(int start, int end) {
         for (int i = 0; i < numberOfSpans; i++) {
             // equal test is valid since both intervals are not empty by construction
-            if (spanStarts[i] >= end || spanEnds[i] <= start) continue;
+            if (spanStarts[i] >= end || spanEnds[i] <= start)
+                continue;
             return true;
         }
         return false;
@@ -101,8 +103,10 @@ public class SpanSet<E> {
         for (int i = 0; i < numberOfSpans; i++) {
             final int spanStart = spanStarts[i];
             final int spanEnd = spanEnds[i];
-            if (spanStart > start && spanStart < limit) limit = spanStart;
-            if (spanEnd > start && spanEnd < limit) limit = spanEnd;
+            if (spanStart > start && spanStart < limit)
+                limit = spanStart;
+            if (spanEnd > start && spanEnd < limit)
+                limit = spanEnd;
         }
         return limit;
     }

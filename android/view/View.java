@@ -1074,7 +1074,15 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int CONTEXT_CLICKABLE = 0x00800000;
 
 
-    /** @hide */
+    /**
+     * <p>android:scrollbarStyle可以定义滚动条的样式和位置，可选值有insideOverlay、insideInset、outsideOverlay、outsideInset四种。</p>
+     * <p>其中inside和outside分别表示是否在view的padding区域内，overlay和inset表示覆盖在view上或是插在view后面，所以四种值分别表示：</p>
+     * <p>insideOverlay：默认值，表示在padding区域内并且覆盖在view上</p>
+     * <p>insideInset：表示在padding区域内并且插入在view后面</p>
+     * <p>outsideOverlay：表示在padding区域外并且覆盖在view上，推荐这个</p>
+     * <p>outsideInset：表示在padding区域外并且插入在view后面</p>
+     * @hide
+     * */
     @IntDef({
         SCROLLBARS_INSIDE_OVERLAY,
         SCROLLBARS_INSIDE_INSET,
@@ -7625,10 +7633,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Called by the view hierarchy when the content insets for a window have
      * changed, to allow it to adjust its content to fit within those windows.
      * The content insets tell you the space that the status bar, input method,
-     * and other system windows infringe on the application's window.
+     * and other system windows infringe 侵犯 on the application's window.
      *
      * <p>You do not normally need to deal with this function, since the default
-     * window decoration given to applications takes care of applying it to the
+     * window decoration 装饰 given to applications takes care of applying it to the
      * content of the window.  If you use {@link #SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN}
      * or {@link #SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION} this will not be the case,
      * and your content can be placed under those system elements.  You can then
@@ -7649,7 +7657,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>The default implementation works well for a situation where it is
      * used with a container that covers the entire window, allowing it to
      * apply the appropriate insets to its content on all edges.  If you need
-     * a more complicated layout (such as two different views fitting system
+     * a more complicated 复杂的 layout (such as two different views fitting system
      * windows, one on the top of the window, and one on the bottom),
      * you can override the method and handle the insets however you would like.
      * Note that the insets provided by the framework are always relative to the
@@ -7742,7 +7750,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>Implementations of this method should either return the insets parameter unchanged
      * or a new {@link WindowInsets} cloned from the supplied insets with any insets consumed
      * that this view applied itself. This allows new inset types added in future platform
-     * versions to pass through existing implementations unchanged without being erroneously
+     * versions to pass through existing implementations unchanged without being erroneously  错误地
      * consumed.</p>
      *
      * <p>By default if a view's {@link #setFitsSystemWindows(boolean) fitsSystemWindows}
@@ -7787,7 +7795,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Request to apply the given window insets to this view or another view in its subtree.
      *
-     * <p>This method should be called by clients wishing to apply insets corresponding to areas
+     * <p>This method should be called by clients wishing to apply insets corresponding to areas 区域
      * obscured by window decorations or overlays. This can include the status and navigation bars,
      * action bars, input methods and more. New inset categories may be added in the future.
      * The method returns the insets provided minus any that were applied by this view or its
@@ -7853,6 +7861,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * that should propagate to those under it.
      */
     protected boolean computeFitSystemWindows(Rect inoutInsets, Rect outLocalInsets) {
+        //// TODO: 2017/9/19  
         if ((mViewFlags & OPTIONAL_FITS_SYSTEM_WINDOWS) == 0
                 || mAttachInfo == null
                 || ((mAttachInfo.mSystemUiVisibility & SYSTEM_UI_LAYOUT_FLAGS) == 0
@@ -11275,7 +11284,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Cancels a pending long press.  Your subclass can use this if you
-     * want the context menu to come up if the user presses and holds
+     * want the context menu to come up 出现 if the user presses and holds
      * at the same place, but you don't want it to come up if they press
      * and then move around enough to cause scrolling.
      */
@@ -14640,7 +14649,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             return offset < range - 1;
         }
     }
-
+    
+    //// TODO: 2017/9/14  
     void getScrollIndicatorBounds(@NonNull Rect out) {
         out.left = mScrollX;
         out.right = mScrollX + mRight - mLeft;
@@ -14948,7 +14958,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @hide
      */
     public boolean resolveRtlPropertiesIfNeeded() {
-        if (!needRtlPropertiesResolution()) return false;
+        if (!needRtlPropertiesResolution())
+            return false;
 
         // Order is important here: LayoutDirection MUST be resolved first
         if (!isLayoutDirectionResolved()) {
@@ -15014,7 +15025,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Return true if we are in RTL compatibility mode (either before Jelly Bean MR1 or
+     * Return true if we are in RTL compatibility mode (either before Jelly Bean MR1 Android 4.2, 4.2.2	17 or
      * RTL not supported)
      */
     private boolean isRtlCompatibilityMode() {
@@ -15066,11 +15077,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 case LAYOUT_DIRECTION_INHERIT:
                     // We cannot resolve yet. LTR is by default and let the resolution happen again
                     // later to get the correct resolved value
-                    if (!canResolveLayoutDirection()) return false;
+                    if (!canResolveLayoutDirection())
+                        return false;
 
                     // Parent has not yet resolved, LTR is still the default
                     try {
-                        if (!mParent.isLayoutDirectionResolved()) return false;
+                        if (!mParent.isLayoutDirectionResolved())
+                            return false;
 
                         if (mParent.getLayoutDirection() == LAYOUT_DIRECTION_RTL) {
                             mPrivateFlags2 |= PFLAG2_LAYOUT_DIRECTION_RESOLVED_RTL;
@@ -15488,9 +15501,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Cancel any deferred high-level input events that were previously posted to the event queue.
+     * Cancel any deferred 推迟 high-level input events that were previously posted to the event queue.
      *
-     * <p>Many views post high-level events such as click handlers to the event queue
+     * <p>Many views post high-level 高级的 events such as click handlers to the event queue
      * to run deferred in order to preserve a desired user experience - clearing visible
      * pressed states before executing, etc. This method will abort any events of this nature
      * that are currently in flight.</p>
@@ -15500,7 +15513,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * <p>This will also cancel pending input events for any child views.</p>
      *
-     * <p>Note that this may not be sufficient as a debouncing strategy for clicks in all cases.
+     * <p>Note that this may not be sufficient 充分的 as a debouncing 消除抖动 strategy for clicks in all cases.
      * This will not impact newer events posted after this call that may occur as a result of
      * lower-level input events still waiting in the queue. If you are trying to prevent
      * double-submitted  events for the duration of some sort of asynchronous transaction
@@ -15513,8 +15526,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Called by {@link #cancelPendingInputEvents()} to cancel input events in flight.
-     * Overridden by ViewGroup to dispatch. Package scoped to prevent app-side meddling.
+     * Called by {@link #cancelPendingInputEvents()} to cancel input events in flight 飞行 .
+     * Overridden by ViewGroup to dispatch. Package scoped to prevent app-side meddling 干预 .
      */
     void dispatchCancelPendingInputEvents() {
         mPrivateFlags3 &= ~PFLAG3_CALLED_SUPER;
@@ -16415,13 +16428,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 canvas = new Canvas();
             }
             canvas.setBitmap(bitmap);
-            // Temporarily clobber the cached Canvas in case one of our children
+            // Temporarily clobber 击倒 the cached Canvas in case one of our children
             // is also using a drawing cache. Without this, the children would
-            // steal the canvas by attaching their own bitmap to it and bad, bad
-            // things would happen (invisible views, corrupted drawings, etc.)
+            // steal 窃取 the canvas by attaching their own bitmap to it and bad, bad
+            // things would happen (invisible views, corrupted 损坏的 drawings, etc.)
             attachInfo.mCanvas = null;
         } else {
-            // This case should hopefully never or seldom happen
+            // This case should hopefully 希望如此 never or seldom 很少 happen
             canvas = new Canvas(bitmap);
         }
 
@@ -16656,6 +16669,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Utility function, called by draw(canvas, parent, drawingTime) to handle the less common
      * case of an active Animation being run on the view.
      */
+    //// TODO: 2017/9/13
     private boolean applyLegacyAnimation(ViewGroup parent, long drawingTime,
             Animation a, boolean scalingRequired) {
         Transformation invalidationTransform;
@@ -16663,8 +16677,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final boolean initialized = a.isInitialized();
         if (!initialized) {
             a.initialize(mRight - mLeft, mBottom - mTop, parent.getWidth(), parent.getHeight());
+            //// TODO: 2017/9/12
             a.initializeInvalidateRegion(0, 0, mRight - mLeft, mBottom - mTop);
-            if (mAttachInfo != null) a.setListenerHandler(mAttachInfo.mHandler);
+            if (mAttachInfo != null)
+                a.setListenerHandler(mAttachInfo.mHandler);
             onAnimationStart();
         }
 
@@ -16686,7 +16702,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                         ViewGroup.FLAG_OPTIMIZE_INVALIDATE) {
                     parent.mGroupFlags |= ViewGroup.FLAG_INVALIDATE_REQUIRED;
                 } else if ((flags & ViewGroup.FLAG_INVALIDATE_REQUIRED) == 0) {
-                    // The child need to draw an animation, potentially offscreen, so
+                    // The child need to draw an animation, potentially  可能地 offscreen, so
                     // make sure we do not cancel invalidate requests
                     parent.mPrivateFlags |= PFLAG_DRAW_ANIMATION;
                     parent.invalidate(mLeft, mTop, mRight, mBottom);
@@ -16761,6 +16777,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * and hardware acceleration.
      */
     boolean draw(Canvas canvas, ViewGroup parent, long drawingTime) {
+
         final boolean hardwareAcceleratedCanvas = canvas.isHardwareAccelerated();
         /* If an attached view draws to a HW canvas, it may use its RenderNode + DisplayList.
          *
@@ -16834,7 +16851,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         RenderNode renderNode = null;
         Bitmap cache = null;
-        int layerType = getLayerType(); // TODO: signify cache state with just 'cache' local
+        int layerType = getLayerType(); // TODO: signify 表示 cache state with just 'cache' local
         if (layerType == LAYER_TYPE_SOFTWARE || !drawingWithRenderNode) {
              if (layerType != LAYER_TYPE_NONE) {
                  // If not drawing with RenderNode, treat HW layers as SW
@@ -17081,7 +17098,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         boolean verticalEdges = (viewFlags & FADING_EDGE_VERTICAL) != 0;
         if (!verticalEdges && !horizontalEdges) {
             // Step 3, draw the content
-            if (!dirtyOpaque) onDraw(canvas);
+            if (!dirtyOpaque)
+                onDraw(canvas);
 
             // Step 4, draw the children
             dispatchDraw(canvas);
@@ -17490,6 +17508,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         Insets parentInsets = mParent instanceof View ?
                 ((View) mParent).getOpticalInsets() : Insets.NONE;
         Insets childInsets = getOpticalInsets();
+        //// TODO: 2017/9/16
         return setFrame(
                 left   + parentInsets.left - childInsets.left,
                 top    + parentInsets.top  - childInsets.top,
@@ -17501,7 +17520,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Assign a size and position to a view and all of its
      * descendants
      *
-     * <p>This is the second phase of the layout mechanism.
+     * <p>This is the second phase 时期 of the layout mechanism.
      * (The first is measuring). In this phase, each parent calls
      * layout on all of its children to position them.
      * This is typically done using the child measurements
@@ -17592,6 +17611,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             changed = true;
 
             // Remember our drawn bit
+            //// TODO: 2017/9/16  
             int drawn = mPrivateFlags & PFLAG_DRAWN;
 
             int oldWidth = mRight - mLeft;
@@ -18896,7 +18916,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         //noinspection DoubleNegation
         if (((mPrivateFlags & PFLAG_SELECTED) != 0) != selected) {
             mPrivateFlags = (mPrivateFlags & ~PFLAG_SELECTED) | (selected ? PFLAG_SELECTED : 0);
-            if (!selected) resetPressedState();
+            if (!selected)
+                resetPressedState();
             invalidate(true);
             refreshDrawableState();
             dispatchSetSelected(selected);
@@ -19234,7 +19255,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * {@hide}
-     * @param predicate The predicate to evaluate.
+     * @param predicate The predicate 断言 to evaluate.
      * @param childToSkip If not null, ignores this child during the recursive traversal.
      * @return The first view that matches the predicate or null.
      */
@@ -19597,7 +19618,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Creates a string of whitespaces used for indentation.
+     * Creates a string of whitespaces used for indentation 缩排 .
      *
      * @param depth the indentation level
      * @return a String containing (depth * 2 + 3) * 2 white spaces
@@ -19650,13 +19671,15 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     @CallSuper
     public void requestLayout() {
-        if (mMeasureCache != null) mMeasureCache.clear();
+        if (mMeasureCache != null)
+            mMeasureCache.clear();
 
         if (mAttachInfo != null && mAttachInfo.mViewRequestingLayout == null) {
             // Only trigger request-during-layout logic if this is the view requesting it,
             // not the views in its parent hierarchy
             ViewRootImpl viewRoot = getViewRootImpl();
             if (viewRoot != null && viewRoot.isInLayout()) {
+                //// TODO: 2017/9/15  
                 if (!viewRoot.requestLayoutDuringLayout(this)) {
                     return;
                 }
@@ -19719,7 +19742,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         // Suppress sign extension for the low bytes
         long key = (long) widthMeasureSpec << 32 | (long) heightMeasureSpec & 0xffffffffL;
-        if (mMeasureCache == null) mMeasureCache = new LongSparseLongArray(2);
+        if (mMeasureCache == null)
+            mMeasureCache = new LongSparseLongArray(2);
 
         final boolean forceLayout = (mPrivateFlags & PFLAG_FORCE_LAYOUT) == PFLAG_FORCE_LAYOUT;
 
@@ -19750,6 +19774,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 long value = mMeasureCache.valueAt(cacheIndex);
                 // Casting a long to int drops the high 32 bits, no mask needed
                 setMeasuredDimensionRaw((int) (value >> 32), (int) value);
+                //// TODO: 2017/9/16  
                 mPrivateFlags3 |= PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT;
             }
 
@@ -19776,7 +19801,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>
      * Measure the view and its content to determine the measured width and the
      * measured height. This method is invoked by {@link #measure(int, int)} and
-     * should be overridden by subclasses to provide accurate and efficient
+     * should be overridden by subclasses to provide accurate 精确的 and efficient 有效率的
      * measurement of their contents.
      * </p>
      *
@@ -19888,7 +19913,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Utility to reconcile a desired size and state, with constraints imposed
+     * Utility to reconcile  使一致 a desired size and state, with constraints imposed
      * by a MeasureSpec. Will take the desired size, unless a different size
      * is imposed by the constraints. The returned value is a compound integer,
      * with the resolved size in the {@link #MEASURED_SIZE_MASK} bits and
@@ -20147,13 +20172,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * This is used by the RootView to perform an optimization when
      * the view hierarchy contains one or several SurfaceView.
-     * SurfaceView is always considered transparent, but its children are not,
+     * SurfaceView is always considered transparent 透明的 , but its children are not,
      * therefore all View objects remove themselves from the global transparent
      * region (passed as a parameter to this function).
      *
      * @param region The transparent region for this ViewAncestor (window).
      *
-     * @return Returns true if the effective visibility of the view at this
+     * @return Returns true if the effective 有效的 visibility of the view at this
      * point is opaque, regardless of the transparent region; returns false
      * if it is possible for underlying windows to be seen behind the view.
      *
@@ -21171,7 +21196,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Dispatch one step of a nested scroll in progress before this view consumes any portion of it.
      *
-     * <p>Nested pre-scroll events are to nested scroll events what touch intercept is to touch.
+     * <p>Nested pre-scroll events are to nested scroll events what touch intercept 拦截 is to touch.
      * <code>dispatchNestedPreScroll</code> offers an opportunity for the parent view in a nested
      * scrolling operation to consume some or all of the scroll operation before the child view
      * consumes it.</p>
@@ -21474,7 +21499,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                                     (parentResolvedDirection << PFLAG2_TEXT_DIRECTION_RESOLVED_MASK_SHIFT);
                             break;
                         default:
-                            // Default resolved direction is "first strong" heuristic
+                            // Default resolved direction is "first strong" 探索式的
                             mPrivateFlags2 |= PFLAG2_TEXT_DIRECTION_RESOLVED_DEFAULT;
                     }
                     break;
@@ -22717,7 +22742,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         /**
          * Indicates whether the application is in compatibility mode
          */
-        boolean mScalingRequired;
+        boolean  mScalingRequired;
 
         /**
          * Left position of this view's window

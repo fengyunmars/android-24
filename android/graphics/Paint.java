@@ -1647,7 +1647,8 @@ public class Paint {
         public int   bottom;
         public int   leading;
 
-        @Override public String toString() {
+        @Override
+        public String toString() {
             return "FontMetricsInt: top=" + top + " ascent=" + ascent +
                     " descent=" + descent + " bottom=" + bottom +
                     " leading=" + leading;
@@ -2175,19 +2176,19 @@ public class Paint {
      * between start and end, and if advances is not null, the advance
      * assigned to each of these characters (java chars).
      *
-     * <p>The trailing surrogate in a valid surrogate pair is assigned
+     * <p>The trailing 后面的 surrogate 代理 in a valid surrogate pair is assigned
      * an advance of 0.  Thus the number of returned advances is
      * always equal to count, not to the number of unicode codepoints
      * represented by the run.
      *
-     * <p>In the case of conjuncts or combining marks, the total
+     * <p>In the case of conjuncts 结合的 or combining marks, the total
      * advance is assigned to the first logical character, and the
      * following characters are assigned an advance of 0.
      *
-     * <p>This generates the sum of the advances of glyphs for
+     * <p>This generates the sum of the advances of glyphs 符号 for
      * characters in a reordered cluster as the width of the first
      * logical character in the cluster, and 0 for the widths of all
-     * other characters in the cluster.  In effect, such clusters are
+     * other characters in the cluster.  In effect 实际上 , such clusters are
      * treated like conjuncts.
      *
      * <p>The shaping bounds limit the amount of context available

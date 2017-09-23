@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="#ffffffff" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ScrollView android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <LinearLayout android:gravity="center_horizontal" android:orientation="vertical" android:padding="24.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+            <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="wrap_content">
+                <ImageView android:layout_width="45.0dip" android:layout_height="45.0dip" android:src="@drawable/ic_flow" />
+                <TextView android:textSize="18.0sp" android:textColor="#ff333333" android:layout_gravity="center_vertical" android:paddingLeft="16.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/flow_notification_title" />
+            </LinearLayout>
+            <TextView android:textSize="14.0sp" android:textColor="#ff333333" android:paddingTop="36.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/flow_notification_tool_description_title" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff666666" android:paddingTop="10.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/flow_notification_tool_description" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff333333" android:paddingTop="40.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/flow_notification_user_query_guide" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="100.0dip" android:src="@drawable/flow_query_notificaition_pic_1" />
+            <TextView android:textSize="14.0sp" android:textColor="#ff333333" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="@string/flow_notification_user_recharge_guide" />
+            <ImageView android:layout_width="fill_parent" android:layout_height="100.0dip" android:src="@drawable/flow_query_notificaition_pic_2" />
+            <Button android:textSize="16.0dip" android:textColor="#ffffffff" android:id="@id/checkbox_notification" android:background="@drawable/btn_notification_close" android:layout_width="fill_parent" android:layout_height="40.0dip" android:layout_marginTop="60.0dip" android:text="@string/flow_notification_stop_it" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

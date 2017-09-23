@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:background="#ff252626" android:layout_width="fill_parent" android:layout_height="64.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/btn_flow_info" android:paddingLeft="10.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="2.0">
+        <RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="28.0dip">
+            <TextView android:textSize="22.0sp" android:textColor="#ffffffff" android:id="@id/text_flow" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="... ..." android:layout_centerVertical="true" />
+            <TextView android:textSize="12.0sp" android:textColor="#ffffffff" android:paddingLeft="4.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="M" android:layout_toRightOf="@id/text_flow" android:layout_alignBottom="@id/text_flow" />
+        </RelativeLayout>
+        <TextView android:textSize="10.0sp" android:textColor="#99ffffff" android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="15.0dip" android:text="剩余流量" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/btn_refresh" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center" android:layout_width="fill_parent" android:layout_height="28.0dip">
+            <ImageView android:id="@id/img_hint_refresh" android:layout_width="18.0dip" android:layout_height="18.0dip" android:src="@drawable/ic_notify_refresh" android:scaleType="centerInside" />
+            <ProgressBar android:id="@id/img_hint_progress" android:visibility="gone" android:layout_width="18.0dip" android:layout_height="18.0dip" />
+        </LinearLayout>
+        <TextView android:textSize="10.0sp" android:textColor="#99ffffff" android:gravity="center_vertical" android:id="@id/text_hint" android:layout_width="wrap_content" android:layout_height="15.0dip" android:text="点击刷新" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:id="@id/btn_buy" android:paddingLeft="10.0dip" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <Button android:textSize="12.0sp" android:textColor="#ffffffff" android:background="@drawable/btn_buy_bg" android:clickable="false" android:layout_width="fill_parent" android:layout_height="28.0dip" android:text="充流量" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:id="@id/btn_setting" android:layout_width="0.0dip" android:layout_height="fill_parent" android:layout_weight="1.0">
+        <ImageView android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@drawable/ic_notify_setting" />
+    </LinearLayout>
+</LinearLayout>

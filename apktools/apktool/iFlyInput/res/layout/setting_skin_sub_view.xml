@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" android:background="@color/setting_tab_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:id="@id/setting_skin_sub_view_content_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <RelativeLayout android:background="@drawable/setting_sub_tab_bg_new" android:layout_width="fill_parent" android:layout_height="51.0dip">
+            <RelativeLayout android:id="@id/setting_skin_sub_view_back_re" android:layout_width="60.0dip" android:layout_height="40.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true">
+                <ImageView android:id="@id/setting_skin_sub_view_back_img" android:background="@drawable/setting_skin_back_bn" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="10.0dip" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
+            </RelativeLayout>
+            <TextView android:textSize="22.0sp" android:textColor="#ff000000" android:id="@id/setting_skin_sub_view_title" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerInParent="true" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

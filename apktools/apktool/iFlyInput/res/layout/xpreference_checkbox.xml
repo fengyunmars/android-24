@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:background="@drawable/preference_drawable" android:layout_width="fill_parent" android:layout_height="60.0dip"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_weight="1.0">
+        <LinearLayout android:gravity="center_vertical" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="60.0dip" android:layout_marginLeft="10.0dip" android:layout_weight="1.0">
+            <TextView android:textSize="19.0sp" android:textColor="@color/setting_tab_skin_listview_item_title_text_color" android:ellipsize="marquee" android:id="@id/preference_checkbox_title" android:focusable="false" android:focusableInTouchMode="true" android:fadingEdge="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="title" android:ems="11" android:singleLine="true" android:layout_centerVertical="true" android:marqueeRepeatLimit="marquee_forever" />
+            <TextView android:textSize="13.0sp" android:textColor="@color/setting_tab_skin_listview_item_summary_text_color" android:ellipsize="marquee" android:id="@id/preference_checkbox_summary" android:focusable="false" android:focusableInTouchMode="true" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="1.0dip" android:text="title" android:ems="13" android:singleLine="true" android:marqueeRepeatLimit="marquee_forever" />
+        </LinearLayout>
+        <LinearLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_weight="6.0">
+            <CheckBox android:id="@id/preference_checkbox_checkbox" android:focusable="false" android:clickable="false" android:layout_width="wrap_content" android:layout_height="fill_parent" android:button="@drawable/userphrase_checkbox_status" />
+        </LinearLayout>
+    </LinearLayout>
+    <ImageView android:id="@id/preference_checkbox_divider" android:background="@color/divider_color" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="1.0px" />
+</LinearLayout>

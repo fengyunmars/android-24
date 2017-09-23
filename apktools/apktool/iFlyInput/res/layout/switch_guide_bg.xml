@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout android:orientation="vertical" android:background="#88000000" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:gravity="center" android:id="@id/id_switch_guide_light" android:background="@drawable/light_bg" android:padding="2.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <ImageView android:id="@id/id_switch_guide_src" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/switch_ic" android:scaleType="center" />
+    </LinearLayout>
+    <ImageView android:id="@id/id_switch_guide_hand" android:background="@drawable/ifly_guide_hand" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+    <ImageView android:layout_gravity="center" android:id="@id/id_switch_guide_text" android:padding="8.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/switch_text" android:scaleType="fitCenter" />
+</FrameLayout>

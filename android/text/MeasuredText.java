@@ -27,6 +27,7 @@ import com.android.internal.util.ArrayUtils;
  * @hide
  */
 class MeasuredText {
+
     private static final boolean localLOGV = false;
     CharSequence mText;
     int mTextStart;
@@ -95,7 +96,7 @@ class MeasuredText {
     }
 
     /**
-     * Analyzes text for bidirectional runs.  Allocates working buffers.
+     * Analyzes 分析 text for bidirectional 双向的 runs.  Allocates 分配 working buffers.
      */
     void setPara(CharSequence text, int start, int end, TextDirectionHeuristic textDir,
             StaticLayout.Builder builder) {
@@ -169,7 +170,7 @@ class MeasuredText {
         mPos = p + len;
 
         // try to do widths measurement in native code, but use Java if paint has been subclassed
-        // FIXME: may want to eliminate special case for subclass
+        // FIXME: may want to eliminate 淘汰 special case for subclass
         float[] widths = null;
         if (mBuilder == null || paint.getClass() != TextPaint.class) {
             widths = mWidths;
@@ -267,10 +268,12 @@ class MeasuredText {
             int i = 0;
             while (i < limit) {
                 width -= w[i];
-                if (width < 0.0f) break;
+                if (width < 0.0f)
+                    break;
                 i++;
             }
-            while (i > 0 && mChars[i - 1] == ' ') i--;
+            while (i > 0 && mChars[i - 1] == ' ')
+                i--;
             return i;
         } else {
             int i = limit - 1;

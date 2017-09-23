@@ -55,7 +55,7 @@ import java.util.Random;
  */
 public class LayoutAnimationController {
     /**
-     * Distributes分配  the animation delays in the order in which view were added
+     * Distributes 分配 the animation delays in the order in which view were added
      * to their view group.
      */
     public static final int ORDER_NORMAL  = 0;

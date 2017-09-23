@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="cumstom_symbol_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="mProgress_horizontal">
+        <item name="android:maxHeight">20.0dip</item>
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/myprogressbar_style</item>
+        <item name="android:minHeight">20.0dip</item>
+    </style>
+    <style name="DataNoWifiDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="MagnifierAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/magnifier_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/magnifier_fade_out</item>
+    </style>
+    <style name="PinyinCloudAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/pinyincloud_in</item>
+    </style>
+    <style name="PluginThemeDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/plugin_activity_loading</item>
+    </style>
+    <style name="PopupAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_enter</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit</item>
+    </style>
+    <style name="SharePopupAnimation" parent="@android:style/Animation.Translucent" />
+    <style name="Theme_CustomBackground_new">
+        <item name="android:windowBackground">@color/basic_custom_bg_color</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    <style name="Theme_HazeBackground">
+        <item name="android:windowBackground">@color/wizard_back_color</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+    <style name="Theme_SkinBackground">
+        <item name="android:windowBackground">@color/setting_tab_skin_gridview_bg</item>
+    </style>
+    <style name="Translucent_activity">
+        <item name="android:windowBackground">@drawable/translucent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="Transparent_activity">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    <style name="Transparent_dialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowBackground">@drawable/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Translucent</item>
+    </style>
+    <style name="classdict_popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/translate_in</item>
+        <item name="android:windowExitAnimation">@anim/translate_out</item>
+    </style>
+    <style name="dialog_theme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/fadepush_in</item>
+        <item name="android:windowExitAnimation">@anim/fadepush_out</item>
+    </style>
+    <style name="skin_try_window_animation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/skin_try_fade_in</item>
+        <item name="android:windowExitAnimation">@anim/skin_try_fade_out</item>
+    </style>
+    <style name="wizard_btn_style">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@drawable/wizard_btn_text</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:background">@drawable/wizard_blue_button</item>
+    </style>
+    <style name="wizard_text_style">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/wizard_text_highlight_color</item>
+    </style>
+    <style name="wizard_text_style2">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/wizard_button_text_color</item>
+    </style>
+</resources>

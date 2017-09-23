@@ -639,7 +639,7 @@ public class Build {
         public static final int LOLLIPOP_MR1 = 22;
 
         /**
-         * M is for Marshmallow!
+         * M is for Marshmallow 棉花糖 !
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -670,7 +670,7 @@ public class Build {
         public static final int M = 23;
 
         /**
-         * N is for 炉\_(銉�)_/炉.
+         * N is for ¯\_(ツ)_/¯.
          */
         public static final int N = 24;
     }

@@ -125,6 +125,7 @@ public class Transformation {
         if (t.mHasClipRect) {
             Rect bounds = t.getClipRect();
             if (mHasClipRect) {
+                //// TODO: 2017/9/12  
                 setClipRect(mClipRect.left + bounds.left, mClipRect.top + bounds.top,
                         mClipRect.right + bounds.right, mClipRect.bottom + bounds.bottom);
             } else {

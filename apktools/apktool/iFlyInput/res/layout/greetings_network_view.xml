@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/body_middle_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <com.iflytek.util.view.DropListView android:id="@id/userphrase_detail_listview" android:focusable="true" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginLeft="1.0dip" android:layout_marginRight="1.0dip" />
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/userphrase_detail_waitview" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ProgressBar android:id="@id/userphrase_detail_head_progressBar" android:layout_width="wrap_content" android:layout_height="wrap_content" style="?android:attr/progressBarStyleSmall" />
+        <TextView android:textColor="@color/custom_listview_down_refresh_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/setting_waiting_button_text" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="vertical" android:id="@id/userphrase_detail_errview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <ImageView android:layout_gravity="center" android:id="@id/userphrase_detail_wait_error_imageview" android:layout_width="30.0dip" android:layout_height="30.0dip" android:src="@drawable/btn_setting_tab_load" />
+        <TextView android:textColor="@color/custom_listview_down_refresh_text_color" android:gravity="center" android:layout_gravity="center" android:id="@id/userphrase_detail_wait_textview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="2.0dip" android:text="@string/custom_reload_tip_content" />
+    </LinearLayout>
+    <LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/userphrase_detail_nocontentview" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textColor="@color/custom_listview_down_refresh_text_color" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/custom_no_network_content" />
+    </LinearLayout>
+</LinearLayout>

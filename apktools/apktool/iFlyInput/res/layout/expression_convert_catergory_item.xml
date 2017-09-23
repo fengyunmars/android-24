@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:background="@drawable/expression_convert_catergory_bg" android:padding="10.0dip" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textSize="15.0sp" android:textColor="@color/exp_convert_tips_text_color" android:id="@id/expression_convert_catergory_tv" android:paddingBottom="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="TextView" />
+    <ImageView android:background="@color/exp_convert_catergory_divider_color" android:layout_width="fill_parent" android:layout_height="2.0dip" />
+    <com.iflytek.inputmethod.setting.view.ExtendedGridView android:id="@id/expression_gridview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:verticalSpacing="2.0dip" android:numColumns="5" />
+</LinearLayout>

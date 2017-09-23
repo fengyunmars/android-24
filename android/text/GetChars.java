@@ -21,9 +21,7 @@ package android.text;
  * getChars() method like the one in String that is faster than
  * calling charAt() multiple times.
  */
-public interface GetChars
-extends CharSequence
-{
+public interface GetChars extends CharSequence {
     /**
      * Exactly like String.getChars(): copy chars <code>start</code>
      * through <code>end - 1</code> from this CharSequence into <code>dest</code>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/item_layout" android:background="@drawable/userphrase_listview_bg" android:paddingLeft="20.0dip" android:paddingRight="20.0dip" android:descendantFocusability="blocksDescendants" android:layout_width="fill_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="horizontal" android:id="@id/item_inner_layout" android:layout_width="fill_parent" android:layout_height="fill_parent">
+        <TextView android:textSize="16.0sp" android:textColor="@color/custom_listview_context_text_color" android:gravity="center|left" android:id="@id/item_text" android:paddingTop="12.0dip" android:paddingBottom="12.0dip" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0" />
+        <ImageView android:layout_gravity="center_vertical" android:id="@id/item_arrow" android:background="@drawable/userphrase_ic_next" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+        <CheckBox android:id="@id/item_checkbox" android:background="@drawable/userphrase_checkbox_status" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:button="@null" />
+    </LinearLayout>
+    <ImageView android:id="@id/item_divider" android:background="@drawable/userphrase_listview_divider" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_below="@id/item_inner_layout" android:layout_alignParentBottom="true" />
+</RelativeLayout>
