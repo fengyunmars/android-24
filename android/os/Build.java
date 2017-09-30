@@ -634,7 +634,7 @@ public class Build {
         public static final int LOLLIPOP = 21;
 
         /**
-         * March 2015: Lollipop with an extra sugar coating on the outside!
+         *  Android 5.1 March 2015: Lollipop with an extra sugar coating on the outside!
          */
         public static final int LOLLIPOP_MR1 = 22;
 

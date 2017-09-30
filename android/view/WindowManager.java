@@ -95,7 +95,7 @@ public interface WindowManager extends ViewManager {
      * Returns the {@link Display} upon which this {@link WindowManager} instance
      * will create new windows.
      * <p>
-     * Despite the name of this method, the display that is returned is not
+     * Despite 尽管 the name of this method, the display that is returned is not
      * necessarily the primary display of the system (see {@link Display#DEFAULT_DISPLAY}).
      * The returned display could instead be a secondary display that this
      * window manager instance is managing.  Think of it as the display that
@@ -294,7 +294,7 @@ public interface WindowManager extends ViewManager {
          * Window type: an application window that serves as the "base" window
          * of the overall application; all other application windows will
          * appear on top of it.
-         * In multiuser systems shows only on the owning user's window.
+         * In multiuser 多用户 systems shows only on the owning user's window.
          */
         public static final int TYPE_BASE_APPLICATION   = 1;
 
@@ -355,7 +355,7 @@ public interface WindowManager extends ViewManager {
         /**
          * Window type: window for showing overlays on top of media windows.
          * These windows are displayed between TYPE_APPLICATION_MEDIA and the
-         * application window.  They should be translucent to be useful.  This
+         * application window.  They should be translucent 半透明的 to be useful.  This
          * is a big ugly hack so:
          * @hide
          */
@@ -427,7 +427,7 @@ public interface WindowManager extends ViewManager {
         /**
          * Window type: system overlay windows, which need to be displayed
          * on top of everything else.  These windows must not take input
-         * focus, or they will interfere with the keyguard.
+         * focus, or they will interfere 冲突 with the keyguard.
          * In multiuser systems shows only on the owning user's window.
          */
         public static final int TYPE_SYSTEM_OVERLAY     = FIRST_SYSTEM_WINDOW+6;
@@ -575,7 +575,7 @@ public interface WindowManager extends ViewManager {
         public static final int TYPE_DISPLAY_OVERLAY = FIRST_SYSTEM_WINDOW+26;
 
         /**
-         * Window type: Magnification overlay window. Used to highlight the magnified
+         * Window type: Magnification 放大 overlay window. Used to highlight the magnified
          * portion of a display when accessibility magnification is enabled.
          * In multiuser systems shows on all users' windows.
          * @hide
@@ -583,30 +583,30 @@ public interface WindowManager extends ViewManager {
         public static final int TYPE_MAGNIFICATION_OVERLAY = FIRST_SYSTEM_WINDOW+27;
 
         /**
-         * Window type: keyguard scrim window. Shows if keyguard needs to be restarted.
+         * Window type: keyguard scrim 稀松窗帘用布 window. Shows if keyguard needs to be restarted.
          * In multiuser systems shows on all users' windows.
          * @hide
          */
         public static final int TYPE_KEYGUARD_SCRIM           = FIRST_SYSTEM_WINDOW+29;
 
         /**
-         * Window type: Window for Presentation on top of private
+         * Window type: Window for Presentation 呈现 on top of private
          * virtual display.
          */
         public static final int TYPE_PRIVATE_PRESENTATION = FIRST_SYSTEM_WINDOW+30;
 
         /**
-         * Window type: Windows in the voice interaction layer.
+         * Window type: Windows in the voice interaction 相互作用 layer.
          * @hide
          */
         public static final int TYPE_VOICE_INTERACTION = FIRST_SYSTEM_WINDOW+31;
 
         /**
-         * Window type: Windows that are overlaid <em>only</em> by a connected {@link
+         * Window type: Windows that are overlaid 覆盖 <em>only</em> by a connected {@link
          * android.accessibilityservice.AccessibilityService} for interception of
          * user interactions without changing the windows an accessibility service
-         * can introspect. In particular, an accessibility service can introspect
-         * only windows that a sighted user can interact with which is they can touch
+         * can introspect 内省 . In particular, an accessibility service can introspect
+         * only windows that a sighted 有视力的人 user can interact with which is they can touch
          * these windows or can type into these windows. For example, if there
          * is a full screen accessibility overlay that is touchable, the windows
          * below it will be introspectable by an accessibility service even though
@@ -621,7 +621,7 @@ public interface WindowManager extends ViewManager {
         public static final int TYPE_VOICE_INTERACTION_STARTING = FIRST_SYSTEM_WINDOW+33;
 
         /**
-         * Window for displaying a handle used for resizing docked stacks. This window is owned
+         * Window for displaying a handle used for resizing docked 停驻 stacks 堆叠 . This window is owned
          * by the system process.
          * @hide
          */
@@ -636,7 +636,7 @@ public interface WindowManager extends ViewManager {
 
         /**
          * Window type: shares similar characteristics with {@link #TYPE_DREAM}. The layer is
-         * reserved for screenshot region selection.
+         * reserved 保留的 for screenshot region selection.
          * @hide
          */
         public static final int TYPE_SCREENSHOT = FIRST_SYSTEM_WINDOW + 36;
@@ -671,7 +671,7 @@ public interface WindowManager extends ViewManager {
          *  {@link #FLAG_KEEP_SCREEN_ON} and/or {@link #FLAG_SHOW_WHEN_LOCKED} */
         public static final int FLAG_ALLOW_LOCK_WHILE_SCREEN_ON     = 0x00000001;
 
-        /** Window flag: everything behind this window will be dimmed.
+        /** Window flag: everything behind this window will be dimmed 变模糊 .
          *  Use {@link #dimAmount} to control the amount of dim. */
         public static final int FLAG_DIM_BEHIND        = 0x00000002;
 
@@ -720,7 +720,7 @@ public interface WindowManager extends ViewManager {
         public static final int FLAG_KEEP_SCREEN_ON     = 0x00000080;
 
         /** Window flag: place the window within the entire screen, ignoring
-         *  decorations around the border (such as the status bar).  The
+         *  decorations 装饰品 around the border (such as the status bar).  The
          *  window must correctly position its contents to take the screen
          *  decoration into account.  This flag is normally set for you
          *  by Window as described in {@link Window#setFlags}. */
@@ -793,7 +793,7 @@ public interface WindowManager extends ViewManager {
          * set for you by Window as described in {@link Window#setFlags}.*/
         public static final int FLAG_LAYOUT_INSET_DECOR = 0x00010000;
 
-        /** Window flag: invert the state of {@link #FLAG_NOT_FOCUSABLE} with
+        /** Window flag: invert 反转 the state of {@link #FLAG_NOT_FOCUSABLE} with
          * respect to how this window interacts with the current method.  That
          * is, if FLAG_NOT_FOCUSABLE is set and this flag is set, then the
          * window will behave as if it needs to interact with the input method
@@ -874,6 +874,7 @@ public interface WindowManager extends ViewManager {
          * pointer goes up thereby enabling touches with multiple pointers
          * to be split across multiple windows.
          */
+        //// TODO: 2017/9/26  
         public static final int FLAG_SPLIT_TOUCH = 0x00800000;
 
         /**
@@ -905,11 +906,12 @@ public interface WindowManager extends ViewManager {
          * {@link android.R.attr#hardwareAccelerated android:hardwareAccelerated}
          * XML attribute is set to true on an activity or on the application.</p>
          */
+        //// TODO: 2017/9/26  
         public static final int FLAG_HARDWARE_ACCELERATED = 0x01000000;
 
         /**
          * Window flag: allow window contents to extend in to the screen's
-         * overscan area, if there is one.  The window should still correctly
+         * overscan 过扫描 area, if there is one.  The window should still correctly
          * position its contents to take the overscan area into account.
          *
          * <p>This flag can be controlled in your theme through the
@@ -997,11 +999,12 @@ public interface WindowManager extends ViewManager {
          *
          * {@hide}
          */
+        //// TODO: 2017/9/26  
         public static final int FLAG_SLIPPERY = 0x20000000;
 
         /**
          * Window flag: When requesting layout with an attached window, the attached window may
-         * overlap with the screen decorations of the parent window such as the navigation bar. By
+         * overlap 重叠 with the screen decorations of the parent window such as the navigation bar. By
          * including this flag, the window manager will layout the attached window within the decor
          * frame of the parent window such that it doesn't overlap with screen decorations.
          */
@@ -1139,7 +1142,7 @@ public interface WindowManager extends ViewManager {
 
         /**
          * By default, wallpapers are sent new offsets when the wallpaper is scrolled. Wallpapers
-         * may elect to skip these notifications if they are not doing anything productive with
+         * may elect 选举 to skip these notifications if they are not doing anything productive 生产的 with
          * them (they do not affect the wallpaper scrolling operation) by calling
          * {@link
          * android.service.wallpaper.WallpaperService.Engine#setOffsetNotificationsEnabled(boolean)}.
@@ -1170,7 +1173,7 @@ public interface WindowManager extends ViewManager {
         public static final int PRIVATE_FLAG_COMPATIBLE_WINDOW = 0x00000080;
 
         /** Window flag: a special option intended for system dialogs.  When
-         * this flag is set, the window will demand focus unconditionally when
+         * this flag is set, the window will demand focus unconditionally 无条件地 when
          * it is created.
          * {@hide} */
         public static final int PRIVATE_FLAG_SYSTEM_ERROR = 0x00000100;
@@ -1225,7 +1228,7 @@ public interface WindowManager extends ViewManager {
          * Flag to indicate that this window is not expected to be replaced across
          * configuration change triggered activity relaunches. In general the WindowManager
          * expects Windows to be replaced after relaunch, and thus it will preserve their surfaces
-         * until the replacement is ready to show in order to prevent visual glitch. However
+         * until the replacement is ready to show in order to prevent visual glitch 小故障 . However
          * some windows, such as PopupWindows expect to be cleared across configuration change,
          * and thus should hint to the WindowManager that it should not wait for a replacement.
          * @hide
@@ -1247,7 +1250,7 @@ public interface WindowManager extends ViewManager {
         public static final int PRIVATE_FLAG_FORCE_DRAW_STATUS_BAR_BACKGROUND = 0x00020000;
 
         /**
-         * Flag to indicate that this window needs Sustained Performance Mode if
+         * Flag to indicate that this window needs Sustained 持久的 Performance 性能 Mode if
          * the device supports it.
          * @hide
          */
@@ -1366,7 +1369,7 @@ public interface WindowManager extends ViewManager {
 
         /**
          * Mask for {@link #softInputMode} of the bits that determine the
-         * way that the window should be adjusted to accommodate the soft
+         * way that the window should be adjusted to accommodate 适应 the soft
          * input window.
          */
         public static final int SOFT_INPUT_MASK_ADJUST = 0xf0;
@@ -1454,7 +1457,7 @@ public interface WindowManager extends ViewManager {
         public int gravity;
 
         /**
-         * The horizontal margin, as a percentage of the container's width,
+         * The horizontal margin, as a percentage 百分比 of the container's width,
          * between the container and the widget.  See
          * {@link Gravity#apply(int, int, int, android.graphics.Rect, int, int,
          * android.graphics.Rect) Gravity.apply} for how this is used.  This
@@ -1666,7 +1669,7 @@ public interface WindowManager extends ViewManager {
         /**
          * When this window has focus, disable touch pad pointer gesture processing.
          * The window will receive raw position updates from the touch pad instead
-         * of pointer movements and synthetic touch events.
+         * of pointer movements and synthetic 合成的 touch events.
          *
          * @hide
          */
@@ -1674,7 +1677,7 @@ public interface WindowManager extends ViewManager {
 
         /**
          * Does not construct an input channel for this window.  The channel will therefore
-         * be incapable of receiving input.
+         * be incapable 无能力的 of receiving input.
          *
          * @hide
          */
@@ -1798,14 +1801,14 @@ public interface WindowManager extends ViewManager {
         }
 
         /**
-         * Sets the surface insets based on the elevation (visual z position) of the input view.
+         * Sets the surface insets based on the elevation 海拔 (visual z position) of the input view.
          * @hide
          */
         public final void setSurfaceInsets(View view, boolean manual, boolean preservePrevious) {
             final int surfaceInset = (int) Math.ceil(view.getZ() * 2);
-            // Partial workaround for b/28318973. Every inset change causes a freeform window
+            // Partial 局部的 workaround 变通方案 for b/28318973. Every inset change causes a freeform window
             // to jump a little for a few frames. If we never allow surface insets to decrease,
-            // they will stabilize quickly (often from the very beginning, as most windows start
+            // they will stabilize 使稳固 quickly (often from the very beginning, as most windows start
             // as focused).
             // TODO(b/22668382) to fix this properly.
             if (surfaceInset == 0) {
@@ -2158,6 +2161,7 @@ public interface WindowManager extends ViewManager {
             return changes;
         }
 
+        //// TODO: 2017/9/26
         @Override
         public String debug(String output) {
             output += "Contents of " + this + ":";
@@ -2178,7 +2182,7 @@ public interface WindowManager extends ViewManager {
             sb.append(',');
             sb.append(y);
             sb.append(")(");
-            sb.append((width== MATCH_PARENT ?"fill":(width==WRAP_CONTENT?"wrap":width)));
+            sb.append((width== MATCH_PARENT ?"fill":(width==WRAP_CONTENT?"wrap":width))); //// TODO: 2017/9/26
             sb.append('x');
             sb.append((height== MATCH_PARENT ?"fill":(height==WRAP_CONTENT?"wrap":height)));
             sb.append(")");

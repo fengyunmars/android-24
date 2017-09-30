@@ -22,7 +22,7 @@ import com.android.internal.util.GrowingArrayUtils;
 import libcore.util.EmptyArray;
 
 /**
- * SparseBooleanArrays map integers to booleans.
+ * SparseBooleanArrays  稀疏的；稀少的 map integers to booleans.
  * Unlike a normal array of booleans
  * there can be gaps in the indices.  It is intended to be more memory efficient
  * than using a HashMap to map Integers to Booleans, both because it avoids
@@ -44,6 +44,11 @@ import libcore.util.EmptyArray;
  * order in the case of <code>valueAt(int)</code>.</p>
  */
 public class SparseBooleanArray implements Cloneable {
+
+    private int[] mKeys;
+    private boolean[] mValues;
+    private int mSize;
+
     /**
      * Creates a new SparseBooleanArray containing no mappings.
      */
@@ -111,6 +116,7 @@ public class SparseBooleanArray implements Cloneable {
         int i = ContainerHelpers.binarySearch(mKeys, mSize, key);
 
         if (i >= 0) {
+            // total = 5 delete 3 result 5 - (3 + 1) = 1 from 3 + 1 = 4 override 3
             System.arraycopy(mKeys, i + 1, mKeys, i, mSize - (i + 1));
             System.arraycopy(mValues, i + 1, mValues, i, mSize - (i + 1));
             mSize--;
@@ -118,6 +124,7 @@ public class SparseBooleanArray implements Cloneable {
     }
 
     /** @hide */
+    // unlike delete this not check for exists just remove
     public void removeAt(int index) {
         System.arraycopy(mKeys, index + 1, mKeys, index, mSize - (index + 1));
         System.arraycopy(mValues, index + 1, mValues, index, mSize - (index + 1));
@@ -135,7 +142,7 @@ public class SparseBooleanArray implements Cloneable {
         if (i >= 0) {
             mValues[i] = value;
         } else {
-            i = ~i;
+            i = ~i;   // equals i = -1 - i
 
             mKeys = GrowingArrayUtils.insert(mKeys, mSize, i, key);
             mValues = GrowingArrayUtils.insert(mValues, mSize, i, value);
@@ -207,6 +214,7 @@ public class SparseBooleanArray implements Cloneable {
      * and that multiple keys can map to the same value and this will
      * find only one of them.
      */
+    //// TODO: 2017/9/29 comment error ? 
     public int indexOfValue(boolean value) {
         for (int i = 0; i < mSize; i++)
             if (mValues[i] == value)
@@ -299,7 +307,4 @@ public class SparseBooleanArray implements Cloneable {
         return buffer.toString();
     }
 
-    private int[] mKeys;
-    private boolean[] mValues;
-    private int mSize;
 }

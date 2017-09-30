@@ -125,10 +125,10 @@ public interface InputType {
     /**
      * Flag for {@link #TYPE_CLASS_TEXT}: the user is entering free-form
      * text that should have auto-correction applied to it. Without this flag,
-     * the IME will not try to correct typos. You should always set this flag
+     * the IME will not try to correct typos 打字错误 . You should always set this flag
      * unless you really expect users to type non-words in this field, for
      * example to choose a name for a character in a game.
-     * Contrast this with {@link #TYPE_TEXT_FLAG_AUTO_COMPLETE} and
+     * Contrast 对比 this with {@link #TYPE_TEXT_FLAG_AUTO_COMPLETE} and
      * {@link #TYPE_TEXT_FLAG_NO_SUGGESTIONS}:
      * {@code TYPE_TEXT_FLAG_AUTO_CORRECT} means that the IME will try to
      * auto-correct typos as the user is typing, but does not define whether
@@ -162,6 +162,7 @@ public interface InputType {
      * display an enter key when this flag is not set, as there should be no
      * need to create new lines.
      */
+    //// TODO: 2017/9/25  
     public static final int TYPE_TEXT_FLAG_MULTI_LINE = 0x00020000;
     
     /**
@@ -214,8 +215,8 @@ public interface InputType {
     public static final int TYPE_TEXT_VARIATION_EMAIL_SUBJECT = 0x00000030;
     
     /**
-     * Variation of {@link #TYPE_CLASS_TEXT}: entering a short, possibly informal
-     * message such as an instant message or a text message.
+     * Variation of {@link #TYPE_CLASS_TEXT}: entering a short, possibly informal 非正式的
+     * message such as an instant 立即的 message or a text message.
      */
     public static final int TYPE_TEXT_VARIATION_SHORT_MESSAGE = 0x00000040;
     
@@ -258,8 +259,8 @@ public interface InputType {
     public static final int TYPE_TEXT_VARIATION_FILTER = 0x000000b0;
     
     /**
-     * Variation of {@link #TYPE_CLASS_TEXT}: entering text for phonetic
-     * pronunciation, such as a phonetic name field in contacts. This is mostly
+     * Variation of {@link #TYPE_CLASS_TEXT}: entering text for phonetic 语音的
+     * pronunciation 发音 , such as a phonetic name field in contacts. This is mostly
      * useful for languages where one spelling may have several phonetic
      * readings, like Japanese.
      */
@@ -309,8 +310,8 @@ public interface InputType {
     public static final int TYPE_NUMBER_FLAG_SIGNED = 0x00001000;
     
     /**
-     * Flag of {@link #TYPE_CLASS_NUMBER}: the number is decimal, allowing
-     * a decimal point to provide fractional values.
+     * Flag of {@link #TYPE_CLASS_NUMBER}: the number is decimal 小数的 , allowing
+     * a decimal point to provide fractional 小数的 values.
      */
     public static final int TYPE_NUMBER_FLAG_DECIMAL = 0x00002000;
     

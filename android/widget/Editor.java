@@ -130,6 +130,7 @@ import java.util.List;
  * @hide
  */
 public class Editor {
+
     private static final String TAG = "Editor";
     private static final boolean DEBUG_UNDO = false;
 
@@ -4032,6 +4033,7 @@ public class Editor {
 
     @VisibleForTesting
     public abstract class HandleView extends View implements TextViewPositionListener {
+
         protected Drawable mDrawable;
         protected Drawable mDrawableLtr;
         protected Drawable mDrawableRtl;
@@ -4279,7 +4281,7 @@ public class Editor {
         }
 
         /**
-         * Return the clamped horizontal position for the first cursor.
+         * Return the clamped 夹紧 horizontal position for the first cursor.
          *
          * @param layout Text layout.
          * @param offset Character offset for the cursor.
@@ -5035,6 +5037,7 @@ public class Editor {
          * stopping Runnable thread that would otherwise keep a reference on the context, thus
          * preventing the activity from being recycled.
          */
+        //// TODO: 2017/9/28
         public void onDetached();
 
         public boolean isCursorBeingModified();
@@ -5043,6 +5046,7 @@ public class Editor {
     }
 
     private class InsertionPointCursorController implements CursorController {
+
         private InsertionHandleView mHandle;
 
         public void show() {

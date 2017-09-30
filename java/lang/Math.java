@@ -225,7 +225,8 @@ public final class Math {
     }
 
     /**
-     * Returns Euler's number <i>e</i> raised to the power of a
+     * <p>e^a</p>
+     * Returns Euler's number 欧拉 <i>e</i> raised to the power of a
      * {@code double} value.  Special cases:
      * <ul><li>If the argument is NaN, the result is NaN.
      * <li>If the argument is positive infinity, then the result is
@@ -234,16 +235,16 @@ public final class Math {
      * positive zero.</ul>
      *
      * <p>The computed result must be within 1 ulp of the exact result.
-     * Results must be semi-monotonic.
+     * Results must be semi-monotonic 半单调的 .
      *
-     * @param   a   the exponent to raise <i>e</i> to.
+     * @param   a   the exponent 指数 to raise <i>e</i> to.
      * @return  the value <i>e</i><sup>{@code a}</sup>,
      *          where <i>e</i> is the base of the natural logarithms.
      */
     public static native double exp(double a);
 
     /**
-     * Returns the natural logarithm (base <i>e</i>) of a {@code double}
+     * Returns the natural logarithm 对数 (base <i>e</i>) of a {@code double}
      * value.  Special cases:
      * <ul><li>If the argument is NaN or less than zero, then the result
      * is NaN.
@@ -1540,6 +1541,7 @@ public final class Math {
     public static native double tanh(double x);
 
     /**
+     * <p>sqrt(x^2 +y^2)</p>
      * Returns sqrt(<i>x</i><sup>2</sup>&nbsp;+<i>y</i><sup>2</sup>)
      * without intermediate overflow or underflow.
      *
@@ -1556,7 +1558,7 @@ public final class Math {
      *
      * <p>The computed result must be within 1 ulp of the exact
      * result.  If one parameter is held constant, the results must be
-     * semi-monotonic in the other parameter.
+     * semi-monotonic 半单调的 in the other parameter.
      *
      * @param x a value
      * @param y a value

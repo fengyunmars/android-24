@@ -22,9 +22,14 @@ import android.text.ParcelableSpan;
 import android.text.TextUtils;
 
 public interface AlignmentSpan extends ParagraphStyle {
+
     Layout.Alignment getAlignment();
 
+
     class Standard implements AlignmentSpan, ParcelableSpan {
+
+        private final Layout.Alignment mAlignment;
+
         public Standard(Layout.Alignment align) {
             mAlignment = align;
         }
@@ -32,16 +37,18 @@ public interface AlignmentSpan extends ParagraphStyle {
         public Standard(Parcel src) {
             mAlignment = Layout.Alignment.valueOf(src.readString());
         }
-        
-        public int getSpanTypeId() {
-        return getSpanTypeIdInternal();
-    }
 
-    /** @hide */
-    public int getSpanTypeIdInternal() {
+        public int getSpanTypeId() {
+            return getSpanTypeIdInternal();
+        }
+
+        /**
+         * @hide
+         */
+        public int getSpanTypeIdInternal() {
             return TextUtils.ALIGNMENT_SPAN;
         }
-        
+
         public int describeContents() {
             return 0;
         }
@@ -50,7 +57,9 @@ public interface AlignmentSpan extends ParagraphStyle {
             writeToParcelInternal(dest, flags);
         }
 
-        /** @hide */
+        /**
+         * @hide
+         */
         public void writeToParcelInternal(Parcel dest, int flags) {
             dest.writeString(mAlignment.name());
         }
@@ -59,6 +68,5 @@ public interface AlignmentSpan extends ParagraphStyle {
             return mAlignment;
         }
 
-        private final Layout.Alignment mAlignment;
     }
 }

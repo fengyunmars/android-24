@@ -1105,7 +1105,7 @@ public class TextUtils {
          */
         END_SMALL
     }
-
+    // Ellipsize  省略
     public interface EllipsizeCallback {
         /**
          * This method is called to report that the specified region of

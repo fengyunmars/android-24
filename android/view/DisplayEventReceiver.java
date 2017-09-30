@@ -45,10 +45,7 @@ public abstract class DisplayEventReceiver {
     // GC'd while the native peer of the receiver is using them.
     private MessageQueue mMessageQueue;
 
-    private static native long nativeInit(WeakReference<DisplayEventReceiver> receiver,
-            MessageQueue messageQueue);
-    private static native void nativeDispose(long receiverPtr);
-    private static native void nativeScheduleVsync(long receiverPtr);
+
 
     /**
      * Creates a display event receiver.
@@ -147,4 +144,9 @@ public abstract class DisplayEventReceiver {
     private void dispatchHotplug(long timestampNanos, int builtInDisplayId, boolean connected) {
         onHotplug(timestampNanos, builtInDisplayId, connected);
     }
+
+    private static native long nativeInit(WeakReference<DisplayEventReceiver> receiver,
+                                          MessageQueue messageQueue);
+    private static native void nativeDispose(long receiverPtr);
+    private static native void nativeScheduleVsync(long receiverPtr);
 }

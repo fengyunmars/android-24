@@ -83,7 +83,7 @@ public abstract class Layout {
     }
 
     /**
-     * Value for hyphenation frequency indicating no automatic hyphenation. Useful
+     * Value for hyphenation 连字符 frequency 频率 indicating no automatic hyphenation. Useful
      * for backward compatibility, and for cases where the automatic hyphenation algorithm results
      * in incorrect hyphenation. Mid-word breaks may still happen when a word is wider than the
      * layout and there is otherwise no valid break. Soft hyphens are ignored and will not be used
@@ -210,7 +210,8 @@ public abstract class Layout {
     /**
      * Replace constructor properties of this Layout with new ones.  Be careful.
      */
-    /* package */ void replaceWith(CharSequence text, TextPaint paint,
+    /* package */
+    void replaceWith(CharSequence text, TextPaint paint,
                                    int width, Alignment align,
                                    float spacingmult, float spacingadd) {
         if (width < 0) {
@@ -540,6 +541,7 @@ public abstract class Layout {
             if (dir == DIR_LEFT_TO_RIGHT) {
                 x = left + getIndentAdjust(line, Alignment.ALIGN_LEFT);
             } else {
+                //// TODO: 2017/9/29  not minus - ? 
                 x = right + getIndentAdjust(line, Alignment.ALIGN_RIGHT);
             }
         } else {
@@ -711,10 +713,10 @@ public abstract class Layout {
 
     /**
      * Returns the directional run information for the specified line.
-     * The array alternates counts of characters in left-to-right
+     * The array alternates 交替 counts of characters in left-to-right
      * and right-to-left segments of the line.
      * <p>
-     * <p>NOTE: this is inadequate to support bidirectional text, and will change.
+     * <p>NOTE: this is inadequate 不充分的 to support bidirectional text, and will change.
      */
     public abstract Directions getLineDirections(int line);
 
@@ -787,6 +789,7 @@ public abstract class Layout {
      * @param offset the offset
      * @return true if the character is RTL, false if it is LTR
      */
+    //// TODO: 2017/9/28  
     public boolean isRtlCharAt(int offset) {
         int line = getLineForOffset(offset);
         Directions dirs = getLineDirections(line);
@@ -835,7 +838,7 @@ public abstract class Layout {
         // Should happen only if the offset is "out of bounds"
         return TextUtils.packRangeInLong(0, getLineEnd(line));
     }
-
+    //// TODO: 2017/9/28  
     private boolean primaryIsTrailingPrevious(int offset) {
         int line = getLineForOffset(offset);
         int lineStart = getLineStart(line);
@@ -1085,7 +1088,7 @@ public abstract class Layout {
     }
 
     /**
-     * Returns the signed horizontal extent of the specified line, excluding
+     * Returns the signed horizontal extent 范围 of the specified line, excluding
      * leading margin.  If full is false, excludes trailing whitespace.
      *
      * @param line     the index of the line
@@ -1274,6 +1277,7 @@ public abstract class Layout {
     private int getLineVisibleEnd(int line, int start, int end) {
         CharSequence text = mText;
         char ch;
+        //// TODO: 2017/9/29  why not >= ?
         if (line == getLineCount() - 1) {
             return end;
         }
@@ -1807,7 +1811,7 @@ public abstract class Layout {
             }
             return nextDefaultStop(h, mIncrement);
         }
-
+        //// TODO: 2017/9/28  
         public static float nextDefaultStop(float h, int inc) {
             return ((int) ((h + inc) / inc)) * inc;
         }
@@ -1867,10 +1871,10 @@ public abstract class Layout {
      * is returned instead.
      * <p>
      * This is needed because of the special case that <code>getSpans()</code>
-     * on an empty range returns the spans adjacent to that range, which is
+     * on an empty range returns the spans adjacent 邻近的 to that range, which is
      * primarily for the sake of <code>TextWatchers</code> so they will get
      * notifications when text goes from empty to non-empty.  But it also
-     * has the unfortunate side effect that if the text ends with an empty
+     * has the unfortunate 不成功的 side effect that if the text ends with an empty
      * paragraph, that paragraph accidentally picks up the styles of the
      * preceding paragraph (even though those styles will not be picked up
      * by new text that is inserted into the empty paragraph).
@@ -1885,6 +1889,7 @@ public abstract class Layout {
      * is inserted into it.
      */
     /* package */
+    //// TODO: 2017/9/28  
     static <T> T[] getParagraphSpans(Spanned text, int start, int end, Class<T> type) {
         if (start == end && start > 0) {
             return ArrayUtils.emptyArray(type);

@@ -146,6 +146,7 @@ public class TableLayout extends LinearLayout {
      */
     private static SparseBooleanArray parseColumns(String sequence) {
         SparseBooleanArray columns = new SparseBooleanArray();
+        //// TODO: 2017/9/30  
         Pattern pattern = Pattern.compile("\\s*,\\s*");
         String[] columnDefs = pattern.split(sequence);
 
@@ -187,7 +188,7 @@ public class TableLayout extends LinearLayout {
 
         mPassThroughListener = new PassThroughHierarchyChangeListener();
         // make sure to call the parent class method to avoid potential
-        // infinite loops
+        // infinite 无限 loops
         super.setOnHierarchyChangeListener(mPassThroughListener);
 
         mInitialized = true;
@@ -273,7 +274,7 @@ public class TableLayout extends LinearLayout {
 
     /**
      * <p>Collapses or restores a given column. When collapsed, a column
-     * does not appear on screen and the extra space is reclaimed by the
+     * does not appear on screen and the extra space is reclaimed 回收利用 by the
      * other columns. A column is collapsed/restored only when it belongs to
      * a {@link android.widget.TableRow}.</p>
      *
@@ -338,7 +339,7 @@ public class TableLayout extends LinearLayout {
 
     /**
      * <p>Makes the given column shrinkable or not. When a row is too wide, the
-     * table can reclaim extra space from shrinkable columns.</p>
+     * table can reclaim 要求归还 收回 extra space from shrinkable columns.</p>
      *
      * <p>Calling this method requests a layout operation.</p>
      *
@@ -564,7 +565,7 @@ public class TableLayout extends LinearLayout {
         int size = MeasureSpec.getSize(widthMeasureSpec) - mPaddingLeft - mPaddingRight;
 
         if ((totalWidth > size) && (mShrinkAllColumns || mShrinkableColumns.size() > 0)) {
-            // oops, the largest columns are wider than the row itself
+            // oops 哎哟（表示惊讶，狼狈时所发的喊声）, the largest columns are wider than the row itself
             // fairly redistribute the row's width among the columns
             mutateColumnsWidth(mShrinkableColumns, mShrinkAllColumns, size, totalWidth);
         } else if ((totalWidth < size) && (mStretchAllColumns || mStretchableColumns.size() > 0)) {
@@ -597,7 +598,7 @@ public class TableLayout extends LinearLayout {
             for (int i = 0; i < count; i++) {
                 int column = columns.keyAt(i);
                 if (columns.valueAt(i)) {
-                    if (column < length) {
+                    if (column < length) {    // length = maxWidths.length
                         maxWidths[column] += extraSpace;
                     } else {
                         skipped++;
@@ -614,11 +615,31 @@ public class TableLayout extends LinearLayout {
         }
 
         if (skipped > 0 && skipped < count) {
-            // reclaim any extra space we left to columns that don't exist
-            extraSpace = skipped * extraSpace / (count - skipped);
+            // reclaim 要求归还 any extra space we left to columns that don't exist
+            // src extraSpace = totalExtraSpace / count
+            extraSpace = skipped * extraSpace / (count - skipped); //  extraSpaceBefore * skipped / count -skipped
             for (int i = 0; i < count; i++) {
                 int column = columns.keyAt(i);
                 if (columns.valueAt(i) && column < length) {
+                    //// TODO: 2017/9/30
+                    // maxWidths[column] < extraSpce --------->   maxWidth[column]before + extraSpacebefore < extraSpace
+                    // -----------> maxwidth[column]before < extraSpace - extraSpacebefore let' < 0
+                    // extraSpace < extraSpaceBefore
+                    // if extraSpaceBefore < 0 means abs(extraSpace) > ads(extraSpaceBefore)     skipped / count -skipped > 1 skipped > count / 2
+                    // if extraSpace > 0 means abs(extraSpace) < adb(extraSpaceBefore)           skipped / count -skipped < 1 skipped < count / 2
+                    // extraSpaceBefore < 0 means  (size - totalWidth) / count < 0  mean size < totalWidth  fail
+                    // maxWidth[column]before + extraSpaceBefore < extraSpace means
+                    // maxWidth[column]before + extraSpaceBefore < skipped * extraSpaceBefore / (count - skipped)
+                    // if extraSpaceBefore > 0   size > totalWidth  means
+                    // maxWidth[column]before / extraSpaceBefore + 1 < skipped / count -skipped
+                    // maxWidth[column]before / extraSpaceBefore < (skipped / count -skipped ) - 1 < 0
+                    // skipped / count -skipped < 1 skipped < count -skipped skipped < count / 2 the same
+                    // if(....) means if(maxWidth[column]before < 0) means if(skipped > count / 2 && size < totalWidth || skipped < count / 2 && size > totalWidth)
+                    // size < totalWidth need Shrink while at this time skipped > count / 2 means mShrinkalbeColumus has more count / 2 which is index > maxWidths.length
+                    // size > totalWidth need Stretch while at this time skipped < count / 2 means mStretchableColumns has less count /2 which is index > maxWidths.length
+                    // if  mShrinkalbeColumus more count / 2 which is index > maxWidths.length  need maxWidths[column] = 0 while (columns.valueAt(i) && column < length) 
+                    // if  mStretchableColumns less count / 2 which is index > maxWidths.length
+                    //
                     if (extraSpace > maxWidths[column]) {
                         maxWidths[column] = 0;
                     } else {
@@ -747,8 +768,8 @@ public class TableLayout extends LinearLayout {
      * to another listener. This allows the table layout to set its own internal
      * hierarchy change listener without preventing the user to setup his.</p>
      */
-    private class PassThroughHierarchyChangeListener implements
-            OnHierarchyChangeListener {
+    private class PassThroughHierarchyChangeListener implements OnHierarchyChangeListener {
+
         private OnHierarchyChangeListener mOnHierarchyChangeListener;
 
         /**

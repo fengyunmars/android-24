@@ -17,7 +17,7 @@
 package android.text.style;
 
 /**
- * Represents a single tab stop on a line.
+ * Represents 标志着 a single tab stop on a line.
  */
 public interface TabStopSpan extends ParagraphStyle {
     /**
@@ -31,6 +31,9 @@ public interface TabStopSpan extends ParagraphStyle {
      * The default implementation of TabStopSpan.
      */
     public static class Standard implements TabStopSpan {
+
+        private int mTab;
+
         /**
          * Constructor.
          *
@@ -44,7 +47,5 @@ public interface TabStopSpan extends ParagraphStyle {
         public int getTabStop() {
             return mTab;
         }
-
-        private int mTab;
     }
 }

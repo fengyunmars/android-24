@@ -31,7 +31,7 @@ import java.io.PrintWriter;
 /**
  * Coordinates 协调 the timing of animations, input and drawing.
  * <p>
- * The choreographer receives timing pulses (such as vertical 垂直的 synchronization 同步 )
+ * The choreographer receives timing pulses 定时脉冲 (such as vertical 垂直的 synchronization 同步 )
  * from the display subsystem then schedules work to occur as part of rendering
  * the next display frame.
  * </p><p>
@@ -71,20 +71,21 @@ import java.io.PrintWriter;
  * </p>
  */
 public final class Choreographer {
+
     private static final String TAG = "Choreographer";
 
-    // Prints debug messages about jank which was detected (low volume).
+    // Prints debug messages about jank which was detected (low volume 小批量 ).
     private static final boolean DEBUG_JANK = false;
 
     // Prints debug messages about every frame and callback registered (high volume).
     private static final boolean DEBUG_FRAMES = false;
 
     // The default amount of time in ms between animation frames.
-    // When vsync is not enabled, we want to have some idea of how long we should
+    // When vsync 垂直同步（Vertical Sync） is not enabled, we want to have some idea of how long we should
     // wait before posting the next animation message.  It is important that the
     // default value be less than the true inter-frame delay on all devices to avoid
     // situations where we might skip frames by waiting too long (we must compensate  补偿
-    // for jitter 抖动 and hardware variations) 变异 .  Regardless of this value, the animation
+    // for jitter 抖动 and hardware variations 变异 .  Regardless of this value, the animation
     // and display loop is ultimately 最终 rate-limited by how fast new graphics buffers can
     // be dequeued 列中移除 .
     private static final long DEFAULT_FRAME_DELAY = 10;
@@ -124,7 +125,9 @@ public final class Choreographer {
 
     // All frame callbacks posted by applications have this token.
     private static final Object FRAME_CALLBACK_TOKEN = new Object() {
-        public String toString() { return "FRAME_CALLBACK_TOKEN"; }
+        public String toString() {
+            return "FRAME_CALLBACK_TOKEN";
+        }
     };
 
     private final Object mLock = new Object();
@@ -193,7 +196,7 @@ public final class Choreographer {
      * during this callback may be updated to reflect delays that occurred while
      * traversals were in progress in case heavy layout operations caused some frames
      * to be skipped.  The frame time reported during this callback provides a better
-     * estimate of the start time of the frame in which animations (and other updates
+     * estimate 估量 of the start time of the frame in which animations (and other updates
      * to the view hierarchy state) actually took effect.
      * @hide
      */
@@ -254,7 +257,7 @@ public final class Choreographer {
      * run off of a single timing loop.
      * </p><p>
      * The frame delay may be ignored when the animation system uses an external timing
-     * source, such as the display refresh rate (vsync), to govern animations.
+     * source, such as the display refresh rate (vsync), to govern 管理 animations.
      * </p>
      *
      * @return the requested time between frames, in milliseconds
@@ -286,16 +289,16 @@ public final class Choreographer {
     /**
      * Subtracts typical frame delay time from a delay interval in milliseconds.
      * <p>
-     * This method can be used to compensate for animation delay times that have baked
-     * in assumptions about the frame delay.  For example, it's quite common for code to
+     * This method can be used to compensate 补偿 for animation delay times that have baked
+     * in assumptions 设想 about the frame delay.  For example, it's quite common for code to
      * assume a 60Hz frame time and bake in a 16ms delay.  When we call
      * {@link #postAnimationCallbackDelayed} we want to know how long to wait before
      * posting the animation callback but let the animation timer take care of the remaining
      * frame delay time.
      * </p><p>
-     * This method is somewhat conservative about how much of the frame delay it
+     * This method is somewhat conservative 保守的 about how much of the frame delay it
      * subtracts.  It uses the same value returned by {@link #getFrameDelay} which by
-     * default is 10ms even though many parts of the system assume 16ms.  Consequently,
+     * default is 10ms even though many parts of the system assume 16ms.  Consequently 因此 ,
      * we might still wait 6ms before posting an animation callback that we want to run
      * on the next frame, but this is much better than waiting a whole 16ms and likely
      * missing the deadline.
@@ -320,11 +323,14 @@ public final class Choreographer {
 
     void dump(String prefix, PrintWriter writer) {
         String innerPrefix = prefix + "  ";
-        writer.print(prefix); writer.println("Choreographer:");
-        writer.print(innerPrefix); writer.print("mFrameScheduled=");
-                writer.println(mFrameScheduled);
-        writer.print(innerPrefix); writer.print("mLastFrameTime=");
-                writer.println(TimeUtils.formatUptime(mLastFrameTimeNanos / 1000000));
+        writer.print(prefix);
+        writer.println("Choreographer:");
+        writer.print(innerPrefix);
+        writer.print("mFrameScheduled=");
+        writer.println(mFrameScheduled);
+        writer.print(innerPrefix);
+        writer.print("mLastFrameTime=");
+        writer.println(TimeUtils.formatUptime(mLastFrameTimeNanos / 1000000));
     }
 
     /**
@@ -423,6 +429,7 @@ public final class Choreographer {
 
         synchronized (mLock) {
             mCallbackQueues[callbackType].removeCallbacksLocked(action, token);
+            //// TODO: 2017/9/28
             if (action != null && token == null) {
                 mHandler.removeMessages(MSG_DO_SCHEDULE_CALLBACK, action);
             }
@@ -527,7 +534,8 @@ public final class Choreographer {
             return USE_FRAME_TIME ? mLastFrameTimeNanos : System.nanoTime();
         }
     }
-
+    // called by doScheduleCallback()
+    // called by postCallback()
     private void scheduleFrameLocked(long now) {
         if (!mFrameScheduled) {
             mFrameScheduled = true;
@@ -559,6 +567,8 @@ public final class Choreographer {
         }
     }
 
+    // called by handleMessage(Message msg) in FrameHandler
+    // called by run() in FrameDisplayEventReceiver
     void doFrame(long frameTimeNanos, int frame) {
         final long startNanos;
         synchronized (mLock) {
@@ -635,7 +645,7 @@ public final class Choreographer {
         CallbackRecord callbacks;
         synchronized (mLock) {
             // We use "now" to determine when callbacks become due because it's possible
-            // for earlier processing phases in a frame to post callbacks that should run
+            // for earlier processing phases 阶段 in a frame to post callbacks that should run
             // in a following phase, such as an input event that causes an animation to start.
             final long now = System.nanoTime();
             callbacks = mCallbackQueues[callbackType].extractDueCallbacksLocked(
@@ -695,6 +705,7 @@ public final class Choreographer {
         }
     }
 
+    //only called by handleMessage(Message msg) in FrameHandler
     void doScheduleVsync() {
         synchronized (mLock) {
             if (mFrameScheduled) {
@@ -703,6 +714,7 @@ public final class Choreographer {
         }
     }
 
+    //only called by handleMessage(Message msg) in FrameHandler
     void doScheduleCallback(int callbackType) {
         synchronized (mLock) {
             if (!mFrameScheduled) {
@@ -714,6 +726,9 @@ public final class Choreographer {
         }
     }
 
+    // called by scheduleFrameLocked()
+    // called by doFrame(long frameTimeNanos, int frame)
+    // called by doScheduleVsync()
     private void scheduleVsyncLocked() {
         mDisplayEventReceiver.scheduleVsync();
     }
@@ -756,7 +771,7 @@ public final class Choreographer {
          * The frame time provides a stable time base for synchronizing animations
          * and drawing.  It should be used instead of {@link SystemClock#uptimeMillis()}
          * or {@link System#nanoTime()} for animations and drawing in the UI.  Using the frame
-         * time helps to reduce inter-frame jitter because the frame time is fixed at the time
+         * time helps to reduce inter-frame jitter 抖动 because the frame time is fixed at the time
          * the frame was scheduled to start, regardless of when the animations or drawing
          * callback actually runs.  All callbacks that run as part of rendering a frame will
          * observe the same frame time so using the frame time also helps to synchronize effects
@@ -795,8 +810,7 @@ public final class Choreographer {
         }
     }
 
-    private final class FrameDisplayEventReceiver extends DisplayEventReceiver
-            implements Runnable {
+    private final class FrameDisplayEventReceiver extends DisplayEventReceiver implements Runnable {
         private boolean mHavePendingVsync;
         private long mTimestampNanos;
         private int mFrame;

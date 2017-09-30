@@ -35,6 +35,7 @@ import android.view.WindowManager.LayoutParams;
  *  {@hide} 
  */
 public class CompatibilityInfo implements Parcelable {
+
     /** default compatibility info object for compatible applications */
     public static final CompatibilityInfo DEFAULT_COMPATIBILITY_INFO = new CompatibilityInfo() {
     };
@@ -325,7 +326,7 @@ public class CompatibilityInfo implements Parcelable {
             if (applicationScale == 1.5f) {
                 /*  When we scale for compatibility, we can put our stretched
                     bitmaps and ninepatches on exacty 1/2 pixel boundaries,
-                    which can give us inconsistent drawing due to imperfect
+                    which can give us inconsistent drawing due to imperfect 未完成体
                     float precision in the graphics engine's inverse matrix.
                  
                     As a work-around, we translate by a tiny amount to avoid
@@ -397,7 +398,8 @@ public class CompatibilityInfo implements Parcelable {
          * the internal buffer for content insets to avoid extra object allocation.
          */
         public Rect getTranslatedContentInsets(Rect contentInsets) {
-            if (mContentInsetsBuffer == null) mContentInsetsBuffer = new Rect();
+            if (mContentInsetsBuffer == null)
+                mContentInsetsBuffer = new Rect();
             mContentInsetsBuffer.set(contentInsets);
             translateRectInAppWindowToScreen(mContentInsetsBuffer);
             return mContentInsetsBuffer;

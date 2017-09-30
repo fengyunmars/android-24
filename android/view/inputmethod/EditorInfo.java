@@ -79,7 +79,7 @@ public class EditorInfo implements InputType, Parcelable {
     /**
      * Bits of {@link #IME_MASK_ACTION}: the action key performs a "send"
      * operation, delivering the text to its target.  This is typically used
-     * when composing a message in IM or SMS where sending is immediate.
+     * when composing a message in IM 即时通讯(Instant Messaging) or SMS 短讯服务（Short Messaging Service） where sending is immediate 立即的 .
      */
     public static final int IME_ACTION_SEND = 0x00000004;
 
@@ -99,7 +99,7 @@ public class EditorInfo implements InputType, Parcelable {
     /**
      * Bits of {@link #IME_MASK_ACTION}: like {@link #IME_ACTION_NEXT}, but
      * for moving to the previous field.  This will normally not be used to
-     * specify an action (since it precludes {@link #IME_ACTION_NEXT}), but
+     * specify an action (since it precludes 阻止 {@link #IME_ACTION_NEXT}), but
      * can be returned to the app if it sets {@link #IME_FLAG_NAVIGATE_PREVIOUS}.
      */
     public static final int IME_ACTION_PREVIOUS = 0x00000007;
@@ -109,8 +109,8 @@ public class EditorInfo implements InputType, Parcelable {
      * into fullscreen mode.
      * By default, IMEs may go into full screen mode when they think
      * it's appropriate, for example on small screens in landscape
-     * orientation where displaying a software keyboard may occlude
-     * such a large portion of the screen that the remaining part is
+     * orientation where displaying a software keyboard may occlude 挡住
+     * such a large portion 部分 of the screen that the remaining part is
      * too small to meaningfully display the application UI.
      * If this flag is set, compliant IMEs will never go into full screen mode,
      * and always leave some space to display the application UI.
@@ -145,7 +145,7 @@ public class EditorInfo implements InputType, Parcelable {
 
     /**
      * Flag of {@link #imeOptions}: used to specify that the IME does not need
-     * to show its extracted text UI.  For input methods that may be fullscreen,
+     * to show its extracted 提取 text UI.  For input methods that may be fullscreen,
      * often when in landscape mode, this allows them to be smaller and let part
      * of the application be shown behind, through transparent UI parts in the
      * fullscreen IME. The part of the UI visible to the user may not be responsive
@@ -160,7 +160,7 @@ public class EditorInfo implements InputType, Parcelable {
     /**
      * Flag of {@link #imeOptions}: used in conjunction with one of the actions
      * masked by {@link #IME_MASK_ACTION}, this indicates that the action
-     * should not be available as an accessory button on the right of the extracted
+     * should not be available as an accessory 附属的 button on the right of the extracted
      * text when the input method is full-screen. Note that by setting this flag,
      * there can be cases where the action is simply never available to the
      * user. Setting this generally means that you think that in fullscreen mode,
@@ -176,7 +176,7 @@ public class EditorInfo implements InputType, Parcelable {
      * normally replace the "enter" key with the action supplied. This flag
      * indicates that the action should not be available in-line as a replacement
      * for the "enter" key. Typically this is because the action has such a
-     * significant impact or is not recoverable enough that accidentally hitting
+     * significant 象征 impact 影响 or is not recoverable 可恢复的 enough that accidentally 意外地 hitting
      * it should be avoided, such as sending a message. Note that
      * {@link android.widget.TextView} will automatically set this flag for you
      * on multi-line text views.
@@ -186,7 +186,7 @@ public class EditorInfo implements InputType, Parcelable {
     /**
      * Flag of {@link #imeOptions}: used to request an IME that is capable of
      * inputting ASCII characters.  The intention of this flag is to ensure that
-     * the user can type Roman alphabet characters in a {@link android.widget.TextView}.
+     * the user can type Roman alphabet 字母表 characters in a {@link android.widget.TextView}.
      * It is typically used for an account ID or password input. A lot of the time,
      * IMEs are already able to input ASCII even without being told so (such IMEs
      * already respect this flag in a sense), but there are cases when this is not
@@ -207,7 +207,7 @@ public class EditorInfo implements InputType, Parcelable {
 
     /**
      * Extended type information for the editor, to help the IME better
-     * integrate with it.
+     * integrate 整合的 with it.
      */
     public int imeOptions = IME_NULL;
 
@@ -229,7 +229,7 @@ public class EditorInfo implements InputType, Parcelable {
      * a command the user can perform, which you can specify here. This is
      * typically used as the label for the action to use in-line as a replacement
      * for the "enter" key (see {@link #actionId}). Remember the key where
-     * this will be displayed is typically very small, and there are significant
+     * this will be displayed is typically very small, and there are significant 值得注意的
      * localization challenges to make this fit in all supported languages. Also
      * you can not count absolutely on this being used, as some IMEs may
      * ignore this.
@@ -258,6 +258,7 @@ public class EditorInfo implements InputType, Parcelable {
      * {@link InputMethodManager#updateSelection(android.view.View, int, int, int, int)}
      * before.</p>
      */
+    //// TODO: 2017/9/26  
     public int initialSelStart = -1;
 
     /**
@@ -348,7 +349,7 @@ public class EditorInfo implements InputType, Parcelable {
      *
      * <p>{@code null} means that no special language "hint" is needed.</p>
      *
-     * <p><strong>Editor authors:</strong> Specify this only when you are confident that the user
+     * <p><strong>Editor authors:</strong> Specify this only when you are confident 自信的 that the user
      * will switch to certain languages in this context no matter what input method subtype is
      * currently selected.  Otherwise, keep this {@code null}.  Explicit user actions and/or
      * preferences would be good signals to specify this special "hint",  For example, a chat

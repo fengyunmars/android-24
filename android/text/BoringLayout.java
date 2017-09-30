@@ -35,6 +35,7 @@ import android.text.style.ParagraphStyle;
  *  Canvas.drawText()} directly.</p>
  */
 public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback {
+
     public static BoringLayout make(CharSequence source,
                         TextPaint paint, int outerwidth,
                         Alignment align,
@@ -165,7 +166,8 @@ public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback 
              metrics, includepad, trust);
     }
 
-    /* package */ void init(CharSequence source,
+    /* package */
+    void init(CharSequence source,
                             TextPaint paint, int outerwidth,
                             Alignment align,
                             float spacingmult, float spacingadd,
@@ -195,7 +197,7 @@ public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback 
             mMax = metrics.width;
         } else {
             /*
-             * If we have ellipsized, we have to actually calculate the
+             * If we have ellipsized 省略 , we have to actually calculate the
              * width because the width that was passed in was for the
              * full text, not the ellipsized form.
              */
@@ -270,7 +272,7 @@ public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback 
                         (c >= 0x202A && c <= 0x202E) ||  // Bidi format characters
                         (c >= 0x2066 && c <= 0x2069) ||  // Bidi format characters
                         (c >= 0xD800 && c <= 0xDFFF) ||  // surrogate pairs
-                        (c >= 0xFB1D && c <= 0xFDFF) ||  // Hebrew and Arabic presentation forms
+                        (c >= 0xFB1D && c <= 0xFDFF) ||  // Hebrew 希伯来语的 and Arabic 阿拉伯语 presentation forms
                         (c >= 0xFE70 && c <= 0xFEFE) // Arabic presentation forms
                    ) {
                     boring = false;
@@ -278,7 +280,7 @@ public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback 
                 }
             }
 
-            // TODO: This looks a little suspicious, and in some cases can result in O(n^2)
+            // TODO: This looks a little suspicious 可疑的 , and in some cases can result in O(n^2)
             // run time. Consider moving outside the loop.
             if (textDir != null && textDir.isRtl(buffer, 0, len)) {
                boring = false;
@@ -419,7 +421,8 @@ public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback 
     private String mDirect;
     private Paint mPaint;
 
-    /* package */ int mBottom, mDesc;   // for Direct
+    /* package */
+    int mBottom, mDesc;   // for Direct
     private int mTopPadding, mBottomPadding;
     private float mMax;
     private int mEllipsizedWidth, mEllipsizedStart, mEllipsizedCount;

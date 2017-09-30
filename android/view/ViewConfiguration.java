@@ -727,9 +727,9 @@ public class ViewConfiguration {
     }
 
     /**
-     * The amount of friction applied to scrolls and flings.
+     * The amount of friction 摩擦 applied to scrolls and flings.
      *
-     * @return A scalar dimensionless value representing the coefficient of
+     * @return A scalar  标量 dimensionless value representing the coefficient 系数 of
      *         friction.
      */
     public static float getScrollFriction() {

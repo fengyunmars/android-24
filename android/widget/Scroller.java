@@ -78,7 +78,7 @@ public class Scroller  {
     private int mCurrY;
     private long mStartTime;
     private int mDuration;
-    private float mDurationReciprocal;
+    private float mDurationReciprocal; // 倒数的
     private float mDeltaX;
     private float mDeltaY;
     private boolean mFinished;
@@ -88,14 +88,14 @@ public class Scroller  {
     private float mCurrVelocity;
     private int mDistance;
 
-    private float mFlingFriction = ViewConfiguration.getScrollFriction();
+    private float mFlingFriction = ViewConfiguration.getScrollFriction(); // 摩擦
 
     private static final int DEFAULT_DURATION = 250;
     private static final int SCROLL_MODE = 0;
     private static final int FLING_MODE = 1;
 
-    private static float DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9));
-    private static final float INFLEXION = 0.35f; // Tension lines cross at (INFLEXION, 1)
+    private static float DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9)); //  减速 2.3582017
+    private static final float INFLEXION = 0.35f; // Tension 张力 lines cross at (INFLEXION, 1) // 拐点
     private static final float START_TENSION = 0.5f;
     private static final float END_TENSION = 1.0f;
     private static final float P1 = START_TENSION * INFLEXION;
@@ -108,7 +108,7 @@ public class Scroller  {
     private float mDeceleration;
     private final float mPpi;
 
-    // A context-specific coefficient adjusted to physical values.
+    // A context-specific coefficient 系数 adjusted to physical values.
     private float mPhysicalCoeff;
 
     static {
@@ -123,9 +123,12 @@ public class Scroller  {
                 x = x_min + (x_max - x_min) / 2.0f;
                 coef = 3.0f * x * (1.0f - x);
                 tx = coef * ((1.0f - x) * P1 + x * P2) + x * x * x;
-                if (Math.abs(tx - alpha) < 1E-5) break;
-                if (tx > alpha) x_max = x;
-                else x_min = x;
+                if (Math.abs(tx - alpha) < 1E-5)
+                    break;
+                if (tx > alpha)
+                    x_max = x;
+                else
+                    x_min = x;
             }
             SPLINE_POSITION[i] = coef * ((1.0f - x) * START_TENSION + x) + x * x * x;
 
@@ -153,8 +156,8 @@ public class Scroller  {
 
     /**
      * Create a Scroller with the specified interpolator. If the interpolator is
-     * null, the default (viscous) interpolator will be used. "Flywheel" behavior will
-     * be in effect for apps targeting Honeycomb or newer.
+     * null, the default (viscous 粘性的 ) interpolator will be used. "Flywheel 飞轮 " behavior will
+     * be in effect for apps targeting Honeycomb Android 3.1 or newer.
      */
     public Scroller(Context context, Interpolator interpolator) {
         this(context, interpolator,
@@ -164,7 +167,7 @@ public class Scroller  {
     /**
      * Create a Scroller with the specified interpolator. If the interpolator is
      * null, the default (viscous) interpolator will be used. Specify whether or
-     * not to support progressive "flywheel" behavior in flinging.
+     * not to support progressive 先进的 "flywheel" behavior in flinging.
      */
     public Scroller(Context context, Interpolator interpolator, boolean flywheel) {
         mFinished = true;
@@ -323,7 +326,7 @@ public class Scroller  {
                     velocityCoef = (d_sup - d_inf) / (t_sup - t_inf);
                     distanceCoef = d_inf + (t - t_inf) * velocityCoef;
                 }
-
+                //// TODO: 2017/9/25
                 mCurrVelocity = velocityCoef * mDistance / mDuration * 1000.0f;
                 
                 mCurrX = mStartX + Math.round(distanceCoef * (mFinalX - mStartX));
@@ -433,7 +436,7 @@ public class Scroller  {
             float oldVelocityY = ndy * oldVel;
             if (Math.signum(velocityX) == Math.signum(oldVelocityX) &&
                     Math.signum(velocityY) == Math.signum(oldVelocityY)) {
-                velocityX += oldVelocityX;
+                velocityX += oldVelocityX;  // velocityX is parameter provided
                 velocityY += oldVelocityY;
             }
         }
@@ -488,7 +491,7 @@ public class Scroller  {
     }
 
     /**
-     * Stops the animation. Contrary to {@link #forceFinished(boolean)},
+     * Stops the animation. Contrary 对立的 to {@link #forceFinished(boolean)},
      * aborting the animating cause the scroller to move to the final x and y
      * position
      *
@@ -501,7 +504,7 @@ public class Scroller  {
     }
     
     /**
-     * Extend the scroll animation. This allows a running animation to scroll
+     * Extend the 延长 scroll animation. This allows a running animation to scroll
      * further and longer, when used with {@link #setFinalX(int)} or {@link #setFinalY(int)}.
      *
      * @param extend Additional time to scroll in milliseconds.
@@ -557,18 +560,20 @@ public class Scroller  {
         return !mFinished && Math.signum(xvel) == Math.signum(mFinalX - mStartX) &&
                 Math.signum(yvel) == Math.signum(mFinalY - mStartY);
     }
-
+    /**
+    * 粘性的 液体
+    */
     static class ViscousFluidInterpolator implements Interpolator {
         /** Controls the viscous fluid effect (how much of it). */
         private static final float VISCOUS_FLUID_SCALE = 8.0f;
 
-        private static final float VISCOUS_FLUID_NORMALIZE;
-        private static final float VISCOUS_FLUID_OFFSET;
+        private static final float VISCOUS_FLUID_NORMALIZE; // 1.0005767
+        private static final float VISCOUS_FLUID_OFFSET;    // 5.9604645E-8
 
         static {
 
             // must be set to 1.0 (used in viscousFluid())
-            VISCOUS_FLUID_NORMALIZE = 1.0f / viscousFluid(1.0f);
+            VISCOUS_FLUID_NORMALIZE = 1.0f / viscousFluid(1.0f); // viscousFluid(1.0f) 0.99942356
             // account for very small floating-point error
             VISCOUS_FLUID_OFFSET = 1.0f - VISCOUS_FLUID_NORMALIZE * viscousFluid(1.0f);
         }

@@ -19,8 +19,7 @@ package android.view;
 /** Interface to let you add and remove child views to an Activity. To get an instance
   * of this class, call {@link android.content.Context#getSystemService(java.lang.String) Context.getSystemService()}.
   */
-public interface ViewManager
-{
+public interface ViewManager {
     /**
      * Assign the passed LayoutParams to the passed View and add the view to the window.
      * <p>Throws {@link android.view.WindowManager.BadTokenException} for certain programming

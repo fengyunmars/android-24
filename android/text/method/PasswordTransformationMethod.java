@@ -31,9 +31,11 @@ import android.text.style.UpdateLayout;
 
 import java.lang.ref.WeakReference;
 
-public class PasswordTransformationMethod
-implements TransformationMethod, TextWatcher
-{
+public class PasswordTransformationMethod implements TransformationMethod, TextWatcher{
+
+    private static PasswordTransformationMethod sInstance;
+    private static char DOT = '\u2022';
+
     public CharSequence getTransformation(CharSequence source, View view) {
         if (source instanceof Spannable) {
             Spannable sp = (Spannable) source;
@@ -135,9 +137,8 @@ implements TransformationMethod, TextWatcher
         }
     }
 
-    private static class PasswordCharSequence
-    implements CharSequence, GetChars
-    {
+    private static class PasswordCharSequence implements CharSequence, GetChars{
+
         public PasswordCharSequence(CharSequence source) {
             mSource = source;
         }
@@ -261,6 +262,4 @@ implements TransformationMethod, TextWatcher
         }
     }
 
-    private static PasswordTransformationMethod sInstance;
-    private static char DOT = '\u2022';
 }

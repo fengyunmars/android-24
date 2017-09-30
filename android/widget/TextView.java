@@ -266,7 +266,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     private static final int DECIMAL = 4; // 十进位的
 
     /**
-     * Draw marquee 选取框 text with fading 褪色 edges as usual
+     * Draw marquee 选取框 字幕 text with fading 褪色 edges as usual
      */
     private static final int MARQUEE_FADE_NORMAL = 0;
 
@@ -589,7 +589,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     private float mSpacingAdd = 0.0f;
 
     private int mBreakStrategy;
-    private int mHyphenationFrequency;
+    private int mHyphenationFrequency;  // 连字符  频率
 
     private int mMaximum = Integer.MAX_VALUE;
     private int mMaxMode = LINES;
@@ -635,7 +635,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
     int mCursorDrawableRes;
     // These six fields, could be moved to Editor, since we know their default values and we
     // could condition the creation of the Editor to a non standard value. This is however
-    // brittle since the hardcoded values here (such as
+    // brittle 脆弱的 since the hardcoded values here (such as
     // com.android.internal.R.drawable.text_select_handle_left) would have to be updated if the
     // default style is modified.
     int mTextSelectHandleLeftRes;
@@ -657,7 +657,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
     /**
      * Some special options such as sharing selected text should only be shown if the device
-     * is provisioned. Only check the provisioned state once for a given view instance.
+     * is provisioned 预分配的 . Only check the provisioned state once for a given view instance.
      */
     private int mDeviceProvisionedState = DEVICE_PROVISIONED_UNKNOWN;
 
@@ -4695,11 +4695,11 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
      * We should:
      * - Call setInputType in setKeyListener instead of changing the input type directly (which
      * would install the correct transformation).
-     * - Refuse the installation of a non-password transformation in setTransformation if the input
+     * - Refuse 拒绝 the installation of a non-password transformation in setTransformation if the input
      * type is password.
      *
      * However, this is like this for legacy reasons and we cannot break existing apps. This method
-     * is useful since it matches what the user can see (obfuscated text or not).
+     * is useful since it matches what the user can see (obfuscated 使模糊 text or not).
      *
      * @return true if the current transformation method is of the password type.
      */
@@ -6677,7 +6677,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         mBoring = mHintBoring = null;
 
         // Since it depends on the value of mLayout
-        if (mEditor != null) mEditor.prepareCursorControllers();
+        if (mEditor != null)
+            mEditor.prepareCursorControllers();
     }
 
     /**
@@ -7005,7 +7006,7 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
     /**
      * Set whether the TextView includes extra top and bottom padding to make
-     * room for accents that go above the normal ascent and descent.
+     * room for accents 口音 强调 that go above the normal ascent and descent.
      * The default is true.
      *
      * @see #getIncludeFontPadding()
@@ -8141,7 +8142,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
     // Removes all spans that are inside or actually overlap the start..end range
     private <T> void removeIntersectingNonAdjacentSpans(int start, int end, Class<T> type) {
-        if (!(mText instanceof Editable)) return;
+        if (!(mText instanceof Editable))
+            return;
         Editable text = (Editable) mText;
 
         T[] spans = text.getSpans(start, end, type);
@@ -8149,7 +8151,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         for (int i = 0; i < length; i++) {
             final int spanStart = text.getSpanStart(spans[i]);
             final int spanEnd = text.getSpanEnd(spans[i]);
-            if (spanEnd == start || spanStart == end) break;
+            if (spanEnd == start || spanStart == end)
+                break;
             text.removeSpan(spans[i]);
         }
     }
@@ -8184,7 +8187,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             }
         }
 
-        if (mEditor != null) mEditor.sendOnTextChanged(start, after);
+        if (mEditor != null)
+            mEditor.sendOnTextChanged(start, after);
     }
 
     /**
@@ -8792,14 +8796,14 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
      * Unlike {@link #textCanBeSelected()}, this method is based on the <i>current</i> state of the
      * TextView. {@link #textCanBeSelected()} has to be true (this is one of the conditions to have
      * a selection controller (see {@link Editor#prepareCursorControllers()}), but this is not
-     * sufficient.
+     * sufficient 充分的 .
      */
     boolean canSelectText() {
         return mText.length() != 0 && mEditor != null && mEditor.hasSelectionController();
     }
 
     /**
-     * Test based on the <i>intrinsic</i> charateristics of the TextView.
+     * Test based on the <i>intrinsic 本质的 </i> charateristics of the TextView.
      * The text must be spannable and the movement method must allow for arbitary selection.
      *
      * See also {@link #canSelectText()}.
@@ -8808,7 +8812,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         // prepareCursorController() relies on this method.
         // If you change this condition, make sure prepareCursorController is called anywhere
         // the value of this condition might be changed.
-        if (mMovement == null || !mMovement.canSelectArbitrarily()) return false;
+        if (mMovement == null || !mMovement.canSelectArbitrarily())
+            return false;
         return isTextEditable() ||
                 (isTextSelectable() && mText instanceof Spannable && isEnabled());
     }
@@ -10201,6 +10206,9 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         }
     }
 
+    /**
+    * Marquee 字幕
+    */
     private static final class Marquee {
 
         // TODO: Add an option to configure this
@@ -10297,7 +10305,8 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
         private void resetScroll() {
             mScroll = 0.0f;
             final TextView textView = mView.get();
-            if (textView != null) textView.invalidate();
+            if (textView != null)
+                textView.invalidate();
         }
 
         void start(int repeatLimit) {
@@ -10358,9 +10367,11 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
 
         private CharSequence mBeforeText;
 
+        @Override
         public void beforeTextChanged(CharSequence buffer, int start,
                                       int before, int after) {
-            if (DEBUG_EXTRACT) Log.v(LOG_TAG, "beforeTextChanged start=" + start
+            if (DEBUG_EXTRACT)
+                Log.v(LOG_TAG, "beforeTextChanged start=" + start
                     + " before=" + before + " after=" + after + ": " + buffer);
 
             if (AccessibilityManager.getInstance(mContext).isEnabled()
@@ -10372,8 +10383,10 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             TextView.this.sendBeforeTextChanged(buffer, start, before, after);
         }
 
+        @Override
         public void onTextChanged(CharSequence buffer, int start, int before, int after) {
-            if (DEBUG_EXTRACT) Log.v(LOG_TAG, "onTextChanged start=" + start
+            if (DEBUG_EXTRACT)
+                Log.v(LOG_TAG, "onTextChanged start=" + start
                     + " before=" + before + " after=" + after + ": " + buffer);
             TextView.this.handleTextChanged(buffer, start, before, after);
 
@@ -10384,8 +10397,10 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             }
         }
 
+        @Override
         public void afterTextChanged(Editable buffer) {
-            if (DEBUG_EXTRACT) Log.v(LOG_TAG, "afterTextChanged: " + buffer);
+            if (DEBUG_EXTRACT)
+                Log.v(LOG_TAG, "afterTextChanged: " + buffer);
             TextView.this.sendAfterTextChanged(buffer);
 
             if (MetaKeyKeyListener.getMetaState(buffer, MetaKeyKeyListener.META_SELECTING) != 0) {
@@ -10393,20 +10408,27 @@ public class TextView extends View implements ViewTreeObserver.OnPreDrawListener
             }
         }
 
+
+        @Override
         public void onSpanChanged(Spannable buf, Object what, int s, int e, int st, int en) {
-            if (DEBUG_EXTRACT) Log.v(LOG_TAG, "onSpanChanged s=" + s + " e=" + e
+            if (DEBUG_EXTRACT)
+                Log.v(LOG_TAG, "onSpanChanged s=" + s + " e=" + e
                     + " st=" + st + " en=" + en + " what=" + what + ": " + buf);
             TextView.this.spanChange(buf, what, s, st, e, en);
         }
 
+        @Override
         public void onSpanAdded(Spannable buf, Object what, int s, int e) {
-            if (DEBUG_EXTRACT) Log.v(LOG_TAG, "onSpanAdded s=" + s + " e=" + e
+            if (DEBUG_EXTRACT)
+                Log.v(LOG_TAG, "onSpanAdded s=" + s + " e=" + e
                     + " what=" + what + ": " + buf);
             TextView.this.spanChange(buf, what, -1, s, -1, e);
         }
 
+        @Override
         public void onSpanRemoved(Spannable buf, Object what, int s, int e) {
-            if (DEBUG_EXTRACT) Log.v(LOG_TAG, "onSpanRemoved s=" + s + " e=" + e
+            if (DEBUG_EXTRACT)
+                Log.v(LOG_TAG, "onSpanRemoved s=" + s + " e=" + e
                     + " what=" + what + ": " + buf);
             TextView.this.spanChange(buf, what, s, -1, e, -1);
         }

@@ -22,6 +22,7 @@ import android.content.ContextWrapper;
 import android.content.res.AssetManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.util.Log;
 
 /**
  * A context wrapper that allows you to modify or replace the theme of the
@@ -155,6 +156,10 @@ public class ContextThemeWrapper extends ContextWrapper {
 
         mThemeResource = Resources.selectDefaultTheme(mThemeResource,
                 getApplicationInfo().targetSdkVersion);
+        //// TODO: 2017/9/29 fengyun modified
+        boolean bool = mThemeResource == com.android.internal.R.style.Theme_DeviceDefault_Light_DarkActionBar;
+        Log.d("dingxiaoquan --> getTheme", String.valueOf(bool));
+        //end fengyun
         initializeTheme();
 
         return mTheme;

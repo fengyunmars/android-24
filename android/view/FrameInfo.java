@@ -28,7 +28,7 @@ import java.lang.annotation.RetentionPolicy;
  *
  * All times in nanoseconds from CLOCK_MONOTONIC/System.nanoTime()
  *
- * To minimize overhead from System.nanoTime() calls we infer durations of
+ * To minimize 最小化 overhead 日常开支 from System.nanoTime() calls we infer 推断 durations of
  * things by knowing the ordering of the events. For example, to know how
  * long layout & measure took it's displayListRecordStart - performTraversalsStart.
  *
@@ -53,7 +53,7 @@ final class FrameInfo {
     @Retention(RetentionPolicy.SOURCE)
     public @interface FrameInfoFlags {}
 
-    // The intended vsync time, unadjusted by jitter
+    // The intended 预期的 vsync time, unadjusted 未调整的 by jitter 抖动
     private static final int INTENDED_VSYNC = 1;
 
     // Jitter-adjusted vsync time, this is what was used as input into the

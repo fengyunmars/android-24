@@ -206,7 +206,7 @@ class TextLine {
 
         float h = 0;
         int[] runs = mDirections.mDirections;
-
+        //// TODO: 2017/9/25  
         int lastRunIndex = runs.length - 2;
         for (int i = 0; i < runs.length; i += 2) {
             int runStart = runs[i];
@@ -929,7 +929,7 @@ class TextLine {
                     span.updateDrawState(wp);
                 }
 
-                // Only draw hyphen on last run in line
+                // Only draw hyphen 连字号 on last run in line
                 if (jnext < mLen) {
                     wp.setHyphenEdit(0);
                 }
