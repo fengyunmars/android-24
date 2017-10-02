@@ -637,7 +637,7 @@ public class TableLayout extends LinearLayout {
                     // if(....) means if(maxWidth[column]before < 0) means if(skipped > count / 2 && size < totalWidth || skipped < count / 2 && size > totalWidth)
                     // size < totalWidth need Shrink while at this time skipped > count / 2 means mShrinkalbeColumus has more count / 2 which is index > maxWidths.length
                     // size > totalWidth need Stretch while at this time skipped < count / 2 means mStretchableColumns has less count /2 which is index > maxWidths.length
-                    // if  mShrinkalbeColumus more count / 2 which is index > maxWidths.length  need maxWidths[column] = 0 while (columns.valueAt(i) && column < length) 
+                    // if  mShrinkalbeColumus more count / 2 which is index > maxWidths.length  todo maxWidths[column] = 0 while (columns.valueAt(i) && column < length)
                     // if  mStretchableColumns less count / 2 which is index > maxWidths.length
                     //
                     if (extraSpace > maxWidths[column]) {
