@@ -91,6 +91,23 @@ public final class Space extends View {
         return result;
     }
 
+    /*public static int getDefaultSize(int size, int measureSpec) {
+        int result = size;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+
+        switch (specMode) {
+            case MeasureSpec.UNSPECIFIED:
+                result = size;
+                break;
+            case MeasureSpec.AT_MOST:
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+        }
+        return result;
+    }*/
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(

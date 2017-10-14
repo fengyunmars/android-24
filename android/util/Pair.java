@@ -19,7 +19,7 @@ package android.util;
 import java.util.Objects;
 
 /**
- * Container to ease passing around a tuple of two objects. This object provides a sensible
+ * Container to ease passing around a tuple 元组 of two objects. This object provides a sensible 通情达理的 合乎情理的
  * implementation of equals(), returning true if equals() is true on each of the contained
  * objects.
  */

@@ -21,6 +21,7 @@ package android.util;
  * to the system log.
  */
 public class LogPrinter implements Printer {
+
     private final int mPriority;
     private final String mTag;
     private final int mBuffer;

@@ -50,11 +50,11 @@ import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 /**
- * A layout that places its children in a rectangular <em>grid</em>.
+ * A layout that places its children in a rectangular 矩形的 <em>grid 网格 </em>.
  * <p>
- * The grid is composed of a set of infinitely thin lines that separate the
- * viewing area into <em>cells</em>. Throughout the API, grid lines are referenced
- * by grid <em>indices</em>. A grid with {@code N} columns
+ * The grid is composed  组成 of a set of infinitely 无穷地 thin <b>lines</b> that separate the
+ * viewing area into <em>cells</em>. Throughout 纵观 the API, grid lines are referenced
+ * by grid <em>indices 指数 </em>. A grid with {@code N} columns
  * has {@code N + 1} grid indices that run from {@code 0}
  * through {@code N} inclusive. Regardless of how GridLayout is
  * configured, grid index {@code 0} is fixed to the leading edge of the
@@ -63,17 +63,17 @@ import static java.lang.Math.min;
  *
  * <h4>Row and Column Specs</h4>
  *
- * Children occupy one or more contiguous cells, as defined
+ * Children occupy one or more contiguous 邻近的 cells, as defined
  * by their {@link GridLayout.LayoutParams#rowSpec rowSpec} and
  * {@link GridLayout.LayoutParams#columnSpec columnSpec} layout parameters.
  * Each spec defines the set of rows or columns that are to be
  * occupied; and how children should be aligned within the resulting group of cells.
- * Although cells do not normally overlap in a GridLayout, GridLayout does
+ * Although cells do not normally overlap 重叠 in a GridLayout, GridLayout does
  * not prevent children being defined to occupy the same cell or group of cells.
  * In this case however, there is no guarantee that children will not themselves
  * overlap after the layout operation completes.
  *
- * <h4>Default Cell Assignment</h4>
+ * <h4>Default Cell Assignment 分配 </h4>
  *
  * If a child does not specify the row and column indices of the cell it
  * wishes to occupy, GridLayout assigns cell locations automatically using its:
@@ -84,7 +84,7 @@ import static java.lang.Math.min;
  * <h4>Space</h4>
  *
  * Space between children may be specified either by using instances of the
- * dedicated {@link Space} view or by setting the
+ * dedicated 专用的 {@link Space} view or by setting the
  *
  * {@link ViewGroup.MarginLayoutParams#leftMargin leftMargin},
  * {@link ViewGroup.MarginLayoutParams#topMargin topMargin},
@@ -94,57 +94,57 @@ import static java.lang.Math.min;
  * layout parameters. When the
  * {@link GridLayout#setUseDefaultMargins(boolean) useDefaultMargins}
  * property is set, default margins around children are automatically
- * allocated based on the prevailing UI style guide for the platform.
- * Each of the margins so defined may be independently overridden by an assignment
+ * allocated based on the prevailing 占主导地位的 UI style guide for the platform.
+ * Each of the margins so defined may be independently overridden by an assignment 分配
  * to the appropriate layout parameter.
- * Default values will generally produce a reasonable spacing between components
+ * Default values will generally produce a reasonable 合理的 spacing between components
  * but values may change between different releases of the platform.
  *
- * <h4>Excess Space Distribution</h4>
+ * <h4>Excess 额外的 Space Distribution 分布 </h4>
  *
- * As of API 21, GridLayout's distribution of excess space accomodates the principle of weight.
- * In the event that no weights are specified, the previous conventions are respected and
- * columns and rows are taken as flexible if their views specify some form of alignment
+ * As of API 21, GridLayout's distribution of excess space accomodates 使…适应 the principle 原理 of weight.
+ * In the event that no weights are specified, the previous conventions 惯例 are respected and
+ * columns and rows are taken as flexible 多变的 if their views specify 指定 some form of alignment 对齐
  * within their groups.
  * <p>
- * The flexibility of a view is therefore influenced by its alignment which is,
+ * The flexibility 灵活性 of a view is therefore influenced 受影响的 by its alignment which is,
  * in turn, typically defined by setting the
  * {@link LayoutParams#setGravity(int) gravity} property of the child's layout parameters.
  * If either a weight or alignment were defined along a given axis then the component
  * is taken as <em>flexible</em> in that direction. If no weight or alignment was set,
- * the component is instead assumed to be <em>inflexible</em>.
+ * the component is instead assumed to be <em>inflexible 顽固的 </em>.
  * <p>
  * Multiple components in the same row or column group are
- * considered to act in <em>parallel</em>. Such a
+ * considered to act in <em>parallel 平行的 </em>. Such a
  * group is flexible only if <em>all</em> of the components
  * within it are flexible. Row and column groups that sit either side of a common boundary
- * are instead considered to act in <em>series</em>. The composite group made of these two
+ * are instead considered to act in <em>series 连续 </em>. The composite 复合 group made of these two
  * elements is flexible if <em>one</em> of its elements is flexible.
  * <p>
- * To make a column stretch, make sure all of the components inside it define a
+ * To make a column stretch 拉伸 , make sure all of the components inside it define a
  * weight or a gravity. To prevent a column from stretching, ensure that one of the components
  * in the column does not define a weight or a gravity.
  * <p>
- * When the principle of flexibility does not provide complete disambiguation,
- * GridLayout's algorithms favour rows and columns that are closer to its <em>right</em>
- * and <em>bottom</em> edges. To be more precise, GridLayout treats each of its layout
- * parameters as a constraint in the a set of variables that define the grid-lines along a
+ * When the principle 原理 of flexibility does not provide complete disambiguation 消除歧义 ,
+ * GridLayout's algorithms 算法 favour 偏爱 rows and columns that are closer to its <em>right</em>
+ * and <em>bottom</em> edges. To be more precise 精确的 , GridLayout treats each of its layout
+ * parameters as a constraint 约束 in the a set of variables that define the grid-lines along a
  * given axis. During layout, GridLayout solves the constraints so as to return the unique
  * solution to those constraints for which all variables are less-than-or-equal-to
  * the corresponding value in any other valid solution.
  *
- * <h4>Interpretation of GONE</h4>
+ * <h4>Interpretation 解释 of GONE</h4>
  *
  * For layout purposes, GridLayout treats views whose visibility status is
- * {@link View#GONE GONE}, as having zero width and height. This is subtly different from
- * the policy of ignoring views that are marked as GONE outright. If, for example, a gone-marked
+ * {@link View#GONE GONE}, as having zero width and height. This is subtly 精细细微的 different from
+ * the policy of ignoring views that are marked as GONE outright 完全的 . If, for example, a gone-marked
  * view was alone in a column, that column would itself collapse to zero width if and only if
  * no gravity was defined on the view. If gravity was defined, then the gone-marked
  * view has no effect on the layout and the container should be laid out as if the view
  * had never been added to it. GONE views are taken to have zero weight during excess space
  * distribution.
  * <p>
- * These statements apply equally to rows as well as columns, and to groups of rows or columns.
+ * These statements 声明 apply equally 平等地 to rows as well as columns, and to groups of rows or columns.
  *
  * <p>
  * See {@link GridLayout.LayoutParams} for a full description of the
@@ -184,7 +184,7 @@ public class GridLayout extends ViewGroup {
      * to indicate that there is no suitable value that the implementation
      * can return.
      * The value used for the constant (currently {@link Integer#MIN_VALUE}) is
-     * intended to avoid confusion between valid values whose sign may not be known.
+     * intended to avoid confusion 混淆 between valid values whose sign may not be known.
      */
     public static final int UNDEFINED = Integer.MIN_VALUE;
 
@@ -197,7 +197,7 @@ public class GridLayout extends ViewGroup {
      * This constant is an {@link #setAlignmentMode(int) alignmentMode}.
      * When the {@code alignmentMode} is set to {@link #ALIGN_BOUNDS}, alignment
      * is made between the edges of each component's raw
-     * view boundary: i.e. the area delimited by the component's:
+     * view boundary: i.e. the area delimited 划定界限的 by the component's:
      * {@link android.view.View#getTop() top},
      * {@link android.view.View#getLeft() left},
      * {@link android.view.View#getBottom() bottom} and
@@ -226,7 +226,7 @@ public class GridLayout extends ViewGroup {
      */
     public static final int ALIGN_MARGINS = 1;
 
-    // Misc constants
+    // Misc 杂项 constants
 
     static final int MAX_SIZE = 100000;
     static final int DEFAULT_CONTAINER_MARGIN = 0;
@@ -655,7 +655,8 @@ public class GridLayout extends ViewGroup {
     }
 
     private int getDefaultMargin(View c, boolean isAtEdge, boolean horizontal, boolean leading) {
-        return /*isAtEdge ? DEFAULT_CONTAINER_MARGIN :*/ getDefaultMargin(c, horizontal, leading);
+        return /*isAtEdge ? DEFAULT_CONTAINER_MARGIN :*/
+        getDefaultMargin(c, horizontal, leading);
     }
 
     private int getDefaultMargin(View c, LayoutParams p, boolean horizontal, boolean leading) {
@@ -1189,12 +1190,13 @@ public class GridLayout extends ViewGroup {
     // Inner classes
 
     /*
-     This internal class houses the algorithm for computing the locations of grid lines;
+     This internal class houses the algorithm 算法 for computing the locations of grid lines;
      along either the horizontal or vertical axis. A GridLayout uses two instances of this class -
-     distinguished by the "horizontal" flag which is true for the horizontal axis and false
+     distinguished 区别 by the "horizontal" flag which is true for the horizontal axis and false
      for the vertical one.
      */
     final class Axis {
+
         private static final int NEW = 0;
         private static final int PENDING = 1;
         private static final int COMPLETE = 2;
@@ -1239,13 +1241,14 @@ public class GridLayout extends ViewGroup {
         }
 
         private int calculateMaxIndex() {
-            // the number Integer.MIN_VALUE + 1 comes up in undefined cells
+            // the number Integer.MIN_VALUE + 1 comes up in 出现在 undefined cells
             int result = -1;
             for (int i = 0, N = getChildCount(); i < N; i++) {
                 View c = getChildAt(i);
                 LayoutParams params = getLayoutParams(c);
                 Spec spec = horizontal ? params.columnSpec : params.rowSpec;
                 Interval span = spec.span;
+                //// TODO: 2017/10/11  
                 result = max(result, span.min);
                 result = max(result, span.max);
                 result = max(result, span.size());
@@ -1286,7 +1289,7 @@ public class GridLayout extends ViewGroup {
             Assoc<Spec, Bounds> assoc = Assoc.of(Spec.class, Bounds.class);
             for (int i = 0, N = getChildCount(); i < N; i++) {
                 View c = getChildAt(i);
-                // we must include views that are GONE here, see introductory javadoc
+                // we must include views that are GONE here, see introductory 引导的，介绍的；开端的 javadoc
                 LayoutParams lp = getLayoutParams(c);
                 Spec spec = horizontal ? lp.columnSpec : lp.rowSpec;
                 Bounds bounds = spec.getAbsoluteAlignment(horizontal).getBounds();
@@ -1322,7 +1325,7 @@ public class GridLayout extends ViewGroup {
             return groupBounds;
         }
 
-        // Add values computed by alignment - taking the max of all alignments in each span
+        // Add values computed by alignme  nt - taking the max of all alignments in each span
         private PackedMap<Interval, MutableInt> createLinks(boolean min) {
             Assoc<Interval, MutableInt> result = Assoc.of(Interval.class, MutableInt.class);
             Spec[] keys = getGroupBounds().keys;
@@ -1344,7 +1347,7 @@ public class GridLayout extends ViewGroup {
             for (int i = 0; i < bounds.length; i++) {
                 int size = bounds[i].size(min);
                 MutableInt valueHolder = links.getValue(i);
-                // this effectively takes the max() of the minima and the min() of the maxima
+                // this effectively 实际上 takes the max() of the minima 极小值 and the min() of the maxima 极大值
                 valueHolder.value = max(valueHolder.value, min ? size : -size);
             }
         }
@@ -1374,16 +1377,16 @@ public class GridLayout extends ViewGroup {
         private void include(List<Arc> arcs, Interval key, MutableInt size,
                 boolean ignoreIfAlreadyPresent) {
             /*
-            Remove self referential links.
+            Remove self referential 用作参考的 links.
             These appear:
-                . as parental constraints when GridLayout has no children
+                . as parental 父母的 constraints 约束条件 when GridLayout has no children
                 . when components have been marked as GONE
             */
             if (key.size() == 0) {
                 return;
             }
             // this bit below should really be computed outside here -
-            // its just to stop default (row/col > 0) constraints obliterating valid entries
+            // its just to stop default (row/col > 0) constraints obliterating 清除的 valid entries
             if (ignoreIfAlreadyPresent) {
                 for (Arc arc : arcs) {
                     Interval span = arc.span;
@@ -1399,7 +1402,7 @@ public class GridLayout extends ViewGroup {
             include(arcs, key, size, true);
         }
 
-        // Group arcs by their first vertex, returning an array of arrays.
+        // Group arcs by their first vertex 顶点 , returning an array of arrays.
         // This is linear in the number of arcs.
         Arc[][] groupArcsByFirstVertex(Arc[] arcs) {
             int N = getCount() + 1; // the number of vertices
@@ -1408,7 +1411,8 @@ public class GridLayout extends ViewGroup {
             for (Arc arc : arcs) {
                 sizes[arc.span.min]++;
             }
-            for (int i = 0; i < sizes.length; i++) {
+         //src for (int i = 0; i < sizes.length; i++) {
+            for (int i = 0; i < N; i++) {
                 result[i] = new Arc[sizes[i]];
             }
             // reuse the sizes array to hold the current last elements as we insert each arc
@@ -1420,14 +1424,14 @@ public class GridLayout extends ViewGroup {
 
             return result;
         }
-
+        // 拓扑学的
         private Arc[] topologicalSort(final Arc[] arcs) {
             return new Object() {
                 Arc[] result = new Arc[arcs.length];
                 int cursor = result.length - 1;
                 Arc[][] arcsByVertex = groupArcsByFirstVertex(arcs);
                 int[] visited = new int[getCount() + 1];
-
+                // loc is from 0 to N (getCount + 1)
                 void walk(int loc) {
                     switch (visited[loc]) {
                         case NEW: {
@@ -2209,8 +2213,8 @@ public class GridLayout extends ViewGroup {
     }
 
     /*
-    In place of a HashMap from span to Int, use an array of key/value pairs - stored in Arcs.
-    Add the mutables completesCycle flag to avoid creating another hash table for detecting cycles.
+    In place of 代替 a HashMap from span to Int, use an array of key/value pairs - stored in Arcs.
+    Add the mutables completesCycle flag to avoid creating another hash table for detecting 检测 cycles.
      */
     final static class Arc {
         public final Interval span;
@@ -2228,7 +2232,7 @@ public class GridLayout extends ViewGroup {
         }
     }
 
-    // A mutable Integer - used to avoid heap allocation during the layout operation
+    // A mutable 易变的 Integer - used to avoid heap allocation during the layout operation
 
     final static class MutableInt {
         public int value;
@@ -2251,6 +2255,7 @@ public class GridLayout extends ViewGroup {
         }
     }
 
+    // mean an extension of ArrayList which it's contains type Pair<K, V>
     final static class Assoc<K, V> extends ArrayList<Pair<K, V>> {
         private final Class<K> keyType;
         private final Class<V> valueType;
@@ -2359,7 +2364,7 @@ public class GridLayout extends ViewGroup {
     static class Bounds {
         public int before;
         public int after;
-        public int flexibility; // we're flexible iff all included specs are flexible
+        public int flexibility; // we're flexible iff (if and only if) all included specs are flexible
 
         private Bounds() {
             reset();
@@ -2408,10 +2413,10 @@ public class GridLayout extends ViewGroup {
     }
 
     /**
-     * An Interval represents a contiguous range of values that lie between
+     * An Interval represents a contiguous 邻近的 range of values that lie between
      * the interval's {@link #min} and {@link #max} values.
      * <p>
-     * Intervals are immutable so may be passed as values and used as keys in hash tables.
+     * Intervals are immutable 不可变的 so may be passed as values and used as keys in hash tables.
      * It is not necessary to have multiple instances of Intervals which have the same
      * {@link #min} and {@link #max} values.
      * <p>
@@ -2455,7 +2460,7 @@ public class GridLayout extends ViewGroup {
         /**
          * Returns {@code true} if the {@link #getClass class},
          * {@link #min} and {@link #max} properties of this Interval and the
-         * supplied parameter are pairwise equal; {@code false} otherwise.
+         * supplied parameter are pairwise 成对地 equal; {@code false} otherwise.
          *
          * @param that the object to compare this interval with
          *
@@ -2524,6 +2529,7 @@ public class GridLayout extends ViewGroup {
      *
      */
     public static class Spec {
+
         static final Spec UNDEFINED = spec(GridLayout.UNDEFINED);
         static final float DEFAULT_WEIGHT = 0;
 
@@ -2736,12 +2742,14 @@ public class GridLayout extends ViewGroup {
     /*
      * An Alignment implementation must define {@link #getAlignmentValue(View, int, int)},
      * to return the appropriate value for the type of alignment being defined.
-     * The enclosing algorithms position the children
+     * The enclosing 封闭 algorithms position the children
      * so that the locations defined by the alignment values
      * are the same for all of the views in a group.
      * <p>
      */
+    //// TODO: 2017/10/9 top docment what's mean? 
     public static abstract class Alignment {
+
         Alignment() {
         }
 
@@ -2854,6 +2862,8 @@ public class GridLayout extends ViewGroup {
             @Override
             int getGravityOffset(View view, int cellDelta) {
                 return (!view.isLayoutRtl() ? ltr : rtl).getGravityOffset(view, cellDelta);
+                //equals
+             // return (view.isLayoutRtl()? arg2:arg1).getGravityOffset(view,cellDelta);
             }
 
             @Override
@@ -2861,17 +2871,24 @@ public class GridLayout extends ViewGroup {
                 return (!view.isLayoutRtl() ? ltr : rtl).getAlignmentValue(view, viewSize, mode);
             }
         };
+
+        //// TODO: 2017/10/10  why not ?
+        //return view // not is param
     }
 
     /**
      * Indicates that a view should be aligned with the <em>left</em>
      * edges of the other views in its cell group.
+     * if view layout LTR is arg1 is START which return 0
+     * if view layout RTL is arg2 is END which return viewSize
      */
     public static final Alignment LEFT = createSwitchingAlignment(START, END);
 
     /**
      * Indicates that a view should be aligned with the <em>right</em>
      * edges of the other views in its cell group.
+     * if view layout LTR is arg1 is END which return viewSize
+     * if view layout RTL is arg2 is START which return 0
      */
     public static final Alignment RIGHT = createSwitchingAlignment(END, START);
 

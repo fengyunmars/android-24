@@ -283,6 +283,7 @@ public class TableRow extends LinearLayout {
      * @return an array of integers corresponding to the width of each cell, or
      *         column, in this row
      * {@hide}
+     * used in findLargestCells() in TableLayout
      */
     int[] getColumnsWidths(int widthMeasureSpec, int heightMeasureSpec) {
         final int numColumns = getVirtualChildCount();
@@ -296,6 +297,7 @@ public class TableRow extends LinearLayout {
             final View child = getVirtualChildAt(i);
             if (child != null && child.getVisibility() != GONE) {
                 final LayoutParams layoutParams = (LayoutParams) child.getLayoutParams();
+                // span is stretch across multicolumn
                 if (layoutParams.span == 1) {
                     int spec;
                     switch (layoutParams.width) {
@@ -316,6 +318,7 @@ public class TableRow extends LinearLayout {
                             layoutParams.rightMargin;
                     columnWidths[i] = width;
                 } else {
+                    //// TODO: 2017/10/9  
                     columnWidths[i] = 0;
                 }
             } else {
