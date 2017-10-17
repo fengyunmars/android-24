@@ -183,6 +183,7 @@ public class Gravity
      * @param outRect Receives the computed frame of the object in its
      *                container.
      */
+    //// TODO: 2017/10/17  
     public static void apply(int gravity, int w, int h, Rect container,
             int xAdj, int yAdj, Rect outRect) {
         switch (gravity&((AXIS_PULL_BEFORE|AXIS_PULL_AFTER)<<AXIS_X_SHIFT)) {

@@ -333,7 +333,7 @@ public class GridLayout extends ViewGroup {
      * one of GridLayout's children is dependent on its width - and its width is, in turn,
      * dependent on the widths of other components.
      * <p>
-     * If your layout contains a {@link TextView} (or derivative:
+     * If your layout contains a {@link TextView} (or derivative  派生的 :
      * {@code Button}, {@code EditText}, {@code CheckBox}, etc.) which is
      * in multi-line mode (the default) it is normally best to leave GridLayout's
      * orientation as {@code HORIZONTAL} - because {@code TextView} is capable of
@@ -525,7 +525,7 @@ public class GridLayout extends ViewGroup {
      * When this property is {@code true}, GridLayout is forced to place the row boundaries
      * so that their associated grid indices are in ascending order in the view.
      * <p>
-     * When this property is {@code false} GridLayout is at liberty to place the vertical row
+     * When this property is {@code false} GridLayout is at liberty 自由 to place the vertical row
      * boundaries in whatever order best fits the given constraints.
      * <p>
      * The default value of this property is {@code true}.
@@ -580,7 +580,7 @@ public class GridLayout extends ViewGroup {
     }
 
     /**
-     * Return the printer that will log diagnostics from this layout.
+     * Return the printer that will log diagnostics 诊断 from this layout.
      *
      * @see #setPrinter(android.util.Printer)
      *
@@ -709,7 +709,7 @@ public class GridLayout extends ViewGroup {
         return true;
     }
 
-    private static void procrusteanFill(int[] a, int start, int end, int value) {
+    private static void procrusteanFill(int[] a, int start, int end, int value) {    // 强求一致的
         int length = a.length;
         Arrays.fill(a, Math.min(start, length), Math.min(end, length), value);
     }
@@ -719,7 +719,8 @@ public class GridLayout extends ViewGroup {
         lp.setColumnSpecSpan(new Interval(col, col + colSpan));
     }
 
-    // Logic to avert infinite loops by ensuring that the cells can be placed somewhere.
+    // Logic to avert 避免 infinite 无限 loops by ensuring that the cells can be placed somewhere.
+    //// TODO: 2017/10/17
     private static int clip(Interval minorRange, boolean minorWasDefined, int count) {
         int size = minorRange.size();
         if (count == 0) {
@@ -730,6 +731,7 @@ public class GridLayout extends ViewGroup {
     }
 
     // install default indices for cells that don't define them
+    //// TODO: 2017/10/17
     private void validateLayoutParams() {
         final boolean horizontal = (mOrientation == HORIZONTAL);
         final Axis axis = horizontal ? mHorizontalAxis : mVerticalAxis;
@@ -1484,7 +1486,7 @@ public class GridLayout extends ViewGroup {
             // Add the maximum values from the components.
             addComponentSizes(maxs, getBackwardLinks());
 
-            // Add ordering constraints to prevent row/col sizes from going negative
+            // Add ordering constraints to prevent 预防 row/col sizes from going negative
             if (orderPreserved) {
                 // Add a constraint for every row/col
                 for (int i = 0; i < getCount(); i++) {
@@ -1494,6 +1496,7 @@ public class GridLayout extends ViewGroup {
 
             // Add the container constraints. Use the version of include that allows
             // duplicate entries in case a child spans the entire grid.
+            //// TODO: 2017/10/17
             int N = getCount();
             include(mins, new Interval(0, N), parentMin, false);
             include(maxs, new Interval(N, 0), parentMax, false);
@@ -1522,7 +1525,7 @@ public class GridLayout extends ViewGroup {
             return arcs;
         }
 
-        private boolean relax(int[] locations, Arc entry) {
+        private boolean  relax(int[] locations, Arc entry) {
             if (!entry.valid) {
                 return false;
             }
@@ -1576,11 +1579,11 @@ public class GridLayout extends ViewGroup {
                 }
             }
             mPrinter.println(axisName + " constraints: " + arcsToString(culprits) +
-                    " are inconsistent; permanently removing: " + arcsToString(removed) + ". ");
+                    " are inconsistent; permanently 永久地 removing: " + arcsToString(removed) + ". ");
         }
 
         /*
-        Bellman-Ford variant - modified to reduce typical running time from O(N^2) to O(N)
+        Bellman-Ford 距离矢量 算法 variant 变种 - modified to reduce typical 典型的 running time from O(N^2) to O(N)
 
         GridLayout converts its requirements into a system of linear constraints of the
         form:
@@ -1602,7 +1605,7 @@ public class GridLayout extends ViewGroup {
         private boolean solve(Arc[] arcs, int[] locations) {
             return solve(arcs, locations, true);
         }
-
+        //// TODO: 2017/10/17
         private boolean solve(Arc[] arcs, int[] locations, boolean modifyOnError) {
             String axisName = horizontal ? "horizontal" : "vertical";
             int N = getCount() + 1; // The number of vertices is the number of columns/rows + 1.
@@ -1747,7 +1750,7 @@ public class GridLayout extends ViewGroup {
             }
         }
 
-        private void solveAndDistributeSpace(int[] a) {
+        private void solveAndDistributeSpace(int[] a) {   // 分配
             Arrays.fill(getDeltas(), 0);
             solve(a);
             int deltaMax = parentMin.value * getChildCount() + 1; //exclusive
@@ -1803,9 +1806,9 @@ public class GridLayout extends ViewGroup {
                 solveAndDistributeSpace(a);
             }
             if (!orderPreserved) {
-                // Solve returns the smallest solution to the constraint system for which all
+                // Solve 解决 returns the smallest solution to the constraint 约束 system for which all
                 // values are positive. One value is therefore zero - though if the row/col
-                // order is not preserved this may not be the first vertex. For consistency,
+                // order is not preserved this may not be the first vertex. For consistency 一致性 ,
                 // translate all the values so that they measure the distance from a[0]; the
                 // leading edge of the parent. After this transformation some values may be
                 // negative.
@@ -1829,7 +1832,7 @@ public class GridLayout extends ViewGroup {
         }
 
         private int size(int[] locations) {
-            // The parental edges are attached to vertices 0 and N - even when order is not
+            // The parental 父母的 edges are attached to vertices 顶点 0 and N - even when order is not
             // being preserved and other vertices fall outside this range. Measure the distance
             // between vertices 0 and N, assuming that locations[0] = 0.
             return locations[getCount()];
@@ -1907,22 +1910,22 @@ public class GridLayout extends ViewGroup {
      * Layout information associated with each of the children of a GridLayout.
      * <p>
      * GridLayout supports both row and column spanning and arbitrary forms of alignment within
-     * each cell group. The fundamental parameters associated with each cell group are
+     * each cell group. The fundamental  基本的 parameters associated with each cell group are
      * gathered into their vertical and horizontal components and stored
      * in the {@link #rowSpec} and {@link #columnSpec} layout parameters.
      * {@link GridLayout.Spec Specs} are immutable structures
      * and may be shared between the layout parameters of different children.
      * <p>
      * The row and column specs contain the leading and trailing indices along each axis
-     * and together specify the four grid indices that delimit the cells of this cell group.
+     * and together specify the four grid indices that delimit 定界限 the cells of this cell group.
      * <p>
      * The  alignment properties of the row and column specs together specify
      * both aspects of alignment within the cell group. It is also possible to specify a child's
      * alignment within its cell group by using the {@link GridLayout.LayoutParams#setGravity(int)}
      * method.
      * <p>
-     * The weight property is also included in Spec and specifies the proportion of any
-     * excess space that is due to the associated view.
+     * The weight property is also included in Spec and specifies the proportion 比例 of any
+     * excess space that is due 应得的 to the associated view.
      *
      * <h4>WRAP_CONTENT and MATCH_PARENT</h4>
      *
@@ -2018,12 +2021,12 @@ public class GridLayout extends ViewGroup {
         /**
          * The spec that defines the vertical characteristics of the cell group
          * described by these layout parameters.
-         * If an assignment is made to this field after a measurement or layout operation
+         * If an assignment  分配 is made to this field after a measurement or layout operation
          * has already taken place, a call to
          * {@link ViewGroup#setLayoutParams(ViewGroup.LayoutParams)}
          * must be made to notify GridLayout of the change. GridLayout is normally able
          * to detect when code fails to observe this rule, issue a warning and take steps to
-         * compensate for the omission. This facility is implemented on a best effort basis
+         * compensate 补偿 for the omission 疏忽 . This facility is implemented on a best effort basis
          * and should not be relied upon in production code - so it is best to include the above
          * calls to remove the warnings as soon as it is practical.
          */
@@ -2121,9 +2124,9 @@ public class GridLayout extends ViewGroup {
 
         // Implementation
 
-        // Reinitialise the margins using a different default policy than MarginLayoutParams.
-        // Here we use the value UNDEFINED (as distinct from zero) to represent the undefined state
-        // so that a layout manager default can be accessed post set up. We need this as, at the
+        // Reinitialise 重新初始化 the margins using a different default policy than MarginLayoutParams.
+        // Here we use the value UNDEFINED (as distinct from zero) to represent 代表 the undefined state
+        // so that a layout manager default can be accessed 访问 post set up. We need this as, at the
         // point of installation, we do not know how many rows/cols there are and therefore
         // which elements are positioned next to the container's trailing edges. We need to
         // know this as margins around the container's boundary should have different
