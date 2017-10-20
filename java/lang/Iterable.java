@@ -40,7 +40,7 @@ import java.util.function.Consumer;
  * @param <T> the type of elements returned by the iterator
  *
  * @since 1.5
- * @jls 14.14.2 The enhanced 加强的  for statement
+ * @jls 14.14.2 The enhanced 鍔犲己 for statement
  */
 public interface Iterable<T> {
     /**

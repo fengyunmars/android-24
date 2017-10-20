@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
@@ -32,29 +32,29 @@ import java.util.stream.StreamSupport;
 /**
  * The root interface in the <i>collection hierarchy</i>.  A collection
  * represents a group of objects, known as its <i>elements</i>.  Some
- * collections allow duplicate ¸´ÖÆµÄ  elements and others do not.  Some are ordered
+ * collections allow duplicate é‡å¤çš„ elements and others do not.  Some are ordered
  * and others unordered.  The JDK does not provide any <i>direct</i>
  * implementations of this interface: it provides implementations of more
  * specific subinterfaces like <tt>Set</tt> and <tt>List</tt>.  This interface
- * is typically used to pass collections around and manipulate ²Ù×÷  them where
- * maximum generality is desired.
+ * is typically used to pass collections around and manipulate æ“ä½œ them where
+ * maximum generality æ™®éæ€§ is desired.
  *
- * <p><i>Bags</i> or <i>multisets</i> (unordered collections that may contain
+ * <p><i>Bags</i> or <i>multisets å¤šé‡é›†åˆ </i> (unordered collections that may contain
  * duplicate elements) should implement this interface directly.
  *
  * <p>All general-purpose <tt>Collection</tt> implementation classes (which
- * typically implement <tt>Collection</tt> indirectly ¼ä½ÓµØ  through one of its
+ * typically implement <tt>Collection</tt> indirectly é—´æ¥åœ° through one of its
  * subinterfaces) should provide two "standard" constructors: a void (no
  * arguments) constructor, which creates an empty collection, and a
  * constructor with a single argument of type <tt>Collection</tt>, which
  * creates a new collection with the same elements as its argument.  In
- * effect Êµ¼ÊÉÏ , the latter constructor allows the user to copy any collection,
- * producing an equivalent µÈ¼ÛµÄ  collection of the desired implementation type.
+ * effect å®é™…ä¸Š , the latter constructor allows the user to copy any collection,
+ * producing an equivalent ç­‰ä»·çš„  collection of the desired implementation type.
  * There is no way to enforce this convention (as interfaces cannot contain
  * constructors) but all of the general-purpose <tt>Collection</tt>
- * implementations in the Java platform libraries comply ×ñ´Ó .
+ * implementations in the Java platform libraries comply éµä» .
  *
- * <p>The "destructive" methods contained in this interface, that is, the
+ * <p>The "destructive" ç ´åçš„ methods contained in this interface, that is, the
  * methods that modify the collection on which they operate, are specified to
  * throw <tt>UnsupportedOperationException</tt> if this collection does not
  * support the operation.  If this is the case, these methods may, but are not
@@ -68,21 +68,21 @@ import java.util.stream.StreamSupport;
  * Some collection implementations have restrictions on the elements that
  * they may contain.</a>  For example, some implementations prohibit null elements,
  * and some have restrictions on the types of their elements.  Attempting to
- * add an ineligible ²»ºÏ¸ñµÄ  element throws an unchecked exception, typically
+ * add an ineligible ä¸åˆæ ¼çš„  element throws an unchecked exception, typically
  * <tt>NullPointerException</tt> or <tt>ClassCastException</tt>.  Attempting
- * to query the presence of an ineligible element may throw an exception,
- * or it may simply return false; some implementations will exhibit ÏÔÊ¾  the former
+ * to query the presence å­˜åœ¨ of an ineligible ä¸åˆæ ¼çš„ element may throw an exception,
+ * or it may simply return false; some implementations will exhibit æ˜¾ç¤º the former
  * behavior and some will exhibit the latter.  More generally, attempting an
- * operation on an ineligible element whose completion ½áÊø  would not result in
+ * operation on an ineligible element whose completion ç»“æŸ would not result in
  * the insertion of an ineligible element into the collection may throw an
  * exception or it may succeed, at the option of the implementation.
- * Such exceptions are marked as "optional" in the specification ËµÃ÷Êé  for this
+ * Such exceptions are marked as "optional" in the specification è¯´æ˜ä¹¦  for this
  * interface.
  *
  * <p>It is up to each collection to determine its own synchronization
- * policy.  In the absence of a stronger guarantee by the
- * implementation, undefined behavior may result from ÓÉ ..Ôì³É  the invocation
- * of any method on a collection that is being mutated by another
+ * policy.  In the absence ç¼ºä¹ of a stronger guarantee by the
+ * implementation, undefined behavior may result from ç”± ..é€ æˆ  the invocation
+ * of any method on a collection that is being mutated çªå˜ by another
  * thread; this includes direct invocations, passing the collection to
  * a method that might perform invocations, and using an existing
  * iterator to examine the collection.
@@ -93,16 +93,16 @@ import java.util.stream.StreamSupport;
  * method says: "returns <tt>true</tt> if and only if this collection
  * contains at least one element <tt>e</tt> such that
  * <tt>(o==null ? e==null : o.equals(e))</tt>."  This specification should
- * <i>not</i> be construed to imply that invoking <tt>Collection.contains</tt>
+ * <i>not</i> be construed è¢«è§£é‡Šçš„ to imply æš—ç¤º that invoking <tt>Collection.contains</tt>
  * with a non-null argument <tt>o</tt> will cause <tt>o.equals(e)</tt> to be
  * invoked for any element <tt>e</tt>.  Implementations are free to implement
- * optimizations whereby the <tt>equals</tt> invocation is avoided, for
+ * optimizations whereby é€šè¿‡ the <tt>equals</tt> invocation is avoided, for
  * example, by first comparing the hash codes of the two elements.  (The
  * {@link Object#hashCode()} specification guarantees that two objects with
  * unequal hash codes cannot be equal.)  More generally, implementations of
  * the various Collections Framework interfaces are free to take advantage of
  * the specified behavior of underlying {@link Object} methods wherever the
- * implementor deems it appropriate.
+ * implementor deems è®¤ä¸º it appropriate.
  *
  * <p>This interface is a member of the
  * <a href="{@docRoot}openjdk-redirect.html?v=8&path=/technotes/guides/collections/index.html">
@@ -167,12 +167,13 @@ public interface Collection<E> extends Iterable<E> {
 
     /**
      * Returns an iterator over the elements in this collection.  There are no
-     * guarantees concerning ¹ØÓÚ  the order in which the elements are returned
+     * guarantees concerning å…³äº  the order in which the elements are returned
      * (unless this collection is an instance of some class that provides a
      * guarantee).
      *
      * @return an <tt>Iterator</tt> over the elements in this collection
      */
+    @Override
     Iterator<E> iterator();
 
     /**
@@ -214,7 +215,7 @@ public interface Collection<E> extends Iterable<E> {
      * <p>Like the {@link #toArray()} method, this method acts as bridge between
      * array-based and collection-based APIs.  Further, this method allows
      * precise control over the runtime type of the output array, and may,
-     * under certain circumstances, be used to save allocation costs.
+     * under certain circumstances, æƒ…å†µ  be used to save allocation costs.
      *
      * <p>Suppose <tt>x</tt> is a collection known to contain only strings.
      * The following code can be used to dump the collection into a newly
@@ -231,7 +232,7 @@ public interface Collection<E> extends Iterable<E> {
      *        runtime type is allocated for this purpose.
      * @return an array containing all of the elements in this collection
      * @throws ArrayStoreException if the runtime type of the specified array
-     *         is not a supertype of the runtime type of every element in
+     *         is not a supertype of the runtime type of <b>every element</b> in
      *         this collection
      * @throws NullPointerException if the specified array is null
      */
@@ -254,8 +255,8 @@ public interface Collection<E> extends Iterable<E> {
      *
      * If a collection refuses to add a particular element for any reason
      * other than that it already contains the element, it <i>must</i> throw
-     * an exception (rather than returning <tt>false</tt>).  This preserves
-     * the invariant that a collection always contains the specified element
+     * an exception (rather than returning <tt>false</tt>).  This preserves ä¿å­˜
+     * the invariant ä¸å˜é‡ that a collection always contains the specified element
      * after this call returns.
      *
      * @param e element whose presence in this collection is to be ensured
@@ -281,7 +282,7 @@ public interface Collection<E> extends Iterable<E> {
      * <tt>(o==null&nbsp;?&nbsp;e==null&nbsp;:&nbsp;o.equals(e))</tt>, if
      * this collection contains one or more such elements.  Returns
      * <tt>true</tt> if this collection contained the specified element (or
-     * equivalently, if this collection changed as a result of the call).
+     * equivalently ç›¸å½“äº , if this collection changed as a result of the call).
      *
      * @param o element to be removed from this collection, if present
      * @return <tt>true</tt> if an element was removed as a result of this call
@@ -383,7 +384,7 @@ public interface Collection<E> extends Iterable<E> {
      * support removal then an {@code UnsupportedOperationException} will be
      * thrown on the first matching element.
      *
-     * @param filter a predicate which returns {@code true} for elements to be
+     * @param filter a predicateæ–­è¨€  which returns {@code true} for elements to be
      *        removed
      * @return {@code true} if any elements were removed
      * @throws NullPointerException if the specified filter is null
@@ -445,7 +446,7 @@ public interface Collection<E> extends Iterable<E> {
     /**
      * Compares the specified object with this collection for equality. <p>
      *
-     * While the <tt>Collection</tt> interface adds no stipulations to the
+     * While the <tt>Collection</tt> interface adds no stipulations è§„å®š to the
      * general contract for the <tt>Object.equals</tt>, programmers who
      * implement the <tt>Collection</tt> interface "directly" (in other words,
      * create a class that is a <tt>Collection</tt> but is not a <tt>Set</tt>
@@ -479,7 +480,7 @@ public interface Collection<E> extends Iterable<E> {
 
     /**
      * Returns the hash code value for this collection.  While the
-     * <tt>Collection</tt> interface adds no stipulations ¹æ¶¨  to the general
+     * <tt>Collection</tt> interface adds no stipulations è§„å®š  to the general
      * contract for the <tt>Object.hashCode</tt> method, programmers should
      * take note that any class that overrides the <tt>Object.equals</tt>
      * method must also override the <tt>Object.hashCode</tt> method in order
@@ -504,7 +505,7 @@ public interface Collection<E> extends Iterable<E> {
      *
      * <p>The default implementation should be overridden by subclasses that
      * can return a more efficient spliterator.  In order to
-     * preserve ±£»¤ expected Ô¤ÆÚµÄ  laziness ÀÁ¶èµÄ  behavior for the {@link #stream()} and
+     * preserve ä¿æŠ¤ expected é¢„æœŸçš„  laziness æ‡’æƒ°çš„  behavior for the {@link #stream()} and
      * {@link #parallelStream()}} methods, spliterators should either have the
      * characteristic of {@code IMMUTABLE} or {@code CONCURRENT}, or be
      * <em><a href="Spliterator.html#binding">late-binding</a></em>.
@@ -550,7 +551,7 @@ public interface Collection<E> extends Iterable<E> {
     }
 
     /**
-     * Returns a sequential Á¬ĞøµÄ  {@code Stream} with this collection as its source.
+     * Returns a sequential è¿ç»­çš„  {@code Stream} with this collection as its source.
      *
      * <p>This method should be overridden when the {@link #spliterator()}
      * method cannot return a spliterator that is {@code IMMUTABLE},

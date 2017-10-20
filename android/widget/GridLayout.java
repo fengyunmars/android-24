@@ -71,7 +71,7 @@ import static java.lang.Math.min;
  * Although cells do not normally overlap 重叠 in a GridLayout, GridLayout does
  * not prevent children being defined to occupy the same cell or group of cells.
  * In this case however, there is no guarantee that children will not themselves
- * overlap after the layout operation completes.
+ * overlap 重叠 after the layout operation completes.
  *
  * <h4>Default Cell Assignment 分配 </h4>
  *
@@ -767,7 +767,7 @@ public class GridLayout extends ViewGroup {
                         if (minorWasDefined) {
                             major++;
                         } else {
-                            if (minor + minorSpan <= count) {
+                            if (minor + minorSpan <= count) {    // maxSize.length
                                 minor++;
                             } else {
                                 minor = 0;
@@ -776,7 +776,7 @@ public class GridLayout extends ViewGroup {
                         }
                     }
                 }
-                procrusteanFill(maxSizes, minor, minor + minorSpan, major + majorSpan);
+                procrusteanFill(maxSizes, minor, minor + minorSpan, major + majorSpan);  // procrusteanFill(int[] a, int start, int end, int value)
             }
 
             if (horizontal) {
@@ -980,7 +980,9 @@ public class GridLayout extends ViewGroup {
         }
         return result;
     }
-
+    /**
+     * 一致性
+     */
     private void consistencyCheck() {
         if (mLastLayoutParamsHashCode == UNINITIALIZED_HASH) {
             validateLayoutParams();
@@ -1020,6 +1022,7 @@ public class GridLayout extends ViewGroup {
                     Interval span = spec.span;
                     Axis axis = horizontal ? mHorizontalAxis : mVerticalAxis;
                     int[] locations = axis.getLocations();
+                    //// TODO: 2017/10/18  
                     int cellSize = locations[span.max] - locations[span.min];
                     int viewSize = cellSize - getTotalMargin(c, horizontal);
                     if (horizontal) {
@@ -1033,8 +1036,7 @@ public class GridLayout extends ViewGroup {
     }
 
     static int adjust(int measureSpec, int delta) {
-        return makeMeasureSpec(
-                MeasureSpec.getSize(measureSpec + delta),  MeasureSpec.getMode(measureSpec));
+        return makeMeasureSpec(MeasureSpec.getSize(measureSpec + delta),  MeasureSpec.getMode(measureSpec));
     }
 
     @Override
@@ -1153,6 +1155,7 @@ public class GridLayout extends ViewGroup {
             Bounds boundsY = mVerticalAxis.getGroupBounds().getValue(i);
 
             // Gravity offsets: the location of the alignment group relative to its cell group.
+            //// TODO: 2017/10/18  
             int gravityOffsetX = hAlign.getGravityOffset(c, cellWidth - boundsX.size(true));
             int gravityOffsetY = vAlign.getGravityOffset(c, cellHeight - boundsY.size(true));
 

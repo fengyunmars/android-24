@@ -41,6 +41,7 @@ import java.util.function.Consumer;
 // END android-note
 
 /**
+ *  Deque 双端队列
  * Resizable-array implementation of the {@link Deque} interface.  Array
  * deques have no capacity restrictions; they grow as necessary to support
  * usage.  They are not thread-safe; in the absence of external

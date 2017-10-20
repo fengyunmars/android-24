@@ -46,7 +46,7 @@ package java.util;
  * an exception if the operation fails, the other returns a special
  * value (either {@code null} or {@code false}, depending on the
  * operation).  The latter form of the insert operation is designed
- * specifically for use with capacity-restricted {@code Queue}
+ * specifically for use with capacity-restricted 容量 受限制的 {@code Queue}
  * implementations; in most implementations, insert operations cannot
  * fail.
  *
@@ -76,7 +76,7 @@ package java.util;
  *
  * <p>Queues typically, but do not necessarily, order elements in a
  * FIFO (first-in-first-out) manner.  Among the exceptions are
- * priority queues, which order elements according to a supplied
+ * priority 优先级 queues, which order elements according to a supplied
  * comparator, or the elements' natural ordering, and LIFO queues (or
  * stacks) which order the elements LIFO (last-in-first-out).
  * Whatever the ordering used, the <em>head</em> of the queue is that
@@ -134,7 +134,7 @@ package java.util;
 public interface Queue<E> extends Collection<E> {
     /**
      * Inserts the specified element into this queue if it is possible to do so
-     * immediately without violating capacity restrictions, returning
+     * immediately without violating 违反 capacity 容量 restrictions 限制 , returning
      * {@code true} upon success and throwing an {@code IllegalStateException}
      * if no space is currently available.
      *
@@ -149,6 +149,7 @@ public interface Queue<E> extends Collection<E> {
      * @throws IllegalArgumentException if some property of this element
      *         prevents it from being added to this queue
      */
+    @Override
     boolean add(E e);
 
     /**

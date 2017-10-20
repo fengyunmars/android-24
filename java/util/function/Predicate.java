@@ -60,7 +60,7 @@ public interface Predicate<T> {
      *
      * @param other a predicate that will be logically-ANDed with this
      *              predicate
-     * @return a composed predicate that represents the short-circuiting logical
+     * @return a composed predicate that represents the short-circuiting 短路 logical
      * AND of this predicate and the {@code other} predicate
      * @throws NullPointerException if other is null
      */
@@ -115,5 +115,16 @@ public interface Predicate<T> {
         return (null == targetRef)
                 ? Objects::isNull
                 : object -> targetRef.equals(object);
+        /*
+        return (null == targetRef)
+                ? Objects::isNull
+                : new Predicate<T>() {
+            @Override
+            public boolean test(T object) {
+                return targetRef.equals(object);
+            }
+        };
+        */
+
     }
 }

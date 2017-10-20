@@ -82,6 +82,7 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  */
 @RemoteView
 public class RelativeLayout extends ViewGroup {
+
     public static final int TRUE = -1;
 
     /**
@@ -226,7 +227,7 @@ public class RelativeLayout extends ViewGroup {
 
     // A default width used for RTL measure pass
     /**
-     * Value reduced so as not to interfere with View's measurement spec. flags. See:
+     * Value reduced so as not to interfere 干扰 with View's measurement spec. flags. See:
      * {@link View#MEASURED_SIZE_MASK}.
      * {@link View#MEASURED_STATE_TOO_SMALL}.
      **/

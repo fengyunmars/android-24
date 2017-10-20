@@ -29,14 +29,14 @@ import java.util.function.Consumer;
 
 /** 
  * An iterator over a collection.  {@code Iterator} takes the place of
- * {@link Enumeration} 列举  in the Java Collections Framework.  Iterators
+ * {@link Enumeration} 鏋氫妇 in the Java Collections Framework.  Iterators
  * differ from enumerations in two ways:
  *
  * <ul>
  *      <li> Iterators allow the caller to remove elements from the
  *           underlying collection during the iteration with well-defined
  *           semantics.
- *      <li> Method names have been improved 改进 .
+ *      <li> Method names have been improved 鏀硅繘 .
  * </ul>
  *
  * <p>This interface is a member of the
@@ -94,7 +94,7 @@ public interface Iterator<E> {
     }
 
     /**
-     * Performs the given action for each remaining 剩下的  element until all elements
+     * Performs the given action for each remaining 剩锟铰碉拷  element until all elements
      * have been processed or the action throws an exception.  Actions are
      * performed in the order of iteration, if that order is specified.
      * Exceptions thrown by the action are relayed to the caller.

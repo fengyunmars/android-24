@@ -39,6 +39,7 @@ import android.widget.RemoteViews.RemoteView;
 @Deprecated
 @RemoteView
 public class AbsoluteLayout extends ViewGroup {
+
     public AbsoluteLayout(Context context) {
         this(context, null);
     }

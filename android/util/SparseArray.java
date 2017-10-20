@@ -50,6 +50,7 @@ import libcore.util.EmptyArray;
  * order in the case of <code>valueAt(int)</code>.</p>
  */
 public class SparseArray<E> implements Cloneable {
+
     private static final Object DELETED = new Object();
     private boolean mGarbage = false;
 
@@ -199,7 +200,8 @@ public class SparseArray<E> implements Cloneable {
             Object val = values[i];
 
             if (val != DELETED) {
-                if (i != o) {
+      //src if (i != o) {
+                if (o != i) {
                     keys[o] = keys[i];
                     values[o] = val;
                     values[i] = null;
@@ -220,12 +222,14 @@ public class SparseArray<E> implements Cloneable {
      * replacing the previous mapping from the specified key if there
      * was one.
      */
+    //// TODO: 2017/10/19  
     public void put(int key, E value) {
         int i = ContainerHelpers.binarySearch(mKeys, mSize, key);
 
         if (i >= 0) {
             mValues[i] = value;
         } else {
+//            i = -1 - i;
             i = ~i;
 
             if (i < mSize && mValues[i] == DELETED) {
@@ -233,7 +237,8 @@ public class SparseArray<E> implements Cloneable {
                 mValues[i] = value;
                 return;
             }
-
+            // i < mSize && mValues[i] != DELETED
+            // i >= mSize mValues[i] no constraint
             if (mGarbage && mSize >= mKeys.length) {
                 gc();
 

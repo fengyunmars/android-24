@@ -5465,12 +5465,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @see #setClickable(boolean)
      */
-    public void setOnClickListener(@Nullable OnClickListener l) {
-        if (!isClickable()) {
-            setClickable(true);
-        }
-        getListenerInfo().mOnClickListener = l;
-    }
+
 
     /**
      * Return whether this view has an attached OnClickListener.  Returns
@@ -18444,7 +18439,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Magic bit used to support features of framework-internal window decor implementation details.
-     * This used to live exclusively in FrameLayout.
+     * This used to live exclusively 专有地 in FrameLayout.
      *
      * @return true if the foreground should draw inside the padding region or false
      *         if it should draw inset by the view's padding
