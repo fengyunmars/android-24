@@ -41,7 +41,7 @@ package java.util;
 /**
  * A linear collection that supports element insertion and removal at
  * both ends.  The name <i>deque</i> is short for "double ended queue"
- * and is usually pronounced "deck".  Most {@code Deque}
+ * and is usually pronounced 发音 "deck".  Most {@code Deque}
  * implementations place no fixed limits on the number of elements
  * they may contain, but this interface supports capacity-restricted
  * deques as well as those with no fixed size limit.
@@ -56,7 +56,7 @@ package java.util;
  * {@code Deque} implementations; in most implementations, insert
  * operations cannot fail.
  *
- * <p>The twelve methods described above are summarized in the
+ * <p>The twelve 十二 methods described above are summarized 总结 in the
  * following table:
  *
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
@@ -99,7 +99,7 @@ package java.util;
  * <p>This interface extends the {@link Queue} interface.  When a deque is
  * used as a queue, FIFO (First-In-First-Out) behavior results.  Elements are
  * added at the end of the deque and removed from the beginning.  The methods
- * inherited from the {@code Queue} interface are precisely equivalent to
+ * inherited from the {@code Queue} interface are precisely 精确地 equivalent to
  * {@code Deque} methods as indicated in the following table:
  *
  * <table BORDER CELLPADDING=3 CELLSPACING=1>
@@ -164,14 +164,14 @@ package java.util;
  * a deque is used as a queue or a stack; in either case, elements are
  * drawn from the beginning of the deque.
  *
- * <p>This interface provides two methods to remove interior
+ * <p>This interface provides two methods to remove interior 内部
  * elements, {@link #removeFirstOccurrence removeFirstOccurrence} and
  * {@link #removeLastOccurrence removeLastOccurrence}.
  *
  * <p>Unlike the {@link List} interface, this interface does not
  * provide support for indexed access to elements.
  *
- * <p>While {@code Deque} implementations are not strictly required
+ * <p>While {@code Deque} implementations are not strictly 严格地 required
  * to prohibit the insertion of null elements, they are strongly
  * encouraged to do so.  Users of any {@code Deque} implementations
  * that do allow null elements are strongly encouraged <i>not</i> to
@@ -207,6 +207,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     void addFirst(E e);
 
     /**
@@ -228,6 +229,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     void addLast(E e);
 
     /**
@@ -246,6 +248,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     boolean offerFirst(E e);
 
     /**
@@ -264,6 +267,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     boolean offerLast(E e);
 
     /**
@@ -274,6 +278,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the head of this deque
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E removeFirst();
 
     /**
@@ -284,6 +289,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the tail of this deque
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E removeLast();
 
     /**
@@ -292,6 +298,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return the head of this deque, or {@code null} if this deque is empty
      */
+    @Override
     E pollFirst();
 
     /**
@@ -300,6 +307,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return the tail of this deque, or {@code null} if this deque is empty
      */
+    @Override
     E pollLast();
 
     /**
@@ -311,6 +319,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the head of this deque
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E getFirst();
 
     /**
@@ -321,6 +330,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the tail of this deque
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E getLast();
 
     /**
@@ -329,6 +339,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return the head of this deque, or {@code null} if this deque is empty
      */
+    @Override
     E peekFirst();
 
     /**
@@ -337,6 +348,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return the tail of this deque, or {@code null} if this deque is empty
      */
+    @Override
     E peekLast();
 
     /**
@@ -356,6 +368,7 @@ public interface Deque<E> extends Queue<E> {
      *         deque does not permit null elements
      * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     boolean removeFirstOccurrence(Object o);
 
     /**
@@ -375,6 +388,7 @@ public interface Deque<E> extends Queue<E> {
      *         deque does not permit null elements
      * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     boolean removeLastOccurrence(Object o);
 
     // *** Queue methods ***
@@ -401,6 +415,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     boolean add(E e);
 
     /**
@@ -424,6 +439,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     boolean offer(E e);
 
     /**
@@ -437,6 +453,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the head of the queue represented by this deque
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E remove();
 
     /**
@@ -449,6 +466,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the first element of this deque, or {@code null} if
      *         this deque is empty
      */
+    @Override
     E poll();
 
     /**
@@ -462,6 +480,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the head of the queue represented by this deque
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E element();
 
     /**
@@ -474,6 +493,7 @@ public interface Deque<E> extends Queue<E> {
      * @return the head of the queue represented by this deque, or
      *         {@code null} if this deque is empty
      */
+    @Override
     E peek();
 
 
@@ -497,6 +517,7 @@ public interface Deque<E> extends Queue<E> {
      * @throws IllegalArgumentException if some property of the specified
      *         element prevents it from being added to this deque
      */
+    @Override
     void push(E e);
 
     /**
@@ -509,6 +530,7 @@ public interface Deque<E> extends Queue<E> {
      *         of the stack represented by this deque)
      * @throws NoSuchElementException if this deque is empty
      */
+    @Override
     E pop();
 
 
@@ -533,6 +555,7 @@ public interface Deque<E> extends Queue<E> {
      *         deque does not permit null elements
      * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     boolean remove(Object o);
 
     /**
@@ -549,6 +572,7 @@ public interface Deque<E> extends Queue<E> {
      *         deque does not permit null elements
      * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     boolean contains(Object o);
 
     /**
@@ -556,6 +580,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return the number of elements in this deque
      */
+    @Override
     int size();
 
     /**
@@ -564,6 +589,7 @@ public interface Deque<E> extends Queue<E> {
      *
      * @return an iterator over the elements in this deque in proper sequence
      */
+    @Override
     Iterator<E> iterator();
 
     /**
@@ -574,6 +600,7 @@ public interface Deque<E> extends Queue<E> {
      * @return an iterator over the elements in this deque in reverse
      * sequence
      */
+    @Override
     Iterator<E> descendingIterator();
 
 }

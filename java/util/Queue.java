@@ -156,7 +156,7 @@ public interface Queue<E> extends Collection<E> {
      * Inserts the specified element into this queue if it is possible to do
      * so immediately without violating capacity restrictions.
      * When using a capacity-restricted queue, this method is generally
-     * preferable to {@link #add}, which can fail to insert an element only
+     * preferable 更好的 to {@link #add}, which can fail to insert an element only
      * by throwing an exception.
      *
      * @param e the element to add
@@ -169,6 +169,7 @@ public interface Queue<E> extends Collection<E> {
      * @throws IllegalArgumentException if some property of this element
      *         prevents it from being added to this queue
      */
+    @Override
     boolean offer(E e);
 
     /**
@@ -179,7 +180,11 @@ public interface Queue<E> extends Collection<E> {
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
+    @Override
     E remove();
+
+    @Override
+    boolean remove(Object o);
 
     /**
      * Retrieves and removes the head of this queue,
@@ -197,6 +202,7 @@ public interface Queue<E> extends Collection<E> {
      * @return the head of this queue
      * @throws NoSuchElementException if this queue is empty
      */
+    @Override
     E element();
 
     /**
@@ -205,5 +211,6 @@ public interface Queue<E> extends Collection<E> {
      *
      * @return the head of this queue, or {@code null} if this queue is empty
      */
+    @Override
     E peek();
 }

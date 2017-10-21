@@ -455,10 +455,10 @@ public interface Collection<E> extends Iterable<E> {
      * course of action is to rely on <tt>Object</tt>'s implementation, but
      * the implementor may wish to implement a "value comparison" in place of
      * the default "reference comparison."  (The <tt>List</tt> and
-     * <tt>Set</tt> interfaces mandate such value comparisons.)<p>
+     * <tt>Set</tt> interfaces mandate 要求 such value comparisons.)<p>
      *
      * The general contract for the <tt>Object.equals</tt> method states that
-     * equals must be symmetric (in other words, <tt>a.equals(b)</tt> if and
+     * equals must be symmetric 对称的 (in other words, <tt>a.equals(b)</tt> if and
      * only if <tt>b.equals(a)</tt>).  The contracts for <tt>List.equals</tt>
      * and <tt>Set.equals</tt> state that lists are only equal to other lists,
      * and sets to other sets.  Thus, a custom <tt>equals</tt> method for a
@@ -476,6 +476,7 @@ public interface Collection<E> extends Iterable<E> {
      * @see Set#equals(Object)
      * @see List#equals(Object)
      */
+    @Override
     boolean equals(Object o);
 
     /**
@@ -493,6 +494,7 @@ public interface Collection<E> extends Iterable<E> {
      * @see Object#hashCode()
      * @see Object#equals(Object)
      */
+    @Override
     int hashCode();
 
     /**

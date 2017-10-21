@@ -1784,7 +1784,7 @@ public class RelativeLayout extends ViewGroup {
          *
          * @return A list of node, each being a root of the graph
          */
-        private ArrayDeque<Node> findRoots(int[] rulesFilter) {
+        private ArrayDeque<Node> findRoots(int[] rulesFilter) {  
             final SparseArray<Node> keyNodes = mKeyNodes;
             final ArrayList<Node> nodes = mNodes;
             final int count = nodes.size();

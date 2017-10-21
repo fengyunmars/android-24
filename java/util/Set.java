@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (c) 1997, 2013, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
@@ -29,25 +29,25 @@ package java.util;
  * A collection that contains no duplicate elements.  More formally, sets
  * contain no pair of elements <code>e1</code> and <code>e2</code> such that
  * <code>e1.equals(e2)</code>, and at most one null element.  As implied by
- * its name, this interface models the mathematical <i>set</i> abstraction.
+ * its name, this interface models the mathematical 数学的 <i>set</i> abstraction.
  *
- * <p>The <tt>Set</tt> interface places additional stipulations, beyond those
+ * <p>The <tt>Set</tt> interface places additional stipulations 规定 , beyond those
  * inherited from the <tt>Collection</tt> interface, on the contracts of all
  * constructors and on the contracts of the <tt>add</tt>, <tt>equals</tt> and
  * <tt>hashCode</tt> methods.  Declarations for other inherited methods are
- * also included here for convenience.  (The specifications accompanying these
- * declarations have been tailored to the <tt>Set</tt> interface, but they do
- * not contain any additional stipulations.)
+ * also included here for convenience.  (The specifications 说明书 accompanying 伴随 these
+ * declarations have been tailored 裁制 to the <tt>Set</tt> interface, but they do
+ * not contain any additional stipulations 规定 .)
  *
- * <p>The additional stipulation on constructors is, not surprisingly,
+ * <p>The additional stipulation on constructors is, not surprisingly 出人意料地 ,
  * that all constructors must create a set that contains no duplicate elements
  * (as defined above).
  *
- * <p>Note: Great care must be exercised if mutable objects are used as set
+ * <p>Note: Great care must be exercised if mutable 易变的 objects are used as set
  * elements.  The behavior of a set is not specified if the value of an object
  * is changed in a manner that affects <tt>equals</tt> comparisons while the
- * object is an element in the set.  A special case of this prohibition is
- * that it is not permissible for a set to contain itself as an element.
+ * object is an element in the set.  A special case of this prohibition 禁止 is
+ * that it is not permissible 可允许的 for a set to contain itself as an element.
  *
  * <p>Some set implementations have restrictions on the elements that
  * they may contain.  For example, some implementations prohibit null elements,
@@ -92,6 +92,7 @@ public interface Set<E> extends Collection<E> {
      *
      * @return the number of elements in this set (its cardinality)
      */
+    @Override
     int size();
 
     /**
@@ -99,6 +100,7 @@ public interface Set<E> extends Collection<E> {
      *
      * @return <tt>true</tt> if this set contains no elements
      */
+    @Override
     boolean isEmpty();
 
     /**
@@ -116,6 +118,7 @@ public interface Set<E> extends Collection<E> {
      *         set does not permit null elements
      * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     boolean contains(Object o);
 
     /**
@@ -125,6 +128,7 @@ public interface Set<E> extends Collection<E> {
      *
      * @return an iterator over the elements in this set
      */
+    @Override
     Iterator<E> iterator();
 
     /**
@@ -143,12 +147,13 @@ public interface Set<E> extends Collection<E> {
      *
      * @return an array containing all the elements in this set
      */
+    @Override
     Object[] toArray();
 
     /**
      * Returns an array containing all of the elements in this set; the
      * runtime type of the returned array is that of the specified array.
-     * If the set fits in the specified array, it is returned therein.
+     * If the set fits in the specified array, it is returned therein 在那里 .
      * Otherwise, a new array is allocated with the runtime type of the
      * specified array and the size of this set.
      *
@@ -166,7 +171,7 @@ public interface Set<E> extends Collection<E> {
      * <p>Like the {@link #toArray()} method, this method acts as bridge between
      * array-based and collection-based APIs.  Further, this method allows
      * precise control over the runtime type of the output array, and may,
-     * under certain circumstances, be used to save allocation costs.
+     * under certain circumstances 情况 , be used to save allocation costs.
      *
      * <p>Suppose <tt>x</tt> is a set known to contain only strings.
      * The following code can be used to dump the set into a newly allocated
@@ -187,6 +192,7 @@ public interface Set<E> extends Collection<E> {
      *         set
      * @throws NullPointerException if the specified array is null
      */
+    @Override
     <T> T[] toArray(T[] a);
 
 
@@ -203,7 +209,7 @@ public interface Set<E> extends Collection<E> {
      * restriction on constructors, this ensures that sets never contain
      * duplicate elements.
      *
-     * <p>The stipulation above does not imply that sets must accept all
+     * <p>The stipulation 规定 above does not imply that sets must accept all
      * elements; sets may refuse to add any particular element, including
      * <tt>null</tt>, and throw an exception, as described in the
      * specification for {@link Collection#add Collection.add}.
@@ -222,6 +228,7 @@ public interface Set<E> extends Collection<E> {
      * @throws IllegalArgumentException if some property of the specified element
      *         prevents it from being added to this set
      */
+    @Override
     boolean add(E e);
 
 
@@ -246,6 +253,7 @@ public interface Set<E> extends Collection<E> {
      * @throws UnsupportedOperationException if the <tt>remove</tt> operation
      *         is not supported by this set
      */
+    @Override
     boolean remove(Object o);
 
 
@@ -270,12 +278,13 @@ public interface Set<E> extends Collection<E> {
      *         or if the specified collection is null
      * @see    #contains(Object)
      */
+    @Override
     boolean containsAll(Collection<?> c);
 
     /**
      * Adds all of the elements in the specified collection to this set if
      * they're not already present (optional operation).  If the specified
-     * collection is also a set, the <tt>addAll</tt> operation effectively
+     * collection is also a set, the <tt>addAll</tt> operation effectively . 有效地
      * modifies this set so that its value is the <i>union</i> of the two
      * sets.  The behavior of this operation is undefined if the specified
      * collection is modified while the operation is in progress.
@@ -294,6 +303,7 @@ public interface Set<E> extends Collection<E> {
      *         specified collection prevents it from being added to this set
      * @see #add(Object)
      */
+    @Override
     boolean addAll(Collection<? extends E> c);
 
     /**
@@ -317,13 +327,14 @@ public interface Set<E> extends Collection<E> {
      *         or if the specified collection is null
      * @see #remove(Object)
      */
+    @Override
     boolean retainAll(Collection<?> c);
 
     /**
      * Removes from this set all of its elements that are contained in the
      * specified collection (optional operation).  If the specified
      * collection is also a set, this operation effectively modifies this
-     * set so that its value is the <i>asymmetric set difference</i> of
+     * set so that its value is the <i>asymmetric 不对称的 set difference</i> of
      * the two sets.
      *
      * @param  c collection containing elements to be removed from this set
@@ -340,6 +351,7 @@ public interface Set<E> extends Collection<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    @Override
     boolean removeAll(Collection<?> c);
 
     /**
@@ -349,6 +361,7 @@ public interface Set<E> extends Collection<E> {
      * @throws UnsupportedOperationException if the <tt>clear</tt> method
      *         is not supported by this set
      */
+    @Override
     void clear();
 
 
@@ -366,6 +379,7 @@ public interface Set<E> extends Collection<E> {
      * @param o object to be compared for equality with this set
      * @return <tt>true</tt> if the specified object is equal to this set
      */
+    @Override
     boolean equals(Object o);
 
     /**
@@ -381,6 +395,7 @@ public interface Set<E> extends Collection<E> {
      * @see Object#equals(Object)
      * @see Set#equals(Object)
      */
+    @Override
     int hashCode();
 
     /**

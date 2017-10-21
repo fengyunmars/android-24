@@ -1,4 +1,4 @@
-/*
+Ôªø/*
  * Copyright (c) 1997, 2010, Oracle and/or its affiliates. All rights reserved.
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS FILE HEADER.
  *
@@ -28,55 +28,55 @@ package java.util;
 import java.util.function.UnaryOperator;
 
 /**
- * An ordered collection (also known as a <i>sequence –Ú¡– </i>).  The user of this
- * interface has precise æ´»∑  control over where in the list each element is
+ * An ordered collection (also known as a <i>sequence Â∫èÂàó </i>).  The user of this
+ * interface has precise Á≤æÁ°Æ  control over where in the list each element is
  * inserted.  The user can access elements by their integer index (position in
  * the list), and search for elements in the list.<p>
  *
  * Unlike sets, lists typically allow duplicate elements.  More formally,
  * lists typically allow pairs of elements <tt>e1</tt> and <tt>e2</tt>
  * such that <tt>e1.equals(e2)</tt>, and they typically allow multiple
- * null elements if they allow null elements at all.  It is not inconceivable ≤ªø…Àº“Èµƒ
- * that someone might wish to implement a list that prohibits Ω˚÷π  duplicates ∏¥÷∆∆∑ , by
+ * null elements if they allow null elements at all.  It is not inconceivable ‰∏çÂèØÊÄùËÆÆÁöÑ
+ * that someone might wish to implement a list that prohibits Á¶ÅÊ≠¢  duplicates Â§çÂà∂ÂìÅ , by
  * throwing runtime exceptions when the user attempts to insert them, but we
  * expect this usage to be rare.<p>
  *
- * The <tt>List</tt> interface places additional stipulations πÊ∂® , beyond those
+ * The <tt>List</tt> interface places additional stipulations ËßÑÂÆö , beyond those
  * specified in the <tt>Collection</tt> interface, on the contracts of the
  * <tt>iterator</tt>, <tt>add</tt>, <tt>remove</tt>, <tt>equals</tt>, and
  * <tt>hashCode</tt> methods.  Declarations for other inherited methods are
  * also included here for convenience.<p>
  *
- * The <tt>List</tt> interface provides four methods for positional Œª÷√µƒ (indexed)
+ * The <tt>List</tt> interface provides four methods for positional ‰ΩçÁΩÆÁöÑ (indexed)
  * access to list elements.  Lists (like Java arrays) are zero based.  Note
- * that these operations may execute in time proportional to the index value
+ * that these operations Êìç‰Ωú may execute in time proportional ÊàêÊØî‰æãÁöÑ to the index value
  * for some implementations (the <tt>LinkedList</tt> class, for
  * example). Thus, iterating over the elements in a list is typically
- * preferable to indexing through it if the caller does not know the
+ * preferable Êõ¥ÂèØÂèñÁöÑ to indexing through it if the caller does not know the
  * implementation.<p>
  *
  * The <tt>List</tt> interface provides a special iterator, called a
  * <tt>ListIterator</tt>, that allows element insertion and replacement, and
- * bidirectional À´œÚµƒ  access in addition to the normal operations that the
+ * bidirectional ÂèåÂêëÁöÑ  access in addition to the normal operations that the
  * <tt>Iterator</tt> interface provides.  A method is provided to obtain a
  * list iterator that starts at a specified position in the list.<p>
  *
  * The <tt>List</tt> interface provides two methods to search for a specified
- * object.  From a performance standpoint ¡¢≥° , these methods should be used with
+ * object.  From a performance standpoint Á´ãÂú∫ , these methods should be used with
  * caution.  In many implementations they will perform costly linear
  * searches.<p>
  *
- * The <tt>List</tt> interface provides two methods to efficiently ∏ﬂ–ßµƒ  insert and
+ * The <tt>List</tt> interface provides two methods to efficiently È´òÊïàÁöÑ  insert and
  * remove multiple elements at an arbitrary point in the list.<p>
  *
- * Note: While it is permissible ø…‘ –Ìµƒ  for lists to contain themselves as elements,
- * extreme º´∂À  caution –°–ƒ is advised Ω®“È : the <tt>equals</tt> and <tt>hashCode</tt>
+ * Note: While it is permissible ÂèØÂÖÅËÆ∏ÁöÑ  for lists to contain themselves as elements,
+ * extreme ÊûÅÁ´Ø  caution Â∞èÂøÉ is advised Âª∫ËÆÆ : the <tt>equals</tt> and <tt>hashCode</tt>
  * methods are no longer well defined on such a list.
  *
  * <p>Some list implementations have restrictions on the elements that
  * they may contain.  For example, some implementations prohibit null elements,
  * and some have restrictions on the types of their elements.  Attempting to
- * add an ineligible element throws an unchecked exception, typically
+ * add an ineligible ‰∏çÂêàÊ†ºÁöÑ element throws an unchecked exception, typically
  * <tt>NullPointerException</tt> or <tt>ClassCastException</tt>.  Attempting
  * to query the presence of an ineligible element may throw an exception,
  * or it may simply return false; some implementations will exhibit the former
@@ -118,6 +118,7 @@ public interface List<E> extends Collection<E> {
      *
      * @return the number of elements in this list
      */
+    @Override
     int size();
 
     /**
@@ -125,6 +126,7 @@ public interface List<E> extends Collection<E> {
      *
      * @return <tt>true</tt> if this list contains no elements
      */
+    @Override
     boolean isEmpty();
 
     /**
@@ -142,6 +144,7 @@ public interface List<E> extends Collection<E> {
      *         list does not permit null elements
      * (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     boolean contains(Object o);
 
     /**
@@ -149,6 +152,7 @@ public interface List<E> extends Collection<E> {
      *
      * @return an iterator over the elements in this list in proper sequence
      */
+    @Override
     Iterator<E> iterator();
 
     /**
@@ -167,6 +171,7 @@ public interface List<E> extends Collection<E> {
      *         sequence
      * @see Arrays#asList(Object[])
      */
+    @Override
     Object[] toArray();
 
     /**
@@ -207,6 +212,7 @@ public interface List<E> extends Collection<E> {
      *         this list
      * @throws NullPointerException if the specified array is null
      */
+    @Override
     <T> T[] toArray(T[] a);
 
 
@@ -234,6 +240,7 @@ public interface List<E> extends Collection<E> {
      * @throws IllegalArgumentException if some property of this element
      *         prevents it from being added to this list
      */
+    @Override
     boolean add(E e);
 
     /**
@@ -280,6 +287,7 @@ public interface List<E> extends Collection<E> {
      *         or if the specified collection is null
      * @see #contains(Object)
      */
+    @Override
     boolean containsAll(Collection<?> c);
 
     /**
@@ -303,6 +311,7 @@ public interface List<E> extends Collection<E> {
      *         specified collection prevents it from being added to this list
      * @see #add(Object)
      */
+    @Override
     boolean addAll(Collection<? extends E> c);
 
     /**
@@ -332,6 +341,7 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt; size()</tt>)
      */
+    @Override
     boolean addAll(int index, Collection<? extends E> c);
 
     /**
@@ -352,6 +362,7 @@ public interface List<E> extends Collection<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    @Override
     boolean removeAll(Collection<?> c);
 
     /**
@@ -374,6 +385,7 @@ public interface List<E> extends Collection<E> {
      * @see #remove(Object)
      * @see #contains(Object)
      */
+    @Override
     boolean retainAll(Collection<?> c);
 
     /**
@@ -383,6 +395,7 @@ public interface List<E> extends Collection<E> {
      * @throws UnsupportedOperationException if the <tt>clear</tt> operation
      *         is not supported by this list
      */
+    @Override
     void clear();
 
 
@@ -402,6 +415,7 @@ public interface List<E> extends Collection<E> {
      * @param o the object to be compared for equality with this list
      * @return <tt>true</tt> if the specified object is equal to this list
      */
+    @Override
     boolean equals(Object o);
 
     /**
@@ -421,6 +435,7 @@ public interface List<E> extends Collection<E> {
      * @see Object#equals(Object)
      * @see #equals(Object)
      */
+    @Override
     int hashCode();
 
 
@@ -434,6 +449,7 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt;= size()</tt>)
      */
+    @Override
     E get(int index);
 
     /**
@@ -454,6 +470,7 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt;= size()</tt>)
      */
+    @Override
     E set(int index, E element);
 
     /**
@@ -475,6 +492,7 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt; size()</tt>)
      */
+    @Override
     void add(int index, E element);
 
     /**
@@ -490,6 +508,7 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         (<tt>index &lt; 0 || index &gt;= size()</tt>)
      */
+    @Override
     E remove(int index);
 
 
@@ -512,6 +531,7 @@ public interface List<E> extends Collection<E> {
      *         list does not permit null elements
      *         (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     int indexOf(Object o);
 
     /**
@@ -531,6 +551,7 @@ public interface List<E> extends Collection<E> {
      *         list does not permit null elements
      *         (<a href="Collection.html#optional-restrictions">optional</a>)
      */
+    @Override
     int lastIndexOf(Object o);
 
 
@@ -543,6 +564,7 @@ public interface List<E> extends Collection<E> {
      * @return a list iterator over the elements in this list (in proper
      *         sequence)
      */
+    @Override
     ListIterator<E> listIterator();
 
     /**
@@ -560,6 +582,7 @@ public interface List<E> extends Collection<E> {
      * @throws IndexOutOfBoundsException if the index is out of range
      *         ({@code index < 0 || index > size()})
      */
+    @Override
     ListIterator<E> listIterator(int index);
 
     // View
@@ -568,12 +591,12 @@ public interface List<E> extends Collection<E> {
      * Returns a view of the portion of this list between the specified
      * <tt>fromIndex</tt>, inclusive, and <tt>toIndex</tt>, exclusive.  (If
      * <tt>fromIndex</tt> and <tt>toIndex</tt> are equal, the returned list is
-     * empty.)  The returned list is backed by this list, so non-structural
+     * empty.)  The returned list is backed by this list, so non-structural ÈùûÁªìÊûÑÊÄß
      * changes in the returned list are reflected in this list, and vice-versa.
      * The returned list supports all of the optional list operations supported
      * by this list.<p>
      *
-     * This method eliminates the need for explicit range operations (of
+     * This method eliminates Ê∂àÈô§ the need for explicit range operations (of
      * the sort that commonly exist for arrays).  Any operation that expects
      * a list can be used as a range operation by passing a subList view
      * instead of a whole list.  For example, the following idiom
@@ -588,7 +611,7 @@ public interface List<E> extends Collection<E> {
      * The semantics of the list returned by this method become undefined if
      * the backing list (i.e., this list) is <i>structurally modified</i> in
      * any way other than via the returned list.  (Structural modifications are
-     * those that change the size of this list, or otherwise perturb it in such
+     * those that change the size of this list, or otherwise perturb ‰Ωø‚Ä¶Ê∑∑‰π± it in such
      * a fashion that iterations in progress may yield incorrect results.)
      *
      * @param fromIndex low endpoint (inclusive) of the subList
@@ -598,6 +621,7 @@ public interface List<E> extends Collection<E> {
      *         (<tt>fromIndex &lt; 0 || toIndex &gt; size ||
      *         fromIndex &gt; toIndex</tt>)
      */
+    @Override
     List<E> subList(int fromIndex, int toIndex);
 
     /**
@@ -673,7 +697,7 @@ public interface List<E> extends Collection<E> {
      *          A {@code null} value indicates that the elements'
      *          {@linkplain Comparable natural ordering} should be used
      * @throws ClassCastException if the list contains elements that are not
-     *         <i>mutually comparable</i> using the specified comparator
+     *         <i>mutually c‰∫íÁõ∏Âú∞ omparable</i> using the specified comparator
      * @throws UnsupportedOperationException if the list's list-iterator does
      *         not support the {@code set} operation
      * @throws IllegalArgumentException

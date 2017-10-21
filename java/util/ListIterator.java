@@ -35,13 +35,13 @@ package java.util;
  * to {@code previous()} and the element that would be
  * returned by a call to {@code next()}.
  * An iterator for a list of length {@code n} has {@code n+1} possible
- * cursor positions, as illustrated by the carets ({@code ^}) below:
+ * cursor positions, as illustrated 插画 by the carets 插入符号 ({@code ^}) below:
  * <PRE>
  *                      Element(0)   Element(1)   Element(2)   ... Element(n-1)
  * cursor positions:  ^            ^            ^            ^                  ^
  * </PRE>
  * Note that the {@link #remove} and {@link #set(Object)} methods are
- * <i>not</i> defined in terms of the cursor position;  they are defined to
+ * <i>not</i> defined in terms of 依据 the cursor position;  they are defined to
  * operate on the last element returned by a call to {@link #next} or
  * {@link #previous()}.
  *
@@ -69,18 +69,20 @@ public interface ListIterator<E> extends Iterator<E> {
      * @return {@code true} if the list iterator has more elements when
      *         traversing the list in the forward direction
      */
+    @Override
     boolean hasNext();
 
     /**
-     * Returns the next element in the list and advances the cursor position.
-     * This method may be called repeatedly to iterate through the list,
-     * or intermixed with calls to {@link #previous} to go back and forth.
-     * (Note that alternating calls to {@code next} and {@code previous}
+     * Returns the next element in the list and advances 前进 the cursor position.
+     * This method may be called repeatedly 反复地 to iterate through the list,
+     * or intermixed 使…混 with calls to {@link #previous} to go back and forth.
+     * (Note that alternating 交替的 calls to {@code next} and {@code previous}
      * will return the same element repeatedly.)
      *
      * @return the next element in the list
      * @throws NoSuchElementException if the iteration has no next element
      */
+    @Override
     E next();
 
     /**
@@ -92,6 +94,7 @@ public interface ListIterator<E> extends Iterator<E> {
      * @return {@code true} if the list iterator has more elements when
      *         traversing the list in the reverse direction
      */
+    @Override
     boolean hasPrevious();
 
     /**
@@ -106,6 +109,7 @@ public interface ListIterator<E> extends Iterator<E> {
      * @throws NoSuchElementException if the iteration has no previous
      *         element
      */
+    @Override
     E previous();
 
     /**
@@ -117,6 +121,7 @@ public interface ListIterator<E> extends Iterator<E> {
      *         subsequent call to {@code next}, or list size if the list
      *         iterator is at the end of the list
      */
+    @Override
     int nextIndex();
 
     /**
@@ -128,6 +133,7 @@ public interface ListIterator<E> extends Iterator<E> {
      *         subsequent call to {@code previous}, or -1 if the list
      *         iterator is at the beginning of the list
      */
+    @Override
     int previousIndex();
 
 
@@ -147,6 +153,7 @@ public interface ListIterator<E> extends Iterator<E> {
      *         {@code add} have been called after the last call to
      *         {@code next} or {@code previous}
      */
+    @Override
     void remove();
 
     /**
@@ -169,6 +176,7 @@ public interface ListIterator<E> extends Iterator<E> {
      *         {@code add} have been called after the last call to
      *         {@code next} or {@code previous}
      */
+    @Override
     void set(E e);
 
     /**
@@ -191,5 +199,6 @@ public interface ListIterator<E> extends Iterator<E> {
      * @throws IllegalArgumentException if some aspect of this element
      *         prevents it from being added to this list
      */
+    @Override
     void add(E e);
 }
