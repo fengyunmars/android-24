@@ -1390,7 +1390,7 @@ public class RelativeLayout extends ViewGroup {
          * Adds a layout rule to be interpreted by the RelativeLayout.
          * <p>
          * This method should only be used for verbs that don't refer to a
-         * sibling (ex. {@link #ALIGN_RIGHT}) or take a boolean
+         * sibling 兄弟姊妹 (ex. {@link #ALIGN_RIGHT}) or take a boolean
          * value ({@link #TRUE} for true or 0 for false). To
          * specify a verb that takes a subject, use {@link #addRule(int, int)}.
          * <p>
@@ -1432,6 +1432,7 @@ public class RelativeLayout extends ViewGroup {
         public void addRule(int verb, int subject) {
             // If we're removing a relative rule, we'll need to force layout
             // resolution the next time it's requested.
+            //// TODO: 2017/10/22  
             if (!mNeedsLayoutResolution && isRelativeRule(verb)
                     && mInitialRules[verb] != 0 && subject == 0) {
                 mNeedsLayoutResolution = true;
@@ -1494,7 +1495,7 @@ public class RelativeLayout extends ViewGroup {
         // or not.
         //
         // If we are pre JB MR1 (said as "RTL compatibility mode"), "left"/"right" rules are having
-        // predominance over any "start/end" rules that could have been defined. A special case:
+        // predominance 优势 over any "start/end" rules that could have been defined. A special case:
         // if no "left"/"right" rule has been defined and "start"/"end" rules are defined then we
         // resolve those "start"/"end" rules to "left"/"right" respectively.
         //
@@ -1784,7 +1785,7 @@ public class RelativeLayout extends ViewGroup {
          *
          * @return A list of node, each being a root of the graph
          */
-        private ArrayDeque<Node> findRoots(int[] rulesFilter) {  
+        private ArrayDeque<Node> findRoots(int[] rulesFilter) {
             final SparseArray<Node> keyNodes = mKeyNodes;
             final ArrayList<Node> nodes = mNodes;
             final int count = nodes.size();
