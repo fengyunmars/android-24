@@ -1,4 +1,9 @@
-﻿/*
+/*
+* Copyright (C) 2014 MediaTek Inc.
+* Modification based on code covered by the mentioned copyright
+* and/or permission notice(s).
+*/
+/*
  * Copyright (C) 2006 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -57,6 +62,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.hardware.display.DisplayManagerGlobal;
+import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.os.Handler;
@@ -755,8 +761,33 @@ import java.util.concurrent.atomic.AtomicInteger;
 @UiThread
 public class View implements Drawable.Callback, KeyEvent.Callback,
         AccessibilityEventSource {
-
     private static final boolean DBG = false;
+
+    /// M: add debug motion flag.
+    private static final boolean IS_ENG_BUILD = "eng".equals(Build.TYPE);
+    static final boolean DEBUG_DEFAULT = IS_ENG_BUILD;
+    private static final boolean DBG_MOTION = SystemProperties.getBoolean(
+            "debug.view.motionlog", false);
+    private static final boolean DBG_FOCUS = SystemProperties.getBoolean(
+            "debug.view.focuslog", false);
+    private static final boolean DBG_HWUI = false;
+    private static final boolean DBG_LAYOUT = SystemProperties.getBoolean(
+            "debug.view.layoutlog", false);
+    private static final boolean DBG_DRAW = SystemProperties.getBoolean(
+            "debug.view.drawlog", false);
+    private static final boolean DBG_KEY = SystemProperties.getBoolean(
+            "debug.view.keylog", false);
+    private static final boolean DBG_TOUCH = SystemProperties.getBoolean(
+            "debug.view.touchlog", false);
+    private static final boolean DBG_SYSTRACE_MEASURE = SystemProperties.getBoolean(
+            "debug.view.systraceMeasure", false);
+    private static final boolean DBG_SYSTRACE_LAYOUT = SystemProperties.getBoolean(
+            "debug.view.systraceLayout", false);
+    private static final boolean FADING_EDGE_ENHANCE = SystemProperties.getBoolean(
+            "view.fadingEdgeEnhance", true);
+    private static final boolean DBG_MEASURE_LAYOUT = SystemProperties.getBoolean(
+            "debug.view.measurelayoutlog", false);
+    private int DBG_TIMEOUT_VALUE = 400;
 
     /**
      * The logging tag used by this class with android.util.Log.
@@ -2203,7 +2234,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_CENTER = 4;
 
     /**
-     * Align to the start of the view, which is ALIGN_LEFT if the view resolved
+     * Align to the start of the view, which is ALIGN_LEFT if the view鈥檚 resolved
      * layoutDirection is LTR, and ALIGN_RIGHT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2211,7 +2242,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_VIEW_START = 5;
 
     /**
-     * Align to the end of the view, which is ALIGN_RIGHT if the view resolved
+     * Align to the end of the view, which is ALIGN_RIGHT if the view鈥檚 resolved
      * layoutDirection is LTR, and ALIGN_LEFT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2890,6 +2921,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see android.R.attr#windowLightStatusBar
      */
     public static final int SYSTEM_UI_FLAG_LIGHT_STATUS_BAR = 0x00002000;
+
+    /**
+     * @hide
+     *
+     * NOTE: Flag for {@link #setSystemUiVisibility(int)}: It help user to disable transient
+     * status bar triggered by gesture
+     */
+    public static final int SYSTEM_UI_FLAG_IMMERSIVE_GESTURE_ISOLATED = 0x01000000;
 
     /**
      * @deprecated Use {@link #SYSTEM_UI_FLAG_LOW_PROFILE} instead.
@@ -3954,6 +3993,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     private int[] mTempNestedScrollConsumed;
 
+    private String mName;
     /**
      * An overlay is going to draw this View instead of being drawn as part of this
      * View's parent. mGhostView is the View in the Overlay that must be invalidated
@@ -3995,6 +4035,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @param context The Context the view is running in, through which it can
      *        access the current theme, resources, etc.
      */
+    @SuppressWarnings("illegalcatch")
     public View(Context context) {
         mContext = context;
         mResources = context != null ? context.getResources() : null;
@@ -4011,7 +4052,17 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         setOverScrollMode(OVER_SCROLL_IF_CONTENT_SCROLLS);
         mUserPaddingStart = UNDEFINED_PADDING;
         mUserPaddingEnd = UNDEFINED_PADDING;
-        mRenderNode = RenderNode.create(getClass().getName(), this);
+
+        /// M: name for rendernode @{
+        mName = getClass().getName();
+        String hashCode = "";
+        try {
+            hashCode = " @" + Integer.toHexString(this.hashCode());
+        } catch (Exception e) {
+            /// M: Do nothing
+        }
+        mRenderNode = RenderNode.create(mName + hashCode, this);
+        /// @}
 
         if (!sCompatibilityDone && context != null) {
             final int targetSdkVersion = context.getApplicationInfo().targetSdkVersion;
@@ -4029,7 +4080,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             // for UNSPECIFIED MeasureSpecs. This lets child views of scrolling containers
             // know what the expected parent size is going to be, so e.g. list items can size
             // themselves at 1/3 the size of their container. It breaks older apps though,
-            // specifically apps that use some popular open source libraries.
+            // specifically 特别地 apps that use some popular open source libraries.
             sUseZeroUnspecifiedMeasureSpec = targetSdkVersion < M;
 
             // Old versions of the platform would give different results from
@@ -4745,9 +4796,19 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Non-public constructor for use in testing
      */
+    @SuppressWarnings("illegalcatch")
     View() {
         mResources = null;
-        mRenderNode = RenderNode.create(getClass().getName(), this);
+        /// M: name for rendernode @{
+        mName = getClass().getName();
+        String hashCode = "";
+        try {
+            hashCode = " @" + Integer.toHexString(this.hashCode());
+        } catch (Exception e) {
+            /// M: Do nothing
+        }
+        mRenderNode = RenderNode.create(mName + hashCode, this);
+        /// @}
     }
 
     private static SparseArray<String> getAttributeMap() {
@@ -5465,7 +5526,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @see #setClickable(boolean)
      */
-
+    public void setOnClickListener(@Nullable OnClickListener l) {
+        if (!isClickable()) {
+            setClickable(true);
+        }
+        getListenerInfo().mOnClickListener = l;
+    }
 
     /**
      * Return whether this view has an attached OnClickListener.  Returns
@@ -5611,6 +5677,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final ListenerInfo li = mListenerInfo;
         if (li != null && li.mOnClickListener != null) {
             playSoundEffect(SoundEffectConstants.CLICK);
+            if (DBG_TOUCH) {
+                Log.d(VIEW_LOG_TAG, "(View)performClick, listener = " + li.mOnClickListener
+                        + ",this = " + this);
+            }
             li.mOnClickListener.onClick(this);
             result = true;
         } else {
@@ -5926,6 +5996,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             System.out.println(this + " requestFocus()");
         }
 
+        if (DBG_FOCUS) {
+            Log.d(VIEW_LOG_TAG, "handleFocusGainInternal: this = " + this + ", callstack = " ,
+                    new Throwable("ViewFocus"));
+        }
+
         if ((mPrivateFlags & PFLAG_FOCUSED) == 0) {
             mPrivateFlags |= PFLAG_FOCUSED;
 
@@ -6043,6 +6118,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             System.out.println(this + " clearFocus()");
         }
 
+        if (DBG_FOCUS) {
+            Log.d(VIEW_LOG_TAG, "clearFocus: this = " + this);
+        }
         clearFocusInternal(null, true, true);
     }
 
@@ -6096,6 +6174,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             System.out.println(this + " unFocus()");
         }
 
+        if (DBG_FOCUS) {
+            Log.d(VIEW_LOG_TAG, "unFocus: this = " + this);
+        }
         clearFocusInternal(focused, false, false);
     }
 
@@ -6164,6 +6245,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         }
 
         InputMethodManager imm = InputMethodManager.peekInstance();
+        if (DBG_FOCUS) {
+            Log.d(VIEW_LOG_TAG, "onFocusChanged: gainFocus = " + gainFocus + ",direction = "
+                    + direction + ",imm = " + imm + ",this = " + this);
+        }
+
         if (!gainFocus) {
             if (isPressed()) {
                 setPressed(false);
@@ -6454,8 +6540,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 if (mAttachInfo != null) {
                     focusablesTempList.clear();
                 }
-            }
-            break;
+            } break;
             case AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED: {
                 CharSequence text = getIterableTextForAccessibility();
                 if (text != null && text.length() > 0) {
@@ -6463,8 +6548,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     event.setToIndex(getAccessibilitySelectionEnd());
                     event.setItemCount(text.length());
                 }
-            }
-            break;
+            } break;
         }
     }
 
@@ -9133,7 +9217,6 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             @ViewDebug.IntToString(from = IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS,
                     to = "noHideDescendants")
         })
-
     public int getImportantForAccessibility() {
         return (mPrivateFlags2 & PFLAG2_IMPORTANT_FOR_ACCESSIBILITY_MASK)
                 >> PFLAG2_IMPORTANT_FOR_ACCESSIBILITY_SHIFT;
@@ -9829,6 +9912,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public void dispatchFinishTemporaryDetach() {
         onFinishTemporaryDetach();
         mPrivateFlags3 &= ~PFLAG3_TEMPORARY_DETACH;
+        if (hasWindowFocus() && hasFocus()) {
+            InputMethodManager.getInstance().focusIn(this);
+        }
     }
 
     /**
@@ -9878,17 +9964,38 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             mInputEventConsistencyVerifier.onKeyEvent(event, 0);
         }
 
+        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+            Log.i(VIEW_LOG_TAG, "Key down dispatch to " + this + ", event = " + event);
+        } else if (event.getAction() == KeyEvent.ACTION_UP) {
+            Log.i(VIEW_LOG_TAG, "Key up dispatch to " + this + ", event = " + event);
+        }
+
         // Give any attached key listener a first crack at the event.
         //noinspection SimplifiableIfStatement
         ListenerInfo li = mListenerInfo;
         if (li != null && li.mOnKeyListener != null && (mViewFlags & ENABLED_MASK) == ENABLED
                 && li.mOnKeyListener.onKey(this, event.getKeyCode(), event)) {
+            /// M : add log to help debugging
+            if (DBG_KEY) {
+                Log.d(VIEW_LOG_TAG, "handle Key event by listerner, listener = " + li
+                    + ", event = " + event + ", this = " + this);
+            }
             return true;
         }
 
         if (event.dispatch(this, mAttachInfo != null
                 ? mAttachInfo.mKeyDispatchState : null, this)) {
+            /// M : add log to help debugging
+            if (DBG_KEY) {
+                Log.d(VIEW_LOG_TAG, "handle Key event by onXXX, event = "
+                    + event + ", this = " + this);
+            }
             return true;
+        }
+        /// M : add log to help debugging
+        if (DBG_KEY) {
+            Log.d(VIEW_LOG_TAG, "Do not handle key event, event = "
+            + event + ", this = " + this);
         }
 
         if (mInputEventConsistencyVerifier != null) {
@@ -9932,6 +10039,18 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             mInputEventConsistencyVerifier.onTouchEvent(event, 0);
         }
 
+        if (DBG_MOTION || DEBUG_DEFAULT) {
+            if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                Log.i(VIEW_LOG_TAG, "Touch down dispatch to " + this + ", event = " + event);
+            } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                Log.i(VIEW_LOG_TAG, "Touch up dispatch to " + this + ", event = " + event);
+            }
+        }
+
+        if (DBG_MOTION) {
+            Log.d(VIEW_LOG_TAG, "(View)dispatchTouchEvent: event = " + event + ",this = " + this);
+        }
+
         final int actionMasked = event.getActionMasked();
         if (actionMasked == MotionEvent.ACTION_DOWN) {
             // Defensive 防御 cleanup 清理 for new gesture
@@ -9947,12 +10066,28 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             if (li != null && li.mOnTouchListener != null
                     && (mViewFlags & ENABLED_MASK) == ENABLED
                     && li.mOnTouchListener.onTouch(this, event)) {
+                /// M : add log to help debugging
+                if (DBG_TOUCH) {
+                    Log.d(VIEW_LOG_TAG, "handle Touch event by listerner, listener = " + li
+                            + ", event = " + event + ", this = " + this);
+                }
                 result = true;
             }
 
             if (!result && onTouchEvent(event)) {
+                /// M : add log to help debugging
+                if (DBG_TOUCH) {
+                    Log.d(VIEW_LOG_TAG, "handle Touch event by onTouchEvent, event = "
+                        + event + ", this = " + this);
+                }
                 result = true;
             }
+        }
+
+        /// M : add log to help debugging
+        if (!result && DBG_TOUCH) {
+            Log.d(VIEW_LOG_TAG, "Do not handle Touch event, event = "
+            + event + ", this = " + this);
         }
 
         if (!result && mInputEventConsistencyVerifier != null) {
@@ -10199,6 +10334,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     public void onWindowFocusChanged(boolean hasWindowFocus) {
         InputMethodManager imm = InputMethodManager.peekInstance();
+        if (DBG_FOCUS) {
+            Log.d(VIEW_LOG_TAG, "onWindowFocusChanged: hasWindowFocus = " + hasWindowFocus
+                    + ",imm = " + imm + ",this = " + this);
+        }
+
         if (!hasWindowFocus) {
             if (isPressed()) {
                 setPressed(false);
@@ -10468,6 +10608,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         if (ai != null && !ai.mRecomputeGlobalAttributes) {
             if (force || ai.mKeepScreenOn || (ai.mSystemUiVisibility != 0)
                     || ai.mHasSystemUiListeners) {
+                /// M : The one who first set mRecomputeGlobalAttributes should notify ViewRoot to
+                /// do scheduleTraversal
+                if (mParent != null) mParent.recomputeViewAttributes(this);
                 ai.mRecomputeGlobalAttributes = true;
             }
         }
@@ -11093,9 +11236,24 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final int viewFlags = mViewFlags;
         final int action = event.getAction();
 
+        if (DBG_MOTION) {
+            Log.d(VIEW_LOG_TAG, "(View)onTouchEvent 1: event = " + event + ",mTouchDelegate = "
+                    + mTouchDelegate + ",enable = " + isEnabled() + ",clickable = " + isClickable()
+                    + ",isLongClickable = " + isLongClickable() + ",this = " + this);
+        }
+
         if ((viewFlags & ENABLED_MASK) == DISABLED) {
-            if (action == MotionEvent.ACTION_UP && (mPrivateFlags & PFLAG_PRESSED) != 0) {
-                setPressed(false);
+            /// M: we need to reset the pressed state or remove prepressed callback
+            /// either up or cancel event happens.
+            if (action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) {
+                if ((mPrivateFlags & PFLAG_PRESSED) != 0) {
+                    setPressed(false);
+                } else if ((mPrivateFlags & PFLAG_PREPRESSED) != 0) {
+                    Log.d(VIEW_LOG_TAG, "View onTouch event, if a view's DISABLED&PFLAG_PREPRESSED"
+                            + "equal to TRUE, then remove callback mPrivateFlags = " + mPrivateFlags
+                            + ", this = " + this);
+                    removeTapCallback();
+                }
             }
             // A disabled view that is clickable still consumes the touch
             // events, it just doesn't respond to them.
@@ -11115,6 +11273,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             switch (action) {
                 case MotionEvent.ACTION_UP:
                     boolean prepressed = (mPrivateFlags & PFLAG_PREPRESSED) != 0;
+                    if (DBG_MOTION) {
+                        Log.d(VIEW_LOG_TAG, "(View)Touch up: prepressed = " + prepressed
+                                + ",this = " + this);
+                    }
+
                     if ((mPrivateFlags & PFLAG_PRESSED) != 0 || prepressed) {
                         // take focus if we don't have it already and we should in
                         // touch mode.
@@ -11142,6 +11305,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                                 // of the view update before click actions start.
                                 if (mPerformClick == null) {
                                     mPerformClick = new PerformClick();
+                                }
+                                if (DBG_TOUCH) {
+                                    Log.d(VIEW_LOG_TAG, "(View)Touch up: post perfomrClick"
+                                            + " runnable, this = " + this);
                                 }
                                 if (!post(mPerformClick)) {
                                     performClick();
@@ -11175,6 +11342,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
                     // Walk up the hierarchy to determine if we're inside a scrolling container.
                     boolean isInScrollingContainer = isInScrollingContainer();
+                    if (DBG_MOTION) {
+                        Log.d(VIEW_LOG_TAG, "(View)Touch down: isInScrollingContainer = "
+                                + isInScrollingContainer + ",this = " + this);
+                    }
 
                     // For views inside a scrolling container, delay the pressed feedback for
                     // a short period in case this is a scroll.
@@ -11194,6 +11365,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     break;
 
                 case MotionEvent.ACTION_CANCEL:
+                    if (DBG_MOTION) {
+                        Log.d(VIEW_LOG_TAG, "(View)Touch cancel: this = " + this);
+                    }
+
                     setPressed(false);
                     removeTapCallback();
                     removeLongPressCallback();
@@ -11203,6 +11378,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     break;
 
                 case MotionEvent.ACTION_MOVE:
+                    if (DBG_MOTION) {
+                        Log.d(VIEW_LOG_TAG, "(View)Touch move: x = " + x + ",y = " + y
+                                + ",mTouchSlop = " + mTouchSlop + ",this = " + this);
+                    }
                     drawableHotspotChanged(x, y);
 
                     // Be lenient about moving outside of buttons
@@ -13559,6 +13738,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         }
 
         if (skipInvalidate()) {
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "View invalidate: skipInvalidate , this = " + this);
+            }
             return;
         }
 
@@ -13860,6 +14042,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final AttachInfo attachInfo = mAttachInfo;
         if (attachInfo != null) {
             return attachInfo.mHandler.post(action);
+        }
+
+        if (DBG_MOTION) {
+            Log.w(VIEW_LOG_TAG, "(View)post runnable but AttachInfo = null, this = " + this);
         }
 
         // Postpone the runnable until we know on which thread it needs to run.
@@ -15780,6 +15966,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     + "LAYER_TYPE_SOFTWARE or LAYER_TYPE_HARDWARE");
         }
 
+        if (DBG_DRAW) {
+            Log.d(VIEW_LOG_TAG, "setLayerType, this =" + this + ", layerType = "
+                + layerType + ", paint = " + paint);
+        }
+
         boolean typeChanged = mRenderNode.setLayerType(layerType);
 
         if (!typeChanged) {
@@ -15889,9 +16080,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         switch (mLayerType) {
             case LAYER_TYPE_HARDWARE:
-                updateDisplayListIfDirty();
-                if (attachInfo.mHardwareRenderer != null && mRenderNode.isValid()) {
-                    attachInfo.mHardwareRenderer.buildLayer(mRenderNode);
+                /// M: Need to check if mHardwareRenderer is enabled.
+                ///    If app go to pause state after launch, the mHardwareRenderer
+                ///    will be initialized when then next time app resume
+                if (canHaveDisplayList() && mAttachInfo.mHardwareRenderer.isEnabled()) {
+                    updateDisplayListIfDirty();
+                    if (attachInfo.mHardwareRenderer != null && mRenderNode.isValid()) {
+                        attachInfo.mHardwareRenderer.buildLayer(mRenderNode);
+                    }
                 }
                 break;
             case LAYER_TYPE_SOFTWARE:
@@ -16027,13 +16223,20 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         if ((mPrivateFlags & PFLAG_DRAWING_CACHE_VALID) == 0
                 || !renderNode.isValid()
                 || (mRecreateDisplayList)) {
+
             // Don't need to recreate the display list, just need to tell our
             // children to restore/recreate theirs
             if (renderNode.isValid()
                     && !mRecreateDisplayList) {
                 mPrivateFlags |= PFLAG_DRAWN | PFLAG_DRAWING_CACHE_VALID;
                 mPrivateFlags &= ~PFLAG_DIRTY_MASK;
+                if (DBG_DRAW) {
+                    Log.d(VIEW_LOG_TAG, "getDisplayList : do not dirty itself only dispatch"
+                            + " getDisplaylist to child,this = " + this);
+                }
+                Trace.traceBegin(Trace.TRACE_TAG_HWUI, mName);
                 dispatchGetDisplayList();
+                Trace.traceEnd(Trace.TRACE_TAG_HWUI);
 
                 return renderNode; // no work needed
             }
@@ -16046,6 +16249,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             int height = mBottom - mTop;
             int layerType = getLayerType();
 
+            Trace.traceBegin(Trace.TRACE_TAG_HWUI, mName);
             final DisplayListCanvas canvas = renderNode.start(width, height);
             canvas.setHighContrastText(mAttachInfo.mHighContrastText);
 
@@ -16065,11 +16269,18 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
                     // Fast path for layouts with no backgrounds
                     if ((mPrivateFlags & PFLAG_SKIP_DRAW) == PFLAG_SKIP_DRAW) {
+                        if (DBG_DRAW) {
+                            Log.d(VIEW_LOG_TAG, "getDisplayList : calling dispatchDraw,this = "
+                                    + this);
+                        }
                         dispatchDraw(canvas);
                         if (mOverlay != null && !mOverlay.isEmpty()) {
                             mOverlay.getOverlayView().draw(canvas);
                         }
                     } else {
+                        if (DBG_DRAW) {
+                            Log.d(VIEW_LOG_TAG, "getDisplayList : calling draw,this = " + this);
+                        }
                         draw(canvas);
                     }
                 }
@@ -16077,9 +16288,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 renderNode.end(canvas);
                 setDisplayListProperties(renderNode);
             }
+
+            Trace.traceEnd(Trace.TRACE_TAG_HWUI);
         } else {
             mPrivateFlags |= PFLAG_DRAWN | PFLAG_DRAWING_CACHE_VALID;
             mPrivateFlags &= ~PFLAG_DIRTY_MASK;
+        }
+        if (DBG_DRAW) {
+            Log.d(VIEW_LOG_TAG, "updateDisplayListIfDirty : return renderNode,this = " + this);
         }
         return renderNode;
     }
@@ -16373,11 +16589,18 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         // Fast path for layouts with no backgrounds
         if ((mPrivateFlags & PFLAG_SKIP_DRAW) == PFLAG_SKIP_DRAW) {
             mPrivateFlags &= ~PFLAG_DIRTY_MASK;
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "view buildDrawingCache : calling dispatchDraw,this = "
+                        + this);
+            }
             dispatchDraw(canvas);
             if (mOverlay != null && !mOverlay.isEmpty()) {
                 mOverlay.getOverlayView().draw(canvas);
             }
         } else {
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "view buildDrawingCache : calling draw,this = " + this);
+            }
             draw(canvas);
         }
 
@@ -16626,6 +16849,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 mClipBounds.set(clipBounds);
             }
         } else {
+            if (DEBUG_DEFAULT) {
+                Log.d(VIEW_LOG_TAG, "setClipBounds to NULL!!, this = " + this);
+            }
             mClipBounds = null;
         }
         mRenderNode.setClipBounds(mClipBounds);
@@ -16674,8 +16900,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             a.initialize(mRight - mLeft, mBottom - mTop, parent.getWidth(), parent.getHeight());
             //// TODO: 2017/9/12
             a.initializeInvalidateRegion(0, 0, mRight - mLeft, mBottom - mTop);
-            if (mAttachInfo != null)
-                a.setListenerHandler(mAttachInfo.mHandler);
+            if (mAttachInfo != null) a.setListenerHandler(mAttachInfo.mHandler);
             onAnimationStart();
         }
 
@@ -16772,7 +16997,6 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * and hardware acceleration.
      */
     boolean draw(Canvas canvas, ViewGroup parent, long drawingTime) {
-
         final boolean hardwareAcceleratedCanvas = canvas.isHardwareAccelerated();
         /* If an attached view draws to a HW canvas, it may use its RenderNode + DisplayList.
          *
@@ -16795,6 +17019,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         Transformation transformToApply = null;
         boolean concatMatrix = false;
         final boolean scalingRequired = mAttachInfo != null && mAttachInfo.mScalingRequired;
+
+        if (DBG_DRAW) {
+            Log.d(VIEW_LOG_TAG, "view draw1, this =" + this + ", drawingWithRenderNode = "
+                + drawingWithRenderNode + ", childHasIdentityMatrix = " + childHasIdentityMatrix
+                + ", scalingRequired = " + scalingRequired);
+        }
+
         final Animation a = getAnimation();
         if (a != null) {
             more = applyLegacyAnimation(parent, drawingTime, a, scalingRequired);
@@ -16833,6 +17064,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 canvas.quickReject(mLeft, mTop, mRight, mBottom, Canvas.EdgeType.BW) &&
                 (mPrivateFlags & PFLAG_DRAW_ANIMATION) == 0) {
             mPrivateFlags2 |= PFLAG2_VIEW_QUICK_REJECTED;
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "view draw1 quickReject, this =" + this
+                    + ", mLeft = " + mLeft + ", mTop = " + mTop
+                    + ", mBottom = " + mBottom + ", mRight = " + mRight);
+            }
             return more;
         }
         mPrivateFlags2 &= ~PFLAG2_VIEW_QUICK_REJECTED;
@@ -16999,13 +17235,22 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 // Fast path for layouts with no backgrounds
                 if ((mPrivateFlags & PFLAG_SKIP_DRAW) == PFLAG_SKIP_DRAW) {
                     mPrivateFlags &= ~PFLAG_DIRTY_MASK;
+                    if (DBG_DRAW) {
+                        Log.d(VIEW_LOG_TAG, "view draw1 : calling dispatchDraw,this = " + this);
+                    }
                     dispatchDraw(canvas);
                 } else {
+                    if (DBG_DRAW) {
+                        Log.d(VIEW_LOG_TAG, "view draw1 : calling draw,this = " + this);
+                    }
                     draw(canvas);
                 }
             }
         } else if (cache != null) {
             mPrivateFlags &= ~PFLAG_DIRTY_MASK;
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "view draw1 : calling drawBitmap,this = " + this);
+            }
             if (layerType == LAYER_TYPE_NONE || mLayerPaint == null) {
                 // no layer paint, use temporary paint to draw bitmap
                 Paint cachePaint = parent.mCachePaint;
@@ -17093,10 +17338,25 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         boolean verticalEdges = (viewFlags & FADING_EDGE_VERTICAL) != 0;
         if (!verticalEdges && !horizontalEdges) {
             // Step 3, draw the content
-            if (!dirtyOpaque)
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "view draw2 : calling onDraw ,dirtyOpaque= " + dirtyOpaque
+                        + " ,this = " + this);
+            }
+            /// M: Monitor onDraw time if longer than 3s print log.
+            if (!dirtyOpaque) {
+                long logTime = System.currentTimeMillis();
                 onDraw(canvas);
+                long nowTime = System.currentTimeMillis();
+                if (nowTime - logTime > DBG_TIMEOUT_VALUE) {
+                    Log.d(VIEW_LOG_TAG, "[ANR Warning]onDraw time too long, this =" + this
+                            + "time =" + (nowTime - logTime) + " ms");
+                }
+            }
 
             // Step 4, draw the children
+            if (DBG_DRAW) {
+                Log.d(VIEW_LOG_TAG, "view draw2 : calling dispatchDraw,this = " + this);
+            }
             dispatchDraw(canvas);
 
             // Overlay is part of the content and draws beneath Foreground
@@ -17179,31 +17439,58 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         int solidColor = getSolidColor();
         if (solidColor == 0) {
-            final int flags = Canvas.HAS_ALPHA_LAYER_SAVE_FLAG;
+            /// M : Fading edge perforamance improvement
+            if (FADING_EDGE_ENHANCE && mAttachInfo != null && mAttachInfo.mSurfaceViewCount == 0) {
+                if (drawTop || drawBottom || drawLeft || drawRight) {
+                    final int flags =
+                            Canvas.HAS_ALPHA_LAYER_SAVE_FLAG | Canvas.CLIP_TO_LAYER_SAVE_FLAG;
+                    canvas.saveLayer(mScrollX, mScrollY, mScrollX + mRight - mLeft,
+                            mScrollY + mBottom - mTop, null, flags);
+                }
+            } else {
 
-            if (drawTop) {
-                canvas.saveLayer(left, top, right, top + length, null, flags);
-            }
+                final int flags = Canvas.HAS_ALPHA_LAYER_SAVE_FLAG;
 
-            if (drawBottom) {
-                canvas.saveLayer(left, bottom - length, right, bottom, null, flags);
-            }
+                if (drawTop) {
+                    canvas.saveLayer(left, top, right, top + length, null, flags);
+                }
 
-            if (drawLeft) {
-                canvas.saveLayer(left, top, left + length, bottom, null, flags);
-            }
+                if (drawBottom) {
+                    canvas.saveLayer(left, bottom - length, right, bottom, null, flags);
+                }
 
-            if (drawRight) {
-                canvas.saveLayer(right - length, top, right, bottom, null, flags);
+                if (drawLeft) {
+                    canvas.saveLayer(left, top, left + length, bottom, null, flags);
+                }
+
+                if (drawRight) {
+                    canvas.saveLayer(right - length, top, right, bottom, null, flags);
+                }
             }
         } else {
             scrollabilityCache.setFadeColor(solidColor);
         }
 
         // Step 3, draw the content
-        if (!dirtyOpaque) onDraw(canvas);
+        if (DBG_DRAW) {
+            Log.d(VIEW_LOG_TAG, "view draw3 : calling onDraw, dirtyOpaque = " + dirtyOpaque
+                    + " ,this = " + this);
+        }
+        /// M: Monitor onDraw time if longer than 3s print log.
+        if (!dirtyOpaque) {
+            long logTime = System.currentTimeMillis();
+            onDraw(canvas);
+            long nowTime = System.currentTimeMillis();
+            if (nowTime - logTime > DBG_TIMEOUT_VALUE) {
+                Log.d(VIEW_LOG_TAG, "[ANR Warning]onDraw time too long, this =" + this
+                        + ", time =" + (nowTime - logTime) + " ms");
+            }
+        }
 
         // Step 4, draw the children
+        if (DBG_DRAW) {
+            Log.d(VIEW_LOG_TAG, "view draw3 : calling dispatchDraw,this = " + this);
+        }
         dispatchDraw(canvas);
 
         // Step 5, draw the fade effect and restore layers
@@ -17322,7 +17609,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     private RenderNode getDrawableRenderNode(Drawable drawable, RenderNode renderNode) {
         if (renderNode == null) {
-            renderNode = RenderNode.create(drawable.getClass().getName(), this);
+            /// M: name for drawable rendernode
+            final String name = drawable.getClass().getSimpleName() + " @" + Integer.toHexString(
+                    drawable.hashCode());
+            renderNode = RenderNode.create(name, this);
         }
 
         final Rect bounds = drawable.getBounds();
@@ -17533,8 +17823,29 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
     @SuppressWarnings({"unchecked"})
     public void layout(int l, int t, int r, int b) {
+        if (DBG_SYSTRACE_LAYOUT) {
+            Trace.traceBegin(Trace.TRACE_TAG_VIEW, "layout : " + getClass().getSimpleName());
+        }
         if ((mPrivateFlags3 & PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT) != 0) {
+
+            /// M: Monitor onLayout time if longer than 3s print log.
+            if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                Log.d(VIEW_LOG_TAG, "view onMeasure start (measure cache), this =" + this
+                        + ", widthMeasureSpec = " + MeasureSpec.toString(mOldWidthMeasureSpec)
+                        + ", heightMeasureSpec = " + MeasureSpec.toString(mOldHeightMeasureSpec));
+            }
+            long logTime = System.currentTimeMillis();
             onMeasure(mOldWidthMeasureSpec, mOldHeightMeasureSpec);
+            long nowTime = System.currentTimeMillis();
+            if (nowTime - logTime > DBG_TIMEOUT_VALUE) {
+                Log.d(VIEW_LOG_TAG, "[ANR Warning]onMeasure time too long, this =" + this
+                        + "time =" + (nowTime - logTime) + " ms");
+            }
+            if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                Log.d(VIEW_LOG_TAG, "view onMeasure end (measure cache), this =" + this
+                        + ", mMeasuredWidth = " + mMeasuredWidth + ", mMeasuredHeight = "
+                        + mMeasuredHeight + ", time =" + (nowTime - logTime) + " ms");
+            }
             mPrivateFlags3 &= ~PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT;
         }
 
@@ -17545,9 +17856,25 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         boolean changed = isLayoutModeOptical(mParent) ?
                 setOpticalFrame(l, t, r, b) : setFrame(l, t, r, b);
-
+        if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+            Log.d(VIEW_LOG_TAG, "view layout start, this = " + this + ", mLeft = " + mLeft
+                    + ", mTop = " + mTop + ", mRight = " + mRight + ", mBottom = " + mBottom
+                    + ", changed = " + changed);
+        }
         if (changed || (mPrivateFlags & PFLAG_LAYOUT_REQUIRED) == PFLAG_LAYOUT_REQUIRED) {
+            /// M: Monitor onLayout time if longer than 3s print log.
+            long logTime = System.currentTimeMillis();
             onLayout(changed, l, t, r, b);
+            long nowTime = System.currentTimeMillis();
+            if (nowTime - logTime > DBG_TIMEOUT_VALUE) {
+                Log.d(VIEW_LOG_TAG, "[ANR Warning]onLayout time too long, this =" + this
+                        + "time =" + (nowTime - logTime) + " ms");
+            }
+            if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                Log.d(VIEW_LOG_TAG, "view layout end, this =" + this + ", mLeft = " + mLeft
+                        + ", mTop = " + mTop + ", mRight = " + mRight + ", mBottom = " + mBottom
+                        + ", time =" + (nowTime - logTime) + " ms");
+            }
             mPrivateFlags &= ~PFLAG_LAYOUT_REQUIRED;
 
             ListenerInfo li = mListenerInfo;
@@ -17559,10 +17886,19 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     listenersCopy.get(i).onLayoutChange(this, l, t, r, b, oldL, oldT, oldR, oldB);
                 }
             }
+        } else {
+            if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                Log.d(VIEW_LOG_TAG, "view layout end 2 (use previous layout), this = " + this
+                        + ", mLeft = " + mLeft + ", mTop = " + mTop
+                        + ", mRight = " + mRight + ", mBottom = " + mBottom);
+            }
         }
 
         mPrivateFlags &= ~PFLAG_FORCE_LAYOUT;
         mPrivateFlags3 |= PFLAG3_IS_LAID_OUT;
+        if (DBG_SYSTRACE_LAYOUT) {
+            Trace.traceEnd(Trace.TRACE_TAG_VIEW);
+        }
     }
 
     /**
@@ -19685,6 +20021,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         mPrivateFlags |= PFLAG_FORCE_LAYOUT;
         mPrivateFlags |= PFLAG_INVALIDATED;
 
+        if (DBG_LAYOUT) {
+            Log.d(VIEW_LOG_TAG, "view request layout, this =" + this);
+        }
+
         if (mParent != null && !mParent.isLayoutRequested()) {
             mParent.requestLayout();
         }
@@ -19726,6 +20066,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see #onMeasure(int, int)
      */
     public final void measure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (DBG_SYSTRACE_MEASURE) {
+            Trace.traceBegin(Trace.TRACE_TAG_VIEW, "measure : " + getClass().getSimpleName());
+        }
         boolean optical = isLayoutModeOptical(this);
         if (optical != isLayoutModeOptical(mParent)) {
             Insets insets = getOpticalInsets();
@@ -19733,6 +20076,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             int oHeight = insets.top  + insets.bottom;
             widthMeasureSpec  = MeasureSpec.adjust(widthMeasureSpec,  optical ? -oWidth  : oWidth);
             heightMeasureSpec = MeasureSpec.adjust(heightMeasureSpec, optical ? -oHeight : oHeight);
+        }
+        if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+            Log.d(VIEW_LOG_TAG, "view measure start, this = " + this + ", widthMeasureSpec = "
+                    + MeasureSpec.toString(widthMeasureSpec) + ", heightMeasureSpec = "
+                    + MeasureSpec.toString(heightMeasureSpec) + ", mOldWidthMeasureSpec = "
+                    + MeasureSpec.toString(mOldWidthMeasureSpec) + ", mOldHeightMeasureSpec = "
+                    + MeasureSpec.toString(mOldHeightMeasureSpec) + getViewLayoutProperties());
         }
 
         // Suppress sign extension for the low bytes
@@ -19763,7 +20113,25 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             int cacheIndex = forceLayout ? -1 : mMeasureCache.indexOfKey(key);
             if (cacheIndex < 0 || sIgnoreMeasureCache) {
                 // measure ourselves, this should set the measured dimension flag back
+                /// M: Monitor onMeasue time if longer than 3s print log.
+                long logTime = System.currentTimeMillis();
+				// add fengyun
+                String swc = MeasureSpec.toString(widthMeasureSpec);
+                String shc = MeasureSpec.toString(heightMeasureSpec);
+				// end
                 onMeasure(widthMeasureSpec, heightMeasureSpec);
+                long nowTime = System.currentTimeMillis();
+                if (nowTime - logTime > DBG_TIMEOUT_VALUE) {
+                    Log.d(VIEW_LOG_TAG, "[ANR Warning]onMeasure time too long, this =" + this
+                            + "time =" + (nowTime - logTime) + " ms");
+                }
+                if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                    Log.d(VIEW_LOG_TAG, "view measure end, this = " + this + ", mMeasuredWidth = "
+                            + mMeasuredWidth + ", mMeasuredHeight = " + mMeasuredHeight
+                            + ", minWidth = " + getSuggestedMinimumWidth() + ", minHeight = "
+                            + getSuggestedMinimumHeight() + ", time = " + (nowTime - logTime)
+                            + " ms");
+                }
                 mPrivateFlags3 &= ~PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT;
             } else {
                 long value = mMeasureCache.valueAt(cacheIndex);
@@ -19771,6 +20139,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 setMeasuredDimensionRaw((int) (value >> 32), (int) value);
                 //// TODO: 2017/9/16  
                 mPrivateFlags3 |= PFLAG3_MEASURE_NEEDED_BEFORE_LAYOUT;
+                if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                    Log.d(VIEW_LOG_TAG, "view measure end 2 (use measure chache), this = " + this
+                            + ", mMeasuredWidth = " + mMeasuredWidth + ", mMeasuredHeight = "
+                            + mMeasuredHeight + ", minWidth = " + getSuggestedMinimumWidth()
+                            + ", minHeight = " + getSuggestedMinimumHeight());
+                }
             }
 
             // flag not set, setMeasuredDimension() was not invoked, we raise
@@ -19783,6 +20157,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             }
 
             mPrivateFlags |= PFLAG_LAYOUT_REQUIRED;
+        } else {
+            if (DBG_LAYOUT || DBG_MEASURE_LAYOUT) {
+                Log.d(VIEW_LOG_TAG, "view measure end 3 (use prevuious measurement), this = "
+                        + this + ", mMeasuredWidth = " + mMeasuredWidth + ", mMeasuredHeight = "
+                        + mMeasuredHeight + ", minWidth = " + getSuggestedMinimumWidth()
+                        + ", minHeight = " + getSuggestedMinimumHeight());
+            }
         }
 
         mOldWidthMeasureSpec = widthMeasureSpec;
@@ -19790,6 +20171,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         mMeasureCache.put(key, ((long) mMeasuredWidth) << 32 |
                 (long) mMeasuredHeight & 0xffffffffL); // suppress sign extension
+        if (DBG_SYSTRACE_MEASURE) {
+            Trace.traceEnd(Trace.TRACE_TAG_VIEW);
+        }
     }
 
     /**
@@ -19841,6 +20225,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec),
                 getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec));
+		// add fengyun
+        String swc = MeasureSpec.toString(getMeasuredWidthAndState());
+        String shc = MeasureSpec.toString(getMeasuredHeightAndState());
+		// end
     }
 
     /**
@@ -19935,6 +20323,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                     result = size;
                 }
                 break;
+            //// TODO: 2017/10/24  
             case MeasureSpec.EXACTLY:
                 result = specSize;
                 break;
@@ -20385,7 +20774,6 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         }
     }
 
-
     boolean updateLocalSystemUiVisibility(int localValue, int localChanges) {
         int val = (mSystemUiVisibility&~localChanges) | (localValue&localChanges);
         if (val != mSystemUiVisibility) {
@@ -20436,7 +20824,6 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * </div>
      */
     public static class DragShadowBuilder {
-
         private final WeakReference<View> mView;
 
         /**
@@ -22737,7 +23124,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         /**
          * Indicates whether the application is in compatibility mode
          */
-        boolean  mScalingRequired;
+        boolean mScalingRequired;
 
         /**
          * Left position of this view's window
@@ -23067,6 +23454,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
          * The drag shadow surface for the current drag operation.
          */
         public Surface mDragSurface;
+
+        /**
+         * M: When application view tree contains surfaceview, we should disable
+         * FADING_EDGE_ENHANCE feature.
+         */
+        int mSurfaceViewCount;
 
         /**
          * Creates a new set of attachment information with the specified
@@ -23775,5 +24168,24 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 contentDescription == null ? "" : contentDescription.toString());
         stream.addProperty("accessibility:labelFor", getLabelFor());
         stream.addProperty("accessibility:importantForAccessibility", getImportantForAccessibility());
+    }
+
+    /**
+     * M: Output layout related parameters.
+     */
+    private String getViewLayoutProperties() {
+        StringBuilder out = new StringBuilder(128);
+        if (mPaddingLeft != 0 || mPaddingTop != 0 || mPaddingRight != 0 || mPaddingBottom != 0) {
+            out.append(", Padding = {" + mPaddingLeft + ", " + mPaddingTop + ", " + mPaddingRight
+                    + ", " + mPaddingBottom + "}");
+        }
+
+        if (mLayoutParams == null) {
+            out.append(", BAD! no layout params");
+        } else {
+            out.append(", " + mLayoutParams.debug(""));
+        }
+
+        return out.toString();
     }
 }

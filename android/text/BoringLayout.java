@@ -258,7 +258,7 @@ public class BoringLayout extends Layout implements TextUtils.EllipsizeCallback 
         for (int start = 0; start < textLength; start += MAX_BUF_LEN) {
             final int end = Math.min(start + MAX_BUF_LEN, textLength);
 
-            // No need to worry about getting half codepoints, since we reject surrogate code units
+            // No need to worry about getting half codepoints, since we reject 拒绝 surrogate 代理 code units
             // as non-boring as soon we see one.
             TextUtils.getChars(text, start, end, buffer, 0);
 

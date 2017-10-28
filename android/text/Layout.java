@@ -1937,12 +1937,12 @@ public abstract class Layout {
     }
 
     /**
-     * Stores information about bidirectional (left-to-right or right-to-left)
+     * Stores information about bidirectional 双向的 (left-to-right or right-to-left)
      * text within the layout of a line.
      */
     public static class Directions {
         // Directions represents directional runs within a line of text.
-        // Runs are pairs of ints listed in visual order, starting from the
+        // Runs are pairs of ints listed in visual order 视觉顺序 , starting from the
         // leading margin.  The first int of each pair is the offset from
         // the first character of the line to the start of the run.  The
         // second int represents both the length and level of the run.
@@ -2087,12 +2087,15 @@ public abstract class Layout {
     static final int DIR_REQUEST_DEFAULT_RTL = -2;
 
     /* package */
+//    static final int RUN_LENGTH_MASK = 0x03ffffff; = Ob 0000 0011 1111 1111 1111 1111 1111 1111 = after shift = 0b 0000 00 =>mask 0b 1111 11
+//    ==> mask = 0b 11 1111 = 0x3f
     static final int RUN_LENGTH_MASK = 0x03ffffff;
     /* package */
     static final int RUN_LEVEL_SHIFT = 26;
     /* package */
     static final int RUN_LEVEL_MASK = 0x3f;
     /* package */
+//    static final int RUN_RTL_FLAG = 1 << RUN_LEVEL_SHIFT;  0b 0000 0000 0000 0000 0000 0000 0000 0001 << 26 => 0000 0100 0000 0000 0000 0000 0000 0000
     static final int RUN_RTL_FLAG = 1 << RUN_LEVEL_SHIFT;
 
     public enum Alignment {

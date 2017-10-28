@@ -25,13 +25,14 @@ import android.view.animation.Interpolator;
 
 /**
  * This class encapsulates scrolling with the ability to overshoot the bounds
- * of a scrolling operation. This class is a drop-in replacement for
+ * of a scrolling operation. This class is a drop-in 顺便的 replacement for
  * {@link android.widget.Scroller} in most cases.
  */
 public class OverScroller {
+
     private int mMode;
 
-    private final SplineOverScroller mScrollerX;
+    private final SplineOverScroller mScrollerX;  // 样条曲线
     private final SplineOverScroller mScrollerY;
 
     private Interpolator mInterpolator;
@@ -65,7 +66,7 @@ public class OverScroller {
      * @param context The context of this application.
      * @param interpolator The scroll interpolator. If null, a default (viscous) interpolator will
      * be used.
-     * @param flywheel If true, successive fling motions will keep on increasing scroll speed.
+     * @param flywheel If true, successive 连续的 fling motions will keep on increasing scroll speed.
      * @hide
      */
     public OverScroller(Context context, Interpolator interpolator, boolean flywheel) {
@@ -578,14 +579,16 @@ public class OverScroller {
         // Current state of the animation.
         private int mState = SPLINE;
 
-        // Constant gravity value, used in the deceleration phase.
+        // Constant gravity 重力 value, used in the deceleration phase.
         private static final float GRAVITY = 2000.0f;
 
-        // A context-specific coefficient adjusted to physical values.
+        /**
+         * fun(ppi) A context-specific coefficient 系数 adjusted to physical values.
+         */
         private float mPhysicalCoeff;
 
         private static float DECELERATION_RATE = (float) (Math.log(0.78) / Math.log(0.9));
-        private static final float INFLEXION = 0.35f; // Tension lines cross at (INFLEXION, 1)
+        private static final float INFLEXION = 0.35f; // Tension 张力 lines cross at (INFLEXION, 1)
         private static final float START_TENSION = 0.5f;
         private static final float END_TENSION = 1.0f;
         private static final float P1 = START_TENSION * INFLEXION;
@@ -596,8 +599,8 @@ public class OverScroller {
         private static final float[] SPLINE_TIME = new float[NB_SAMPLES + 1];
 
         private static final int SPLINE = 0;
-        private static final int CUBIC = 1;
-        private static final int BALLISTIC = 2;
+        private static final int CUBIC = 1;   // 立方的 立方体的 三次的
+        private static final int BALLISTIC = 2; // 弹道的；射击的
 
         static {
             float x_min = 0.0f;
@@ -708,7 +711,9 @@ public class OverScroller {
             mDuration = elapsedTime + extend;
             mFinished = false;
         }
-
+        /**
+        * 回弹，反弹
+        */
         boolean springback(int start, int min, int max) {
             mFinished = true;
 
@@ -738,7 +743,7 @@ public class OverScroller {
             // TODO take velocity into account
             mVelocity = -delta; // only sign is used
             mOver = Math.abs(delta);
-            mDuration = (int) (1000.0 * Math.sqrt(-2.0 * delta / mDeceleration));
+            mDuration = (int) (1000.0 * Math.sqrt(-2.0 * delta / mDeceleration)); // t * t = 2 * s / a  s = 1 / 2 * a * t * t
         }
 
         void fling(int start, int velocity, int min, int max, int over) {
@@ -776,18 +781,25 @@ public class OverScroller {
                 mFinal = max;
             }
         }
-
+        /**
+         * fun(abs(velocity) / (mFlingFriction * fun(ppi)))
+         */
         private double getSplineDeceleration(int velocity) {
             return Math.log(INFLEXION * Math.abs(velocity) / (mFlingFriction * mPhysicalCoeff));
         }
-
+        /**
+         * exp(1 / getSplineDeceleration(int velocity))
+         */
         private double getSplineFlingDistance(int velocity) {
             final double l = getSplineDeceleration(velocity);
             final double decelMinusOne = DECELERATION_RATE - 1.0;
             return mFlingFriction * mPhysicalCoeff * Math.exp(DECELERATION_RATE / decelMinusOne * l);
         }
 
-        /* Returns the duration, expressed in milliseconds */
+        /**
+         * exp(getSplineDeceleration(int velocity))
+         * Returns the duration, expressed in milliseconds
+         */
         private int getSplineFlingDuration(int velocity) {
             final double l = getSplineDeceleration(velocity);
             final double decelMinusOne = DECELERATION_RATE - 1.0;
@@ -795,14 +807,15 @@ public class OverScroller {
         }
 
         private void fitOnBounceCurve(int start, int end, int velocity) {
-            // Simulate a bounce that started from edge
+            // Simulate 模仿的；假装的 a bounce that started from edge
             final float durationToApex = - velocity / mDeceleration;
             // The float cast below is necessary to avoid integer overflow.
             final float velocitySquared = (float) velocity * velocity;
-            final float distanceToApex = velocitySquared / 2.0f / Math.abs(mDeceleration);
+            final float distanceToApex = velocitySquared / 2.0f / Math.abs(mDeceleration);  // s = v2 ^2 - v0 ^ 2 / 2a
             final float distanceToEdge = Math.abs(end - start);
             final float totalDuration = (float) Math.sqrt(
-                    2.0 * (distanceToApex + distanceToEdge) / Math.abs(mDeceleration));
+                    2.0 * (distanceToApex + distanceToEdge) / Math.abs(mDeceleration)); // t ^ 2 = 2 s / a  s = 1/2 * a * t * t
+            // mStartTimeN = mStartTime - (totalDuration - durationToApex) = mStartTime - totalDuration + dutationToApex
             mStartTime -= (int) (1000.0f * (totalDuration - durationToApex));
             mCurrentPosition = mStart = end;
             mVelocity = (int) (- mDeceleration * totalDuration);
@@ -814,7 +827,7 @@ public class OverScroller {
             onEdgeReached();
         }
 
-        private void startAfterEdge(int start, int min, int max, int velocity) {
+        private void   startAfterEdge(int start, int min, int max, int velocity) {
             if (start > min && start < max) {
                 Log.e("OverScroller", "startAfterEdge called from a valid position");
                 mFinished = true;
@@ -825,7 +838,7 @@ public class OverScroller {
             final int overDistance = start - edge;
             boolean keepIncreasing = overDistance * velocity >= 0;
             if (keepIncreasing) {
-                // Will result in a bounce or a to_boundary depending on velocity.
+                // Will result in a bounce 弹跳；弹起，反跳；弹回 or a to_boundary depending on velocity.
                 startBounceAfterEdge(start, edge, velocity);
             } else {
                 final double totalDistance = getSplineFlingDistance(velocity);
@@ -838,7 +851,7 @@ public class OverScroller {
         }
 
         void notifyEdgeReached(int start, int end, int over) {
-            // mState is used to detect successive notifications 
+            // mState is used to detect successive notifications
             if (mState == SPLINE) {
                 mOver = over;
                 mStartTime = AnimationUtils.currentAnimationTimeMillis();
@@ -945,8 +958,8 @@ public class OverScroller {
                     final float t = (float) (currentTime) / mDuration;
                     final float t2 = t * t;
                     final float sign = Math.signum(mVelocity);
-                    distance = sign * mOver * (3.0f * t2 - 2.0f * t * t2); 
-                    mCurrVelocity = sign * mOver * 6.0f * (- t + t2); 
+                    distance = sign * mOver * (3.0f * t2 - 2.0f * t * t2);
+                    mCurrVelocity = sign * mOver * 6.0f * (- t + t2);
                     break;
                 }
             }

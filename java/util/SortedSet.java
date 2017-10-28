@@ -30,17 +30,17 @@ package java.util;
  * The elements are ordered using their {@linkplain Comparable natural
  * ordering}, or by a {@link Comparator} typically provided at sorted
  * set creation time.  The set's iterator will traverse the set in
- * ascending element order. Several additional operations are provided
+ * ascending 上升的 element order. Several additional operations are provided
  * to take advantage of the ordering.  (This interface is the set
- * analogue of {@link SortedMap}.)
+ * analogue 类似物 of {@link SortedMap}.)
  *
  * <p>All elements inserted into a sorted set must implement the <tt>Comparable</tt>
  * interface (or be accepted by the specified comparator).  Furthermore, all
- * such elements must be <i>mutually comparable</i>: <tt>e1.compareTo(e2)</tt>
+ * such elements must be <i>mutually 互相地 comparable</i>: <tt>e1.compareTo(e2)</tt>
  * (or <tt>comparator.compare(e1, e2)</tt>) must not throw a
  * <tt>ClassCastException</tt> for any elements <tt>e1</tt> and <tt>e2</tt> in
  * the sorted set.  Attempts to violate this restriction will cause the
- * offending method or constructor invocation to throw a
+ * offending 不愉快的 method or constructor invocation to throw a
  * <tt>ClassCastException</tt>.
  *
  * <p>Note that the ordering maintained by a sorted set (whether or not an
@@ -51,7 +51,7 @@ package java.util;
  * the <tt>Set</tt> interface is defined in terms of the <tt>equals</tt>
  * operation, but a sorted set performs all element comparisons using its
  * <tt>compareTo</tt> (or <tt>compare</tt>) method, so two elements that are
- * deemed equal by this method are, from the standpoint of the sorted set,
+ * deemed 认为 equal by this method are, from the standpoint 立场 of the sorted set,
  * equal.  The behavior of a sorted set <i>is</i> well-defined even if its
  * ordering is inconsistent with equals; it just fails to obey the general
  * contract of the <tt>Set</tt> interface.
@@ -74,8 +74,8 @@ package java.util;
  * Such ranges are <i>half-open</i>, that is, they include their low
  * endpoint but not their high endpoint (where applicable).
  * If you need a <i>closed range</i> (which includes both endpoints), and
- * the element type allows for calculation of the successor of a given
- * value, merely request the subrange from <tt>lowEndpoint</tt> to
+ * the element type allows for calculation of the successor 继承者 of a given
+ * value, merely 仅仅 request the subrange from <tt>lowEndpoint</tt> to
  * <tt>successor(highEndpoint)</tt>.  For example, suppose that <tt>s</tt>
  * is a sorted set of strings.  The following idiom obtains a view
  * containing all of the strings in <tt>s</tt> from <tt>low</tt> to
@@ -118,7 +118,7 @@ public interface SortedSet<E> extends Set<E> {
     Comparator<? super E> comparator();
 
     /**
-     * Returns a view of the portion of this set whose elements range
+     * Returns a view of the portion 部分 of this set whose elements range
      * from <tt>fromElement</tt>, inclusive, to <tt>toElement</tt>,
      * exclusive.  (If <tt>fromElement</tt> and <tt>toElement</tt> are
      * equal, the returned set is empty.)  The returned set is backed

@@ -72,6 +72,7 @@ import java.util.List;
  * @attr ref android.R.styleable#ScrollView_fillViewport
  */
 public class ScrollView extends FrameLayout {
+
     static final int ANIMATED_SCROLL_GAP = 250;
 
     static final float MAX_SCROLL_FACTOR = 0.5f;
@@ -91,7 +92,7 @@ public class ScrollView extends FrameLayout {
     private int mLastMotionY;
 
     /**
-     * True when the layout has changed but the traversal has not come through yet.
+     * True when the layout has changed but the traversal 遍历 has not come through yet.
      * Ideally the view hierarchy would keep track of this for us.
      */
     private boolean mIsLayoutDirty = true;
@@ -101,6 +102,7 @@ public class ScrollView extends FrameLayout {
      * layout is dirty. This prevents the scroll from being wrong if the child has not been
      * laid out before requesting focus.
      */
+    //// TODO: 2017/10/26  
     private View mChildToScrollTo = null;
 
     /**
@@ -149,7 +151,7 @@ public class ScrollView extends FrameLayout {
 
     /**
      * The StrictMode "critical time span" objects to catch animation
-     * stutters.  Non-null when a time-sensitive animation is
+     * stutters 口吃，结巴 .  Non-null when a time-sensitive  时间敏感；时效性 animation is
      * in-flight.  Must call finish() on them when done animating.
      * These are no-ops on user builds.
      */
@@ -157,7 +159,7 @@ public class ScrollView extends FrameLayout {
     private StrictMode.Span mFlingStrictSpan = null;
 
     /**
-     * Sentinel value for no current active pointer.
+     * Sentinel 哨兵 value for no current active pointer.
      * Used by {@link #mActivePointerId}.
      */
     private static final int INVALID_POINTER = -1;

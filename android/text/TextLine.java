@@ -31,14 +31,14 @@ import android.util.Log;
 import com.android.internal.util.ArrayUtils;
 
 /**
- * Represents a line of styled text, for measuring in visual order and
- * for rendering.
+ * Represents a line of styled text, for measuring in visual 视觉的 order and
+ * for rendering 渲染 .
  *
  * <p>Get a new instance using obtain(), and when finished with it, return it
  * to the pool using recycle().
  *
  * <p>Call set to prepare the instance for use, then either draw, measure,
- * metrics, or caretToLeftRightOf.
+ * metrics 度量 , or caretToLeftRightOf 插入符号 .
  *
  * @hide
  */
@@ -258,7 +258,7 @@ class TextLine {
      *
      * @param offset the line-relative character offset, between 0 and the
      * line length, inclusive
-     * @param trailing true to measure the trailing edge of the character
+     * @param trailing true to measure the trailing 后面的 edge of the character
      * before offset, false to measure the leading edge of the character
      * at offset.
      * @param fmi receives metrics information about the requested

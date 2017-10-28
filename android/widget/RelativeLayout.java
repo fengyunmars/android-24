@@ -219,10 +219,12 @@ public class RelativeLayout extends ViewGroup {
     // Compatibility hack. Old versions of the platform had problems
     // with MeasureSpec value overflow and RelativeLayout was one source of them.
     // Some apps came to rely on them. :(
+    //// TODO: 2017/10/23  
     private boolean mAllowBrokenMeasureSpecs = false;
     // Compatibility hack. Old versions of the platform would not take
     // margins and padding into account when generating the height measure spec
     // for children during the horizontal measure pass.
+    //// TODO: 2017/10/23  
     private boolean mMeasureVerticalWithPaddingMargin = false;
 
     // A default width used for RTL measure pass
@@ -440,7 +442,7 @@ public class RelativeLayout extends ViewGroup {
         final boolean isWrapContentHeight = heightMode != MeasureSpec.EXACTLY;
 
         // We need to know our size for doing the correct computation of children positioning in RTL
-        // mode but there is no practical way to get it instead of running the code below.
+        // mode but there is no practical 实用性的 way to get it instead of running the code below.
         // So, instead of running the code twice, we just set the width to a "default display width"
         // before the computation and then, as a last pass, we will update their real position with
         // an offset equals to "DEFAULT_WIDTH - width".
@@ -459,9 +461,10 @@ public class RelativeLayout extends ViewGroup {
                 int[] rules = params.getRules(layoutDirection);
 
                 applyHorizontalSizeRules(params, myWidth, rules);
+                //params.mLeft and params.mRight has changed
                 measureChildHorizontal(child, params, myWidth, myHeight);
 
-                if (positionChildHorizontal(child, params, myWidth, isWrapContentWidth)) {
+                if (positionChildHorizontal(child, params, myWidth, isWrapContentWidth)) {  // isWrapContentWidth = widthMode != MeasureSpec.EXACTLY
                     offsetHorizontalAxis = true;
                 }
             }
@@ -478,10 +481,18 @@ public class RelativeLayout extends ViewGroup {
 
                 applyVerticalSizeRules(params, myHeight, child.getBaseline());
                 measureChild(child, params, myWidth, myHeight);
-                if (positionChildVertical(child, params, myHeight, isWrapContentHeight)) {
+                if (positionChildVertical(child, params, myHeight, isWrapContentHeight)) {  // isWrapContentHeight = heightMode != MeasureSpec.EXACTLY;
                     offsetVerticalAxis = true;
                 }
-
+                // int width = 0;
+                // int myWidth = -1;
+                //  if (widthMode != MeasureSpec.UNSPECIFIED) {
+                //     myWidth = widthSize;
+                //  }
+                //  if(widthMode == MeasureSpec.EXACTLY) {
+                //    width = myWidth;
+                //  }
+                // isWrapContentWidth = widthMode != MeasureSpec.EXACTLY  width = 0; means width is not sure;
                 if (isWrapContentWidth) {
                     if (isLayoutRtl()) {
                         if (targetSdkVersion < Build.VERSION_CODES.KITKAT) {
@@ -505,7 +516,7 @@ public class RelativeLayout extends ViewGroup {
                         height = Math.max(height, params.mBottom + params.bottomMargin);
                     }
                 }
-
+                //// TODO: 2017/10/24  
                 if (child != ignore || verticalGravity) {
                     left = Math.min(left, params.mLeft - params.leftMargin);
                     top = Math.min(top, params.mTop - params.topMargin);
@@ -557,8 +568,10 @@ public class RelativeLayout extends ViewGroup {
                             centerHorizontal(child, params, width);
                         } else if (rules[ALIGN_PARENT_RIGHT] != 0) {
                             final int childWidth = child.getMeasuredWidth();
-                            params.mLeft = width - mPaddingRight - childWidth;
-                            params.mRight = params.mLeft + childWidth;
+                            //src params.mLeft = width - mPaddingRight - childWidth;
+                            //src params.mRight = params.mLeft + childWidth;
+                             params.mRight = width - mPaddingRight;
+                             params.mLeft  = params.mRight - childWidth;;
                         }
                     }
                 }
@@ -587,14 +600,19 @@ public class RelativeLayout extends ViewGroup {
                             centerVertical(child, params, height);
                         } else if (rules[ALIGN_PARENT_BOTTOM] != 0) {
                             final int childHeight = child.getMeasuredHeight();
-                            params.mTop = height - mPaddingBottom - childHeight;
-                            params.mBottom = params.mTop + childHeight;
+                           // src params.mTop = height - mPaddingBottom - childHeight;
+                           // src params.mBottom = params.mTop + childHeight;
+                            params.mBottom = height - mPaddingBottom;
+                            params.mTop =  params.mBottom - childHeight;
                         }
                     }
                 }
             }
         }
-
+        //int gravity = mGravity & Gravity.RELATIVE_HORIZONTAL_GRAVITY_MASK;
+        //final boolean horizontalGravity = gravity != Gravity.START && gravity != 0;
+        //gravity = mGravity & Gravity.VERTICAL_GRAVITY_MASK;
+        //final boolean verticalGravity = gravity != Gravity.TOP && gravity != 0;
         if (horizontalGravity || verticalGravity) {
             final Rect selfBounds = mSelfBounds;
             selfBounds.set(mPaddingLeft, mPaddingTop, width - mPaddingRight,
@@ -623,13 +641,20 @@ public class RelativeLayout extends ViewGroup {
                 }
             }
         }
-
+        //  if (isLayoutRtl() && myWidth == -1) {
+        //    myWidth = DEFAULT_WIDTH;
+        //  }
         if (isLayoutRtl()) {
             final int offsetWidth = myWidth - width;
             for (int i = 0; i < count; i++) {
                 final View child = views[i];
                 if (child.getVisibility() != GONE) {
                     final LayoutParams params = (LayoutParams) child.getLayoutParams();
+                    // parms.mLeft = parms.mLeft - offsetWidth;
+                    // parms.mLeft = parms.mLeft - (myWidth - width) = parms.mLeft - myWidth + width;
+                    // parms.mLeftReal = parms.mLeft - (myWidth - width) = parms.mLeft - myWidth + width;
+                    // parms.mLeftReal - width = parms.mLeft - myWidth
+                    //// TODO: 2017/10/24  
                     params.mLeft -= offsetWidth;
                     params.mRight -= offsetWidth;
                 }
@@ -677,14 +702,13 @@ public class RelativeLayout extends ViewGroup {
         child.measure(childWidthMeasureSpec, childHeightMeasureSpec);
     }
 
-    private void measureChildHorizontal(
-            View child, LayoutParams params, int myWidth, int myHeight) {
+    private void measureChildHorizontal(View child, LayoutParams params, int parentWidth, int parentHeight) {
         final int childWidthMeasureSpec = getChildMeasureSpec(params.mLeft, params.mRight,
                 params.width, params.leftMargin, params.rightMargin, mPaddingLeft, mPaddingRight,
-                myWidth);
+                parentWidth);
 
         final int childHeightMeasureSpec;
-        if (myHeight < 0 && !mAllowBrokenMeasureSpecs) {
+        if (parentHeight < 0 && !mAllowBrokenMeasureSpecs) {
             if (params.height >= 0) {
                 childHeightMeasureSpec = MeasureSpec.makeMeasureSpec(
                         params.height, MeasureSpec.EXACTLY);
@@ -698,10 +722,10 @@ public class RelativeLayout extends ViewGroup {
         } else {
             final int maxHeight;
             if (mMeasureVerticalWithPaddingMargin) {
-                maxHeight = Math.max(0, myHeight - mPaddingTop - mPaddingBottom
+                maxHeight = Math.max(0, parentHeight - mPaddingTop - mPaddingBottom
                         - params.topMargin - params.bottomMargin);
             } else {
-                maxHeight = Math.max(0, myHeight);
+                maxHeight = Math.max(0, parentHeight);
             }
 
             final int heightMode;
@@ -733,16 +757,18 @@ public class RelativeLayout extends ViewGroup {
      * @return MeasureSpec for the child
      */
     private int getChildMeasureSpec(int childStart, int childEnd,
-            int childSize, int startMargin, int endMargin, int startPadding,
-            int endPadding, int mySize) {
+            int childSize, int startMargin, int endMargin, int parentStartPadding,
+            int parentEndPadding, int parentSize) {
+//    src   int parentEndPadding, int mySize) {
         int childSpecMode = 0;
         int childSpecSize = 0;
 
-        // Negative values in a mySize value in RelativeLayout
+        // Negative values in a parentSize value in RelativeLayout
         // measurement is code for, "we got an unspecified mode in the
         // RelativeLayout's measure spec."
-        final boolean isUnspecified = mySize < 0;
-        if (isUnspecified && !mAllowBrokenMeasureSpecs) {
+// src  final boolean isUnspecified = parentSize < 0;
+        final boolean isParentSizeUnspecified = parentSize < 0;
+        if (isParentSizeUnspecified && !mAllowBrokenMeasureSpecs) {
             if (childStart != VALUE_NOT_SET && childEnd != VALUE_NOT_SET) {
                 // Constraints fixed both edges, so child has an exact size.
                 childSpecSize = Math.max(0, childEnd - childStart);
@@ -767,10 +793,10 @@ public class RelativeLayout extends ViewGroup {
         // If the view did not express a layout constraint for an edge, use
         // view's margins and our padding
         if (tempStart == VALUE_NOT_SET) {
-            tempStart = startPadding + startMargin;
+            tempStart = parentStartPadding + startMargin;
         }
         if (tempEnd == VALUE_NOT_SET) {
-            tempEnd = mySize - endPadding - endMargin;
+            tempEnd = parentSize - parentEndPadding - endMargin;
         }
 
         // Figure out maximum size available to this view
@@ -778,7 +804,7 @@ public class RelativeLayout extends ViewGroup {
 
         if (childStart != VALUE_NOT_SET && childEnd != VALUE_NOT_SET) {
             // Constraints fixed both edges, so child must be an exact size.
-            childSpecMode = isUnspecified ? MeasureSpec.UNSPECIFIED : MeasureSpec.EXACTLY;
+            childSpecMode = isParentSizeUnspecified ? MeasureSpec.UNSPECIFIED : MeasureSpec.EXACTLY;
             childSpecSize = Math.max(0, maxAvailable);
         } else {
             if (childSize >= 0) {
@@ -786,7 +812,8 @@ public class RelativeLayout extends ViewGroup {
                 childSpecMode = MeasureSpec.EXACTLY;
 
                 if (maxAvailable >= 0) {
-                    // We have a maximum size in this dimension.
+                 //src We have a maximum size in this dimension.
+                    // We have a maximum size constraint in this dimension.
                     childSpecSize = Math.min(maxAvailable, childSize);
                 } else {
                     // We can grow in this dimension.
@@ -795,7 +822,7 @@ public class RelativeLayout extends ViewGroup {
             } else if (childSize == LayoutParams.MATCH_PARENT) {
                 // Child wanted to be as big as possible. Give all available
                 // space.
-                childSpecMode = isUnspecified ? MeasureSpec.UNSPECIFIED : MeasureSpec.EXACTLY;
+                childSpecMode = isParentSizeUnspecified ? MeasureSpec.UNSPECIFIED : MeasureSpec.EXACTLY;
                 childSpecSize = Math.max(0, maxAvailable);
             } else if (childSize == LayoutParams.WRAP_CONTENT) {
                 // Child wants to wrap content. Use AT_MOST to communicate
@@ -816,7 +843,7 @@ public class RelativeLayout extends ViewGroup {
         return MeasureSpec.makeMeasureSpec(childSpecSize, childSpecMode);
     }
 
-    private boolean positionChildHorizontal(View child, LayoutParams params, int myWidth,
+    private boolean positionChildHorizontal(View child, LayoutParams params, int parentWidth,
             boolean wrapContent) {
 
         final int layoutDirection = getLayoutDirection();
@@ -831,8 +858,9 @@ public class RelativeLayout extends ViewGroup {
         } else if (params.mLeft == VALUE_NOT_SET && params.mRight == VALUE_NOT_SET) {
             // Both left and right vary
             if (rules[CENTER_IN_PARENT] != 0 || rules[CENTER_HORIZONTAL] != 0) {
+                // wrapContent = parentMesureMode != MeasureSpec.EXACTLY    isWrapContentWidth = widthMode != MeasureSpec.EXACTLY
                 if (!wrapContent) {
-                    centerHorizontal(child, params, myWidth);
+                    centerHorizontal(child, params, parentWidth);
                 } else {
                     params.mLeft = mPaddingLeft + params.leftMargin;
                     params.mRight = params.mLeft + child.getMeasuredWidth();
@@ -842,7 +870,7 @@ public class RelativeLayout extends ViewGroup {
                 // This is the default case. For RTL we start from the right and for LTR we start
                 // from the left. This will give LEFT/TOP for LTR and RIGHT/TOP for RTL.
                 if (isLayoutRtl()) {
-                    params.mRight = myWidth - mPaddingRight- params.rightMargin;
+                    params.mRight = parentWidth - mPaddingRight- params.rightMargin;
                     params.mLeft = params.mRight - child.getMeasuredWidth();
                 } else {
                     params.mLeft = mPaddingLeft + params.leftMargin;
@@ -854,7 +882,7 @@ public class RelativeLayout extends ViewGroup {
     }
 
     private boolean positionChildVertical(View child, LayoutParams params, int myHeight,
-            boolean wrapContent) {
+            boolean parentMesureWrapContent) {
 
         int[] rules = params.getRules();
 
@@ -867,7 +895,7 @@ public class RelativeLayout extends ViewGroup {
         } else if (params.mTop == VALUE_NOT_SET && params.mBottom == VALUE_NOT_SET) {
             // Both top and bottom vary
             if (rules[CENTER_IN_PARENT] != 0 || rules[CENTER_VERTICAL] != 0) {
-                if (!wrapContent) {
+                if (!parentMesureWrapContent) {
                     centerVertical(child, params, myHeight);
                 } else {
                     params.mTop = mPaddingTop + params.topMargin;
@@ -882,7 +910,8 @@ public class RelativeLayout extends ViewGroup {
         return rules[ALIGN_PARENT_BOTTOM] != 0;
     }
 
-    private void applyHorizontalSizeRules(LayoutParams childParams, int myWidth, int[] rules) {
+//  private void applyHorizontalSizeRules(LayoutParams childParams, int myWidth, int[] rules) {
+    private void applyHorizontalSizeRules(LayoutParams childParams, int parentWidth, int[] rules) {
         RelativeLayout.LayoutParams anchorParams;
 
         // VALUE_NOT_SET indicates a "soft requirement" in that direction. For example:
@@ -899,8 +928,8 @@ public class RelativeLayout extends ViewGroup {
             childParams.mRight = anchorParams.mLeft - (anchorParams.leftMargin +
                     childParams.rightMargin);
         } else if (childParams.alignWithParent && rules[LEFT_OF] != 0) {
-            if (myWidth >= 0) {
-                childParams.mRight = myWidth - mPaddingRight - childParams.rightMargin;
+            if (parentWidth >= 0) {
+                childParams.mRight = parentWidth - mPaddingRight - childParams.rightMargin;
             }
         }
 
@@ -921,10 +950,11 @@ public class RelativeLayout extends ViewGroup {
 
         anchorParams = getRelatedViewParams(rules, ALIGN_RIGHT);
         if (anchorParams != null) {
+            // means childParams.mRight + childParams.rightMargin  == anchorParams.mRight
             childParams.mRight = anchorParams.mRight - childParams.rightMargin;
         } else if (childParams.alignWithParent && rules[ALIGN_RIGHT] != 0) {
-            if (myWidth >= 0) {
-                childParams.mRight = myWidth - mPaddingRight - childParams.rightMargin;
+            if (parentWidth >= 0) {
+                childParams.mRight = parentWidth - mPaddingRight - childParams.rightMargin;
             }
         }
 
@@ -933,20 +963,21 @@ public class RelativeLayout extends ViewGroup {
         }
 
         if (0 != rules[ALIGN_PARENT_RIGHT]) {
-            if (myWidth >= 0) {
-                childParams.mRight = myWidth - mPaddingRight - childParams.rightMargin;
+            if (parentWidth >= 0) {
+                childParams.mRight = parentWidth - mPaddingRight - childParams.rightMargin;
             }
         }
     }
 
-    private void applyVerticalSizeRules(LayoutParams childParams, int myHeight, int myBaseline) {
+//    private void applyVerticalSizeRules(LayoutParams childParams, int myHeight, int myBaseline) {
+    private void applyVerticalSizeRules(LayoutParams childParams, int parentHeight, int childBaseline) {
         final int[] rules = childParams.getRules();
 
         // Baseline alignment overrides any explicitly specified top or bottom.
         int baselineOffset = getRelatedViewBaselineOffset(rules);
         if (baselineOffset != -1) {
-            if (myBaseline != -1) {
-                baselineOffset -= myBaseline;
+            if (childBaseline != -1) {
+                baselineOffset -= childBaseline;
             }
             childParams.mTop = baselineOffset;
             childParams.mBottom = VALUE_NOT_SET;
@@ -963,8 +994,8 @@ public class RelativeLayout extends ViewGroup {
             childParams.mBottom = anchorParams.mTop - (anchorParams.topMargin +
                     childParams.bottomMargin);
         } else if (childParams.alignWithParent && rules[ABOVE] != 0) {
-            if (myHeight >= 0) {
-                childParams.mBottom = myHeight - mPaddingBottom - childParams.bottomMargin;
+            if (parentHeight >= 0) {
+                childParams.mBottom = parentHeight - mPaddingBottom - childParams.bottomMargin;
             }
         }
 
@@ -987,8 +1018,8 @@ public class RelativeLayout extends ViewGroup {
         if (anchorParams != null) {
             childParams.mBottom = anchorParams.mBottom - childParams.bottomMargin;
         } else if (childParams.alignWithParent && rules[ALIGN_BOTTOM] != 0) {
-            if (myHeight >= 0) {
-                childParams.mBottom = myHeight - mPaddingBottom - childParams.bottomMargin;
+            if (parentHeight >= 0) {
+                childParams.mBottom = parentHeight - mPaddingBottom - childParams.bottomMargin;
             }
         }
 
@@ -997,8 +1028,8 @@ public class RelativeLayout extends ViewGroup {
         }
 
         if (0 != rules[ALIGN_PARENT_BOTTOM]) {
-            if (myHeight >= 0) {
-                childParams.mBottom = myHeight - mPaddingBottom - childParams.bottomMargin;
+            if (parentHeight >= 0) {
+                childParams.mBottom = parentHeight - mPaddingBottom - childParams.bottomMargin;
             }
         }
     }
@@ -1050,9 +1081,9 @@ public class RelativeLayout extends ViewGroup {
         return -1;
     }
 
-    private static void centerHorizontal(View child, LayoutParams params, int myWidth) {
+    private static void centerHorizontal(View child, LayoutParams params, int parentWidth) {
         int childWidth = child.getMeasuredWidth();
-        int left = (myWidth - childWidth) / 2;
+        int left = (parentWidth - childWidth) / 2;
 
         params.mLeft = left;
         params.mRight = left + childWidth;
@@ -1784,7 +1815,7 @@ public class RelativeLayout extends ViewGroup {
          *
          * @return A list of node, each being a root of the graph
          */
-        private ArrayDeque<Node> findRoots(int[] rulesFilter) {  
+        private ArrayDeque<Node> findRoots(int[] rulesFilter) {
             final SparseArray<Node> keyNodes = mKeyNodes;
             final ArrayList<Node> nodes = mNodes;
             final int count = nodes.size();
@@ -1830,7 +1861,8 @@ public class RelativeLayout extends ViewGroup {
             // Finds all the roots in the graph: all nodes with no dependencies
             for (int i = 0; i < count; i++) {
                 final Node node = nodes.get(i);
-                if (node.dependencies.size() == 0) roots.addLast(node);
+                if (node.dependencies.size() == 0)
+                    roots.addLast(node);
             }
 
             return roots;

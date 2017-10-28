@@ -26,7 +26,7 @@ import android.view.animation.Interpolator;
 
 /**
  * <p>This class encapsulates scrolling. You can use scrollers ({@link Scroller}
- * or {@link OverScroller}) to collect the data you need to produce a scrolling
+ * or {@link OverScroller}) to collect the data you need to produce 生产 a scrolling
  * animation&mdash;for example, in response to a fling gesture. Scrollers track
  * scroll offsets for you over time, but they don't automatically apply those
  * positions to your view. It's your responsibility to get and apply new
@@ -60,6 +60,7 @@ import android.view.animation.Interpolator;
  * }</pre>
  */
 public class Scroller  {
+
     private final Interpolator mInterpolator;
 
     private int mMode;
@@ -108,7 +109,10 @@ public class Scroller  {
     private float mDeceleration;
     private final float mPpi;
 
-    // A context-specific coefficient 系数 adjusted to physical values.
+    /**
+     * fun(dpi * mFlingFriction)
+    * A context-specific coefficient 系数 adjusted to physical values.
+    */
     private float mPhysicalCoeff;
 
     static {
@@ -177,7 +181,7 @@ public class Scroller  {
             mInterpolator = interpolator;
         }
         mPpi = context.getResources().getDisplayMetrics().density * 160.0f;
-        mDeceleration = computeDeceleration(ViewConfiguration.getScrollFriction());
+        mDeceleration = computeDeceleration(ViewConfiguration.getScrollFriction());  //
         mFlywheel = flywheel;
 
         mPhysicalCoeff = computeDeceleration(0.84f); // look and feel tuning
@@ -187,7 +191,7 @@ public class Scroller  {
      * The amount of friction applied to flings. The default value
      * is {@link ViewConfiguration#getScrollFriction}.
      * 
-     * @param friction A scalar dimension-less value representing the coefficient of
+     * @param friction A scalar 标量 dimension-less value representing the coefficient 系数 of
      *         friction.
      */
     public final void setFriction(float friction) {
@@ -251,10 +255,11 @@ public class Scroller  {
     /**
      * Returns the current velocity.
      *
-     * @return The original velocity less the deceleration. Result may be
+     * @return The original velocity less the deceleration 减速 . Result may be
      * negative.
      */
     public float getCurrVelocity() {
+        //// TODO: 2017/10/26  
         return mMode == FLING_MODE ?
                 mCurrVelocity : mVelocity - mDeceleration * timePassed() / 2000.0f;
     }
@@ -473,17 +478,23 @@ public class Scroller  {
         mFinalY = Math.min(mFinalY, mMaxY);
         mFinalY = Math.max(mFinalY, mMinY);
     }
-    
+    /**
+    * fun(velocity)
+    */
     private double getSplineDeceleration(float velocity) {
-        return Math.log(INFLEXION * Math.abs(velocity) / (mFlingFriction * mPhysicalCoeff));
+        return Math.log(INFLEXION * Math.abs(velocity) / (mFlingFriction * mPhysicalCoeff));   // fun(velocity)
     }
-
+    /**
+     * e ^ fun(velocity)
+     */
     private int getSplineFlingDuration(float velocity) {
         final double l = getSplineDeceleration(velocity);
         final double decelMinusOne = DECELERATION_RATE - 1.0;
         return (int) (1000.0 * Math.exp(l / decelMinusOne));
     }
-
+    /**
+     * e ^ fun(velocity)
+     */
     private double getSplineFlingDistance(float velocity) {
         final double l = getSplineDeceleration(velocity);
         final double decelMinusOne = DECELERATION_RATE - 1.0;
