@@ -30,7 +30,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
 
 /**
- * This class performs the graphical effect used at the edges of scrollable widgets
+ * This class performs the graphical 图像的 effect 效果 used at the edges of scrollable widgets
  * when the user scrolls beyond the content bounds in 2D space.
  *
  * <p>EdgeEffect is stateful. Custom widgets using EdgeEffect should create an
@@ -48,16 +48,17 @@ import android.view.animation.Interpolator;
  * {@link #draw(Canvas)} method.</p>
  */
 public class EdgeEffect {
+
     @SuppressWarnings("UnusedDeclaration")
     private static final String TAG = "EdgeEffect";
 
-    // Time it will take the effect to fully recede in ms
+    // Time it will take the effect to fully recede 撤回 in ms
     private static final int RECEDE_TIME = 600;
 
-    // Time it will take before a pulled glow begins receding in ms
+    // Time it will take before a pulled glow 光晕 辉光 begins receding 减弱 in ms
     private static final int PULL_TIME = 167;
 
-    // Time it will take in ms for a pulled glow to decay to partial strength before release
+    // Time it will take in ms for a pulled glow to decay 衰退 to partial 局部的 strength before release
     private static final int PULL_DECAY_TIME = 2000;
 
     private static final float MAX_ALPHA = 0.5f;
@@ -122,6 +123,7 @@ public class EdgeEffect {
         final int themeColor = a.getColor(
                 com.android.internal.R.styleable.EdgeEffect_colorEdgeEffect, 0xff666666);
         a.recycle();
+        // TODO: 2017/10/31  
         mPaint.setColor((themeColor & 0xffffff) | 0x33000000);
         mPaint.setStyle(Paint.Style.FILL);
         mPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_ATOP));
@@ -135,15 +137,15 @@ public class EdgeEffect {
      * @param height Effect height in pixels
      */
     public void setSize(int width, int height) {
-        final float r = width * 0.75f / SIN;
+        final float r = width * 0.75f / SIN; // 1.5 * width
         final float y = COS * r;
-        final float h = r - y;
+        final float h = r - y; // h = r - y = width * 0.75 / 0.5 - width * 0.75 / 0.5 * 0.866 = 0.134 * 0.75 / 0.5 * width = 0.2 * width
         final float or = height * 0.75f / SIN;
         final float oy = COS * or;
-        final float oh = or - oy;
+        final float oh = or - oy;  // oh = = 0.134 * 0.75 / 0.5 * height
 
         mRadius = r;
-        mBaseGlowScale = h > 0 ? Math.min(oh / h, 1.f) : 1.f;
+        mBaseGlowScale = h > 0 ? Math.min(oh / h, 1.f) : 1.f;  // Math.min(height / width, 1.f)
 
         mBounds.set(mBounds.left, mBounds.top, width, (int) Math.min(height, h));
     }
@@ -193,7 +195,7 @@ public class EdgeEffect {
      * @param deltaDistance Change in distance since the last call. Values may be 0 (no change) to
      *                      1.f (full length of the view) or negative values to express change
      *                      back toward the edge reached to initiate the effect.
-     * @param displacement The displacement from the starting side of the effect of the point
+     * @param displacement The displacement 位移；[船] 排水量 from the starting side of the effect of the point
      *                     initiating the pull. In the case of touch this is the finger position.
      *                     Values may be from 0-1.
      */
@@ -220,8 +222,12 @@ public class EdgeEffect {
         if (mPullDistance == 0) {
             mGlowScaleY = mGlowScaleYStart = 0;
         } else {
-            final float scale = (float) (Math.max(0, 1 - 1 /
-                    Math.sqrt(Math.abs(mPullDistance) * mBounds.height()) - 0.3d) / 0.7d);
+
+            /**                                         1
+             *     max(0,    1 -                   -------------                         -  0.3) / 0.7
+             *                        Math.sqrt(ads(mPullDistance) * mBounds.height())
+             */
+            final float scale = (float) (Math.max(0, 1 - 1 /Math.sqrt(Math.abs(mPullDistance) * mBounds.height()) - 0.3d) / 0.7d);
 
             mGlowScaleY = mGlowScaleYStart = scale;
         }
@@ -269,7 +275,7 @@ public class EdgeEffect {
         velocity = Math.min(Math.max(MIN_VELOCITY, Math.abs(velocity)), MAX_VELOCITY);
 
         mStartTime = AnimationUtils.currentAnimationTimeMillis();
-        mDuration = 0.15f + (velocity * 0.02f);
+        mDuration = 0.15f + (velocity * 0.02f);    // 2.15 --------> 215.15
 
         // The glow depends more on the velocity, and therefore starts out
         // nearly invisible.
@@ -277,10 +283,10 @@ public class EdgeEffect {
         mGlowScaleYStart = Math.max(mGlowScaleY, 0.f);
 
 
-        // Growth for the size of the glow should be quadratic to properly
+        // Growth for the size of the glow should be quadratic 二次的 to properly
         // respond
         // to a user's scrolling speed. The faster the scrolling speed, the more
-        // intense the effect should be for both the size and the saturation.
+        // intense 强烈的 the effect should be for both the size and the saturation 饱和度 .
         mGlowScaleYFinish = Math.min(0.025f + (velocity * (velocity / 100) * 0.00015f) / 2, 1.f);
         // Alpha should change for the glow as well as size.
         mGlowAlphaFinish = Math.max(
@@ -354,6 +360,7 @@ public class EdgeEffect {
     }
 
     private void update() {
+
         final long time = AnimationUtils.currentAnimationTimeMillis();
         final float t = Math.min((time - mStartTime) / mDuration, 1.f);
 

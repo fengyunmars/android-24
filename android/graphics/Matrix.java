@@ -694,7 +694,7 @@ public class Matrix {
     }
 
     /**
-     * Apply this matrix to the array of 2D points, and write the transformed
+     * Apply this matrix 矩阵 to the array of 2D points, and write the transformed
      * points back into the array
      *
      * @param pts The array [x0, y0, x1, y1, ...] of points to transform.

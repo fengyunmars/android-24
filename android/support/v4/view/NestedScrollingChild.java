@@ -57,7 +57,7 @@ public interface NestedScrollingChild {
      * Returns true if nested scrolling is enabled for this view.
      *
      * <p>If nested scrolling is enabled and this View class implementation supports it,
-     * this view will act as a nested scrolling child view when applicable, forwarding data
+     * this view will act as a nested scrolling child view when applicable 可适用的 , forwarding data
      * about the scroll operation in progress to a compatible and cooperating nested scrolling
      * parent.</p>
      *
@@ -83,13 +83,13 @@ public interface NestedScrollingChild {
      * If it returns false the caller may ignore the rest of this contract until the next scroll.
      * Calling startNestedScroll while a nested scroll is already in progress will return true.</p>
      *
-     * <p>At each incremental step of the scroll the caller should invoke
+     * <p>At each incremental 增加的，增值的 step of the scroll the caller should invoke
      * {@link #dispatchNestedPreScroll(int, int, int[], int[]) dispatchNestedPreScroll}
      * once it has calculated the requested scrolling delta. If it returns true the nested scrolling
      * parent at least partially consumed the scroll and the caller should adjust the amount it
      * scrolls by.</p>
      *
-     * <p>After applying the remainder of the scroll delta the caller should invoke
+     * <p>After applying the remainder 剩余的 of the scroll delta the caller should invoke
      * {@link #dispatchNestedScroll(int, int, int, int, int[]) dispatchNestedScroll}, passing
      * both the delta consumed and the delta unconsumed. A nested scrolling parent may treat
      * these values differently. See
@@ -155,7 +155,7 @@ public interface NestedScrollingChild {
     /**
      * Dispatch one step of a nested scroll in progress before this view consumes any portion of it.
      *
-     * <p>Nested pre-scroll events are to nested scroll events what touch intercept is to touch.
+     * <p>Nested pre-scroll events are to nested scroll events what touch intercept 拦截 is to touch.
      * <code>dispatchNestedPreScroll</code> offers an opportunity for the parent view in a nested
      * scrolling operation to consume some or all of the scroll operation before the child view
      * consumes it.</p>

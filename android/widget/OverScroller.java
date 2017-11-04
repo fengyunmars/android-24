@@ -102,12 +102,12 @@ public class OverScroller {
      * @param context The context of this application.
      * @param interpolator The scroll interpolator. If null, a default (viscous) interpolator will
      * be used.
-     * @param bounceCoefficientX A value between 0 and 1 that will determine the proportion of the
-     * velocity which is preserved in the bounce when the horizontal edge is reached. A null value
+     * @param bounceCoefficientX 弹力系数 A value between 0 and 1 that will determine the proportion 比例 of the
+     * velocity 速度 which is preserved 保藏的 in the bounce when the horizontal edge is reached. A null value
      * means no bounce. This behavior is no longer supported and this coefficient has no effect.
      * @param bounceCoefficientY Same as bounceCoefficientX but for the vertical direction. This
      * behavior is no longer supported and this coefficient has no effect.
-     * @param flywheel If true, successive fling motions will keep on increasing scroll speed.
+     * @param flywheel If true, successive 连续的 fling motions will keep on increasing scroll speed.
      * !deprecated Use {!link OverScroller(Context, Interpolator, boolean)} instead.
      */
     public OverScroller(Context context, Interpolator interpolator,
@@ -124,10 +124,10 @@ public class OverScroller {
     }
 
     /**
-     * The amount of friction applied to flings. The default value
+     * The amount of friction 摩擦力 applied to flings. The default value
      * is {@link ViewConfiguration#getScrollFriction}.
      *
-     * @param friction A scalar dimension-less value representing the coefficient of
+     * @param friction A scalar 标量 dimension-less value representing the coefficient of
      *         friction.
      */
     public final void setFriction(float friction) {
@@ -178,7 +178,7 @@ public class OverScroller {
     /**
      * Returns the absolute value of the current velocity.
      *
-     * @return The original velocity less the deceleration, norm of the X and Y velocity vector.
+     * @return The original velocity less the deceleration, norm 标准，规范 of the X and Y velocity vector.
      */
     public float getCurrVelocity() {
         return (float) Math.hypot(mScrollerX.mCurrVelocity, mScrollerY.mCurrVelocity);
@@ -457,7 +457,7 @@ public class OverScroller {
      *
      * @param startX Starting/current X position
      * @param finalX Desired final X position
-     * @param overX Magnitude of overscroll allowed. This should be the maximum
+     * @param overX Magnitude 量级 of overscroll allowed. This should be the maximum
      *              desired distance from finalX. Absolute value - must be positive.
      */
     public void notifyHorizontalEdgeReached(int startX, int finalX, int overX) {
@@ -560,8 +560,10 @@ public class OverScroller {
 
         // Animation duration, in milliseconds
         private int mDuration;
-
-        // Duration to complete spline component of animation
+        /**
+         * e ^ fun(abs(velocity) / (mFlingFriction * fun(ppi)))
+         * Duration to complete spline component 组成部分 of animation
+         */
         private int mSplineDuration;
 
         // Distance to travel along spline animation
@@ -595,12 +597,44 @@ public class OverScroller {
         private static final float P2 = 1.0f - END_TENSION * (1.0f - INFLEXION);
 
         private static final int NB_SAMPLES = 100;
+        /**
+         *[2.2888184E-5, 0.028561, 0.057051957, 0.08538917, 0.11349555, 0.1412988, 0.16877158, 0.1958109, 0.22239651, 0.24843839,
+         * 0.27400246, 0.29896766, 0.32333225, 0.3470955, 0.37022486, 0.39272478, 0.41456977, 0.43582883, 0.4564192, 0.47641024,
+         * 0.49575606, 0.5145493, 0.5327205, 0.5502846, 0.56732744, 0.58381087, 0.59974784, 0.61519396, 0.6301165, 0.64454836,
+         * 0.65851974, 0.67203975, 0.6850998, 0.69772804, 0.7099506, 0.72177494, 0.73317826, 0.74423075, 0.7549086, 0.76524705,
+         * 0.77522504, 0.7848767, 0.79420567, 0.80322987, 0.8119428, 0.82037127, 0.82851875, 0.8363794, 0.8439769, 0.8513229,
+         * 0.8584112, 0.86525357, 0.87185276, 0.87823343, 0.88438934, 0.89031565, 0.89604664, 0.9015577, 0.9068738, 0.91199535,
+         * 0.91693234, 0.9216749, 0.92624223, 0.9306333, 0.93484783, 0.9389008, 0.9427905, 0.9465221, 0.95009446, 0.95351774,
+         * 0.9567899, 0.9599243, 0.96291286, 0.96576226, 0.9684819, 0.97106767, 0.97352326, 0.9758514, 0.9780599, 0.98014855,
+         * 0.9821149, 0.9839677, 0.9857085, 0.9873348, 0.98885465, 0.99026895, 0.9915771, 0.992784, 0.99389136, 0.9948988,
+         * 0.99581146, 0.99662745, 0.9973521, 0.9979848, 0.9985285, 0.9989844, 0.99935377, 0.99963874, 0.9998404, 0.9999603,
+         * 1.0]
+         */
         private static final float[] SPLINE_POSITION = new float[NB_SAMPLES + 1];
+        /**
+         * [2.002716E-6, 0.0035008886, 0.0070031513, 0.010507312, 0.014013893, 0.017523412, 0.02104418, 0.024568854, 0.028097969, 0.031639703,
+         * 0.035194505, 0.038755145, 0.04233729, 0.04592621, 0.049529932, 0.053156357, 0.05679837, 0.060456425, 0.06413834, 0.067844465,
+         * 0.071567826, 0.075316176, 0.079097174, 0.08290383, 0.08673657, 0.0905957, 0.09448885, 0.098416284, 0.10238549, 0.10638248,
+         * 0.11042188, 0.11449678, 0.11861465, 0.12278285, 0.12698735, 0.13124269, 0.1355491, 0.13989964, 0.1443087, 0.14877644,
+         * 0.15329593, 0.15788153, 0.1625191, 0.16722992, 0.17200707, 0.17685048, 0.18176731, 0.18675743, 0.1918349, 0.19699252,
+         * 0.20223011, 0.20755455, 0.21297249, 0.21849068, 0.22410871, 0.22983302, 0.23565608, 0.2415983, 0.24765876, 0.25383675,
+         * 0.26014706, 0.2665984, 0.27317786, 0.27991158, 0.2868116, 0.29384828, 0.30107498, 0.3084751, 0.3160603, 0.32383984,
+         * 0.3318245, 0.34003758, 0.34848738, 0.3571822, 0.36612952, 0.37534925, 0.38488656, 0.39473194, 0.4049011, 0.41544706,
+         * 0.42638117, 0.43773794, 0.4495572, 0.4618606, 0.47472918, 0.48817742, 0.5023109, 0.5171499, 0.5328217, 0.5494553,
+         * 0.5671298, 0.58606946, 0.6064431, 0.6285358, 0.6527741, 0.67973936, 0.7102442, 0.74580073, 0.7892455, 0.848082,
+         * 1.0]
+         */
         private static final float[] SPLINE_TIME = new float[NB_SAMPLES + 1];
 
         private static final int SPLINE = 0;
-        private static final int CUBIC = 1;   // 立方的 立方体的 三次的
-        private static final int BALLISTIC = 2; // 弹道的；射击的
+        /**
+         *  立方的 立方体的 三次的
+         */
+        private static final int CUBIC = 1;
+        /**
+         *  弹道的；射击的
+         */
+        private static final int BALLISTIC = 2;
 
         static {
             float x_min = 0.0f;
@@ -797,7 +831,7 @@ public class OverScroller {
         }
 
         /**
-         * exp(getSplineDeceleration(int velocity))
+         * e ^ fun(abs(velocity) / (mFlingFriction * fun(ppi)))
          * Returns the duration, expressed in milliseconds
          */
         private int getSplineFlingDuration(int velocity) {
@@ -950,7 +984,7 @@ public class OverScroller {
                 case BALLISTIC: {
                     final float t = currentTime / 1000.0f;
                     mCurrVelocity = mVelocity + mDeceleration * t;
-                    distance = mVelocity * t + mDeceleration * t * t / 2.0f;
+                    distance = mVelocity * t + mDeceleration * t * t / 2.0f;   // v0 * t + 1/2 * a * t * t
                     break;
                 }
 
@@ -958,8 +992,8 @@ public class OverScroller {
                     final float t = (float) (currentTime) / mDuration;
                     final float t2 = t * t;
                     final float sign = Math.signum(mVelocity);
-                    distance = sign * mOver * (3.0f * t2 - 2.0f * t * t2);
-                    mCurrVelocity = sign * mOver * 6.0f * (- t + t2);
+                    distance = sign * mOver * (3.0f * t2 - 2.0f * t * t2); // mOver * (3 * t * t - 2 * t * t * t)
+                    mCurrVelocity = sign * mOver * 6.0f * (- t + t2);  //  mOver * 6 * (t * t - t)
                     break;
                 }
             }

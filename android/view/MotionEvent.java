@@ -29,11 +29,11 @@ import android.util.SparseArray;
  *
  * <h3>Overview</h3>
  * <p>
- * Motion events describe movements in terms of an action code and a set of axis values.
+ * Motion events describe movements 运动 in terms of 依据 按照 an action code and a set of axis values.
  * The action code specifies the state change that occurred such as a pointer going
  * down or up.  The axis values describe the position and other movement properties.
  * </p><p>
- * For example, when the user first touches the screen, the system delivers a touch
+ * For example, when the user first touches the screen, the system delivers 分发 送货 传送 a touch
  * event to the appropriate {@link View} with the action code {@link #ACTION_DOWN}
  * and a set of axis values that include the X and Y coordinates of the touch and
  * information about the pressure, size and orientation of the contact 接触 area.
@@ -78,12 +78,12 @@ import android.util.SparseArray;
  * <h3>Batching</h3>
  * <p>
  * For efficiency 效率 , motion events with {@link #ACTION_MOVE} may batch together
- * multiple movement samples within a single object.  The most current
+ * multiple 许多的 movement samples within a single object.  The most current
  * pointer coordinates are available using {@link #getX(int)} and {@link #getY(int)}.
  * Earlier coordinates within the batch are accessed using {@link #getHistoricalX(int, int)}
  * and {@link #getHistoricalY(int, int)}.  The coordinates are "historical" only
- * insofar as 在…情况下 they are older than the current coordinates in the batch; however,
- * they are still distinct from any other coordinates reported in prior motion events.
+ * insofar as 在…的范围内 they are older than the current coordinates in the batch; however,
+ * they are still distinct 有区别的 from any other coordinates reported in prior motion events.
  * To process all coordinates in the batch in time order, first consume the historical
  * coordinates then consume the current coordinates.
  * </p><p>
@@ -119,13 +119,13 @@ import android.util.SparseArray;
  * and movements.  A gesture starts with a motion event with {@link #ACTION_DOWN}
  * that provides the location of the first pointer down.  As each additional
  * pointer that goes down or up, the framework will generate a motion event with
- * {@link #ACTION_POINTER_DOWN} or {@link #ACTION_POINTER_UP} accordingly.
+ * {@link #ACTION_POINTER_DOWN} or {@link #ACTION_POINTER_UP} accordingly 相应地 .
  * Pointer movements are described by motion events with {@link #ACTION_MOVE}.
  * Finally, a gesture end either when the final pointer goes up as represented
  * by a motion event with {@link #ACTION_UP} or when gesture is canceled
  * with {@link #ACTION_CANCEL}.
  * </p><p>
- * Some pointing devices such as mice  老鼠 may support vertical and/or horizontal scrolling.
+ * Some pointing devices such as mice 老鼠 may support vertical and/or horizontal scrolling.
  * A scroll event is reported as a generic motion event with {@link #ACTION_SCROLL} that
  * includes the relative scroll offset in the {@link #AXIS_VSCROLL} and
  * {@link #AXIS_HSCROLL} axes.  See {@link #getAxisValue(int)} for information
@@ -134,7 +134,7 @@ import android.util.SparseArray;
  * On trackball devices with source class {@link InputDevice#SOURCE_CLASS_TRACKBALL},
  * the pointer coordinates specify relative movements as X/Y deltas.
  * A trackball gesture consists of a sequence of movements described by motion
- * events with {@link #ACTION_MOVE} interspersed 散布 with occasional {@link #ACTION_DOWN}
+ * events with {@link #ACTION_MOVE} interspersed 散布 with occasional 偶然的；临时的；特殊场合的 {@link #ACTION_DOWN}
  * or {@link #ACTION_UP} motion events when the trackball button is pressed or released.
  * </p><p>
  * On joystick 控制杆 devices with source class {@link InputDevice#SOURCE_CLASS_JOYSTICK},
@@ -205,7 +205,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     /**
      * Constant for {@link #getActionMasked}: A change has happened during a
      * press gesture (between {@link #ACTION_DOWN} and {@link #ACTION_UP}).
-     * The motion contains the most recent point, as well as any intermediate
+     * The motion contains the most recent point, as well as any intermediate 中间物
      * points since the last down or move event.
      */
     public static final int ACTION_MOVE             = 2;
@@ -462,7 +462,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
 
 
     /**
-     * Flag indicating the motion event intersected the top edge of the screen.
+     * Flag indicating the motion event intersected 分割的 横穿 相交 the top edge of the screen.
      */
     public static final int EDGE_TOP = 0x00000001;
 
@@ -577,7 +577,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * Axis constant: TouchMajor axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a touch screen, reports the length of the major axis of an ellipse that
+     * <li>For a touch screen, reports the length of the major axis of an ellipse 椭圆形 that
      * represents the touch area at the point of contact.
      * The units are display pixels.
      * <li>For a touch pad, reports the length of the major axis of an ellipse that
@@ -622,7 +622,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <p>
      * <ul>
      * <li>For a touch screen, reports the length of the major axis of an ellipse that
-     * represents the size of the approaching finger or tool used to make contact.
+     * represents the size of the approaching 接近 finger or tool used to make contact.
      * <li>For a touch pad, reports the length of the major axis of an ellipse that
      * represents the size of the approaching finger or tool used to make contact.
      * The units are device-dependent; use {@link InputDevice#getMotionRange(int)}
@@ -672,9 +672,9 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <p>
      * <ul>
      * <li>For a touch screen or touch pad, reports the orientation of the finger
-     * or tool in radians 弧度 relative to the vertical plane of the device.
+     * or tool in radians 弧度 relative to the vertical plane 垂直面 of the device.
      * An angle of 0 radians indicates that the major axis of contact is oriented
-     * upwards, is perfectly circular or is of unknown orientation.  A positive angle
+     * upwards 向上 , is perfectly circular 循环的；圆形的 or is of unknown orientation.  A positive angle
      * indicates that the major axis of contact is oriented to the right.  A negative angle
      * indicates that the major axis of contact is oriented to the left.
      * The full range is from -PI/2 radians (finger pointing fully left) to PI/2 radians
@@ -734,7 +734,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * Axis constant: Z axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a joystick, reports the absolute Z position of the joystick.
+     * <li>For a joystick 操纵杆 , reports the absolute Z position of the joystick.
      * The value is normalized to a range from -1.0 (high) to 1.0 (low).
      * <em>On game pads with two analog joysticks, this axis is often reinterpreted 重新解释
      * to report the absolute X position of the second joystick instead.</em>
@@ -799,10 +799,10 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_RZ = 14;
 
     /**
-     * Axis constant: Hat X axis of a motion event.
+     * Axis constant: Hat 帽子 帽子 带沿的帽子 X axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a joystick, reports the absolute X position of the directional hat control.
+     * <li>For a joystick, reports the absolute X position of the directional 方向的 hat control.
      * The value is normalized to a range from -1.0 (left) to 1.0 (right).
      * </ul>
      * </p>
@@ -831,7 +831,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_HAT_Y = 16;
 
     /**
-     * Axis constant: Left Trigger axis of a motion event.
+     * Axis constant: Left Trigger 扳机；[电子] 触发器；制滑机 axis of a motion event.
      * <p>
      * <ul>
      * <li>For a joystick, reports the absolute position of the left trigger control.
@@ -863,7 +863,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_RTRIGGER = 18;
 
     /**
-     * Axis constant: Throttle axis of a motion event.
+     * Axis constant: Throttle 节流阀 axis of a motion event.
      * <p>
      * <ul>
      * <li>For a joystick, reports the absolute position of the throttle control.
@@ -898,7 +898,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * Axis constant: Wheel 方向盘 axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a joystick, reports the absolute position of the steering 驾驶 wheel control.
+     * <li>For a joystick, reports the absolute position of the steering 驾驶 wheel 方向盘 control.
      * The value is normalized to a range from -1.0 (turn left) to 1.0 (turn right).
      * </ul>
      * </p>
@@ -911,7 +911,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_WHEEL = 21;
 
     /**
-     * Axis constant: Gas axis of a motion event.
+     * Axis constant: Gas 气体 煤气 瓦斯 axis of a motion event.
      * <p>
      * <ul>
      * <li>For a joystick, reports the absolute position of the gas (accelerator) control.
@@ -931,7 +931,7 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * Axis constant: Brake 刹车 axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a joystick, reports the absolute position of the brake control.
+     * <li>For a joystick, reports the absolute position of the brake 刹车 control.
      * The value is normalized to a range from 0.0 (no braking) to 1.0 (maximum braking).
      * </ul>
      * </p>
@@ -961,10 +961,10 @@ public final class MotionEvent extends InputEvent implements Parcelable {
     public static final int AXIS_DISTANCE = 24;
 
     /**
-     * Axis constant: Tilt axis of a motion event.
+     * Axis constant: Tilt 倾斜 axis of a motion event.
      * <p>
      * <ul>
-     * <li>For a stylus, reports the tilt angle of the stylus in radians where
+     * <li>For a stylus, reports the tilt angle of the stylus in radians 弧度 where
      * 0 radians indicates that the stylus is being held perpendicular 垂直的 to the
      * surface, and PI/2 radians indicates that the stylus is being held flat
      * against the surface.
@@ -985,8 +985,8 @@ public final class MotionEvent extends InputEvent implements Parcelable {
      * <li>Reports the relative movement of the generic scrolling device.
      * </ul>
      * </p><p>
-     * This axis should be used for scroll events that are neither strictly vertical nor horizontal.
-     * A good example would be the rotation of a rotary encoder input device.
+     * This axis should be used for scroll events that are neither strictly 严格地 vertical nor horizontal.
+     * A good example would be the rotation 旋转 of a rotary  旋转的 encoder 编码器 input device.
      * </p>
      *
      * @see #getAxisValue(int, int)

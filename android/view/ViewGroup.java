@@ -2935,7 +2935,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     /**
      * Implement this method to intercept all touch screen motion events.  This
      * allows you to watch events as they are dispatched to your children, and
-     * take ownership of the current gesture at any point.
+     * take ownership 所有权 of the current gesture at any point.
      *
      * <p>Using this function takes some care, as it has a fairly complicated 难懂的
      * interaction with {@link View#onTouchEvent(MotionEvent)
@@ -2964,11 +2964,12 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
      * </ol>
      *
      * @param ev The motion event being dispatched down the hierarchy.
-     * @return Return true to steal motion events from the children and have
+     * @return Return true to steal 抢断 抄截 窃取 motion events from the children and have
      * them dispatched to this ViewGroup through onTouchEvent().
      * The current target will receive an ACTION_CANCEL event, and no further
      * messages will be delivered here.
      */
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         if (ev.isFromSource(InputDevice.SOURCE_MOUSE)
                 && ev.getAction() == MotionEvent.ACTION_DOWN

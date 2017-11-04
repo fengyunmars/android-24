@@ -125,7 +125,7 @@ public class KeyEvent extends InputEvent implements Parcelable {
     /** Key code constant: '#' key. */
     public static final int KEYCODE_POUND           = 18;
     /** Key code constant: Directional Pad Up key.
-     * May also be synthesized from trackball motions. */
+     * May also be synthesized 合成的 from trackball motions. */
     public static final int KEYCODE_DPAD_UP         = 19;
     /** Key code constant: Directional Pad Down key.
      * May also be synthesized 综合 from trackball motions. */

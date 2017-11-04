@@ -29,6 +29,7 @@ import android.util.Pools.SynchronizedPool;
  * and {@link #getYVelocity(int)} to retrieve the velocity for each pointer id.
  */
 public final class VelocityTracker {
+
     private static final SynchronizedPool<VelocityTracker> sPool =
             new SynchronizedPool<VelocityTracker>(2);
 
@@ -36,15 +37,6 @@ public final class VelocityTracker {
 
     private long mPtr;
     private final String mStrategy;
-
-    private static native long nativeInitialize(String strategy);
-    private static native void nativeDispose(long ptr);
-    private static native void nativeClear(long ptr);
-    private static native void nativeAddMovement(long ptr, MotionEvent event);
-    private static native void nativeComputeCurrentVelocity(long ptr, int units, float maxVelocity);
-    private static native float nativeGetXVelocity(long ptr, int id);
-    private static native float nativeGetYVelocity(long ptr, int id);
-    private static native boolean nativeGetEstimator(long ptr, int id, Estimator outEstimator);
 
     /**
      * Retrieve a new VelocityTracker object to watch the velocity of a
@@ -196,8 +188,8 @@ public final class VelocityTracker {
     }
 
     /**
-     * Get an estimator for the movements of a pointer using past movements of the
-     * pointer to predict future movements.
+     * Get an estimator 估计量 for the movements of a pointer using past movements of the
+     * pointer to predict 预测 future movements.
      *
      * It is not necessary to call {@link #computeCurrentVelocity(int)} before calling
      * this method.
@@ -217,23 +209,23 @@ public final class VelocityTracker {
     }
 
     /**
-     * An estimator for the movements of a pointer based on a polynomial model.
+     * An estimator for the movements of a pointer based on a polynomial 多项式 model.
      *
      * The last recorded position of the pointer is at time zero seconds.
      * Past estimated positions are at negative times and future estimated positions
      * are at positive times.
      *
-     * First coefficient is position (in pixels), second is velocity (in pixels per second),
+     * First coefficient 系数 is position (in pixels), second is velocity (in pixels per second),
      * third is acceleration (in pixels per second squared).
      *
      * @hide For internal use only.  Not a final API.
      */
     public static final class Estimator {
-        // Must match VelocityTracker::Estimator::MAX_DEGREE
+        // Must match VelocityTracker::Estimator::MAX_DEGREE 程度
         private static final int MAX_DEGREE = 4;
 
         /**
-         * Polynomial coefficients describing motion in X.
+         * Polynomial 多项式 coefficients describing motion in X.
          */
         public final float[] xCoeff = new float[MAX_DEGREE + 1];
 
@@ -248,7 +240,7 @@ public final class VelocityTracker {
         public int degree;
 
         /**
-         * Confidence (coefficient of determination), between 0 (no fit) and 1 (perfect fit).
+         * Confidence 信心；信任；秘密 (coefficient 系数 of determination 决心；果断；测定 ), between 0 (no fit) and 1 (perfect fit).
          */
         public float confidence;
 
@@ -291,11 +283,22 @@ public final class VelocityTracker {
         private float estimate(float time, float[] c) {
             float a = 0;
             float scale = 1;
-            for (int i = 0; i <= degree; i++) {
+            for (int i = 0; i <= degree; i++) {   // coeff[0] + coff[1] * time + coeff[2] * time * time + coeff[3] * time * time * time
                 a += c[i] * scale;
                 scale *= time;
             }
             return a;
         }
     }
+
+
+    private static native long nativeInitialize(String strategy);
+    private static native void nativeDispose(long ptr);
+    private static native void nativeClear(long ptr);
+    private static native void nativeAddMovement(long ptr, MotionEvent event);
+    private static native void nativeComputeCurrentVelocity(long ptr, int units, float maxVelocity);
+    private static native float nativeGetXVelocity(long ptr, int id);
+    private static native float nativeGetYVelocity(long ptr, int id);
+    private static native boolean nativeGetEstimator(long ptr, int id, Estimator outEstimator);
+
 }

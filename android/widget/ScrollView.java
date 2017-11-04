@@ -395,7 +395,8 @@ public class ScrollView extends FrameLayout {
         if (!canScroll()) {
             if (isFocused() && event.getKeyCode() != KeyEvent.KEYCODE_BACK) {
                 View currentFocused = findFocus();
-                if (currentFocused == this) currentFocused = null;
+                if (currentFocused == this)
+                    currentFocused = null;
                 View nextFocused = FocusFinder.getInstance().findNextFocus(this,
                         currentFocused, View.FOCUS_DOWN);
                 return nextFocused != null
@@ -482,7 +483,7 @@ public class ScrollView extends FrameLayout {
          */
 
         /*
-        * Shortcut the most recurring case: the user is in the dragging
+        * Shortcut the most recurring 循环的 case: the user is in the dragging
         * state and he is moving his finger.  We want to intercept this
         * motion.
         */
@@ -510,7 +511,7 @@ public class ScrollView extends FrameLayout {
                  */
 
                 /*
-                * Locally do absolute value. mLastMotionY is set to the y value
+                * Locally  局部地 do absolute value. mLastMotionY is set to the y value
                 * of the down event.
                 */
                 final int activePointerId = mActivePointerId;
@@ -528,6 +529,7 @@ public class ScrollView extends FrameLayout {
 
                 final int y = (int) ev.getY(pointerIndex);
                 final int yDiff = Math.abs(y - mLastMotionY);
+                // TODO: 2017/11/2  
                 if (yDiff > mTouchSlop && (getNestedScrollAxes() & SCROLL_AXIS_VERTICAL) == 0) {
                     mIsBeingDragged = true;
                     mLastMotionY = y;
@@ -573,6 +575,7 @@ public class ScrollView extends FrameLayout {
                 if (mIsBeingDragged && mScrollStrictSpan == null) {
                     mScrollStrictSpan = StrictMode.enterCriticalSpan("ScrollView-scroll");
                 }
+                // TODO: 2017/11/1  
                 startNestedScroll(SCROLL_AXIS_VERTICAL);
                 break;
             }
@@ -618,6 +621,9 @@ public class ScrollView extends FrameLayout {
                 if (getChildCount() == 0) {
                     return false;
                 }
+                // mIsBeingDragged && mScroller.isFinished() == false
+                // mIsBeingDragged = false && mScroller.isFinished() == true
+                // TODO: 2017/11/2  
                 if ((mIsBeingDragged = !mScroller.isFinished())) {
                     final ViewParent parent = getParent();
                     if (parent != null) {
@@ -652,6 +658,7 @@ public class ScrollView extends FrameLayout {
 
                 final int y = (int) ev.getY(activePointerIndex);
                 int deltaY = mLastMotionY - y;
+                // TODO: 2017/11/2  
                 if (dispatchNestedPreScroll(0, deltaY, mScrollConsumed, mScrollOffset)) {
                     deltaY -= mScrollConsumed[1];
                     vtev.offsetLocation(0, mScrollOffset[1]);
@@ -922,6 +929,7 @@ public class ScrollView extends FrameLayout {
      * @return the next focusable component in the bounds or null if none can
      *         be found
      */
+    // called by private scrollAndFocus()
     private View findFocusableViewInBounds(boolean topFocus, int top, int bottom) {
 
         List<View> focusables = getFocusables(View.FOCUS_FORWARD);
@@ -1069,6 +1077,7 @@ public class ScrollView extends FrameLayout {
      * @param bottom    the bottom offset of the new area to be made visible
      * @return true if the key event is consumed by this method, false otherwise
      */
+    //called by pageScroll() and fullScroll()
     private boolean scrollAndFocus(int direction, int top, int bottom) {
         boolean handled = true;
 
@@ -1167,7 +1176,7 @@ public class ScrollView extends FrameLayout {
     private boolean isWithinDeltaOfScreen(View descendant, int delta, int height) {
         descendant.getDrawingRect(mTempRect);
         offsetDescendantRectToMyCoords(descendant, mTempRect);
-
+        // TODO: 2017/11/3  
         return (mTempRect.bottom + delta) >= getScrollY()
                 && (mTempRect.top - delta) <= (getScrollY() + height);
     }
@@ -1398,14 +1407,15 @@ public class ScrollView extends FrameLayout {
      * @return The scroll delta.
      */
     protected int computeScrollDeltaToGetChildRectOnScreen(Rect rect) {
-        if (getChildCount() == 0) return 0;
+        if (getChildCount() == 0) 
+            return 0;
 
         int height = getHeight();
         int screenTop = getScrollY();
         int screenBottom = screenTop + height;
 
         int fadingEdge = getVerticalFadingEdgeLength();
-
+        // TODO: 2017/11/3  
         // leave room for top fading edge as long as rect isn't at very top
         if (rect.top > 0) {
             screenTop += fadingEdge;
@@ -1619,6 +1629,10 @@ public class ScrollView extends FrameLayout {
     }
 
     private void flingWithNestedDispatch(int velocityY) {
+        // mScrollY > 0 && mScrollY < getScrollRange()
+        // mScrollY > 0 && velocityY < 0
+        // mScrollY <= 0 && velocityY > 0 (useless) && mSrollY < getScrollRange()
+        // mSrollY <= 0 && velocityY > 0 && velocityY < 0 impossible
         final boolean canFling = (mScrollY > 0 || velocityY > 0) &&
                 (mScrollY < getScrollRange() || velocityY < 0);
         if (!dispatchNestedPreFling(0, velocityY)) {

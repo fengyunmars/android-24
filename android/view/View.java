@@ -760,7 +760,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 @UiThread
 public class View implements Drawable.Callback, KeyEvent.Callback,
-        AccessibilityEventSource {
+        AccessibilityEventSource{
     private static final boolean DBG = false;
 
     /// M: add debug motion flag.
@@ -11988,7 +11988,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * The transform matrix of this view, which is calculated based on the current
-     * rotation, scale, and pivot properties.
+     * rotation, scale, and pivot 支点 properties.
      *
      * @see #getRotation()
      * @see #getScaleX()
@@ -14399,7 +14399,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Returns the strength, or intensity, of the top faded edge. The strength is
+     * Returns the strength 力量 , or intensity 强度 , of the top faded edge. The strength is
      * a value between 0.0 (no fade) and 1.0 (full fade). The default implementation
      * returns 0.0 or 1.0 but no value in between.
      *
@@ -14777,7 +14777,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * <p>Compute the vertical extent of the vertical scrollbar's thumb
+     * <p>Compute the vertical extent 程度；范围；长度 of the vertical scrollbar's thumb
      * within the vertical range. This value is used to compute the length
      * of the thumb within the scrollbar's track.</p>
      *
@@ -21392,6 +21392,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
+     * add in api 21
      * Enable or disable nested scrolling for this view.
      *
      * <p>If this property is set to true the view will be permitted to initiate nested
@@ -21404,6 +21405,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @see #isNestedScrollingEnabled()
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public void setNestedScrollingEnabled(boolean enabled) {
         if (enabled) {
             mPrivateFlags3 |= PFLAG3_NESTED_SCROLLING_ENABLED;
@@ -21417,7 +21420,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Returns true if nested scrolling is enabled for this view.
      *
      * <p>If nested scrolling is enabled and this View class implementation supports it,
-     * this view will act as a nested scrolling child view when applicable, forwarding data
+     * this view will act as a nested scrolling child view when applicable 可适用的；可应用的；合适的 ,forwarding data
      * about the scroll operation in progress to a compatible and cooperating nested scrolling
      * parent.</p>
      *
@@ -21425,6 +21428,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @see #setNestedScrollingEnabled(boolean)
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public boolean isNestedScrollingEnabled() {
         return (mPrivateFlags3 & PFLAG3_NESTED_SCROLLING_ENABLED) ==
                 PFLAG3_NESTED_SCROLLING_ENABLED;
@@ -21443,16 +21448,16 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * {@link #stopNestedScroll()} to indicate the end of the nested scroll.</p>
      *
      * <p>If <code>startNestedScroll</code> returns true, a cooperative 合作的 parent was found.
-     * If it returns false the caller may ignore the rest of this contract until the next scroll.
+     * If it returns false the caller may ignore the rest of this contract 合同 until the next scroll.
      * Calling startNestedScroll while a nested scroll is already in progress will return true.</p>
      *
-     * <p>At each incremental step of the scroll the caller should invoke
+     * <p>At each incremental 增加的 step of the scroll the caller should invoke
      * {@link #dispatchNestedPreScroll(int, int, int[], int[]) dispatchNestedPreScroll}
      * once it has calculated the requested scrolling delta. If it returns true the nested scrolling
-     * parent at least partially consumed the scroll and the caller should adjust the amount it
+     * parent at least partially 部分地 consumed 消耗 the scroll and the caller should adjust the amount it
      * scrolls by.</p>
      *
-     * <p>After applying the remainder of the scroll delta the caller should invoke
+     * <p>After applying the remainder 余数 of the scroll delta the caller should invoke
      * {@link #dispatchNestedScroll(int, int, int, int, int[]) dispatchNestedScroll}, passing
      * both the delta consumed and the delta unconsumed. A nested scrolling parent may treat
      * these values differently. See {@link ViewParent#onNestedScroll(View, int, int, int, int)}.
@@ -21467,6 +21472,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see #dispatchNestedPreScroll(int, int, int[], int[])
      * @see #dispatchNestedScroll(int, int, int, int, int[])
      */
+    @Override
+    // TODO: 2017/11/1 interface NestedScrollingChild method
     public boolean startNestedScroll(int axes) {
         if (hasNestedScrollingParent()) {
             // Already in progress
@@ -21503,6 +21510,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @see #startNestedScroll(int)
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
     public void stopNestedScroll() {
         if (mNestedScrollingParent != null) {
             mNestedScrollingParent.onStopNestedScroll(this);
@@ -21518,6 +21526,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @return whether this view has a nested scrolling parent
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public boolean hasNestedScrollingParent() {
         return mNestedScrollingParent != null;
     }
@@ -21545,6 +21555,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @return true if the event was dispatched, false if it could not be dispatched.
      * @see #dispatchNestedPreScroll(int, int, int[], int[])
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed,
             int dxUnconsumed, int dyUnconsumed, @Nullable @Size(2) int[] offsetInWindow) {
         if (isNestedScrollingEnabled() && mNestedScrollingParent != null) {
@@ -21594,6 +21606,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @return true if the parent consumed some or all of the scroll delta
      * @see #dispatchNestedScroll(int, int, int, int, int[])
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public boolean dispatchNestedPreScroll(int dx, int dy,
             @Nullable @Size(2) int[] consumed, @Nullable @Size(2) int[] offsetInWindow) {
         if (isNestedScrollingEnabled() && mNestedScrollingParent != null) {
@@ -21648,6 +21662,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @param consumed true if the child consumed the fling, false otherwise
      * @return true if the nested scrolling parent consumed or otherwise reacted to the fling
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed) {
         if (isNestedScrollingEnabled() && mNestedScrollingParent != null) {
             return mNestedScrollingParent.onNestedFling(this, velocityX, velocityY, consumed);
@@ -21685,6 +21701,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @param velocityY Vertical fling velocity in pixels per second
      * @return true if a nested scrolling parent consumed the fling
      */
+    // TODO: 2017/11/1 interface NestedScrollingChild method
+    @Override
     public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
         if (isNestedScrollingEnabled() && mNestedScrollingParent != null) {
             return mNestedScrollingParent.onNestedPreFling(this, velocityX, velocityY);
