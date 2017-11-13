@@ -622,7 +622,7 @@ public class ActivityOptions {
      * Create an ActivityOptions to transition between Activities using cross-Activity scene
      * animations. This method carries the position of multiple shared elements to the started
      * Activity. The position of the first element in sharedElements
-     * will be used as the epicenter for the exit Transition. The position of the associated
+     * will be used as the epicenter 震中；中心 for the exit Transition. The position of the associated
      * shared element in the launched Activity will be the epicenter of its entering Transition.
      *
      * <p>This requires {@link android.view.Window#FEATURE_ACTIVITY_TRANSITIONS} to be

@@ -66,6 +66,7 @@ import java.util.List;
  * @attr ref android.R.styleable#HorizontalScrollView_fillViewport
  */
 public class HorizontalScrollView extends FrameLayout {
+
     private static final int ANIMATED_SCROLL_GAP = ScrollView.ANIMATED_SCROLL_GAP;
 
     private static final float MAX_SCROLL_FACTOR = ScrollView.MAX_SCROLL_FACTOR;
@@ -135,7 +136,7 @@ public class HorizontalScrollView extends FrameLayout {
     private int mActivePointerId = INVALID_POINTER;
 
     /**
-     * Sentinel value for no current active pointer.
+     * Sentinel 哨兵 value 标记值 for no current active pointer.
      * Used by {@link #mActivePointerId}.
      */
     private static final int INVALID_POINTER = -1;
@@ -189,6 +190,10 @@ public class HorizontalScrollView extends FrameLayout {
 
         final int length = getHorizontalFadingEdgeLength();
         final int rightEdge = getWidth() - mPaddingRight;
+//      final int span = getChildAt(0).getRight() - rightEdge - mScrollX ;
+//        |-------------------|
+//                          |
+//        |-----------------|-----------------|
         final int span = getChildAt(0).getRight() - mScrollX - rightEdge;
         if (span < length) {
             return span / (float) length;

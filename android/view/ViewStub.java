@@ -315,6 +315,6 @@ public final class ViewStub extends View {
          * @param stub The ViewStub that initiated the inflation.
          * @param inflated The inflated View.
          */
-        void onInflate(ViewStub stub, View inflated);
+        void  onInflate(ViewStub stub, View inflated);
     }
 }

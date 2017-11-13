@@ -48,7 +48,7 @@ public interface ComponentCallbacks {
 
     /**
      * This is called when the overall system is running low on memory, and
-     * actively running processes should trim their memory usage.  While
+     * actively 活跃地 running processes should trim their memory usage.  While
      * the exact point at which this will be called is not defined, generally
      * it will happen when all background process have been killed.
      * That is, before reaching the point of killing processes hosting
@@ -57,8 +57,8 @@ public interface ComponentCallbacks {
      * <p>You should implement this method to release
      * any caches or other unnecessary resources you may be holding on to.
      * The system will perform a garbage collection for you after returning from this method.
-     * <p>Preferably, you should implement {@link ComponentCallbacks2#onTrimMemory} from
-     * {@link ComponentCallbacks2} to incrementally unload your resources based on various
+     * <p>Preferably 更好地 更可取地 更适宜 , you should implement {@link ComponentCallbacks2#onTrimMemory} from
+     * {@link ComponentCallbacks2} to incrementally 递增地；增值地 unload your resources based on various
      * levels of memory demands.  That API is available for API level 14 and higher, so you should
      * only use this {@link #onLowMemory} method as a fallback for older versions, which can be
      * treated the same as {@link ComponentCallbacks2#onTrimMemory} with the {@link

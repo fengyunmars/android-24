@@ -44,7 +44,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Proxying implementation of Context that simply delegates all of its calls to
+ * Proxying 代理 implementation of Context that simply delegates all of its calls to
  * another Context.  Can be subclassed to modify behavior without changing
  * the original Context.
  */

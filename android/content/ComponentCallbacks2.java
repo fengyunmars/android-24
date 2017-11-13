@@ -18,7 +18,7 @@ package android.content;
 
 /**
  * Extended {@link ComponentCallbacks} interface with a new callback for
- * finer-grained memory management. This interface is available in all application components
+ * finer-grained 细粒度 memory management. This interface is available in all application components
  * ({@link android.app.Activity}, {@link android.app.Service},
  * {@link ContentProvider}, and {@link android.app.Application}).
  *
@@ -30,8 +30,8 @@ package android.content;
  * the system is more likely to kill your process while it is cached in the least-recently used
  * (LRU) list, thus requiring your app to restart and restore all state when the user returns to it.
  *
- * <p>The values provided by {@link #onTrimMemory} do not represent a single linear progression of
- * memory limits, but provide you different types of clues about memory availability:</p>
+ * <p>The values provided by {@link #onTrimMemory} do not represent a single linear progression 级数 累进 数列 of
+ * memory limits, but provide you different types of clues  线索 about memory availability:</p>
  * <ul>
  * <li>When your app is running:
  *  <ol>
@@ -43,7 +43,7 @@ package android.content;
  *  <li>{@link #TRIM_MEMORY_RUNNING_CRITICAL} <br>The device is running extremely low on memory.
  * Your app is not yet considered a killable process, but the system will begin killing
  * background processes if apps do not release resources, so you should release non-critical
- * resources now to prevent performance degradation.
+ * resources now to prevent performance degradation 退化 .
  *  </ol>
  * </li>
  * <li>When your app's visibility changes:
@@ -66,7 +66,7 @@ package android.content;
  * one of the first to be killed if the system does not recover memory now. You should release
  * absolutely everything that's not critical to resuming your app state.
  *   <p>To support API levels lower than 14, you can use the {@link #onLowMemory} method as a
- * fallback that's roughly equivalent to the {@link ComponentCallbacks2#TRIM_MEMORY_COMPLETE} level.
+ * fallback that's roughly  粗糙地；概略地 equivalent to the {@link ComponentCallbacks2#TRIM_MEMORY_COMPLETE} level.
  *  </li>
  *  </ol>
  * <p class="note"><strong>Note:</strong> When the system begins
@@ -113,7 +113,7 @@ public interface ComponentCallbacks2 extends ComponentCallbacks {
     static final int TRIM_MEMORY_UI_HIDDEN = 20;
 
     /**
-     * Level for {@link #onTrimMemory(int)}: the process is not an expendable
+     * Level for {@link #onTrimMemory(int)}: the process is not an expendable 可消费的；排出的；不重复使用的；可牺牲的
      * background process, but the device is running extremely low on memory
      * and is about to not be able to keep any background processes running.
      * Your running process should free up as many non-critical resources as it
@@ -146,7 +146,7 @@ public interface ComponentCallbacks2 extends ComponentCallbacks {
      * time for a process to trim unneeded memory from its process.  This will
      * happen for example when it goes in the background and there is not enough
      * memory to keep as many background processes running as desired.  You
-     * should never compare to exact values of the level, since new intermediate
+     * should never compare to exact values of the level, since new intermediate 中间物；媒介
      * values may be added -- you will typically want to compare if the value
      * is greater or equal to a level you are interested in.
      *

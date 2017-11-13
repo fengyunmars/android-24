@@ -548,7 +548,7 @@ public class Build {
         public static final int JELLY_BEAN_MR1 = 17;
 
         /**
-         * July 2013: Android 4.3, the revenge of the beans.
+         * July 2013: Android 4.3, the revenge 报复 of the beans.
          */
         public static final int JELLY_BEAN_MR2 = 18;
 

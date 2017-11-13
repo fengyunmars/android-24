@@ -172,9 +172,9 @@ import java.util.List;
  * <h3>Developer Guides</h3>
  * <p>The Activity class is an important part of an application's overall lifecycle,
  * and the way activities are launched and put together is a fundamental 基本的
- * part of the platform's application model. For a detailed perspective on the structure of an
+ * part of the platform's application model. For a detailed perspective 观点 on the structure of an
  * Android application and how activities behave, please read the
- * <a href="{@docRoot}guide/topics/fundamentals.html">Application Fundamentals</a> and
+ * <a href="{@docRoot}guide/topics/fundamentals.html">Application Fundamentals 基本原理 </a> and
  * <a href="{@docRoot}guide/topics/fundamentals/tasks-and-back-stack.html">Tasks and Back Stack</a>
  * developer guides.</p>
  *
@@ -227,7 +227,7 @@ import java.util.List;
  * perform operations when the Activity moves between states.  The colored
  * ovals 椭圆  are major states the Activity can be in.</p>
  *
- * <p><img src="../../../images/activity_lifecycle.png"
+ * <p><img src="activity_lifecycle.png"
  *      alt="State diagram for an Android Activity Lifecycle." border="0" /></p>
  *
  * <p>There are three key loops you may be interested in monitoring 监视  within your
@@ -445,7 +445,7 @@ import java.util.List;
  * that state, this is a convenient way to have an activity restart itself
  * with a new configuration.</p>
  *
- * <p>In some special cases, you may want to bypass restarting of your
+ * <p>In some special cases, you may want to bypass 绕开；忽视 restarting of your
  * activity based on one or more types of configuration changes.  This is
  * done with the {@link android.R.attr#configChanges android:configChanges}
  * attribute in its manifest.  For any types of configuration changes you say
@@ -688,7 +688,7 @@ public class Activity extends ContextThemeWrapper
         Window.Callback, KeyEvent.Callback,
         OnCreateContextMenuListener, ComponentCallbacks2,
         Window.OnWindowDismissedCallback, WindowControllerCallback {
-    private static final String TAG = "Activity";
+    private static final String TAG = "Activity";       
     private static final boolean DEBUG_LIFECYCLE = false;
 
     /** Standard activity result: operation canceled. */
@@ -2840,11 +2840,11 @@ public class Activity extends ContextThemeWrapper
      * activity.  Implement this method if you wish to know that the user has
      * interacted with the device in some way while your activity is running.
      * This callback and {@link #onUserLeaveHint} are intended to help
-     * activities manage status bar notifications intelligently; specifically,
+     * activities manage status bar notifications intelligently 聪明地，明智地 ; specifically,
      * for helping activities determine the proper time to cancel a notfication.
      *
      * <p>All calls to your activity's {@link #onUserLeaveHint} callback will
-     * be accompanied by calls to {@link #onUserInteraction}.  This
+     * be accompanied 陪伴 by calls to {@link #onUserInteraction}.  This
      * ensures that your activity will be told of relevant user activity such
      * as pulling down the notification pane and touching an item there.
      *
@@ -2888,7 +2888,7 @@ public class Activity extends ContextThemeWrapper
      * <p>As a general rule, however, a resumed activity will have window
      * focus...  unless it has displayed other dialogs or popups that take
      * input focus, in which case the activity itself will not have focus
-     * when the other windows have it.  Likewise, the system may display
+     * when the other windows have it.  Likewise 同样地；也 , the system may display
      * system-level windows (such as the status bar notification panel or
      * a system alert) which will temporarily take window input focus without
      * pausing the foreground activity.
@@ -3036,6 +3036,7 @@ public class Activity extends ContextThemeWrapper
      * @param event The key shortcut event.
      * @return True if this event was consumed.
      */
+    @Override
     public boolean dispatchKeyShortcutEvent(KeyEvent event) {
         onUserInteraction();
         if (getWindow().superDispatchKeyShortcutEvent(event)) {
@@ -3054,6 +3055,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @return boolean Return true if this event was consumed.
      */
+    @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         if (ev.getAction() == MotionEvent.ACTION_DOWN) {
             onUserInteraction();
@@ -3092,6 +3094,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @return boolean Return true if this event was consumed.
      */
+    @Override
     public boolean dispatchGenericMotionEvent(MotionEvent ev) {
         onUserInteraction();
         if (getWindow().superDispatchGenericMotionEvent(ev)) {
@@ -3125,6 +3128,7 @@ public class Activity extends ContextThemeWrapper
      * menu behavior.
      */
     @Nullable
+    @Override
     public View onCreatePanelView(int featureId) {
         return null;
     }
@@ -3137,6 +3141,7 @@ public class Activity extends ContextThemeWrapper
      * {@link android.view.Window#FEATURE_OPTIONS_PANEL} panel,
      * so that subclasses of Activity don't need to deal with feature codes.
      */
+    @Override
     public boolean onCreatePanelMenu(int featureId, Menu menu) {
         if (featureId == Window.FEATURE_OPTIONS_PANEL) {
             boolean show = onCreateOptionsMenu(menu);
@@ -3155,6 +3160,7 @@ public class Activity extends ContextThemeWrapper
      * panel, so that subclasses of
      * Activity don't need to deal with feature codes.
      */
+    @Override
     public boolean onPreparePanel(int featureId, View view, Menu menu) {
         if (featureId == Window.FEATURE_OPTIONS_PANEL && menu != null) {
             boolean goforit = onPrepareOptionsMenu(menu);
@@ -3169,6 +3175,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @return The default implementation returns true.
      */
+    @Override
     public boolean onMenuOpened(int featureId, Menu menu) {
         if (featureId == Window.FEATURE_ACTION_BAR) {
             initWindowDecorActionBar();
@@ -3190,6 +3197,7 @@ public class Activity extends ContextThemeWrapper
      * panel, so that subclasses of
      * Activity don't need to deal with feature codes.
      */
+    @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
         CharSequence titleCondensed = item.getTitleCondensed();
 
@@ -3422,7 +3430,7 @@ public class Activity extends ContextThemeWrapper
     }
 
     /**
-     * Define the synthetic task stack that will be generated during Up navigation from
+     * Define the synthetic 合成的 task stack that will be generated during Up navigation from
      * a different task.
      *
      * <p>The default implementation of this method adds the parent chain of this activity
@@ -5861,6 +5869,7 @@ public class Activity extends ContextThemeWrapper
      * @see android.view.Window#getLayoutInflater
      */
     @Nullable
+    @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
         return null;
     }
@@ -5875,6 +5884,7 @@ public class Activity extends ContextThemeWrapper
      * @see android.view.LayoutInflater#createView
      * @see android.view.Window#getLayoutInflater
      */
+    @Override
     public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
         if (!"fragment".equals(name)) {
             return onCreateView(name, context, attrs);
@@ -6376,9 +6386,9 @@ public class Activity extends ContextThemeWrapper
      * Returns true if the app should recreate the task when navigating 'up' from this activity
      * by using targetIntent.
      *
-     * <p>If this method returns false the app can trivially call
+     * <p>If this method returns false the app can trivially 平凡地；无能地 call
      * {@link #navigateUpTo(Intent)} using the same parameters to correctly perform
-     * up navigation. If this method returns false, the app should synthesize a new task stack
+     * up navigation. If this method returns false, the app should synthesize 合成；综合 a new task stack
      * by using {@link TaskStackBuilder} or another similar mechanism to perform up navigation.</p>
      *
      * @param targetIntent An intent representing the target destination for up navigation
@@ -7173,4 +7183,30 @@ public class Activity extends ContextThemeWrapper
             return (w != null && w.peekDecorView() != null);
         }
     }
+    /// M: Mediatek added APIs start
+    /**
+     * M: BMW
+     *
+     * @hide
+     */
+    @Override
+    public void stickWindow(boolean isSticky) throws RemoteException {
+        if (MultiWindowManager.isSupported()) {
+            ActivityManagerNative.getDefault().stickWindow(mToken, isSticky);
+        }
+    }
+
+    /**
+     * M: BMW
+     *
+     * @hide
+     */
+    @Override
+    public boolean isStickyByMtk() throws RemoteException {
+        if (MultiWindowManager.isSupported()) {
+            return ActivityManagerNative.getDefault().isStickyByMtk(mToken);
+        }
+        return false;
+    }
+    /// M: Mediatek added APIs end
 }

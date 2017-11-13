@@ -651,8 +651,8 @@ public class Paint {
 
     /**
      * Helper for setFlags(), setting or clearing the ANTI_ALIAS_FLAG   bit
-     * AntiAliasing smooths out  the edges of what is being drawn, but is has
-     * no impact on the interior of the shape. See setDither() and
+     * AntiAliasing 反锯齿 smooths out 平滑 the edges of what is being drawn, but is has
+     * no impact on the interior 内部 of the shape. See setDither() and
      * setFilterBitmap() to affect how colors are treated.
      *
      * @param aa true to set the antialias bit in the flags, false to clear it

@@ -2802,7 +2802,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * hide the action bar.
      *
      * <p>This approach to going fullscreen is best used over the window flag when
-     * it is a transient state -- that is, the application does this at certain
+     * it is a transient 短暂的 瞬态 瞬时的 state -- that is, the application does this at certain
      * points in its user interaction where it wants to allow the user to focus
      * on content, but not as a continuous 连续的 state.  For situations where the application
      * would like to simply stay full screen the entire time (such as a game that
@@ -15108,6 +15108,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @see #onDetachedFromWindow()
      */
     @CallSuper
+    @Override
     protected void onAttachedToWindow() {
         if ((mPrivateFlags & PFLAG_REQUEST_TRANSPARENT_REGIONS) != 0) { // TRANSPARENT 透明的
             mParent.requestTransparentRegion(this);

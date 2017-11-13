@@ -220,7 +220,7 @@ public class IntentSender implements Parcelable {
 
     /**
      * Return the package name of the application that created this
-     * IntentSender, that is the identity under which you will actually be
+     * IntentSender, that is the identity 身份 under which you will actually be
      * sending the Intent.  The returned string is supplied by the system, so
      * that an application can not spoof 行骗 its package.
      *

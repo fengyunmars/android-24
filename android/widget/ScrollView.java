@@ -217,6 +217,7 @@ public class ScrollView extends FrameLayout {
 
         final int length = getVerticalFadingEdgeLength();
         final int bottomEdge = getHeight() - mPaddingBottom;
+        // TODO: 2017/11/6
         final int span = getChildAt(0).getBottom() - mScrollY - bottomEdge;
         if (span < length) {
             return span / (float) length;
@@ -436,10 +437,8 @@ public class ScrollView extends FrameLayout {
         if (getChildCount() > 0) {
             final int scrollY = mScrollY;
             final View child = getChildAt(0);
-            return !(y < child.getTop() - scrollY
-                    || y >= child.getBottom() - scrollY
-                    || x < child.getLeft()
-                    || x >= child.getRight());
+            // y >= child.getTop - scrollY && y < child.getBottom - scrollY && x >= child.getLeft() && x < child.getRight()
+            return !(y < child.getTop() - scrollY || y >= child.getBottom() - scrollY || x < child.getLeft() || x >= child.getRight());
         }
         return false;
     }
@@ -678,6 +677,7 @@ public class ScrollView extends FrameLayout {
                 }
                 if (mIsBeingDragged) {
                     // Scroll to follow the motion event
+                    // TODO: 2017/11/6
                     mLastMotionY = y - mScrollOffset[1];
 
                     final int oldY = mScrollY;
@@ -949,13 +949,13 @@ public class ScrollView extends FrameLayout {
             View view = focusables.get(i);
             int viewTop = view.getTop();
             int viewBottom = view.getBottom();
-
+            // viewBottom > top && viewTop < bottom
             if (top < viewBottom && viewTop < bottom) {
                 /*
                  * the focusable is in the target area, it is a candidate for
                  * focusing
                  */
-
+                // viewTop > top && viewBottom < bottom
                 final boolean viewIsFullyContained = (top < viewTop) &&
                         (viewBottom < bottom);
 
@@ -1098,7 +1098,8 @@ public class ScrollView extends FrameLayout {
             doScrollY(delta);
         }
 
-        if (newFocused != findFocus()) newFocused.requestFocus(direction);
+        if (newFocused != findFocus())
+            newFocused.requestFocus(direction);
 
         return handled;
     }
@@ -1113,7 +1114,8 @@ public class ScrollView extends FrameLayout {
     public boolean arrowScroll(int direction) {
 
         View currentFocused = findFocus();
-        if (currentFocused == this) currentFocused = null;
+        if (currentFocused == this)
+            currentFocused = null;
 
         View nextFocused = FocusFinder.getInstance().findNextFocus(this, currentFocused, direction);
 
@@ -1151,8 +1153,7 @@ public class ScrollView extends FrameLayout {
             // previously focused item still has focus and is off screen, give
             // it up (take it back to ourselves)
             // (also, need to temporarily force FOCUS_BEFORE_DESCENDANTS so we are
-            // sure to
-            // get it)
+            // sure to get it)
             final int descendantFocusability = getDescendantFocusability();  // save
             setDescendantFocusability(ViewGroup.FOCUS_BEFORE_DESCENDANTS);
             requestFocus();
@@ -1166,6 +1167,8 @@ public class ScrollView extends FrameLayout {
      *  screen.
      */
     private boolean isOffScreen(View descendant) {
+        // !(mTempRect.bottom >= getScrollY() && mTempRect.top <= getScrollY() + height)
+        // mTempRect.bottom < getScrollY() || mTempRect.top > getScrollY() + height
         return !isWithinDeltaOfScreen(descendant, 0, getHeight());
     }
 
@@ -1177,8 +1180,8 @@ public class ScrollView extends FrameLayout {
         descendant.getDrawingRect(mTempRect);
         offsetDescendantRectToMyCoords(descendant, mTempRect);
         // TODO: 2017/11/3  
-        return (mTempRect.bottom + delta) >= getScrollY()
-                && (mTempRect.top - delta) <= (getScrollY() + height);
+        return (mTempRect.bottom + delta) >= getScrollY()             // pull down after delta mTempRect.bottom >= getScrollY()
+                && (mTempRect.top - delta) <= (getScrollY() + height);// pull up after delta mTempRect.top <= getScrollY() + height
     }
 
     /**
@@ -1311,10 +1314,10 @@ public class ScrollView extends FrameLayout {
             // re-show the scrollbars at this point, which scrollTo will do,
             // so we replicate most of scrollTo here.
             //
-            //         It's a little odd to call onScrollChanged from inside the drawing.
+            //         It's a little odd 奇数；怪人；奇特的事物 to call onScrollChanged from inside the drawing.
             //
             //         It is, except when you remember that computeScroll() is used to
-            //         animate scrolling. So unless we want to defer the onScrollChanged()
+            //         animate scrolling. So unless we want to defer 使延期 the onScrollChanged()
             //         until the end of the animated scrolling, we don't really have a
             //         choice here.
             //
@@ -1346,7 +1349,7 @@ public class ScrollView extends FrameLayout {
                     }
                 }
             }
-
+            // TODO: 2017/11/6
             if (!awakenScrollBars()) {
                 // Keep on drawing until the animation has finished.
                 postInvalidateOnAnimation();
@@ -1516,6 +1519,10 @@ public class ScrollView extends FrameLayout {
     public boolean requestChildRectangleOnScreen(View child, Rect rectangle,
             boolean immediate) {
         // offset into coordinate space of this scroll view
+        // left + child.getLeft() - child.getScrollX()
+        // right + child.getLeft() - child.getScrollX()
+        // top + child.getTop() - child.getScrollY()
+        // bottom + child.getTop() - child.getScrollY()
         rectangle.offset(child.getLeft() - child.getScrollX(),
                 child.getTop() - child.getScrollY());
 
@@ -1756,6 +1763,7 @@ public class ScrollView extends FrameLayout {
                     translateX = 0;
                     translateY = 0;
                 }
+                // TODO: 2017/11/7  
                 canvas.translate(translateX, Math.min(0, scrollY) + translateY);
                 mEdgeGlowTop.setSize(width, height);
                 if (mEdgeGlowTop.draw(canvas)) {
@@ -1780,6 +1788,7 @@ public class ScrollView extends FrameLayout {
                     translateX = 0;
                     translateY = 0;
                 }
+                // TODO: 2017/11/7
                 canvas.translate(-width + translateX,
                             Math.max(getScrollRange(), scrollY) + height + translateY);
                 canvas.rotate(180, width, 0);

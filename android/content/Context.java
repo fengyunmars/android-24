@@ -93,9 +93,9 @@ public abstract class Context {
      * mode will throw a {@link SecurityException}.
      *
      * @deprecated Creating world-readable files is very dangerous, and likely
-     *             to cause security holes 濞?in applications. It is strongly
-     *             discouraged; instead, applications should use more formal 濮濓絽绱￠惃?
-     *             mechanism for interactions 娴溿倓绨?such as {@link ContentProvider},
+     *             to cause security holes 破洞 in applications. It is strongly
+     *             discouraged; instead, applications should use more formal  正式的
+     *             mechanism for interactions 交互，相互作用 such as {@link ContentProvider},
      *             {@link BroadcastReceiver}, and {@link android.app.Service}.
      *             There are no guarantees that this access mode will remain on
      *             a file, such as when it goes through a backup and restore.
@@ -142,17 +142,17 @@ public abstract class Context {
      * Generally there are better forms of communication between
      * processes, though.
      *
-     * <p>This was the legacy 闁ぞ楠?(but undocumented 閺冪姵顒滃蹇旀瀮娴犲墎娈?) behavior in and
-     * before Gingerbread (Android 2.3) and this flag is implied 閺嗘瀵氶惃?when
+     * <p>This was the legacy 遗赠，遗产 (but undocumented 无事实证明的；无正式文件的) behavior in and
+     * before Gingerbread (Android 2.3) and this flag is implied when
      * targetting such releases.  For applications targetting SDK
      * versions <em>greater than</em> Android 2.3, this flag must be
      * explicitly set if desired.
      *
      * @see #getSharedPreferences
      *
-     * @deprecated MODE_MULTI_PROCESS does not work reliably 閸欘垶娼崷?in
-     * some versions of Android, and furthermore 濮濄倕顦?does not provide any
-     * mechanism for reconciling 鐠嬪啳袙 concurrent 楠炶泛褰?modifications 娣囶喗鏁?across
+     * @deprecated MODE_MULTI_PROCESS does not work reliably可靠地；确实地 in
+     * some versions of Android, and furthermore 此外；而且 does not provide any
+     * mechanism for reconciling 调和 调停 使一致 concurrent modifications across
      * processes.  Applications should not attempt to use it.  Instead,
      * they should use an explicit cross-process data management
      * approach such as {@link android.content.ContentProvider ContentProvider}.
@@ -172,7 +172,7 @@ public abstract class Context {
 
     /**
      * Database open flag: when set, the database is opened without support for
-     * localized collators 閺嶇顕禍?
+     * localized collators 本地化 校对机
      *
      * @see #openOrCreateDatabase(String, int, CursorFactory)
      * @see #openOrCreateDatabase(String, int, CursorFactory, DatabaseErrorHandler)
@@ -207,7 +207,7 @@ public abstract class Context {
      * <p>Note that prior to {@link android.os.Build.VERSION_CODES#ICE_CREAM_SANDWICH},
      * not supplying this flag would also impact how important the system
      * consider's the target service's process to be.  When set, the only way
-     * for it to be raised 閹绘劙鐝?was by binding from a service in which case it will
+     * for it to be raised 提高 was by binding from a service in which case it will
      * only be important when that activity is in the foreground.  Now to
      * achieve this behavior you must explicitly supply the new flag
      * {@link #BIND_ADJUST_WITH_ACTIVITY}.  For compatibility, old applications
@@ -253,8 +253,8 @@ public abstract class Context {
      * Flag for {@link #bindService}: allow the process hosting the bound
      * service to go through its normal memory management.  It will be
      * treated more like a running service, allowing the system to
-     * (temporarily) expunge the process if low on memory or for some other
-     * whim it may have, and being more aggressive about making it a candidate
+     * (temporarily) expunge 擦去；删掉 the process if low on memory or for some other
+     * whim 心血来潮 奇想 怪念头  may have, and being more aggressive 侵略性的；好斗的；有进取心的；有闯劲的 about making it a candidate
      * to be killed (and restarted) if running for a long time.
      */
     public static final int BIND_ALLOW_OOM_MANAGEMENT = 0x0010;
@@ -265,7 +265,7 @@ public abstract class Context {
      * Allows the service's process to be managed on the background LRU list
      * just like a regular application process in the background.
      */
-    public static final int BIND_WAIVE_PRIORITY = 0x0020;
+    public static final int BIND_WAIVE_PRIORITY = 0x0020;  //  放弃；搁置
 
     /**
      * Flag for {@link #bindService}: this service is very important to
@@ -286,7 +286,7 @@ public abstract class Context {
 
     /**
      * @hide Flag for {@link #bindService}: allows application hosting service to manage whitelists
-     * such as temporary allowing a {@code PendingIntent} to bypass Power Save mode.
+     * such as temporary allowing a {@code PendingIntent} to bypass 绕开；忽视；设旁路；迂回 Power Save mode.
      */
     public static final int BIND_ALLOW_WHITELIST_MANAGEMENT = 0x01000000;
 
@@ -345,7 +345,7 @@ public abstract class Context {
 
     /**
      * Flag for {@link #bindService}: The service being bound is an
-     * {@link android.R.attr#isolatedProcess isolated},
+     * {@link android.R.attr#isolatedProcess isolated} 孤立的；分离的；单独的；[电] 绝缘的 ,
      * {@link android.R.attr#externalService external} service.  This binds the service into the
      * calling application's package, rather than the package in which the service is declared.
      * <p>
@@ -425,7 +425,7 @@ public abstract class Context {
      * registered with the global state associated with your application.  Thus
      * it will never be unregistered for you.  This is necessary if the receiver
      * is associated with static data, not a particular component.  However
-     * using the ApplicationContext elsewhere can easily lead to serious leaks
+     * using the ApplicationContext elsewhere can easily lead to serious 危急的 leaks
      * if you forget to unregister, unbind, etc.
      * </ul>
      */
@@ -478,7 +478,7 @@ public abstract class Context {
 
     /**
      * Returns a localized formatted string from the application's package's
-     * default string table, substituting the format arguments as defined in
+     * default string table, substituting 代替，取代 the format arguments as defined in
      * {@link java.util.Formatter} and {@link java.lang.String#format}.
      *
      * @param resId Resource id for the format string
@@ -628,7 +628,7 @@ public abstract class Context {
      * this context.  This is the same as {@link #getBasePackageName()} except in
      * cases where system components are loaded into other app processes, in which
      * case this will be the name of the primary package in that process (so that app
-     * ops uid verification will work with the name). */
+     * ops uid verification 确认，查证；核实 will work with the name). */
     public abstract String getOpPackageName();
 
     /** Return the full application info for this context's package. */
@@ -707,6 +707,7 @@ public abstract class Context {
      * @see #MODE_PRIVATE
      * @removed
      */
+    // TODO: 2017/11/9  
     public abstract SharedPreferences getSharedPreferences(File file, int mode);
 
     /**
@@ -854,7 +855,7 @@ public abstract class Context {
      * created with {@link #openFileOutput} are stored.
      * <p>
      * The returned path may change over time if the calling app is moved to an
-     * adopted 鐞氼偅鏁归崗鑽ゆ畱 storage device, so only relative paths should be persisted.
+     * adopted  storage device, so only relative paths should be persisted.
      * <p>
      * No additional permissions are required for the calling app to read or
      * write files under the returned path.
@@ -869,7 +870,7 @@ public abstract class Context {
     /**
      * Returns the absolute path to the directory on the filesystem similar to
      * {@link #getFilesDir()}. The difference is that files placed under this
-     * directory will be excluded from automatic backup to remote storage. See
+     * directory will be excluded from automatic 自动 backup to remote storage. See
      * {@link android.app.backup.BackupAgent BackupAgent} for a full discussion
      * of the automatic backup mechanism in Android.
      * <p>
@@ -907,10 +908,10 @@ public abstract class Context {
      * these files.
      * </ul>
      * <p>
-     * If a shared storage device is emulated  娴犺法婀￠惃?(as determined by
+     * If a shared storage device is emulated  仿真 仿真器 (as determined by
      * {@link Environment#isExternalStorageEmulated(File)}), it's contents are
-     * backed by a private user data partition 閸掑棗澹?, which means there is little
-     * benefit 婵傝棄顦?to storing data here instead of the private directories returned
+     * backed by a private user data partition 分区 , which means there is little
+     * benefit to storing data here instead of the private directories returned
      * by {@link #getFilesDir()}, etc.
      * <p>
      * Starting in {@link android.os.Build.VERSION_CODES#KITKAT}, no permissions
@@ -1002,9 +1003,9 @@ public abstract class Context {
      * by {@link #getFilesDir()}, etc.
      * <p>
      * Shared storage devices returned here are considered a stable part of the
-     * device, including physical media slots under a protective cover. The
-     * returned paths do not include transient devices, such as USB flash drives
-     * connected to handheld devices.
+     * device, including physical media slots 插槽 under a protective 保护的 防护的 给予保护的 cover 防护罩 . The
+     * returned paths do not include transient 短暂的 devices, such as USB flash drives
+     * connected to handheld 掌上型；手持型 devices.
      * <p>
      * An application may store data on any or all of the returned devices. For
      * example, an app may choose to store large files on the device with the
@@ -1067,7 +1068,7 @@ public abstract class Context {
      * On devices with multiple users (as described by {@link UserManager}),
      * multiple users may share the same OBB storage location. Applications
      * should ensure that multiple instances running under different users don't
-     * interfere with each other.
+     * interfere  干涉；妨碍；打扰 with each other.
      *
      * @return the absolute path to application-specific directory. May return
      *         {@code null} if shared storage is not currently available.
@@ -1151,7 +1152,7 @@ public abstract class Context {
      * any files stored in this location both when your specific application is
      * upgraded, and when the entire platform is upgraded.
      * <p>
-     * This location is optimal for storing compiled or optimized code generated
+     * This location is optimal  最佳的；最理想的 for storing compiled or optimized code generated
      * by your application at runtime.
      * <p>
      * The returned path may change over time if the calling app is moved to an
@@ -1389,7 +1390,7 @@ public abstract class Context {
      * application package. Creates the database file if it doesn't exist.
      * <p>
      * Accepts input param: a concrete instance of {@link DatabaseErrorHandler}
-     * to be used to handle corruption when sqlite reports database corruption.
+     * to be used to handle corruption  贪污，腐败；堕落 when sqlite reports database corruption.
      * </p>
      *
      * @param name The name (unique in the application package) of the database.
@@ -1418,7 +1419,7 @@ public abstract class Context {
 
     /**
      * Move an existing database file from the given source storage context to
-     * this context. This is typically used to migrate data between storage
+     * this context. This is typically used to migrate 迁移 移居 迁徙 data between storage
      * locations after an upgrade, such as migrating to device protected
      * storage.
      * <p>
@@ -2487,7 +2488,7 @@ public abstract class Context {
      * @see #bindService
      */
     @Nullable
-    public abstract ComponentName   startService(Intent service);
+    public abstract ComponentName startService(Intent service);
 
     /**
      * Request that a given application service be stopped.  If the service is
@@ -2779,7 +2780,7 @@ public abstract class Context {
      * <dd>  A {@link android.app.job.JobScheduler} for managing scheduled tasks
      * <dt> {@link #NETWORK_STATS_SERVICE} ("netstats")
      * <dd> A {@link android.app.usage.NetworkStatsManager NetworkStatsManager} for querying network
-     * usage statistics.
+     * usage statistics  统计 .
      * <dt> {@link #HARDWARE_PROPERTIES_SERVICE} ("hardware_properties")
      * <dd> A {@link android.os.HardwarePropertiesManager} for accessing hardware properties.
      * </dl>
@@ -2973,7 +2974,7 @@ public abstract class Context {
     /**
      * Use with {@link #getSystemService} to retrieve a
      * {@link android.view.accessibility.AccessibilityManager} for giving the user
-     * feedback for UI events through the registered event listeners.
+     * feedback 反馈 for UI events through the registered event listeners.
      *
      * @see #getSystemService
      * @see android.view.accessibility.AccessibilityManager
@@ -3087,7 +3088,7 @@ public abstract class Context {
     /**
      * Use with {@link #getSystemService} to retrieve a {@link
      * android.os.IUpdateLock} for managing runtime sequences that
-     * must not be interrupted by headless OTA application or similar.
+     * must not be interrupted by headless 无知的 OTA application or similar.
      *
      * @hide
      * @see #getSystemService
@@ -3168,7 +3169,7 @@ public abstract class Context {
     /**
      * Use with {@link #getSystemService} to retrieve a {@link
      * android.net.EthernetManager} for handling management of
-     * Ethernet access.
+     * Ethernet 以太网 access.
      *
      * @see #getSystemService
      * @see android.net.EthernetManager
@@ -3334,7 +3335,7 @@ public abstract class Context {
     /**
      * Use with {@link #getSystemService} to retrieve a
      * {@link android.os.DropBoxManager} instance for recording
-     * diagnostic logs.
+     * diagnostic 诊断法 logs.
      * @see #getSystemService
      */
     public static final String DROPBOX_SERVICE = "dropbox";
@@ -3416,7 +3417,7 @@ public abstract class Context {
 
     /**
      * Use with {@link #getSystemService} to retrieve a {@link
-     * android.hardware.SerialManager} for access to serial ports.
+     * android.hardware.SerialManager} for access to serial ports 串行端口 .
      *
      * @see #getSystemService
      * @see android.hardware.SerialManager
@@ -3514,7 +3515,7 @@ public abstract class Context {
 
     /**
      * Use with {@link #getSystemService} to retrieve a
-     * {@link android.hardware.ConsumerIrManager} for transmitting infrared
+     * {@link android.hardware.ConsumerIrManager} for transmitting 传送，传递 infrared 传送，传递
      * signals from the device.
      *
      * @see #getSystemService
@@ -3541,7 +3542,7 @@ public abstract class Context {
     public static final String TV_INPUT_SERVICE = "tv_input";
 
     /**
-     * {@link android.net.NetworkScoreManager} for managing network scoring.
+     * {@link android.net.NetworkScoreManager} for managing network scoring 得分 .
      * @see #getSystemService
      * @see android.net.NetworkScoreManager
      * @hide
@@ -3560,7 +3561,7 @@ public abstract class Context {
 
     /**
      * Use with {@link #getSystemService} to retrieve a {@link
-     * android.app.job.JobScheduler} instance for managing occasional
+     * android.app.job.JobScheduler} instance for managing occasional 偶然的
      * background tasks.
      * @see #getSystemService
      * @see android.app.job.JobScheduler
@@ -3646,7 +3647,7 @@ public abstract class Context {
     public static final String SYSTEM_HEALTH_SERVICE = "systemhealth";
 
     /**
-     * Gatekeeper Service.
+     * Gatekeeper 看门人 Service.
      * @hide
      */
     public static final String GATEKEEPER_SERVICE = "android.service.gatekeeper.IGateKeeperService";

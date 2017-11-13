@@ -30,7 +30,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 /**
- * Utility class for constructing synthetic back stacks for cross-task navigation
+ * Utility class for constructing synthetic 综合的；合成的，人造的 back stacks for cross-task navigation
  * on Android 3.0 and newer.
  *
  * <p>In API level 11 (Android 3.0/Honeycomb) the recommended conventions for
@@ -59,6 +59,7 @@ import java.util.ArrayList;
  * </div>
  */
 public class TaskStackBuilder {
+
     private static final String TAG = "TaskStackBuilder";
 
     private final ArrayList<Intent> mIntents = new ArrayList<Intent>();

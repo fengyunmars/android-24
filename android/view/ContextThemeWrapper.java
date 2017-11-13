@@ -180,7 +180,7 @@ public class ContextThemeWrapper extends ContextWrapper {
      * Called by {@link #setTheme} and {@link #getTheme} to apply a theme
      * resource to the current Theme object. May be overridden to change the
      * default (simple) behavior. This method will not be called in multiple
-     * threads simultaneously.
+     * threads simultaneously 同时地 .
      *
      * @param theme the theme being modified
      * @param resId the style resource being applied to <var>theme</var>

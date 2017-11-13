@@ -30,7 +30,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Access to the system diagnostic event record.  System diagnostic events are
+ * Access to the system diagnostic 诊断的；特征的 event record.  System diagnostic events are
  * used to record certain system-level events (such as garbage collection,
  * activity manager state, system watchdogs, and other low level activity),
  * which may be automatically collected and analyzed during system development.
@@ -78,7 +78,8 @@ public class EventLog {
         private static final byte FLOAT_TYPE = 4;
 
         /** @param data containing event, read from the system */
-        /*package*/ Event(byte[] data) {
+        /*package*/
+        Event(byte[] data) {
             mBuffer = ByteBuffer.wrap(data);
             mBuffer.order(ByteOrder.nativeOrder());
         }

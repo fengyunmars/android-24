@@ -148,8 +148,12 @@ public class Resources {
         return selectSystemTheme(curTheme, targetSdkVersion,
                 com.android.internal.R.style.Theme,
                 com.android.internal.R.style.Theme_Holo,
-                com.android.internal.R.style.Theme_DeviceDefault,
+                com.android.internal.R.style.Theme_DeviceDefault, // <style name="Theme.DeviceDefault" parent="Theme.Material" >
+                //Variant of the DeviceDefault (light) theme that has a solid (opaque) action bar with an
+                //inverse color profile.
+                //<style name="Theme.DeviceDefault.Light.DarkActionBar" parent="Theme.Material.Light.DarkActionBar" />
                 com.android.internal.R.style.Theme_DeviceDefault_Light_DarkActionBar);
+
     }
 
     /**

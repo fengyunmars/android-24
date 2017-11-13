@@ -43,7 +43,7 @@ import java.lang.annotation.RetentionPolicy;
 
 /**
  * A primary toolbar within the activity that may display the activity title, application-level
- * navigation affordances, and other interactive items.
+ * navigation affordances 给予 可供性 , and other interactive items.
  *
  * <p>Beginning with Android 3.0 (API level 11), the action bar appears at the top of an
  * activity's window when the activity uses the system's {@link
@@ -63,7 +63,7 @@ import java.lang.annotation.RetentionPolicy;
  * <p>By adjusting the window features requested by the theme and the layouts used for
  * an Activity's content view, an app can use the standard system action bar on older platform
  * releases and the newer inline toolbars on newer platform releases. The <code>ActionBar</code>
- * object obtained from the Activity can be used to control either configuration transparently.</p>
+ * object obtained from the Activity can be used to control either configuration transparently 透明地 .</p>
  *
  * <p>When using the Holo themes the action bar shows the application icon on
  * the left, followed by the activity title. If your activity has an options menu, you can make
@@ -462,7 +462,7 @@ public abstract class ActionBar {
     public abstract void setDisplayUseLogoEnabled(boolean useLogo);
 
     /**
-     * Set whether to include the application home affordance in the action bar.
+     * Set whether to include the application home affordance 功能可见性 in the action bar.
      * Home is presented as either an activity icon or logo.
      *
      * <p>To set several display options at once, see the setDisplayOptions methods.
@@ -840,7 +840,7 @@ public abstract class ActionBar {
      * will appear in the action bar. If you are inflating or instantiating custom views
      * that will appear in an action bar, you should use the Context returned by this method.
      * (This includes adapters used for list navigation mode.)
-     * This will ensure that views contrast properly against the action bar.
+     * This will ensure that views contrast 对比；差别；对照物 properly against the action bar.
      *
      * @return A themed Context for creating views
      */
@@ -1031,6 +1031,7 @@ public abstract class ActionBar {
     }
 
     /** @hide */
+    @Override
     public void onConfigurationChanged(Configuration config) {
     }
 
@@ -1158,7 +1159,7 @@ public abstract class ActionBar {
     public interface OnMenuVisibilityListener {
         /**
          * Called when an action bar menu is shown or hidden. Applications may want to use
-         * this to tune auto-hiding behavior for the action bar or pause/resume video playback,
+         * this to tune 调整；使一致；为…调音 auto-hiding behavior for the action bar or pause/resume video playback,
          * gameplay, or other activity within the main content area.
          *
          * @param isVisible True if an action bar menu is now visible, false if no action bar

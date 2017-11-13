@@ -59,8 +59,10 @@ import java.util.List;
  * Window.
  */
 public abstract class Window {
+
     /** Flag for the "options panel" feature.  This is enabled by default. */
     public static final int FEATURE_OPTIONS_PANEL = 0;
+
     /** Flag for the "no title" feature, turning off the title at the top
      *  of the screen. */
     public static final int FEATURE_NO_TITLE = 1;
@@ -75,6 +77,7 @@ public abstract class Window {
 
     /** Flag for having an icon on the left side of the title bar */
     public static final int FEATURE_LEFT_ICON = 3;
+
     /** Flag for having an icon on the right side of the title bar */
     public static final int FEATURE_RIGHT_ICON = 4;
 
@@ -88,6 +91,7 @@ public abstract class Window {
 
     /** Flag for the context menu.  This is enabled by default. */
     public static final int FEATURE_CONTEXT_MENU = 6;
+
     /** Flag for custom title. You cannot combine this feature with other title features. */
     public static final int FEATURE_CUSTOM_TITLE = 7;
     /**
@@ -102,12 +106,12 @@ public abstract class Window {
      * Normally an Action Bar will sit in the space above window content, but if this
      * feature is requested along with {@link #FEATURE_ACTION_BAR} it will be layered over
      * the window content itself. This is useful if you would like your app to have more control
-     * over how the Action Bar is displayed, such as letting application content scroll beneath
-     * an Action Bar with a transparent background or otherwise displaying a transparent/translucent
+     * over how the Action Bar is displayed, such as letting application content scroll beneath 在…之下
+     * an Action Bar with a transparent 透明的 background or otherwise displaying a transparent/translucent
      * Action Bar over application content.
      *
      * <p>This mode is especially useful with {@link View#SYSTEM_UI_FLAG_FULLSCREEN
-     * View.SYSTEM_UI_FLAG_FULLSCREEN}, which allows you to seamlessly hide the
+     * View.SYSTEM_UI_FLAG_FULLSCREEN}, which allows you to seamlessly 无缝地 hide the
      * action bar in conjunction with other screen decorations.
      *
      * <p>As of {@link android.os.Build.VERSION_CODES#JELLY_BEAN}, when an
@@ -116,15 +120,18 @@ public abstract class Window {
      * to include the content covered by the action bar, so you can do layout within
      * that space.
      */
+    // TODO: 2017/11/10  
     public static final int FEATURE_ACTION_BAR_OVERLAY = 9;
     /**
      * Flag for specifying the behavior of action modes when an Action Bar is not present.
      * If overlay is enabled, the action mode UI will be allowed to cover existing window content.
      */
+    // TODO: 2017/11/10  
     public static final int FEATURE_ACTION_MODE_OVERLAY = 10;
     /**
      * Flag for requesting a decoration-free window that is dismissed by swiping from the left.
      */
+    // TODO: 2017/11/11
     public static final int FEATURE_SWIPE_TO_DISMISS = 11;
     /**
      * Flag for requesting that window content changes should be animated using a
@@ -136,6 +143,7 @@ public abstract class Window {
      *
      * @see #setContentView
      */
+    // TODO: 2017/11/11  
     public static final int FEATURE_CONTENT_TRANSITIONS = 12;
 
     /**
@@ -145,6 +153,7 @@ public abstract class Window {
      * android.util.Pair[])} or {@link android.app.ActivityOptions#makeSceneTransitionAnimation(
      * android.app.Activity, View, String)}.
      */
+    // TODO: 2017/11/11  
     public static final int FEATURE_ACTIVITY_TRANSITIONS = 13;
 
     /**
@@ -372,7 +381,7 @@ public abstract class Window {
         public boolean dispatchGenericMotionEvent(MotionEvent event);
 
         /**
-         * Called to process population of {@link AccessibilityEvent}s.
+         * Called to process population 人口 人口 总体 of {@link AccessibilityEvent}s.
          *
          * @param event The event.
          *
@@ -674,7 +683,7 @@ public abstract class Window {
 
     /**
      * Set the container for this window.  If not set, the DecorWindow
-     * operates as a top-level window; otherwise, it negotiates with the
+     * operates as a top-level window; otherwise, it negotiates 谈判，商议；转让；越过 with the
      * container to display itself appropriately.
      *
      * @param container The desired containing Window.

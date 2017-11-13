@@ -42,7 +42,7 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
 /**
- * Instantiates a layout XML file into its corresponding {@link android.view.View}
+ * Instantiates 实例化 a layout XML file into its corresponding {@link android.view.View}
  * objects. It is never used directly. Instead, use
  * {@link android.app.Activity#getLayoutInflater()} or
  * {@link Context#getSystemService} to retrieve a standard LayoutInflater instance
@@ -72,7 +72,7 @@ public abstract class LayoutInflater {
     private static final String TAG = LayoutInflater.class.getSimpleName();
     private static final boolean DEBUG = false;
 
-    /** Empty stack trace used to avoid log spam in re-throw exceptions. */
+    /** Empty stack trace used to avoid log spam 刷屏 in re-throw exceptions. */
     private static final StackTraceElement[] EMPTY_STACK_TRACE = new StackTraceElement[0];
 
     /**
@@ -178,13 +178,13 @@ public abstract class LayoutInflater {
             mF12 = f12;
             mF22 = f22;
         }
-        
+        @Override
         public View onCreateView(String name, Context context, AttributeSet attrs) {
             View v = mF1.onCreateView(name, context, attrs);
             if (v != null) return v;
             return mF2.onCreateView(name, context, attrs);
         }
-
+        @Override
         public View onCreateView(View parent, String name, Context context, AttributeSet attrs) {
             View v = mF12 != null ? mF12.onCreateView(parent, name, context, attrs)
                     : mF1.onCreateView(name, context, attrs);
@@ -583,7 +583,7 @@ public abstract class LayoutInflater {
      * <p>
      * There are two things that can happen in an error case: either the
      * exception describing the error will be thrown, or a null will be
-     * returned. You must deal with both possibilities -- the former will happen
+     * returned. You must deal with both possibilities -- the former 前者 will happen
      * the first time createView() is called for a class of a particular name,
      * the latter every time there-after for that class name.
      * 
@@ -822,7 +822,7 @@ public abstract class LayoutInflater {
     }
 
     /**
-     * Recursive method used to descend down the xml hierarchy and instantiate
+     * Recursive 递归的；循环的 method used to descend down the xml hierarchy and instantiate
      * views, instantiate their children, and then call onFinishInflate().
      * <p>
      * <strong>Note:</strong> Default visibility so the BridgeInflater can
@@ -834,8 +834,8 @@ public abstract class LayoutInflater {
         final int depth = parser.getDepth();
         int type;
 
-        while (((type = parser.next()) != XmlPullParser.END_TAG ||
-                parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
+        while (((type = parser.next()) != XmlPullParser.END_TAG || parser.getDepth() > depth) &&
+                 type != XmlPullParser.END_DOCUMENT) {
 
             if (type != XmlPullParser.START_TAG) {
                 continue;
@@ -900,8 +900,8 @@ public abstract class LayoutInflater {
         int type;
 
         if (parent instanceof ViewGroup) {
-            // Apply a theme wrapper, if requested. This is sort of a weird
-            // edge case, since developers think the <include> overwrites
+            // Apply a theme wrapper, if requested. This is sort of 有几分地；到某种程度；稍稍 a weird
+            // 怪异的；不可思议的；超自然的 edge case 极端例子 , since developers think the <include> overwrites
             // values in the AttributeSet of the included View. So, if the
             // included View has a theme attribute, we'll need to ignore it.
             final TypedArray ta = context.obtainStyledAttributes(attrs, ATTRS_THEME);
@@ -923,6 +923,7 @@ public abstract class LayoutInflater {
                 }
 
                 // Attempt to resolve the "?attr/name" string to an identifier.
+                // TODO: 2017/11/10
                 layout = context.getResources().getIdentifier(value.substring(1), null, null);
             }
 
