@@ -698,7 +698,8 @@ public class Activity extends ContextThemeWrapper
     /** Start of user-defined activity results. */
     public static final int RESULT_FIRST_USER   = 1;
 
-    /** @hide Task isn't finished when activity is finished */
+    /** @hide
+     * Task isn't finished when activity is finished */
     public static final int DONT_FINISH_TASK_WITH_ACTIVITY = 0;
     /**
      * @hide Task is finished if the finishing activity is the root of the task. To preserve the
@@ -740,7 +741,7 @@ public class Activity extends ContextThemeWrapper
     /*package*/ String mEmbeddedID;
     private Application mApplication;
     /*package*/ Intent mIntent;
-    /*package*/ String mReferrer;
+    /*package*/ String mReferrer;  // 推荐人
     private ComponentName mComponent;
     /*package*/ ActivityInfo mActivityInfo;
     /*package*/ ActivityThread mMainThread;
@@ -752,7 +753,7 @@ public class Activity extends ContextThemeWrapper
     boolean mStartedActivity;
     private boolean mDestroyed;
     private boolean mDoReportFullyDrawn = true;
-    /** true if the activity is going through a transient pause */
+    /** true if the activity is going through a transient 短暂的 瞬态 pause */
     /*package*/ boolean mTemporaryPause = false;
     /** true if the activity is being destroyed in order to recreate it with a new configuration */
     /*package*/ boolean mChangingConfigurations = false;

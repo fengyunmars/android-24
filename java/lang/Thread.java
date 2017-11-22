@@ -76,8 +76,8 @@ import sun.security.util.SecurityConstants;
  * declare a class to be a subclass of <code>Thread</code>. This
  * subclass should override the <code>run</code> method of class
  * <code>Thread</code>. An instance of the subclass can then be
- * allocated and started. For example, a thread that computes primes
- * larger than a stated value could be written as follows:
+ * allocated and started. For example, a thread that computes primes 生成质数列表 素数问题
+ * larger than a stated 规定的 value could be written as follows:
  * <p><hr><blockquote><pre>
  *     class PrimeThread extends Thread {
  *         long minPrime;
@@ -164,8 +164,8 @@ class Thread implements Runnable {
     /* Whether or not the thread is a daemon thread. */
     private boolean     daemon = false;
 
-    /* JVM state */
-    private boolean     stillborn = false;
+    /* JVM state  */
+    private boolean     stillborn = false; // 死胎的
 
     /* What will be run. */
     private Runnable target;
@@ -234,7 +234,7 @@ class Thread implements Runnable {
      */
     volatile Object parkBlocker;
 
-    /* The object in which this thread is blocked in an interruptible I/O
+    /* The object in which this thread is blocked in an interruptible 可中断的 I/O
      * operation, if any.  The blocker's interrupt method should be invoked
      * after setting this thread's interrupt status.
      */
@@ -275,27 +275,27 @@ class Thread implements Runnable {
     public static native Thread currentThread();
 
     /**
-     * A hint to the scheduler that the current thread is willing to yield
+     * A hint to the scheduler that the current thread is willing to yield 放弃
      * its current use of a processor. The scheduler is free to ignore this
      * hint.
      *
-     * <p> Yield is a heuristic attempt to improve relative progression
+     * <p> Yield is a heuristic 启发式的；探索的 attempt to improve relative progression
      * between threads that would otherwise over-utilise a CPU. Its use
-     * should be combined with detailed profiling and benchmarking to
+     * should be combined with detailed profiling 性能分析 and benchmarking 标杆管理；标记 to
      * ensure that it actually has the desired effect.
      *
      * <p> It is rarely appropriate to use this method. It may be useful
      * for debugging or testing purposes, where it may help to reproduce
-     * bugs due to race conditions. It may also be useful when designing
+     * bugs due to race conditions 竞争条件 . It may also be useful when designing
      * concurrency control constructs such as the ones in the
      * {@link java.util.concurrent.locks} package.
      */
     public static native void yield();
 
     /**
-     * Causes the currently executing thread to sleep (temporarily cease
+     * Causes the currently executing thread to sleep (temporarily cease 停止
      * execution) for the specified number of milliseconds, subject to
-     * the precision and accuracy of system timers and schedulers. The thread
+     * the precision  精度 and accuracy  精确度，准确性 of system timers and schedulers. The thread
      * does not lose ownership of any monitors.
      *
      * @param  millis
@@ -416,7 +416,7 @@ class Thread implements Runnable {
     }
 
     /**
-     * Throws CloneNotSupportedException as a Thread can not be meaningfully
+     * Throws CloneNotSupportedException as a Thread can not be meaningfully 有意义地
      * cloned. Construct a new Thread instead.
      *
      * @throws  CloneNotSupportedException
@@ -523,7 +523,7 @@ class Thread implements Runnable {
     Thread(ThreadGroup group, String name, int priority, boolean daemon) {
         this.group = group;
         this.group.addUnstarted();
-        // Must be tolerant of threads without a name.
+        // Must be tolerant 宽容的；容忍的 of threads without a name.
         if (name == null) {
             name = "Thread-" + nextThreadNum();
         }
@@ -634,10 +634,10 @@ class Thread implements Runnable {
      * the relationship between the value of the <tt>stackSize</tt> parameter
      * and the maximum recursion depth and concurrency level are
      * platform-dependent.  <b>On some platforms, the value of the
-     * {@code stackSize} parameter may have no effect whatsoever.</b>
+     * {@code stackSize} parameter may have no effect whatsoever 无论什么 .</b>
      *
      * <p>The virtual machine is free to treat the {@code stackSize}
-     * parameter as a suggestion.  If the specified value is unreasonably low
+     * parameter as a suggestion.  If the specified value is unreasonably 不合理地 low
      * for the platform, the virtual machine may instead use some
      * platform-specific minimum value; if the specified value is unreasonably
      * high, the virtual machine may instead use some platform-specific
@@ -651,7 +651,7 @@ class Thread implements Runnable {
      * <p><i>Due to the platform-dependent nature of the behavior of this
      * constructor, extreme care should be exercised in its use.
      * The thread stack size necessary to perform a given computation will
-     * likely vary from one JRE implementation to another.  In light of this
+     * likely vary from one JRE implementation to another.  In light of 根据；鉴于；从…观点 this
      * variation, careful tuning of the stack size parameter may be required,
      * and the tuning may need to be repeated for each JRE implementation on
      * which an application is to run.</i>
@@ -798,7 +798,7 @@ class Thread implements Runnable {
      * <code>SecurityException</code> (in the current thread).
      * <p>
      * The thread represented by this thread is forced to stop whatever
-     * it is doing abnormally and to throw a newly created
+     * it is doing abnormally 不正常地 and to throw a newly created
      * <code>ThreadDeath</code> object as an exception.
      * <p>
      * It is permitted to stop a thread that has not yet been started.
@@ -807,7 +807,7 @@ class Thread implements Runnable {
      * An application should not normally try to catch
      * <code>ThreadDeath</code> unless it must do some extraordinary
      * cleanup operation (note that the throwing of
-     * <code>ThreadDeath</code> causes <code>finally</code> clauses of
+     * <code>ThreadDeath</code> causes <code>finally</code> clauses 子句 of
      * <code>try</code> statements to be executed before the thread
      * officially dies).  If a <code>catch</code> clause catches a
      * <code>ThreadDeath</code> object, it is important to rethrow the
@@ -828,9 +828,9 @@ class Thread implements Runnable {
      * @see        ThreadGroup#uncaughtException(Thread,Throwable)
      * @see        SecurityManager#checkAccess(Thread)
      * @see        SecurityManager#checkPermission
-     * @deprecated This method is inherently unsafe.  Stopping a thread with
+     * @deprecated This method is inherently 内在地；固有地；天性地 unsafe.  Stopping a thread with
      *       Thread.stop causes it to unlock all of the monitors that it
-     *       has locked (as a natural consequence of the unchecked
+     *       has locked (as a natural consequence 自然结果 of the unchecked
      *       <code>ThreadDeath</code> exception propagating up the stack).  If
      *       any of the objects previously protected by these monitors were in
      *       an inconsistent state, the damaged objects become visible to

@@ -9,7 +9,7 @@ package java.util.concurrent.locks;
 import java.util.concurrent.TimeUnit;
 
 /**
- * {@code Lock} implementations provide more extensive locking
+ * {@code Lock} implementations 实现 provide more extensive 广泛的；大量的；广阔的 locking
  * operations than can be obtained using {@code synchronized} methods
  * and statements.  They allow more flexible structuring, may have
  * quite different properties, and may support multiple associated
@@ -23,8 +23,8 @@ import java.util.concurrent.TimeUnit;
  * a shared resource, such as the read lock of a {@link ReadWriteLock}.
  *
  * <p>The use of {@code synchronized} methods or statements provides
- * access to the implicit monitor lock associated with every object, but
- * forces all lock acquisition and release to occur in a block-structured way:
+ * access to the implicit 含蓄的 monitor lock associated with every object, but
+ * forces all lock acquisition 获得 and release to occur in a block-structured way:
  * when multiple locks are acquired they must be released in the opposite
  * order, and all locks must be released in the same lexical scope in which
  * they were acquired.
@@ -67,12 +67,12 @@ import java.util.concurrent.TimeUnit;
  * over the use of {@code synchronized} methods and statements by
  * providing a non-blocking attempt to acquire a lock ({@link
  * #tryLock()}), an attempt to acquire the lock that can be
- * interrupted ({@link #lockInterruptibly}, and an attempt to acquire
+ * interrupted 中断的 ({@link #lockInterruptibly}, and an attempt to acquire
  * the lock that can timeout ({@link #tryLock(long, TimeUnit)}).
  *
  * <p>A {@code Lock} class can also provide behavior and semantics
  * that is quite different from that of the implicit monitor lock,
- * such as guaranteed ordering, non-reentrant usage, or deadlock
+ * such as guaranteed ordering, non-reentrant 可重入 可再入的 usage, or deadlock
  * detection. If an implementation provides such specialized semantics
  * then the implementation must document those semantics.
  *
@@ -81,7 +81,7 @@ import java.util.concurrent.TimeUnit;
  * Acquiring the
  * monitor lock of a {@code Lock} instance has no specified relationship
  * with invoking any of the {@link #lock} methods of that instance.
- * It is recommended that to avoid confusion you never use {@code Lock}
+ * It is recommended that to avoid confusion 混淆 you never use {@code Lock}
  * instances in this way, except within their own implementation.
  *
  * <p>Except where noted, passing a {@code null} value for any
@@ -107,7 +107,7 @@ import java.util.concurrent.TimeUnit;
  * locking/unlocking operations, do not require any memory
  * synchronization effects.
  *
- * <h3>Implementation Considerations</h3>
+ * <h3>Implementation Considerations 注意事项 </h3>
  *
  * <p>The three forms of lock acquisition (interruptible,
  * non-interruptible, and timed) may differ in their performance
@@ -120,7 +120,7 @@ import java.util.concurrent.TimeUnit;
  * ongoing lock acquisition.  An implementation is required to clearly
  * document the semantics and guarantees provided by each of the
  * locking methods. It must also obey the interruption semantics as
- * defined in this interface, to the extent that interruption of lock
+ * defined in this interface, to the extent 程度 that interruption of lock
  * acquisition is supported: which is either totally, or only on
  * method entry.
  *
@@ -143,12 +143,12 @@ public interface Lock {
      * Acquires the lock.
      *
      * <p>If the lock is not available then the current thread becomes
-     * disabled for thread scheduling purposes and lies dormant until the
+     * disabled for thread scheduling purposes and lies dormant 休眠的；静止的 until the
      * lock has been acquired.
      *
      * <p><b>Implementation Considerations</b>
      *
-     * <p>A {@code Lock} implementation may be able to detect erroneous use
+     * <p>A {@code Lock} implementation may be able to detect erroneous 错误的 use
      * of the lock, such as an invocation that would cause deadlock, and
      * may throw an (unchecked) exception in such circumstances.  The
      * circumstances and the exception type must be documented by that

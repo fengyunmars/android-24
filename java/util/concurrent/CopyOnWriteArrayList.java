@@ -145,6 +145,7 @@ public class CopyOnWriteArrayList<E> implements List<E>, RandomAccess, Cloneable
      *
      * @return the index or -1 if the object was not found.
      */
+    @Override
     public int indexOf(E object, int from) {
         Object[] snapshot = elements;
         return indexOf(object, snapshot, from, snapshot.length);
@@ -161,11 +162,12 @@ public class CopyOnWriteArrayList<E> implements List<E>, RandomAccess, Cloneable
      *
      * @return the index or -1 if the object was not found.
      */
+    @Override
     public int lastIndexOf(E object, int to) {
         Object[] snapshot = elements;
         return lastIndexOf(object, snapshot, 0, to);
     }
-
+    @Override
     public int lastIndexOf(Object object) {
         Object[] snapshot = elements;
         return lastIndexOf(object, snapshot, 0, snapshot.length);

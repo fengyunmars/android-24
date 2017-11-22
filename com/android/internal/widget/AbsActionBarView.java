@@ -347,7 +347,8 @@ public abstract class AbsActionBarView extends ViewGroup {
 
         @Override
         public void onAnimationEnd(Animator animation) {
-            if (mCanceled) return;
+            if (mCanceled)
+                return;
 
             mVisibilityAnim = null;
             setVisibility(mFinalVisibility);

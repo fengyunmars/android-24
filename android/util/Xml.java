@@ -36,7 +36,8 @@ import org.xmlpull.v1.XmlSerializer;
  * XML utility methods.
  */
 public class Xml {
-    /** @hide */ public Xml() {}
+    /** @hide */
+    public Xml() {}
 
     /**
      * {@link org.xmlpull.v1.XmlPullParser} "relaxed" feature name.
@@ -49,8 +50,7 @@ public class Xml {
     /**
      * Parses the given xml string and fires events on the given SAX handler.
      */
-    public static void parse(String xml, ContentHandler contentHandler)
-            throws SAXException {
+    public static void parse(String xml, ContentHandler contentHandler) throws SAXException {
         try {
             XMLReader reader = new ExpatReader();
             reader.setContentHandler(contentHandler);
@@ -111,8 +111,7 @@ public class Xml {
 
     /** Factory for xml serializers. Initialized on demand. */
     static class XmlSerializerFactory {
-        static final String TYPE
-                = "org.kxml2.io.KXmlParser,org.kxml2.io.KXmlSerializer";
+        static final String TYPE = "org.kxml2.io.KXmlParser,org.kxml2.io.KXmlSerializer";
         static final XmlPullParserFactory instance;
         static {
             try {

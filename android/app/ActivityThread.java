@@ -164,6 +164,7 @@ final class RemoteServiceException extends AndroidRuntimeException {
 public final class ActivityThread {
     /** @hide */
     public static final String TAG = "ActivityThread";
+
     private static final android.graphics.Bitmap.Config THUMBNAIL_FORMAT = Bitmap.Config.RGB_565;
     static final boolean localLOGV = false;
     static final boolean DEBUG_MESSAGES = false;
@@ -176,9 +177,10 @@ public final class ActivityThread {
     private static final boolean DEBUG_MEMORY_TRIM = false;
     private static final boolean DEBUG_PROVIDER = false;
     private static final boolean DEBUG_ORDER = false;
+
     private static final long MIN_TIME_BETWEEN_GCS = 5*1000;
     private static final int SQLITE_MEM_RELEASED_EVENT_LOG_TAG = 75003;
-    private static final int LOG_AM_ON_PAUSE_CALLED = 30021;
+    private static final int LOG_AM_ON_PAUSE_CALLED = 30021; // called
     private static final int LOG_AM_ON_RESUME_CALLED = 30022;
     private static final int LOG_AM_ON_STOP_CALLED = 30049;
 
@@ -5687,7 +5689,8 @@ public final class ActivityThread {
     final void handleUnstableProviderDiedLocked(IBinder provider, boolean fromClient) {
         ProviderRefCount prc = mProviderRefCountMap.get(provider);
         if (prc != null) {
-            if (DEBUG_PROVIDER) Slog.v(TAG, "Cleaning up dead provider "
+            if (DEBUG_PROVIDER)
+                Slog.v(TAG, "Cleaning up dead provider "
                     + provider + " " + prc.holder.info.name);
             mProviderRefCountMap.remove(provider);
             for (int i=mProviderMap.size()-1; i>=0; i--) {

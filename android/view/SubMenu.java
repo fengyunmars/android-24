@@ -40,6 +40,7 @@ public interface SubMenu extends Menu {
      * @param titleRes The string resource identifier used for the title.
      * @return This SubMenu so additional setters can be called.
      */
+    @Override
     public SubMenu setHeaderTitle(@StringRes int titleRes);
 
     /**
@@ -48,6 +49,7 @@ public interface SubMenu extends Menu {
      * @param title The character sequence used for the title.
      * @return This SubMenu so additional setters can be called.
      */
+    @Override
     public SubMenu setHeaderTitle(CharSequence title);
     
     /**
@@ -57,6 +59,7 @@ public interface SubMenu extends Menu {
      * @param iconRes The resource identifier used for the icon.
      * @return This SubMenu so additional setters can be called.
      */
+    @Override
     public SubMenu setHeaderIcon(@DrawableRes int iconRes);
 
     /**
@@ -66,6 +69,7 @@ public interface SubMenu extends Menu {
      * @param icon The {@link Drawable} used for the icon.
      * @return This SubMenu so additional setters can be called.
      */
+    @Override
     public SubMenu setHeaderIcon(Drawable icon);
     
     /**
@@ -76,11 +80,13 @@ public interface SubMenu extends Menu {
      * @param view The {@link View} used for the header.
      * @return This SubMenu so additional setters can be called.
      */
+    @Override
     public SubMenu setHeaderView(View view);
     
     /**
      * Clears the header of the submenu.
      */
+    @Override
     public void clearHeader();
     
     /**
@@ -90,6 +96,8 @@ public interface SubMenu extends Menu {
      * @param iconRes The new icon (as a resource ID) to be displayed.
      * @return This SubMenu so additional setters can be called.
      */
+    // TODO: 2017/11/18  
+    @Override
     public SubMenu setIcon(@DrawableRes int iconRes);
     
     /**
@@ -99,6 +107,7 @@ public interface SubMenu extends Menu {
      * @param icon The new icon (as a Drawable) to be displayed.
      * @return This SubMenu so additional setters can be called.
      */
+    @Override
     public SubMenu setIcon(Drawable icon);
     
     /**
@@ -107,5 +116,6 @@ public interface SubMenu extends Menu {
      * 
      * @return The {@link MenuItem} that launches the submenu when invoked.
      */
+    @Override
     public MenuItem getItem();
 }

@@ -3287,7 +3287,7 @@ public class Intent implements Parcelable, Cloneable {
     @SdkConstant(SdkConstantType.INTENT_CATEGORY)
     public static final String CATEGORY_VOICE = "android.intent.category.VOICE";
     /**
-     * Set if the activity should be considered as an alternative action to
+     * Set if the activity should be considered as an alternative 供选择的 action to
      * the data the user is currently viewing.  See also
      * {@link #CATEGORY_SELECTED_ALTERNATIVE} for an alternative action that
      * applies to the selection in a list of items.

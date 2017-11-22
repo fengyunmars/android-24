@@ -5599,6 +5599,13 @@ public abstract class PackageManager {
     public abstract @NonNull PackageInstaller getPackageInstaller();
 
     /**
+     * M: [ALPS00091751] Add api for check apk signature
+     *
+     * @hide
+     */
+    public abstract int checkAPKSignatures(String pkg);
+
+    /**
      * Adds a {@code CrossProfileIntentFilter}. After calling this method all
      * intents sent from the user with id sourceUserId can also be be resolved
      * by activities in the user with id targetUserId if they match the

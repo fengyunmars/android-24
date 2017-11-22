@@ -52,15 +52,15 @@ import java.util.List;
 /**
  * Offers the ability to install, upgrade, and remove applications on the
  * device. This includes support for apps packaged either as a single
- * "monolithic" APK, or apps packaged as multiple "split" APKs.
+ * "monolithic" 整体的 APK, or apps packaged as multiple "split" APKs.
  * <p>
  * An app is delivered for installation through a
  * {@link PackageInstaller.Session}, which any app can create. Once the session
  * is created, the installer can stream one or more APKs into place until it
  * decides to either commit or destroy the session. Committing may require user
- * intervention to complete the installation.
+ * intervention 介入 to complete the installation.
  * <p>
- * Sessions can install brand new apps, upgrade existing apps, or add new splits
+ * Sessions can install brand new apps 全新的应用程序 , upgrade existing apps, or add new splits
  * into an existing app.
  * <p>
  * Apps packaged as multiple split APKs always consist of a single "base" APK
@@ -85,7 +85,7 @@ public class PackageInstaller {
      * session. Clients should use {@link SessionInfo#createDetailsIntent()} to
      * build this intent correctly.
      * <p>
-     * In some cases, a matching Activity may not exist, so ensure you safeguard
+     * In some cases, a matching Activity may not exist, so ensure you safeguard 全新的应用程序
      * against this.
      * <p>
      * The session to show details for is defined in {@link #EXTRA_SESSION_ID}.
@@ -94,8 +94,7 @@ public class PackageInstaller {
     public static final String ACTION_SESSION_DETAILS = "android.content.pm.action.SESSION_DETAILS";
 
     /** {@hide} */
-    public static final String
-            ACTION_CONFIRM_PERMISSIONS = "android.content.pm.action.CONFIRM_PERMISSIONS";
+    public static final String ACTION_CONFIRM_PERMISSIONS = "android.content.pm.action.CONFIRM_PERMISSIONS";
 
     /**
      * An integer session ID that an operation is working with.
@@ -135,13 +134,12 @@ public class PackageInstaller {
     public static final String EXTRA_STATUS_MESSAGE = "android.content.pm.extra.STATUS_MESSAGE";
 
     /**
-     * Another package name relevant to a status. This is typically the package
+     * Another package name relevant 相关的 to a status. This is typically the package
      * responsible for causing an operation failure.
      *
      * @see Intent#getStringExtra(String)
      */
-    public static final String
-            EXTRA_OTHER_PACKAGE_NAME = "android.content.pm.extra.OTHER_PACKAGE_NAME";
+    public static final String EXTRA_OTHER_PACKAGE_NAME = "android.content.pm.extra.OTHER_PACKAGE_NAME";
 
     /**
      * Storage path relevant to a status.
@@ -212,7 +210,7 @@ public class PackageInstaller {
 
     /**
      * The operation failed because one or more of the APKs was invalid. For
-     * example, they might be malformed, corrupt, incorrectly signed,
+     * example, they might be malformed 畸形的，难看的 , corrupt, incorrectly signed,
      * mismatched, etc.
      *
      * @see #EXTRA_STATUS_MESSAGE
@@ -222,7 +220,7 @@ public class PackageInstaller {
     /**
      * The operation failed because it conflicts (or is inconsistent with) with
      * another package already installed on the device. For example, an existing
-     * permission, incompatible certificates, etc. The user may be able to
+     * permission, incompatible 不相容的；矛盾的 certificates  证书 , etc. The user may be able to
      * uninstall another app to fix the issue.
      * <p>
      * The result may also contain {@link #EXTRA_OTHER_PACKAGE_NAME} with the
@@ -247,7 +245,7 @@ public class PackageInstaller {
     public static final int STATUS_FAILURE_STORAGE = 6;
 
     /**
-     * The operation failed because it is fundamentally incompatible with this
+     * The operation failed because it is fundamentally 根本地 incompatible with this
      * device. For example, the app may require a hardware feature that doesn't
      * exist, it may be missing native code for the ABIs supported by the
      * device, or it requires a newer SDK version, etc.
@@ -325,7 +323,7 @@ public class PackageInstaller {
 
     /**
      * Update the icon representing the app being installed in a specific
-     * session. This should be roughly
+     * session. This should be roughly 粗糙地；概略地
      * {@link ActivityManager#getLauncherLargeIconSize()} in both dimensions.
      *
      * @throws SecurityException when the caller does not own the session, or
@@ -657,7 +655,7 @@ public class PackageInstaller {
          * <p>
          * Note that this progress may not directly correspond to the value
          * reported by {@link SessionCallback#onProgressChanged(int, float)}, as
-         * the system may carve out a portion of the overall progress to
+         * the system may carve out 创 开拓 创业 a portion of the overall progress to
          * represent its own internal installation work.
          */
         public void setStagingProgress(float progress) {
@@ -699,7 +697,7 @@ public class PackageInstaller {
          * @param offsetBytes offset into the file to begin writing at, or 0 to
          *            start at the beginning of the file.
          * @param lengthBytes total size of the file being written, used to
-         *            preallocate the underlying disk space, or -1 if unknown.
+         *            preallocate 预先分配 the underlying disk space, or -1 if unknown.
          *            The system may clear various caches as needed to allocate
          *            this space.
          * @throws IOException if trouble opening the file for writing, such as
@@ -803,7 +801,7 @@ public class PackageInstaller {
          * user intervention, and so it may not happen immediately. The final
          * result of the commit will be reported through the given callback.
          * <p>
-         * Once this method is called, no additional mutations may be performed
+         * Once this method is called, no additional mutations 突变 may be performed
          * on the session. If the device reboots before the session has been
          * finalized, you may commit the session again.
          *
@@ -968,7 +966,7 @@ public class PackageInstaller {
 
         /**
          * Optionally set an icon representing the app being installed. This should
-         * be roughly {@link ActivityManager#getLauncherLargeIconSize()} in both
+         * be roughly 粗糙地；概略地 {@link ActivityManager#getLauncherLargeIconSize()} in both
          * dimensions.
          */
         public void setAppIcon(@Nullable Bitmap appIcon) {
@@ -984,7 +982,7 @@ public class PackageInstaller {
 
         /**
          * Optionally set the URI where this package was downloaded from. This is
-         * informational and may be used as a signal for anti-malware purposes.
+         * informational and may be used as a signal for anti-malware 反恶意软件 purposes.
          *
          * @see Intent#EXTRA_ORIGINATING_URI
          */

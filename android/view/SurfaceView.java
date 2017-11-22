@@ -39,21 +39,21 @@ import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * Provides a dedicated ×¨ÓÃµÄ  drawing surface embedded inside of a view hierarchy.
+ * Provides a dedicated ä¸“ç”¨çš„ drawing surface embedded inside of a view hierarchy.
  * You can control the format of this surface and, if you like, its size; the
  * SurfaceView takes care of placing the surface at the correct location on the
  * screen 
  *
- * <p>The surface is Z ordered ×İÉîÅÅĞò µÄ  so that it is behind the window holding its
- * SurfaceView; the SurfaceView punches a hole ¶´  in its window to allow its
+ * <p>The surface is Z ordered so that it is behind the window holding its
+ * SurfaceView; the SurfaceView punches a hole å‡¿å­ å‡¿æ´ in its window to allow its
  * surface to be displayed. The view hierarchy will take care of correctly
- * compositing ºÏ³É with the Surface any siblings of the SurfaceView that would
- * normally appear on top of it. This can be used to place overlays ¸²¸ÇÍ¼  such as
+ * compositing with the Surface any siblings of the SurfaceView that would
+ * normally appear on top of it. This can be used to place overlays è¦†ç›–å›¾ such as
  * buttons on top of the Surface, though note however that it can have an
- * impact on performance since a full alpha-blended »ìºÏµÄ  composite will be performed
+ * impact on performance since a full alpha-blended æ··åˆ composite will be performed
  * each time the Surface changes.
  *
- * <p> The transparent Í¸Ã÷µÄ  region that makes the surface visible is based on the
+ * <p> The transparent é€æ˜çš„  region that makes the surface visible is based on the
  * layout positions in the view hierarchy. If the post-layout transform
  * properties are used to draw a sibling view on top of the SurfaceView, the
  * view may not be properly composited with the surface.
@@ -85,7 +85,7 @@ import java.util.concurrent.locks.ReentrantLock;
  *
  * <p class="note"><strong>Note:</strong> Starting in platform version
  * {@link android.os.Build.VERSION_CODES#N}, SurfaceView's window position is
- * updated synchronously with other View rendering. This means that translating
+ * updated synchronously åŒæ­¥åœ° with other View rendering. This means that translating
  * and scaling a SurfaceView on screen will not cause rendering artifacts. Such
  * artifacts may occur on previous versions of the platform when its window is
  * positioned asynchronously.</p>
@@ -469,7 +469,8 @@ public class SurfaceView extends View {
             || mUpdateWindowNeeded || mReportDrawNeeded || redrawNeeded) {
             getLocationInWindow(mLocation);
 
-            if (DEBUG) Log.i(TAG, System.identityHashCode(this) + " "
+            if (DEBUG)
+                Log.i(TAG, System.identityHashCode(this) + " "
                     + "Changes: creating=" + creating
                     + " format=" + formatChanged + " size=" + sizeChanged
                     + " visible=" + visibleChanged

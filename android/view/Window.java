@@ -906,7 +906,7 @@ public abstract class Window {
     }
 
     /**
-     * Take ownership of this window's surface.  The window's view hierarchy
+     * Take ownership 所有权 of this window's surface.  The window's view hierarchy
      * will no longer draw into the surface, though it will otherwise continue
      * to operate (such as for receiving input events).  The given SurfaceHolder
      * callback will be used to tell you about state changes to the surface.

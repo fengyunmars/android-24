@@ -32,12 +32,12 @@ import android.os.Bundle;
  * implementation by creating a subclass and specifying the fully-qualified name
  * of this subclass as the <code>"android:name"</code> attribute in your
  * AndroidManifest.xml's <code>&lt;application&gt;</code> tag. The Application
- * class, or your subclass of the Application class, is instantiated ʵ����  before any
+ * class, or your subclass of the Application class, is instantiated 实例化 before any
  * other class when the process for your application/package is created.
  *
  * <p class="note"><strong>Note: </strong>There is normally no need to subclass
  * Application.  In most situations, static singletons can provide the same
- * functionality in a more modular way.  If your singleton needs a global
+ * functionality in a more modular 模块化的 way.  If your singleton needs a global
  * context (for example to register broadcast receivers), include
  * {@link android.content.Context#getApplicationContext() Context.getApplicationContext()}
  * as a {@link android.content.Context} argument when invoking your singleton's
@@ -45,6 +45,7 @@ import android.os.Bundle;
  * </p>
  */
 public class Application extends ContextWrapper implements ComponentCallbacks2 {
+
     private ArrayList<ComponentCallbacks> mComponentCallbacks =
             new ArrayList<ComponentCallbacks>();
     private ArrayList<ActivityLifecycleCallbacks> mActivityLifecycleCallbacks =
@@ -70,7 +71,7 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
      */
     public interface OnProvideAssistDataListener {
         /**
-         * This is called when the user is requesting an assist, to build a full
+         * This is called when the user is requesting an assist 辅助 援助 帮助 , to build a full
          * {@link Intent#ACTION_ASSIST} Intent with all of the context of the current
          * application.  You can override this method to place into the bundle anything
          * you would like to appear in the {@link Intent#EXTRA_ASSIST_CONTEXT} part
@@ -97,7 +98,7 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
     }
 
     /**
-     * This method is for use in emulated process environments.  It will
+     * This method is for use in emulated 仿真 仿真器 process environments.  It will
      * never be called on a production Android device, where processes are
      * removed by simply killing them; no user code (including this callback)
      * is executed when doing so.
@@ -185,12 +186,14 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
     /**
      * @hide
      */
-    /* package */ final void attach(Context context) {
+    /* package */
+    final void attach(Context context) {
         attachBaseContext(context);
         mLoadedApk = ContextImpl.getImpl(context).mPackageInfo;
     }
 
-    /* package */ void dispatchActivityCreated(Activity activity, Bundle savedInstanceState) {
+    /* package */
+    void dispatchActivityCreated(Activity activity, Bundle savedInstanceState) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -200,7 +203,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    /* package */ void dispatchActivityStarted(Activity activity) {
+    /* package */
+    void dispatchActivityStarted(Activity activity) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -209,7 +213,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    /* package */ void dispatchActivityResumed(Activity activity) {
+    /* package */
+    void dispatchActivityResumed(Activity activity) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -218,7 +223,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    /* package */ void dispatchActivityPaused(Activity activity) {
+    /* package */
+    void dispatchActivityPaused(Activity activity) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -227,7 +233,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    /* package */ void dispatchActivityStopped(Activity activity) {
+    /* package */
+    void dispatchActivityStopped(Activity activity) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -236,7 +243,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    /* package */ void dispatchActivitySaveInstanceState(Activity activity, Bundle outState) {
+    /* package */
+    void dispatchActivitySaveInstanceState(Activity activity, Bundle outState) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -246,7 +254,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         }
     }
 
-    /* package */ void dispatchActivityDestroyed(Activity activity) {
+    /* package */
+    void dispatchActivityDestroyed(Activity activity) {
         Object[] callbacks = collectActivityLifecycleCallbacks();
         if (callbacks != null) {
             for (int i=0; i<callbacks.length; i++) {
@@ -275,7 +284,8 @@ public class Application extends ContextWrapper implements ComponentCallbacks2 {
         return callbacks;
     }
 
-    /* package */ void dispatchOnProvideAssistData(Activity activity, Bundle data) {
+    /* package */
+    void dispatchOnProvideAssistData(Activity activity, Bundle data) {
         Object[] callbacks;
         synchronized (this) {
             if (mAssistCallbacks == null) {

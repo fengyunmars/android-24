@@ -123,7 +123,7 @@ public class MenuInflater {
      * Called internally to fill the given menu. If a sub menu is seen, it will
      * call this recursively.
      */
-    private void parseMenu(XmlPullParser parser, AttributeSet attrs, Menu menu)
+    private void  parseMenu(XmlPullParser parser, AttributeSet attrs, Menu menu)
             throws XmlPullParserException, IOException {
         MenuState menuState = new MenuState(menu);
 
@@ -303,7 +303,7 @@ public class MenuInflater {
         private int itemId;
         private int itemCategoryOrder;
         private CharSequence itemTitle;
-        private CharSequence itemTitleCondensed;
+        private CharSequence itemTitleCondensed;  // 浓缩的
         private int itemIconResId;
         private char itemAlphabeticShortcut;
         private char itemNumericShortcut;
@@ -323,7 +323,7 @@ public class MenuInflater {
          * - 0: never
          * - 1: ifRoom
          * - 2: always
-         * - -1: Safe sentinel for "no value".
+         * - -1: Safe sentinel 哨兵 for "no value".
          */
         private int itemShowAsAction;
 
@@ -387,6 +387,7 @@ public class MenuInflater {
             itemId = a.getResourceId(com.android.internal.R.styleable.MenuItem_id, defaultItemId);
             final int category = a.getInt(com.android.internal.R.styleable.MenuItem_menuCategory, groupCategory);
             final int order = a.getInt(com.android.internal.R.styleable.MenuItem_orderInCategory, groupOrder);
+            // TODO: 2017/11/17 which real is itemOrder
             itemCategoryOrder = (category & Menu.CATEGORY_MASK) | (order & Menu.USER_MASK);
             itemTitle = a.getText(com.android.internal.R.styleable.MenuItem_title);
             itemTitleCondensed = a.getText(com.android.internal.R.styleable.MenuItem_titleCondensed);
@@ -401,6 +402,7 @@ public class MenuInflater {
             } else {
                 // Item does not have attribute, use the group's (group can have one more state
                 // for checkable that represents the exclusive checkable)
+                // TODO: 2017/11/17  
                 itemCheckable = groupCheckable;
             }
             itemChecked = a.getBoolean(com.android.internal.R.styleable.MenuItem_checked, defaultItemChecked);

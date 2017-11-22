@@ -36,49 +36,8 @@ import dalvik.system.CloseGuard;
  * Surface是原始图像缓冲区（raw buffer）的一个句柄，而原始图像缓冲区是由屏幕图像合成器（screen compositor）管理的
  */
 public class Surface implements Parcelable {
+
     private static final String TAG = "Surface";
-
-    private static native long nativeCreateFromSurfaceTexture(SurfaceTexture surfaceTexture)
-            throws OutOfResourcesException;
-    private static native long nativeCreateFromSurfaceControl(long surfaceControlNativeObject);
-
-    private static native long nativeLockCanvas(long nativeObject, Canvas canvas, Rect dirty)
-            throws OutOfResourcesException;
-    private static native void nativeUnlockCanvasAndPost(long nativeObject, Canvas canvas);
-
-    private static native void nativeRelease(long nativeObject);
-    private static native boolean nativeIsValid(long nativeObject);
-    private static native boolean nativeIsConsumerRunningBehind(long nativeObject);
-    private static native long nativeReadFromParcel(long nativeObject, Parcel source);
-    private static native void nativeWriteToParcel(long nativeObject, Parcel dest);
-
-    private static native void nativeAllocateBuffers(long nativeObject);
-
-    private static native int nativeGetWidth(long nativeObject);
-    private static native int nativeGetHeight(long nativeObject);
-
-    private static native long nativeGetNextFrameNumber(long nativeObject);
-    private static native int nativeSetScalingMode(long nativeObject, int scalingMode);
-
-    public static final Parcelable.Creator<Surface> CREATOR =
-            new Parcelable.Creator<Surface>() {
-        @Override
-        public Surface createFromParcel(Parcel source) {
-            try {
-                Surface s = new Surface();
-                s.readFromParcel(source);
-                return s;
-            } catch (Exception e) {
-                Log.e(TAG, "Exception creating surface from parcel", e);
-                return null;
-            }
-        }
-
-        @Override
-        public Surface[] newArray(int size) {
-            return new Surface[size];
-        }
-    };
 
     private final CloseGuard mCloseGuard = CloseGuard.get();
 
@@ -147,7 +106,7 @@ public class Surface implements Parcelable {
      * Create Surface from a {@link SurfaceTexture}.
      *
      * Images drawn to the Surface will be made available to the {@link
-     * SurfaceTexture}, which can attach them to an OpenGL ES texture via {@link
+     * SurfaceTexture}, which can attach them to an OpenGL ES texture 质地；纹理 via {@link
      * SurfaceTexture#updateTexImage}.
      *
      * @param surfaceTexture The {@link SurfaceTexture} that is updated by this
@@ -239,7 +198,7 @@ public class Surface implements Parcelable {
     }
 
     /**
-     * Returns the next frame number which will be dequeued for rendering.
+     * Returns the next frame number which will be dequeued 列中移除 for rendering.
      * Intended for use with SurfaceFlinger's deferred transactions API.
      *
      * @hide
@@ -484,6 +443,26 @@ public class Surface implements Parcelable {
         }
     }
 
+    public static final Parcelable.Creator<Surface> CREATOR =
+            new Parcelable.Creator<Surface>() {
+                @Override
+                public Surface createFromParcel(Parcel source) {
+                    try {
+                        Surface s = new Surface();
+                        s.readFromParcel(source);
+                        return s;
+                    } catch (Exception e) {
+                        Log.e(TAG, "Exception creating surface from parcel", e);
+                        return null;
+                    }
+                }
+
+                @Override
+                public Surface[] newArray(int size) {
+                    return new Surface[size];
+                }
+            };
+
     private void setNativeObjectLocked(long ptr) {
         if (mNativeObject != ptr) {
             if (mNativeObject == 0 && ptr != 0) {
@@ -654,6 +633,30 @@ public class Surface implements Parcelable {
             }
         }
     }
+
+
+    private static native long nativeCreateFromSurfaceTexture(SurfaceTexture surfaceTexture)
+            throws OutOfResourcesException;
+    private static native long nativeCreateFromSurfaceControl(long surfaceControlNativeObject);
+
+    private static native long nativeLockCanvas(long nativeObject, Canvas canvas, Rect dirty)
+            throws OutOfResourcesException;
+    private static native void nativeUnlockCanvasAndPost(long nativeObject, Canvas canvas);
+
+    private static native void nativeRelease(long nativeObject);
+    private static native boolean nativeIsValid(long nativeObject);
+    private static native boolean nativeIsConsumerRunningBehind(long nativeObject);
+    private static native long nativeReadFromParcel(long nativeObject, Parcel source);
+    private static native void nativeWriteToParcel(long nativeObject, Parcel dest);
+
+    private static native void nativeAllocateBuffers(long nativeObject);
+
+    private static native int nativeGetWidth(long nativeObject);
+    private static native int nativeGetHeight(long nativeObject);
+
+    private static native long nativeGetNextFrameNumber(long nativeObject);
+    private static native int nativeSetScalingMode(long nativeObject, int scalingMode);
+
 
     private static native long nHwuiCreate(long rootNode, long surface);
     private static native void nHwuiSetSurface(long renderer, long surface);

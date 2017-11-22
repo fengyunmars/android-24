@@ -131,6 +131,7 @@ class ReceiverRestrictedContext extends ContextWrapper {
  * context object for Activity and other application components.
  */
 class ContextImpl extends Context {
+
     private final static String TAG = "ContextImpl";
     private final static boolean DEBUG = false;
 

@@ -57,8 +57,7 @@ import java.io.IOException;
  * @see org.xml.sax.helpers.ParserAdapter
  * @see org.xml.sax.helpers.XMLReaderAdapter
  */
-public interface XMLReader
-{
+public interface XMLReader {
 
 
     ////////////////////////////////////////////////////////////////////

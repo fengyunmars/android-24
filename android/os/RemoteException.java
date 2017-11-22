@@ -38,7 +38,7 @@ public class RemoteException extends AndroidException {
     /**
      * Rethrow this exception when we know it came from the system server. This
      * gives us an opportunity to throw a nice clean
-     * {@link DeadSystemException} signal to avoid spamming logs with
+     * {@link DeadSystemException} signal to avoid spamming  垃圾邮件 logs with
      * misleading stack traces.
      * <p>
      * Apps making calls into the system server may end up persisting internal

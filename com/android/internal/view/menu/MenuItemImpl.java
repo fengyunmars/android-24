@@ -36,6 +36,7 @@ import android.widget.LinearLayout;
  * @hide
  */
 public final class MenuItemImpl implements MenuItem {
+
     private static final String TAG = "MenuItemImpl";
     
     private static final int SHOW_AS_ACTION_MASK = SHOW_AS_ACTION_NEVER |
@@ -94,7 +95,7 @@ public final class MenuItemImpl implements MenuItem {
     private ContextMenuInfo mMenuInfo;
     
     private static String sLanguage;
-    private static String sPrependShortcutLabel;
+    private static String sPrependShortcutLabel;  // 预先考虑；预谋
     private static String sEnterShortcutLabel;
     private static String sDeleteShortcutLabel;
     private static String sSpaceShortcutLabel;
@@ -143,6 +144,7 @@ public final class MenuItemImpl implements MenuItem {
      * 
      * @return true if the invocation was handled, false otherwise
      */
+    @Override
     public boolean invoke() {
         if (mClickListener != null &&
             mClickListener.onMenuItemClick(this)) {
@@ -173,11 +175,13 @@ public final class MenuItemImpl implements MenuItem {
 
         return false;
     }
-    
+
+    @Override
     public boolean isEnabled() {
         return (mFlags & ENABLED) != 0;
     }
 
+    @Override
     public MenuItem setEnabled(boolean enabled) {
         if (enabled) {
             mFlags |= ENABLED;
@@ -189,48 +193,59 @@ public final class MenuItemImpl implements MenuItem {
         
         return this;
     }
-    
+
+    @Override
     public int getGroupId() {
         return mGroup;
     }
 
     @ViewDebug.CapturedViewProperty
+    @Override
     public int getItemId() {
         return mId;
     }
 
+    @Override
     public int getOrder() {
         return mCategoryOrder;
     }
-    
+
+    @Override
     public int getOrdering() {
         return mOrdering; 
     }
-    
+
+    @Override
     public Intent getIntent() {
         return mIntent;
     }
 
+    @Override
     public MenuItem setIntent(Intent intent) {
         mIntent = intent;
         return this;
     }
 
+    @Override
     Runnable getCallback() {
         return mItemCallback;
     }
-    
+
+    @Override
     public MenuItem setCallback(Runnable callback) {
         mItemCallback = callback;
         return this;
     }
-    
+
+    @Override
     public char getAlphabeticShortcut() {
         return mShortcutAlphabeticChar;
     }
 
+    @Override
     public MenuItem setAlphabeticShortcut(char alphaChar) {
-        if (mShortcutAlphabeticChar == alphaChar) return this;
+        if (mShortcutAlphabeticChar == alphaChar)
+            return this;
         
         mShortcutAlphabeticChar = Character.toLowerCase(alphaChar);
         
@@ -239,10 +254,12 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     public char getNumericShortcut() {
         return mShortcutNumericChar;
     }
 
+    @Override
     public MenuItem setNumericShortcut(char numericChar) {
         if (mShortcutNumericChar == numericChar) return this;
         
@@ -253,6 +270,7 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     public MenuItem setShortcut(char numericChar, char alphaChar) {
         mShortcutNumericChar = numericChar;
         mShortcutAlphabeticChar = Character.toLowerCase(alphaChar);
@@ -265,6 +283,7 @@ public final class MenuItemImpl implements MenuItem {
     /**
      * @return The active shortcut (based on QWERTY-mode of the menu).
      */
+    @Override
     char getShortcut() {
         return (mMenu.isQwertyMode() ? mShortcutAlphabeticChar : mShortcutNumericChar);
     }
@@ -274,6 +293,7 @@ public final class MenuItemImpl implements MenuItem {
      *         key (for example 'Menu+a'). Also, any non-human readable
      *         characters should be human readable (for example 'Menu+enter').
      */
+    @Override
     String getShortcutLabel() {
 
         char shortcut = getShortcut();
@@ -309,19 +329,23 @@ public final class MenuItemImpl implements MenuItem {
      *         whether the menu should show shortcuts and whether this item has
      *         a shortcut defined)
      */
+    @Override
     boolean shouldShowShortcut() {
         // Show shortcuts if the menu is supposed to show shortcuts AND this item has a shortcut
         return mMenu.isShortcutsVisible() && (getShortcut() != 0);
     }
-    
+
+    @Override
     public SubMenu getSubMenu() {
         return mSubMenu;
     }
 
+    @Override
     public boolean hasSubMenu() {
         return mSubMenu != null;
     }
 
+    @Override
     void setSubMenu(SubMenuBuilder subMenu) {
         mSubMenu = subMenu;
         
@@ -329,6 +353,7 @@ public final class MenuItemImpl implements MenuItem {
     }
     
     @ViewDebug.CapturedViewProperty
+    @Override
     public CharSequence getTitle() {
         return mTitle;
     }
@@ -340,12 +365,14 @@ public final class MenuItemImpl implements MenuItem {
      * @return Either the title or condensed title based on what the ItemView
      *         prefers
      */
+    @Override
     CharSequence getTitleForItemView(MenuView.ItemView itemView) {
         return ((itemView != null) && itemView.prefersCondensedTitle())
                 ? getTitleCondensed()
                 : getTitle();
     }
 
+    @Override
     public MenuItem setTitle(CharSequence title) {
         mTitle = title;
 
@@ -357,15 +384,18 @@ public final class MenuItemImpl implements MenuItem {
         
         return this;
     }
-    
+
+    @Override
     public MenuItem setTitle(int title) {
         return setTitle(mMenu.getContext().getString(title));
     }
-    
+
+    @Override
     public CharSequence getTitleCondensed() {
         return mTitleCondensed != null ? mTitleCondensed : mTitle;
     }
-    
+
+    @Override
     public MenuItem setTitleCondensed(CharSequence title) {
         mTitleCondensed = title;
 
@@ -379,6 +409,7 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     public Drawable getIcon() {
         if (mIconDrawable != null) {
             return mIconDrawable;
@@ -393,7 +424,8 @@ public final class MenuItemImpl implements MenuItem {
         
         return null;
     }
-    
+
+    @Override
     public MenuItem setIcon(Drawable icon) {
         mIconResId = NO_ICON;
         mIconDrawable = icon;
@@ -401,7 +433,8 @@ public final class MenuItemImpl implements MenuItem {
         
         return this;
     }
-    
+
+    @Override
     public MenuItem setIcon(int iconResId) {
         mIconDrawable = null;
         mIconResId = iconResId;
@@ -411,11 +444,13 @@ public final class MenuItemImpl implements MenuItem {
         
         return this;
     }
-    
+
+    @Override
     public boolean isCheckable() {
         return (mFlags & CHECKABLE) == CHECKABLE;
     }
 
+    @Override
     public MenuItem setCheckable(boolean checkable) {
         final int oldFlags = mFlags;
         mFlags = (mFlags & ~CHECKABLE) | (checkable ? CHECKABLE : 0);
@@ -426,18 +461,22 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     public void setExclusiveCheckable(boolean exclusive) {
         mFlags = (mFlags & ~EXCLUSIVE) | (exclusive ? EXCLUSIVE : 0);
     }
 
+    @Override
     public boolean isExclusiveCheckable() {
         return (mFlags & EXCLUSIVE) != 0;
     }
-    
+
+    @Override
     public boolean isChecked() {
         return (mFlags & CHECKED) == CHECKED;
     }
 
+    @Override
     public MenuItem setChecked(boolean checked) {
         if ((mFlags & EXCLUSIVE) != 0) {
             // Call the method on the Menu since it knows about the others in this
@@ -450,6 +489,7 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     void setCheckedInt(boolean checked) {
         final int oldFlags = mFlags;
         mFlags = (mFlags & ~CHECKED) | (checked ? CHECKED : 0);
@@ -457,7 +497,8 @@ public final class MenuItemImpl implements MenuItem {
             mMenu.onItemsChanged(false);
         }
     }
-    
+
+    @Override
     public boolean isVisible() {
         if (mActionProvider != null && mActionProvider.overridesItemVisibility()) {
             return (mFlags & HIDDEN) == 0 && mActionProvider.isVisible();
@@ -474,21 +515,25 @@ public final class MenuItemImpl implements MenuItem {
      * @param shown Whether to show (true) or hide (false).
      * @return Whether the item's shown state was changed
      */
+    @Override
     boolean setVisibleInt(boolean shown) {
         final int oldFlags = mFlags;
         mFlags = (mFlags & ~HIDDEN) | (shown ? 0 : HIDDEN);
         return oldFlags != mFlags;
     }
-    
+
+    @Override
     public MenuItem setVisible(boolean shown) {
         // Try to set the shown state to the given state. If the shown state was changed
         // (i.e. the previous state isn't the same as given state), notify the parent menu that
         // the shown state has changed for this item
-        if (setVisibleInt(shown)) mMenu.onItemVisibleChanged(this);
+        if (setVisibleInt(shown))
+            mMenu.onItemVisibleChanged(this);
         
         return this;
     }
 
+    @Override
    public MenuItem setOnMenuItemClickListener(MenuItem.OnMenuItemClickListener clickListener) {
         mClickListener = clickListener;
         return this;
@@ -499,14 +544,17 @@ public final class MenuItemImpl implements MenuItem {
         return mTitle != null ? mTitle.toString() : null;
     }
 
+    @Override
     void setMenuInfo(ContextMenuInfo menuInfo) {
         mMenuInfo = menuInfo;
     }
-    
+
+    @Override
     public ContextMenuInfo getMenuInfo() {
         return mMenuInfo;
     }
 
+    @Override
     public void actionFormatChanged() {
         mMenu.onItemActionRequestChanged(this);
     }
@@ -514,22 +562,27 @@ public final class MenuItemImpl implements MenuItem {
     /**
      * @return Whether the menu should show icons for menu items.
      */
+    @Override
     public boolean shouldShowIcon() {
         return mMenu.getOptionalIconsVisible();
     }
-    
+
+    @Override
     public boolean isActionButton() {
         return (mFlags & IS_ACTION) == IS_ACTION;
     }
-    
+
+    @Override
     public boolean requestsActionButton() {
         return (mShowAsAction & SHOW_AS_ACTION_IF_ROOM) == SHOW_AS_ACTION_IF_ROOM;
     }
-    
+
+    @Override
     public boolean requiresActionButton() {
         return (mShowAsAction & SHOW_AS_ACTION_ALWAYS) == SHOW_AS_ACTION_ALWAYS;
     }
 
+    @Override
     public void setIsActionButton(boolean isActionButton) {
         if (isActionButton) {
             mFlags |= IS_ACTION;
@@ -538,10 +591,12 @@ public final class MenuItemImpl implements MenuItem {
         }
     }
 
+    @Override
     public boolean showsTextAsAction() {
         return (mShowAsAction & SHOW_AS_ACTION_WITH_TEXT) == SHOW_AS_ACTION_WITH_TEXT;
     }
 
+    @Override
     public void setShowAsAction(int actionEnum) {
         switch (actionEnum & SHOW_AS_ACTION_MASK) {
             case SHOW_AS_ACTION_ALWAYS:
@@ -559,6 +614,7 @@ public final class MenuItemImpl implements MenuItem {
         mMenu.onItemActionRequestChanged(this);
     }
 
+    @Override
     public MenuItem setActionView(View view) {
         mActionView = view;
         mActionProvider = null;
@@ -569,13 +625,16 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     public MenuItem setActionView(int resId) {
         final Context context = mMenu.getContext();
         final LayoutInflater inflater = LayoutInflater.from(context);
+        // TODO: 2017/11/20
         setActionView(inflater.inflate(resId, new LinearLayout(context), false));
         return this;
     }
 
+    @Override
     public View getActionView() {
         if (mActionView != null) {
             return mActionView;
@@ -587,10 +646,12 @@ public final class MenuItemImpl implements MenuItem {
         }
     }
 
+    @Override
     public ActionProvider getActionProvider() {
         return mActionProvider;
     }
 
+    @Override
     public MenuItem setActionProvider(ActionProvider actionProvider) {
         if (mActionProvider != null) {
             mActionProvider.reset();
@@ -652,6 +713,7 @@ public final class MenuItemImpl implements MenuItem {
         return this;
     }
 
+    @Override
     public boolean hasCollapsibleActionView() {
         if ((mShowAsAction & SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW) != 0) {
             if (mActionView == null && mActionProvider != null) {
@@ -662,11 +724,13 @@ public final class MenuItemImpl implements MenuItem {
         return false;
     }
 
+    @Override
     public void setActionViewExpanded(boolean isExpanded) {
         mIsActionViewExpanded = isExpanded;
         mMenu.onItemsChanged(false);
     }
 
+    @Override
     public boolean isActionViewExpanded() {
         return mIsActionViewExpanded;
     }

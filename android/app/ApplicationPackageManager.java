@@ -96,6 +96,7 @@ import java.util.Objects;
 
 /** @hide */
 public class ApplicationPackageManager extends PackageManager {
+
     private static final String TAG = "ApplicationPackageManager";
     private final static boolean DEBUG_ICONS = false;
 
@@ -117,6 +118,7 @@ public class ApplicationPackageManager extends PackageManager {
     @GuardedBy("mLock")
     private String mPermissionsControllerPackageName;
 
+    @Override
     UserManager getUserManager() {
         synchronized (mLock) {
             if (mUserManager == null) {
@@ -1351,9 +1353,10 @@ public class ApplicationPackageManager extends PackageManager {
     private Drawable getCachedIcon(@NonNull ResourceName name) {
         synchronized (sSync) {
             final WeakReference<Drawable.ConstantState> wr = sIconCache.get(name);
-            if (DEBUG_ICONS) Log.v(TAG, "Get cached weak drawable ref for "
+            if (DEBUG_ICONS)
+                Log.v(TAG, "Get cached weak drawable ref for "
                                    + name + ": " + wr);
-            if (wr != null) {   // we have the activity
+            if (wr != null)  {   // we have the activity
                 final Drawable.ConstantState state = wr.get();
                 if (state != null) {
                     if (DEBUG_ICONS) {
@@ -2125,6 +2128,20 @@ public class ApplicationPackageManager extends PackageManager {
         }
     }
 
+    /**
+     * M: Add api for check apk signature
+     *
+     * @hide
+     */
+    @Override
+    public int checkAPKSignatures(String pkg) {
+        try {
+            return mPM.checkAPKSignatures(pkg);
+        } catch (RemoteException e) {
+            return PackageInfo.KEY_ERROR;
+              // Should never happen!
+        }
+    }
     @Override
     public boolean setApplicationHiddenSettingAsUser(String packageName, boolean hidden,
             UserHandle user) {

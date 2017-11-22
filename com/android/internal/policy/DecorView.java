@@ -106,6 +106,7 @@ import static com.android.internal.policy.PhoneWindow.FEATURE_OPTIONS_PANEL;
 
 /** @hide */
 public class DecorView extends FrameLayout implements RootViewSurfaceTaker, WindowCallbacks {
+
     private static final String TAG = "DecorView";
 
     private static final boolean DEBUG_MEASURE = false;
@@ -137,7 +138,7 @@ public class DecorView extends FrameLayout implements RootViewSurfaceTaker, Wind
 
     private final Rect mFrameOffsets = new Rect();
 
-    private boolean mHasCaption = false;
+    private boolean mHasCaption = false;  // 标题
 
     private boolean mChanging;
 

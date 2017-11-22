@@ -48,6 +48,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * standard menu UI.
  */
 public class MenuBuilder implements Menu {
+
     private static final String TAG = "MenuBuilder";
 
     private static final String PRESENTER_KEY = "android:menu:presenters";
@@ -132,7 +133,7 @@ public class MenuBuilder implements Menu {
 
     /**
      * Contains the state of the View hierarchy for all menu views when the menu
-     * was frozen.
+     * was frozen  结冰 .
      */
     private SparseArray<Parcelable> mFrozenViewStates;
 
@@ -195,10 +196,11 @@ public class MenuBuilder implements Menu {
         mActionItems = new ArrayList<MenuItemImpl>();
         mNonActionItems = new ArrayList<MenuItemImpl>();
         mIsActionItemsStale = true;
-        
+
         setShortcutsVisibleInner(true);
     }
-    
+
+    @Override
     public MenuBuilder setDefaultShowAsAction(int defaultShowAsAction) {
         mDefaultShowAsAction = defaultShowAsAction;
         return this;
@@ -211,6 +213,7 @@ public class MenuBuilder implements Menu {
      *
      * @param presenter The presenter to add
      */
+    @Override
     public void addMenuPresenter(MenuPresenter presenter) {
         addMenuPresenter(presenter, mContext);
     }
@@ -224,6 +227,7 @@ public class MenuBuilder implements Menu {
      * @param presenter The presenter to add
      * @param menuContext The context used to inflate menu items
      */
+    @Override
     public void addMenuPresenter(MenuPresenter presenter, Context menuContext) {
         mPresenters.add(new WeakReference<MenuPresenter>(presenter));
         presenter.initForMenu(menuContext, this);
@@ -236,6 +240,7 @@ public class MenuBuilder implements Menu {
      *
      * @param presenter The presenter to remove
      */
+    @Override
     public void removeMenuPresenter(MenuPresenter presenter) {
         for (WeakReference<MenuPresenter> ref : mPresenters) {
             final MenuPresenter item = ref.get();
@@ -246,7 +251,8 @@ public class MenuBuilder implements Menu {
     }
     
     private void dispatchPresenterUpdate(boolean cleared) {
-        if (mPresenters.isEmpty()) return;
+        if (mPresenters.isEmpty())
+            return;
 
         stopDispatchingItemsChanged();
         for (WeakReference<MenuPresenter> ref : mPresenters) {
@@ -262,7 +268,8 @@ public class MenuBuilder implements Menu {
     
     private boolean dispatchSubMenuSelected(SubMenuBuilder subMenu,
             MenuPresenter preferredPresenter) {
-        if (mPresenters.isEmpty()) return false;
+        if (mPresenters.isEmpty())
+            return false;
 
         boolean result = false;
 
@@ -283,7 +290,8 @@ public class MenuBuilder implements Menu {
     }
 
     private void dispatchSaveInstanceState(Bundle outState) {
-        if (mPresenters.isEmpty()) return;
+        if (mPresenters.isEmpty())
+            return;
 
         SparseArray<Parcelable> presenterStates = new SparseArray<Parcelable>();
 
@@ -308,7 +316,8 @@ public class MenuBuilder implements Menu {
     private void dispatchRestoreInstanceState(Bundle state) {
         SparseArray<Parcelable> presenterStates = state.getSparseParcelableArray(PRESENTER_KEY);
 
-        if (presenterStates == null || mPresenters.isEmpty()) return;
+        if (presenterStates == null || mPresenters.isEmpty())
+            return;
 
         for (WeakReference<MenuPresenter> ref : mPresenters) {
             final MenuPresenter presenter = ref.get();
@@ -326,14 +335,17 @@ public class MenuBuilder implements Menu {
         }
     }
 
+    @Override
     public void savePresenterStates(Bundle outState) {
         dispatchSaveInstanceState(outState);
     }
 
+    @Override
     public void restorePresenterStates(Bundle state) {
         dispatchRestoreInstanceState(state);
     }
 
+    @Override
     public void saveActionViewStates(Bundle outStates) {
         SparseArray<Parcelable> viewStates = null;
 
@@ -361,6 +373,7 @@ public class MenuBuilder implements Menu {
         }
     }
 
+    @Override
     public void restoreActionViewStates(Bundle states) {
         if (states == null) {
             return;
@@ -391,10 +404,12 @@ public class MenuBuilder implements Menu {
         }
     }
 
+    @Override
     protected String getActionViewStatesKey() {
         return ACTION_VIEW_STATES_KEY;
     }
 
+    @Override
     public void setCallback(Callback cb) {
         mCallback = cb;
     }
@@ -426,30 +441,37 @@ public class MenuBuilder implements Menu {
                 defaultShowAsAction);
     }
 
+    @Override
     public MenuItem add(CharSequence title) {
         return addInternal(0, 0, 0, title);
     }
 
+    @Override
     public MenuItem add(int titleRes) {
         return addInternal(0, 0, 0, mResources.getString(titleRes));
     }
 
+    @Override
     public MenuItem add(int group, int id, int categoryOrder, CharSequence title) {
         return addInternal(group, id, categoryOrder, title);
     }
 
+    @Override
     public MenuItem add(int group, int id, int categoryOrder, int title) {
         return addInternal(group, id, categoryOrder, mResources.getString(title));
     }
 
+    @Override
     public SubMenu addSubMenu(CharSequence title) {
         return addSubMenu(0, 0, 0, title);
     }
 
+    @Override
     public SubMenu addSubMenu(int titleRes) {
         return addSubMenu(0, 0, 0, mResources.getString(titleRes));
     }
 
+    @Override
     public SubMenu addSubMenu(int group, int id, int categoryOrder, CharSequence title) {
         final MenuItemImpl item = (MenuItemImpl) addInternal(group, id, categoryOrder, title);
         final SubMenuBuilder subMenu = new SubMenuBuilder(mContext, this, item);
@@ -458,10 +480,12 @@ public class MenuBuilder implements Menu {
         return subMenu;
     }
 
+    @Override
     public SubMenu addSubMenu(int group, int id, int categoryOrder, int title) {
         return addSubMenu(group, id, categoryOrder, mResources.getString(title));
     }
 
+    @Override
     public int addIntentOptions(int group, int id, int categoryOrder, ComponentName caller,
             Intent[] specifics, Intent intent, int flags, MenuItem[] outSpecificItems) {
         PackageManager pm = mContext.getPackageManager();
@@ -491,10 +515,12 @@ public class MenuBuilder implements Menu {
         return N;
     }
 
+    @Override
     public void removeItem(int id) {
         removeItemAtInt(findItemIndex(id), true);
     }
 
+    @Override
     public void removeGroup(int group) {
         final int i = findGroupIndex(group);
 
@@ -526,13 +552,16 @@ public class MenuBuilder implements Menu {
 
         mItems.remove(index);
         
-        if (updateChildrenOnMenuViews) onItemsChanged(true);
+        if (updateChildrenOnMenuViews)
+            onItemsChanged(true);
     }
-    
+
+    @Override
     public void removeItemAt(int index) {
         removeItemAtInt(index, true);
     }
 
+    @Override
     public void clearAll() {
         mPreventDispatchingItemsChanged = true;
         clear();
@@ -541,7 +570,8 @@ public class MenuBuilder implements Menu {
         mItemsChangedWhileDispatchPrevented = false;
         onItemsChanged(true);
     }
-    
+
+    @Override
     public void clear() {
         if (mExpandedItem != null) {
             collapseItemActionView(mExpandedItem);
@@ -551,6 +581,7 @@ public class MenuBuilder implements Menu {
         onItemsChanged(true);
     }
 
+    @Override
     void setExclusiveItemChecked(MenuItem item) {
         final int group = item.getGroupId();
         
@@ -558,15 +589,18 @@ public class MenuBuilder implements Menu {
         for (int i = 0; i < N; i++) {
             MenuItemImpl curItem = mItems.get(i);
             if (curItem.getGroupId() == group) {
-                if (!curItem.isExclusiveCheckable()) continue;
-                if (!curItem.isCheckable()) continue;
+                if (!curItem.isExclusiveCheckable())
+                    continue;
+                if (!curItem.isCheckable())
+                    continue;
                 
                 // Check the item meant to be checked, uncheck the others (that are in the group)
                 curItem.setCheckedInt(curItem == item);
             }
         }
     }
-    
+
+    @Override
     public void setGroupCheckable(int group, boolean checkable, boolean exclusive) {
         final int N = mItems.size();
        
@@ -579,6 +613,7 @@ public class MenuBuilder implements Menu {
         }
     }
 
+    @Override
     public void setGroupVisible(int group, boolean visible) {
         final int N = mItems.size();
 
@@ -596,6 +631,7 @@ public class MenuBuilder implements Menu {
         if (changedAtLeastOneItem) onItemsChanged(true);
     }
 
+    @Override
     public void setGroupEnabled(int group, boolean enabled) {
         final int N = mItems.size();
 
@@ -607,6 +643,7 @@ public class MenuBuilder implements Menu {
         }
     }
 
+    @Override
     public boolean hasVisibleItems() {
         final int size = size();
 
@@ -620,6 +657,7 @@ public class MenuBuilder implements Menu {
         return false;
     }
 
+    @Override
     public MenuItem findItem(int id) {
         final int size = size();
         for (int i = 0; i < size; i++) {
@@ -638,6 +676,7 @@ public class MenuBuilder implements Menu {
         return null;
     }
 
+    @Override
     public int findItemIndex(int id) {
         final int size = size();
 
@@ -651,10 +690,12 @@ public class MenuBuilder implements Menu {
         return -1;
     }
 
+    @Override
     public int findGroupIndex(int group) {
         return findGroupIndex(group, 0);
     }
 
+    @Override
     public int findGroupIndex(int group, int start) {
         final int size = size();
         
@@ -672,20 +713,24 @@ public class MenuBuilder implements Menu {
 
         return -1;
     }
-    
+
+    @Override
     public int size() {
         return mItems.size();
     }
 
     /** {@inheritDoc} */
+    @Override
     public MenuItem getItem(int index) {
         return mItems.get(index);
     }
 
+    @Override
     public boolean isShortcutKey(int keyCode, KeyEvent event) {
         return findItemWithShortcutForKey(keyCode, event) != null;
     }
 
+    @Override
     public void setQwertyMode(boolean isQwerty) {
         mQwertyMode = isQwerty;
 
@@ -716,6 +761,7 @@ public class MenuBuilder implements Menu {
     /**
      * @return whether the menu shortcuts are in qwerty mode or not
      */
+    @Override
     boolean isQwertyMode() {
         return mQwertyMode;
     }
@@ -728,8 +774,10 @@ public class MenuBuilder implements Menu {
      *            menu item does not have a shortcut defined, that item will
      *            still NOT show a shortcut)
      */
+    @Override
     public void setShortcutsVisible(boolean shortcutsVisible) {
-        if (mShortcutsVisible == shortcutsVisible) return;
+        if (mShortcutsVisible == shortcutsVisible)
+            return;
 
         setShortcutsVisibleInner(shortcutsVisible);
         onItemsChanged(false);
@@ -745,6 +793,7 @@ public class MenuBuilder implements Menu {
     /**
      * @return Whether shortcuts should be visible on menus.
      */
+    @Override
     public boolean isShortcutsVisible() {
         return mShortcutsVisible;
     }
@@ -752,7 +801,8 @@ public class MenuBuilder implements Menu {
     Resources getResources() {
         return mResources;
     }
-    
+
+    @Override
     public Context getContext() {
         return mContext;
     }
@@ -764,6 +814,7 @@ public class MenuBuilder implements Menu {
     /**
      * Dispatch a mode change event to this menu's callback.
      */
+    @Override
     public void changeMenuMode() {
         if (mCallback != null) {
             mCallback.onMenuModeChange(this);
@@ -780,7 +831,8 @@ public class MenuBuilder implements Menu {
         
         return 0;
     }
-    
+
+    @Override
     public boolean performShortcut(int keyCode, KeyEvent event, int flags) {
         final MenuItemImpl item = findItemWithShortcutForKey(keyCode, event);
 
@@ -822,13 +874,11 @@ public class MenuBuilder implements Menu {
                 ((MenuBuilder)item.getSubMenu()).findItemsWithShortcutForKey(items, keyCode, event);
             }
             final char shortcutChar = qwerty ? item.getAlphabeticShortcut() : item.getNumericShortcut();
-            if (((metaState & (KeyEvent.META_SHIFT_ON | KeyEvent.META_SYM_ON)) == 0) &&
-                  (shortcutChar != 0) &&
-                  (shortcutChar == possibleChars.meta[0]
-                      || shortcutChar == possibleChars.meta[2]
-                      || (qwerty && shortcutChar == '\b' &&
-                          keyCode == KeyEvent.KEYCODE_DEL)) &&
-                  item.isEnabled()) {
+            // TODO: 2017/11/21 notice this is SHIFT AND SYM 
+            if ( ((metaState & (KeyEvent.META_SHIFT_ON | KeyEvent.META_SYM_ON)) == 0) && 
+                 (shortcutChar != 0) && 
+                 (shortcutChar == possibleChars.meta[0] || shortcutChar == possibleChars.meta[2] || (qwerty && shortcutChar == '\b' && keyCode == KeyEvent.KEYCODE_DEL)) && 
+                 item.isEnabled() ) {
                 items.add(item);
             }
         }
@@ -836,7 +886,7 @@ public class MenuBuilder implements Menu {
 
     /*
      * We want to return the menu item associated with the key, but if there is no
-     * ambiguity (i.e. there is only one menu item corresponding to the key) we want
+     * ambiguity 含糊；不明确 (i.e. there is only one menu item corresponding to the key) we want
      * to return it even if it's not an exact match; this allow the user to
      * _not_ use the ALT key for example, making the use of shortcuts slightly more
      * user-friendly. An example is on the G1, '!' and '1' are on the same key, and
@@ -885,15 +935,18 @@ public class MenuBuilder implements Menu {
         return null;
     }
 
+    @Override
     public boolean performIdentifierAction(int id, int flags) {
         // Look for an item whose identifier is the id.
         return performItemAction(findItem(id), flags);           
     }
 
+    @Override
     public boolean performItemAction(MenuItem item, int flags) {
         return performItemAction(item, null, flags);
     }
 
+    @Override
     public boolean performItemAction(MenuItem item, MenuPresenter preferredPresenter, int flags) {
         MenuItemImpl itemImpl = (MenuItemImpl) item;
         
@@ -940,8 +993,10 @@ public class MenuBuilder implements Menu {
      *                      selected) or {@code false} if only this menu should
      *                      be closed
      */
+    @Override
     public final void close(boolean closeAllMenus) {
-        if (mIsClosing) return;
+        if (mIsClosing)
+            return;
 
         mIsClosing = true;
         for (WeakReference<MenuPresenter> ref : mPresenters) {
@@ -967,14 +1022,15 @@ public class MenuBuilder implements Menu {
      *                         false if only item properties changed.
      *                         (Visibility is a structural property since it affects layout.)
      */
+    @Override
     public void onItemsChanged(boolean structureChanged) {
         if (!mPreventDispatchingItemsChanged) {
             if (structureChanged) {
-                mIsVisibleItemsStale = true;
+                mIsVisibleItemsStale = true;  // Stale 走味的 陈腐的 不新鲜的
                 mIsActionItemsStale = true;
             }
 
-            dispatchPresenterUpdate(structureChanged);
+            dispatchPresenterUpdate(structureChanged);  // Presenter 提出者；推荐者；赠送者；任命者
         } else {
             mItemsChangedWhileDispatchPrevented = true;
         }
@@ -985,6 +1041,7 @@ public class MenuBuilder implements Menu {
      * {@link #startDispatchingItemsChanged()} is called. Useful when
      * many menu operations are going to be performed as a batch.
      */
+    @Override
     public void stopDispatchingItemsChanged() {
         if (!mPreventDispatchingItemsChanged) {
             mPreventDispatchingItemsChanged = true;
@@ -992,6 +1049,7 @@ public class MenuBuilder implements Menu {
         }
     }
 
+    @Override
     public void startDispatchingItemsChanged() {
         mPreventDispatchingItemsChanged = false;
 
@@ -1005,6 +1063,7 @@ public class MenuBuilder implements Menu {
      * Called by {@link MenuItemImpl} when its visible flag is changed.
      * @param item The item that has gone through a visibility change.
      */
+    @Override
     void onItemVisibleChanged(MenuItemImpl item) {
         // Notify of items being changed
         mIsVisibleItemsStale = true;
@@ -1015,6 +1074,7 @@ public class MenuBuilder implements Menu {
      * Called by {@link MenuItemImpl} when its action request status is changed.
      * @param item The item that has gone through a change in action request status.
      */
+    @Override
     void onItemActionRequestChanged(MenuItemImpl item) {
         // Notify of items being changed
         mIsActionItemsStale = true;
@@ -1022,6 +1082,7 @@ public class MenuBuilder implements Menu {
     }
 
     @NonNull
+    @Override
     public ArrayList<MenuItemImpl> getVisibleItems() {
         if (!mIsVisibleItemsStale) return mVisibleItems;
 
@@ -1046,7 +1107,7 @@ public class MenuBuilder implements Menu {
      * in an action bar and which items should be 'overflow items' in a secondary menu.
      * The rules are as follows:
      *
-     * <p>Items are considered for inclusion in the order specified within the menu.
+     * <p>Items are considered for inclusion 包含；内含物 in the order specified within the menu.
      * There is a limit of mMaxActionItems as a total count, optionally including the overflow
      * menu button itself. This is a soft limit; if an item shares a group ID with an item
      * previously included as an action item, the new item will stay with its group and become
@@ -1065,6 +1126,8 @@ public class MenuBuilder implements Menu {
      * Once items begin to overflow, all future items become overflow items as well. This is
      * to avoid inadvertent reordering that may break the app's intended design.
      */
+    // TODO: 2017/11/21
+    @Override
     public void flagActionItems() {
         // Important side effect: if getVisibleItems is stale it may refresh,
         // which can affect action items staleness.
@@ -1117,6 +1180,7 @@ public class MenuBuilder implements Menu {
         return mNonActionItems;
     }
 
+    @Override
     public void clearHeader() {
         mHeaderIcon = null;
         mHeaderTitle = null;
@@ -1187,6 +1251,7 @@ public class MenuBuilder implements Menu {
      * @param icon The new icon.
      * @return This MenuBuilder so additional setters can be called.
      */
+    @Override
     protected MenuBuilder setHeaderIconInt(Drawable icon) {
         setHeaderInternal(0, null, 0, icon, null);
         return this;
@@ -1199,6 +1264,7 @@ public class MenuBuilder implements Menu {
      * @param iconRes The new icon (as a resource ID).
      * @return This MenuBuilder so additional setters can be called.
      */
+    @Override
     protected MenuBuilder setHeaderIconInt(int iconRes) {
         setHeaderInternal(0, null, iconRes, null, null);
         return this;
@@ -1211,19 +1277,23 @@ public class MenuBuilder implements Menu {
      * @param view The new view.
      * @return This MenuBuilder so additional setters can be called.
      */
+    @Override
     protected MenuBuilder setHeaderViewInt(View view) {
         setHeaderInternal(0, null, 0, null, view);
         return this;
     }
-    
+
+    @Override
     public CharSequence getHeaderTitle() {
         return mHeaderTitle;
     }
-    
+
+    @Override
     public Drawable getHeaderIcon() {
         return mHeaderIcon;
     }
-    
+
+    @Override
     public View getHeaderView() {
         return mHeaderView;
     }
@@ -1232,6 +1302,7 @@ public class MenuBuilder implements Menu {
      * Gets the root menu (if this is a submenu, find its root menu).
      * @return The root menu.
      */
+    @Override
     public MenuBuilder getRootMenu() {
         return this;
     }
@@ -1243,18 +1314,22 @@ public class MenuBuilder implements Menu {
      * 
      * @param menuInfo The extra menu information to add.
      */
+    @Override
     public void setCurrentMenuInfo(ContextMenuInfo menuInfo) {
         mCurrentMenuInfo = menuInfo;
     }
 
+    @Override
     void setOptionalIconsVisible(boolean visible) {
         mOptionalIconsVisible = visible;
     }
-    
+
+    @Override
     boolean getOptionalIconsVisible() {
         return mOptionalIconsVisible;
     }
 
+    @Override
     public boolean expandItemActionView(MenuItemImpl item) {
         if (mPresenters.isEmpty()) return false;
 
@@ -1277,8 +1352,10 @@ public class MenuBuilder implements Menu {
         return expanded;
     }
 
+    @Override
     public boolean collapseItemActionView(MenuItemImpl item) {
-        if (mPresenters.isEmpty() || mExpandedItem != item) return false;
+        if (mPresenters.isEmpty() || mExpandedItem != item)
+            return false;
 
         boolean collapsed = false;
 
@@ -1299,6 +1376,7 @@ public class MenuBuilder implements Menu {
         return collapsed;
     }
 
+    @Override
     public MenuItemImpl getExpandedItem() {
         return mExpandedItem;
     }

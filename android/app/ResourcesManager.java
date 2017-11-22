@@ -49,6 +49,7 @@ import java.util.function.Predicate;
 
 /** @hide */
 public class ResourcesManager {
+
     static final String TAG = "ResourcesManager";
     private static final boolean DEBUG = false;
 

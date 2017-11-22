@@ -180,7 +180,7 @@ public interface WindowManager extends ViewManager {
         /**
          * Indicates how much of the extra space will be allocated horizontally
          * to the view associated with these LayoutParams. Specify 0 if the view
-         * should not be stretched. Otherwise the extra pixels will be pro-rated
+         * should not be stretched. Otherwise the extra pixels will be pro-rated 按比例
          * among all views whose weight is greater than 0.
          */
         @ViewDebug.ExportedProperty

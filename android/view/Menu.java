@@ -102,7 +102,7 @@ public interface Menu {
 
     /**
      * Category code for the order integer for items/groups that are
-     * user-supplied secondary (infrequently used) options -- or/add this with
+     * user-supplied secondary (infrequently 很少发生地 used) options -- or/add this with
      * your base value.
      */
     static final int CATEGORY_SECONDARY = 0x00030000;
@@ -323,7 +323,7 @@ public interface Menu {
      * Control whether a particular group of items can show a check mark.  This
      * is similar to calling {@link MenuItem#setCheckable} on all of the menu items
      * with the given group identifier, but in addition you can control whether
-     * this group contains a mutually-exclusive set items.  This should be called
+     * this group contains a mutually-exclusive 互相地 互斥的 set items.  This should be called
      * after the items of the group have been added to the menu.
      *
      * @param group The group of items to operate on.

@@ -245,7 +245,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         boolean screenLayoutLong;
         boolean screenLayoutCompatNeeded;
 
-        // These semi-magic半挂车  戏法 numbers define our compatibility modes for
+        // These semi-magic 半挂车 戏法 numbers define our compatibility modes for
         // applications with different screens.  These are guarantees to
         // app developers about the space they can expect for a particular
         // configuration.  DO NOT CHANGE!

@@ -49,8 +49,8 @@ public interface MenuItem {
     public static final int SHOW_AS_ACTION_IF_ROOM = 1;
     /**
      * Always show this item as a button in an Action Bar.
-     * Use sparingly! If too many items are set to always show in the Action Bar it can
-     * crowd the Action Bar and degrade the user experience on devices with smaller screens.
+     * Use sparingly! 节俭地 If too many items are set to always show in the Action Bar it can
+     * crowd the Action Bar and degrade  降级 the user experience on devices with smaller screens.
      * A good rule of thumb is to have no more than 2 items set to always show at a time.
      */
     public static final int SHOW_AS_ACTION_ALWAYS = 2;
@@ -64,7 +64,7 @@ public interface MenuItem {
     /**
      * This item's action view collapses to a normal menu item.
      * When expanded, the action view temporarily takes over
-     * a larger segment of its container.
+     * a larger segment 部分 of its container.
      */
     public static final int SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW = 8;
     
@@ -262,7 +262,7 @@ public interface MenuItem {
      * Change both the numeric and alphabetic shortcut associated with this
      * item. Note that the shortcut will be triggered when the key that
      * generates the given character is pressed along with the ctrl key.
-     * Also note that case is not significant and that alphabetic shortcut
+     * Also note that case is not significant 重大的；有效的 and that alphabetic shortcut
      * characters will be displayed in lower case.
      * <p>
      * See {@link Menu} for the menu types that support shortcuts.
@@ -299,7 +299,7 @@ public interface MenuItem {
      * pressed along with the ctrl key. Case is not significant and shortcut
      * characters will be displayed in lower case. Note that menu items with
      * the characters '\b' or '\n' as shortcuts will get triggered by the
-     * Delete key or Carriage Return key, respectively.
+     * Delete key or Carriage 运输 Return key, respectively.
      * <p>
      * See {@link Menu} for the menu types that support shortcuts.
      * 

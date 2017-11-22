@@ -46,6 +46,7 @@ public interface ContextMenu extends Menu {
      * @param titleRes The string resource identifier used for the title.
      * @return This ContextMenu so additional setters can be called.
      */
+    @Override
     public ContextMenu setHeaderTitle(@StringRes int titleRes);
 
     /**
@@ -54,6 +55,7 @@ public interface ContextMenu extends Menu {
      * @param title The character sequence used for the title.
      * @return This ContextMenu so additional setters can be called.
      */
+    @Override
     public ContextMenu setHeaderTitle(CharSequence title);
     
     /**
@@ -63,6 +65,7 @@ public interface ContextMenu extends Menu {
      * @param iconRes The resource identifier used for the icon.
      * @return This ContextMenu so additional setters can be called.
      */
+    @Override
     public ContextMenu setHeaderIcon(@DrawableRes int iconRes);
 
     /**
@@ -72,6 +75,7 @@ public interface ContextMenu extends Menu {
      * @param icon The {@link Drawable} used for the icon.
      * @return This ContextMenu so additional setters can be called.
      */
+    @Override
     public ContextMenu setHeaderIcon(Drawable icon);
     
     /**
@@ -82,15 +86,17 @@ public interface ContextMenu extends Menu {
      * @param view The {@link View} used for the header.
      * @return This ContextMenu so additional setters can be called.
      */
+    @Override
     public ContextMenu setHeaderView(View view);
     
     /**
      * Clears the header of the context menu.
      */
+    @Override
     public void clearHeader();
     
     /**
-     * Additional information regarding the creation of the context menu.  For example,
+     * Additional information regarding 关于 the creation of the context menu.  For example,
      * {@link AdapterView}s use this to pass the exact item position within the adapter
      * that initiated the context menu.
      */
