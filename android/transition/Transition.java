@@ -91,7 +91,7 @@ import java.util.StringTokenizer;
  * <p>Note that attributes for the transition are not required, just as they are
  * optional when declared in code; Transitions created from XML resources will use
  * the same defaults as their code-created equivalents. Here is a slightly more
- * elaborate example which declares a {@link TransitionSet} transition with
+ * elaborate  精心制作的；详尽的 example which declares a {@link TransitionSet} transition with
  * {@link ChangeBounds} and {@link Fade} child transitions:</p>
  *
  * {@sample
@@ -108,7 +108,7 @@ import java.util.StringTokenizer;
  * <code>excludeName</code>, which this transition acts upon.
  * Use of targets is optional, but can be used to either limit the time spent checking
  * attributes on unchanging views, or limiting the types of animations run on specific views.
- * In this case, we know that only the <code>grayscaleContainer</code> will be
+ * In this case, we know that only the <code>grayscaleContainer</code> 灰度模式 will be
  * disappearing, so we choose to limit the {@link Fade} transition to only that view.</p>
  *
  * Further information on XML resource descriptions for transitions can be found for
@@ -196,7 +196,7 @@ public abstract class Transition implements Cloneable {
     ArrayList<TransitionValues> mStartValuesList; // only valid after playTransition starts
     ArrayList<TransitionValues> mEndValuesList; // only valid after playTransitions starts
 
-    // Per-animator information used for later canceling when future transitions overlap
+    // Per-animator information used for later canceling when future transitions overlap 重叠
     private static ThreadLocal<ArrayMap<Animator, AnimationInfo>> sRunningAnimators =
             new ThreadLocal<ArrayMap<Animator, AnimationInfo>>();
 

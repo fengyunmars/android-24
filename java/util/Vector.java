@@ -30,6 +30,7 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 
 /**
+ * Vector与ArrayList一样，也是通过数组实现的，不同的是它支持线程的同步
  * The {@code Vector} class implements a growable array of
  * objects. Like an array, it contains components that can be
  * accessed using an integer index. However, the size of a
@@ -730,6 +731,7 @@ public class Vector<E>
     // Positional Access Operations
 
     @SuppressWarnings("unchecked")
+    @Override
     E elementData(int index) {
         return (E) elementData[index];
     }

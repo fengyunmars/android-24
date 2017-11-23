@@ -20,7 +20,7 @@ package android.app;
 import java.util.List;
 
 /**
- * FragmentManagerNonConfig stores the retained instance fragments across
+ * FragmentManagerNonConfig stores the retained 保留 instance fragments across
  * activity recreation events.
  *
  * <p>Apps should treat objects of this type as opaque, returned by

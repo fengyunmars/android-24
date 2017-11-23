@@ -43,6 +43,7 @@ public abstract class VisibilityPropagation extends TransitionPropagation {
     public void captureValues(TransitionValues values) {
         View view = values.view;
         Integer visibility = (Integer) values.values.get(Visibility.PROPNAME_VISIBILITY);
+        // TODO: 2017/11/23  
         if (visibility == null) {
             visibility = view.getVisibility();
         }

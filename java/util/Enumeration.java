@@ -26,8 +26,8 @@
 package java.util;
 
 /**
- * An object that implements the Enumeration interface generates a
- * series of elements, one at a time. Successive calls to the
+ * An object that implements the Enumeration 列举法 interface generates a
+ * series of elements, one at a time. Successive 连续的 calls to the
  * <code>nextElement</code> method return successive elements of the
  * series.
  * <p>

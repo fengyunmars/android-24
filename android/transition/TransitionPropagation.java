@@ -22,8 +22,8 @@ import android.view.ViewGroup;
  * in {@link android.transition.Transition#createAnimator(ViewGroup,
  * TransitionValues, TransitionValues)}. A Transition such as {@link android.transition.Explode}
  * defaults to using {@link android.transition.CircularPropagation} and Views closer to the
- * epicenter will move out of the scene later and into the scene sooner than Views farther
- * from the epicenter, giving the appearance of inertia. With no TransitionPropagation, all
+ * epicenter 震中；中心 will move out of the scene later and into the scene sooner than Views farther
+ * from the epicenter, giving the appearance of inertia 惯性 . With no TransitionPropagation, all
  * Views will react simultaneously to the start of the transition.
  *
  * @see Transition#setPropagation(TransitionPropagation)

@@ -21,7 +21,7 @@ import android.view.ViewGroup;
 
 /**
  * A propagation that varies with the distance to the epicenter of the Transition
- * or center of the scene if no epicenter exists. When a View is visible in the
+ * or center of the scene if no epicenter 震中；中心 exists. When a View is visible in the
  * start of the transition, Views farther from the epicenter will transition
  * sooner than Views closer to the epicenter. When a View is not in the start
  * of the transition or is not visible at the start of the transition, it will

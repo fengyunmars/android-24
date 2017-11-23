@@ -28,14 +28,14 @@ package java.util;
 import java.lang.*;
 
 /**
- * The string tokenizer class allows an application to break a
- * string into tokens. The tokenization method is much simpler than
+ * The string tokenizer 分词器；编译器 class allows an application to break a
+ * string into tokens. The tokenization 词语切分 method is much simpler than
  * the one used by the <code>StreamTokenizer</code> class. The
  * <code>StringTokenizer</code> methods do not distinguish among
- * identifiers, numbers, and quoted strings, nor do they recognize
+ * identifiers, numbers, and quoted strings 引用字符串 , nor do they recognize
  * and skip comments.
  * <p>
- * The set of delimiters (the characters that separate tokens) may
+ * The set of delimiters 分隔符 (the characters that separate tokens) may
  * be specified either at creation time or on a per-token basis.
  * <p>
  * An instance of <code>StringTokenizer</code> behaves in one of two
@@ -43,8 +43,8 @@ import java.lang.*;
  * <code>returnDelims</code> flag having the value <code>true</code>
  * or <code>false</code>:
  * <ul>
- * <li>If the flag is <code>false</code>, delimiter characters serve to
- *     separate tokens. A token is a maximal sequence of consecutive
+ * <li>If the flag is <code>false</code>, delimiter 定界符 characters serve to 用来
+ *     separate tokens. A token is a maximal sequence of consecutive 连贯的
  *     characters that are not delimiters.
  * <li>If the flag is <code>true</code>, delimiter characters are themselves
  *     considered to be tokens. A token is thus either one delimiter
@@ -226,7 +226,7 @@ class StringTokenizer implements Enumeration<Object> {
      * tokenizer uses the default delimiter set, which is
      * <code>"&nbsp;&#92;t&#92;n&#92;r&#92;f"</code>: the space character,
      * the tab character, the newline character, the carriage-return character,
-     * and the form-feed character. Delimiter characters themselves will
+     * and the form-feed 换页 character. Delimiter characters themselves will
      * not be treated as tokens.
      *
      * @param   str   a string to be parsed.
@@ -314,6 +314,7 @@ class StringTokenizer implements Enumeration<Object> {
      *          in the string after the current position; <code>false</code>
      *          otherwise.
      */
+    @Override
     public boolean hasMoreTokens() {
         /*
          * Temporarily store this position and use it in the following
@@ -331,6 +332,7 @@ class StringTokenizer implements Enumeration<Object> {
      * @exception  NoSuchElementException  if there are no more tokens in this
      *               tokenizer's string.
      */
+    @Override
     public String nextToken() {
         /*
          * If next position already computed in hasMoreElements() and
@@ -367,6 +369,7 @@ class StringTokenizer implements Enumeration<Object> {
      *               tokenizer's string.
      * @exception NullPointerException if delim is <CODE>null</CODE>
      */
+    @Override
     public String nextToken(String delim) {
         delimiters = delim;
 
@@ -387,6 +390,7 @@ class StringTokenizer implements Enumeration<Object> {
      * @see     java.util.Enumeration
      * @see     java.util.StringTokenizer#hasMoreTokens()
      */
+    @Override
     public boolean hasMoreElements() {
         return hasMoreTokens();
     }
@@ -403,6 +407,7 @@ class StringTokenizer implements Enumeration<Object> {
      * @see        java.util.Enumeration
      * @see        java.util.StringTokenizer#nextToken()
      */
+    @Override
     public Object nextElement() {
         return nextToken();
     }

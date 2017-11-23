@@ -57,9 +57,7 @@ import java.util.List;
  * <a href="{@docRoot}guide/topics/search/index.html">Search</a> developer guide.</p>
  * </div>
  */
-public class SearchManager
-        implements DialogInterface.OnDismissListener, DialogInterface.OnCancelListener
-{
+public class SearchManager implements DialogInterface.OnDismissListener, DialogInterface.OnCancelListener{
 
     private static final boolean DBG = false;
     private static final String TAG = "SearchManager";
