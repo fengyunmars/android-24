@@ -284,6 +284,7 @@ public abstract class Transition implements Cloneable {
         if (matchOrder != null) {
             setMatchOrder(parseMatchOrder(matchOrder));
         }
+
         a.recycle();
     }
 
@@ -964,7 +965,7 @@ public abstract class Transition implements Cloneable {
      * listen for changes on every view in the hierarchy below the sceneRoot
      * of the Scene being transitioned into. Setting targetIds constrains
      * the Transition to only listen for, and act on, views with these IDs.
-     * Views with different IDs, or no IDs whatsoever, will be ignored.
+     * Views with different IDs, or no IDs whatsoever 无论什么 , will be ignored.
      *
      * <p>Note that using ids to specify targets implies that ids should be unique
      * within the view hierarchy underneath the scene root.</p>
@@ -1215,7 +1216,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /**
-     * Utility method to manage the boilerplate code that is the same whether we
+     * Utility method to manage the boilerplate 样板文件；引用 code that is the same whether we
      * are excluding targets or their children.
      */
     private static <T> ArrayList<T> excludeObject(ArrayList<T> list, T target, boolean exclude) {
@@ -1412,7 +1413,7 @@ public abstract class Transition implements Cloneable {
     }
 
     /**
-     * Recursive method that captures values for the given view and the
+     * Recursive 递归的 method that captures values for the given view and the
      * hierarchy underneath it.
      * @param sceneRoot The root of the view hierarchy being captured
      * @param start true if this capture is happening before the scene change,
@@ -1571,6 +1572,7 @@ public abstract class Transition implements Cloneable {
                 }
             }
         }
+        // TODO: 2017/11/25  
         if (view.getParent() instanceof ViewGroup) {
             TransitionValues values = new TransitionValues();
             values.view = view;

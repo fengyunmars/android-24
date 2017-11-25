@@ -8343,12 +8343,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Set whether this view is currently tracking transient state that the
+     * Set whether this view is currently tracking transient 短暂的；路过的 state that the
      * framework should attempt to preserve when possible. This flag is reference counted,
      * so every call to setHasTransientState(true) should be paired with a later call
      * to setHasTransientState(false).
      *
-     * <p>A view with transient state cannot be trivially rebound from an external
+     * <p>A view with transient state cannot be trivially 琐细地；平凡地；无能地 rebound from an external
      * data source, such as an adapter binding item views in a list. This may be
      * because the view is performing an animation, tracking user selection
      * of content, or similar.</p>

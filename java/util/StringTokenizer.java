@@ -272,6 +272,7 @@ class StringTokenizer implements Enumeration<Object> {
         while (position < maxPosition) {
             if (!hasSurrogates) {
                 char c = str.charAt(position);
+                // TODO: 2017/11/24  
                 if ((c <= maxDelimCodePoint) && (delimiters.indexOf(c) >= 0))
                     break;
                 position++;
