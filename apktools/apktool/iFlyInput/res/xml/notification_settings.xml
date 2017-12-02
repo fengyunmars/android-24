@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen android:title="@string/setting_notification_title"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <CheckBoxPreference android:persistent="false" android:title="@string/setting_hotword_notification_enable_title" android:key="@string/setting_notification_enable_key" android:summaryOn="@string/setting_enabled" android:summaryOff="@string/setting_disabled" />
-    <CheckBoxPreference android:persistent="false" android:title="@string/setting_search_notification_enable_title" android:key="@string/setting_search_notification_enable_key" android:summaryOn="@string/setting_enabled" android:summaryOff="@string/setting_disabled" />
-    <CheckBoxPreference android:persistent="false" android:title="@string/setting_version_notification_enable_title" android:key="@string/setting_version_notification_enable_key" android:summaryOn="@string/setting_enabled" android:summaryOff="@string/setting_disabled" />
-    <CheckBoxPreference android:persistent="false" android:title="@string/setting_push_notification_enable_title" android:key="@string/setting_push_notification_enable_key" android:summaryOn="@string/setting_enabled" android:summaryOff="@string/setting_disabled" />
-</PreferenceScreen>

@@ -327,7 +327,7 @@ public abstract class Transition implements Cloneable {
      * @return This transition object.
      * @attr ref android.R.styleable#Transition_duration
      */
-    public Transition setDuration(long duration) {
+    public Transition  setDuration(long duration) {
         mDuration = duration;
         return this;
     }
@@ -437,7 +437,7 @@ public abstract class Transition implements Cloneable {
      * Transition is a {@link TransitionSet} consisting of several
      * child transitions in sequence, then some of the child transitions may
      * want to set initial values on target views prior to the overall
-     * Transition commencing, to put them in an appropriate state for the
+     * Transition commencing 开始 , to put them in an appropriate state for the
      * delay between that start and the child Transition start time. For
      * example, a transition that fades an item in may wish to set the starting
      * alpha value to 0, to avoid it blinking in prior to the transition
@@ -722,6 +722,7 @@ public abstract class Transition implements Cloneable {
                         for (String key : start.values.keySet()) {
                             Object startValue = start.values.get(key);
                             Object endValue = end.values.get(key);
+                            // TODO: 2017/11/27
                             if (startValue != endValue && !startValue.equals(endValue)) {
                                 Log.d(LOG_TAG, "    " + key + ": start(" + startValue +
                                         "), end(" + endValue + ")");
@@ -2354,7 +2355,7 @@ public abstract class Transition implements Cloneable {
     /**
      * Holds information about each animator used when a new transition starts
      * while other transitions are still running to determine whether a running
-     * animation should be canceled or a new animation noop'd. The structure holds
+     * animation should be canceled or a new animation noop'd 等待；无操作 . The structure holds
      * information about the state that an animation is going to, to be compared to
      * end state of a new animation.
      * @hide

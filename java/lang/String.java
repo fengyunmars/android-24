@@ -43,7 +43,7 @@ import libcore.util.EmptyArray;
 
 /**
  * The <code>String</code> class represents character strings. All
- * string literals in Java programs, such as <code>"abc"</code>, are
+ * string literals 字面值；文字 in Java programs, such as <code>"abc"</code>, are
  * implemented as instances of this class.
  * <p>
  * Strings are constant; their values cannot be changed after they
@@ -89,7 +89,7 @@ import libcore.util.EmptyArray;
  * thrown.
  *
  * <p>A <code>String</code> represents a string in the UTF-16 format
- * in which <em>supplementary characters</em> are represented by <em>surrogate
+ * in which <em>supplementary 补充的 附属 补足的 characters</em> are represented by <em>surrogate
  * pairs</em> (see the section <a href="Character.html#unicode">Unicode
  * Character Representations</a> in the <code>Character</code> class for
  * more information).
@@ -356,7 +356,7 @@ public final class String
      * The length of the new {@code String} is a function of the charset, and
      * hence may not be equal to the length of the subarray.
      *
-     * <p> This method always replaces malformed-input and unmappable-character
+     * <p> This method always replaces malformed-input 畸形的，难看的 and unmappable-character
      * sequences with this charset's default replacement string.  The {@link
      * java.nio.charset.CharsetDecoder} class should be used when more control
      * over the decoding process is required.
@@ -505,7 +505,7 @@ public final class String
      * string builder are copied; subsequent modification of the string builder
      * does not affect the newly created string.
      *
-     * <p> This constructor is provided to ease migration to {@code
+     * <p> This constructor is provided to ease 轻松，舒适 migration 迁移；移民 to {@code
      * StringBuilder}. Obtaining a string from a string builder via the {@code
      * toString} method is likely to run faster and is generally preferred.
      *
@@ -1039,13 +1039,13 @@ public final class String
     }
 
     /**
-     * Compares two strings lexicographically.
+     * Compares two strings lexicographically 字典 字典序的 词典地 .
      * The comparison is based on the Unicode value of each character in
      * the strings. The character sequence represented by this
      * <code>String</code> object is compared lexicographically to the
      * character sequence represented by the argument string. The result is
      * a negative integer if this <code>String</code> object
-     * lexicographically precedes the argument string. The result is a
+     * lexicographically precedes 在…之先 先于 在之前 the argument string. The result is a
      * positive integer if this <code>String</code> object lexicographically
      * follows the argument string. The result is zero if the strings
      * are equal; <code>compareTo</code> returns <code>0</code> exactly when
@@ -1086,7 +1086,7 @@ public final class String
      * <code>compareToIgnoreCase</code>. This comparator is serializable.
      * <p>
      * Note that this Comparator does <em>not</em> take locale into account,
-     * and will result in an unsatisfactory ordering for certain locales.
+     * and will result in an unsatisfactory 不令人满意的 ordering for certain locales.
      * The java.text package provides <em>Collators</em> to allow
      * locale-sensitive ordering.
      *
@@ -1128,7 +1128,7 @@ public final class String
      * Compares two strings lexicographically, ignoring case
      * differences. This method returns an integer whose sign is that of
      * calling <code>compareTo</code> with normalized versions of the strings
-     * where case differences have been eliminated by calling
+     * where case differences have been eliminated 被淘汰；消除；排除 by calling
      * <code>Character.toLowerCase(Character.toUpperCase(character))</code> on
      * each character.
      * <p>
@@ -1273,8 +1273,8 @@ public final class String
                 if (u1 == u2) {
                     continue;
                 }
-                // Unfortunately, conversion to uppercase does not work properly
-                // for the Georgian alphabet, which has strange rules about case
+                // Unfortunately 可惜 很遗憾 , conversion to uppercase does not work properly
+                // for the Georgian 乔治亚州人；乔治亚 alphabet, which has strange rules about case
                 // conversion.  So we need to make one last check before
                 // exiting.
                 if (Character.toLowerCase(u1) == Character.toLowerCase(u2)) {
@@ -1357,7 +1357,7 @@ public final class String
      * <blockquote><pre>
      * s[0]*31^(n-1) + s[1]*31^(n-2) + ... + s[n-1]
      * </pre></blockquote>
-     * using <code>int</code> arithmetic, where <code>s[i]</code> is the
+     * using <code>int</code> arithmetic 算术，算法 , where <code>s[i]</code> is the
      * <i>i</i>th character of the string, <code>n</code> is the length of
      * the string, and <code>^</code> indicates exponentiation.
      * (The hash value of the empty string is zero.)
@@ -1965,6 +1965,7 @@ public final class String
      * @since 1.4
      * @spec JSR-51
      */
+    @Override
     public CharSequence subSequence(int beginIndex, int endIndex) {
         return this.substring(beginIndex, endIndex);
     }
@@ -1999,7 +2000,7 @@ public final class String
      * character sequence represented by this <code>String</code> object,
      * then a reference to this <code>String</code> object is returned.
      * Otherwise, a new <code>String</code> object is created that
-     * represents a character sequence identical to the character sequence
+     * represents a character sequence identical 同一的；完全相同的 to the character sequence
      * represented by this <code>String</code> object, except that every
      * occurrence of <code>oldChar</code> is replaced by an occurrence
      * of <code>newChar</code>.
@@ -2095,7 +2096,7 @@ public final class String
      * replaceFirst}(</tt><i>repl</i><tt>)</tt></blockquote>
      *
      *<p>
-     * Note that backslashes (<tt>\</tt>) and dollar signs (<tt>$</tt>) in the
+     * Note that backslashes 反斜杠(<tt>\</tt>) and dollar signs (<tt>$</tt>) in the
      * replacement string may cause the results to be different than if it were
      * being treated as a literal replacement string; see
      * {@link java.util.regex.Matcher#replaceFirst}.
@@ -2105,7 +2106,7 @@ public final class String
      * @param   regex
      *          the regular expression to which this string is to be matched
      * @param   replacement
-     *          the string to be substituted for the first match
+     *          the string to be substituted 取代的 for the first match
      *
      * @return  The resulting <tt>String</tt>
      *
@@ -2190,15 +2191,15 @@ public final class String
         String replacementStr = replacement.toString();
         String targetStr = target.toString();
 
-        // Special case when target == "". This is a pretty nonsensical transformation and nobody
+        // Special case when target == "". This is a pretty nonsensical 无意义的；荒谬的 transformation and nobody
         // should be hitting this.
         //
         // See commit 870b23b3febc85 and http://code.google.com/p/android/issues/detail?id=8807
         // An empty target is inserted at the start of the string, the end of the string and
         // between all characters.
         if (targetStr.isEmpty()) {
-            // Note that overallocates by |replacement.size()| if |this| is the empty string, but
-            // that should be a rare case within an already nonsensical case.
+            // Note that overallocates 分配 by |replacement.size()| if |this| is the empty string, but
+            // that should be a rare case within an already nonsensical 无意义的；荒谬的 case.
             StringBuilder sb = new StringBuilder(replacementStr.length() * (count + 2) + count);
             sb.append(replacementStr);
             for (int i = 0; i < count; ++i) {
@@ -2368,7 +2369,7 @@ public final class String
     }
 
     /**
-     * Converts all of the characters in this <code>String</code> to lower
+     * Converts all of the characters in this <c ode>String</code> to lower
      * case using the rules of the given <code>Locale</code>.  Case mapping is based
      * on the Unicode Standard version specified by the {@link java.lang.Character Character}
      * class. Since case mappings are not always 1:1 char mappings, the resulting
@@ -2622,6 +2623,7 @@ public final class String
      * @see  java.util.Formatter
      * @since  1.5
      */
+    // TODO: 2017/12/1  
     public static String format(String format, Object... args) {
         return new Formatter().format(format, args).toString();
     }

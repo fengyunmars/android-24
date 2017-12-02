@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:id="@id/setting_other_downloaded_action" android:background="@drawable/setting_download_list_open_bg" android:layout_width="fill_parent" android:layout_height="70.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
-    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="#ff6e6e70" android:gravity="center" android:layout_gravity="center" android:id="@id/setting_redownload_btn" android:paddingTop="10.0dip" android:paddingBottom="5.0dip" android:focusable="false" android:layout_width="70.0dip" android:layout_height="wrap_content" android:scaleType="fitCenter" android:text="@string/download_item_action_retry_load" android:drawableTop="@drawable/setting_download_again" />
-    <TextView android:id="@id/setting_download_space_btn" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
-    <TextView android:textAppearance="?android:textAppearanceSmall" android:textColor="#ff6e6e70" android:gravity="center" android:layout_gravity="center" android:id="@id/setting_deldownload_btn" android:paddingTop="10.0dip" android:paddingBottom="5.0dip" android:focusable="false" android:layout_width="70.0dip" android:layout_height="wrap_content" android:scaleType="fitCenter" android:text="@string/download_item_action_delete" android:drawableTop="@drawable/setting_download_del_gray" />
-    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_weight="1.0" />
-</LinearLayout>

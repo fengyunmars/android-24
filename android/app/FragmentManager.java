@@ -97,7 +97,7 @@ public abstract class FragmentManager {
         public String getName();
 
         /**
-         * Return the full bread crumb title resource identifier for the entry,
+         * Return the full bread crumb 面包碎屑；面包瓤 title resource identifier for the entry,
          * or 0 if it does not have one.
          */
         public int getBreadCrumbTitleRes();

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:id="@id/common_tab_title" android:background="@drawable/setting_sub_tab_bg_new" android:layout_width="fill_parent" android:layout_height="50.0dip">
-        <ImageView android:layout_gravity="center|left" android:id="@id/common_back_image_view" android:layout_width="@dimen/DIP_50" android:layout_height="fill_parent" android:src="@drawable/setting_skin_back_bn" android:scaleType="centerInside" />
-        <TextView android:textSize="22.0sp" android:textColor="@color/setting_top_tilte_text_normal_color" android:layout_gravity="center" android:id="@id/common_title_text_view" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-        <TextView android:textSize="17.0sp" android:textColor="@color/setting_top_title_text_color" android:gravity="center" android:layout_gravity="center|right" android:id="@id/common_manager_button" android:paddingLeft="@dimen/DIP_8" android:paddingRight="@dimen/DIP_8" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/setting_common_title_sub_height" android:layout_marginRight="@dimen/setting_common_title_sub_margin" android:minWidth="@dimen/setting_common_title_sub_width_mini" android:text="@string/expression_edit" />
-    </FrameLayout>
-</LinearLayout>

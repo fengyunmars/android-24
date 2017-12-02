@@ -85,7 +85,7 @@ public abstract class FragmentTransaction {
     public abstract FragmentTransaction remove(Fragment fragment);
 
     /**
-     * Hides an existing fragment.  This is only relevant for fragments whose
+     * Hides an existing fragment.  This is only relevant 相关的 for fragments whose
      * views have been added to a container, as this will cause the view to
      * be hidden.
      *
@@ -186,6 +186,7 @@ public abstract class FragmentTransaction {
      * one of {@link #TRANSIT_NONE}, {@link #TRANSIT_FRAGMENT_OPEN},
      * {@link #TRANSIT_FRAGMENT_CLOSE}, or {@link #TRANSIT_FRAGMENT_FADE}.
      */
+    // TODO: 2017/12/1  
     public abstract FragmentTransaction setTransition(@Transit int transit);
 
     /**
@@ -196,6 +197,7 @@ public abstract class FragmentTransaction {
      * @param name The transitionName for a View in an appearing Fragment to match to the shared
      *             element.
      */
+    // TODO: 2017/12/1  
     public abstract FragmentTransaction addSharedElement(View sharedElement, String name);
 
     /**
@@ -291,8 +293,8 @@ public abstract class FragmentTransaction {
      * initialized and brought completely to the lifecycle state of their host
      * and any removed fragments will be torn down accordingly before this
      * call returns. Committing a transaction in this way allows fragments
-     * to be added as dedicated, encapsulated components that monitor the
-     * lifecycle state of their host while providing firmer ordering guarantees
+     * to be added as dedicated 专用的 , encapsulated components that monitor the
+     * lifecycle state of their host while providing firmer 坚固的 ordering guarantees
      * around when those fragments are fully initialized and ready. Fragments
      * that manage views will have those views created and attached.
      *

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@drawable/setting_listview_item" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:paddingLeft="15.0dip" android:layout_width="fill_parent" android:layout_height="@dimen/setting_common_item_two_height">
-        <ImageView android:id="@id/expression_thumbnail" android:layout_width="@dimen/setting_common_item_two_preview_width" android:layout_height="@dimen/setting_common_item_two_preview_height" android:layout_marginRight="@dimen/setting_common_item_two_preview_margin_right" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-        <TextView android:textSize="@dimen/setting_common_item_two_title_text_size" android:textColor="@color/setting_common_item_title_text_color" android:ellipsize="end" android:id="@id/expression_name" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:maxWidth="@dimen/setting_common_item_two_summary_text_width_max" android:singleLine="true" android:layout_toRightOf="@id/expression_thumbnail" android:layout_alignParentTop="true" />
-        <TextView android:textSize="@dimen/setting_common_item_two_action_text_size" android:textColor="@color/setting_tab_skin_listview_item_summary_text_color" android:ellipsize="end" android:id="@id/expression_description" android:focusable="false" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginBottom="10.0dip" android:singleLine="true" android:layout_toRightOf="@id/expression_thumbnail" android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-</LinearLayout>

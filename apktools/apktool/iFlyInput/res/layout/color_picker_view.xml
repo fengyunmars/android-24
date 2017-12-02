@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center|left" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <SeekBar android:layout_gravity="center" android:id="@id/color_picker_seek_bar" android:paddingLeft="15.0dip" android:paddingRight="15.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content" android:maxHeight="5.0dip" android:minHeight="5.0dip" android:thumb="@drawable/progress_bar_slider" android:thumbOffset="0.0dip" style="?android:attr/progressBarStyleHorizontal" />
-</LinearLayout>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/skin_change_banner_layout" android:background="@drawable/skin_pop_l" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:gravity="center" android:id="@id/skin_change_banner_textview" android:paddingLeft="5.0dip" android:paddingRight="5.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/skin_change_banner_textview" android:singleLine="true" />
-    <ImageView android:id="@id/skin_change_banner_imageview" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/skin_pop" />
-</LinearLayout>

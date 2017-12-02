@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:padding="@dimen/DIP_4" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/pre_dialog_msg_frame" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <TextView android:id="@id/pref_dialog_msg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/DIP_15" android:singleLine="true" />
-    </LinearLayout>
-    <SeekBar android:layout_gravity="center" android:id="@id/pref_dialog_seek_bar" android:padding="@dimen/DIP_15" android:layout_width="fill_parent" android:layout_height="wrap_content" style="?android:attr/progressBarStyleHorizontal" />
-</LinearLayout>

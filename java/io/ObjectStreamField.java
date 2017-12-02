@@ -32,7 +32,7 @@ import sun.reflect.misc.ReflectUtil;
 import dalvik.system.VMStack;
 
 /**
- * A description of a Serializable field from a Serializable class.  An array
+ * A description 描述 of a Serializable field from a Serializable class.  An array
  * of ObjectStreamFields is used to declare the Serializable fields of a class.
  *
  * @author      Mike Warres

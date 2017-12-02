@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<selector
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_enabled="true" android:state_pressed="true" android:drawable="@drawable/caidan_arrow_down_ic_pressed" />
-    <item android:state_enabled="false" android:state_pressed="false" android:drawable="@drawable/caidan_arrow_down_ic" />
-    <item android:drawable="@drawable/caidan_arrow_down_ic" />
-</selector>

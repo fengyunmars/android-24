@@ -66,7 +66,7 @@ public class TransitionSet extends Transition {
     public static final int ORDERING_TOGETHER = 0;
     /**
      * A flag used to indicate that the child transitions of this set should
-     * play in sequence; when one child transition ends, the next child
+     * play in sequence 按顺序排好 ; when one child transition ends, the next child
      * transition begins. Note that a transition does not end until all
      * instances of it (which are playing on all applicable targets of the
      * transition) end.

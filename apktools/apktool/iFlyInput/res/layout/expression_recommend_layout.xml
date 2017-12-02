@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@color/setting_tab_background_color" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <include android:layout_gravity="center" android:layout_width="fill_parent" android:layout_height="0.0dip" android:layout_weight="1.0" layout="@layout/setting_wait_layout_common" />
-    <ListView android:id="@id/expression_recommend_list_view" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="0.0dip" android:listSelector="#00000000" android:cacheColorHint="#00000000" android:divider="@color/setting_common_list_divider_color" android:dividerHeight="1.0px" android:layout_weight="1.0" />
-</LinearLayout>

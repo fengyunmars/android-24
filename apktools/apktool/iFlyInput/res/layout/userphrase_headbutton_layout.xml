@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/userphrase_headbtn_layout" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:id="@id/userphrase_headbtn_inner_layout" android:layout_width="fill_parent" android:layout_height="55.0dip">
-        <Button android:textSize="16.0sp" android:textColor="@drawable/userphrase_option_btn_text_color" android:id="@id/userphrase_headbtn_id" android:background="@drawable/userphrase_manager_heandbtn_status" android:layout_width="fill_parent" android:layout_height="fill_parent" android:text="@string/custom_add_btn_text" />
-    </LinearLayout>
-    <ImageView android:id="@id/userphrase_headbtn_divider" android:background="@drawable/userphrase_listview_divider" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_alignParentBottom="true" />
-</RelativeLayout>

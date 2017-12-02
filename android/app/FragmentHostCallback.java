@@ -31,13 +31,14 @@ import java.io.FileDescriptor;
 import java.io.PrintWriter;
 
 /**
- * Integration points with the Fragment host.
+ * Integration 集成；综合 points with the Fragment host.
  * <p>
  * Fragments may be hosted by any object; such as an {@link Activity}. In order to
  * host fragments, implement {@link FragmentHostCallback}, overriding the methods
  * applicable to the host.
  */
 public abstract class FragmentHostCallback<E> extends FragmentContainer {
+
     private final Activity mActivity;
     final Context mContext;
     private final Handler mHandler;

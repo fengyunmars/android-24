@@ -794,15 +794,15 @@ public class Activity extends ContextThemeWrapper
     boolean mVisibleBehind;
 
     private static final class ManagedCursor {
+        private final Cursor mCursor;
+        private boolean mReleased;
+        private boolean mUpdated;
+
         ManagedCursor(Cursor cursor) {
             mCursor = cursor;
             mReleased = false;
             mUpdated = false;
         }
-
-        private final Cursor mCursor;
-        private boolean mReleased;
-        private boolean mUpdated;
     }
     private final ArrayList<ManagedCursor> mManagedCursors =
         new ArrayList<ManagedCursor>();
@@ -810,7 +810,7 @@ public class Activity extends ContextThemeWrapper
     // protected by synchronized (this)
     int mResultCode = RESULT_CANCELED;
     Intent mResultData = null;
-
+    // TODO: 2017/12/1
     private TranslucentConversionListener mTranslucentCallback;
     private boolean mChangeCanvasToTranslucent;
 
@@ -941,8 +941,10 @@ public class Activity extends ContextThemeWrapper
      */
     @MainThread
     @CallSuper
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-        if (DEBUG_LIFECYCLE) Slog.v(TAG, "onCreate " + this + ": " + savedInstanceState);
+        if (DEBUG_LIFECYCLE)
+            Slog.v(TAG, "onCreate " + this + ": " + savedInstanceState);
         if (mLastNonConfigurationInstances != null) {
             mFragments.restoreLoaderNonConfig(mLastNonConfigurationInstances.loaders);
         }
@@ -999,6 +1001,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @param savedInstanceState contains the saved state
      */
+    @Override
     final void performRestoreInstanceState(Bundle savedInstanceState) {
         onRestoreInstanceState(savedInstanceState);
         restoreManagedDialogs(savedInstanceState);
@@ -1016,6 +1019,7 @@ public class Activity extends ContextThemeWrapper
     final void performRestoreInstanceState(Bundle savedInstanceState,
             PersistableBundle persistentState) {
         onRestoreInstanceState(savedInstanceState, persistentState);
+        // TODO: 2017/12/1  
         if (savedInstanceState != null) {
             restoreManagedDialogs(savedInstanceState);
         }
@@ -1098,6 +1102,7 @@ public class Activity extends ContextThemeWrapper
             if (dialogState != null) {
                 // Calling onRestoreInstanceState() below will invoke dispatchOnCreate
                 // so tell createDialog() not to do it, otherwise we get an exception
+                // TODO: 2017/12/1  
                 final ManagedDialog md = new ManagedDialog();
                 md.mArgs = b.getBundle(savedDialogArgsKeyFor(dialogId));
                 md.mDialog = createDialog(dialogId, dialogState, md.mArgs);
@@ -1269,8 +1274,10 @@ public class Activity extends ContextThemeWrapper
     @CallSuper
     protected void onPostResume() {
         final Window win = getWindow();
-        if (win != null) win.makeActive();
-        if (mActionBar != null) mActionBar.setShowHideAnimationEnabled(true);
+        if (win != null)
+            win.makeActive();
+        if (mActionBar != null)
+            mActionBar.setShowHideAnimationEnabled(true);
         mCalled = true;
     }
 
@@ -1481,6 +1488,7 @@ public class Activity extends ContextThemeWrapper
      * @see #onRestoreInstanceState
      * @see #onPause
      */
+    // TODO: 2017/12/1  
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBundle(WINDOW_HIERARCHY_TAG, mWindow.saveHierarchyState());
         Parcelable p = mFragments.saveAllState();
@@ -1546,7 +1554,7 @@ public class Activity extends ContextThemeWrapper
 
     /**
      * Called as part of the activity lifecycle when an activity is going into
-     * the background, but has not (yet) been killed.  The counterpart to
+     * the background, but has not (yet) been killed.  The counterpart 配对物 to
      * {@link #onResume}.
      *
      * <p>When activity B is launched in front of activity A, this callback will
@@ -1558,8 +1566,8 @@ public class Activity extends ContextThemeWrapper
      * making sure nothing is lost if there are not enough resources to start
      * the new activity without first killing this one.  This is also a good
      * place to do things like stop animations and other things that consume a
-     * noticeable amount of CPU in order to make the switch to the next activity
-     * as fast as possible, or to close resources that are exclusive access
+     * noticeable 显著的 amount of CPU in order to make the switch to the next activity
+     * as fast as possible, or to close resources that are exclusive 独有的 专一的 access
      * such as the camera.
      *
      * <p>In situations where the system needs more memory it may kill paused
@@ -1608,9 +1616,9 @@ public class Activity extends ContextThemeWrapper
     }
 
     /**
-     * Generate a new thumbnail for this activity.  This method is called before
+     * Generate a new thumbnail 缩略图 for this activity.  This method is called before
      * pausing the activity, and should draw into <var>outBitmap</var> the
-     * imagery for the desired thumbnail in the dimensions of that bitmap.  It
+     * imagery 影像 for the desired thumbnail in the dimensions of that bitmap.  It
      * can use the given <var>canvas</var>, which is configured to draw into the
      * bitmap, for rendering if desired.
      *
@@ -1664,6 +1672,7 @@ public class Activity extends ContextThemeWrapper
      * been registered with {@link Application#registerOnProvideAssistDataListener
      * Application.registerOnProvideAssistDataListener}.
      */
+    // TODO: 2017/12/1
     public void onProvideAssistData(Bundle data) {
     }
 
@@ -1686,6 +1695,7 @@ public class Activity extends ContextThemeWrapper
      *
      * @param outContent The assist content to return.
      */
+    // TODO: 2017/12/1
     public void onProvideAssistContent(AssistContent outContent) {
     }
 
@@ -1770,8 +1780,10 @@ public class Activity extends ContextThemeWrapper
      */
     @CallSuper
     protected void onStop() {
-        if (DEBUG_LIFECYCLE) Slog.v(TAG, "onStop " + this);
-        if (mActionBar != null) mActionBar.setShowHideAnimationEnabled(false);
+        if (DEBUG_LIFECYCLE)
+            Slog.v(TAG, "onStop " + this);
+        if (mActionBar != null)
+            mActionBar.setShowHideAnimationEnabled(false);
         mActivityTransitionState.onStop();
         getApplication().dispatchActivityStopped(this);
         mTranslucentCallback = null;
@@ -1808,7 +1820,8 @@ public class Activity extends ContextThemeWrapper
      */
     @CallSuper
     protected void onDestroy() {
-        if (DEBUG_LIFECYCLE) Slog.v(TAG, "onDestroy " + this);
+        if (DEBUG_LIFECYCLE)
+            Slog.v(TAG, "onDestroy " + this);
         mCalled = true;
 
         // dismiss any dialogs we are managing.
@@ -1848,7 +1861,7 @@ public class Activity extends ContextThemeWrapper
     }
 
     /**
-     * Report to the system that your app is now fully drawn, purely for diagnostic
+     * Report to the system that your app is now fully drawn, purely for diagnostic 诊断法
      * purposes (calling it does not impact the visible behavior of the activity).
      * This is only used to help instrument application launch times, so that the
      * app can report when it is fully in a usable state; without this, the only thing
@@ -1878,7 +1891,7 @@ public class Activity extends ContextThemeWrapper
      * @param isInMultiWindowMode True if the activity is in multi-window mode.
      */
     public void onMultiWindowModeChanged(boolean isInMultiWindowMode) {
-        // Left deliberately empty. There should be no side effects if a direct
+        // Left deliberately 故意地 empty. There should be no side effects if a direct
         // subclass of Activity does not call super.
     }
 
@@ -1949,7 +1962,8 @@ public class Activity extends ContextThemeWrapper
      * @param newConfig The new device configuration.
      */
     public void onConfigurationChanged(Configuration newConfig) {
-        if (DEBUG_LIFECYCLE) Slog.v(TAG, "onConfigurationChanged " + this + ": " + newConfig);
+        if (DEBUG_LIFECYCLE)
+            Slog.v(TAG, "onConfigurationChanged " + this + ": " + newConfig);
         mCalled = true;
 
         mFragments.dispatchConfigurationChanged(newConfig);
@@ -2107,7 +2121,7 @@ public class Activity extends ContextThemeWrapper
         FragmentManagerNonConfig fragments = mFragments.retainNestedNonConfig();
 
         // We're already stopped but we've been asked to retain.
-        // Our fragments are taken care of but we need to mark the loaders for retention.
+        // Our fragments are taken care of but we need to mark the loaders for retention 保留；扣留 .
         // In order to do this correctly we need to restart the loaders first before
         // handing them off to the next activity.
         mFragments.doLoaderStart();
@@ -2130,15 +2144,18 @@ public class Activity extends ContextThemeWrapper
         }
         return nci;
     }
-
+    @Override
     public void onLowMemory() {
-        if (DEBUG_LIFECYCLE) Slog.v(TAG, "onLowMemory " + this);
+        if (DEBUG_LIFECYCLE)
+            Slog.v(TAG, "onLowMemory " + this);
         mCalled = true;
         mFragments.dispatchLowMemory();
     }
 
+    @Override
     public void onTrimMemory(int level) {
-        if (DEBUG_LIFECYCLE) Slog.v(TAG, "onTrimMemory " + this + ": " + level);
+        if (DEBUG_LIFECYCLE)
+            Slog.v(TAG, "onTrimMemory " + this + ": " + level);
         mCalled = true;
         mFragments.dispatchTrimMemory(level);
     }

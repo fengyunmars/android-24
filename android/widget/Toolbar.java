@@ -58,19 +58,19 @@ import java.util.List;
 /**
  * A standard toolbar for use within application content.
  *
- * <p>A Toolbar is a generalization of {@link android.app.ActionBar action bars} for use
+ * <p>A Toolbar is a generalization 概括；普遍化；一般化 of {@link android.app.ActionBar action bars} for use
  * within application layouts. While an action bar is traditionally part of an
  * {@link android.app.Activity Activity's} opaque window decor controlled by the framework,
  * a Toolbar may be placed at any arbitrary level of nesting within a view hierarchy.
- * An application may choose to designate a Toolbar as the action bar for an Activity
+ * An application may choose to designate  指定的；选定的 a Toolbar as the action bar for an Activity
  * using the {@link android.app.Activity#setActionBar(Toolbar) setActionBar()} method.</p>
  *
  * <p>Toolbar supports a more focused feature set than ActionBar. From start to end, a toolbar
- * may contain a combination of the following optional elements:
+ * may contain a combination 结合；组合 of the following optional elements:
  *
  * <ul>
  *     <li><em>A navigation button.</em> This may be an Up arrow, navigation menu toggle, close,
- *     collapse, done or another glyph of the app's choosing. This button should always be used
+ *     collapse, done or another glyph 字形；图象字符；纵沟纹 of the app's choosing. This button should always be used
  *     to access other navigational destinations within the container of the Toolbar and
  *     its signified content or otherwise leave the current context signified by the Toolbar.
  *     The navigation button is vertically aligned within the Toolbar's

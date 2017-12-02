@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@drawable/setting_listview_item" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <RelativeLayout android:layout_width="fill_parent" android:layout_height="50.0dip">
-        <TextView android:textSize="18.0sp" android:textColor="@color/setting_common_item_title_text_color" android:gravity="center_vertical" android:id="@id/skin_background_detail_title" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginLeft="@dimen/DIP_10" android:layout_alignParentLeft="true" />
-        <ImageView android:id="@id/skin_background_detail_setting_selected" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="@dimen/DIP_10" android:src="@drawable/ic_slected" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-    </RelativeLayout>
-</LinearLayout>
