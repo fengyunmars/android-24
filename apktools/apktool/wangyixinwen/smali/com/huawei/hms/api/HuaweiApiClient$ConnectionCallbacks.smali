@@ -1,0 +1,18 @@
+.class public interface abstract Lcom/huawei/hms/api/HuaweiApiClient$ConnectionCallbacks;
+.super Ljava/lang/Object;
+
+
+# static fields
+.field public static final CAUSE_API_CLIENT_EXPIRED:I = 0x3
+
+.field public static final CAUSE_NETWORK_LOST:I = 0x2
+
+.field public static final CAUSE_SERVICE_DISCONNECTED:I = 0x1
+
+
+# virtual methods
+.method public abstract onConnected()V
+.end method
+
+.method public abstract onConnectionSuspended(I)V
+.end method

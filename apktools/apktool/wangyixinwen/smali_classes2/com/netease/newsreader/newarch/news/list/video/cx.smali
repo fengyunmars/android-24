@@ -1,0 +1,647 @@
+.class public Lcom/netease/newsreader/newarch/news/list/video/cx;
+.super Lcom/netease/newsreader/newarch/news/list/base/hx;
+.source "VideoHeaderBinderCallback.java"
+
+
+# static fields
+.field private static final a:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+.field private static final b:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+.field private static final c:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+.field private static final d:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+.field private static final e:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+
+# direct methods
+.method static constructor <clinit>()V
+    .locals 0
+
+    .prologue
+    .line 1
+    invoke-static {}, Lcom/netease/newsreader/newarch/news/list/video/cx;->b()V
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    .prologue
+    .line 12
+    invoke-direct {p0}, Lcom/netease/newsreader/newarch/news/list/base/hx;-><init>()V
+
+    return-void
+.end method
+
+.method static final a(Lcom/netease/newsreader/newarch/news/list/video/cx;Lcom/netease/newsreader/newarch/bean/IListBean;Lorg/aspectj/lang/JoinPoint;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 16
+    instance-of v0, p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    if-eqz v0, :cond_0
+
+    .line 17
+    check-cast p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    invoke-virtual {p1}, Lcom/netease/nr/base/db/tableManager/BeanVideo;->getTitle()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 19
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/netease/newsreader/newarch/news/list/base/hx;->a(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method static final b(Lcom/netease/newsreader/newarch/news/list/video/cx;Lcom/netease/newsreader/newarch/bean/IListBean;Lorg/aspectj/lang/JoinPoint;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 24
+    instance-of v0, p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    if-eqz v0, :cond_0
+
+    .line 25
+    check-cast p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    invoke-virtual {p1}, Lcom/netease/nr/base/db/tableManager/BeanVideo;->getCover()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 27
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/netease/newsreader/newarch/news/list/base/hx;->c(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method private static b()V
+    .locals 9
+
+    .prologue
+    .line 1
+    new-instance v0, Lorg/aspectj/runtime/reflect/Factory;
+
+    const-string/jumbo v1, "VideoHeaderBinderCallback.java"
+
+    const-class v2, Lcom/netease/newsreader/newarch/news/list/video/cx;
+
+    invoke-direct {v0, v1, v2}, Lorg/aspectj/runtime/reflect/Factory;-><init>(Ljava/lang/String;Ljava/lang/Class;)V
+
+    const-string/jumbo v8, "method-execution"
+
+    const-string/jumbo v1, "1"
+
+    const-string/jumbo v2, "getTitleStr"
+
+    const-string/jumbo v3, "com.netease.newsreader.newarch.news.list.video.cx"
+
+    const-string/jumbo v4, "com.netease.newsreader.newarch.bean.IListBean"
+
+    const-string/jumbo v5, "itemData"
+
+    const-string/jumbo v6, ""
+
+    const-string/jumbo v7, "java.lang.String"
+
+    invoke-virtual/range {v0 .. v7}, Lorg/aspectj/runtime/reflect/Factory;->makeMethodSig(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/aspectj/lang/reflect/MethodSignature;
+
+    move-result-object v1
+
+    const/16 v2, 0x10
+
+    invoke-virtual {v0, v8, v1, v2}, Lorg/aspectj/runtime/reflect/Factory;->makeSJP(Ljava/lang/String;Lorg/aspectj/lang/Signature;I)Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/netease/newsreader/newarch/news/list/video/cx;->a:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    const-string/jumbo v8, "method-execution"
+
+    const-string/jumbo v1, "1"
+
+    const-string/jumbo v2, "getImageSrc"
+
+    const-string/jumbo v3, "com.netease.newsreader.newarch.news.list.video.cx"
+
+    const-string/jumbo v4, "com.netease.newsreader.newarch.bean.IListBean"
+
+    const-string/jumbo v5, "itemData"
+
+    const-string/jumbo v6, ""
+
+    const-string/jumbo v7, "java.lang.String"
+
+    invoke-virtual/range {v0 .. v7}, Lorg/aspectj/runtime/reflect/Factory;->makeMethodSig(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/aspectj/lang/reflect/MethodSignature;
+
+    move-result-object v1
+
+    const/16 v2, 0x18
+
+    invoke-virtual {v0, v8, v1, v2}, Lorg/aspectj/runtime/reflect/Factory;->makeSJP(Ljava/lang/String;Lorg/aspectj/lang/Signature;I)Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/netease/newsreader/newarch/news/list/video/cx;->b:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    const-string/jumbo v8, "method-execution"
+
+    const-string/jumbo v1, "1"
+
+    const-string/jumbo v2, "getSubTitle"
+
+    const-string/jumbo v3, "com.netease.newsreader.newarch.news.list.video.cx"
+
+    const-string/jumbo v4, "com.netease.newsreader.newarch.bean.IListBean"
+
+    const-string/jumbo v5, "itemData"
+
+    const-string/jumbo v6, ""
+
+    const-string/jumbo v7, "java.lang.String"
+
+    invoke-virtual/range {v0 .. v7}, Lorg/aspectj/runtime/reflect/Factory;->makeMethodSig(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/aspectj/lang/reflect/MethodSignature;
+
+    move-result-object v1
+
+    const/16 v2, 0x20
+
+    invoke-virtual {v0, v8, v1, v2}, Lorg/aspectj/runtime/reflect/Factory;->makeSJP(Ljava/lang/String;Lorg/aspectj/lang/Signature;I)Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/netease/newsreader/newarch/news/list/video/cx;->c:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    const-string/jumbo v8, "method-execution"
+
+    const-string/jumbo v1, "1"
+
+    const-string/jumbo v2, "getTags"
+
+    const-string/jumbo v3, "com.netease.newsreader.newarch.news.list.video.cx"
+
+    const-string/jumbo v4, "com.netease.newsreader.newarch.bean.IListBean"
+
+    const-string/jumbo v5, "itemData"
+
+    const-string/jumbo v6, ""
+
+    const-string/jumbo v7, "java.lang.String"
+
+    invoke-virtual/range {v0 .. v7}, Lorg/aspectj/runtime/reflect/Factory;->makeMethodSig(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/aspectj/lang/reflect/MethodSignature;
+
+    move-result-object v1
+
+    const/16 v2, 0x28
+
+    invoke-virtual {v0, v8, v1, v2}, Lorg/aspectj/runtime/reflect/Factory;->makeSJP(Ljava/lang/String;Lorg/aspectj/lang/Signature;I)Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/netease/newsreader/newarch/news/list/video/cx;->d:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    const-string/jumbo v8, "method-execution"
+
+    const-string/jumbo v1, "1"
+
+    const-string/jumbo v2, "getSkipType"
+
+    const-string/jumbo v3, "com.netease.newsreader.newarch.news.list.video.cx"
+
+    const-string/jumbo v4, "com.netease.newsreader.newarch.bean.IListBean"
+
+    const-string/jumbo v5, "itemData"
+
+    const-string/jumbo v6, ""
+
+    const-string/jumbo v7, "java.lang.String"
+
+    invoke-virtual/range {v0 .. v7}, Lorg/aspectj/runtime/reflect/Factory;->makeMethodSig(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/aspectj/lang/reflect/MethodSignature;
+
+    move-result-object v1
+
+    const/16 v2, 0x30
+
+    invoke-virtual {v0, v8, v1, v2}, Lorg/aspectj/runtime/reflect/Factory;->makeSJP(Ljava/lang/String;Lorg/aspectj/lang/Signature;I)Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/netease/newsreader/newarch/news/list/video/cx;->e:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    return-void
+.end method
+
+.method static final c(Lcom/netease/newsreader/newarch/news/list/video/cx;Lcom/netease/newsreader/newarch/bean/IListBean;Lorg/aspectj/lang/JoinPoint;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 32
+    instance-of v0, p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    if-eqz v0, :cond_0
+
+    .line 33
+    check-cast p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    invoke-virtual {p1}, Lcom/netease/nr/base/db/tableManager/BeanVideo;->getDescription()Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 35
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/netease/newsreader/newarch/news/list/base/hx;->c(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method static final d(Lcom/netease/newsreader/newarch/news/list/video/cx;Lcom/netease/newsreader/newarch/bean/IListBean;Lorg/aspectj/lang/JoinPoint;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 40
+    instance-of v0, p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    if-eqz v0, :cond_0
+
+    .line 41
+    const-string/jumbo v0, "\u89c6\u9891"
+
+    .line 43
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/netease/newsreader/newarch/news/list/base/hx;->d(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method static final e(Lcom/netease/newsreader/newarch/news/list/video/cx;Lcom/netease/newsreader/newarch/bean/IListBean;Lorg/aspectj/lang/JoinPoint;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 48
+    instance-of v0, p1, Lcom/netease/nr/base/db/tableManager/BeanVideo;
+
+    if-eqz v0, :cond_0
+
+    .line 49
+    const-string/jumbo v0, "video"
+
+    .line 51
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-super {p0, p1}, Lcom/netease/newsreader/newarch/news/list/base/hx;->e(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+
+# virtual methods
+.method public a(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+    .locals 4
+
+    .prologue
+    sget-object v0, Lcom/netease/newsreader/newarch/news/list/video/cx;->a:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    invoke-static {v0, p0, p0, p1}, Lorg/aspectj/runtime/reflect/Factory;->makeJP(Lorg/aspectj/lang/JoinPoint$StaticPart;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/aspectj/lang/JoinPoint;
+
+    move-result-object v0
+
+    .line 16
+    invoke-static {}, Lcom/netease/patch/b;->a()Lcom/netease/patch/b;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p0, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const/4 v3, 0x2
+
+    aput-object v0, v2, v3
+
+    new-instance v0, Lcom/netease/newsreader/newarch/news/list/video/cy;
+
+    invoke-direct {v0, v2}, Lcom/netease/newsreader/newarch/news/list/video/cy;-><init>([Ljava/lang/Object;)V
+
+    const v2, 0x11010
+
+    invoke-virtual {v0, v2}, Lorg/aspectj/runtime/internal/AroundClosure;->linkClosureAndJoinPoint(I)Lorg/aspectj/lang/ProceedingJoinPoint;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/netease/patch/b;->a(Lorg/aspectj/lang/ProceedingJoinPoint;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public b(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+    .locals 4
+
+    .prologue
+    sget-object v0, Lcom/netease/newsreader/newarch/news/list/video/cx;->c:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    invoke-static {v0, p0, p0, p1}, Lorg/aspectj/runtime/reflect/Factory;->makeJP(Lorg/aspectj/lang/JoinPoint$StaticPart;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/aspectj/lang/JoinPoint;
+
+    move-result-object v0
+
+    .line 32
+    invoke-static {}, Lcom/netease/patch/b;->a()Lcom/netease/patch/b;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p0, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const/4 v3, 0x2
+
+    aput-object v0, v2, v3
+
+    new-instance v0, Lcom/netease/newsreader/newarch/news/list/video/da;
+
+    invoke-direct {v0, v2}, Lcom/netease/newsreader/newarch/news/list/video/da;-><init>([Ljava/lang/Object;)V
+
+    const v2, 0x11010
+
+    invoke-virtual {v0, v2}, Lorg/aspectj/runtime/internal/AroundClosure;->linkClosureAndJoinPoint(I)Lorg/aspectj/lang/ProceedingJoinPoint;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/netease/patch/b;->a(Lorg/aspectj/lang/ProceedingJoinPoint;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public c(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+    .locals 4
+
+    .prologue
+    sget-object v0, Lcom/netease/newsreader/newarch/news/list/video/cx;->b:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    invoke-static {v0, p0, p0, p1}, Lorg/aspectj/runtime/reflect/Factory;->makeJP(Lorg/aspectj/lang/JoinPoint$StaticPart;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/aspectj/lang/JoinPoint;
+
+    move-result-object v0
+
+    .line 24
+    invoke-static {}, Lcom/netease/patch/b;->a()Lcom/netease/patch/b;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p0, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const/4 v3, 0x2
+
+    aput-object v0, v2, v3
+
+    new-instance v0, Lcom/netease/newsreader/newarch/news/list/video/cz;
+
+    invoke-direct {v0, v2}, Lcom/netease/newsreader/newarch/news/list/video/cz;-><init>([Ljava/lang/Object;)V
+
+    const v2, 0x11010
+
+    invoke-virtual {v0, v2}, Lorg/aspectj/runtime/internal/AroundClosure;->linkClosureAndJoinPoint(I)Lorg/aspectj/lang/ProceedingJoinPoint;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/netease/patch/b;->a(Lorg/aspectj/lang/ProceedingJoinPoint;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public synthetic c(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    check-cast p1, Lcom/netease/newsreader/newarch/bean/IListBean;
+
+    invoke-virtual {p0, p1}, Lcom/netease/newsreader/newarch/news/list/video/cx;->d(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public d(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+    .locals 4
+
+    .prologue
+    sget-object v0, Lcom/netease/newsreader/newarch/news/list/video/cx;->d:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    invoke-static {v0, p0, p0, p1}, Lorg/aspectj/runtime/reflect/Factory;->makeJP(Lorg/aspectj/lang/JoinPoint$StaticPart;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/aspectj/lang/JoinPoint;
+
+    move-result-object v0
+
+    .line 40
+    invoke-static {}, Lcom/netease/patch/b;->a()Lcom/netease/patch/b;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p0, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const/4 v3, 0x2
+
+    aput-object v0, v2, v3
+
+    new-instance v0, Lcom/netease/newsreader/newarch/news/list/video/db;
+
+    invoke-direct {v0, v2}, Lcom/netease/newsreader/newarch/news/list/video/db;-><init>([Ljava/lang/Object;)V
+
+    const v2, 0x11010
+
+    invoke-virtual {v0, v2}, Lorg/aspectj/runtime/internal/AroundClosure;->linkClosureAndJoinPoint(I)Lorg/aspectj/lang/ProceedingJoinPoint;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/netease/patch/b;->a(Lorg/aspectj/lang/ProceedingJoinPoint;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public e(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+    .locals 4
+
+    .prologue
+    sget-object v0, Lcom/netease/newsreader/newarch/news/list/video/cx;->e:Lorg/aspectj/lang/JoinPoint$StaticPart;
+
+    invoke-static {v0, p0, p0, p1}, Lorg/aspectj/runtime/reflect/Factory;->makeJP(Lorg/aspectj/lang/JoinPoint$StaticPart;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Lorg/aspectj/lang/JoinPoint;
+
+    move-result-object v0
+
+    .line 48
+    invoke-static {}, Lcom/netease/patch/b;->a()Lcom/netease/patch/b;
+
+    move-result-object v1
+
+    const/4 v2, 0x3
+
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
+
+    aput-object p0, v2, v3
+
+    const/4 v3, 0x1
+
+    aput-object p1, v2, v3
+
+    const/4 v3, 0x2
+
+    aput-object v0, v2, v3
+
+    new-instance v0, Lcom/netease/newsreader/newarch/news/list/video/dc;
+
+    invoke-direct {v0, v2}, Lcom/netease/newsreader/newarch/news/list/video/dc;-><init>([Ljava/lang/Object;)V
+
+    const v2, 0x11010
+
+    invoke-virtual {v0, v2}, Lorg/aspectj/runtime/internal/AroundClosure;->linkClosureAndJoinPoint(I)Lorg/aspectj/lang/ProceedingJoinPoint;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/netease/patch/b;->a(Lorg/aspectj/lang/ProceedingJoinPoint;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public synthetic e(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    check-cast p1, Lcom/netease/newsreader/newarch/bean/IListBean;
+
+    invoke-virtual {p0, p1}, Lcom/netease/newsreader/newarch/news/list/video/cx;->c(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic f(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    check-cast p1, Lcom/netease/newsreader/newarch/bean/IListBean;
+
+    invoke-virtual {p0, p1}, Lcom/netease/newsreader/newarch/news/list/video/cx;->a(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic i(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    check-cast p1, Lcom/netease/newsreader/newarch/bean/IListBean;
+
+    invoke-virtual {p0, p1}, Lcom/netease/newsreader/newarch/news/list/video/cx;->e(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public synthetic j(Ljava/lang/Object;)Ljava/lang/String;
+    .locals 1
+
+    .prologue
+    .line 12
+    check-cast p1, Lcom/netease/newsreader/newarch/bean/IListBean;
+
+    invoke-virtual {p0, p1}, Lcom/netease/newsreader/newarch/news/list/video/cx;->b(Lcom/netease/newsreader/newarch/bean/IListBean;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method

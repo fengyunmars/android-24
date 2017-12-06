@@ -1,0 +1,1409 @@
+.class public Lorg/rajawali3d/loader/LoaderGCode;
+.super Lorg/rajawali3d/loader/AMeshLoader;
+.source "LoaderGCode.java"
+
+
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;,
+        Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;,
+        Lorg/rajawali3d/loader/LoaderGCode$SupportedCommands;,
+        Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;,
+        Lorg/rajawali3d/loader/LoaderGCode$GCodeParseException;
+    }
+.end annotation
+
+
+# instance fields
+.field private metaData:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Landroid/content/res/Resources;Lorg/rajawali3d/materials/textures/TextureManager;I)V
+    .locals 0
+
+    .prologue
+    .line 474
+    invoke-direct {p0, p1, p2, p3}, Lorg/rajawali3d/loader/AMeshLoader;-><init>(Landroid/content/res/Resources;Lorg/rajawali3d/materials/textures/TextureManager;I)V
+
+    .line 475
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->init()V
+
+    .line 476
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/io/File;)V
+    .locals 0
+
+    .prologue
+    .line 459
+    invoke-direct {p0, p1}, Lorg/rajawali3d/loader/AMeshLoader;-><init>(Ljava/io/File;)V
+
+    .line 460
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->init()V
+
+    .line 461
+    return-void
+.end method
+
+.method public constructor <init>(Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 454
+    invoke-direct {p0, p1}, Lorg/rajawali3d/loader/AMeshLoader;-><init>(Ljava/lang/String;)V
+
+    .line 455
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->init()V
+
+    .line 456
+    return-void
+.end method
+
+.method public constructor <init>(Lorg/rajawali3d/renderer/Renderer;Ljava/io/File;)V
+    .locals 0
+
+    .prologue
+    .line 464
+    invoke-direct {p0, p1, p2}, Lorg/rajawali3d/loader/AMeshLoader;-><init>(Lorg/rajawali3d/renderer/Renderer;Ljava/io/File;)V
+
+    .line 465
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->init()V
+
+    .line 466
+    return-void
+.end method
+
+.method public constructor <init>(Lorg/rajawali3d/renderer/Renderer;Ljava/lang/String;)V
+    .locals 0
+
+    .prologue
+    .line 469
+    invoke-direct {p0, p1, p2}, Lorg/rajawali3d/loader/AMeshLoader;-><init>(Lorg/rajawali3d/renderer/Renderer;Ljava/lang/String;)V
+
+    .line 470
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->init()V
+
+    .line 471
+    return-void
+.end method
+
+.method public static final tasteFlavor(Landroid/content/res/Resources;I)Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Landroid/content/res/Resources$NotFoundException;
+        }
+    .end annotation
+
+    .prologue
+    .line 782
+    new-instance v0, Ljava/io/BufferedInputStream;
+
+    invoke-virtual {p0, p1}, Landroid/content/res/Resources;->openRawResource(I)Ljava/io/InputStream;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+
+    .line 783
+    invoke-static {v0}, Lorg/rajawali3d/loader/LoaderGCode;->tasteFlavor(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+
+    move-result-object v1
+
+    .line 784
+    invoke-virtual {v0}, Ljava/io/BufferedInputStream;->close()V
+
+    .line 786
+    return-object v1
+.end method
+
+.method public static final tasteFlavor(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+    .locals 4
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 797
+    const/16 v1, 0xc8
+
+    .line 798
+    new-array v2, v1, [B
+
+    .line 799
+    array-length v0, v2
+
+    invoke-virtual {p0, v0}, Ljava/io/BufferedInputStream;->mark(I)V
+
+    .line 800
+    const/4 v0, 0x0
+
+    .line 801
+    :goto_0
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->available()I
+
+    move-result v3
+
+    if-lez v3, :cond_0
+
+    if-ge v0, v1, :cond_0
+
+    .line 802
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->read()I
+
+    move-result v3
+
+    int-to-byte v3, v3
+
+    aput-byte v3, v2, v0
+
+    .line 803
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    .line 805
+    :cond_0
+    invoke-virtual {p0}, Ljava/io/BufferedInputStream;->reset()V
+
+    .line 806
+    new-instance v0, Ljava/lang/String;
+
+    invoke-direct {v0, v2}, Ljava/lang/String;-><init>([B)V
+
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+
+    move-result-object v0
+
+    .line 808
+    const-string/jumbo v1, "generated by slic3r"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    .line 809
+    sget-object v0, Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;->SLIC3R:Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+
+    .line 814
+    :goto_1
+    return-object v0
+
+    .line 810
+    :cond_1
+    const-string/jumbo v1, "skeinforge"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    .line 811
+    sget-object v0, Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;->SKEINFORGE:Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+
+    goto :goto_1
+
+    .line 814
+    :cond_2
+    sget-object v0, Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;->UNKNOWN:Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+
+    goto :goto_1
+.end method
+
+.method public static final tasteFlavor(Ljava/io/File;)Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+    .locals 2
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;,
+            Lorg/rajawali3d/loader/LoaderGCode$GCodeParseException;
+        }
+    .end annotation
+
+    .prologue
+    .line 760
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    .line 761
+    new-instance v0, Lorg/rajawali3d/loader/LoaderGCode$GCodeParseException;
+
+    const-string/jumbo v1, "Passed file does not exist."
+
+    invoke-direct {v0, v1}, Lorg/rajawali3d/loader/LoaderGCode$GCodeParseException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 763
+    :cond_0
+    invoke-virtual {p0}, Ljava/io/File;->isFile()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    .line 764
+    new-instance v0, Lorg/rajawali3d/loader/LoaderGCode$GCodeParseException;
+
+    const-string/jumbo v1, "This is not a file."
+
+    invoke-direct {v0, v1}, Lorg/rajawali3d/loader/LoaderGCode$GCodeParseException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    .line 766
+    :cond_1
+    new-instance v0, Ljava/io/BufferedInputStream;
+
+    new-instance v1, Ljava/io/FileInputStream;
+
+    invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+
+    invoke-direct {v0, v1}, Ljava/io/BufferedInputStream;-><init>(Ljava/io/InputStream;)V
+
+    .line 767
+    invoke-static {v0}, Lorg/rajawali3d/loader/LoaderGCode;->tasteFlavor(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+
+    move-result-object v1
+
+    .line 768
+    invoke-virtual {v0}, Ljava/io/BufferedInputStream;->close()V
+
+    .line 770
+    return-object v1
+.end method
+
+
+# virtual methods
+.method protected getBufferedInputStream()Ljava/io/BufferedInputStream;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/FileNotFoundException;
+        }
+    .end annotation
+
+    .prologue
+    .line 568
+    const/16 v0, 0x200
+
+    invoke-super {p0, v0}, Lorg/rajawali3d/loader/AMeshLoader;->getBufferedInputStream(I)Ljava/io/BufferedInputStream;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public getMetaData()Ljava/util/HashMap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .prologue
+    .line 501
+    iget-object v0, p0, Lorg/rajawali3d/loader/LoaderGCode;->metaData:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
+.method public init()V
+    .locals 0
+
+    .prologue
+    .line 480
+    return-void
+.end method
+
+.method public parse()Lorg/rajawali3d/loader/AMeshLoader;
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/rajawali3d/loader/ParsingException;
+        }
+    .end annotation
+
+    .prologue
+    .line 519
+    invoke-super {p0}, Lorg/rajawali3d/loader/AMeshLoader;->parse()Lorg/rajawali3d/loader/AMeshLoader;
+
+    .line 523
+    :try_start_0
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->getBufferedInputStream()Ljava/io/BufferedInputStream;
+
+    move-result-object v0
+
+    .line 524
+    invoke-static {v0}, Lorg/rajawali3d/loader/LoaderGCode;->tasteFlavor(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;
+
+    move-result-object v1
+
+    .line 525
+    sget-object v2, Lorg/rajawali3d/loader/LoaderGCode$1;->$SwitchMap$org$rajawali3d$loader$LoaderGCode$GCodeFlavor:[I
+
+    invoke-virtual {v1}, Lorg/rajawali3d/loader/LoaderGCode$GCodeFlavor;->ordinal()I
+
+    move-result v1
+
+    aget v1, v2, v1
+
+    packed-switch v1, :pswitch_data_0
+
+    .line 535
+    :goto_0
+    invoke-virtual {p0, v0}, Lorg/rajawali3d/loader/LoaderGCode;->readGCode(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/Object3D;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/rajawali3d/loader/LoaderGCode;->mRootObject:Lorg/rajawali3d/Object3D;
+
+    .line 539
+    :goto_1
+    if-eqz v0, :cond_0
+
+    .line 540
+    invoke-virtual {v0}, Ljava/io/BufferedInputStream;->close()V
+
+    .line 557
+    :cond_0
+    return-object p0
+
+    .line 527
+    :pswitch_0
+    invoke-virtual {p0, v0}, Lorg/rajawali3d/loader/LoaderGCode;->readSlic3rComments(Ljava/io/BufferedInputStream;)Ljava/util/HashMap;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/rajawali3d/loader/LoaderGCode;->metaData:Ljava/util/HashMap;
+
+    .line 528
+    invoke-virtual {p0, v0}, Lorg/rajawali3d/loader/LoaderGCode;->readGCode(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/Object3D;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/rajawali3d/loader/LoaderGCode;->mRootObject:Lorg/rajawali3d/Object3D;
+    :try_end_0
+    .catch Ljava/io/FileNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+
+    goto :goto_1
+
+    .line 542
+    :catch_0
+    move-exception v0
+
+    .line 543
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "["
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/Class;->getCanonicalName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "] Could not find file."
+
+    .line 544
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    .line 543
+    invoke-static {v1}, Lorg/rajawali3d/util/RajLog;->e(Ljava/lang/String;)V
+
+    .line 545
+    new-instance v1, Lorg/rajawali3d/loader/ParsingException;
+
+    const-string/jumbo v2, "File not found."
+
+    invoke-direct {v1, v2, v0}, Lorg/rajawali3d/loader/ParsingException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+
+    .line 531
+    :pswitch_1
+    :try_start_1
+    invoke-virtual {p0, v0}, Lorg/rajawali3d/loader/LoaderGCode;->readSkeinforgeComments(Ljava/io/BufferedInputStream;)Ljava/util/HashMap;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/rajawali3d/loader/LoaderGCode;->metaData:Ljava/util/HashMap;
+
+    .line 532
+    invoke-virtual {p0, v0}, Lorg/rajawali3d/loader/LoaderGCode;->readGCode(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/Object3D;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lorg/rajawali3d/loader/LoaderGCode;->mRootObject:Lorg/rajawali3d/Object3D;
+    :try_end_1
+    .catch Ljava/io/FileNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/NumberFormatException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_3
+
+    goto :goto_0
+
+    .line 546
+    :catch_1
+    move-exception v0
+
+    .line 547
+    invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lorg/rajawali3d/util/RajLog;->e(Ljava/lang/String;)V
+
+    .line 548
+    new-instance v1, Lorg/rajawali3d/loader/ParsingException;
+
+    const-string/jumbo v2, "Unexpected value."
+
+    invoke-direct {v1, v2, v0}, Lorg/rajawali3d/loader/ParsingException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+
+    .line 549
+    :catch_2
+    move-exception v0
+
+    .line 550
+    invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lorg/rajawali3d/util/RajLog;->e(Ljava/lang/String;)V
+
+    .line 551
+    new-instance v1, Lorg/rajawali3d/loader/ParsingException;
+
+    const-string/jumbo v2, "File reading failed."
+
+    invoke-direct {v1, v2, v0}, Lorg/rajawali3d/loader/ParsingException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+
+    .line 552
+    :catch_3
+    move-exception v0
+
+    .line 553
+    invoke-static {v0}, Landroid/util/Log;->getStackTraceString(Ljava/lang/Throwable;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lorg/rajawali3d/util/RajLog;->e(Ljava/lang/String;)V
+
+    .line 554
+    new-instance v1, Lorg/rajawali3d/loader/ParsingException;
+
+    const-string/jumbo v2, "Unexpected exception occured."
+
+    invoke-direct {v1, v2, v0}, Lorg/rajawali3d/loader/ParsingException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v1
+
+    .line 525
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x2
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method public bridge synthetic parse()Lorg/rajawali3d/loader/ILoader;
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Lorg/rajawali3d/loader/ParsingException;
+        }
+    .end annotation
+
+    .prologue
+    .line 40
+    invoke-virtual {p0}, Lorg/rajawali3d/loader/LoaderGCode;->parse()Lorg/rajawali3d/loader/AMeshLoader;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected readGCode(Ljava/io/BufferedInputStream;)Lorg/rajawali3d/Object3D;
+    .locals 16
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 623
+    const-string/jumbo v0, "GCodePaser: reading file"
+
+    invoke-static {v0}, Lorg/rajawali3d/util/RajLog;->i(Ljava/lang/String;)V
+
+    .line 624
+    new-instance v13, Lorg/rajawali3d/Object3D;
+
+    invoke-direct {v13}, Lorg/rajawali3d/Object3D;-><init>()V
+
+    .line 629
+    new-instance v3, Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;
+
+    invoke-direct {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;-><init>()V
+
+    .line 630
+    const/4 v2, 0x0
+
+    const/4 v1, 0x0
+
+    .line 633
+    const/4 v0, 0x0
+
+    .line 634
+    new-instance v4, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;
+
+    invoke-direct {v4}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;-><init>()V
+
+    .line 635
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setX(F)V
+
+    .line 636
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setY(F)V
+
+    .line 637
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setZ(F)V
+
+    .line 638
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setE(F)V
+
+    .line 639
+    const/4 v5, 0x0
+
+    invoke-virtual {v4, v5}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setF(F)V
+
+    .line 640
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    const/16 v5, 0x400
+
+    invoke-direct {v14, v5}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    move v8, v1
+
+    move-object v9, v3
+
+    move-object v10, v4
+
+    move v1, v2
+
+    .line 642
+    :cond_0
+    :goto_0
+    invoke-virtual/range {p1 .. p1}, Ljava/io/BufferedInputStream;->available()I
+
+    move-result v2
+
+    if-lez v2, :cond_d
+
+    .line 643
+    invoke-virtual/range {p1 .. p1}, Ljava/io/BufferedInputStream;->read()I
+
+    move-result v2
+
+    int-to-byte v2, v2
+
+    .line 644
+    const/16 v3, 0xa
+
+    if-eq v2, v3, :cond_1
+
+    .line 645
+    int-to-char v2, v2
+
+    invoke-virtual {v14, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    .line 648
+    :cond_1
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 649
+    const/4 v3, 0x0
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v4
+
+    invoke-virtual {v14, v3, v4}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
+
+    .line 652
+    const-string/jumbo v3, ";"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    .line 655
+    const-string/jumbo v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v3
+
+    .line 656
+    if-eqz v3, :cond_0
+
+    array-length v4, v3
+
+    if-eqz v4, :cond_0
+
+    .line 660
+    const/4 v4, 0x0
+
+    :try_start_0
+    aget-object v4, v3, v4
+
+    invoke-static {v4}, Lorg/rajawali3d/loader/LoaderGCode$SupportedCommands;->fromString(Ljava/lang/String;)Lorg/rajawali3d/loader/LoaderGCode$SupportedCommands;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v3
+
+    .line 665
+    sget-object v4, Lorg/rajawali3d/loader/LoaderGCode$1;->$SwitchMap$org$rajawali3d$loader$LoaderGCode$SupportedCommands:[I
+
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$SupportedCommands;->ordinal()I
+
+    move-result v3
+
+    aget v3, v4, v3
+
+    packed-switch v3, :pswitch_data_0
+
+    :cond_2
+    move v2, v1
+
+    move-object v3, v9
+
+    move-object v4, v10
+
+    move v1, v8
+
+    :goto_1
+    move v8, v1
+
+    move-object v9, v3
+
+    move-object v10, v4
+
+    move v1, v2
+
+    .line 747
+    goto :goto_0
+
+    .line 661
+    :catch_0
+    move-exception v2
+
+    .line 662
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "encountered unsupported gcode:"
+
+    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    aget-object v3, v3, v4
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lorg/rajawali3d/util/RajLog;->w(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    .line 667
+    :pswitch_0
+    new-instance v12, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;
+
+    invoke-direct {v12, v2}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;-><init>(Ljava/lang/String;)V
+
+    .line 668
+    invoke-virtual {v12, v10}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setOrigin(Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;)V
+
+    .line 670
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getX()F
+
+    move-result v2
+
+    const/high16 v3, -0x40800000    # -1.0f
+
+    cmpl-float v2, v2, v3
+
+    if-nez v2, :cond_3
+
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getY()F
+
+    move-result v2
+
+    const/high16 v3, -0x40800000    # -1.0f
+
+    cmpl-float v2, v2, v3
+
+    if-nez v2, :cond_3
+
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getZ()F
+
+    move-result v2
+
+    const/high16 v3, -0x40800000    # -1.0f
+
+    cmpl-float v2, v2, v3
+
+    if-eqz v2, :cond_0
+
+    .line 674
+    :cond_3
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getX()F
+
+    move-result v2
+
+    const/high16 v3, -0x40800000    # -1.0f
+
+    cmpl-float v2, v2, v3
+
+    if-nez v2, :cond_7
+
+    const/4 v2, 0x0
+
+    .line 675
+    :goto_2
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getY()F
+
+    move-result v3
+
+    const/high16 v4, -0x40800000    # -1.0f
+
+    cmpl-float v3, v3, v4
+
+    if-nez v3, :cond_8
+
+    const/4 v3, 0x0
+
+    move v4, v3
+
+    .line 676
+    :goto_3
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getZ()F
+
+    move-result v3
+
+    const/high16 v5, -0x40800000    # -1.0f
+
+    cmpl-float v3, v3, v5
+
+    if-eqz v3, :cond_4
+
+    .line 677
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getZ()F
+
+    move-result v1
+
+    .line 678
+    const/4 v3, 0x0
+
+    cmpl-float v3, v2, v3
+
+    if-nez v3, :cond_4
+
+    const/4 v3, 0x0
+
+    cmpl-float v3, v4, v3
+
+    if-eqz v3, :cond_0
+
+    :cond_4
+    move v11, v1
+
+    .line 682
+    invoke-virtual {v9}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;->getPoints()Ljava/util/Stack;
+
+    move-result-object v15
+
+    new-instance v1, Lorg/rajawali3d/math/vector/Vector3;
+
+    float-to-double v2, v2
+
+    float-to-double v4, v4
+
+    float-to-double v6, v11
+
+    invoke-direct/range {v1 .. v7}, Lorg/rajawali3d/math/vector/Vector3;-><init>(DDD)V
+
+    invoke-virtual {v15, v1}, Ljava/util/Stack;->add(Ljava/lang/Object;)Z
+
+    .line 683
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getE()F
+
+    move-result v1
+
+    const/high16 v2, -0x40800000    # -1.0f
+
+    cmpl-float v1, v1, v2
+
+    if-eqz v1, :cond_6
+
+    .line 685
+    if-eqz v0, :cond_9
+
+    .line 686
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getE()F
+
+    move-result v1
+
+    invoke-virtual {v10}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getE()F
+
+    move-result v2
+
+    sub-float/2addr v1, v2
+
+    .line 693
+    :cond_5
+    :goto_4
+    const/4 v2, 0x0
+
+    cmpl-float v1, v1, v2
+
+    if-lez v1, :cond_6
+
+    .line 696
+    cmpl-float v1, v11, v8
+
+    if-lez v1, :cond_6
+
+    .line 698
+    new-instance v1, Lorg/rajawali3d/primitives/Line3D;
+
+    invoke-virtual {v9}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;->getPoints()Ljava/util/Stack;
+
+    move-result-object v2
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    const/16 v4, 0xff
+
+    const/16 v5, 0x55
+
+    const/16 v6, 0x11
+
+    const/16 v7, 0xef
+
+    invoke-static {v4, v5, v6, v7}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v4
+
+    invoke-direct {v1, v2, v3, v4}, Lorg/rajawali3d/primitives/Line3D;-><init>(Ljava/util/Stack;FI)V
+
+    invoke-virtual {v13, v1}, Lorg/rajawali3d/Object3D;->addChild(Lorg/rajawali3d/Object3D;)V
+
+    .line 699
+    new-instance v9, Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;
+
+    invoke-direct {v9}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLayer;-><init>()V
+
+    move v8, v11
+
+    :cond_6
+    move v1, v8
+
+    move v2, v11
+
+    move-object v3, v9
+
+    move-object v4, v12
+
+    .line 704
+    goto/16 :goto_1
+
+    .line 674
+    :cond_7
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getX()F
+
+    move-result v2
+
+    goto :goto_2
+
+    .line 675
+    :cond_8
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getY()F
+
+    move-result v3
+
+    move v4, v3
+
+    goto :goto_3
+
+    .line 688
+    :cond_9
+    invoke-virtual {v12}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getE()F
+
+    move-result v1
+
+    .line 689
+    const/high16 v2, -0x40800000    # -1.0f
+
+    cmpl-float v2, v1, v2
+
+    if-nez v2, :cond_5
+
+    .line 690
+    const/4 v1, 0x0
+
+    goto :goto_4
+
+    :pswitch_1
+    move v2, v1
+
+    move-object v3, v9
+
+    move-object v4, v10
+
+    move v1, v8
+
+    .line 709
+    goto/16 :goto_1
+
+    .line 713
+    :pswitch_2
+    const/4 v0, 0x0
+
+    move v2, v1
+
+    move-object v3, v9
+
+    move-object v4, v10
+
+    move v1, v8
+
+    .line 714
+    goto/16 :goto_1
+
+    .line 718
+    :pswitch_3
+    const/4 v0, 0x1
+
+    move v2, v1
+
+    move-object v3, v9
+
+    move-object v4, v10
+
+    move v1, v8
+
+    .line 719
+    goto/16 :goto_1
+
+    .line 723
+    :pswitch_4
+    new-instance v3, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;
+
+    invoke-direct {v3, v2}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;-><init>(Ljava/lang/String;)V
+
+    .line 724
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getX()F
+
+    move-result v2
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    cmpl-float v2, v2, v4
+
+    if-eqz v2, :cond_a
+
+    .line 725
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getX()F
+
+    move-result v2
+
+    invoke-virtual {v10, v2}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setX(F)V
+
+    .line 727
+    :cond_a
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getY()F
+
+    move-result v2
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    cmpl-float v2, v2, v4
+
+    if-eqz v2, :cond_b
+
+    .line 728
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getY()F
+
+    move-result v2
+
+    invoke-virtual {v10, v2}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setY(F)V
+
+    .line 730
+    :cond_b
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getZ()F
+
+    move-result v2
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    cmpl-float v2, v2, v4
+
+    if-eqz v2, :cond_c
+
+    .line 731
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getZ()F
+
+    move-result v2
+
+    invoke-virtual {v10, v2}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setZ(F)V
+
+    .line 733
+    :cond_c
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getE()F
+
+    move-result v2
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    cmpl-float v2, v2, v4
+
+    if-eqz v2, :cond_2
+
+    .line 734
+    invoke-virtual {v3}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->getE()F
+
+    move-result v2
+
+    invoke-virtual {v10, v2}, Lorg/rajawali3d/loader/LoaderGCode$GCodeLine;->setE(F)V
+
+    move v2, v1
+
+    move-object v3, v9
+
+    move-object v4, v10
+
+    move v1, v8
+
+    goto/16 :goto_1
+
+    :pswitch_5
+    move v2, v1
+
+    move-object v3, v9
+
+    move-object v4, v10
+
+    move v1, v8
+
+    .line 739
+    goto/16 :goto_1
+
+    .line 748
+    :cond_d
+    return-object v13
+
+    .line 665
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+    .end packed-switch
+.end method
+
+.method protected readSkeinforgeComments(Ljava/io/BufferedInputStream;)Ljava/util/HashMap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/io/BufferedInputStream;",
+            ")",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    .line 614
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    return-object v0
+.end method
+
+.method protected readSlic3rComments(Ljava/io/BufferedInputStream;)Ljava/util/HashMap;
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/io/BufferedInputStream;",
+            ")",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/io/IOException;
+        }
+    .end annotation
+
+    .prologue
+    const/16 v7, 0x1000
+
+    const/4 v1, 0x0
+
+    .line 577
+    invoke-virtual {p1, v7}, Ljava/io/BufferedInputStream;->mark(I)V
+
+    .line 578
+    new-instance v3, Ljava/util/HashMap;
+
+    invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
+
+    .line 580
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    const/16 v0, 0x400
+
+    invoke-direct {v4, v0}, Ljava/lang/StringBuilder;-><init>(I)V
+
+    move v0, v1
+
+    .line 582
+    :cond_0
+    :goto_0
+    invoke-virtual {p1}, Ljava/io/BufferedInputStream;->available()I
+
+    move-result v2
+
+    if-lez v2, :cond_2
+
+    if-ge v0, v7, :cond_2
+
+    .line 583
+    invoke-virtual {p1}, Ljava/io/BufferedInputStream;->read()I
+
+    move-result v2
+
+    int-to-byte v2, v2
+
+    .line 584
+    add-int/lit8 v0, v0, 0x1
+
+    .line 585
+    const/16 v5, 0xa
+
+    if-eq v2, v5, :cond_1
+
+    .line 586
+    int-to-char v2, v2
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    .line 589
+    :cond_1
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 590
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v2
+
+    if-lez v2, :cond_3
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    :goto_1
+    invoke-virtual {v4, v1, v2}, Ljava/lang/StringBuilder;->delete(II)Ljava/lang/StringBuilder;
+
+    .line 592
+    const-string/jumbo v2, ";"
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_4
+
+    .line 603
+    :cond_2
+    invoke-virtual {p1}, Ljava/io/BufferedInputStream;->reset()V
+
+    .line 604
+    return-object v3
+
+    :cond_3
+    move v2, v1
+
+    .line 590
+    goto :goto_1
+
+    .line 595
+    :cond_4
+    const-string/jumbo v2, "="
+
+    invoke-virtual {v5, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 596
+    array-length v5, v2
+
+    const/4 v6, 0x2
+
+    if-lt v5, v6, :cond_0
+
+    .line 599
+    aget-object v5, v2, v1
+
+    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v5
+
+    .line 600
+    const/4 v6, 0x1
+
+    aget-object v2, v2, v6
+
+    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v2
+
+    .line 601
+    invoke-virtual {v3, v5, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_0
+.end method
+
+.method public setMetaData(Ljava/util/HashMap;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/HashMap",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+
+    .prologue
+    .line 509
+    iput-object p1, p0, Lorg/rajawali3d/loader/LoaderGCode;->metaData:Ljava/util/HashMap;
+
+    .line 510
+    return-void
+.end method
