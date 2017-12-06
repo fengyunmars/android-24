@@ -24,7 +24,7 @@ import android.view.ViewGroup;
 
 /**
  * A MenuPresenter is responsible for building views for a Menu object.
- * It takes over some responsibility from the old style monolithic MenuBuilder class.
+ * It takes over 接管 some responsibility from the old style monolithic 整体的 MenuBuilder class.
  */
 public interface MenuPresenter {
     /**

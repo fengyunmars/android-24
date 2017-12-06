@@ -71,13 +71,13 @@ import java.util.List;
  * <ul>
  *     <li><em>A navigation button.</em> This may be an Up arrow, navigation menu toggle, close,
  *     collapse, done or another glyph 字形；图象字符；纵沟纹 of the app's choosing. This button should always be used
- *     to access other navigational destinations within the container of the Toolbar and
- *     its signified content or otherwise leave the current context signified by the Toolbar.
+ *     to access other navigational destinations 目的地，终点；抵达站 within the container of the Toolbar and
+ *     its signified  表明 content or otherwise leave the current context signified by the Toolbar.
  *     The navigation button is vertically aligned within the Toolbar's
  *     {@link android.R.styleable#View_minHeight minimum height}, if set.</li>
- *     <li><em>A branded logo image.</em> This may extend to the height of the bar and can be
+ *     <li><em>A branded 名牌商标的 logo image.</em> This may extend to the height of the bar and can be
  *     arbitrarily wide.</li>
- *     <li><em>A title and subtitle.</em> The title should be a signpost for the Toolbar's current
+ *     <li><em>A title and subtitle.</em> The title should be a signpost  路标；指示牌 for the Toolbar's current
  *     position in the navigation hierarchy and the content contained there. The subtitle,
  *     if present should indicate any extended information about the current content.
  *     If an app uses a logo image it should strongly consider omitting a title and subtitle.</li>

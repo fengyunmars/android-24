@@ -39,15 +39,16 @@ import com.android.internal.view.menu.MenuView;
 
 /**
  * ActionMenuView is a presentation of a series of menu options as a View. It provides
- * several top level options as action buttons while spilling remaining options over as
+ * several top level options as action buttons while spilling 溢出物；散落 remaining options over as
  * items in an overflow menu. This allows applications to present packs of actions inline with
  * specific or repeating content.
  */
 public class ActionMenuView extends LinearLayout implements MenuBuilder.ItemInvoker, MenuView {
+
     private static final String TAG = "ActionMenuView";
     
     static final int MIN_CELL_SIZE = 56; // dips
-    static final int GENERATED_ITEM_PADDING = 4; // dips
+    static final int GENERATED_ITEM_PADDING = 4; // generated dips
 
     private MenuBuilder mMenu;
 
