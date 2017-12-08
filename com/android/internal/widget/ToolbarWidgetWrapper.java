@@ -56,6 +56,7 @@ import com.android.internal.view.menu.MenuPresenter;
  * @hide
  */
 public class ToolbarWidgetWrapper implements DecorToolbar {
+    
     private static final String TAG = "ToolbarWidgetWrapper";
 
     private static final int AFFECTS_LOGO_MASK =
@@ -99,6 +100,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         mSubtitle = toolbar.getSubtitle();
         mTitleSet = mTitle != null;
         mNavIcon = mToolbar.getNavigationIcon();
+        // TODO: 2017/12/8  
         final TypedArray a = toolbar.getContext().obtainStyledAttributes(null,
                 R.styleable.ActionBar, R.attr.actionBarStyle, 0);
         mDefaultNavigationIcon = a.getDrawable(R.styleable.ActionBar_homeAsUpIndicator);
@@ -239,7 +241,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
 
     @Override
     public void setWindowTitle(CharSequence title) {
-        // "Real" title always trumps window title.
+        // "Real" title always trumps 胜过 window title.
         if (!mTitleSet) {
             setTitleInt(title);
         }
@@ -512,6 +514,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
                         lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
                         lp.height = ViewGroup.LayoutParams.WRAP_CONTENT;
                         lp.gravity = Gravity.START | Gravity.BOTTOM;
+                        // TODO: 2017/12/8  
                     }
                     break;
                 default:

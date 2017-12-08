@@ -35,7 +35,7 @@ public abstract class ForwardingListener
     /** Scaled touch slop, used for detecting movement outside bounds. */
     private final float mScaledTouchSlop;
 
-    /** Timeout before disallowing intercept on the source's parent. */
+    /** Timeout before disallowing 驳回 intercept on the source's parent. */
     private final int mTapTimeout;
 
     /** Timeout before accepting a long-press to start forwarding. */
@@ -72,7 +72,7 @@ public abstract class ForwardingListener
      * <p>
      * Override this to return the correct popup. If the popup is displayed
      * asynchronously, you may also need to override
-     * {@link #onForwardingStopped} to prevent premature cancellation of
+     * {@link #onForwardingStopped} to prevent premature 早产的；不成熟的 cancellation 取消；删除 of
      * forwarding.
      *
      * @return the popup to which this listener is forwarding events

@@ -1108,29 +1108,29 @@ public class MenuBuilder implements Menu {
      * The rules are as follows:
      *
      * <p>Items are considered for inclusion 包含；内含物 in the order specified within the menu.
-     * There is a limit of mMaxActionItems as a total count, optionally including the overflow
+     * There is a limit of mMaxActionItems as a total count, optionally 随意地 including the overflow
      * menu button itself. This is a soft limit; if an item shares a group ID with an item
      * previously included as an action item, the new item will stay with its group and become
      * an action item itself even if it breaks the max item count limit. This is done to
-     * limit the conceptual complexity of the items presented within an action bar. Only a few
+     * limit the conceptual complexity 概念上的复杂性 of the items presented within an action bar. Only a few
      * unrelated concepts should be presented to the user in this space, and groups are treated
      * as a single concept.
      *
      * <p>There is also a hard limit of consumed measurable space: mActionWidthLimit. This
      * limit may be broken by a single item that exceeds the remaining space, but no further
      * items may be added. If an item that is part of a group cannot fit within the remaining
-     * measured width, the entire group will be demoted to overflow. This is done to ensure room
-     * for navigation and other affordances in the action bar as well as reduce general UI clutter.
+     * measured width, the entire group will be demoted 降级 to overflow. This is done to ensure room
+     * for navigation and other affordances in the action bar as well as reduce general UI clutter 杂乱 .
      *
      * <p>The space freed by demoting a full group cannot be consumed by future menu items.
      * Once items begin to overflow, all future items become overflow items as well. This is
-     * to avoid inadvertent reordering that may break the app's intended design.
+     * to avoid inadvertent 疏忽的；不注意的 reordering that may break the app's intended design.
      */
     // TODO: 2017/11/21
     @Override
     public void flagActionItems() {
-        // Important side effect: if getVisibleItems is stale it may refresh,
-        // which can affect action items staleness.
+        // Important side effect: if getVisibleItems is stale 陈腐的；不新鲜的 it may refresh,
+        // which can affect action items staleness 腐败；陈腐；不新鲜；泄气 .
         final ArrayList<MenuItemImpl> visibleItems = getVisibleItems();
 
         if (!mIsActionItemsStale) {

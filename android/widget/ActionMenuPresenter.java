@@ -363,6 +363,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
                 ObjectAnimator anim = ObjectAnimator.ofFloat(menuItemLayoutInfoPre.view, View.ALPHA,
                         oldAlpha, 0);
                 // Re-using the view from pre-layout assumes no view recycling
+                // TODO: 2017/12/7  
                 ((ViewGroup) mMenuView).getOverlay().add(menuItemLayoutInfoPre.view);
                 anim.setDuration(ITEM_ANIMATION_DURATION);
                 anim.start();
@@ -421,7 +422,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
     }
 
     /**
-     * Gets position/existence information on menu items before and after layout,
+     * Gets position/existence 存在 information on menu items before and after layout,
      * which is then fed into runItemAnimations()
      */
     private void setupItemAnimations() {
@@ -616,7 +617,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
     }
 
     /**
-     * @return true if space has been reserved in the action menu for an overflow item.
+     * @return true if space has been reserved 保留的，预订的 in the action menu for an overflow item.
      */
     public boolean isOverflowReserved() {
         return mReserveOverflow;
@@ -658,7 +659,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
             }
         }
 
-        // Reserve a spot for the overflow item if needed.
+        // Reserve 保留 a spot 地点；斑点 for the overflow item if needed.
         if (mReserveOverflow &&
                 (hasOverflow || requiredItems + requestedItems > maxActions)) {
             maxActions--;
@@ -670,6 +671,7 @@ public class ActionMenuPresenter extends BaseMenuPresenter
 
         int cellSize = 0;
         int cellsRemaining = 0;
+        // TODO: 2017/12/8  
         if (mStrictWidthLimit) {
             cellsRemaining = widthLimit / mMinCellSize;
             final int cellSizeRemaining = widthLimit % mMinCellSize;

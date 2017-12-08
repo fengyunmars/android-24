@@ -26,11 +26,12 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 /**
- * Base class for MenuPresenters that have a consistent container view and item
+ * Base class for MenuPresenters that have a consistent 一致的 container view and item
  * views. Behaves similarly to an AdapterView in that existing item views will
  * be reused if possible when items change.
  */
 public abstract class BaseMenuPresenter implements MenuPresenter {
+
     protected Context mSystemContext;
     protected Context mContext;
     protected MenuBuilder mMenu;

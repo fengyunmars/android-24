@@ -2549,14 +2549,14 @@ public abstract class AbsListView extends AdapterView<ListAdapter> implements Te
     }
 
     /**
-     * Positions the selector in a way that mimics touch.
+     * Positions the selector in a way that mimics 软件 模仿 touch.
      */
     void positionSelectorLikeTouch(int position, View sel, float x, float y) {
         positionSelector(position, sel, true, x, y);
     }
 
     /**
-     * Positions the selector in a way that mimics keyboard focus.
+     * Positions the selector in a way that mimics 软件 模仿 keyboard focus.
      */
     void positionSelectorLikeFocus(int position, View sel) {
         if (mSelector != null && mSelectorPosition != position && position != INVALID_POSITION) {

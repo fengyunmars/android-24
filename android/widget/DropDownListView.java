@@ -200,7 +200,7 @@ public class DropDownListView extends ListView {
                 final View child = getChildAt(position - getFirstVisiblePosition());
                 setPressedItem(child, position, x, y);
                 handledEvent = true;
-
+                // TODO: 2017/12/8  
                 if (actionMasked == MotionEvent.ACTION_UP) {
                     final long id = getItemIdAtPosition(position);
                     performItemClick(child, position, id);
@@ -252,19 +252,19 @@ public class DropDownListView extends ListView {
     private void setPressedItem(@NonNull View child, int position, float x, float y) {
         mDrawsInPressedState = true;
 
-        // Ordering is essential. First, update the container's pressed state.
+        // Ordering is essential 必不可少 必需 . First, update the container's pressed state.
         drawableHotspotChanged(x, y);
         if (!isPressed()) {
             setPressed(true);
         }
 
-        // Next, run layout if we need to stabilize child positions.
+        // Next, run layout if we need to stabilize  使稳固，使安定 child positions.
         if (mDataChanged) {
             layoutChildren();
         }
 
         // Manage the pressed view based on motion position. This allows us to
-        // play nicely with actual touch and scroll events.
+        // play nicely 漂亮地；恰好地；精细地 with actual touch and scroll events.
         final View motionView = getChildAt(mMotionPosition - mFirstPosition);
         if (motionView != null && motionView != child && motionView.isPressed()) {
             motionView.setPressed(false);
