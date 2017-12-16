@@ -49,7 +49,7 @@ public class GestureDetector {
         /**
          * Notified when a tap occurs with the down {@link MotionEvent}
          * that triggered it. This will be triggered immediately for
-         * every down event. All other events should be preceded by this.
+         * every down event. All other events should be preceded 领先，在…之前；优于，高于 by this.
          *
          * @param e The down motion event.
          */
@@ -59,7 +59,7 @@ public class GestureDetector {
          * The user has performed a down {@link MotionEvent} and not performed
          * a move or up yet. This event is commonly used to provide visual
          * feedback to the user to let them know that their action has been
-         * recognized i.e. highlight an element.
+         * recognized i.e. highlight 突出；强调；使显著；加亮 an element.
          *
          * @param e The down motion event
          */
@@ -116,7 +116,7 @@ public class GestureDetector {
     }
 
     /**
-     * The listener that is used to notify when a double-tap or a confirmed
+     * The listener that is used to notify when a double-tap or a confirmed 确认的
      * single-tap occur.
      */
     public interface OnDoubleTapListener {
@@ -124,7 +124,7 @@ public class GestureDetector {
          * Notified when a single-tap occurs.
          * <p>
          * Unlike {@link OnGestureListener#onSingleTapUp(MotionEvent)}, this
-         * will only be called after the detector is confident that the user's
+         * will only be called after the detector is confident 自信的；确信的 that the user's
          * first tap is not followed by a second tap leading to a double-tap
          * gesture.
          *
@@ -175,42 +175,45 @@ public class GestureDetector {
     public static class SimpleOnGestureListener implements OnGestureListener, OnDoubleTapListener,
             OnContextClickListener {
 
+        @Override
         public boolean onSingleTapUp(MotionEvent e) {
             return false;
         }
 
+        @Override
         public void onLongPress(MotionEvent e) {
         }
-
+        @Override
         public boolean onScroll(MotionEvent e1, MotionEvent e2,
                 float distanceX, float distanceY) {
             return false;
         }
-
+        @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
                 float velocityY) {
             return false;
         }
-
+        @Override
         public void onShowPress(MotionEvent e) {
         }
-
+        @Override
         public boolean onDown(MotionEvent e) {
             return false;
         }
 
+        @Override
         public boolean onDoubleTap(MotionEvent e) {
             return false;
         }
-
+        @Override
         public boolean onDoubleTapEvent(MotionEvent e) {
             return false;
         }
-
+        @Override
         public boolean onSingleTapConfirmed(MotionEvent e) {
             return false;
         }
-
+        @Override
         public boolean onContextClick(MotionEvent e) {
             return false;
         }
@@ -267,7 +270,7 @@ public class GestureDetector {
     private VelocityTracker mVelocityTracker;
 
     /**
-     * Consistency verifier for debugging purposes.
+     * Consistency 一致性 verifier 检验者 for debugging purposes.
      */
     private final InputEventConsistencyVerifier mInputEventConsistencyVerifier =
             InputEventConsistencyVerifier.isInstrumentationEnabled() ?
@@ -312,7 +315,7 @@ public class GestureDetector {
 
     /**
      * Creates a GestureDetector with the supplied listener.
-     * This variant of the constructor should be used from a non-UI thread 
+     * This variant 变种 of the constructor should be used from a non-UI thread
      * (as it allows specifying the Handler).
      * 
      * @param listener the listener invoked for all the callbacks, this must
@@ -415,7 +418,7 @@ public class GestureDetector {
         }
         mIsLongpressEnabled = true;
 
-        // Fallback to support pre-donuts releases
+        // Fallback to support pre-donuts 甜甜圈 api = 4 September 2009: Android 1.6. releases
         int touchSlop, doubleTapSlop, doubleTapTouchSlop;
         if (context == null) {
             //noinspection deprecation
@@ -529,8 +532,8 @@ public class GestureDetector {
             mDownFocusX = mLastFocusX = focusX;
             mDownFocusY = mLastFocusY = focusY;
 
-            // Check the dot product of current velocities.
-            // If the pointer that left was opposing another velocity vector, clear.
+            // Check the dot product 数量积 点积 点乘积 of current velocities.
+            // If the pointer that left was opposing 对立的 反对的 对面的 another velocity vector, clear.
             mVelocityTracker.computeCurrentVelocity(1000, mMaximumFlingVelocity);
             final int upIndex = ev.getActionIndex();
             final int id1 = ev.getPointerId(upIndex);
@@ -554,7 +557,8 @@ public class GestureDetector {
         case MotionEvent.ACTION_DOWN:
             if (mDoubleTapListener != null) {
                 boolean hadTapMessage = mHandler.hasMessages(TAP);
-                if (hadTapMessage) mHandler.removeMessages(TAP);
+                if (hadTapMessage)
+                    mHandler.removeMessages(TAP);
                 if ((mCurrentDownEvent != null) && (mPreviousUpEvent != null) && hadTapMessage &&
                         isConsideredDoubleTap(mCurrentDownEvent, mPreviousUpEvent, ev)) {
                     // This is a second tap
@@ -629,6 +633,7 @@ public class GestureDetector {
                 // Finally, give the up event of the double-tap
                 handled |= mDoubleTapListener.onDoubleTapEvent(ev);
             } else if (mInLongPress) {
+                // TODO: 2017/12/16  
                 mHandler.removeMessages(TAP);
                 mInLongPress = false;
             } else if (mAlwaysInTapRegion && !mIgnoreNextUpEvent) {
