@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/navibar" android:background="@color/navi_bar_bg" android:layout_alignParentTop="true" style="@style/CommonNaviBar" />
-    <include android:id="@id/comment_footer" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_alignParentBottom="true" layout="@layout/layout_news_comment" />
-    <WebView android:id="@id/webview" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/comment_footer" android:layout_below="@id/navibar" />
-    <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/comment_footer" android:layout_below="@id/navibar" />
-</RelativeLayout>

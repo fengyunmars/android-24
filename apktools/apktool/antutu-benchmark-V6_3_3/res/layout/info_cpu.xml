@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="14.0sp" android:textStyle="bold" android:textColor="@color/device_info_left_name" android:id="@id/core_txt" android:padding="10.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/core_detail" android:layout_alignParentLeft="true" android:layout_centerVertical="true" />
-    <Button android:textSize="12.0sp" android:textColor="@color/device_info_right_data" android:id="@id/btn_core_detail" android:layout_width="90.0dip" android:layout_height="29.0dip" android:layout_marginRight="10.0dip" android:text="@string/More" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/btn_text" />
-</RelativeLayout>

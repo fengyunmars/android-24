@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="14.0dip" android:textColor="#ff1f1f1f" android:ellipsize="none" android:gravity="center" android:id="@id/category_textview" android:background="@drawable/newssdk_news_channel_edit_bg" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_marginTop="2.0dip" android:layout_marginRight="2.0dip" android:singleLine="true" android:layout_alignParentBottom="true" />
-    <ImageView android:id="@id/category_close" android:visibility="gone" android:layout_width="16.0dip" android:layout_height="16.0dip" android:src="@drawable/newssdk_icon_close_news_channel" android:scaleType="fitXY" android:layout_alignParentRight="true" />
-    <ImageView android:id="@id/iv_channel_reddot" android:visibility="gone" android:layout_width="4.0dip" android:layout_height="4.0dip" android:layout_marginTop="2.0dip" android:layout_marginRight="2.0dip" android:src="@drawable/newssdk_channel_red_dot" android:layout_alignParentRight="true" />
-</RelativeLayout>

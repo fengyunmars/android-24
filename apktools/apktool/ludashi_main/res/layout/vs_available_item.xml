@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:background="@android:color/white" android:layout_width="fill_parent" android:layout_height="90.0dip">
-        <ImageView android:id="@id/vs_not_selected" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:src="@drawable/vs_checkbox_not_selected" android:contentDescription="@null" />
-        <ImageView android:id="@id/vs_phone_img" android:layout_width="90.0dip" android:layout_height="90.0dip" android:layout_marginLeft="25.0dip" android:src="@drawable/phone_normal" android:scaleType="fitCenter" android:contentDescription="@null" />
-        <TextView android:textSize="15.0sp" android:textColor="#ff303030" android:ellipsize="end" android:id="@id/vs_phone_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:singleLine="true" />
-    </LinearLayout>
-</LinearLayout>

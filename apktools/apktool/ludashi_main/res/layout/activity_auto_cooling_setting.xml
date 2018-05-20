@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/navi_bar" android:background="@color/new_title_bg_color" custom:TitleText="@string/cooling_auto_condition" style="@style/CommonNaviBar" />
-    <ListView android:id="@id/lv_list" android:layout_width="fill_parent" android:layout_height="wrap_content" android:listSelector="@null" android:divider="#ffdfdfdf" android:dividerHeight="1.0px" />
-    <View android:background="#ffdfdfdf" android:layout_width="fill_parent" android:layout_height="1.0px" />
-</LinearLayout>

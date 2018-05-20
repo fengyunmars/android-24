@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@id/title_parent" android:layout_width="fill_parent" android:layout_height="36.0dip" android:layout_marginLeft="@dimen/cantiner_padding_left" android:layout_marginTop="7.0dip" android:layout_marginRight="@dimen/cantiner_padding_right">
-        <ImageView android:id="@id/container_news_19_title_parent_image" android:background="@drawable/newssdk_icon_add_zhongmei" android:layout_width="16.0dip" android:layout_height="16.0dip" android:scaleType="centerCrop" />
-        <TextView android:textSize="15.0dip" android:textColor="@color/common_font_color_5" android:ellipsize="end" android:id="@id/container_news_19_title_parent_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:text="@string/add_zhongmei" android:singleLine="true" />
-    </LinearLayout>
-</merge>

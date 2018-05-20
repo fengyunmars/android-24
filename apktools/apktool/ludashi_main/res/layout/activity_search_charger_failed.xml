@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:background="@drawable/c_charger_bg_blue" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" custom:buttonCount="Two" custom:RightButtonIsImage="false" custom:RightButtonText="@string/to_know_charger" custom:RightButtonBackground="@android:color/transparent" custom:TitleText="@string/charger" style="@style/CommonNaviBar" />
-    <TextView android:textSize="@dimen/charge_page_title_text_big" android:textColor="@android:color/white" android:gravity="center" android:id="@id/tv_tip2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="90.0dip" android:text="@string/tip_charger_not_found" android:layout_centerHorizontal="true" />
-    <ImageView android:id="@id/iv_hat" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="78.0dip" android:src="@drawable/c_icon_not_found" android:scaleType="fitCenter" android:layout_below="@id/tv_tip2" android:layout_centerHorizontal="true" android:contentDescription="@null" />
-    <Button android:id="@id/btn_re_search" android:text="@string/re_search_charger" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" style="@style/chargeButtonAlpha" />
-    <TextView android:id="@id/tv_tip3" android:text="@string/tip_charger_not_found_reason" android:layout_alignTop="@id/btn_re_search" android:layout_centerHorizontal="true" style="@style/chargePageBottomText" />
-</RelativeLayout>

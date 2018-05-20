@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/rl_layout_img_code" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@id/sso_accounts_tv_invisibility" android:layout_marginRight="@dimen/sso_accounts_margin_right_forget_pwd" android:text="@string/sso_accounts_invisible" android:layout_alignParentRight="true" android:layout_centerVertical="true" style="@style/Account_TextView_Actionable" />
-    <ImageView android:id="@id/sso_accounts_img_code" android:layout_marginRight="5.0dip" android:layout_toLeftOf="@id/sso_accounts_tv_invisibility" android:layout_alignParentRight="false" style="@style/Account_Image_Code" />
-    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_img_code" android:hint="@string/sso_accounts_input_img_code" android:drawableLeft="@drawable/sso_accounts_ic_img_code" android:layout_toLeftOf="@id/sso_accounts_img_code" style="@style/Account_EditView_Login" />
-    <View android:layout_below="@id/sso_accounts_et_img_code" style="@style/Account_Divider" />
-</RelativeLayout>

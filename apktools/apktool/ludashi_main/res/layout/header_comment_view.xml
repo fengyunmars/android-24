@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <View android:background="@drawable/comment_header_item_bg" android:layout_width="fill_parent" android:layout_height="40.0dip" />
-    </FrameLayout>
-    <TextView android:textSize="14.0sp" android:textColor="@color/white" android:gravity="center" android:layout_gravity="bottom|center|left" android:id="@id/tv_header" android:background="@drawable/comment_header_bg" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:minWidth="65.0dip" android:text="@string/hot_comment_title" />
-</FrameLayout>

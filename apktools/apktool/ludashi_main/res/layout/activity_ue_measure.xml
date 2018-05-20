@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:id="@id/fl_placeholder" android:layout_width="fill_parent" android:layout_height="fill_parent" />
-    <include layout="@layout/gesture_measure_mergeview" />
-    <View android:id="@id/center_item" android:focusable="false" android:focusableInTouchMode="false" android:clickable="false" android:layout_width="1.0dip" android:layout_height="30.0dip" android:layout_centerInParent="true" />
-    <TextView android:textSize="12.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/tv_counter" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_above="@id/center_item" android:layout_centerHorizontal="true" />
-</RelativeLayout>

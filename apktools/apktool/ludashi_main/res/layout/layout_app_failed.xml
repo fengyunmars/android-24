@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/ll_app_failed_wrapper" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/lucky_money_icon_failed" />
-    <TextView android:textSize="15.0dip" android:textColor="#ffeb2617" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="20.0dip" android:layout_marginBottom="10.0dip" android:text="@string/get_lucky_money_failed" />
-    <TextView android:textSize="15.0dip" android:textColor="#ffa71114" android:gravity="center" android:id="@id/tv_refresh" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/click_to_refresh" />
-</LinearLayout>

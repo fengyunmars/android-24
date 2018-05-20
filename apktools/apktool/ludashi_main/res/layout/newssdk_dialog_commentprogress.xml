@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:background="@color/transparent" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <FrameLayout android:layout_gravity="center" android:background="@drawable/newssdk_rect_black" android:layout_width="64.0dip" android:layout_height="32.0dip">
-        <ProgressBar android:layout_gravity="center" android:id="@id/progress" android:layout_width="30.0dip" android:layout_height="30.0dip" android:indeterminate="true" android:progressDrawable="@drawable/newssdk_comment_progresslayer" />
-    </FrameLayout>
-</FrameLayout>

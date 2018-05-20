@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@color/dualspace_bg" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/navi" android:background="#ff2a3041" app:buttonCount="Two" app:RightButtonIsImage="false" app:RightButtonText="@string/add_to_launcher" app:RightButtonBackground="@drawable/btn_round_rect_cyan" app:TitleText="@string/virtualapp" style="@style/CommonNaviBar" />
-    <FrameLayout android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <include android:id="@id/error" layout="@layout/launch_error" />
-        <include android:id="@id/launching" layout="@layout/layout_launching" />
-    </FrameLayout>
-</LinearLayout>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="32.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:layout_gravity="center" android:id="@id/iconBench" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" android:src="@android:drawable/btn_star" />
-    <ProgressBar android:layout_gravity="center" android:id="@id/Progress" android:visibility="gone" android:layout_width="24.0dip" android:layout_height="24.0dip" />
-    <TextView android:textSize="12.0dip" android:textColor="#ffffffff" android:gravity="center|left" android:id="@id/txtName" android:layout_width="0.0dip" android:layout_height="32.0dip" android:layout_weight="1.0" />
-    <TextView android:textSize="12.0dip" android:textColor="#ffffffff" android:gravity="center|right" android:id="@id/txtProgress" android:layout_width="wrap_content" android:layout_height="32.0dip" android:layout_marginRight="8.0dip" />
-</LinearLayout>

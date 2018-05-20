@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <View android:id="@id/help_item_line_top" android:background="#ffdedfe0" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_marginTop="10.0dip" />
-    <TextView android:textSize="16.0sp" android:textColor="@color/black" android:gravity="center_vertical" android:id="@id/help_item_content" android:background="@drawable/bg_btn_optimize_item" android:paddingLeft="15.0dip" android:layout_width="fill_parent" android:layout_height="60.0dip" />
-    <View android:id="@id/help_item_line_bottom_one" android:background="#ffdedfe0" android:layout_width="fill_parent" android:layout_height="2.0px" android:layout_marginLeft="10.0dip" android:layout_marginRight="10.0dip" />
-    <View android:id="@id/help_item_line_bottom_tow" android:background="#ffdedfe0" android:layout_width="fill_parent" android:layout_height="1.0px" />
-</LinearLayout>

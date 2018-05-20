@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@id/activity_news_comment" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/navi" android:background="@color/navi_bar_bg" android:layout_alignParentTop="true" app:TitleText="@string/news_comment" style="@style/CommonNaviBar" />
-    <include android:id="@id/comment" layout="@layout/layout_news_comment" />
-    <com.ludashi.benchmark.news.view.NewsListView android:id="@id/comment_list" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:divider="@null" android:layout_above="@id/comment" android:layout_below="@id/navi" />
-    <include android:id="@id/empty" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_above="@id/comment" android:layout_below="@id/navi" layout="@layout/layout_news_comment_empty" />
-    <com.ludashi.benchmark.ui.view.HintView android:id="@id/hint" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/navi" />
-</RelativeLayout>

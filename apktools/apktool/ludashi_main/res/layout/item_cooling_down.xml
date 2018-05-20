@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:orientation="vertical" android:id="@id/iv_app_icon" android:layout_width="34.0dip" android:layout_height="34.0dip" android:layout_centerHorizontal="true" android:layout_centerVertical="true" />
-    <ImageView android:id="@id/iv_state" android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/cool_icon_locked" android:layout_alignTop="@id/iv_app_icon" android:layout_alignRight="@id/iv_app_icon" />
-</RelativeLayout>

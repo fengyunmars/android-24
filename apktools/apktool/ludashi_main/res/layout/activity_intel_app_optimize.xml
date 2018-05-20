@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/naviBar" android:background="@color/ink_color" app:buttonCount="Left" app:TitleText="@string/intel_apps_optimize_title" style="@style/CommonNaviBar" />
-    <View android:id="@id/sep_line" android:background="#66ffffff" android:layout_width="fill_parent" android:layout_height="1.0px" android:layout_below="@id/naviBar" />
-    <FrameLayout android:id="@id/fl_placeholder" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/sep_line" />
-</RelativeLayout>

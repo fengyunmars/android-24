@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center" android:orientation="vertical" android:id="@id/net_error_view" android:clickable="true" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/no_data_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="-36.0dip" android:src="@drawable/newssdk_icon_net_error" />
-    <TextView android:textSize="17.0dip" android:textColor="#ffcccccc" android:id="@id/no_data_txt" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="14.0dip" android:text="@string/apull_net_error_title" />
-</LinearLayout>

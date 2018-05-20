@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="16.0sp" android:textColor="@android:color/black" android:gravity="center_vertical" android:id="@id/desc_tv" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4.0dip" android:text="太好了，我用过最好的手机，甩iphone5好几条街,太好了，我用过最好的手机，甩iphone5好几条街,太好了，我用过最好的手机，甩iphone5好几条街,太好了，我用过最好的手机，甩iphone5好几条街" />
-    <ImageView android:gravity="center" android:layout_gravity="center" android:id="@id/desc_op_tv" android:background="@drawable/ev_more_comment_btn" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="wrap_content" />
-</LinearLayout>

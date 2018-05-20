@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="vertical" android:background="#ff4c6198" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:custom="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/prevent_open_actionbar" custom:buttonCount="Two" style="@style/CommonNaviBar" />
-    <RelativeLayout android:id="@id/prevent_touch_container" android:layout_width="fill_parent" android:layout_height="fill_parent" android:layout_below="@id/prevent_open_actionbar" />
-</RelativeLayout>

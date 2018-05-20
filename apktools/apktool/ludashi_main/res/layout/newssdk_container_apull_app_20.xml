@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <View android:background="#ffe6e6e6" android:layout_width="fill_parent" android:layout_height="1.0px" />
-    <com.qihoo360.newssdk.ui.common.CommonRippleLinearLayout android:orientation="vertical" android:id="@id/root_layout_20" android:padding="16.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
-        <ImageView android:id="@id/app_large_image_20" android:layout_width="fill_parent" android:layout_height="164.0dip" android:src="@color/common_bg_gray3" android:scaleType="centerCrop" />
-    </com.qihoo360.newssdk.ui.common.CommonRippleLinearLayout>
-    <View android:background="#ffe6e6e6" android:layout_width="fill_parent" android:layout_height="1.0px" />
-</LinearLayout>

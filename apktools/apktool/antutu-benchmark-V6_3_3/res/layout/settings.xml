@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:orientation="vertical" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <include android:id="@id/title_layout" layout="@layout/common_title_view" />
-    <com.antutu.benchmark.view.SettingTextAndToggle android:id="@id/stt_auto_update" android:layout_width="fill_parent" android:layout_height="wrap_content" app:stt_title="@string/auto_download_apk" app:subhead="@string/auto_download_on_wifi" />
-    <View android:background="@color/common_view_divider" android:layout_width="fill_parent" android:layout_height="0.5dip" />
-    <com.antutu.benchmark.view.SettingTextAndToggle android:id="@id/stt_push_msg" android:layout_width="fill_parent" android:layout_height="wrap_content" app:stt_title="@string/setting_push_title" app:subhead="@string/setting_push_desc" />
-    <View android:background="@color/common_view_divider" android:layout_width="fill_parent" android:layout_height="0.5dip" />
-</LinearLayout>

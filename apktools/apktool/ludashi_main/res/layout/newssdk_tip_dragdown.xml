@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:background="@drawable/newssdk_dragguid_shadow" android:layout_width="fill_parent" android:layout_height="190.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:layout_gravity="center|top" android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
-        <ImageView android:layout_width="wrap_content" android:layout_height="130.0dip" android:src="@drawable/newssdk_down_imgdetails" android:scaleType="fitXY" />
-        <TextView android:textSize="14.0dip" android:textColor="@color/white" android:layout_gravity="center_vertical" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="下\n滑\n退\n出\n图\n集" />
-    </LinearLayout>
-</FrameLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout android:gravity="center_vertical" android:layout_gravity="center" android:id="@id/copy_acc" android:background="@drawable/comment_item_tips_bg" android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="19.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/copy" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:text="@string/copy" android:layout_weight="1.0" />
-    <TextView android:textSize="19.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/accusation" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:text="@string/accusation" android:layout_weight="1.0" />
-    <TextView android:textSize="19.0sp" android:textColor="@color/white" android:gravity="center" android:id="@id/reply" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginBottom="2.0dip" android:text="@string/reply" android:layout_weight="1.0" />
-</LinearLayout>

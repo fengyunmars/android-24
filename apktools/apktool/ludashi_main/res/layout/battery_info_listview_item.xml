@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/battery_info_appIcon" android:layout_width="40.0dip" android:layout_height="40.0dip" android:layout_marginLeft="15.0dip" android:src="@drawable/ic_launcher" android:scaleType="fitCenter" android:layout_alignParentLeft="true" android:layout_centerVertical="true" android:contentDescription="@null" />
-    <TextView android:textSize="13.0sp" android:textColor="#ffa2a2a2" android:gravity="center" android:id="@id/battery_info_percent" android:paddingRight="12.0dip" android:layout_width="wrap_content" android:layout_height="50.0dip" android:layout_alignParentRight="true" />
-    <TextView android:textSize="13.0sp" android:textColor="#ffa2a2a2" android:ellipsize="end" android:gravity="center_vertical" android:id="@id/battery_info_appName" android:layout_width="wrap_content" android:layout_height="50.0dip" android:layout_marginLeft="20.0dip" android:singleLine="true" android:layout_toLeftOf="@id/battery_info_percent" android:layout_toRightOf="@id/battery_info_appIcon" />
-</RelativeLayout>

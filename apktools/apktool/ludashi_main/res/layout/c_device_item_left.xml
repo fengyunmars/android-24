@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <LinearLayout android:gravity="center_vertical" android:orientation="horizontal" android:id="@id/ll_charger_item" android:background="@drawable/c_charger_item_bg" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginLeft="28.0dip" android:layout_marginRight="58.0dip" android:minHeight="55.0dip">
-        <ImageView android:id="@id/iv_icon" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="25.0dip" android:src="@drawable/c_charger_item_icon1" android:scaleType="fitCenter" android:contentDescription="@null" />
-        <TextView android:textSize="16.0sp" android:textColor="@android:color/white" android:gravity="center|left" android:id="@id/tv_name" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_marginLeft="6.0dip" android:layout_marginRight="6.0dip" android:layout_weight="1.0" />
-        <ImageView android:id="@id/iv_signal" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginRight="25.0dip" android:src="@drawable/c_charger_signal" android:scaleType="fitCenter" android:contentDescription="@null" />
-    </LinearLayout>
-</FrameLayout>

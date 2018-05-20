@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="app_download_name_width">184.0dip</dimen>
-    <dimen name="charge_poster_margin_right">20.0dip</dimen>
-    <dimen name="charge_poster_width">60.0dip</dimen>
-    <dimen name="find_rank_list_dot_top_margin">14.0dip</dimen>
-</resources>

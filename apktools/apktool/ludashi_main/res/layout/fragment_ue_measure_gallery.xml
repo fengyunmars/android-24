@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
-    <com.ludashi.benchmark.ui.view.NaviBar android:id="@id/ue_navibar" android:background="@color/ue_banner_color" android:layout_width="fill_parent" app:buttonCount="Left" app:RightButtonText="@string/cancel_ue_measure" app:RightButtonBackground="@drawable/ue_btn_cancel" app:TitleText="@string/ue_photo" style="@style/CommonNaviBar" />
-    <GridView android:gravity="center" android:id="@id/gv_gallery" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="fill_parent" android:stretchMode="columnWidth" android:numColumns="3" android:layout_below="@id/ue_navibar" />
-</RelativeLayout>

@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:orientation="horizontal" android:background="@drawable/qihoo_accounts_country_item_bg" android:padding="@dimen/qihoo_accounts_select_item_padding" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:id="@id/qihoo_accounts_country_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/qihoo_accounts_select_countrys" style="@style/qihoo_accounts_country_item_style" />
-    <TextView android:gravity="right" android:id="@id/qihoo_accounts_country_code" android:padding="0.0dip" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentRight="true" style="@style/qihoo_accounts_country_item_style" />
-</RelativeLayout>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center_vertical" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageView android:id="@id/app_info_comment_score_img" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerVertical="true" />
-    <ProgressBar android:id="@id/app_info_comment_score_pg" android:background="#ffeaf0f0" android:layout_width="wrap_content" android:layout_height="4.0dip" android:layout_marginLeft="5.0dip" android:max="100" android:progress="50" android:progressDrawable="@drawable/newssdk_appdetail_progress_horizontal_appinfo_score" android:layout_toLeftOf="@id/app_info_comment_score_tv" android:layout_toRightOf="@id/app_info_comment_score_img" android:layout_centerVertical="true" style="@android:style/Widget.ProgressBar.Horizontal" />
-    <TextView android:textSize="12.0dip" android:textColor="#ff8d8d8d" android:id="@id/app_info_comment_score_tv" android:layout_width="66.0dip" android:layout_height="wrap_content" android:layout_marginLeft="7.0dip" android:singleLine="true" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
-</RelativeLayout>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="fill_parent"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.ludashi.account.ui.CircleImageView android:id="@id/sso_accounts_img_photo" android:layout_width="95.0dip" android:layout_height="95.0dip" android:layout_marginTop="30.0dip" android:src="@drawable/sso_accounts_ic_default_photo" android:layout_centerHorizontal="true" />
-    <TextView android:textSize="14.0sp" android:textColor="@color/sso_accounts_text_color" android:id="@id/tv_upload_photo" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="10.0dip" android:layout_marginBottom="10.0dip" android:text="@string/sso_accounts_upload_photo" android:layout_below="@id/sso_accounts_img_photo" android:layout_centerHorizontal="true" />
-    <com.ludashi.account.ui.ClearEditText android:id="@id/sso_accounts_et_nickname" android:hint="@string/sso_accounts_nickname" android:maxLength="45" android:drawableLeft="@drawable/sso_accounts_ic_username" android:layout_below="@id/tv_upload_photo" android:inputType="text" style="@style/Account_EditView_Login" />
-    <View android:id="@id/divider1" android:layout_below="@id/sso_accounts_et_nickname" style="@style/Account_Divider" />
-    <Button android:id="@id/sso_accounts_btn_confirm" android:layout_marginLeft="@dimen/sso_accounts_margin_left" android:layout_marginTop="25.0dip" android:layout_marginRight="@dimen/sso_accounts_margin_right" android:text="@string/sso_accounts_confirm" android:layout_below="@id/divider1" style="@style/Account_Button_Highlight" />
-</RelativeLayout>

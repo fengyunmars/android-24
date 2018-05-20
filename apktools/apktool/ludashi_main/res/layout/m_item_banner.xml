@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:gravity="center" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <ImageButton android:id="@id/iv_bg" android:background="@color/white" android:layout_width="fill_parent" android:layout_height="wrap_content" android:src="@drawable/default_banner_ads" android:scaleType="fitXY" android:contentDescription="@null" />
-    <TextView android:textSize="9.0sp" android:textColor="#ffffffff" android:gravity="center" android:background="@drawable/btn_round_ads" android:layout_width="24.0dip" android:layout_height="12.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="4.0dip" android:text="@string/ad_text" android:layout_alignBottom="@id/iv_bg" android:layout_alignParentRight="true" />
-</RelativeLayout>

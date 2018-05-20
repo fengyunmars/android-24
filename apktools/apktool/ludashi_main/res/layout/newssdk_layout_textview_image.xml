@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merge android:layout_width="wrap_content" android:layout_height="wrap_content"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <com.qihoo360.newssdk.ui.common.ColorTextView android:textSize="@dimen/news_portal_title_bar_text" android:textColor="#ff2c2c2c" android:gravity="center" android:layout_gravity="center" android:id="@id/ctv_scroll_title" android:layout_width="wrap_content" android:layout_height="fill_parent" />
-    <ImageView android:id="@id/iv_scroll_title_reddot" android:visibility="gone" android:layout_width="4.0dip" android:layout_height="4.0dip" android:layout_marginLeft="2.0dip" android:layout_marginTop="10.0dip" android:src="@drawable/newssdk_channel_red_dot" android:layout_toRightOf="@id/ctv_scroll_title" />
-</merge>

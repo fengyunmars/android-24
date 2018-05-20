@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_width="fill_parent" android:layout_height="30.0dip"
-  xmlns:android="http://schemas.android.com/apk/res/android">
-    <TextView android:textSize="12.0dip" android:textColor="#ff1e1e20" android:gravity="center_vertical" android:id="@id/tv_header_select_city" android:layout_width="wrap_content" android:layout_height="fill_parent" android:text="@string/newssdk_local_select_city" android:drawablePadding="4.0dip" android:layout_centerInParent="true" />
-    <ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:src="@drawable/newssdk_location" android:layout_toRightOf="@id/tv_header_select_city" android:layout_centerVertical="true" />
-    <View android:id="@id/v_header_divider" android:background="#ffe8e8e8" android:layout_width="fill_parent" android:layout_height="0.5dip" android:layout_alignParentBottom="true" />
-</RelativeLayout>
