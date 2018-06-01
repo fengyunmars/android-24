@@ -21,8 +21,8 @@ import android.graphics.Rect;
  * Standard constants and tools for placing an object within a potentially 可能地
  * larger container.
  */
-public class Gravity
-{
+public class Gravity {
+
     /** Constant indicating that no gravity has been set **/
     public static final int NO_GRAVITY = 0x0000;
     

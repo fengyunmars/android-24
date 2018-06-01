@@ -53,7 +53,7 @@ public final class VelocityTracker {
 
     /**
      * Obtains a velocity tracker with the specified strategy.
-     * For testing and comparison purposes only.
+     * For testing and comparison 比较 purposes only.
      *
      * @param strategy The strategy, or null to use the default.
      * @return The velocity tracker.

@@ -18,7 +18,7 @@ package android.graphics;
 
 public class PorterDuff {
 
-    // these value must match their native equivalents. See SkXfermode.h
+    // these value must match their native equivalents 当量 . See SkXfermode.h
     public enum Mode {
         /** [0, 0] */
         CLEAR       (0),

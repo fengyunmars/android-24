@@ -1051,7 +1051,7 @@ public abstract class Drawable {
     }
 
     /**
-     * Return in padding the insets suggested by this Drawable for placing
+     * Return in padding the insets suggested 建议 提出的 便利贴 by this Drawable for placing
      * content inside the drawable's bounds. Positive values move toward the
      * center of the Drawable (set Rect.inset).
      *

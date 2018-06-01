@@ -34,17 +34,18 @@ import libcore.util.EmptyArray;
  * that may contain large numbers of items.  It is generally slower than a traditional
  * HashMap, since lookups require a binary search and adds and removes require inserting
  * and deleting entries in the array.  For containers holding up to hundreds of items,
- * the performance difference is not significant, less than 50%.</p>
+ * the performance difference is not significant 重要的 有意义的 重大的 , less than 50%.</p>
  *
  * <p>It is possible to iterate over the items in this container using
  * {@link #keyAt(int)} and {@link #valueAt(int)}. Iterating over the keys using
- * <code>keyAt(int)</code> with ascending values of the index will return the
+ * <code>keyAt(int)</code> with ascending 上行 递增 上升 values of the index will return the
  * keys in ascending order, or the values corresponding to the keys in ascending
  * order in the case of <code>valueAt(int)</code>.</p>
  *
  * @hide
  */
 public class LongSparseLongArray implements Cloneable {
+
     private long[] mKeys;
     private long[] mValues;
     private int mSize;

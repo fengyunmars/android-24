@@ -30,8 +30,8 @@ import com.android.internal.R;
  *
  * Utils dealing with state sets.
  *
- * In theory we could encapsulate the state set and state spec arrays
- * and not have static methods here but there is some concern about
+ * In theory 理论上 we could encapsulate 封装 the state set and state spec arrays
+ * and not have static methods here but there is some concern 关系；关心 about
  * performance since these methods are called during view drawing.
  */
 
@@ -52,11 +52,17 @@ public class StateSet {
     public static final int VIEW_STATE_ENABLED = 1 << 3;
     /** @hide */
     public static final int VIEW_STATE_PRESSED = 1 << 4;
-    /** @hide */
+    /**
+     *  活泼的
+     * @hide */
     public static final int VIEW_STATE_ACTIVATED = 1 << 5;
-    /** @hide */
+    /**
+     * 加速的
+     * @hide */
     public static final int VIEW_STATE_ACCELERATED = 1 << 6;
-    /** @hide */
+    /**
+     * 悬停
+     * @hide */
     public static final int VIEW_STATE_HOVERED = 1 << 7;
     /** @hide */
     public static final int VIEW_STATE_DRAG_CAN_ACCEPT = 1 << 8;
@@ -142,7 +148,7 @@ public class StateSet {
      * Return whether the stateSet matches the desired stateSpec.
      *
      * @param stateSpec an array of required (if positive) or
-     *        prohibited (if negative) {@link android.view.View} states.
+     *        prohibited 禁止 (if negative) {@link android.view.View} states.
      * @param stateSet an array of {@link android.view.View} states
      */
     public static boolean stateSetMatches(int[] stateSpec, int[] stateSet) {

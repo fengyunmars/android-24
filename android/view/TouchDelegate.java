@@ -46,18 +46,18 @@ public class TouchDelegate {
     private Rect mBounds;
     
     /**
-     * mBounds inflated to include some slop. This rect is to track whether the motion events
+     * mBounds inflated to include some slop 溢出，使溅出 . This rect is to track whether the motion events
      * should be considered to be be within the delegate view.
      */
     private Rect mSlopBounds;
     
     /**
-     * True if the delegate had been targeted on a down event (intersected mBounds).
+     * True if the delegate had been targeted 针对性 目标点 定向的 on a down event (intersected 分割的 mBounds).
      */
     private boolean mDelegateTargeted;
 
     /**
-     * The touchable region of the View extends above its actual extent.
+     * The touchable region of the View extends above its actual extent 程度 范围 .
      */
     public static final int ABOVE = 1;
 

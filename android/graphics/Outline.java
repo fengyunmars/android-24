@@ -25,7 +25,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
 /**
- * Defines a simple shape, used for bounding 边界框 graphical regions.
+ * Defines a simple shape, used for bounding 边界框 graphical regions 区域 地区 面域.
  * <p>
  * Can be computed for a View, or computed by a Drawable, to drive the shape of
  * shadows 阴影 cast by a View, or to clip the contents of the View.
@@ -35,6 +35,8 @@ import java.lang.annotation.RetentionPolicy;
  * @see Drawable#getOutline(Outline)
  */
 public final class Outline {
+
+    // 半径 桡骨 半径
     private static final float RADIUS_UNDEFINED = Float.NEGATIVE_INFINITY;
 
     /** @hide */
@@ -63,7 +65,9 @@ public final class Outline {
 
     /** @hide */
     public final Rect mRect = new Rect();
-    /** @hide */
+    /**
+     * 半径
+     * @hide */
     public float mRadius = RADIUS_UNDEFINED;
     /** @hide */
     public float mAlpha;
@@ -107,7 +111,7 @@ public final class Outline {
 
 
     /**
-     * Returns whether the outline can be used to clip a View.
+     * Returns whether the outline can be used to clip 裁剪 a View.
      * <p>
      * Currently, only Outlines that can be represented as a rectangle, circle,
      * or round rect support clipping.
@@ -128,7 +132,7 @@ public final class Outline {
      * <p>
      * Content producing a fully opaque (alpha = <code>1.0f</code>) outline is
      * assumed by the drawing system to fully cover content beneath 在下面 it,
-     * meaning content beneath may be optimized away.
+     * meaning content beneath 在…之下 may be optimized 最佳化的 away.
      */
     public void setAlpha(@FloatRange(from=0.0, to=1.0) float alpha) {
         mAlpha = alpha;

@@ -126,14 +126,14 @@ public class TypedValue {
     /** {@link #TYPE_DIMENSION} complex unit: Value is in millimeters 毫米 . */
     public static final int COMPLEX_UNIT_MM = 5;
 
-    /** {@link #TYPE_FRACTION} complex unit: A basic fraction of the overall
+    /** {@link #TYPE_FRACTION} complex unit: A basic fraction 分数 of the overall
      *  size. */
     public static final int COMPLEX_UNIT_FRACTION = 0;
 
     /** {@link #TYPE_FRACTION} complex unit: A fraction of the parent size. */
     public static final int COMPLEX_UNIT_FRACTION_PARENT = 1;
 
-    /** Complex data: where the radix 根 基数  information is, telling where the decimal 小数
+    /** Complex data: where the radix 根 基数  information is, telling where the decimal 小数的；十进位的
      *  place appears in the mantissa 尾数 . */
     public static final int COMPLEX_RADIX_SHIFT = 4;
     /** Complex data: mask to extract radix information (after shifting by
@@ -141,7 +141,7 @@ public class TypedValue {
      * representations as defined below. */ 
     public static final int COMPLEX_RADIX_MASK = 0x3;
 
-    /** Complex data: the mantissa is an integral number -- i.e., 0xnnnnnn.0 */
+    /** Complex data: the mantissa 尾数 is an integral number -- i.e., 0xnnnnnn.0 */
     public static final int COMPLEX_RADIX_23p0 = 0;
     /** Complex data: the mantissa magnitude 量级 is 16 bits -- i.e, 0xnnnn.nn */
     public static final int COMPLEX_RADIX_16p7 = 1;
@@ -171,7 +171,7 @@ public class TypedValue {
     /* ------------------------------------------------------------ */
 
     /**
-     * If {@link #density} is equal to this value, then the density should be
+     * If {@link #density 密度 } is equal to this value, then the density should be
      * treated as the system's default density value: {@link DisplayMetrics#DENSITY_DEFAULT}.
      */
     public static final int DENSITY_DEFAULT = 0;
@@ -256,7 +256,7 @@ public class TypedValue {
      * @param metrics Current display metrics to use in the conversion -- 
      *                supplies display density and scaling information.
      * 
-     * @return The complex floating point value multiplied by the appropriate 
+     * @return The complex floating point value multiplied 成倍 繁殖 乘以 by the appropriate
      * metrics depending on its unit. 
      */
     public static float complexToDimension(int data, DisplayMetrics metrics)
@@ -281,11 +281,10 @@ public class TypedValue {
      *                supplies display density and scaling information.
      * 
      * @return The number of pixels specified by the data and its desired
-     * multiplier and units.
+     * multiplier 乘数 and units.
      */
     public static int complexToDimensionPixelOffset(int data,
-            DisplayMetrics metrics)
-    {
+            DisplayMetrics metrics) {
         return (int)applyDimension(
                 (data>>COMPLEX_UNIT_SHIFT)&COMPLEX_UNIT_MASK,
                 complexToFloat(data),
@@ -311,8 +310,7 @@ public class TypedValue {
      * multiplier and units.
      */
     public static int complexToDimensionPixelSize(int data,
-            DisplayMetrics metrics)
-    {
+            DisplayMetrics metrics) {
         final float value = complexToFloat(data);
         final float f = applyDimension(
                 (data>>COMPLEX_UNIT_SHIFT)&COMPLEX_UNIT_MASK,

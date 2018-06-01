@@ -18,7 +18,7 @@ package android.util;
 
 
 /**
- * A collection of attributes, as found associated with a tag in an XML
+ * A collection of attributes, as found associated 关联的；联合的 with a tag in an XML
  * document.  Often you will not want to use this interface directly, instead
  * passing it to {@link android.content.res.Resources.Theme#obtainStyledAttributes(AttributeSet, int[], int, int)
  * Resources.Theme.obtainStyledAttributes()}
@@ -36,7 +36,7 @@ package android.util;
  * XmlPullParser through {@link Xml#asAttributeSet
  * Xml.asAttributeSet()}.  Normally this will return an implementation
  * of the interface that works on top of a generic XmlPullParser, however it
- * is more useful in conjunction with compiled XML resources:
+ * is more useful in conjunction 结合 with compiled XML resources:
  * 
  * <pre>
  * XmlPullParser parser = resources.getXml(myResource);
@@ -152,7 +152,7 @@ public interface AttributeSet {
      * 
      * <p>Note that this is different than {@link #getAttributeNameResource}
      * in that it returns the value contained in this attribute as a
-     * resource identifier (i.e., a value originally of the form
+     * resource identifier (i.e., a value originally 本来 当初 最初的 of the form
      * "@package:type/resource"); the other method returns a resource
      * identifier that identifies the name of the attribute.
      * 

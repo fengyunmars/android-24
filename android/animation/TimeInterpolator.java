@@ -17,15 +17,15 @@
 package android.animation;
 
 /**
- * A time interpolator 插值器 defines the rate of change of an animation. This allows animations
- * to have non-linear motion, such as acceleration and deceleration.
+ * A time interpolator 插值器 defines the rate of change 变化率 of an animation. This allows animations
+ * to have non-linear motion 动作 , such as acceleration and deceleration.
  */
 public interface TimeInterpolator {
 
     /**
-     * Maps a value representing the elapsed fraction of an animation to a value that represents
-     * the interpolated fraction. This interpolated value is then multiplied by the change in
-     * value of an animation to derive the animated value at the current elapsed animation time.
+     * Maps a value representing the elapsed fraction 分数 分数 小部分 of an animation to a value that represents
+     * the interpolated fraction. This interpolated value is then multiplied 乘 by the change in
+     * value of an animation to derive 派生 导出 the animated value at the current elapsed animation time.
      *
      * @param input A value between 0 and 1.0 indicating our current point
      *        in the animation where 0 represents the start and 1.0 represents

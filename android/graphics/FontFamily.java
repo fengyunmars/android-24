@@ -48,9 +48,9 @@ public class FontFamily {
 
     public FontFamily(String lang, String variant) {
         int varEnum = 0;
-        if ("compact".equals(variant)) {
+        if ("compact".equals(variant)) { // 使简洁；使紧密结合
             varEnum = 1;
-        } else if ("elegant".equals(variant)) {
+        } else if ("elegant".equals(variant)) { // 高雅的，优雅的
             varEnum = 2;
         }
         mNativePtr = nCreateFamily(lang, varEnum);

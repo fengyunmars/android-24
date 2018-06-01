@@ -82,7 +82,7 @@ public class Path {
     }
 
     /**
-     * Rewinds 倒回 the path: clears any lines and curves from the path but
+     * Rewinds 倒回 the path: clears any lines and curves 曲线 from the path but
      * keeps the internal data structure for faster reuse.
      */
     public void rewind() {
@@ -558,7 +558,7 @@ public class Path {
     }
 
     /**
-     * Add a closed oval contour to the path
+     * Add a closed oval 椭圆形 contour 轮廓 to the path
      *
      * @param dir The direction to wind the oval's contour
      */

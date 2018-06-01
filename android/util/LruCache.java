@@ -22,14 +22,14 @@ import java.util.Map;
 /**
  * A cache that holds strong references to a limited number of values. Each time
  * a value is accessed, it is moved to the head of a queue. When a value is
- * added to a full cache, the value at the end of that queue is evicted and may
- * become eligible for garbage collection.
+ * added to a full cache, the value at the end of that queue is evicted 驱逐出境 and may
+ * become eligible 合格的 合适的 符合条件的 for garbage collection.
  *
  * <p>If your cached values hold resources that need to be explicitly released,
  * override {@link #entryRemoved}.
  *
- * <p>If a cache miss should be computed on demand for the corresponding keys,
- * override {@link #create}. This simplifies the calling code, allowing it to
+ * <p>If a cache miss should be computed on demand 需求 for the corresponding 相当的，相应的 keys,
+ * override {@link #create}. This simplifies 简化 the calling code, allowing it to
  * assume a value will always be returned, even when there's a cache miss.
  *
  * <p>By default, the cache size is measured in the number of entries. Override
@@ -53,11 +53,12 @@ import java.util.Map;
  *
  * <p>This class does not allow null to be used as a key or value. A return
  * value of null from {@link #get}, {@link #put} or {@link #remove} is
- * unambiguous: the key was not in the cache.
+ * unambiguous 不含糊 明确的 清晰的 : the key was not in the cache.
  *
  * <p>This class appeared in Android 3.1 (Honeycomb MR1); it's available as part
  * of <a href="http://developer.android.com/sdk/compatibility-library.html">Android's
  * Support Package</a> for earlier releases.
+ *  Least Recently Used
  */
 public class LruCache<K, V> {
     private final LinkedHashMap<K, V> map;
@@ -68,6 +69,7 @@ public class LruCache<K, V> {
 
     private int putCount;
     private int createCount;
+    // 逐出；赶出；收回
     private int evictionCount;
     private int hitCount;
     private int missCount;
@@ -185,11 +187,11 @@ public class LruCache<K, V> {
     }
 
     /**
-     * Remove the eldest entries until the total of remaining entries is at or
+     * Remove the eldest 最年长者 entries until the total of remaining entries is at or
      * below the requested size.
      *
      * @param maxSize the maximum size of the cache before returning. May be -1
-     *            to evict even 0-sized elements.
+     *            to evict  驱逐；逐出 even 0-sized elements.
      */
     public void trimToSize(int maxSize) {
         while (true) {
@@ -247,7 +249,7 @@ public class LruCache<K, V> {
     }
 
     /**
-     * Called for entries that have been evicted or removed. This method is
+     * Called for entries that have been evicted 驱逐 or removed. This method is
      * invoked when a value is evicted to make space, removed by a call to
      * {@link #remove}, or replaced by a call to {@link #put}. The default
      * implementation does nothing.
@@ -272,8 +274,8 @@ public class LruCache<K, V> {
      * access the cache while this method is executing.
      *
      * <p>If a value for {@code key} exists in the cache when this method
-     * returns, the created value will be released with {@link #entryRemoved}
-     * and discarded. This can occur when multiple threads request the same key
+     * returns, the created value will be released 释放 with {@link #entryRemoved}
+     * and discarded 丢弃的；废弃的 . This can occur when multiple threads request the same key
      * at the same time (causing multiple values to be created), or when one
      * thread calls {@link #put} while another is creating a value for the same
      * key.

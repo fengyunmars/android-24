@@ -165,8 +165,7 @@ import java.util.function.BiConsumer;
 
 public class LinkedHashMap<K,V>
     extends HashMap<K,V>
-    implements Map<K,V>
-{
+    implements Map<K,V> {
 
     private static final long serialVersionUID = 3801124242820219131L;
 

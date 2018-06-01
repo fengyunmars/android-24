@@ -76,7 +76,7 @@ public class Transformation {
     }
 
     /**
-     * Indicates the nature of this transformation.
+     * Indicates the nature 自然；性质 of this transformation.
      *
      * @return {@link #TYPE_ALPHA}, {@link #TYPE_MATRIX},
      * {@link #TYPE_BOTH} or {@link #TYPE_IDENTITY}.

@@ -26,7 +26,7 @@ public interface ViewManager {
      * errors, such as adding a second view to a window without removing the first view.
      * <p>Throws {@link android.view.WindowManager.InvalidDisplayException} if the window is on a
      * secondary {@link Display} and the specified display can't be found
-     * (see {@link android.app.Presentation}).
+     * (see {@link android.app.Presentation 情况介绍 表现 呈现 }).
      * @param view The view to be added to this window.
      * @param params The LayoutParams to assign to view.
      */

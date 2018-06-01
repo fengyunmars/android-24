@@ -23,7 +23,7 @@ package android.util;
  */
 public final class LayoutDirection {
 
-    // No instantiation
+    // No instantiation 实例化
     private LayoutDirection() {}
 
     /**
@@ -48,7 +48,7 @@ public final class LayoutDirection {
     public static final int INHERIT = 2;
 
     /**
-     * Horizontal layout direction is deduced from the default language script for the locale.
+     * Horizontal layout direction is deduced 推理 from the default language script for the locale.
      */
     public static final int LOCALE = 3;
 }

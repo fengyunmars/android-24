@@ -1325,7 +1325,7 @@ public class Resources {
         /**
          * Set this theme to hold the same contents as the theme
          * <var>other</var>.  If both of these themes are from the same
-         * Resources object, they will be identical after this function
+         * Resources object, they will be identical 同一的 完全相同 after this function
          * returns.  If they are from different Resources, only the resources
          * they have in common will be set in this theme.
          *
@@ -1400,7 +1400,7 @@ public class Resources {
          * </ol>
          * <p>
          * <p>Each of these inputs is considered in-order, with the first listed
-         * taking precedence over the following ones.  In other words, if in the
+         * taking precedence 优先；居先 over the following ones.  In other words, if in the
          * AttributeSet you have supplied <code>&lt;Button
          * textColor="#ff000000"&gt;</code>, then the button's text will
          * <em>always</em> be black, regardless of what is specified in any of
@@ -1546,7 +1546,7 @@ public class Resources {
 
         /**
          * Parses {@link #getKey()} and returns a String array that holds pairs of
-         * adjacent Theme data: resource name followed by whether or not it was
+         * adjacent 邻近的，毗连的 Theme data: resource name followed by whether or not it was
          * forced, as specified by {@link #applyStyle(int, boolean)}.
          *
          * @hide
@@ -1569,7 +1569,7 @@ public class Resources {
         }
 
         /**
-         * Rebases the theme against the parent Resource object's current
+         * Rebases 超过 the theme against the parent Resource object's current
          * configuration by re-applying the styles passed to
          * {@link #applyStyle(int, boolean)}.
          *

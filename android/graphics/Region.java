@@ -32,7 +32,7 @@ public class Region implements Parcelable {
      */
     public long mNativeRegion;
 
-    // the native values for these must match up with the enum in SkRegion.h
+    // the native values for these must match up 使相配，使协调 with the enum in SkRegion.h
     public enum Op {
         DIFFERENCE(0),
         INTERSECT(1),

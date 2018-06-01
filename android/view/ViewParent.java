@@ -21,7 +21,7 @@ import android.os.Bundle;
 import android.view.accessibility.AccessibilityEvent;
 
 /**
- * Defines the responsibilities for a class that will be a parent of a View.
+ * Defines the responsibilities responsibilities 职责; 责任 for a class that will be a parent of a View.
  * This is the API that a view sees when it wants to interact with its parent.
  * 
  */

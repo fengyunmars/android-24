@@ -32,11 +32,11 @@ import java.util.Random;
  * them, the animation starts at a different time. A layout animation controller
  * is used by {@link android.view.ViewGroup} to compute the delay by which each
  * child's animation start must be offset. The delay is computed by using
- * characteristics of each child, like its index in the view group.
+ * characteristics 特性 特点 特征 of each child, like its index in the view group.
  *
  * This standard implementation computes the delay by multiplying a fixed
  * amount of miliseconds by the index of the child in its parent view group.
- * Subclasses are supposed to override
+ * Subclasses are supposed 假定的 to override
  * {@link #getDelayForView(android.view.View)} to implement a different way
  * of computing the delay. For instance, a
  * {@link android.view.animation.GridLayoutAnimationController} will compute the
@@ -232,7 +232,7 @@ public class LayoutAnimationController {
     }
 
     /**
-     * Sets the interpolator used to interpolate the delays between the
+     * Sets the interpolator used to interpolate 插补 添进 插值 the delays between the
      * children.
      *
      * @param interpolator the interpolator
@@ -346,7 +346,7 @@ public class LayoutAnimationController {
     /**
      * Returns the amount of milliseconds by which the specified view's
      * animation must be delayed or offset. Subclasses should override this
-     * method to return a suitable value.
+     * method to return a suitable 适当的 value.
      *
      * This implementation returns <code>child animation delay</code>
      * milliseconds where:

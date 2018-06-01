@@ -823,7 +823,7 @@ public final class Float extends Number implements Comparable<Float> {
      *                 (bits & 0x7fffff) | 0x800000;
      * </pre></blockquote>
      *
-     * Then the floating-point result equals the value of the mathematical
+     * Then the floating-point result equals the value of the mathematical 数学的
      * expression <i>s</i>&middot;<i>m</i>&middot;2<sup><i>e</i>-150</sup>.
      *
      * <p>Note that this method may not be able to return a
@@ -831,16 +831,16 @@ public final class Float extends Number implements Comparable<Float> {
      * {@code int} argument.  IEEE 754 distinguishes between two
      * kinds of NaNs, quiet NaNs and <i>signaling NaNs</i>.  The
      * differences between the two kinds of NaN are generally not
-     * visible in Java.  Arithmetic operations on signaling NaNs turn
+     * visible in Java.  Arithmetic 算术，算法 operations on signaling NaNs turn
      * them into quiet NaNs with a different, but often similar, bit
-     * pattern.  However, on some processors merely copying a
+     * pattern.  However, on some processors merely 仅仅 copying a
      * signaling NaN also performs that conversion.  In particular,
      * copying a signaling NaN to return it to the calling method may
      * perform this conversion.  So {@code intBitsToFloat} may
      * not be able to return a {@code float} with a signaling NaN
      * bit pattern.  Consequently, for some {@code int} values,
      * {@code floatToRawIntBits(intBitsToFloat(start))} may
-     * <i>not</i> equal {@code start}.  Moreover, which
+     * <i>not</i> equal {@code start}.  Moreover 而且；此外 , which
      * particular bit patterns represent signaling NaNs is platform
      * dependent; although all NaN bit patterns, quiet or signaling,
      * must be in the NaN range identified above.

@@ -21,7 +21,7 @@ import android.os.Handler;
 import android.os.Message;
 
 /**
- * Detects various gestures and events using the supplied {@link MotionEvent}s.
+ * Detects various gestures 手势 and events using the supplied {@link MotionEvent}s.
  * The {@link OnGestureListener} callback will notify users when a particular
  * motion event has occurred. This class should only be used with {@link MotionEvent}s
  * reported via touch (don't use for trackball events).
@@ -170,7 +170,7 @@ public class GestureDetector {
      * A convenience class to extend when you only want to listen for a subset
      * of all the gestures. This implements all methods in the
      * {@link OnGestureListener}, {@link OnDoubleTapListener}, and {@link OnContextClickListener}
-     * but does nothing and return {@code false} for all applicable methods.
+     * but does nothing and return {@code false} for all applicable 适用的 可适用的 methods.
      */
     public static class SimpleOnGestureListener implements OnGestureListener, OnDoubleTapListener,
             OnContextClickListener {

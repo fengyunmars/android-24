@@ -25,12 +25,12 @@ import java.io.PrintWriter;
 public class Matrix {
 
     public static final int MSCALE_X = 0;   //!< use with getValues/setValues
-    public static final int MSKEW_X  = 1;   //!< use with getValues/setValues
+    public static final int MSKEW_X  = 1;   // 倾斜 斜切 偏斜 !< use with getValues/setValues
     public static final int MTRANS_X = 2;   //!< use with getValues/setValues
     public static final int MSKEW_Y  = 3;   //!< use with getValues/setValues
     public static final int MSCALE_Y = 4;   //!< use with getValues/setValues
     public static final int MTRANS_Y = 5;   //!< use with getValues/setValues
-    public static final int MPERSP_0 = 6;   //!< use with getValues/setValues
+    public static final int MPERSP_0 = 6;   // 透视 !< use with getValues/setValues
     public static final int MPERSP_1 = 7;   //!< use with getValues/setValues
     public static final int MPERSP_2 = 8;   //!< use with getValues/setValues
 
@@ -734,7 +734,7 @@ public class Matrix {
 
     /**
      * Apply this matrix to the rectangle, and write the transformed rectangle
-     * back into it. This is accomplished by transforming the 4 corners of rect,
+     * back into it. This is accomplished 完成的 熟练的 精通的 by transforming the 4 corners of rect,
      * and then setting it to the bounds of those points
      *
      * @param rect The rectangle to transform.

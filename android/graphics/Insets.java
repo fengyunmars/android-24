@@ -18,7 +18,7 @@ package android.graphics;
 
 /**
  * An Insets instance holds four integer offsets which describe changes to the four
- * edges of a Rectangle. By convention, positive values move edges towards the
+ * edges of a Rectangle. By convention 惯例 , positive values move edges towards the
  * centre of the rectangle.
  * <p>
  * Insets are immutable 不可改变的 so may be treated as values.

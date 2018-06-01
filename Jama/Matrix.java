@@ -14,31 +14,36 @@ import Jama.util.*;
    Jama = Java Matrix class.
 <P>
    The Java Matrix Class provides the fundamental 基本的 operations of numerical 数字的
-   linear algebra 代数学 .  Various constructors create Matrices from two dimensional
-   arrays of double precision floating point numbers.  Various "gets" and
-   "sets" provide access to submatrices 子矩阵 and matrix elements.  Several methods
-   implement basic matrix arithmetic  算术，算法 , including matrix addition and
-   multiplication, matrix norms, and element-by-element array operations.
-   Methods for reading and printing matrices are also included.  All the
-   operations in this version of the Matrix Class involve real matrices.
+   linear algebra 代数学 .  Various 各种各样的；多方面的 constructors create Matrices
+   from two dimensional arrays of double precision 精度 floating point numbers.
+   Various "gets" and "sets" provide access to submatrices 子矩阵 and matrix elements.
+   Several methods implement basic matrix arithmetic  算术，算法 , including matrix
+   addition and multiplication 乘法 , matrix norms 标准 , and element-by-element array
+   operations.
+   Methods for reading and printing matrices matrix的复数 are also included.  All the
+   operations in this version of the Matrix Class involve 涉及 real matrices 实矩阵 实方阵.
    Complex matrices 复数矩阵 may be handled in a future version.
 <P>
-   Five fundamental matrix decompositions 分解 , which consist of pairs or triples 三倍数
-   of matrices, permutation 置换 排列 变换 vectors 向量 , and the like, produce results in five
-   decomposition classes.  These decompositions are accessed by the Matrix
-   class to compute solutions of simultaneous 同步 linear equations, determinants 行列式 ,
+   Five fundamental 基本的 matrix decompositions 分解 , which consist of pairs or
+   triples 三倍数 of matrices, permutation 置换 排列 变换 vectors 向量 , and the like,
+   produce results in five decomposition classes.  These decompositions are accessed
+   by the Matrix class to compute solutions 解决方案 of simultaneous 同步
+   linear equations 方程式, determinants 行列式 ,
    inverses 相反；倒转 and other matrix functions.  The five decompositions are:
 <P><UL>
-   <LI>Cholesky Decomposition of symmetric 对称的 , positive definite  正定的 matrices.
+   <LI>Cholesky 乔里斯基（法国数学家） Decomposition of symmetric 对称的 , positive
+   definite  正定的 matrices.
    <LI>LU Decomposition of rectangular 成直角的 matrices.
    <LI>QR Decomposition of rectangular matrices.
    <LI>Singular 单数 Value Decomposition of rectangular matrices.
-   <LI>Eigenvalue 特征值 Decomposition of both symmetric and nonsymmetric square matrices.
+   <LI>Eigenvalue 特征值 Decomposition of both symmetric 对称的；匀称的 and nonsymmetric
+       square 平方 matrices.
 </UL>
 <DL>
 <DT><B>Example of use:</B></DT>
 <P>
-<DD>Solve a linear system A x = b and compute the residual norm 残差范数 , ||b - A x||.
+<DD>Solve 解决 a linear system A x = b and compute the residual norm 残差范数 ,
+ ||b - A x||.
 <P><PRE>
       double[][] vals = {{1.,2.,3},{4.,5.,6.},{7.,8.,10.}};
       Matrix A = new Matrix(vals);
@@ -49,7 +54,8 @@ import Jama.util.*;
 </PRE></DD>
 </DL>
 
-@author The MathWorks, Inc. and the National Institute of Standards and Technology.
+@author The MathWorks, Inc. and the National Institute 研究所 学院 学会 of Standards
+         and Technology.
 @version 5 August 1998
 */
 
@@ -474,7 +480,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
    }
 
    /** One norm
-   @return    maximum column sum.
+   @return    maximum 极大，最大限度；最大量 column sum.
    */
 
    public double norm1 () {
@@ -490,14 +496,14 @@ public class Matrix implements Cloneable, java.io.Serializable {
    }
 
    /** Two norm
-   @return    maximum singular value.
+   @return    maximum singular 单数 value.
    */
 
    public double norm2 () {
       return (new SingularValueDecomposition(this).norm2());
    }
 
-   /** Infinity norm
+   /** Infinity 无穷；无限大；无限距 norm
    @return    maximum row sum.
    */
 
@@ -638,7 +644,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
       return this;
    }
 
-   /** Element-by-element right division, C = A./B
+   /** Element-by-element right division 除法 , C = A./B
    @param B    another matrix
    @return     A./B
    */
@@ -732,7 +738,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
       return this;
    }
 
-   /** Linear algebraic matrix multiplication, A * B
+   /** Linear algebraic 代数的 matrix multiplication, A * B
    @param B    another matrix
    @return     Matrix product, A * B
    @exception  IllegalArgumentException Matrix inner dimensions must agree.
@@ -825,7 +831,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
       return transpose().solve(B.transpose());
    }
 
-   /** Matrix inverse or pseudoinverse
+   /** Matrix inverse or pseudoinverse 伪逆矩阵
    @return     inverse(A) if A is square, pseudoinverse otherwise.
    */
 
@@ -857,8 +863,8 @@ public class Matrix implements Cloneable, java.io.Serializable {
       return new SingularValueDecomposition(this).cond();
    }
 
-   /** Matrix trace.
-   @return     sum of the diagonal elements.
+   /** Matrix trace 痕迹 .
+   @return     sum of the diagonal 对角线；斜线 elements.
    */
 
    public double trace () {
@@ -872,7 +878,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
    /** Generate matrix with random elements
    @param m    Number of rows.
    @param n    Number of colums.
-   @return     An m-by-n matrix with uniformly distributed random elements.
+   @return     An m-by-n matrix with uniformly 一致地 distributed 分布式的，分散式的 random elements.
    */
 
    public static Matrix random (int m, int n) {
@@ -889,7 +895,7 @@ public class Matrix implements Cloneable, java.io.Serializable {
    /** Generate identity matrix
    @param m    Number of rows.
    @param n    Number of colums.
-   @return     An m-by-n matrix with ones on the diagonal and zeros elsewhere.
+   @return     An m-by-n matrix with ones on the diagonal  斜的；对角线的 and zeros elsewhere.
    */
 
    public static Matrix identity (int m, int n) {

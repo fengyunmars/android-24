@@ -26,13 +26,13 @@ import java.util.regex.Pattern;
 
 /**
  * Rect holds four integer coordinates for a rectangle. The rectangle is
- * represented by the coordinates of its 4 edges (left, top, right bottom).
+ * represented by the coordinates 坐标 of its 4 edges (left, top, right bottom).
  * These fields can be accessed directly. Use width() and height() to retrieve
  * the rectangle's width and height. Note: most methods do not check to see that
  * the coordinates are sorted correctly (i.e. left <= right and top <= bottom).
  * <p>
- * Note that the right and bottom coordinates are exclusive. This means a Rect
- * being drawn untransformed δ�ı��  onto a {@link android.graphics.Canvas} will draw
+ * Note that the right and bottom coordinates are exclusive 排外的；专一的 . This means a Rect
+ * being drawn untransformed 未改变的 onto a {@link android.graphics.Canvas} will draw
  * into the column and row described by its left and top coordinates, but not
  * those of its bottom and right.
  */
@@ -43,9 +43,9 @@ public final class Rect implements Parcelable {
     public int bottom;
 
     /**
-     * A helper class for flattened rectange pattern recognition. A separate
-     * class to avoid an initialization dependency on a regular expression
-     * causing Rect to not be initializable with an ahead-of-time compilation
+     * A helper class for flattened 平整；打倒 rectange pattern recognition 识别；承认 .
+     * A separate 单独的；分开的 class to avoid an initialization dependency on a regular expression
+     * causing Rect to not be initializable with an ahead-of-time compilation 编译
      * scheme.
      */
     private static final class UnflattenHelper {
@@ -81,7 +81,7 @@ public final class Rect implements Parcelable {
 
     /**
      * Create a new rectangle, initialized with the values in the specified
-     * rectangle (which is left unmodified).
+     * rectangle (which is left unmodified 未更改的 ).
      *
      * @param r The rectangle whose coordinates are copied into the new
      *          rectangle.
@@ -125,7 +125,7 @@ public final class Rect implements Parcelable {
     }
 
     /**
-     * Return a string representation of the rectangle in a compact form.
+     * Return a string representation of the rectangle in a compact 压缩 form.
      */
     public String toShortString() {
         return toShortString(new StringBuilder(32));
@@ -146,7 +146,7 @@ public final class Rect implements Parcelable {
     /**
      * Return a string representation of the rectangle in a well-defined format.
      *
-     * <p>You can later recover the Rect from this string through
+     * <p>You can later recover 恢复 the Rect from this string through
      * {@link #unflattenFromString(String)}.
      * 
      * @return Returns a new String of the form "left top right bottom"
@@ -154,7 +154,7 @@ public final class Rect implements Parcelable {
     public String flattenToString() {
         StringBuilder sb = new StringBuilder(32);
         // WARNING: Do not change the format of this string, it must be
-        // preserved because Rects are saved in this flattened format.
+        // preserved 保藏的 because Rects are saved in this flattened format.
         sb.append(left);
         sb.append(' ');
         sb.append(top);
@@ -215,7 +215,7 @@ public final class Rect implements Parcelable {
     
     /**
      * @return the horizontal center of the rectangle. If the computed value
-     *         is fractional, this method returns the largest integer that is
+     *         is fractional 小数的 , this method returns the largest integer that is
      *         less than the computed value.
      */
     public final int centerX() {
@@ -316,7 +316,7 @@ public final class Rect implements Parcelable {
      * sides are moved outwards, making the rectangle wider. The same holds true
      * for dy and the top and bottom.
      *
-     * @param dx The amount to add(subtract) from the rectangle's left(right)
+     * @param dx The amount to add(subtract 减去 ) from the rectangle's left(right)
      * @param dy The amount to add(subtract) from the rectangle's top(bottom)
      */
     public void inset(int dx, int dy) {
@@ -362,7 +362,7 @@ public final class Rect implements Parcelable {
      *
      * @param x The X coordinate of the point being tested for containment
      * @param y The Y coordinate of the point being tested for containment
-     * @return true iff (x,y) are contained by the rectangle, where containment
+     * @return true iff (x,y) are contained by the rectangle, where containment 包含
      *              means left <= x < right and top <= y < bottom
      */
     public boolean contains(int x, int y) {
@@ -512,7 +512,7 @@ public final class Rect implements Parcelable {
      * specified rectangle is empty, nothing is done. If this rectangle is empty
      * it is set to the specified rectangle.
      *
-     * @param left The left edge being unioned with this rectangle
+     * @param left The left edge being unioned 合并；结合 with this rectangle
      * @param top The top edge being unioned with this rectangle
      * @param right The right edge being unioned with this rectangle
      * @param bottom The bottom edge being unioned with this rectangle
@@ -565,9 +565,9 @@ public final class Rect implements Parcelable {
     }
 
     /**
-     * Swap top/bottom or left/right if there are flipped (i.e. left > right
+     * Swap top/bottom or left/right if there are flipped 快速翻动 (i.e. left > right
      * and/or top > bottom). This can be called if
-     * the edges are computed separately, and may have crossed over each other.
+     * the edges are computed separately 分别地 , and may have crossed over each other.
      * If the edges are already correct (i.e. left <= right and top <= bottom)
      * then nothing is done.
      */

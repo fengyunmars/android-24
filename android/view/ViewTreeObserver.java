@@ -95,7 +95,7 @@ public final class ViewTreeObserver {
     public interface OnGlobalFocusChangeListener {
         /**
          * Callback method to be invoked when the focus changes in the view tree. When
-         * the view tree transitions from touch mode to non-touch mode, oldFocus is null.
+         * the view tree transitions 过渡，转变 from touch mode to non-touch mode, oldFocus is null.
          * When the view tree transitions from non-touch mode to touch mode, newFocus is
          * null. When focus changes in non-touch mode (without transition from or to
          * touch mode) either oldFocus or newFocus can be null.
@@ -214,7 +214,7 @@ public final class ViewTreeObserver {
         public final Rect visibleInsets = new Rect();
 
         /**
-         * Touchable region defined relative to the origin of the frame of the window.
+         * Touchable region defined relative to the origin 起源 of the frame of the window.
          * Only used when {@link #setTouchableInsets(int)} is called with
          * the option {@link #TOUCHABLE_INSETS_REGION}.
          */

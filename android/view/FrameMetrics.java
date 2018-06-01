@@ -71,7 +71,7 @@ public final class FrameMetrics {
      * Metric identifier for draw duration.
      * <p>
      * Represents the number of nanoseconds elapsed computing
-     * DisplayLists for transformations applied to the view
+     * DisplayLists for transformations 快速 变换 转换 applied to the view
      * hierarchy.
      * </p>
      */
@@ -126,7 +126,7 @@ public final class FrameMetrics {
      * {@link #getMetric(int)} will return 0 for false, 1 for true.
      * </p>
      * <p>
-     * First draw frames are expected to be slow and should usually be exempt 免除
+     * First draw frames are expected to be slow 缓慢 慢的 慢驶 and should usually be exempt 免除
      * from display jank 闪避 calculations as they do not cause skips in animations
      * and are usually hidden by window animations or other tricks.
      * </p>
@@ -157,7 +157,7 @@ public final class FrameMetrics {
     public @interface Metric {}
 
     /**
-     * Timestamp indices for frame milestones.
+     * Timestamp 时间戳 indices 指数 for frame milestones 里程碑 .
      *
      * May change from release to release.
      *
@@ -202,7 +202,7 @@ public final class FrameMetrics {
     }
 
     /*
-     * Bucket endpoints for each Metric defined above.
+     * Bucket 水桶 铲斗 桶 endpoints 端点 for each Metric defined above.
      *
      * Each defined metric *must* have a corresponding entry
      * in this list.

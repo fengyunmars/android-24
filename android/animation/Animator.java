@@ -55,7 +55,7 @@ public abstract class Animator implements Cloneable {
     @Config int mChangingConfigurations = 0;
 
     /**
-     * If this animator is inflated from a constant state, keep a reference to it so that
+     * If this animator is inflated from a constant 常量 常数 不变 state, keep a reference to it so that
      * ConstantState will not be garbage collected until this animator is collected
      */
     private AnimatorConstantState mConstantState;
@@ -466,8 +466,8 @@ public abstract class Animator implements Cloneable {
 
     /**
      * <p>An animation listener receives notifications from an animation.
-     * Notifications indicate animation related events, such as the end or the
-     * repetition of the animation.</p>
+     * Notifications indicate 指出 指示 表明 animation related events, such as the end or the
+     * repetition 重复 of the animation.</p>
      */
     public static interface AnimatorListener {
         /**
@@ -479,7 +479,7 @@ public abstract class Animator implements Cloneable {
 
         /**
          * <p>Notifies the end of the animation. This callback is not invoked
-         * for animations with repeat count set to INFINITE.</p>
+         * for animations with repeat count set to INFINITE  无限；[数] 无穷大 .</p>
          *
          * @param animation The animation which reached its end.
          */

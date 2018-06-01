@@ -24,20 +24,20 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
- * This class enables automatic and optimized animation of select properties on View objects.
+ * This class enables automatic and optimized 最佳化的 animation of select properties on View objects.
  * If only one or two properties on a View object are being animated, then using an
  * {@link android.animation.ObjectAnimator} is fine; the property setters called by ObjectAnimator
- * are well equipped to do the right thing to set the property and invalidate the view
- * appropriately. But if several properties are animated simultaneously, or if you just want a
+ * are well equipped 装备 to do the right thing to set the property and invalidate the view
+ * appropriately. But if several properties are animated simultaneously 同时地 , or if you just want a
  * more convenient syntax to animate a specific property, then ViewPropertyAnimator might be
- * more well-suited to the task.
+ * more well-suited 便利的；适当的 to the task.
  *
  * <p>This class may provide better performance for several simultaneous animations, because
  * it will optimize invalidate calls to take place only once for several properties instead of each
  * animated property independently causing its own invalidation. Also, the syntax of using this
  * class could be easier to use because the caller need only tell the View object which
  * property to animate, and the value to animate either to or by, and this class handles the
- * details of configuring the underlying Animator class and starting it.</p>
+ * details of configuring 配置 the underlying Animator class and starting it.</p>
  *
  * <p>This class is not constructed by the caller, but rather by the View whose properties
  * it will animate. Calls to {@link android.view.View#animate()} will return a reference

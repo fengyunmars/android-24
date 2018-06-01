@@ -178,6 +178,7 @@ public final class ActivityThread {
     private static final boolean DEBUG_PROVIDER = false;
     private static final boolean DEBUG_ORDER = false;
 
+    // 门控顺序计算机（Gate Control and Sequencing Computer）
     private static final long MIN_TIME_BETWEEN_GCS = 5*1000;
     private static final int SQLITE_MEM_RELEASED_EVENT_LOG_TAG = 75003;
     private static final int LOG_AM_ON_PAUSE_CALLED = 30021; // called

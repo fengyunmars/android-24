@@ -38,7 +38,7 @@ import libcore.util.NativeAllocationRegistry;
  * To draw something, you need 4 basic components: 
  * A Bitmap to hold the pixels, 
  * a Canvas to host the draw calls (writing into the bitmap), 
- * a drawing primitive (e.g. Rect, Path, text, Bitmap), 
+ * a drawing primitive 原始人 (e.g. Rect, Path, text, Bitmap),
  * and a paint (to describe the colors and styles for the drawing).
  *
  * <div class="special reference">
@@ -78,7 +78,7 @@ public class Canvas {
     protected int mDensity = Bitmap.DENSITY_NONE;
 
     /**
-     * Used to determine when compatibility scaling is in effect.
+     * Used to determine when compatibility 兼容性 scaling is in effect.
      *
      * @hide
      */
@@ -88,7 +88,7 @@ public class Canvas {
     // (see SkCanvas.cpp, SkDraw.cpp)
     private static final int MAXMIMUM_BITMAP_SIZE = 32766;
 
-    // The approximate size of the native allocation associated with
+    // The approximate 近似的 size of the native allocation 分配 associated with
     // a Canvas object.
     private static final long NATIVE_ALLOCATION_SIZE = 525;
 
@@ -102,7 +102,7 @@ public class Canvas {
     private Runnable mFinalizer;
 
     /**
-     * Construct an empty raster canvas. Use setBitmap() to specify a bitmap to
+     * Construct an empty raster 光栅；试映图 canvas. Use setBitmap() to specify a bitmap to
      * draw into.  The initial target density is {@link Bitmap#DENSITY_NONE};
      * this will typically be replaced when a target bitmap is set for the
      * canvas.
@@ -125,7 +125,8 @@ public class Canvas {
      * <p>The initial target density of the canvas is the same as the given
      * bitmap's density.
      *
-     * @param bitmap Specifies a mutable bitmap for the canvas to draw into.
+     * @param bitmap Specifies a mutable 可变的 易变的 不定的 bitmap for the canvas to
+     *  draw into.
      */
     public Canvas(@NonNull Bitmap bitmap) {
         if (!bitmap.isMutable()) {
@@ -342,9 +343,10 @@ public class Canvas {
     public static final int FULL_COLOR_LAYER_SAVE_FLAG = 0x08;
 
     /**
-     * Clip drawing to the bounds of the offscreen 画面以外的 layer, omit 省略 at your own peril 危险 .
+     * Clip drawing to the bounds of the offscreen 画面以外的 layer, omit 省略 at your own
+     * peril 危险 .
      * <p class="note"><strong>Note:</strong> it is strongly recommended to not
-     * omit this flag for any call to <code>saveLayer()</code> and
+     * omit 省略 this flag for any call to <code>saveLayer()</code> and
      * <code>saveLayerAlpha()</code> variants. Not passing this flag generally
      * triggers extremely poor performance with hardware accelerated rendering.
      */
@@ -362,7 +364,7 @@ public class Canvas {
     /**
      * Saves the current matrix and clip onto a private stack.
      * <p>
-     * Subsequent calls to translate,scale,rotate,skew 歪斜 ,concat or clipRect,
+     * Subsequent 后来的，随后的 calls to translate,scale,rotate,skew 歪斜 ,concat or clipRect,
      * clipPath will all operate as usual, but when the balancing 调零装置 call to
      * restore() is made, those calls will be forgotten, and the settings that
      * existed before the save() will be reinstated 恢复 .
@@ -377,7 +379,7 @@ public class Canvas {
      * Based on saveFlags, can save the current matrix and clip onto a private
      * stack.
      * <p class="note"><strong>Note:</strong> if possible, use the
-     * parameter-less save(). It is simpler and faster than individually
+     * parameter-less save(). It is simpler and faster than individually 个别地，单独地
      * disabling the saving of matrix or clip with this method.
      * <p>
      * Subsequent calls to translate,scale,rotate,skew,concat or clipRect,
@@ -394,15 +396,15 @@ public class Canvas {
     }
 
     /**
-     * This behaves the same as save(), but in addition it allocates and
-     * redirects drawing to an offscreen 画面以外的 bitmap.
+     * This behaves the same as save(), but in addition it allocates 分配 and
+     * redirects 转向 重定向 drawing to an offscreen 画面以外的 bitmap.
      * <p class="note"><strong>Note:</strong> this method is very expensive,
      * incurring 招致 more than double rendering cost for contained content. Avoid
      * using this method, especially if the bounds provided are large, or if
      * the {@link #CLIP_TO_LAYER_SAVE_FLAG} is omitted from the
      * {@code saveFlags} parameter. It is recommended to use a
      * {@link android.view.View#LAYER_TYPE_HARDWARE hardware layer} on a View
-     * to apply an xfermode, color filter, or alpha, as it will perform much
+     * to apply an xfermode 渡模式 , color filter, or alpha, as it will perform much
      * better than this method.
      * <p>
      * All drawing calls are directed 定向的 to a newly allocated offscreen bitmap.
@@ -537,7 +539,7 @@ public class Canvas {
      *
      * Example:
      *    int count = canvas.save();
-     *    ... // more calls potentially to save()
+     *    ... // more calls potentially 可能地，潜在地 to save()
      *    canvas.restoreToCount(count);
      *    // now the canvas is back in the same state it was before the initial
      *    // call to save().
@@ -651,8 +653,8 @@ public class Canvas {
      * @deprecated {@link #isHardwareAccelerated() Hardware accelerated} canvases may have any
      * matrix when passed to a View or Drawable, as it is implementation defined where in the
      * hierarchy such canvases are created. It is recommended in such cases to either draw contents
-     * irrespective of the current matrix, or to track relevant transform state outside of the
-     * canvas.
+     * irrespective 无关的；不考虑的 of the current matrix, or to track relevant 相关的
+     * transform state outside of the canvas.
      */
     @Deprecated
     public void getMatrix(@NonNull Matrix ctm) {
@@ -963,8 +965,8 @@ public class Canvas {
     }
 
     /**
-     * Fill the entire canvas' bitmap (restricted to the current clip) with the
-     * specified RGB color, using srcover porterduff mode.
+     * Fill the entire canvas' bitmap (restricted 受限制的；保密的 to the current clip)
+     * with the specified RGB color, using srcover porterduff mode.
      *
      * @param r red component (0..255) of the color to draw onto the canvas
      * @param g green component (0..255) of the color to draw onto the canvas
@@ -1011,7 +1013,7 @@ public class Canvas {
     /**
      * Fill the entire canvas' bitmap (restricted to the current clip) with
      * the specified paint. This is equivalent (but faster) to drawing an
-     * infinitely large rectangle with the specified paint.
+     * infinitely 无限地 large rectangle with the specified paint.
      *
      * @param paint The paint used to draw onto the canvas
      */

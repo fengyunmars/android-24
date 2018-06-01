@@ -48,8 +48,8 @@ public class LinearGradient extends Shader {
         @param  colors      The colors to be distributed along the gradient line
         @param  positions   May be null. The relative positions [0..1] of
                             each corresponding color in the colors array. If this is null,
-                            the the colors are distributed evenly along the gradient line.
-        @param  tile        The Shader tiling mode
+                            the the colors are distributed evenly 均匀地 匀整 平坦地 along the gradient line.
+        @param  tile        The Shader tiling 贴砖 铺砌瓷砖 铺瓦 mode
     */
     public LinearGradient(float x0, float y0, float x1, float y1, int colors[], float positions[],
             TileMode tile) {

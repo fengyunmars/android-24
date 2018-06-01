@@ -108,7 +108,7 @@ import static android.support.v7.widget.AdapterHelper.UpdateOp;
  * <p>
  * <h4>Positions in RecyclerView:</h4>
  * <p>
- * RecyclerView introduces an additional level of abstraction between the {@link Adapter} and
+ * RecyclerView introduces an additional level of abstraction 抽象 between the {@link Adapter} and
  * {@link LayoutManager} to be able to detect data set changes in batches during a layout
  * calculation. This saves LayoutManager from tracking 追踪 adapter changes to calculate animations.
  * It also helps with performance because all view bindings happen at the same time and unnecessary

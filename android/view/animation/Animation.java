@@ -128,7 +128,7 @@ public abstract class Animation implements Cloneable {
      * Indicates whether the animation transformation should be applied before the
      * animation starts. The value of this variable is only relevant 有意义的 if mFillEnabled is true;
      * otherwise it is assumed to be true.
-     * fillBefore是指动画结束时画面停留在此动画的第一帧; 默认值为true
+     * fillBefore 是指动画结束时画面停留在此动画的第一帧; 默认值为true
      */
     //// TODO: 2017/9/12  
     boolean mFillBefore = true;
@@ -136,7 +136,7 @@ public abstract class Animation implements Cloneable {
     /**
      * Indicates whether the animation transformation should be applied after the
      * animation ends.
-     * fillAfter是指动画结束是画面停留在此动画的最后一帧。默认值为false
+     * fillAfter 是指动画结束是画面停留在此动画的最后一帧。默认值为false
      */
     boolean mFillAfter = false;
 
@@ -199,8 +199,8 @@ public abstract class Animation implements Cloneable {
     private int mBackgroundColor;
 
     /**
-     * scalefactor to apply to pivot points, etc. during animation. Subclasses retrieve the
-     * value via getScaleFactor().
+     * scalefactor 比例因子 to apply to pivot points 轴心点 , etc. during animation. Subclasses retrieve
+     * the value via getScaleFactor().
      */
     private float mScaleFactor = 1f;
 
@@ -343,7 +343,7 @@ public abstract class Animation implements Cloneable {
      * animated as well as the objects parents. (This is to support animation
      * sizes being specified relative to these dimensions.)
      * <p>
-     * <p>Objects that interpret Animations should call this method when
+     * <p>Objects that interpret 解释 翻译 说明 Animations should call this method when
      * the sizes of the object being animated and its parent are known, and
      * before calling {@link #getTransformation}.
      *
@@ -390,7 +390,7 @@ public abstract class Animation implements Cloneable {
     }
 
     /**
-     * Sets the acceleration curve for this animation. The interpolator is loaded as
+     * Sets the acceleration curve 曲线 for this animation. The interpolator is loaded as
      * a resource from the specified context.
      *
      * @param context The application environment
@@ -414,7 +414,7 @@ public abstract class Animation implements Cloneable {
 
     /**
      * When this animation should start relative to the start time. This is most
-     * useful when composing complex animations using an {@link AnimationSet }
+     * useful when composing 组成 complex animations using an {@link AnimationSet }
      * where some of the animations components start at different times.
      *
      * @param startOffset When this Animation should start, in milliseconds from
@@ -441,7 +441,7 @@ public abstract class Animation implements Cloneable {
 
     /**
      * Ensure that the duration that this animation will run is not longer
-     * than <var>durationMillis</var>.  In addition to adjusting the duration
+     * than <var>durationMillis</var>.  In addition to 除...之外 adjusting 调整 the duration
      * itself, this ensures that the repeat count also will not make it run
      * longer than the given time.
      *
@@ -469,7 +469,7 @@ public abstract class Animation implements Cloneable {
             return;
         }
         // Reduce the number of repeats to keep below the maximum duration.
-        // The comparison between mRepeatCount and duration is to catch
+        // The comparison 比较 between mRepeatCount and duration is to catch
         // overflows after multiplying them.
         //// TODO: 2017/9/12  
         if (mRepeatCount < 0 || mRepeatCount > durationMillis
@@ -801,7 +801,7 @@ public abstract class Animation implements Cloneable {
     /**
      * <p>Binds an animation listener to this animation. The animation listener
      * is notified of animation events such as the end of the animation or the
-     * repetition of the animation.</p>
+     * repetition 重复 of the animation.</p>
      *
      * @param listener the animation listener to be notified
      */
@@ -823,7 +823,7 @@ public abstract class Animation implements Cloneable {
      * Compute a hint at how long the entire animation may last, in milliseconds.
      * Animations can be written to cause themselves to run for a different
      * duration than what is computed here, but generally this should be
-     * accurate.
+     * accurate 精确的 .
      */
     public long computeDurationHint() {
         return (getStartOffset() + getDuration()) * (getRepeatCount() + 1);
@@ -1150,7 +1150,7 @@ public abstract class Animation implements Cloneable {
 
     /**
      * <p>An animation listener receives notifications from an animation.
-     * Notifications indicate animation related events, such as the end or the
+     * Notifications indicate 表明 animation related events, such as the end or the
      * repetition 重复 of the animation.</p>
      */
     public static interface AnimationListener {

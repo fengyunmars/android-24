@@ -36,7 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * The Typeface class specifies the typeface and intrinsic 先天性 style of a font.
+ * The Typeface class specifies the typeface and intrinsic 先天性 本质的 style of a font.
  * This is used in the paint, along with optionally Paint settings like
  * textSize, textSkewX, textScaleX to specify
  * how text appears when drawn (and measured).
@@ -53,11 +53,11 @@ public class Typeface {
      * for sure.
      */
     public static final Typeface DEFAULT_BOLD;
-    /** The NORMAL style of the default sans serif typeface. */
+    /** The NORMAL style of the default sans serif 无衬线字体；灯芯体 typeface. */
     public static final Typeface SANS_SERIF;
-    /** The NORMAL style of the default serif typeface. */
+    /** The NORMAL style of the default serif 衬线 typeface. */
     public static final Typeface SERIF;
-    /** The NORMAL style of the default monospace typeface. */
+    /** The NORMAL style of the default monospace 单一间隔 typeface. */
     public static final Typeface MONOSPACE;
 
     static Typeface[] sDefaults;
@@ -67,7 +67,8 @@ public class Typeface {
     /**
      * Cache for Typeface objects dynamically loaded from assets. Currently max size is 16.
      */
-    private static final LruCache<String, Typeface> sDynamicTypefaceCache = new LruCache<>(16);
+    private static final LruCache<String, Typeface> sDynamicTypefaceCache =
+            new LruCache<>(16);
 
     static Typeface sDefaultTypeface;
     static Map<String, Typeface> sSystemFontMap;
@@ -93,7 +94,7 @@ public class Typeface {
         nativeSetDefault(t.native_instance);
     }
 
-    /** Returns the typeface's intrinsic style attributes */
+    /** Returns the typeface's intrinsic 本质的，固有的 style attributes */
     public int getStyle() {
         return mStyle;
     }
@@ -111,7 +112,7 @@ public class Typeface {
     /**
      * Create a typeface object given a family name, and option style information.
      * If null is passed for the name, then the "default" font will be chosen.
-     * The resulting typeface object can be queried (getStyle()) to discover what
+     * The resulting typeface object can be queried (getStyle()) to discover 发现 what
      * its "real" style characteristics are.
      *
      * @param familyName May be null. The name of the font family.

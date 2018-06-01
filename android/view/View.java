@@ -763,7 +763,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         AccessibilityEventSource{
     private static final boolean DBG = false;
 
-    /// M: add debug motion flag.
+    /// M: add debug motion 动作；移动 flag.
     private static final boolean IS_ENG_BUILD = "eng".equals(Build.TYPE);
     static final boolean DEBUG_DEFAULT = IS_ENG_BUILD;
     private static final boolean DBG_MOTION = SystemProperties.getBoolean(
@@ -814,7 +814,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int NO_ID = -1;
 
     /**
-     * Signals 标志 that compatibility booleans have been initialized according to
+     * Signals 标志 that compatibility 兼容性 booleans have been initialized according to
      * target SDK versions.
      */
     private static boolean sCompatibilityDone = false;
@@ -840,19 +840,19 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private static boolean sAlwaysRemeasureExactly = false;
 
     /**
-     * Relax constraints around whether setLayoutParams() must be called after
+     * Relax 放宽 constraints 约束；限制 around whether setLayoutParams() must be called after
      * modifying the layout params.
      */
     private static boolean sLayoutParamsAlwaysChanged = false;
 
     /**
-     * Allow setForeground/setBackground to be called (and ignored) on a textureview,
+     * Allow setForeground/setBackground to be called (and ignored) on a textureview 质地视图 ,
      * without throwing
      */
     static boolean sTextureViewIgnoresDrawableSetters = false;
 
     /**
-     * This view does not want keystrokes 按键 . Use with TAKES_FOCUS_MASK when
+     * This view does not want keystrokes 按键 敲击键盘 . Use with TAKES_FOCUS_MASK when
      * calling setFlags.
      */
     private static final int NOT_FOCUSABLE = 0x00000000;
@@ -886,7 +886,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int VISIBLE = 0x00000000;
 
     /**
-     * This view is <b>invisible</b>, but it <b>still takes up space</b> for layout purposes.
+     * This view is <b>invisible</b>, but it <b>still takes up 占去 space</b> for layout purposes.
      * Use with {@link #setVisibility} and <a href="#attr_android:visibility">{@code
      * android:visibility}.
      */
@@ -930,7 +930,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * This view won't draw. {@link #onDraw(android.graphics.Canvas)} won't be
-     * called and further optimizations will be performed. It is okay to have
+     * called and further optimizations 优化 will be performed. It is okay to have
      * this flag set and a background. Use with DRAW_MASK when calling setFlags.
      * {@hide}
      */
@@ -970,7 +970,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Indicates that the view should filter touches when its window is obscured.
-     * Refer to the class comments for more information about this security feature.
+     * Refer to 参考 the class comments for more information about this security feature.
      * {@hide}
      */
     static final int FILTER_TOUCHES_WHEN_OBSCURED = 0x00000400;
@@ -978,12 +978,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Set for framework elements that use FITS_SYSTEM_WINDOWS, to indicate
      * that they are optional and should be skipped if the window has
-     * requested system UI flags that ignore those insets for layout.
+     * requested system UI flags that ignore those insets 嵌入 for layout.
      */
     static final int OPTIONAL_FITS_SYSTEM_WINDOWS = 0x00000800;
 
     /**
-     * <p>This view doesn't show fading edges.</p>
+     * <p>This view doesn't show fading 褪色 edges.</p>
      * {@hide}
      */
     static final int FADING_EDGE_NONE = 0x00000000;
@@ -1009,7 +1009,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * <p>Indicates this view can be clicked. When clickable, a View reacts
-     * to clicks by notifying the OnClickListener.<p>
+     * to 反应 clicks by notifying the OnClickListener.<p>
      * {@hide}
      */
     static final int CLICKABLE = 0x00004000;
@@ -1140,7 +1140,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * The scrollbar style to display the scrollbars at the edge of the view,
      * without increasing the padding. The scrollbars will be overlaid with
-     * translucency.
+     * translucency 半透明 .
      */
     public static final int SCROLLBARS_OUTSIDE_OVERLAY = 0x02000000;
 
@@ -1659,7 +1659,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Accessibility 可达性 event types that are dispatched for text population.
+     * Accessibility 可达性 event types that are dispatched for text population 人口 人口 总体 .
      */
     private static final int POPULATING_ACCESSIBILITY_EVENT_TYPES =
             AccessibilityEvent.TYPE_VIEW_CLICKED
@@ -1672,10 +1672,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             | AccessibilityEvent.TYPE_VIEW_TEXT_CHANGED
             | AccessibilityEvent.TYPE_VIEW_TEXT_SELECTION_CHANGED
             | AccessibilityEvent.TYPE_VIEW_ACCESSIBILITY_FOCUSED
-            | AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY;
+            | AccessibilityEvent.TYPE_VIEW_TEXT_TRAVERSED_AT_MOVEMENT_GRANULARITY; // 间隔尺寸，[岩] 粒度
 
     /**
-     * Temporary Rect currently for use in setBackground().  This will probably
+     * Temporary 暂时的 Rect currently for use in setBackground().  This will probably
      * be extended in the future to hold our own class with more than just
      * a Rect. :)
      */
@@ -1712,10 +1712,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     int mMeasuredHeight;
 
     /**
-     * Flag to indicate that this view was marked INVALIDATED, or had its display list
+     * Flag to indicate that this view was marked INVALIDATED 无效 , or had its display list
      * invalidated, prior to the current drawing iteration. If true, the view must re-draw
-     * its display list. This flag, used only when hw accelerated, allows us to clear the
-     * flag while retaining this information until it's needed (at getDisplayList() time and
+     * its display list. This flag, used only when hw 硬件 accelerated, allows us to clear the
+     * flag while retaining 保留 this information until it's needed (at getDisplayList() time and
      * in drawChild(), when we decide to draw a view's children's display lists into our own).
      *
      * {@hide}
@@ -1734,7 +1734,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     int mID = NO_ID;
 
     /**
-     * The stable ID of this view for accessibility purposes.
+     * The stable 牢固的；坚定的 ID of this view for accessibility purposes.
      */
     int mAccessibilityViewId = NO_ID;
 
@@ -1816,14 +1816,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int PFLAG_SCROLL_CONTAINER_ADDED      = 0x00100000;
 
     /**
-     * View flag indicating whether this view was invalidated (fully or partially.)
+     * View flag indicating whether this view was invalidated (fully or partially 部分地；偏袒地.)
      *
      * @hide
      */
     static final int PFLAG_DIRTY                       = 0x00200000;
 
     /**
-     * View flag indicating whether this view was invalidated by an opaque
+     * View flag indicating whether this view was invalidated by an opaque 不透明物
      * invalidate request.
      *
      * @hide
@@ -1860,7 +1860,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Indicates a prepressed state;
-     * the short time between ACTION_DOWN and recognizing
+     * the short time between ACTION_DOWN and recognizing 认识；承认
      * a 'real' press. Prepressed is used to recognize quick taps
      * even when they are shorter than ViewConfiguration.getTapTimeout().
      *
@@ -1900,9 +1900,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int PFLAG_ACTIVATED                   = 0x40000000;
 
     /**
-     * Indicates that this view was specifically invalidated, not just dirtied because some
+     * Indicates that this view was specifically invalidated, not just dirtied 弄脏 because some
      * child view was invalidated. The flag is used to determine when we need to recreate
-     * a view's display list (as opposed to just returning a reference to its existing
+     * a view's display list (as opposed to 与⋯⋯相对 just returning a reference to its existing
      * display list).
      *
      * @hide
@@ -1944,10 +1944,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *         11                        PFLAG2_ACCESSIBILITY_LIVE_REGION_MASK
      *       1                           PFLAG2_ACCESSIBILITY_FOCUSED
      *      1                            PFLAG2_SUBTREE_ACCESSIBILITY_STATE_CHANGED
-     *     1                             PFLAG2_VIEW_QUICK_REJECTED
+     *     1                             PFLAG2_VIEW_QUICK_REJECTED 被拒的；不合格的
      *    1                              PFLAG2_PADDING_RESOLVED
      *   1                               PFLAG2_DRAWABLE_RESOLVED
-     *  1                                PFLAG2_HAS_TRANSIENT_STATE
+     *  1                                PFLAG2_HAS_TRANSIENT_STATE 短暂的 瞬态 瞬时的
      * |-------|-------|-------|-------|
      */
 
@@ -2010,7 +2010,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int LAYOUT_DIRECTION_INHERIT = LayoutDirection.INHERIT;
 
     /**
-     * Horizontal layout direction of this view is from deduced from the default language
+     * Horizontal layout direction of this view is from deduced 推理 from the default language
      * script for the locale. Use with {@link #setLayoutDirection}.
      */
     public static final int LAYOUT_DIRECTION_LOCALE = LayoutDirection.LOCALE;
@@ -2028,7 +2028,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int PFLAG2_LAYOUT_DIRECTION_MASK = 0x00000003 << PFLAG2_LAYOUT_DIRECTION_MASK_SHIFT;
 
     /**
-     * Indicates whether the view horizontal layout direction has been resolved and drawn to the
+     * Indicates 表明 whether the view horizontal layout direction has been resolved and drawn to the
      * right-to-left direction.
      * @hide
      */
@@ -2234,7 +2234,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_CENTER = 4;
 
     /**
-     * Align to the start of the view, which is ALIGN_LEFT if the view鈥檚 resolved
+     * Align to the start of the view, which is ALIGN_LEFT if the view resolved
      * layoutDirection is LTR, and ALIGN_RIGHT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2242,7 +2242,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     public static final int TEXT_ALIGNMENT_VIEW_START = 5;
 
     /**
-     * Align to the end of the view, which is ALIGN_RIGHT if the view鈥檚 resolved
+     * Align to the end of the view, which is ALIGN_RIGHT if the view resolved
      * layoutDirection is LTR, and ALIGN_LEFT otherwise.
      *
      * Use with {@link #setTextAlignment(int)}
@@ -2337,7 +2337,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * The view is not important for accessibility, nor are any of its
-     * descendant views.
+     * descendant 后裔；子孙 views.
      */
     public static final int IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS = 0x00000004;
 
@@ -2363,7 +2363,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Live region mode specifying that accessibility services should not
-     * automatically announce changes to this view. This is the default live
+     * automatically announce 宣布 changes to this view. This is the default live
      * region mode for most views.
      * <p>
      * Use with {@link #setAccessibilityLiveRegion(int)}.
@@ -2380,7 +2380,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Live region mode specifying that accessibility services should interrupt
-     * ongoing speech to immediately announce changes to this view ASSERTIVE assertive 坚决主张的.
+     * ongoing speech 演讲；讲话 to immediately announce changes to this view ASSERTIVE assertive 坚决主张的.
      * <p>
      * Use with {@link #setAccessibilityLiveRegion(int)}.
      */
@@ -2431,7 +2431,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int PFLAG2_DRAWABLE_RESOLVED = 0x40000000;
 
     /**
-     * Indicates that the view is tracking some sort of transient state
+     * Indicates that the view is tracking some sort of transient 短暂的 瞬态 瞬时的 state
      * that the app should not need to be aware of, but that the framework
      * should take special care to preserve 保持 .
      */
@@ -2479,7 +2479,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      */
 
     /**
-     * Flag indicating that view has a transform animation set on it. This is used to track whether
+     * Flag indicating that view has a transform 变换 转变 改造 animation set on it. This is used to track whether
      * an animation is cleared between successive 连续的 frames, in order to tell the associated
      * DisplayList to clear its animation matrix.
      */
@@ -2528,7 +2528,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     static final int PFLAG3_NESTED_SCROLLING_ENABLED = 0x80;
 
     /**
-     * Flag indicating that the bottom scroll indicator should be displayed
+     * Flag indicating that the top scroll indicator should be displayed
      * when this view can scroll up.
      */
     static final int PFLAG3_SCROLL_INDICATOR_TOP = 0x0100;
@@ -2719,7 +2719,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /* End of masks for mPrivateFlags3 */
 
     /**
-     * Always allow a user to over-scroll this view, provided it is a
+     * Always allow a user to over-scroll this view, provided 倘若 只要 假如 it is a
      * view that can scroll.
      *
      * @see #getOverScrollMode()
@@ -2770,14 +2770,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * system navigation be temporarily hidden.
      *
      * <p>This is an even less obtrusive 刺眼的 state than that called for by
-     * {@link #SYSTEM_UI_FLAG_LOW_PROFILE}; on devices that draw essential navigation controls
+     * {@link #SYSTEM_UI_FLAG_LOW_PROFILE}; on devices that draw essential 基本的 必要的 navigation controls
      * (Home, Back, and the like) on screen, <code>SYSTEM_UI_FLAG_HIDE_NAVIGATION</code> will cause
      * those to disappear. This is useful (in conjunction with the
      * {@link android.view.WindowManager.LayoutParams#FLAG_FULLSCREEN FLAG_FULLSCREEN} and
      * {@link android.view.WindowManager.LayoutParams#FLAG_LAYOUT_IN_SCREEN FLAG_LAYOUT_IN_SCREEN}
      * window flags) for displaying content using every last pixel on the display.
      *
-     * <p>There is a limitation: because navigation controls are so important, the least user
+     * <p>There is a limitation 限制 限度: because navigation controls are so important, the least user
      * interaction will cause them to reappear immediately.  When this happens, both
      * this flag and {@link #SYSTEM_UI_FLAG_FULLSCREEN} will be cleared automatically,
      * so that both elements reappear at the same time.
@@ -2794,8 +2794,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <p>This has the same visual effect as
      * {@link android.view.WindowManager.LayoutParams#FLAG_FULLSCREEN
      * WindowManager.LayoutParams.FLAG_FULLSCREEN},
-     * meaning that non-critical 非重要的 screen decorations (such as the status bar) will be
-     * hidden while the user is in the View's window, focusing the experience on
+     * meaning that non-critical 非重要的 screen decorations 装饰品 (such as the status bar) will be
+     * hidden while the user is in the View's window, focusing the experience 体验 on
      * that content.  Unlike the window flag, if you are using ActionBar in
      * overlay mode with {@link Window#FEATURE_ACTION_BAR_OVERLAY
      * Window.FEATURE_ACTION_BAR_OVERLAY}, then enabling this flag will also
@@ -2827,7 +2827,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * flags, we would like a stable view of the content insets given to
      * {@link #fitSystemWindows(Rect)}.  This means that the insets seen there
      * will always represent the worst case that the application can expect
-     * as a continuous state.  In the stock Android UI this is the space for
+     * as a continuous 连续的 state.  In the stock 股票 库存 存货 Android UI this is the space for
      * the system bar, nav bar, and status bar, but not more transient elements
      * such as an input method.
      *
@@ -2851,7 +2851,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * <p>If you are using ActionBar in
      * overlay mode with {@link Window#FEATURE_ACTION_BAR_OVERLAY
-     * Window.FEATURE_ACTION_BAR_OVERLAY}, this flag will also impact the
+     * Window.FEATURE_ACTION_BAR_OVERLAY}, this flag will also impact 撞击 冲击 影响 the
      * insets it adds to those given to the application.
      */
     public static final int SYSTEM_UI_FLAG_LAYOUT_STABLE = 0x00000100;
@@ -2861,7 +2861,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * to be laid out as if it has requested
      * {@link #SYSTEM_UI_FLAG_HIDE_NAVIGATION}, even if it currently hasn't.  This
      * allows it to avoid artifacts 史前古器物 when switching in and out of that mode, at
-     * the expense that some of its user interface may be covered by screen
+     * the expense 费用 开销 that some of its user interface may be covered by screen
      * decorations when they are shown.  You can perform layout of your inner
      * UI elements to account for the navigation system UI through the
      * {@link #fitSystemWindows(Rect)} method.
@@ -2900,13 +2900,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * if the user swipes 刷 from the top of the screen.
      * <p>When system bars are hidden in immersive mode, they can be revealed 显示 temporarily with
      * system gestures, such as swiping from the top of the screen.  These transient system bars
-     * will overlay app content, may have some degree of transparency, and will automatically
-     * hide after a short timeout.
+     * will overlay app content, may have some degree 程度 of transparency 透明 , and will
+     * automatically hide after a short timeout.
      * </p><p>Since this flag is a modifier for {@link #SYSTEM_UI_FLAG_FULLSCREEN} and
      * {@link #SYSTEM_UI_FLAG_HIDE_NAVIGATION}, it only has an effect when used in combination
      * with one or both of those flags.</p>
      */
-    public static final int SYSTEM_UI_FLAG_IMMERSIVE_STICKY = 0x00001000;
+    public static final int SYSTEM_UI_FLAG_IMMERSIVE_STICKY = 0x00001000; // 粘的；粘性的
 
     /**
      * Flag for {@link #setSystemUiVisibility(int)}: Requests the status bar to draw in a mode that
@@ -2943,7 +2943,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to make the status bar not expandable.  Unless you also
@@ -2954,17 +2954,17 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
-     * Flag to hide notification icons and scrolling ticker text.
+     * Flag to hide notification icons and scrolling ticker 即时引爆 text.
      */
     public static final int STATUS_BAR_DISABLE_NOTIFICATION_ICONS = 0x00020000;
 
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to disable incoming notification alerts.  This will not block
@@ -2975,7 +2975,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to hide only the scrolling ticker.  Note that
@@ -2987,7 +2987,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to hide the center system info area.
@@ -2997,11 +2997,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to hide only the home button.  Don't use this
-     * unless you're a special part of the system UI (i.e., setup wizard, keyguard).
+     * unless you're a special part of the system UI (i.e., setup wizard, keyguard 键盘守卫 锁键盘 ).
      */
     public static final int STATUS_BAR_DISABLE_HOME = 0x00200000;
 
@@ -3023,14 +3023,14 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to hide only the clock.  You might use this if your activity has
-     * its own clock making the status bar's clock redundant.
+     * its own clock making the status bar's clock redundant 多余的 .
      */
     public static final int STATUS_BAR_DISABLE_CLOCK = 0x00800000;
 
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to hide only the recent apps button. Don't use this
@@ -3052,7 +3052,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * @hide
      *
-     * NOTE: This flag may only be used in subtreeSystemUiVisibility. It is masked
+     * NOTE: This flag may only be used in subtree SystemUiVisibility. It is masked
      * out of the public fields to keep the undefined bits out of the developer's way.
      *
      * Flag to specify that the status bar is displayed in transient mode.
@@ -3189,9 +3189,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Find views that contain {@link AccessibilityNodeProvider}. Such
-     * a View is a root of virtual view hierarchy and may contain the searched
+     * a View is a root of virtual 虚拟 虚的 view hierarchy and may contain the searched
      * text. If this flag is set Views with providers are automatically
-     * added and it is a responsibility of the client to call the APIs of
+     * added and it is a responsibility 责任 of the client to call the APIs of
      * the provider to determine whether the virtual tree rooted at this View
      * contains the text, i.e. getting the list of {@link AccessibilityNodeInfo}s
      * representing the virtual views with this text.
@@ -3296,7 +3296,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     int mSystemUiVisibility;
 
     /**
-     * Reference count for transient state.
+     * Reference 参考 count for transient 短暂的 state.
      * @see #setHasTransientState(boolean)
      */
     int mTransientStateCount = 0;
@@ -3332,7 +3332,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         private final Matrix mMatrix = new Matrix();
 
         /**
-         * The inverse transform matrix for the View. This transform is calculated
+         * The inverse 相反；倒转 transform matrix for the View. This transform is calculated
          * internally based on the translation, rotation, and scale properties.
          *
          * Do *not* use this variable directly; instead call getInverseMatrix(),
@@ -3348,8 +3348,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         float mAlpha = 1f;
 
         /**
-         * The opacity of the view as manipulated by the Fade transition. This is a hidden
-         * property only used by transitions, which is composited with the other alpha
+         * The opacity of the view as manipulated 操作 by the Fade transition. This is a hidden
+         * property only used by transitions, which is composited 混合的 with the other alpha
          * values to calculate the final visual alpha value.
          */
         float mTransitionAlpha = 1f;
@@ -3444,7 +3444,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private Insets mLayoutInsets;
 
     /**
-     * Briefly describes the view and is primarily used for accessibility support.
+     * Briefly 短暂地；简略地；暂时地 describes the view and is primarily used for accessibility support.
      */
     private CharSequence mContentDescription;
 
@@ -3492,7 +3492,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     protected int mUserPaddingBottom;
 
     /**
-     * Cache the paddingLeft set by the user to append to the scrollbar's size.
+     * Cache the paddingLeft set by the user to append to 添加到 the scrollbar's size.
      *
      * @hide
      */
@@ -3658,8 +3658,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     ListenerInfo mListenerInfo;
 
-    // Temporary values used to hold (x,y) coordinates when delegating from the
-    // two-arg performLongClick() method to the legacy no-arg version.
+    // Temporary values used to hold (x,y) coordinates when delegating 授权 委派 授权式 from the
+    // two-arg performLongClick() method to the legacy 遗赠，遗产 no-arg version.
     private float mLongClickX = Float.NaN;
     private float mLongClickY = Float.NaN;
 
@@ -3737,7 +3737,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private boolean mInContextButtonPress;
 
     /**
-     * Whether the next up event should be ignored for the purposes of gesture recognition. This is
+     * Whether the next up event should be ignored for the purposes of gesture recognition 识别. This is
      * true after a stylus button press has occured, when the next up event should not be recognized
      * as a tap.
      */
@@ -3758,13 +3758,13 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private int mMinWidth;
 
     /**
-     * The delegate 委派代表 to handle touch events that are physically in this view
+     * The delegate 委派代表 to handle touch events that are physically 身体上 肉体上 生理上 in this view
      * but should be handled by another view.
      */
     private TouchDelegate mTouchDelegate = null;
 
     /**
-     * Solid color to use as a background when creating the drawing cache. Enables
+     * Solid 固体 color to use as a background when creating the drawing cache. Enables
      * the cache to use 16 bit bitmaps instead of 32 bit.
      */
     private int mDrawingCacheBackgroundColor = 0;
@@ -3780,7 +3780,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private int mTouchSlop;
 
     /**
-     * Object that handles automatic animation of view properties.
+     * Object that handles automatic 自动 animation of view properties.
      */
     private ViewPropertyAnimator mAnimator = null;
 
@@ -3796,7 +3796,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * {@link android.os.Build.VERSION_CODES#N API 24} will be able to participate
      * in the drag operation and receive the dragged content.
      *
-     * If this is the only flag set, then the drag recipient will only have access to text data
+     * If this is the only flag set, then the drag recipient 接受者 will only have access to text data
      * and intents contained in the {@link ClipData} object. Access to URIs contained in the
      * {@link ClipData} is determined by other DRAG_FLAG_GLOBAL_* flags.
      */
@@ -3818,7 +3818,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * When this flag is used with {@link #DRAG_FLAG_GLOBAL_URI_READ} and/or {@link
-     * #DRAG_FLAG_GLOBAL_URI_WRITE}, the URI permission grant can be persisted across device
+     * #DRAG_FLAG_GLOBAL_URI_WRITE}, the URI permission grant can be persisted 坚持不懈 持久化状态 across device
      * reboots until explicitly revoked with
      * {@link android.content.Context#revokeUriPermission(Uri,int) Context.revokeUriPermission}.
      * @see android.content.Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION
@@ -3887,9 +3887,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * is useful to apply a specific color filter and/or blending 混和 mode and/or
      * translucency 半透明 to a view and all its children.</p>
      * <p>When the application is using hardware acceleration, a software layer
-     * is useful to render drawing primitives not supported by the hardware
+     * is useful to render drawing primitives基元  not supported by the hardware
      * accelerated pipeline. It can also be used to cache a complex view tree
-     * into a texture 结构 and reduce the complexity of drawing operations. For instance,
+     * into a texture 结构 and reduce the complexity 复杂，复杂性 of drawing operations. For instance,
      * when animating a complex view tree with a translation, a software layer can
      * be used to render the view tree only once.</p>
      * <p>Software layers should be avoided when the affected view tree updates
@@ -3948,11 +3948,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private Bitmap mUnscaledDrawingCache; //unscaled 不成比例的
 
     /**
-     * RenderNode holding View properties, potentially holding a DisplayList of View content.
+     * RenderNode holding View properties, potentially 可能地，潜在地 holding a DisplayList
+     * of View content.
      * <p>
      * When non-null and valid, this is expected to contain an up-to-date copy
-     * of the View content. Its DisplayList content is cleared on temporary 暂时的 detach and reset on
-     * cleanup.
+     * of the View content. Its DisplayList content is cleared on temporary 暂时的
+     * detach and reset on cleanup.
      */
     final RenderNode mRenderNode;
 
@@ -3982,7 +3983,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private ViewParent mNestedScrollingParent;
 
     /**
-     * Consistency 前后一致 verifier for debugging purposes.
+     * Consistency 前后一致 verifier 校对机 驱动程序检验 审核人 for debugging purposes.
      * @hide
      */
     protected final InputEventConsistencyVerifier mInputEventConsistencyVerifier =
@@ -4014,7 +4015,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     private static SparseArray<String> mAttributeMap;
 
     /**
-     * Queue of pending runnables. Used to postpone calls to post() until this
+     * Queue of pending runnables. Used to postpone 推迟 延期 顺延 calls to post() until this
      * view is attached and has a handler.
      */
     private HandlerActionQueue mRunQueue;
@@ -4076,7 +4077,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
             Canvas.sCompatibilityRestore = targetSdkVersion < M;
 
-            // In M and newer, our widgets can pass a "hint" value in the size
+            // In M and newer, our widgets can pass a "hint" 暗示 提示 迹象 value in the size
             // for UNSPECIFIED MeasureSpecs. This lets child views of scrolling containers
             // know what the expected parent size is going to be, so e.g. list items can size
             // themselves at 1/3 the size of their container. It breaks older apps though,
@@ -4089,11 +4090,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             sAlwaysRemeasureExactly = targetSdkVersion <= M;
 
             // Prior to N, layout params could change without requiring a
-            // subsequent call to setLayoutParams() and they would usually
+            // subsequent 后来的，随后的 call to setLayoutParams() and they would usually
             // work. Partial 部分的 layout breaks this assumption 假设 .
             sLayoutParamsAlwaysChanged = targetSdkVersion <= M;
 
-            // Prior to N, TextureView would silently ignore calls to setBackground/setForeground.
+            // Prior to N, TextureView would silently 安静地 寂静地 默默无语 ignore calls to
+            // setBackground/setForeground.
             // On N+, we throw, but that breaks compatibility with apps that use these methods.
             sTextureViewIgnoresDrawableSetters = targetSdkVersion <= M;
 
@@ -4950,7 +4952,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Initializes the fading edges from a given set of styled attributes. This
      * method should be called by subclasses that need fading edges and when an
      * instance of these subclasses is created programmatically rather than
-     * being inflated from XML. This method is automatically called when the XML
+     * being inflated from XML. This method is automatically 自动的 called when the XML
      * is inflated.
      * </p>
      *
@@ -4982,7 +4984,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * </p>
      *
      * @param a the styled attributes set to initialize the fading edges from
-     * @hide This is the real method; the public one is shimmed to be safe to call from apps.
+     * @hide This is the real method; the public one is shimmed 被填的 to be safe to call from apps.
      */
     protected void initializeFadingEdgeInternal(TypedArray a) {
         initScrollCache();
@@ -5328,7 +5330,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Sets the state of all scroll indicators.
+     * Sets the state of all scroll indicators 指示器 .
      * <p>
      * See {@link #setScrollIndicators(int, int)} for usage information.
      *
@@ -5351,10 +5353,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * can scroll in the direction of the indicator.
      * <p>
      * Multiple indicator types may be enabled or disabled by passing the
-     * logical OR of the desired types. If multiple types are specified, they
+     * logical 逻辑 OR of the desired types. If multiple types are specified, they
      * will all be set to the same enabled state.
      * <p>
-     * For example, to enable the top scroll indicatorExample: {@code setScrollIndicators
+     * For example, to enable the top scroll indicator Example: {@code setScrollIndicators
      *
      * @param indicators the indicator direction, or the logical OR of multiple
      *             indicator directions. One or more of:
@@ -5371,7 +5373,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * @attr ref android.R.styleable#View_scrollIndicators
      */
     public void setScrollIndicators(@ScrollIndicators int indicators, @ScrollIndicators int mask) {
-        // Shift and sanitize mask.
+        // Shift and sanitize 清洁 对其审查 常清洁 mask.
         mask <<= SCROLL_INDICATORS_TO_PFLAGS3_LSHIFT;
         mask &= SCROLL_INDICATORS_PFLAG3_MASK;
 
@@ -5422,11 +5424,11 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * Register a callback to be invoked when the scroll X or Y positions of
      * this view change.
      * <p>
-     * <b>Note:</b> Some views handle scrolling independently from View and may
+     * <b>Note:</b> Some views handle scrolling independently 各自地 独自地 独立地 from View and may
      * have their own separate listeners for scroll-type events. For example,
      * {@link android.widget.ListView ListView} allows clients to register an
-     * {@link android.widget.ListView#setOnScrollListener(android.widget.AbsListView.OnScrollListener) AbsListView.OnScrollListener}
-     * to listen for changes in list scroll position.
+     * {@link android.widget.ListView#setOnScrollListener(android.widget.AbsListView.OnScrollListener)
+     * AbsListView.OnScrollListener} to listen for changes in list scroll position.
      *
      * @param l The listener to notify when the scroll X or Y position changes.
      * @see android.view.View#getScrollX()
@@ -8521,7 +8523,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * animation hinting.
      *
      * @param pressed Pass true to set the View's internal state to "pressed",
-     *            or false to reverts the View's internal state from a
+     *            or false to reverts 返回 the View's internal state from a
      *            previously set "pressed" state.
      * @param x The x coordinate of the touch that caused the press
      * @param y The y coordinate of the touch that caused the press
@@ -8851,7 +8853,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Adds any focusable views that are descendants of this view (possibly
+     * Adds any focusable views that are descendants 后代 of this view (possibly
      * including this view if it is focusable itself) to views. This method
      * adds all focusable views regardless if we are in touch mode or
      * only views focusable in touch mode if we are in touch mode or
@@ -9435,7 +9437,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Whether to regard this view for accessibility. A view is regarded for
+     * Whether to regard 注意；尊重 this view for accessibility. A view is regarded for
      * accessibility if it is important for accessibility or the querying
      * accessibility service has explicitly requested that view not
      * important for accessibility are regarded.
@@ -11592,10 +11594,10 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
                 clearAccessibilityFocus();
                 destroyDrawingCache();
                 if (mParent instanceof View) {
-                    // GONE views noop invalidation, so invalidate the parent
+                    // GONE views noop 等待；无操作 invalidation, so invalidate the parent
                     ((View) mParent).invalidate(true);
                 }
-                // Mark the view drawn to ensure that it gets invalidated properly the next
+                // Mark the view drawn to ensure that it gets invalidated properly 适当地 the next
                 // time it is visible and gets invalidated
                 mPrivateFlags |= PFLAG_DRAWN;
             }
@@ -11765,8 +11767,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      * <b>Note:</b> Some views handle scrolling independently from View and may
      * have their own separate listeners for scroll-type events. For example,
      * {@link android.widget.ListView ListView} allows clients to register an
-     * {@link android.widget.ListView#setOnScrollListener(android.widget.AbsListView.OnScrollListener) AbsListView.OnScrollListener}
-     * to listen for changes in list scroll position.
+     * {@link android.widget.ListView#setOnScrollListener(android.widget.AbsListView.OnScrollListener)
+     * AbsListView.OnScrollListener} to listen for changes in list scroll position.
      *
      * @see #setOnScrollChangeListener(View.OnScrollChangeListener)
      */
@@ -11775,7 +11777,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
          * Called when the scroll position of a view changes.
          *
          * @param v The view whose scroll position has changed.
-         * @param scrollX Current horizontal scroll origin.
+         * @param scrollX Current horizontal scroll origin 起源；原点 .
          * @param scrollY Current vertical scroll origin.
          * @param oldScrollX Previous horizontal scroll origin.
          * @param oldScrollY Previous vertical scroll origin.
@@ -11929,8 +11931,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Return the full width measurement information for this view as computed
-     * by the most recent call to {@link #measure(int, int)}.  This result is a bit mask
+     * Return the full width measurement 测量 information for this view as computed
+     * by the most recent 最近的 call to {@link #measure(int, int)}.  This result is a bit mask
      * as defined by {@link #MEASURED_SIZE_MASK} and {@link #MEASURED_STATE_TOO_SMALL}.
      * This should be used during measurement and layout calculations only. Use
      * {@link #getWidth()} to see how wide a view is after layout.
@@ -13401,8 +13403,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
     /**
      * Get the LayoutParams associated with this view. All views should have
-     * layout parameters. These supply parameters to the <i>parent</i> of this
-     * view specifying how it should be arranged. There are many subclasses of
+     * layout parameters. These supply 提供 parameters to the <i>parent</i> of this
+     * view specifying how it should be arranged 安排的 . There are many subclasses of
      * ViewGroup.LayoutParams, and these correspond to the different subclasses
      * of ViewGroup that are responsible for arranging their children.
      *
@@ -13951,6 +13953,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
+     * 不透明物
      * @hide
      */
     protected void computeOpaqueFlags() {
@@ -13966,6 +13969,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         }
 
         final int flags = mViewFlags;
+        // TODO: 2018/5/24  
         if (((flags & SCROLLBARS_VERTICAL) == 0 && (flags & SCROLLBARS_HORIZONTAL) == 0) ||
                 (flags & SCROLLBARS_STYLE_MASK) == SCROLLBARS_INSIDE_OVERLAY ||
                 (flags & SCROLLBARS_STYLE_MASK) == SCROLLBARS_OUTSIDE_OVERLAY) {
@@ -15207,8 +15211,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Return true if we are in RTL compatibility mode (either before Jelly Bean MR1 Android 4.2, 4.2.2	17 or
-     * RTL not supported)
+     * Return true if we are in RTL compatibility mode (either before Jelly Bean MR1
+     * Android 4.2, 4.2.2	17 or RTL not supported)
      */
     private boolean isRtlCompatibilityMode() {
         final int targetSdkVersion = getContext().getApplicationInfo().targetSdkVersion;
@@ -15354,7 +15358,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Resolves padding depending on layout direction, if applicable, and
+     * Resolves padding depending on layout direction, if applicable 可适用的；可应用的；合适的 , and
      * recomputes internal padding values to adjust for scroll bars.
      *
      * @hide
@@ -15364,7 +15368,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         if (!isRtlCompatibilityMode()) {
             // Post Jelly Bean MR1 case: we need to take the resolved layout direction into account.
-            // If start / end padding are defined, they will be resolved (hence overriding) to
+            // If start / end padding are defined, they will be resolved (hence 所以 因此 从此 overriding) to
             // left / right or right / left depending on the resolved layout direction.
             // If start / end padding are not defined, use the left / right ones.
             if (mBackground != null && (!mLeftPaddingDefined || !mRightPaddingDefined)) {
@@ -18099,6 +18103,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
      *
      * @see #drawableStateChanged
      */
+    @Override
     public void unscheduleDrawable(Drawable who) {
         if (mAttachInfo != null && who != null) {
             mAttachInfo.mViewRootImpl.mChoreographer.removeCallbacks(
@@ -18315,7 +18320,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     /**
      * Generate the new {@link android.graphics.drawable.Drawable} state for
      * this view. This is called by the view
-     * system when the cached Drawable state is determined to be invalid.  To
+     * system when the cached Drawable state is determined 坚决的 下定决心 坚定的 to be invalid.  To
      * retrieve the current state, you should use {@link #getDrawableState}.
      *
      * @param extraSpace if non-zero, this is the number of extra entries you
@@ -18338,12 +18343,18 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         int privateFlags = mPrivateFlags;
 
         int viewStateIndex = 0;
-        if ((privateFlags & PFLAG_PRESSED) != 0) viewStateIndex |= StateSet.VIEW_STATE_PRESSED;
-        if ((mViewFlags & ENABLED_MASK) == ENABLED) viewStateIndex |= StateSet.VIEW_STATE_ENABLED;
-        if (isFocused()) viewStateIndex |= StateSet.VIEW_STATE_FOCUSED;
-        if ((privateFlags & PFLAG_SELECTED) != 0) viewStateIndex |= StateSet.VIEW_STATE_SELECTED;
-        if (hasWindowFocus()) viewStateIndex |= StateSet.VIEW_STATE_WINDOW_FOCUSED;
-        if ((privateFlags & PFLAG_ACTIVATED) != 0) viewStateIndex |= StateSet.VIEW_STATE_ACTIVATED;
+        if ((privateFlags & PFLAG_PRESSED) != 0) 
+            viewStateIndex |= StateSet.VIEW_STATE_PRESSED;
+        if ((mViewFlags & ENABLED_MASK) == ENABLED) 
+            viewStateIndex |= StateSet.VIEW_STATE_ENABLED;
+        if (isFocused()) 
+            viewStateIndex |= StateSet.VIEW_STATE_FOCUSED;
+        if ((privateFlags & PFLAG_SELECTED) != 0) 
+            viewStateIndex |= StateSet.VIEW_STATE_SELECTED;
+        if (hasWindowFocus()) 
+            viewStateIndex |= StateSet.VIEW_STATE_WINDOW_FOCUSED;
+        if ((privateFlags & PFLAG_ACTIVATED) != 0) 
+            viewStateIndex |= StateSet.VIEW_STATE_ACTIVATED;
         if (mAttachInfo != null && mAttachInfo.mHardwareAccelerationRequested &&
                 ThreadedRenderer.isAvailable()) {
             // This is set if HW acceleration is requested, even if the current
@@ -18351,7 +18362,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             // windows to better match their app.
             viewStateIndex |= StateSet.VIEW_STATE_ACCELERATED;
         }
-        if ((privateFlags & PFLAG_HOVERED) != 0) viewStateIndex |= StateSet.VIEW_STATE_HOVERED;
+        if ((privateFlags & PFLAG_HOVERED) != 0) 
+            viewStateIndex |= StateSet.VIEW_STATE_HOVERED;
 
         final int privateFlags2 = mPrivateFlags2;
         if ((privateFlags2 & PFLAG2_DRAG_CAN_ACCEPT) != 0) {
@@ -18386,7 +18398,6 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         } else {
             fullState = new int[extraSpace];
         }
-
         return fullState;
     }
 
@@ -20297,9 +20308,9 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * Utility to reconcile  使一致 a desired size and state, with constraints imposed
+     * Utility to reconcile  使一致 a desired 渴望的 size and state, with constraints 约束 imposed 强加的
      * by a MeasureSpec. Will take the desired size, unless a different size
-     * is imposed by the constraints. The returned value is a compound integer,
+     * is imposed by the constraints. The returned value is a compound 合成 integer,
      * with the resolved size in the {@link #MEASURED_SIZE_MASK} bits and
      * optionally the bit {@link #MEASURED_STATE_TOO_SMALL} set if the
      * resulting size is smaller than the size the view wants to be.
@@ -23129,7 +23140,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         /**
          * The state of the display to which the window is attached, as reported
          * by {@link Display#getState()}.  Note that the display state constants
-         * declared by {@link Display} do not exactly line up with the screen state
+         * declared by {@link Display} do not exactly line up 排队 with the screen state
          * constants declared by {@link View} (there are more display states than
          * screen states).
          */
@@ -23197,7 +23208,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         /**
          * In multi-window we force show the navigation bar. Because we don't want that the surface
          * size changes in this mode, we instead have a flag whether the navigation bar size should
-         * always be consumed, so the app is treated like there is no virtual navigation bar at all.
+         * always be consumed, so the app is treated 对待 like there is no virtual navigation bar at all.
          */
         boolean mAlwaysConsumeNavBar;
 
@@ -23248,7 +23259,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         /**
          * This flag tracks when the mIgnoreDirtyState flag is set during draw(),
-         * to avoid clearing that flag prematurely.
+         * to avoid clearing that flag prematurely 过早地 .
          */
         boolean mSetIgnoreDirtyState = false;
 
@@ -23285,12 +23296,12 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         boolean mNeedsUpdateLightCenter;
 
         /**
-         * Bitwise-or of all of the values that views have passed to setSystemUiVisibility().
+         * Bitwise-or 按位 of all of the values that views have passed to setSystemUiVisibility().
          */
         int mSystemUiVisibility;
 
         /**
-         * Hack to force certain system UI visibility flags to be cleared.
+         * Hack 打手犯规 下锅 砍 to force certain system UI visibility flags to be cleared.
          */
         int mDisabledSystemUiVisibility;
 
@@ -23322,7 +23333,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         boolean mViewScrollChanged;
 
         /**
-         * Set to true if high contrast mode enabled
+         * Set to true if high contrast 对比度 mode enabled
          */
         boolean mHighContrastText;
 
@@ -23332,8 +23343,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         boolean mHandlingPointerEvent;
 
         /**
-         * Global to the view hierarchy used as a temporary for dealing with
-         * x/y points in the transparent region computations.
+         * Global to the view hierarchy used as a temporary 临时 for dealing with
+         * x/y points in the transparent 透明的 region computations.
          */
         final int[] mTransparentLocation = new int[2];
 
@@ -23372,19 +23383,19 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         final ViewRootImpl mViewRootImpl;
 
         /**
-         * A Handler supplied by a view's {@link android.view.ViewRootImpl}. This
-         * handler can be used to pump events in the UI events queue.
+         * A Handler supplied 提供 by a view's {@link android.view.ViewRootImpl}. This
+         * handler can be used to pump 泵，抽水机；打气筒 events in the UI events queue.
          */
         final Handler mHandler;
 
         /**
          * Temporary for use in computing invalidate rectangles while
-         * calling up the hierarchy.
+         * calling up 电台呼叫 the hierarchy.
          */
         final Rect mTmpInvalRect = new Rect();
 
         /**
-         * Temporary for use in computing hit areas with transformed views
+         * Temporary 临时 暂时的 for use in computing hit areas with transformed views
          */
         final RectF mTmpTransformRect = new RectF();
 
@@ -23453,7 +23464,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         View mViewRequestingLayout;
 
         /**
-         * Used to track views that need (at least) a partial relayout at their current size
+         * Used to track views that need (at least) a partial 局部的 relayout at their current size
          * during the next traversal.
          */
         List<View> mPartialLayoutViews = new ArrayList<>();
@@ -23465,7 +23476,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         List<View> mEmptyPartialLayoutViews;
 
         /**
-         * Used to track the identity of the current drag operation.
+         * Used to track the identity 身份 of the current drag operation.
          */
         IBinder mDragToken;
 
@@ -23476,7 +23487,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
 
         /**
          * M: When application view tree contains surfaceview, we should disable
-         * FADING_EDGE_ENHANCE feature.
+         * FADING_EDGE_ENHANCE enhance 提高 feature.
          */
         int mSurfaceViewCount;
 
@@ -23499,7 +23510,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
     }
 
     /**
-     * <p>ScrollabilityCache holds various fields used by a View when scrolling
+     * <p>ScrollabilityCache holds various 各种各样的 fields used by a View when scrolling
      * is supported. This avoids keeping too many unused fields in most
      * instances of View.</p>
      */
@@ -23963,7 +23974,7 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
         public void runOrPost(int changeType) {
             mChangeTypes |= changeType;
 
-            // If this is a live region or the child of a live region, collect
+            // If this is a live region 活动区域 or the child of a live region, collect
             // all events from this frame and send them on the next frame.
             if (inLiveRegion()) {
                 // If we're already posted with a delay, remove that.

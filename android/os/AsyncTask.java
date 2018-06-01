@@ -35,27 +35,27 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * <p>AsyncTask enables proper ºÏÊÊµÄ  and easy use of the UI thread. This class allows to
+ * <p>AsyncTask enables proper é€‚å½“çš„ and easy use of the UI thread. This class allows to
  * perform background operations and publish results on the UI thread without
- * having to manipulate threads and/or handlers.</p>
+ * having to manipulate æ“ä½œ threads and/or handlers.</p>
  * 
  * <p>AsyncTask is designed to be a helper class around {@link Thread} and {@link Handler}
- * and does not constitute ¹¹³É  a generic threading framework. AsyncTasks should ideally ÀíÏëµÄ  be
+ * and does not constitute  æ„æˆ a generic threading framework. AsyncTasks should ideally ç†æƒ³çš„ be
  * used for short operations (a few seconds at the most.) If you need to keep threads
  * running for long periods of time, it is highly recommended you use the various APIs
- * provided by the <code>java.util.concurrent</code> package such as {@link Executor},
+ * provided by the <code>java.util.concurrent</code> package such as {@link Executor æ‰§è¡Œè€…},
  * {@link ThreadPoolExecutor} and {@link FutureTask}.</p>
  *
- * <p>An asynchronous task is defined by a computation ¹À¼Æ  that runs on a background thread and
- * whose result is published on the UI thread. An asynchronous task is defined by 3 generic ·ºĞÍµÄ
- * types, called <code>Params</code>, <code>Progress</code> and <code>Result</code>,
+ * <p>An asynchronous task is defined by a computation è®¡ç®— that runs on a background thread and
+ * whose result is published on the UI thread. An asynchronous task is defined by 3 generic ä¸€èˆ¬çš„
+ * types, called <code>Params</code>, <code>Progress è¿›åº¦ </code> and <code>Result</code>,
  * and 4 steps, called <code>onPreExecute</code>, <code>doInBackground</code>,
  * <code>onProgressUpdate</code> and <code>onPostExecute</code>.</p>
  *
  * <div class="special reference">
  * <h3>Developer Guides</h3>
  * <p>For more information about using tasks and threads, read the
- * <a href="{@docRoot}guide/topics/fundamentals/processes-and-threads.html">Processes and
+ * <a href="{@docRoot}guide/topics/fundamentals/processes-and-threads.html">Processes è¿›ç¨‹ and
  * Threads</a> developer guide.</p>
  * </div>
  *
@@ -73,14 +73,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  *         for (int i = 0; i < count; i++) {
  *             totalSize += Downloader.downloadFile(urls[i]);
  *             publishProgress((int) ((i / (float) count) * 100));
- *             // Escape early if cancel() is called
+ *             // Escape é€ƒèµ° early if cancel() is called
  *             if (isCancelled()) break;
  *         }
  *         return totalSize;
  *     }
  *
  *     protected void onProgressUpdate(Integer... progress) {
- *         setProgressPercent(progress[0]);
+ *         setProgressPercent(progress[0]);  ç™¾åˆ†æ¯”
  *     }
  *
  *     protected void onPostExecute(Long result) {
@@ -99,8 +99,8 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <ol>
  *     <li><code>Params</code>, the type of the parameters sent to the task upon
  *     execution.</li>
- *     <li><code>Progress</code>, the type of the progress units published during
- *     the background computation.</li>
+ *     <li><code>Progress</code>, the type of the progress units å•ä½ published during
+ *     the background computation è®¡ç®— .</li>
  *     <li><code>Result</code>, the type of the result of the background
  *     computation.</li>
  * </ol>
@@ -117,7 +117,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *     is executed. This step is normally used to setup the task, for instance by
  *     showing a progress bar in the user interface.</li>
  *     <li>{@link #doInBackground}, invoked on the background thread
- *     immediately after {@link #onPreExecute()} finishes executing. This step is used
+ *     immediately ç«‹å³ after {@link #onPreExecute()} finishes executing. This step is used
  *     to perform background computation that can take a long time. The parameters
  *     of the asynchronous task are passed to this step. The result of the computation must
  *     be returned by this step and will be passed back to the last step. This step
@@ -140,15 +140,15 @@ import java.util.concurrent.atomic.AtomicInteger;
  * After invoking this method, {@link #onCancelled(Object)}, instead of
  * {@link #onPostExecute(Object)} will be invoked after {@link #doInBackground(Object[])}
  * returns. To ensure that a task is cancelled as quickly as possible, you should always
- * check the return value of {@link #isCancelled()} periodically ¶¨ÆÚµÄ ÖÜÆÚĞÔµÄ  from
- * {@link #doInBackground(Object[])}, if possible (inside a loop for instance.)</p>
+ * check the return value of {@link #isCancelled()} periodically å‘¨æœŸæ€§çš„ from
+ * {@link #doInBackground(Object[])}, if possible (inside a loop å›è·¯ for instance.)</p>
  *
  * <h2>Threading rules</h2>
  * <p>There are a few threading rules that must be followed for this class to
  * work properly:</p>
  * <ul>
  *     <li>The AsyncTask class must be loaded on the UI thread. This is done
- *     automatically as of {@link android.os.Build.VERSION_CODES#JELLY_BEAN}.</li>
+ *     automatically as of {@link android.os.Build.VERSION_CODES#JELLY_BEAN Android 4.1 16 }.</li>
  *     <li>The task instance must be created on the UI thread.</li>
  *     <li>{@link #execute} must be invoked on the UI thread.</li>
  *     <li>Do not call {@link #onPreExecute()}, {@link #onPostExecute},
@@ -157,9 +157,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  *     a second execution is attempted.)</li>
  * </ul>
  *
- * <h2>Memory observability ¿É¹Û²ìĞÔ </h2>
- * <p>AsyncTask guarantees that all callback calls are synchronized in such a way that the following
- * operations are safe without explicit synchronizations.</p>
+ * <h2>Memory observability å¯è§‚å¯Ÿæ€§ </h2>
+ * <p>AsyncTask  guarantees æ‹…ä¿ that all callback calls are synchronized in such a way that the
+ * following operations are safe without explicit synchronizations.</p>
  * <ul>
  *     <li>Set member fields in the constructor or {@link #onPreExecute}, and refer to them
  *     in {@link #doInBackground}.
@@ -168,11 +168,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * </ul>
  *
  * <h2>Order of execution</h2>
- * <p>When first introduced, AsyncTasks were executed serially on a single background
- * thread. Starting with {@link android.os.Build.VERSION_CODES#DONUT}, this was changed
- * to a pool of threads allowing multiple tasks to operate in parallel. Starting with
- * {@link android.os.Build.VERSION_CODES#HONEYCOMB}, tasks are executed on a single
- * thread to avoid common application errors caused by parallel execution.</p>
+ * <p>When first introduced, AsyncTasks were executed serially è¿ç»­çš„ on a single background
+ * thread. Starting with {@link android.os.Build.VERSION_CODES#DONUT Android 1.6 4 }, this was changed
+ * to a pool of threads allowing multiple tasks to operate in parallel å¹¶è¡Œçš„ . Starting with
+ * {@link android.os.Build.VERSION_CODES#HONEYCOMB èœ‚çª Android 3.0 11 }, tasks are executed on a
+ * single thread to avoid common application errors caused by parallel execution.</p>
  * <p>If you truly want parallel execution, you can invoke
  * {@link #executeOnExecutor(java.util.concurrent.Executor, Object[])} with
  * {@link #THREAD_POOL_EXECUTOR}.</p>
@@ -182,7 +182,7 @@ public abstract class AsyncTask<Params, Progress, Result> {
 
     private static final int CPU_COUNT = Runtime.getRuntime().availableProcessors();
     // We want at least 2 threads and at most 4 threads in the core pool,
-    // preferring to have 1 less than the CPU count to avoid saturating
+    // preferring å»ºè®® to have 1 less than the CPU count to avoid saturating æµ¸æ¹¿
     // the CPU with background work
     private static final int CORE_POOL_SIZE = Math.max(2, Math.min(CPU_COUNT - 1, 4));
     private static final int MAXIMUM_POOL_SIZE = CPU_COUNT * 2 + 1;
@@ -213,8 +213,8 @@ public abstract class AsyncTask<Params, Progress, Result> {
     }
 
     /**
-     * An {@link Executor} that executes tasks one at a time in serial
-     * order.  This serialization is global to a particular process.
+     * An {@link Executor} that executes tasks one at a time in serial è¿ç»­çš„
+     * order.  This serialization åºåˆ—åŒ– is global to a particular process.
      */
     public static final Executor SERIAL_EXECUTOR = new SerialExecutor();
 

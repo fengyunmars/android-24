@@ -88,8 +88,8 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  * guide.</p></div>
  *
  * <p>Here is a complete implementation of a custom ViewGroup that implements
- * a simple {@link android.widget.FrameLayout} along with the ability to stack
- * children in left and right gutters.</p>
+ * a simple {@link android.widget.FrameLayout} along with the ability to stack 堆叠
+ * children in left and right gutters 水沟，水槽.</p>
  *
  * {@sample development/samples/ApiDemos/src/com/example/android/apis/view/CustomLayout.java
  *      Complete}
@@ -117,6 +117,7 @@ import static android.os.Build.VERSION_CODES.JELLY_BEAN_MR1;
  */
 @UiThread
 public abstract class ViewGroup extends View implements ViewParent, ViewManager {
+
     private static final String TAG = "ViewGroup";
 
     private static final boolean DBG = false;
@@ -151,7 +152,7 @@ public abstract class ViewGroup extends View implements ViewParent, ViewManager 
     protected ArrayList<View> mDisappearingChildren;
 
     /**
-     * Listener used to propagate events indicating when children are added
+     * Listener used to propagate 传导 传播法向 传播 events indicating 表明；指示 when children are added
      * and/or removed from a view group.
      * This field should be made private, so it is hidden from the SDK.
      * {@hide}

@@ -23,9 +23,9 @@ import android.content.pm.ActivityInfo.Config;
  * <p>
  * A constant state should be able to return a bitmask of changing configurations, which
  * identifies the type of configuration changes that may invalidate this resource. These
- * configuration changes can be obtained from {@link android.util.TypedValue}. Entities such as
+ * configuration changes can be obtained from {@link android.util.TypedValue}. Entities 实体 such as
  * {@link android.animation.Animator} also provide a changing configuration method to include
- * their dependencies (e.g. An AnimatorSet's changing configuration is the union of the
+ * their dependencies 依赖关系 (e.g. An AnimatorSet's changing configuration is the union of the
  * changing configurations of each Animator in the set)
  * @hide
  */
@@ -45,8 +45,8 @@ abstract public class ConstantState<T> {
 
     /**
      * Create a new instance from its constant state.  This
-     * must be implemented for resources that change based on the target
-     * density of their caller (that is depending on whether it is
+     * must be implemented 执行 实施 应用的 for resources that change based on the target
+     * density 密度 of their caller (that is depending on whether it is
      * in compatibility mode).
      */
     public T newInstance(Resources res) {

@@ -542,7 +542,7 @@ public class ViewConfiguration {
     }
 
     /**
-     * @return Distance in pixels a touch can wander before we think the user is scrolling
+     * @return Distance in pixels a touch can wander 漫游 闲逛 漫步 before we think the user is scrolling
      */
     public int getScaledTouchSlop() {
         return mTouchSlop;

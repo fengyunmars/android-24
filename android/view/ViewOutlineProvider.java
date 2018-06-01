@@ -20,12 +20,13 @@ import android.graphics.Outline;
 import android.graphics.drawable.Drawable;
 
 /**
- * Interface by which a View builds its {@link Outline}, used for shadow 阴影 casting and clipping.
+ * Interface by which a View builds its {@link Outline 轮廓 }, used for shadow 阴影
+ * casting 铸造 铸造 铸件 and clipping 剪裁.
  */
 public abstract class ViewOutlineProvider {
     /**
      * Default outline provider for Views, which queries the Outline from the View's background,
-     * or generates a 0 alpha, rectangular Outline the size of the View if a background
+     * or generates a 0 alpha, rectangular Outline 轮廓 the size of the View if a background
      * isn't present.
      *
      * @see Drawable#getOutline(Outline)
@@ -44,10 +45,10 @@ public abstract class ViewOutlineProvider {
     };
 
     /**
-     * Maintains the outline of the View to match its rectangular bounds,
+     * Maintains 维护 保持 维护 the outline of the View to match its rectangular bounds,
      * at <code>1.0f</code> alpha.
      *
-     * This can be used to enable Views that are opaque but lacking a background cast a shadow.
+     * This can be used to enable Views that are opaque but lacking 缺乏的 a background cast a shadow 影子 阴影 影 .
      */
     public static final ViewOutlineProvider BOUNDS = new ViewOutlineProvider() {
         @Override

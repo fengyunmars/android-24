@@ -19,7 +19,7 @@ package android.graphics;
 /**
  * A DrawFilter subclass can be installed in a Canvas. When it is present, it
  * can modify the paint that is used to draw (temporarily 临时地 ). With this, a filter
- * can disable/enable antialiasing, or change the color for everything this is
+ * can disable/enable antialiasing 反混淆；反锯齿 , or change the color for everything this is
  * drawn.
  */
 public class DrawFilter {

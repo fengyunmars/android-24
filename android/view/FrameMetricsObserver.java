@@ -34,6 +34,7 @@ import java.lang.SuppressWarnings;
  * @hide
  */
 public class FrameMetricsObserver {
+
     private MessageQueue mMessageQueue;
 
     private WeakReference<Window> mWindow;
@@ -48,7 +49,7 @@ public class FrameMetricsObserver {
     /**
      * Creates a FrameMetricsObserver
      *
-     * @param looper the looper to use when invoking callbacks
+     * @param looper the looper to use when invoking 调用 callbacks
      */
     FrameMetricsObserver(@NonNull Window window, @NonNull Looper looper,
             @NonNull Window.OnFrameMetricsAvailableListener listener) {

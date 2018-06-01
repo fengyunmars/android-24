@@ -103,12 +103,12 @@ import java.util.Arrays;
  * <p>
  * Starting with API 23, items may optionally define an {@link android.R.attr#alpha android:alpha}
  * attribute to modify the base color's opacity. This attribute takes a either floating-point value
- * between 0 and 1 or a theme attribute that resolves as such. The item's overall color is
+ * between 0 and 1 or a theme attribute that resolves 解析器 as such. The item's overall color is
  * calculated by multiplying by the base color's alpha channel by the {@code alpha} value. For
  * example, the following item represents the theme's accent color at 50% opacity:
  * <pre>
  * &lt;item android:state_enabled="false"
- *         android:color="?android:attr/colorAccent"
+ *         android:color="?android:attr/colorAccent" 口音 重音
  *         android:alpha="0.5" /&gt;
  * </pre>
  *

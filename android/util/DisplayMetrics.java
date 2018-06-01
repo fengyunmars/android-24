@@ -33,7 +33,8 @@ public class DisplayMetrics {
     public static final int DENSITY_LOW = 120;
 
     /**
-     * Standard quantized DPI for medium-density screens.
+     * Standard quantized 量化的；量子化的 DPI . 每英寸点数（dots per inch） for
+     *  medium-density screens.
      */
     public static final int DENSITY_MEDIUM = 160;
 
