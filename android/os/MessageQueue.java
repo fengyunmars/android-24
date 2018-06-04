@@ -80,7 +80,7 @@ public final class MessageQueue {
         }
     }
 
-    // Disposes 精力旺盛的 of the underlying message queue.
+    // Disposes 处理 处置 of the underlying message queue.
     // Must only be called on the looper thread or the finalizer.
     private void dispose() {
         if (mPtr != 0) {
@@ -140,8 +140,8 @@ public final class MessageQueue {
     /**
      * Returns whether this looper's thread is currently polling 轮询 for more work to do.
      * This is a good signal that the loop is still alive rather than being stuck 卡住
-     * handling a callback.  Note that this method is intrinsically 本质地 racy 保持原味的 , since the
-     * state of the loop can change before you get the result back.
+     * handling a callback.  Note that this method is intrinsically 本质地 racy 保持原味的 ,
+     * since the state of the loop can change before you get the result back.
      *
      * <p>This method is safe to call from any thread.
      *

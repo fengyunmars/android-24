@@ -130,8 +130,8 @@ public final class FileDescriptor {
     public native void sync() throws SyncFailedException;
 
     /**
-     * Returns the int descriptor. It's highly unlikely you should be calling this. Please discuss
-     * your needs with a libcore maintainer 维护者 before using this method.
+     * Returns the int descriptor. It's highly unlikely you should be calling this.
+     * Please discuss your needs with a libcore maintainer 维护者 before using this method.
      * @hide internal use only
      */
     // Android-added.

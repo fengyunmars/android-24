@@ -20,16 +20,17 @@ import android.os.Build;
 import android.util.Log;
 
 /**
- * Checks whether a sequence of input events is self-consistent.
+ * Checks whether a sequence of input events is self-consistent 自相一致的 .
  * Logs a description of each problem detected.
  * <p>
- * When a problem is detected, the event is tainted.  This mechanism prevents the same
+ * When a problem is detected, the event is tainted 污染的 .  This mechanism prevents the same
  * error from being reported multiple times.
  * </p>
  *
  * @hide
  */
 public final class InputEventConsistencyVerifier {
+
     private static final boolean IS_ENG_BUILD = "eng".equals(Build.TYPE);
 
     private static final String EVENT_TYPE_KEY = "KeyEvent";
@@ -39,16 +40,16 @@ public final class InputEventConsistencyVerifier {
 
     // The number of recent events to log when a problem is detected.
     // Can be set to 0 to disable logging recent events but the runtime overhead of
-    // this feature is negligible on current hardware.
+    // this feature is negligible 微不足道的，可以忽略的 on current hardware.
     private static final int RECENT_EVENTS_TO_LOG = 5;
 
-    // The object to which the verifier is attached.
+    // The object to which the verifier 检验者 is attached.
     private final Object mCaller;
 
-    // Consistency verifier flags.
+    // Consistency 一致性 verifier flags.
     private final int mFlags;
 
-    // Tag for logging which a client can set to help distinguish the output
+    // Tag for logging which a client can set to help distinguish 区分 the output
     // from different verifiers since several can be active at the same time.
     // If not provided defaults to the simple class name.
     private final String mLogTag;
@@ -56,7 +57,7 @@ public final class InputEventConsistencyVerifier {
     // The most recently checked event and the nesting level at which it was checked.
     // This is only set when the verifier is called from a nesting level greater than 0
     // so that the verifier can detect when it has been asked to verify the same event twice.
-    // It does not make sense to examine the contents of the last event since it may have
+    // It does not make sense 有意义 to examine the contents of the last event since it may have
     // been recycled.
     private int mLastEventSeq;
     private String mLastEventType;
@@ -79,7 +80,7 @@ public final class InputEventConsistencyVerifier {
     private boolean mTrackballUnhandled;
 
     // Bitfield of pointer ids that are currently down.
-    // Assumes that the largest possible pointer id is 31, which is potentially subject to change.
+    // Assumes 假设 that the largest possible pointer id is 31, which is potentially 可能地 subject to change.
     // (See MAX_POINTER_ID in frameworks/base/include/ui/Input.h)
     private int mTouchEventStreamPointers;
 
@@ -87,11 +88,11 @@ public final class InputEventConsistencyVerifier {
     private int mTouchEventStreamDeviceId = -1;
     private int mTouchEventStreamSource;
 
-    // Set to true when we discover that the touch event stream is inconsistent.
+    // Set to true when we discover that the touch event stream is inconsistent 不一致的 .
     // Reset on down or cancel.
-    private boolean mTouchEventStreamIsTainted;
+    private boolean mTouchEventStreamIsTainted; // 污染的
 
-    // Set to true if the touch event stream is partially unhandled.
+    // Set to true if the touch event stream is partially 部分地 unhandled.
     private boolean mTouchEventStreamUnhandled;
 
     // Set to true if we received hover enter.
@@ -100,12 +101,12 @@ public final class InputEventConsistencyVerifier {
     // The bitset of buttons which we've received ACTION_BUTTON_PRESS for.
     private int mButtonsPressed;
 
-    // The current violation message.
+    // The current violation 违反 message.
     private StringBuilder mViolationMessage;
 
     /**
      * Indicates that the verifier is intended to act on raw device input event streams.
-     * Disables certain checks for invariants that are established by the input dispatcher
+     * Disables certain checks for invariants 不变量 that are established by the input dispatcher
      * itself as it delivers input events, such as key repeating behavior.
      */
     public static final int FLAG_RAW_DEVICE_INPUT = 1 << 0;

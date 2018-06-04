@@ -209,7 +209,7 @@ public final class VelocityTracker {
     }
 
     /**
-     * An estimator for the movements of a pointer based on a polynomial 多项式 model.
+     * An estimator 估计量 for the movements of a pointer based on a polynomial 多项式 model.
      *
      * The last recorded position of the pointer is at time zero seconds.
      * Past estimated positions are at negative times and future estimated positions
@@ -225,7 +225,7 @@ public final class VelocityTracker {
         private static final int MAX_DEGREE = 4;
 
         /**
-         * Polynomial 多项式 coefficients describing motion in X.
+         * Polynomial 多项式 coefficients 系数 describing motion in X.
          */
         public final float[] xCoeff = new float[MAX_DEGREE + 1];
 
@@ -263,7 +263,7 @@ public final class VelocityTracker {
         }
 
         /**
-         * Gets the X coefficient with the specified index.
+         * Gets the X coefficient 系数 with the specified index.
          * @param index The index of the coefficient to return.
          * @return The X coefficient, or 0 if the index is greater than the degree.
          */

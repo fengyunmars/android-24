@@ -20,9 +20,9 @@ import android.util.TimeUtils;
 
 /**
  * 
- * Defines a message containing a description and arbitrary data object that can be
+ * Defines a message containing a description 描述 and arbitrary data object that can be
  * sent to a {@link Handler}.  This object contains two extra int fields and an
- * extra object field that allow you to not do allocations in many cases.  
+ * extra object field that allow you to not do allocations 分配 in many cases.
  *
  * <p class="note">While the constructor of Message is public, the best way to get
  * one of these is to call {@link #obtain Message.obtain()} or one of the
@@ -31,7 +31,7 @@ import android.util.TimeUtils;
  */
 public final class Message implements Parcelable {
     /**
-     * User-defined message code so that the recipient can identify 
+     * User-defined message code so that the recipient 接受者 接收者 can identify
      * what this message is about. Each {@link Handler} has its own name-space
      * for message codes, so you do not need to worry about yours conflicting
      * with other handlers.
@@ -59,8 +59,8 @@ public final class Message implements Parcelable {
      * implemented by the application).   For other data transfer use
      * {@link #setData}.
      * 
-     * <p>Note that Parcelable objects here are not supported prior to
-     * the {@link android.os.Build.VERSION_CODES#FROYO} release.
+     * <p>Note that Parcelable objects here are not supported prior to 在……之前
+     * the {@link android.os.Build.VERSION_CODES#FROYO} June 2010: Android 2.2 api 8 release.
      */
     //// TODO: 2017/8/29  
     public Object obj;

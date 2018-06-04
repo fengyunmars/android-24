@@ -172,7 +172,7 @@ public class Binder implements IBinder {
      * will check the permission of your own local process, and not whatever
      * process originally called you).
      *
-     * @return Returns an opaque token that can be used to restore the
+     * @return Returns an opaque 不透明物 token that can be used to restore the
      * original calling identity by passing it to
      * {@link #restoreCallingIdentity(long)}.
      *

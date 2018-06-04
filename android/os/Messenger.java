@@ -17,14 +17,14 @@
 package android.os;
 
 /**
- * 信使 Reference to a Handler, which others can use to send messages to it.
+ * 信使 Reference 参考 引用 to a Handler, which others can use to send messages to it.
  * This allows for the implementation 实现 of message-based communication across
  * processes, by creating a Messenger pointing to a Handler in one process,
  * and handing 交给 that Messenger to another process.
  *
- * <p>Note: the implementation underneath is just a simple wrapper around
+ * <p>Note: the implementation underneath 在下面 is just a simple wrapper around
  * a {@link Binder} that is used to perform the communication.  This means
- * semantically you should treat it as such: this class does not impact 影响 process
+ * semantically 语义上 you should treat it as such: this class does not impact 影响 process
  * lifecycle management (you must be using some higher-level component to tell
  * the system that your process needs to continue running), the connection will
  * break if your process goes away for any reason, etc.</p>
