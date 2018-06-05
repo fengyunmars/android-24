@@ -18,7 +18,7 @@ package android.widget;
 
 /**
  * Extended {@link Adapter} that is the bridge between a {@link ListView}
- * and the data that backs the list. Frequently that data comes from a Cursor,
+ * and the data that backs the list. Frequently 频繁 时常 that data comes from a Cursor,
  * but that is not
  * required. The ListView can display any data provided that it is wrapped in a
  * ListAdapter.
@@ -29,7 +29,7 @@ public interface ListAdapter extends Adapter {
      * Indicates whether all the items in this adapter are enabled. If the
      * value returned by this method changes over time, there is no guarantee
      * it will take effect.  If true, it means all items are selectable and
-     * clickable (there is no separator.)
+     * clickable (there is no separator 分离器 分隔符 .)
      * 
      * @return True if all items are enabled, false otherwise.
      * 

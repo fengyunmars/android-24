@@ -67,7 +67,7 @@ public final class Message implements Parcelable {
 
     /**
      * Optional Messenger where replies to this message can be sent.  The
-     * semantics of exactly how this is used are up to the sender and
+     * semantics 语义学 of exactly how this is used are up to the sender and
      * receiver.
      */
     public Messenger replyTo;
@@ -168,7 +168,7 @@ public final class Message implements Parcelable {
 
     /**
      * Same as {@link #obtain()}, but sets the value for the <em>target</em> member on the Message returned.
-     * @param h  Handler to assign to the returned Message object's <em>target</em> member.
+     * @param h  Handler to assign to 指派 分配给 the returned Message object's <em>target</em> member.
      * @return A Message object from the global pool.
      */
     public static Message obtain(Handler h) {
@@ -270,7 +270,7 @@ public final class Message implements Parcelable {
 
     /** @hide */
     public static void updateCheckRecycle(int targetSdkVersion) {
-        if (targetSdkVersion < Build.VERSION_CODES.LOLLIPOP) {
+        if (targetSdkVersion < Build.VERSION_CODES.LOLLIPOP) {  // // Android 5.0 November 2014: Lollipop api 21
             gCheckRecycle = false;
         }
     }
@@ -323,7 +323,7 @@ public final class Message implements Parcelable {
     }
 
     /**
-     * Make this message like o.  Performs a shallow copy of the data field.
+     * Make this message like o.  Performs a shallow 浅的 肤浅 浅层 copy of the data field.
      * Does not copy the linked list fields, nor the timestamp or
      * target/callback of the original message.
      */
@@ -357,7 +357,7 @@ public final class Message implements Parcelable {
     /**
      * Retrieve the a {@link android.os.Handler Handler} implementation that
      * will receive this message. The object must implement
-     * {@link android.os.Handler#handleMessa ge(android.os.Message)
+     * {@link android.os.Handler#handleMessage(android.os.Message)
      * Handler.handleMessage()}. Each Handler has its own name-space for
      * message codes, so you do not need to
      * worry about yours conflicting with other handlers.
@@ -384,7 +384,7 @@ public final class Message implements Parcelable {
      * {@link #setData(Bundle)}.  Note that when transferring data across
      * processes via {@link Messenger}, you will need to set your ClassLoader
      * on the Bundle via {@link Bundle#setClassLoader(ClassLoader)
-     * Bundle.setClassLoader()} so that it can instantiate your objects when
+     * Bundle.setClassLoader()} so that it can instantiate 实例化 your objects when
      * you retrieve them.
      * @see #peekData()
      * @see #setData(Bundle)
@@ -442,21 +442,21 @@ public final class Message implements Parcelable {
      * Sets whether the message is asynchronous, meaning that it is not
      * subject to {@link Looper} synchronization barriers.
      * <p>
-     * Certain operations, such as view invalidation, may introduce synchronization
-     * barriers into the {@link Looper}'s message queue to prevent subsequent messages
+     * Certain operations, such as view invalidation 失效 , may introduce 介绍；引进 synchronization
+     * barriers into the {@link Looper}'s message queue to prevent subsequent 后来的 messages
      * from being delivered until some condition is met.  In the case of view invalidation,
      * messages which are posted after a call to {@link android.view.View#invalidate}
-     * are suspended by means of a synchronization barrier until the next frame is
+     * are suspended 禁赛 停赛 废除 by means of a synchronization barrier until the next frame is
      * ready to be drawn.  The synchronization barrier ensures that the invalidation
      * request is completely handled before resuming.
      * </p><p>
      * Asynchronous messages are exempt 免除；豁免 from synchronization barriers.  They typically
-     * represent interrupts, input events, and other signals that must be handled independently
+     * represent interrupts 中断 , input events, and other signals that must be handled independently 独立地
      * even while other work has been suspended.
      * </p><p>
      * Note that asynchronous messages may be delivered out of order 次序颠倒 with respect to
      * synchronous messages although they are always delivered in order among themselves.
-     * If the relative order of these messages matters then they probably should not be
+     * If the relative order of these messages matters then they probably 大概 should not be
      * asynchronous in the first place.  Use with caution.
      * </p>
      *

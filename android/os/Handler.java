@@ -34,7 +34,7 @@ import java.lang.reflect.Modifier;
  * runnables to be executed as some point in the future; and (2) to enqueue
  * an action to be performed on a different thread than your own.
  * 
- * <p>Scheduling messages is accomplished with the
+ * <p>Scheduling 排程 调度 messages is accomplished 完成的 熟练的 精通的 with the
  * {@link #post}, {@link #postAtTime(Runnable, long)},
  * {@link #postDelayed}, {@link #sendEmptyMessage},
  * {@link #sendMessage}, {@link #sendMessageAtTime}, and
@@ -47,12 +47,12 @@ import java.lang.reflect.Modifier;
  * 
  * <p>When posting or sending to a Handler, you can either
  * allow the item to be processed as soon as the message queue is ready
- * to do so, or specify a delay before it gets processed or absolute time for
+ * to do so, or specify a delay before it gets processed 处理，加工 or absolute time for
  * it to be processed.  The latter two allow you to implement timeouts,
- * ticks, and other timing-based behavior.
+ * ticks 滴答声 , and other timing-based behavior.
  * 
  * <p>When a
- * process is created for your application, its main thread is dedicated 专用的 to
+ * process 进程 is created for your application, its main thread is dedicated 专用的 to
  * running a message queue that takes care of managing the top-level
  * application objects (activities, broadcast receivers, etc) and any windows
  * they create.  You can create your own threads, and communicate back with
@@ -63,9 +63,9 @@ import java.lang.reflect.Modifier;
  */
 public class Handler {
     /*
-     * Set this flag to true to detect anonymous  匿名的 , local or member classes
+     * Set this flag to true to detect 侦查 检测 发现 anonymous 匿名的 , local or member classes
      * that extend this Handler class and that are not static. These kind
-     * of classes can potentially create leaks.
+     * of classes can potentially 潜在地 潜在的 可能地 create leaks 泄漏 .
      */
     private static final boolean FIND_POTENTIAL_LEAKS = false;
 
@@ -80,7 +80,7 @@ public class Handler {
     //add dingxiaoquan
 
     /**
-     * Callback interface you can use when instantiating a Handler to avoid
+     * Callback interface you can use when instantiating 实例化 a Handler to avoid
      * having to implement your own subclass of Handler.
      *
      * @param msg A {@link android.os.Message Message} object

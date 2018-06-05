@@ -17,14 +17,14 @@
 package android.database;
 
 /**
- * A specialization of {@link Observable} for {@link DataSetObserver}
+ * A specialization 专门化；特殊化 of {@link Observable} for {@link DataSetObserver}
  * that provides methods for sending notifications to a list of
  * {@link DataSetObserver} objects.
  */
 public class DataSetObservable extends Observable<DataSetObserver> {
     /**
      * Invokes {@link DataSetObserver#onChanged} on each observer.
-     * Called when the contents of the data set have changed.  The recipient
+     * Called when the contents of the data set have changed.  The recipient 接受者
      * will obtain the new contents the next time it queries the data set.
      */
     public void notifyChanged() {
@@ -32,7 +32,7 @@ public class DataSetObservable extends Observable<DataSetObserver> {
             // since onChanged() is implemented by the app, it could do anything, including
             // removing itself from {@link mObservers} - and that could cause problems if
             // an iterator is used on the ArrayList {@link mObservers}.
-            // to avoid such problems, just march thru the list in the reverse order.
+            // to avoid such problems, just march 前进 thru 通过 穿过 the list in the reverse order.
             for (int i = mObservers.size() - 1; i >= 0; i--) {
                 mObservers.get(i).onChanged();
             }

@@ -28,7 +28,7 @@ import android.view.ViewGroup;
  */
 public interface SpinnerAdapter extends Adapter {
     /**
-     * Gets a {@link android.view.View} that displays in the drop down popup
+     * Gets a {@link android.view.View} that displays in the drop down popup 下拉弹出
      * the data at the specified position in the data set.
      *
      * @param position index of the item whose view we want.

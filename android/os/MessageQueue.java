@@ -81,7 +81,7 @@ public final class MessageQueue {
     }
 
     // Disposes 处理 处置 of the underlying message queue.
-    // Must only be called on the looper thread or the finalizer.
+    // Must only be called on the looper thread or the finalizer 终结器 .
     private void dispose() {
         if (mPtr != 0) {
             nativeDestroy(mPtr);
@@ -444,7 +444,7 @@ public final class MessageQueue {
      *
      * This method is used to immediately postpone 延期 execution of all subsequently posted
      * synchronous messages until a condition is met that releases the barrier.
-     * Asynchronous messages (see {@link Message#isAsynchronous} are exempt from the barrier
+     * Asynchronous messages (see {@link Message#isAsynchronous} are exempt 免除 豁免的 from the barrier
      * and continue to be processed as usual.
      *
      * This call must be always matched by a call to {@link #removeSyncBarrier} with
@@ -462,7 +462,7 @@ public final class MessageQueue {
 
     private int postSyncBarrier(long when) {
         // Enqueue a new sync barrier token.
-        // We don't need to wake the queue because the purpose of a barrier is to stall it.
+        // We don't need to wake the queue because the purpose of a barrier is to stall 停止 it.
         synchronized (this) {
             final int token = mNextBarrierToken++;
             final Message msg = Message.obtain();

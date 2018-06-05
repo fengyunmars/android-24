@@ -47,11 +47,11 @@ public interface Adapter {
     void unregisterDataSetObserver(DataSetObserver observer);
 
     /**
-     * How many items are in the data set represented by this Adapter.
+     * How many items are in the data set represented 代表 by this Adapter.
      * 
      * @return Count of items.
      */
-    int getCount();   
+    int getCount();
     
     /**
      * Get the data item associated with the specified position in the data set.
@@ -90,7 +90,7 @@ public interface Adapter {
      * @param convertView The old view to reuse, if possible. Note: You should check that this view
      *        is non-null and of an appropriate type before using. If it is not possible to convert
      *        this view to display the correct data, this method can create a new view.
-     *        Heterogeneous lists can specify their number of view types, so that this View is
+     *        Heterogeneous 多相的；异种的 lists can specify their number of view types, so that this View is
      *        always of the right type (see {@link #getViewTypeCount()} and
      *        {@link #getItemViewType(int)}).
      * @param parent The parent that this view will eventually be attached to
@@ -101,7 +101,7 @@ public interface Adapter {
     /**
      * An item view type that causes the {@link AdapterView} to ignore the item
      * view. For example, this can be used if the client does not want a
-     * particular view to be given for conversion in
+     * particular view to be given for conversion 转换 in
      * {@link #getView(int, View, ViewGroup)}.
      * 
      * @see #getItemViewType(int)
@@ -142,7 +142,7 @@ public interface Adapter {
      /**
       * @return true if this adapter doesn't contain any data.  This is used to determine
       * whether the empty view should be displayed.  A typical implementation will return
-      * getCount() == 0 but since getCount() includes the headers and footers, specialized
+      * getCount() == 0 but since getCount() includes the headers and footers, specialized 专业的；专门的
       * adapters might want a different behavior.
       */
      boolean isEmpty();

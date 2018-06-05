@@ -27,11 +27,11 @@ import android.util.Printer;
   * {@link #prepare} in the thread that is to run the loop, and then
   * {@link #loop} to have it process messages until the loop is stopped.
   *
-  * <p>Most interaction with a message loop is through the
+  * <p>Most interaction 相互作用 交互 交互作用 with a message loop is through the
   * {@link Handler} class.
   *
   * <p>This is a typical example of the implementation of a Looper thread,
-  * using the separation of {@link #prepare} and {@link #loop} to create an
+  * using the separation 分离，分开 of {@link #prepare} and {@link #loop} to create an
   * initial Handler to communicate with the Looper.
   *
   * <pre>
@@ -59,7 +59,7 @@ public final class Looper {
      * This class contains the code required to set up and manage an event loop
      * based on MessageQueue.  APIs that affect the state of the queue should be
      * defined on MessageQueue or Handler rather than on Looper itself.  For example,
-     * idle 闲置的 handlers and sync barriers are defined on the queue whereas 然而 preparing the
+     * idle 闲置的 handlers and sync barriers 同步的障碍 are defined on the queue whereas 然而 preparing the
      * thread, looping, and quitting are defined on the looper.
      */
 
@@ -211,7 +211,7 @@ public final class Looper {
     /**
      * Control logging of messages as they are processed by this Looper.  If
      * enabled, a log message will be written to <var>printer</var>
-     * at the beginning and ending of each message dispatch, identifying the
+     * at the beginning and ending of each message dispatch, identifying 识别 the
      * target Handler and message contents.
      *
      * @param printer A Printer object that will receive log messages, or
