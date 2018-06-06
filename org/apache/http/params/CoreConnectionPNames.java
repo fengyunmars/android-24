@@ -60,7 +60,7 @@ public interface CoreConnectionPNames {
 
     /**
      * Determines whether Nagle's algorithm is to be used. The Nagle's algorithm 
-     * tries to conserve bandwidth by minimizing the number of segments that are 
+     * tries to conserve 保存 保护 bandwidth 带宽 by minimizing 极小化 the number of segments 段数 that are
      * sent. When applications wish to decrease network latency and increase 
      * performance, they can disable Nagle's algorithm (that is enable TCP_NODELAY). 
      * Data will be sent earlier, at the cost of an increase in bandwidth consumption. 

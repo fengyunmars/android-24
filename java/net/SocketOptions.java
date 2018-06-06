@@ -27,7 +27,7 @@ package java.net;
 
 /**
  * Interface of methods to get/set socket options.  This interface is
- * implemented by: <B>SocketImpl</B> and  <B>DatagramSocketImpl</B>.
+ * implemented by: <B>SocketImpl</B> and  <B>DatagramSocketImpl</B> 数据报 .
  * Subclasses of these should override the methods
  * of this interface in order to support their own options.
  * <P>
@@ -35,7 +35,7 @@ package java.net;
  * for implementation only.  If you're not subclassing SocketImpl or
  * DatagramSocketImpl, <B>you won't use these directly.</B> There are
  * type-safe methods to get/set each of these options in Socket, ServerSocket,
- * DatagramSocket and MulticastSocket.
+ * DatagramSocket and MulticastSocket 多播 组播 多点发送.
  * <P>
  * @author David Brown
  */
@@ -71,7 +71,7 @@ public interface SocketOptions {
      *    // OK - disables SO_LINGER
      * </PRE>
      * <BR>
-     * For an option that has a notion of on and off, and requires
+     * For an option that has a notion 概念 of on and off, and requires
      * a non-boolean parameter, setting its value to anything other than
      * <I>Boolean(false)</I> implicitly enables it.
      * <BR>
@@ -84,8 +84,7 @@ public interface SocketOptions {
      * the socket is closed, or some low-level error occurred
      * @see #getOption(int)
      */
-    public void
-        setOption(int optID, Object value) throws SocketException;
+    public void setOption(int optID, Object value) throws SocketException;
 
     /**
      * Fetch the value of an option.
@@ -128,7 +127,7 @@ public interface SocketOptions {
 
     /**
      * Disable Nagle's algorithm for this connection.  Written data
-     * to the network is not buffered pending acknowledgement of
+     * to the network is not buffered pending acknowledgement 承认 of
      * previously written data.
      *<P>
      * Valid for TCP only: SocketImpl.
@@ -172,14 +171,14 @@ public interface SocketOptions {
      * Sets SO_BROADCAST for a socket. This option enables and disables
      * the ability of the process to send broadcast messages. It is supported
      * for only datagram sockets and only on networks that support
-     * the concept of a broadcast message (e.g. Ethernet, token ring, etc.),
+     * the concept 观念，概念 of a broadcast message (e.g. Ethernet 以太网 , token ring 令牌环 , etc.),
      * and it is set by default for DatagramSockets.
      * @since 1.4
      */
 
     public final static int SO_BROADCAST = 0x0020;
 
-    /** Set which outgoing interface on which to send multicast packets.
+    /** Set which outgoing 外出 interface on which to send multicast packets.
      * Useful on hosts with multiple network interfaces, where applications
      * want to use other than the system default.  Takes/returns an InetAddress.
      * <P>
@@ -212,7 +211,7 @@ public interface SocketOptions {
     public final static int IP_MULTICAST_LOOP = 0x12;
 
     /**
-     * This option sets the type-of-service or traffic class field
+     * This option sets the type-of-service or traffic 交通 class field
      * in the IP header for a TCP or UDP socket.
      * @since 1.4
      */

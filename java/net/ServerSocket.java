@@ -39,7 +39,7 @@ import java.security.PrivilegedExceptionAction;
  * The actual work of the server socket is performed by an instance
  * of the <code>SocketImpl</code> class. An application can
  * change the socket factory that creates the socket
- * implementation to configure itself to create sockets
+ * implementation to configure 配置 itself to create sockets
  * appropriate to the local firewall.
  *
  * @author  unascribed
@@ -48,8 +48,7 @@ import java.security.PrivilegedExceptionAction;
  * @see     java.nio.channels.ServerSocketChannel
  * @since   JDK1.0
  */
-public
-class ServerSocket implements java.io.Closeable {
+public class ServerSocket implements java.io.Closeable {
     /**
      * Various states of this socket.
      */

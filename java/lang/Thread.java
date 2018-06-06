@@ -980,7 +980,7 @@ class Thread implements Runnable {
     public static native boolean interrupted();
 
     /**
-     * Tests whether this thread has been interrupted.  The <i>interrupted
+     * Tests whether this thread has been interrupted 中断的 .  The <i>interrupted
      * status</i> of the thread is unaffected by this method.
      *
      * <p>A thread interruption ignored because a thread was not alive

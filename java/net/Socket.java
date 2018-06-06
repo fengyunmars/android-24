@@ -38,7 +38,7 @@ import java.security.PrivilegedAction;
 
 /**
  * This class implements client sockets (also called just
- * "sockets"). A socket is an endpoint for communication
+ * "sockets"). A socket is an endpoint 端点 for communication
  * between two machines.
  * <p>
  * The actual work of the socket is performed by an instance of the
@@ -53,8 +53,7 @@ import java.security.PrivilegedAction;
  * @see     java.nio.channels.SocketChannel
  * @since   JDK1.0
  */
-public
-class Socket implements java.io.Closeable {
+public class Socket implements java.io.Closeable {
     /**
      * Various states of this socket.
      */
