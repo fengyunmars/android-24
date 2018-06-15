@@ -367,7 +367,7 @@ public class GestureDetector {
     }
 
     /**
-     * Creates a GestureDetector with the supplied listener that runs deferred events on the
+     * Creates a GestureDetector with the supplied listener that runs deferred 推迟 events on the
      * thread associated with the supplied {@link android.os.Handler}.
      * @see android.os.Handler#Handler()
      *
@@ -483,7 +483,7 @@ public class GestureDetector {
     }
 
     /**
-     * Analyzes the given motion event and if applicable triggers the
+     * Analyzes 分析 the given motion event and if applicable 可适用的；可应用的；合适的 triggers the
      * appropriate callbacks on the {@link OnGestureListener} supplied.
      *
      * @param ev The current motion event.

@@ -376,7 +376,7 @@ public final class AssetManager implements AutoCloseable {
      * @param path A relative path within the assets, i.e., "docs/home.html".
      * @return String[] Array of strings, one for each asset.  These file
      * names are relative to 'path'.  You can open the file by
-     * concatenating 'path' and a name in the returned string (via
+     * concatenating 连接的 'path' and a name in the returned string (via
      * File) and passing that to open().
      * @see #open
      */

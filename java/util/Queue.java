@@ -41,7 +41,7 @@ package java.util;
 /**
  * A collection designed for holding elements prior to processing.
  * Besides basic {@link java.util.Collection Collection} operations,
- * queues provide additional insertion, extraction, and inspection
+ * queues provide additional insertion, extraction 取出 , and inspection 检查
  * operations.  Each of these methods exists in two forms: one throws
  * an exception if the operation fails, the other returns a special
  * value (either {@code null} or {@code false}, depending on the
@@ -76,7 +76,7 @@ package java.util;
  *
  * <p>Queues typically, but do not necessarily, order elements in a
  * FIFO (first-in-first-out) manner.  Among the exceptions are
- * priority 优先级 queues, which order elements according to a supplied
+ * priority 优先级 queues, which order elements according to a supplied 提供
  * comparator, or the elements' natural ordering, and LIFO queues (or
  * stacks) which order the elements LIFO (last-in-first-out).
  * Whatever the ordering used, the <em>head</em> of the queue is that
@@ -92,7 +92,7 @@ package java.util;
  * add an element only by throwing an unchecked exception.  The
  * {@code offer} method is designed for use when failure is a normal,
  * rather than exceptional occurrence, for example, in fixed-capacity
- * (or &quot;bounded&quot;) queues.
+ * (or &quot;bounded&quot;) 有界限的 queues.
  *
  * <p>The {@link #remove()} and {@link #poll()} methods remove and
  * return the head of the queue.

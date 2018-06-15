@@ -28,20 +28,20 @@ import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * A facility for threads to schedule tasks for future execution in a
+ * A facility 设施；设备 for threads to schedule tasks for future execution in a
  * background thread.  Tasks may be scheduled for one-time execution, or for
- * repeated execution at regular intervals.
+ * repeated execution at regular intervals 定期 .
  *
  * <p>Corresponding to each <tt>Timer</tt> object is a single background
- * thread that is used to execute all of the timer's tasks, sequentially.
- * Timer tasks should complete quickly.  If a timer task takes excessive time
+ * thread that is used to execute all of the timer's tasks, sequentially 顺序地 .
+ * Timer tasks should complete quickly.  If a timer task takes excessive 过多的 time
  * to complete, it "hogs" the timer's task execution thread.  This can, in
- * turn, delay the execution of subsequent tasks, which may "bunch up" and
- * execute in rapid succession when (and if) the offending task finally
+ * turn, delay the execution of subsequent 后来的 tasks, which may "bunch up" 聚成一团 and
+ * execute in rapid 迅速 飞速 succession 连续；继位 when (and if) the offending 攻击型 令人不愉快的 task finally
  * completes.
  *
  * <p>After the last live reference to a <tt>Timer</tt> object goes away
- * <i>and</i> all outstanding tasks have completed execution, the timer's task
+ * <i>and</i> all outstanding 未解决的 tasks have completed execution, the timer's task
  * execution thread terminates gracefully (and becomes subject to garbage
  * collection).  However, this can take arbitrarily long to occur.  By
  * default, the task execution thread does not run as a <i>daemon thread</i>,
@@ -62,11 +62,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * tasks using the <tt>Object.wait(long)</tt> method.
  *
  * <p>Java 5.0 introduced the {@code java.util.concurrent} package and
- * one of the concurrency utilities therein is the {@link
+ * one of the concurrency utilities therein 在其中 is the {@link
  * java.util.concurrent.ScheduledThreadPoolExecutor
  * ScheduledThreadPoolExecutor} which is a thread pool for repeatedly
- * executing tasks at a given rate or delay.  It is effectively a more
- * versatile replacement for the {@code Timer}/{@code TimerTask}
+ * executing tasks at a given rate or delay.  It is effectively 有效地 有用地 实际上 a more
+ * versatile 通用的，万能的 replacement for the {@code Timer}/{@code TimerTask}
  * combination, as it allows multiple service threads, accepts various
  * time units, and doesn't require subclassing {@code TimerTask} (just
  * implement {@code Runnable}).  Configuring {@code
@@ -104,7 +104,7 @@ public class Timer {
      * This object causes the timer's task execution thread to exit
      * gracefully when there are no live references to the Timer object and no
      * tasks in the timer queue.  It is used in preference to a finalizer on
-     * Timer as such a finalizer would be susceptible to a subclass's
+     * Timer as such a finalizer would be susceptible 易受影响的 to a subclass's
      * finalizer forgetting to call it.
      */
     private final Object threadReaper = new Object() {
@@ -136,9 +136,9 @@ public class Timer {
      * Creates a new timer whose associated thread may be specified to
      * {@linkplain Thread#setDaemon run as a daemon}.
      * A daemon thread is called for if the timer will be used to
-     * schedule repeating "maintenance activities", which must be
+     * schedule repeating "maintenance 维护 activities", which must be
      * performed as long as the application is running, but should not
-     * prolong the lifetime of the application.
+     * prolong 延长；拖延 the lifetime of the application.
      *
      * @param isDaemon true if the associated thread should run as a daemon.
      */
@@ -218,11 +218,11 @@ public class Timer {
      * is delayed for any reason (such as garbage collection or other
      * background activity), subsequent executions will be delayed as well.
      * In the long run, the frequency of execution will generally be slightly
-     * lower than the reciprocal of the specified period (assuming the system
-     * clock underlying <tt>Object.wait(long)</tt> is accurate).
+     * lower than the reciprocal 倒数 互惠 相互的 of the specified period (assuming the system
+     * clock underlying <tt>Object.wait(long)</tt> is accurate 准确 ).
      *
-     * <p>Fixed-delay execution is appropriate for recurring activities
-     * that require "smoothness."  In other words, it is appropriate for
+     * <p>Fixed-delay execution is appropriate for recurring 循环的 复发的 经常的 activities
+     * that require "smoothness. 平滑；柔滑；平坦 "  In other words, it is appropriate 适当 for
      * activities where it is more important to keep the frequency accurate
      * in the short run than in the long run.  This includes most animation
      * tasks, such as blinking a cursor at regular intervals.  It also includes
@@ -480,7 +480,7 @@ public class Timer {
  */
 class TimerThread extends Thread {
     /**
-     * This flag is set to false by the reaper to inform us that there
+     * This flag is set to false by the reaper 收割者 to inform us that there
      * are no more live references to our Timer object.  Once this flag
      * is true and there are no more tasks in our queue, there is no
      * work left for us to do, so we terminate gracefully.  Note that
@@ -490,7 +490,7 @@ class TimerThread extends Thread {
 
     /**
      * Our Timer's queue.  We store this reference in preference to
-     * a reference to the Timer so the reference graph remains acyclic.
+     * a reference to the Timer so the reference graph remains acyclic 非循环的 .
      * Otherwise, the Timer would never be garbage-collected and this
      * thread would never go away.
      */
@@ -507,7 +507,7 @@ class TimerThread extends Thread {
             // Someone killed this Thread, behave as if Timer cancelled
             synchronized(queue) {
                 newTasksMayBeScheduled = false;
-                queue.clear();  // Eliminate obsolete references
+                queue.clear();  // Eliminate 消除 obsolete references
             }
         }
     }
@@ -568,7 +568,7 @@ class TimerThread extends Thread {
  */
 class TaskQueue {
     /**
-     * Priority queue represented as a balanced binary heap: the two children
+     * Priority queue represented as a balanced binary heap 平衡二叉堆 : the two children
      * of queue[n] are queue[2*n] and queue[2*n+1].  The priority queue is
      * ordered on the nextExecutionTime field: The TimerTask with the lowest
      * nextExecutionTime is in queue[1] (assuming the queue is nonempty).  For
@@ -668,7 +668,7 @@ class TaskQueue {
     }
 
     /**
-     * Establishes the heap invariant (described above) assuming the heap
+     * Establishes the heap invariant 不变量 (described above) assuming the heap
      * satisfies the invariant except possibly for the leaf-node indexed by k
      * (which may have a nextExecutionTime less than its parent's).
      *

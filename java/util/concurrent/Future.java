@@ -12,12 +12,12 @@ package java.util.concurrent;
  * complete, to wait for its completion, and to retrieve the result of
  * the computation.  The result can only be retrieved using method
  * {@code get} when the computation has completed, blocking if
- * necessary until it is ready.  Cancellation is performed by the
+ * necessary until it is ready.  Cancellation 取消；删除 is performed by the
  * {@code cancel} method.  Additional methods are provided to
  * determine if the task completed normally or was cancelled. Once a
  * computation has completed, the computation cannot be cancelled.
- * If you would like to use a {@code Future} for the sake
- * of cancellability but not provide a usable result, you can
+ * If you would like to use a {@code Future} for the sake 目的
+ * of cancellability 可删除性 but not provide a usable 可用的 result, you can
  * declare types of the form {@code Future<?>} and
  * return {@code null} as a result of the underlying task.
  *
@@ -101,7 +101,7 @@ public interface Future<V> {
     /**
      * Returns {@code true} if this task completed.
      *
-     * Completion may be due to normal termination, an exception, or
+     * Completion 完成，结束 may be due to normal termination, an exception, or
      * cancellation -- in all of these cases, this method will return
      * {@code true}.
      *

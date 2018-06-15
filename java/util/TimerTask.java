@@ -69,12 +69,12 @@ public abstract class TimerTask implements Runnable {
     /**
      * Next execution time for this task in the format returned by
      * System.currentTimeMillis, assuming this task is scheduled for execution.
-     * For repeating tasks, this field is updated prior to each task execution.
+     * For repeating tasks, this field is updated prior to 在……之前 each task execution.
      */
     long nextExecutionTime;
 
     /**
-     * Period in milliseconds for repeating tasks.  A positive value indicates
+     * Period 周期 in milliseconds for repeating tasks.  A positive value indicates
      * fixed-rate execution.  A negative value indicates fixed-delay execution.
      * A value of 0 indicates a non-repeating task.
      */
@@ -128,8 +128,8 @@ public abstract class TimerTask implements Runnable {
      * execution time of the ongoing task execution.)
      *
      * <p>This method is typically invoked from within a task's run method, to
-     * determine whether the current execution of the task is sufficiently
-     * timely to warrant performing the scheduled activity:
+     * determine whether the current execution of the task is sufficiently 充分地；足够地
+     * timely 及时 to warrant 根据；证明 performing the scheduled activity:
      * <pre>
      *   public void run() {
      *       if (System.currentTimeMillis() - scheduledExecutionTime() >=
@@ -140,12 +140,12 @@ public abstract class TimerTask implements Runnable {
      * </pre>
      * This method is typically <i>not</i> used in conjunction with
      * <i>fixed-delay execution</i> repeating tasks, as their scheduled
-     * execution times are allowed to drift over time, and so are not terribly
+     * execution times are allowed to drift 漂流 over time, and so are not terribly 非常；可怕地
      * significant.
      *
      * @return the time at which the most recent execution of this task was
      *         scheduled to occur, in the format returned by Date.getTime().
-     *         The return value is undefined if the task has yet to commence
+     *         The return value is undefined if the task has yet to commence 开始
      *         its first execution.
      * @see Date#getTime()
      */

@@ -34,15 +34,15 @@ import java.net.Socket;
 import java.net.SocketException;
 
 /**
- * Class that provides network traffic statistics. These statistics include
- * bytes transmitted and received and network packets transmitted and received,
+ * Class that provides network traffic statistics  统计 . These statistics include
+ * bytes transmitted 传输 已发送 传播 and received and network packets transmitted and received,
  * over all interfaces, over the mobile interface, and on a per-UID basis.
  * <p>
  * These statistics may not be available on all platforms. If the statistics are
  * not supported by this device, {@link #UNSUPPORTED} will be returned.
  * <p>
  * Note that the statistics returned by this class reset and start from zero
- * after every reboot. To access more robust historical network statistics data,
+ * after every reboot. To access more robust 强健的；健康的 historical network statistics data,
  * use {@link NetworkStatsManager} instead.
  */
 public class TrafficStats {
@@ -493,7 +493,7 @@ public class TrafficStats {
 
     /**
      * Return number of bytes received since device boot. Counts packets across
-     * all network interfaces, and always increases monotonically since device
+     * all network interfaces, and always increases monotonically 单调地 since device
      * boot. Statistics are measured at the network layer, so they include both
      * TCP and UDP usage.
      * <p>

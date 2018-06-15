@@ -14,7 +14,7 @@ import java.util.List;
 // END android-note
 
 /**
- * An {@link Executor} that provides methods to manage termination and
+ * An {@link Executor} that provides methods to manage termination 结束，终止 and
  * methods that can produce a {@link Future} for tracking progress of
  * one or more asynchronous tasks.
  *
@@ -27,13 +27,13 @@ import java.util.List;
  * Upon termination, an executor has no tasks actively executing, no
  * tasks awaiting execution, and no new tasks can be submitted.  An
  * unused {@code ExecutorService} should be shut down to allow
- * reclamation of its resources.
+ * reclamation 收回 of its resources.
  *
  * <p>Method {@code submit} extends base method {@link
  * Executor#execute(Runnable)} by creating and returning a {@link Future}
  * that can be used to cancel execution and/or wait for completion.
  * Methods {@code invokeAny} and {@code invokeAll} perform the most
- * commonly useful forms of bulk execution, executing a collection of
+ * commonly useful forms of bulk 体积，容量；大多数，大部分；大块 execution, executing a collection of
  * tasks and then waiting for at least one, or all, to
  * complete. (Class {@link ExecutorCompletionService} can be used to
  * write customized variants of these methods.)
@@ -43,7 +43,7 @@ import java.util.List;
  *
  * <h3>Usage Examples</h3>
  *
- * Here is a sketch of a network service in which threads in a thread
+ * Here is a sketch 草图 素描 of a network service in which threads in a thread
  * pool service incoming requests. It uses the preconfigured {@link
  * Executors#newFixedThreadPool} factory method:
  *
@@ -113,7 +113,7 @@ import java.util.List;
 public interface ExecutorService extends Executor {
 
     /**
-     * Initiates an orderly shutdown in which previously submitted
+     * Initiates 启动，开始 an orderly 顺序地；依次地 shutdown in which previously submitted
      * tasks are executed, but no new tasks will be accepted.
      * Invocation has no additional effect if already shut down.
      *
@@ -124,7 +124,7 @@ public interface ExecutorService extends Executor {
     void shutdown();
 
     /**
-     * Attempts to stop all actively executing tasks, halts the
+     * Attempts to stop all actively executing tasks, halts 停止 the
      * processing of waiting tasks, and returns a list of the tasks
      * that were awaiting execution.
      *
@@ -137,7 +137,7 @@ public interface ExecutorService extends Executor {
      * implementations will cancel via {@link Thread#interrupt}, so any
      * task that fails to respond to interrupts may never terminate.
      *
-     * @return list of tasks that never commenced execution
+     * @return list of tasks that never commenced 开始 execution
      */
     List<Runnable> shutdownNow();
 
@@ -183,7 +183,7 @@ public interface ExecutorService extends Executor {
      * {@code result = exec.submit(aCallable).get();}
      *
      * <p>Note: The {@link Executors} class includes a set of methods
-     * that can convert some other common closure-like objects,
+     * that can convert some other common closure-like 闭包 objects,
      * for example, {@link java.security.PrivilegedAction} to
      * {@link Callable} form so they can be submitted.
      *

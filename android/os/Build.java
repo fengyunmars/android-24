@@ -45,14 +45,14 @@ public class Build {
     /** The name of the overall product. */
     public static final String PRODUCT = getString("ro.product.name");
 
-    /** The name of the industrial design. */
+    /** The name of the industrial 工业的，产业的 design. */
     public static final String DEVICE = getString("ro.product.device");
 
     /** The name of the underlying board, like "goldfish". */
     public static final String BOARD = getString("ro.product.board");
 
     /**
-     * The name of the instruction set (CPU type + ABI convention) of native code.
+     * The name of the instruction 指令 set (CPU type + ABI convention) of native code.
      *
      * @deprecated Use {@link #SUPPORTED_ABIS} instead.
      */
@@ -67,7 +67,7 @@ public class Build {
     @Deprecated
     public static final String CPU_ABI2;
 
-    /** The manufacturer of the product/hardware. */
+    /** The manufacturer 制造商 of the product/hardware. */
     public static final String MANUFACTURER = getString("ro.product.manufacturer");
 
     /** The consumer-visible brand with which the product/hardware will be associated, if any. */
@@ -80,7 +80,7 @@ public class Build {
     public static final String BOOTLOADER = getString("ro.bootloader");
 
     /**
-     * The radio firmware version number.
+     * The radio firmware 固件 version number.
      *
      * @deprecated The radio firmware version is frequently not
      * available when this class is initialized, leading to a blank or
@@ -99,7 +99,7 @@ public class Build {
      */
     public static final boolean IS_EMULATOR = getString("ro.kernel.qemu").equals("1");
 
-    /** A hardware serial number, if available.  Alphanumeric only, case-insensitive. */
+    /** A hardware serial number, if available.  Alphanumeric 字母数字的 only, case-insensitive. */
     public static final String SERIAL = getString("ro.serialno");
 
     /**
@@ -154,7 +154,7 @@ public class Build {
     public static class VERSION {
         /**
          * The internal value used by the underlying source control to
-         * represent this build.  E.g., a perforce changelist number
+         * represent this build.  E.g., a perforce 版本控制软件 changelist number
          * or a git hash.
          */
         public static final String INCREMENTAL = getString("ro.build.version.incremental");
@@ -192,7 +192,7 @@ public class Build {
                 "ro.build.version.sdk", 0);
 
         /**
-         * The developer preview revision of a prerelease SDK. This value will always
+         * The developer preview 预览 revision 版次 of a prerelease 预映 SDK. This value will always
          * be <code>0</code> on production platform builds/devices.
          *
          * <p>When this value is nonzero, any new API added since the last
@@ -202,7 +202,7 @@ public class Build {
          * preview revision 2, which may cause an app attempting to call it to crash
          * at runtime.</p>
          *
-         * <p>Experimental apps targeting preview APIs should check this value for
+         * <p>Experimental 实验的 apps targeting preview APIs should check this value for
          * equality (<code>==</code>) with the preview SDK revision they were built for
          * before using any prerelease platform APIs. Apps that detect a preview SDK revision
          * other than the specific one they expect should fall back to using APIs from
@@ -230,16 +230,16 @@ public class Build {
         /**
          * The SDK version to use when accessing resources.
          * Use the current SDK version code.  For every active development codename
-         * we are operating under, we bump the assumed resource platform version by 1.
+         * we are operating under, we bump the assumed 假定的 resource platform version by 1.
          * @hide
          */
         public static final int RESOURCES_SDK_INT = SDK_INT + ACTIVE_CODENAMES.length;
     }
 
     /**
-     * Enumeration of the currently known SDK version codes.  These are the
+     * Enumeration 列举 of the currently known SDK version codes.  These are the
      * values that can be found in {@link VERSION#SDK}.  Version numbers
-     * increment monotonically with each official platform release.
+     * increment monotonically 单调地 with each official platform release.
      */
     public static class VERSION_CODES {
         /**
@@ -254,17 +254,17 @@ public class Build {
         public static final int BASE = 1;
 
         /**
-         * February 2009: First Android update, officially called 1.1.
+         * February 2009: First Android update, officially 正式地 called 1.1.
          */
         public static final int BASE_1_1 = 2;
 
         /**
-         * May 2009: Android 1.5.
+         * May 2009: Android 1.5. 纸杯蛋糕
          */
         public static final int CUPCAKE = 3;
 
         /**
-         * September 2009: Android 1.6.
+         * September 2009: Android 1.6 DONUT 甜甜圈.
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -289,7 +289,7 @@ public class Build {
         public static final int DONUT = 4;
 
         /**
-         * November 2009: Android 2.0
+         * November 2009: Android 2.0 ECLAIR 松饼
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -319,7 +319,7 @@ public class Build {
         public static final int ECLAIR_MR1 = 7;
 
         /**
-         * June 2010: Android 2.2
+         * June 2010: Android 2.2 FROYO 冻酸奶
          */
         public static final int FROYO = 8;
 
@@ -346,7 +346,7 @@ public class Build {
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
          * <ul>
-         * <li> The default theme for applications is now dark holographic:
+         * <li> The default theme for applications is now dark holographic  全息的；全部手写的:
          *      {@link android.R.style#Theme_Holo}.
          * <li> On large screen devices that do not have a physical menu
          * button, the soft (compatibility) menu is disabled.
@@ -357,7 +357,7 @@ public class Build {
          * {@link android.app.Activity#onPause Activity.onPause()} method.
          * <li> When an application requires a permission to access one of
          * its components (activity, receiver, service, provider), this
-         * permission is no longer enforced when the application wants to
+         * permission is no longer enforced 实施的 when the application wants to
          * access its own component.  This means it can require a permission
          * on a component that it does not itself hold and still access that
          * component.
@@ -375,7 +375,7 @@ public class Build {
          * will use {@link android.view.View#setActivated View.setActivated}
          * for selected items if they do not implement {@link android.widget.Checkable}.
          * <li> {@link android.widget.Scroller} will be constructed with
-         * "flywheel" behavior enabled by default.
+         * "flywheel 飞轮 " behavior enabled by default.
          * </ul>
          */
         public static final int HONEYCOMB = 11;
@@ -407,8 +407,8 @@ public class Build {
          * {@link android.content.pm.ApplicationInfo#requiresSmallestWidthDp},
          * {@link android.content.pm.ApplicationInfo#compatibleWidthLimitDp}, and
          * {@link android.content.pm.ApplicationInfo#largestWidthLimitDp} is
-         * preferred over the older screen size buckets and for older devices
-         * the appropriate buckets will be inferred from them.</p>
+         * preferred over the older screen size buckets 桶，水桶 and for older devices
+         * the appropriate buckets will be inferred 推测 from them.</p>
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -439,9 +439,9 @@ public class Build {
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
          * <ul>
-         * <li> For devices without a dedicated menu key, the software compatibility
+         * <li> For devices without a dedicated 专用的 menu key, the software compatibility
          * menu key will not be shown even on phones.  By targeting Ice Cream Sandwich
-         * or later, your UI must always have its own menu UI affordance if needed,
+         * or later, your UI must always have its own menu UI affordance 功能可见性；自解释性；给养 if needed,
          * on both tablets and phones.  The ActionBar will take care of this for you.
          * <li> 2d drawing hardware acceleration is now turned on by default.
          * You can use
@@ -455,7 +455,7 @@ public class Build {
          *      for a device to be considered compatible. Applications that explicitly
          *      request a theme from the Holo family will be guaranteed that these themes
          *      will not change character within the same platform version. Applications
-         *      that wish to blend in with the device should use a theme from the
+         *      that wish to blend in 混合 with the device should use a theme from the
          *      {@link android.R.style#Theme_DeviceDefault} family.
          * <li> Managed cursors can now throw an exception if you directly close
          * the cursor yourself without stopping the management of it; previously failures
@@ -492,7 +492,7 @@ public class Build {
          * <ul>
          * <li> You must explicitly request the {@link android.Manifest.permission#READ_CALL_LOG}
          * and/or {@link android.Manifest.permission#WRITE_CALL_LOG} permissions;
-         * access to the call log is no longer implicitly provided through
+         * access to the call log is no longer implicitly 含蓄地 provided through
          * {@link android.Manifest.permission#READ_CONTACTS} and
          * {@link android.Manifest.permission#WRITE_CONTACTS}.
          * <li> {@link android.widget.RemoteViews} will throw an exception if
@@ -553,7 +553,7 @@ public class Build {
         public static final int JELLY_BEAN_MR2 = 18;
 
         /**
-         * October 2013: Android 4.4, KitKat, another tasty treat.
+         * October 2013: Android 4.4, KitKat 奇巧巧克力 , another tasty treat 美味款待 .
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -562,11 +562,11 @@ public class Build {
          * {@link android.preference.PreferenceActivity#isValidFragment(String)
          * PreferenceActivity.isValueFragment} becomes false instead of true.</li>
          * <li> In {@link android.webkit.WebView}, apps targeting earlier versions will have
-         * JS URLs evaluated directly and any result of the evaluation will not replace
+         * JS URLs evaluated 评价 估 已评估 directly and any result of the evaluation will not replace
          * the current page content.  Apps targetting KITKAT or later that load a JS URL will
          * have the result of that URL replace the content of the current page</li>
-         * <li> {@link android.app.AlarmManager#set AlarmManager.set} becomes interpreted as
-         * an inexact value, to give the system more flexibility in scheduling alarms.</li>
+         * <li> {@link android.app.AlarmManager#set AlarmManager.set} becomes interpreted 理解 as
+         * an inexact 不精确的 value, to give the system more flexibility in scheduling alarms.</li>
          * <li> {@link android.content.Context#getSharedPreferences(String, int)
          * Context.getSharedPreferences} no longer allows a null name.</li>
          * <li> {@link android.widget.RelativeLayout} changes to compute wrapped content
@@ -603,7 +603,7 @@ public class Build {
         public static final int L = 21;
 
         /**
-         * Android 5.0 November 2014: Lollipop.  A flat one with beautiful shadows.  But still tasty.
+         * Android 5.0 November 2014: Lollipop 棒棒糖 .  A flat one with beautiful shadows.  But still tasty.
          *
          * <p>Applications targeting this or a later release will get these
          * new changes in behavior:</p>
@@ -614,14 +614,14 @@ public class Build {
          * <li> {@link android.app.Notification.Builder Notification.Builder} will
          * not have the colors of their various notification elements adjusted to better
          * match the new material design look.</li>
-         * <li> {@link android.os.Message} will validate that a message is not currently
+         * <li> {@link android.os.Message} will validate 证实，验证 that a message is not currently
          * in use when it is recycled.</li>
          * <li> Hardware accelerated drawing in windows will be enabled automatically
          * in most places.</li>
          * <li> {@link android.widget.Spinner} throws an exception if attaching an
          * adapter with more than one item type.</li>
          * <li> If the app is a launcher, the launcher will be available to the user
-         * even when they are using corporate profiles (which requires that the app
+         * even when they are using corporate 公司的 团体的 法人的 profiles 配置文件 (which requires that the app
          * use {@link android.content.pm.LauncherApps} to correctly populate its
          * apps UI).</li>
          * <li> Calling {@link android.app.Service#stopForeground Service.stopForeground}
@@ -634,7 +634,7 @@ public class Build {
         public static final int LOLLIPOP = 21;
 
         /**
-         *  Android 5.1 March 2015: Lollipop with an extra sugar coating on the outside!
+         *  Android 5.1 March 2015: Lollipop with an extra sugar 食糖 白糖 coating 涂层 on the outside!
          */
         public static final int LOLLIPOP_MR1 = 22;
 
@@ -650,7 +650,7 @@ public class Build {
          * <li> Bluetooth and Wi-Fi scanning now requires holding the location permission.</li>
          * <li> {@link android.app.AlarmManager#setTimeZone AlarmManager.setTimeZone} will fail if
          * the given timezone is non-Olson.</li>
-         * <li> Activity transitions will only return shared
+         * <li> Activity transitions 过渡，转变 will only return shared
          * elements mapped in the returned view hierarchy back to the calling activity.</li>
          * <li> {@link android.view.View} allows a number of behaviors that may break
          * existing apps: Canvas throws an exception if restore() is called too many times,
@@ -660,7 +660,7 @@ public class Build {
          * {@link android.R.attr#foregroundTintMode}.</li>
          * <li> {@link android.view.MotionEvent#getButtonState MotionEvent.getButtonState}
          * will no longer report {@link android.view.MotionEvent#BUTTON_PRIMARY}
-         * and {@link android.view.MotionEvent#BUTTON_SECONDARY} as synonyms for
+         * and {@link android.view.MotionEvent#BUTTON_SECONDARY} as synonyms 同义词 for
          * {@link android.view.MotionEvent#BUTTON_STYLUS_PRIMARY} and
          * {@link android.view.MotionEvent#BUTTON_STYLUS_SECONDARY}.</li>
          * <li> {@link android.widget.ScrollView} now respects the layout param margins
@@ -678,7 +678,7 @@ public class Build {
     /** The type of build, like "user" or "eng". */
     public static final String TYPE = getString("ro.build.type");
 
-    /** Comma-separated tags describing the build, like "unsigned,debug". */
+    /** Comma-separated 以逗号分隔的 tags describing the build, like "unsigned,debug". */
     public static final String TAGS = getString("ro.build.tags");
 
     /** A string that uniquely identifies this build.  Do not attempt to parse this value. */
@@ -721,7 +721,7 @@ public class Build {
     }
 
     /**
-     * Verifies the the current flash of the device is consistent with what
+     * Verifies the the current flash of the device is consistent 一致的 一贯 with what
      * was expected at build time.
      * 1) Checks that device fingerprint is defined and that it matches across
      *    various partitions.

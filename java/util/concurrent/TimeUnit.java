@@ -14,12 +14,12 @@ import java.util.Objects;
 
 /**
  * A {@code TimeUnit} represents time durations at a given unit of
- * granularity and provides utility methods to convert across units,
+ * granularity 间隔尺寸 and provides utility 实用 methods to convert 转换 across units,
  * and to perform timing and delay operations in these units.  A
  * {@code TimeUnit} does not maintain time information, but only
  * helps organize and use time representations that may be maintained
- * separately across various contexts.  A nanosecond is defined as one
- * thousandth of a microsecond, a microsecond as one thousandth of a
+ * separately 分别地；分离地 across various contexts.  A nanosecond is defined as one
+ * thousandth 千分之一的 of a microsecond, a microsecond as one thousandth of a
  * millisecond, a millisecond as one thousandth of a second, a minute
  * as sixty seconds, an hour as sixty minutes, and a day as twenty four
  * hours.
@@ -39,8 +39,8 @@ import java.util.Objects;
  * if (lock.tryLock(50L, TimeUnit.SECONDS)) ...}</pre>
  *
  * Note however, that there is no guarantee that a particular timeout
- * implementation will be able to notice the passage of time at the
- * same granularity as the given {@code TimeUnit}.
+ * implementation will be able to notice the passage 一段 of time at the
+ * same granularity 间隔尺寸 as the given {@code TimeUnit}.
  *
  * @since 1.5
  * @author Doug Lea
