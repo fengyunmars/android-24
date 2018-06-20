@@ -90,6 +90,7 @@ import java.lang.ref.WeakReference;
  */
 public class Dialog implements DialogInterface, Window.Callback,
         KeyEvent.Callback, OnCreateContextMenuListener, Window.OnWindowDismissedCallback {
+
     private static final String TAG = "Dialog";
     private Activity mOwnerActivity;
 
@@ -272,7 +273,7 @@ public class Dialog implements DialogInterface, Window.Callback,
 
     /**
      * Start the dialog and display it on screen.  The window is placed in the
-     * application layer and opaque.  Note that you should not override this
+     * application layer and opaque 不透明的 .  Note that you should not override this
      * method to do initialization when the dialog is shown, instead implement
      * that in {@link #onStart}.
      */
@@ -686,7 +687,7 @@ public class Dialog implements DialogInterface, Window.Callback,
      * Called when a generic motion event was not handled by any of the
      * views inside of the dialog.
      * <p>
-     * Generic motion events describe joystick movements, mouse hovers, track pad
+     * Generic motion events describe joystick 控制杆 movements, mouse hovers, track pad
      * touches, scroll wheel movements and other input events.  The
      * {@link MotionEvent#getSource() source} of the motion event specifies
      * the class of input that was received.  Implementations of this method

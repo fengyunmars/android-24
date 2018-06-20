@@ -5226,7 +5226,7 @@ public class Activity extends ContextThemeWrapper
 
     /**
      * Call this when your activity is done and should be closed.  The
-     * ActivityResult is propagated back to whoever launched you via
+     * ActivityResult is propagated 传播 back to whoever launched you via
      * onActivityResult().
      */
     public void finish() {

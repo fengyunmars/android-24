@@ -47,7 +47,7 @@ import sun.security.util.SecurityConstants;
 /**
  * A <i>thread</i> is a thread of execution in a program. The Java
  * Virtual Machine allows an application to have multiple threads of
- * execution running concurrently.
+ * execution 执行 running concurrently 同时地 .
  * <p>
  * Every thread has a priority. Threads with higher priority are
  * executed in preference to threads with lower priority. Each thread
@@ -59,7 +59,7 @@ import sun.security.util.SecurityConstants;
  * <p>
  * When a Java Virtual Machine starts up, there is usually a single
  * non-daemon thread (which typically calls the method named
- * <code>main</code> of some designated class). The Java Virtual
+ * <code>main</code> of some designated 指定的 class). The Java Virtual
  * Machine continues to execute threads until either of the following
  * occurs:
  * <ul>
@@ -68,7 +68,7 @@ import sun.security.util.SecurityConstants;
  *     to take place.
  * <li>All threads that are not daemon threads have died, either by
  *     returning from the call to the <code>run</code> method or by
- *     throwing an exception that propagates beyond the <code>run</code>
+ *     throwing an exception that propagates 传播 beyond the <code>run</code>
  *     method.
  * </ul>
  * <p>
@@ -76,7 +76,7 @@ import sun.security.util.SecurityConstants;
  * declare a class to be a subclass of <code>Thread</code>. This
  * subclass should override the <code>run</code> method of class
  * <code>Thread</code>. An instance of the subclass can then be
- * allocated and started. For example, a thread that computes primes 生成质数列表 素数问题
+ * allocated 分配的，指派的 and started. For example, a thread that computes primes 生成质数列表 素数问题
  * larger than a stated 规定的 value could be written as follows:
  * <p><hr><blockquote><pre>
  *     class PrimeThread extends Thread {
@@ -124,7 +124,7 @@ import sun.security.util.SecurityConstants;
  *     new Thread(p).start();
  * </pre></blockquote>
  * <p>
- * Every thread has a name for identification purposes. More than
+ * Every thread has a name for identification 识别 purposes. More than
  * one thread may have the same name. If a name is not specified when
  * a thread is created, a new name is generated for it.
  * <p>
@@ -190,7 +190,7 @@ class Thread implements Runnable {
     ThreadLocal.ThreadLocalMap threadLocals = null;
 
     /*
-     * InheritableThreadLocal values pertaining to this thread. This map is
+     * InheritableThreadLocal values pertaining 附属的 to this thread. This map is
      * maintained by the InheritableThreadLocal class.
      */
     ThreadLocal.ThreadLocalMap inheritableThreadLocals = null;
@@ -203,7 +203,7 @@ class Thread implements Runnable {
     private long stackSize;
 
     /*
-     * JVM-private state that persists after native thread termination.
+     * JVM-private state that persists after native thread termination 结束，终止.
      */
     private long nativeParkEventPointer;
 
@@ -275,17 +275,17 @@ class Thread implements Runnable {
     public static native Thread currentThread();
 
     /**
-     * A hint to the scheduler that the current thread is willing to yield 放弃
+     * A hint to the scheduler 调度程序 调度器 that the current thread is willing to yield 放弃
      * its current use of a processor. The scheduler is free to ignore this
      * hint.
      *
-     * <p> Yield is a heuristic 启发式的；探索的 attempt to improve relative progression
-     * between threads that would otherwise over-utilise a CPU. Its use
+     * <p> Yield is a heuristic 启发式的；探索的 attempt to improve relative progression 级数 累进 数列
+     * between threads that would otherwise over-utilise 使用 a CPU. Its use
      * should be combined with detailed profiling 性能分析 and benchmarking 标杆管理；标记 to
      * ensure that it actually has the desired effect.
      *
      * <p> It is rarely appropriate to use this method. It may be useful
-     * for debugging or testing purposes, where it may help to reproduce
+     * for debugging or testing purposes, where it may help to reproduce 复制 重现
      * bugs due to race conditions 竞争条件 . It may also be useful when designing
      * concurrency control constructs such as the ones in the
      * {@link java.util.concurrent.locks} package.
@@ -410,7 +410,7 @@ class Thread implements Runnable {
 
         init2(parent);
 
-        /* Stash the specified stack size in case the VM cares */
+        /* Stash 存放 the specified stack size in case the VM cares */
         this.stackSize = stackSize;
         tid = nextThreadID();
     }
@@ -528,9 +528,9 @@ class Thread implements Runnable {
             name = "Thread-" + nextThreadNum();
         }
 
-        // NOTE: Resist the temptation to call setName() here. This constructor is only called
-        // by the runtime to construct peers for threads that have attached via JNI and it's
-        // undesirable to clobber their natively set name.
+        // NOTE: Resist 抵抗；忍耐，忍住 the temptation 引诱 to call setName() here. This constructor is only called
+        // by the runtime to construct peers 节点 for threads that have attached via JNI and it's
+        // undesirable to clobber 击倒；痛打 their natively set name.
         this.name = name;
 
         this.priority = priority;
@@ -618,7 +618,7 @@ class Thread implements Runnable {
      * and belongs to the thread group referred to by {@code group}, and has
      * the specified <i>stack size</i>.
      *
-     * <p>This constructor is identical to {@link
+     * <p>This constructor is identical 同一的 完全相同 to {@link
      * #Thread(ThreadGroup,Runnable,String)} with the exception of the fact
      * that it allows the thread stack size to be specified.  The stack size
      * is the approximate number of bytes of address space that the virtual
@@ -627,7 +627,7 @@ class Thread implements Runnable {
      *
      * <p>On some platforms, specifying a higher value for the
      * {@code stackSize} parameter may allow a thread to achieve greater
-     * recursion depth before throwing a {@link StackOverflowError}.
+     * recursion 递归 depth before throwing a {@link StackOverflowError}.
      * Similarly, specifying a lower value may allow a greater number of
      * threads to exist concurrently without throwing an {@link
      * OutOfMemoryError} (or other internal error).  The details of
@@ -652,7 +652,7 @@ class Thread implements Runnable {
      * constructor, extreme care should be exercised in its use.
      * The thread stack size necessary to perform a given computation will
      * likely vary from one JRE implementation to another.  In light of 根据；鉴于；从…观点 this
-     * variation, careful tuning of the stack size parameter may be required,
+     * variation 变化 , careful tuning 画质选择 调谐 调教 of the stack size parameter may be required,
      * and the tuning may need to be repeated for each JRE implementation on
      * which an application is to run.</i>
      *
@@ -722,7 +722,7 @@ class Thread implements Runnable {
 
         /* Notify the group that this thread is about to be started
          * so that it can be added to the group's list of threads
-         * and the group's unstarted count can be decremented. */
+         * and the group's unstarted count can be decremented 被减的 . */
         group.add(this);
 
         started = false;
@@ -771,7 +771,7 @@ class Thread implements Runnable {
             group.threadTerminated(this);
             group = null;
         }
-        /* Aggressively null out all reference fields: see bug 4006245 */
+        /* Aggressively 侵略地 攻击地 攻势地 null out all reference fields: see bug 4006245 */
         target = null;
         /* Speed the release of some of these resources */
         threadLocals = null;
@@ -801,11 +801,11 @@ class Thread implements Runnable {
      * it is doing abnormally 不正常地 and to throw a newly created
      * <code>ThreadDeath</code> object as an exception.
      * <p>
-     * It is permitted to stop a thread that has not yet been started.
-     * If the thread is eventually started, it immediately terminates.
+     * It is permitted 允许 to stop a thread that has not yet been started.
+     * If the thread is eventually 最后 started, it immediately terminates.
      * <p>
      * An application should not normally try to catch
-     * <code>ThreadDeath</code> unless it must do some extraordinary
+     * <code>ThreadDeath</code> unless it must do some extraordinary 非凡 超凡 特别的
      * cleanup operation (note that the throwing of
      * <code>ThreadDeath</code> causes <code>finally</code> clauses 子句 of
      * <code>try</code> statements to be executed before the thread
@@ -910,7 +910,7 @@ class Thread implements Runnable {
      * Interrupts this thread.
      *
      * <p> Unless the current thread is interrupting itself, which is
-     * always permitted, the {@link #checkAccess() checkAccess} method
+     * always permitted 被允许的 , the {@link #checkAccess() checkAccess} method
      * of this thread is invoked, which may cause a {@link
      * SecurityException} to be thrown.
      *
@@ -923,7 +923,7 @@ class Thread implements Runnable {
      * will receive an {@link InterruptedException}.
      *
      * <p> If this thread is blocked in an I/O operation upon an {@link
-     * java.nio.channels.InterruptibleChannel </code>interruptible
+     * java.nio.channels.InterruptibleChannel </code>interruptible 可中断的
      * channel<code>} then the channel will be closed, the thread's interrupt
      * status will be set, and the thread will receive a {@link
      * java.nio.channels.ClosedByInterruptException}.
@@ -963,7 +963,7 @@ class Thread implements Runnable {
     /**
      * Tests whether the current thread has been interrupted.  The
      * <i>interrupted status</i> of the thread is cleared by this method.  In
-     * other words, if this method were to be called twice in succession, the
+     * other words, if this method were to be called twice in succession 连续 , the
      * second call would return false (unless the current thread were
      * interrupted again, after the first call had cleared its interrupted
      * status and before the second call had examined it).
@@ -1091,7 +1091,7 @@ class Thread implements Runnable {
      * <code>SecurityException</code>.
      * <p>
      * Otherwise, the priority of this thread is set to the smaller of
-     * the specified <code>newPriority</code> and the maximum permitted
+     * the specified <code>newPriority</code> and the maximum permitted 被允许的
      * priority of the thread's thread group.
      *
      * @param newPriority priority to set this thread to
@@ -1190,14 +1190,14 @@ class Thread implements Runnable {
     }
 
     /**
-     * Returns an estimate of the number of active threads in the current
+     * Returns an estimate 估计 of the number of active threads in the current
      * thread's {@linkplain java.lang.ThreadGroup thread group} and its
-     * subgroups. Recursively iterates over all subgroups in the current
+     * subgroups. Recursively 递归地 iterates over all subgroups in the current
      * thread's thread group.
      *
      * <p> The value returned is only an estimate because the number of
      * threads may change dynamically while this method traverses internal
-     * data structures, and might be affected by the presence of certain
+     * data structures, and might be affected by the presence 存在 of certain
      * system threads. This method is intended primarily for debugging
      * and monitoring purposes.
      *
@@ -1218,7 +1218,7 @@ class Thread implements Runnable {
      * <p> An application might use the {@linkplain #activeCount activeCount}
      * method to get an estimate of how big the array should be, however
      * <i>if the array is too short to hold all the threads, the extra threads
-     * are silently ignored.</i>  If it is critical to obtain every active
+     * are silently ignored.</i>  If it is critical 临界的 to obtain every active
      * thread in the current thread's thread group and its subgroups, the
      * invoker should verify that the returned int value is strictly less
      * than the length of {@code tarray}.
@@ -1450,7 +1450,7 @@ class Thread implements Runnable {
      * by code running in this thread when loading classes and resources.
      * If not {@linkplain #setContextClassLoader set}, the default is the
      * ClassLoader context of the parent Thread. The context ClassLoader of the
-     * primordial thread is typically set to the class loader used to load the
+     * primordial 原始的 thread is typically set to the class loader used to load the
      * application.
      *
      * <p>If a security manager is present, and the invoker's class loader is not
